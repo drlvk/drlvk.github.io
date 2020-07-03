@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-07-02T21:12:12-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The effect of round-off-errors</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="numerical-methods.html"><span class="title">Numerical Methods with Programming:</span> <span class="subtitle">Lecture Notes</span></a></h1>
+<p class="byline">Leonid Kovalev</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-systems-with-free-variables.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-linear-systems.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="examples-linear-systems.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-systems-with-free-variables.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-linear-systems.html" title="Up">Up</a><a class="next-button button toolbar-item" href="examples-linear-systems.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter"><span class="title">Front Matter</span></a><ul>
+<li><a href="acknowledgement.html" data-scroll="acknowledgement">Acknowledgements</a></li>
+<li><a href="preface.html" data-scroll="preface">Preface</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-matlab.html" data-scroll="part-matlab"><span class="codenumber">I</span> <span class="title">Using Matlab</span></a></li>
+<li class="link">
+<a href="chapter-scalars-vectors-matrices.html" data-scroll="chapter-scalars-vectors-matrices"><span class="codenumber">1</span> <span class="title">Scalars, vectors and matrices</span></a><ul>
+<li><a href="section-matlab-interface.html" data-scroll="section-matlab-interface">Matlab interface</a></li>
+<li><a href="section-scalars.html" data-scroll="section-scalars">Assigning scalar values</a></li>
+<li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
+<li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
+<li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">End-of-class examples</a></li>
+<li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-systems-vectorization-plots.html" data-scroll="chapter-systems-vectorization-plots"><span class="codenumber">2</span> <span class="title">Linear systems, array operations, plots</span></a><ul>
+<li><a href="section-linear-systems.html" data-scroll="section-linear-systems">Systems of linear equations</a></li>
+<li><a href="section-large-matrices.html" data-scroll="section-large-matrices">More tools for constructing matrices</a></li>
+<li><a href="section-vectorization.html" data-scroll="section-vectorization">Array operations</a></li>
+<li><a href="section-plotting.html" data-scroll="section-plotting">Plotting</a></li>
+<li><a href="examples-systems-vectorization-plots.html" data-scroll="examples-systems-vectorization-plots">End-of-class examples</a></li>
+<li><a href="exercises-systems-vectorization-plots.html" data-scroll="exercises-systems-vectorization-plots">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-functions-input-output.html" data-scroll="chapter-functions-input-output"><span class="codenumber">3</span> <span class="title">Built-in functions, input, output</span></a><ul>
+<li><a href="section-builtin-functions.html" data-scroll="section-builtin-functions">Built-in functions</a></li>
+<li><a href="section-random-numbers-histograms.html" data-scroll="section-random-numbers-histograms">Random numbers and histograms</a></li>
+<li><a href="section-user-input.html" data-scroll="section-user-input">User input</a></li>
+<li><a href="section-formatted-output.html" data-scroll="section-formatted-output">Formatted output</a></li>
+<li><a href="examples-functions-input-output.html" data-scroll="examples-functions-input-output">End-of-class examples</a></li>
+<li><a href="exercises-functions-input-output.html" data-scroll="exercises-functions-input-output">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-control-flow.html" data-scroll="chapter-control-flow"><span class="codenumber">4</span> <span class="title">Control flow: loops and conditional statements</span></a><ul>
+<li><a href="section-for-loop.html" data-scroll="section-for-loop"><code class="code-inline tex2jax_ignore">for</code> loop</a></li>
+<li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
+<li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
+<li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="examples-control-flow.html" data-scroll="examples-control-flow">End-of-class examples</a></li>
+<li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-user-defined-functions.html" data-scroll="chapter-user-defined-functions"><span class="codenumber">5</span> <span class="title">User-defined functions</span></a><ul>
+<li><a href="section-anonymous-functions.html" data-scroll="section-anonymous-functions">Anonymous functions</a></li>
+<li><a href="named-functions.html" data-scroll="named-functions">Named functions</a></li>
+<li><a href="examples-user-defined-functions.html" data-scroll="examples-user-defined-functions">End-of-class examples</a></li>
+<li><a href="exercises-user-defined-functions.html" data-scroll="exercises-user-defined-functions">Homework</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-equations.html" data-scroll="part-equations"><span class="codenumber">II</span> <span class="title">Solving Equations</span></a></li>
+<li class="link">
+<a href="chapter-linear-systems.html" data-scroll="chapter-linear-systems"><span class="codenumber">6</span> <span class="title">Systems of linear equations</span></a><ul>
+<li><a href="section-classification-linear-systems.html" data-scroll="section-classification-linear-systems">Classification of linear systems</a></li>
+<li><a href="section-systems-without-free-variables.html" data-scroll="section-systems-without-free-variables">Systems without free variables</a></li>
+<li><a href="section-systems-with-free-variables.html" data-scroll="section-systems-with-free-variables">Systems with free variables</a></li>
+<li><a href="section-singular-round-off.html" data-scroll="section-singular-round-off" class="active">The effect of round-off-errors</a></li>
+<li><a href="examples-linear-systems.html" data-scroll="examples-linear-systems">End-of-class examples</a></li>
+<li><a href="exercises-linear-systems.html" data-scroll="exercises-linear-systems">Homework</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
+<li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
+<li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="section-singular-round-off"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">6.4</span> <span class="title">The effect of round-off-errors</span>
+</h2>
+<article class="example example-like" id="example-square-rank-deficient"><a data-knowl="" class="id-ref original" data-refid="hk-example-square-rank-deficient"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Square rank-deficient system.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-square-rank-deficient"><article class="example example-like"><p id="p-203">Compare the system</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix}1\amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \\ 7 \amp 8 \amp 9 \end{pmatrix}x= \begin{pmatrix} 10 \\ 11 \\ 12 \end{pmatrix}
+\end{equation*}
+</div>
+<p data-braille="continuation">to <a class="xref" data-knowl="./knowl/example-system-free-variable.html" title="Example 6.3.1: System with a free variable">Example 6.3.1</a>. Does it have the same solution?</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">
+<p id="p-204">This new system as one more equation, but it is redundant: if you multiply the second line by 2 and subtract the first line, the result is the 3rd line. So, this system is <em class="emphasis">mathematically</em> equivalent to the previous one. Yet, the Matlab solution is different.</p>
+<pre class="code-block tex2jax_ignore">A = [1 2 3; 4 5 6; 7 8 9];
+b = [10; 11; 12];
+disp(A\b)
+</pre>
+<p id="p-205">The result is <code class="code-inline tex2jax_ignore">[-25.3333;  41.6667;  -16.0000]</code>, quite different from what we got in  <a class="xref" data-knowl="./knowl/example-system-free-variable.html" title="Example 6.3.1: System with a free variable">Example 6.3.1</a>. Matlab did not even recognize this as a system with a free variable.</p>
+</div></div>
+</div></article></div>
+<p id="p-206">What explains the result of <a class="xref" data-knowl="./knowl/example-square-rank-deficient.html" title="Example 6.4.1: Square rank-deficient system">Example 6.4.1</a>? When solving it, we get a warning message: “Matrix is close to singular or badly scaled. Results may be inaccurate.” This means the result of this computation are likely to be influenced by inevitable <dfn class="terminology">round-off errors</dfn> in computer arithmetics.</p>
+<p id="p-207">The round-off errors are usually very small: for example,</p>
+<pre class="code-block tex2jax_ignore">0.1 + 0.2 - 0.3</pre>
+<p data-braille="continuation">produces <code class="code-inline tex2jax_ignore">5.5511e-17</code> instead of the expected <code class="code-inline tex2jax_ignore">0</code>. The underlying reason is that, for example, the number \(0.1\) is internally represented not as \(1/10\) but as a fraction \(p/q\) where \(q\) must be a power of 2 (because the computer arithmetic is binary in nature. Both \(p\) and \(q\) are chosen very large which makes the approximation \(p/q \approx  1/10\) very good for most purposes. But it cannot be perfect, because if \(p/q = 1/10\text{,}\) then \(10p = q\) which is a contradiction: the left hand side is divisible by 5, so the right hand side cannot be a power of 2.</p>
+<article class="example example-like" id="example-40"><a data-knowl="" class="id-ref original" data-refid="hk-example-40"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Approximating numbers by fractions with a power of 2.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-40"><article class="example example-like"><p id="p-208">For each of the numbers 0.1, 0.2, 0.3, find a fraction with denominator 32 which is the best approximation to it. Use these approximations, instead of the actual numbers, in the formula \(0.1 + 0.2 - 0.3\text{.}\) What is the result?</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">
+<p id="p-209">To find approximations, multiply each of the numbers by 32 and round the result to the nearest integer. Thus, \(0.1\approx 3/32\text{,}\) \(0.2\approx 6/32\text{,}\) and \(0.3 \approx 10/32\) (because \(0.3\cdot 32 = 9.6\) rounds to 10). Hence</p>
+<div class="displaymath">
+\begin{equation*}
+0.1 + 0.2 - 0.3 \approx \frac{3}{32} + \frac{6}{32} - \frac{10}{32} = -\frac{1}{32}
+\end{equation*}
+</div>
+<p data-braille="continuation">The result is not zero due to round-off errors. This is exactly what happens in Matlab computations, except that they involve a much larger power of 2.</p>
+</div></div>
+</div></article></div>
+<p id="p-210">The tiny round-off errors have a major impact on the solution of linear systems when, as a result of some row operations, some entry should theoretically be zero but in practice it is not (like \(0.1 + 0.2 - 0.3\) above). So, the process of elimination that was supposed to eliminate a redundant equation, making it \(0=0\text{,}\) instead turns it into some “numerical garbage”. Matlab tries to detect such situations and warn the user about them, indicating that the solution it finds may be useless.</p></section></div></main>
+</div>
+</body>
+</html>

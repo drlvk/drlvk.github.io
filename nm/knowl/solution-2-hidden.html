@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-07-02T21:12:13-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="solution solution-like">
+<p>This new system as one more equation, but it is redundant: if you multiply the second line by 2 and subtract the first line, the result is the 3rd line. So, this system is <em class="emphasis">mathematically</em> equivalent to the previous one. Yet, the Matlab solution is different.</p>
+<pre class="code-block tex2jax_ignore">A = [1 2 3; 4 5 6; 7 8 9];
+b = [10; 11; 12];
+disp(A\b)
+</pre>
+<p>The result is <code class="code-inline tex2jax_ignore">[-25.3333;  41.6667;  -16.0000]</code>, quite different from what we got in  <a class="xref" data-knowl="./knowl/example-system-free-variable.html" title="Example 6.3.1: System with a free variable">Example 6.3.1</a>. Matlab did not even recognize this as a system with a free variable.</p>
+</div></body>
+</html>
