@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-07-04T20:23:31-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="solution solution-like">
+<pre class="code-block tex2jax_ignore">f = @(x) exp(-x/2) + sin(3*x) - 1/2;
+a = -1;
+b = 1.5;
+if f(a)*f(b) &gt;= 0    
+    error('Not a bracketing interval'); 
+end
+
+while abs(b-a) &gt;= 100*eps(a)
+    c = (a+b)/2;  
+    if sign(f(c)) == sign(f(a)) 
+        a = c;        
+    elseif sign(f(c)) == sign(f(b)) 
+        b = c;
+    else
+        break
+    end         
+end
+
+fprintf('Found a root x = %.12g\n', (a+b)/2);
+</pre>
+<p>If the function has the same sign at both given endpoints, the bisection method cannot run, so the command <code class="code-inline tex2jax_ignore">error</code> is used to display a message and exit the program. This is a useful command to use when the computation has to be interrupted. The <code class="code-inline tex2jax_ignore">while</code> loop runs until either the interval becomes small enough (length less than <code class="code-inline tex2jax_ignore">100*eps(a)</code>) or we accidentally reach \(f(c)=0\) so the loop stops.</p>
+</div></body>
+</html>
