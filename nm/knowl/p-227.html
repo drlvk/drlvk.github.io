@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-04T20:23:31-04:00    *-->
+<!--*    on 2020-07-15T20:40:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,10 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An interval  \([a, b]\) such that \(f(a)f(b) \lt 0\) is called a <dfn class="terminology">bracketing interval</dfn>. As <a class="xref" data-knowl="./knowl/bisection1-png.html" title="Figure 7.3.1">Figure 7.3.1</a> shows, there could be multiple roots inside of the bracketing interva. The bisection method will find <em class="emphasis">one</em> of them.</p>
-<span class="incontext"><a href="section-bisection-method.html#p-227">in-context</a></span>
+<p><pre class="code-block tex2jax_ignore">A = [1.000001 2 3; 4 5 6; 7 8 9];
+b = [10; 11; 12];
+</pre>leads to <code class="code-inline tex2jax_ignore">A\b</code> being <code class="code-inline tex2jax_ignore">[0.0000; -9.0000; 9.3333]</code>. In contrast, with<pre class="code-block tex2jax_ignore">A = [1 2 3; 4 5 6; 7 8 9.000001];
+</pre>we get the solution <code class="code-inline tex2jax_ignore">[-9.3333; 9.6667; 0.0000]</code> which is quite different. Note that Matlab shows no warnings in either case. These systems do not have a free variable: the rank of A is 3. Yet, the solution is very sensitive to small changes of the system, because the matrix is close to being singular (or degenerate).</p>
+<span class="incontext"><a href="examples-linear-systems.html#p-227">in-context</a></span>
 </body>
 </html>

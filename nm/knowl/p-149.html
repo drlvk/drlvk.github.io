@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-04T20:23:31-04:00    *-->
+<!--*    on 2020-07-15T20:40:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,9 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When writing a function, one should consider whether it should accept input in the form of a vector or a matrix. The function in the previous paragraph works fine with scalar input, such as <code class="code-inline tex2jax_ignore">f(2)</code> but throws an error if the input is a vector, for example <code class="code-inline tex2jax_ignore">f([0 1 2 3])</code>. The reason is that with this input, <code class="code-inline tex2jax_ignore">x^2</code> becomes <code class="code-inline tex2jax_ignore">[0 1 2 3]^2</code> which is an error in Matlab where <code class="code-inline tex2jax_ignore">^2</code> means matrix multiplication. We want an array operation, not a matrix product. Thus, the function should be written as</p>
-<pre class="code-block tex2jax_ignore">f = @(x) exp(-x.^2);</pre>
-<p data-braille="continuation">Then we can apply this function to a vector, for example to plot it.</p>
-<span class="incontext"><a href="section-anonymous-functions.html#p-149">in-context</a></span>
+<p>The Collatz conjecture, also known as the <dfn class="terminology">Syracuse problem</dfn>, is a famous unsolved problem in mathematics. Its subject is the following process.</p>
+<ol class="decimal">
+<li>Start with a positive integer k.</li>
+<li>If k is even, divide it by 2. Otherwise multiply it by 3 and add 1.</li>
+<li>Repeat Step 2.</li>
+</ol>
+<p data-braille="continuation">The conjecture is that this process always reaches the number 1 (after 1 it enters infinite loop 1, 4, 2, 1, 4, 2, ...) Write a script that verify this conjecture for initial values of k from 1 to 500, and for each of them record the number of steps that it takes to reach 1. Then plot the number of steps. Note: the condition that k is even can be tested as <code class="code-inline tex2jax_ignore">if mod(k, 2) == 0</code> where <code class="code-inline tex2jax_ignore">mod(k, 2)</code> computes the remained of dividing k by 2.</p>
+<span class="incontext"><a href="examples-control-flow.html#p-149">in-context</a></span>
 </body>
 </html>

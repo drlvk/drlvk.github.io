@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-04T20:23:31-04:00    *-->
+<!--*    on 2020-07-15T20:40:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Draw the curve with parametric equations</p>
-<div class="displaymath">
-\begin{align*}
-x \amp = t\cos t\\
-y \amp = t\sin t
-\end{align*}
-</div>
-<p data-braille="continuation">where \(0 \le t \le 20\text{.}\)</p>
+<p>In the first line, I chose 0.1 as the step size for the x-interval. It would be a mistake to use <code class="code-inline tex2jax_ignore">x = 0:3</code> because the step size of 1 unit would make a very rough (low-resolution) plot with only four points used. The step size could be 0.01 instead: we may get smoother graph at the expense of more computations. The second line compute the y-values. Consider the following:</p>
+<ul class="disc">
+<li>The period in <code class="code-inline tex2jax_ignore">x.^3</code> is required to have elementwise power operation</li>
+<li>We do not need a period in <code class="code-inline tex2jax_ignore">-2*x</code> because multiplying a vector by a scalar already works elementwise. There is no difference between <code class="code-inline tex2jax_ignore">-2*x</code> and <code class="code-inline tex2jax_ignore">-2.*x</code>
+</li>
+<li>We need <code class="code-inline tex2jax_ignore">.*</code> to multiply two vectors elementwise.</li>
+<li>Whitespace around <code class="code-inline tex2jax_ignore">.*</code> is not necessary but some people find <code class="code-inline tex2jax_ignore">x.^3.*exp(-2*x)</code> harder to read because <code class="code-inline tex2jax_ignore">3.</code> looks like a decimal dot after 3.</li>
+</ul>
 <span class="incontext"><a href="section-plotting.html#p-72">in-context</a></span>
 </body>
 </html>

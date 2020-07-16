@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-04T20:23:31-04:00    *-->
+<!--*    on 2020-07-15T20:40:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,10 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><pre class="code-block tex2jax_ignore">A = [1.000001 2 3; 4 5 6; 7 8 9];
-b = [10; 11; 12];
-</pre>leads to <code class="code-inline tex2jax_ignore">A\b</code> being <code class="code-inline tex2jax_ignore">[0.0000; -9.0000; 9.3333]</code>. In contrast, with<pre class="code-block tex2jax_ignore">A = [1 2 3; 4 5 6; 7 8 9.000001];
-</pre>we get the solution <code class="code-inline tex2jax_ignore">[-9.3333; 9.6667; 0.0000]</code> which is quite different. Note that Matlab shows no warnings in either case. These systems do not have a free variable: the rank of A is 3. Yet, the solution is very sensitive to small changes of the system, because the matrix is close to being singular (or degenerate).</p>
-<span class="incontext"><a href="examples-linear-systems.html#p-216">in-context</a></span>
+<p>This new system as one more equation, but it is redundant: if you multiply the second line by 2 and subtract the first line, the result is the 3rd line. So, this system is <em class="emphasis">mathematically</em> equivalent to the previous one. Yet, the Matlab solution is different.</p>
+<span class="incontext"><a href="section-systems-with-free-variables.html#p-216">in-context</a></span>
 </body>
 </html>
