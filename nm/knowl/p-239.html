@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:14-04:00    *-->
+<!--*    on 2020-07-24T23:43:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>For the reason mentioned in the previous paragraph, the Matlab command <code class="code-inline tex2jax_ignore">eps(x)</code> gives the smallest possible size of an interval including <code class="code-inline tex2jax_ignore">x</code> that can be expressed in its arithmetic. For example, <code class="code-inline tex2jax_ignore">eps(10^20)</code> returns 16384, indicating we cannot expect an interval around \(10^{20}\) to be smaller than 16384. When looking for a root, a reasonable approach is to consider an interval \([a, b]\) “small enough” when <code class="code-inline tex2jax_ignore">b - a &lt; 100*eps(a)</code> where the factor 100 allows for accumulation of round-off errors during the computation.</p>
-<span class="incontext"><a href="section-meaning-numeric-solution.html#p-239">in-context</a></span>
+<p>For this reason, Matlab has a built-in root-finding function <code class="code-inline tex2jax_ignore">fzero</code>. Its first argument is the function which should be equated to zero, the second argument is our initial guess at where the solution may be (put 0 if you have no idea). For example,</p>
+<pre class="code-block tex2jax_ignore">fzero(@(x) 2*exp(x) + x^3 - 1, 0)</pre>
+<p data-braille="continuation">finds the solution <code class="code-inline tex2jax_ignore">-0.5439</code>. But even though we have <code class="code-inline tex2jax_ignore">fzero</code>, we still have to understand the methods used for finding roots, because</p>
+<ol class="lower-alpha">
+<li>
+<code class="code-inline tex2jax_ignore">fzero</code> only gives one solution, there may be others;</li>
+<li>the output of <code class="code-inline tex2jax_ignore">fzero</code>  may be wrong.</li>
+</ol>
+<p data-braille="continuation">An example of wrong answer:</p>
+<pre class="code-block tex2jax_ignore">fzero(@(x) exp(-x^2), 0)</pre>
+<p data-braille="continuation">returns <code class="code-inline tex2jax_ignore">x=-28.9631</code>. In reality, \(e^{-x^2} = 0\) has no solutions, and there is nothing special about the number produced by <code class="code-inline tex2jax_ignore">fzero</code>: this is just where its algorithm decided to stop, thinking “close enough”.</p>
+<span class="incontext"><a href="section-motivation-numeric-solution.html#p-239">in-context</a></span>
 </body>
 </html>

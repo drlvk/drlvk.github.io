@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:12-04:00    *-->
+<!--*    on 2020-07-24T23:43:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -161,6 +161,16 @@ MathJax.Hub.Config({
 <li><a href="exercises-fixed-point-iteration.html" data-scroll="exercises-fixed-point-iteration">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
+<li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
+<li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
+<li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
+<li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
@@ -170,7 +180,7 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">1.7</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-1"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-49">Suppose that <code class="code-inline tex2jax_ignore">A</code> is a matrix. Describe, in words, the following objects:</p>
+<p id="p-50">Suppose that <code class="code-inline tex2jax_ignore">A</code> is a matrix. Describe, in words, the following objects:</p>
 <ol class="lower-alpha">
 <li id="li-14"><code class="code-inline tex2jax_ignore">A(3, :)</code></li>
 <li id="li-15"><code class="code-inline tex2jax_ignore">A(:, end-2)</code></li>
@@ -178,7 +188,7 @@ MathJax.Hub.Config({
 <li id="li-17"><code class="code-inline tex2jax_ignore">A(1:2:end, 1)</code></li>
 <li id="li-18"><code class="code-inline tex2jax_ignore">A(:, end:-1:1)</code></li>
 </ol></article><article class="exercise exercise-like" id="exercise-2"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-50">Write a script to do the following:</p>
+<p id="p-51">Write a script to do the following:</p>
 <pre class="code-block tex2jax_ignore">x = (first 5 digits of your SUID);
 y = (all entries of x except first); 
 z = (all entries of x except last);
@@ -186,8 +196,8 @@ u = (the average of vectors y and z);
 v = (the scalar product of y and z);
 disp(u, v)
 </pre>
-<p id="p-51">Note that <code class="code-inline tex2jax_ignore">y</code> and <code class="code-inline tex2jax_ignore">z</code> must be computed from the vector x, not entered number-by-number.</p></article><article class="exercise exercise-like" id="exercise-3"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-52">Write a script that does the following:</p>
+<p id="p-52">Note that <code class="code-inline tex2jax_ignore">y</code> and <code class="code-inline tex2jax_ignore">z</code> must be computed from the vector x, not entered number-by-number.</p></article><article class="exercise exercise-like" id="exercise-3"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
+<p id="p-53">Write a script that does the following:</p>
 <ol class="lower-alpha">
 <li id="li-19">Let <code class="code-inline tex2jax_ignore">A</code> be some 3 by 3 matrix filled with numbers 1,2,…,9</li>
 <li id="li-20">Let <code class="code-inline tex2jax_ignore">x</code> be the product of A and a row vector with all entries equal to 1 (think about the correct order of multiplication).</li>

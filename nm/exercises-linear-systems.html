@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:13-04:00    *-->
+<!--*    on 2020-07-24T23:43:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -161,6 +161,16 @@ MathJax.Hub.Config({
 <li><a href="exercises-fixed-point-iteration.html" data-scroll="exercises-fixed-point-iteration">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
+<li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
+<li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
+<li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
+<li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
@@ -170,7 +180,7 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">6.6</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-14"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-231">For each of the following systems, decide if it is: (i) overdetermined, under-determined, or square; (ii) has a unique solution, has infinitely many solutions, or is inconsistent. Briefly explain how you reached these conclusions. To save time, you may use Matlab's <code class="code-inline tex2jax_ignore">rank</code> command to compute the ranks of matrices.</p>
+<p id="p-234">For each of the following systems, decide if it is: (i) overdetermined, under-determined, or square; (ii) has a unique solution, has infinitely many solutions, or is inconsistent. Briefly explain how you reached these conclusions. To save time, you may use Matlab's <code class="code-inline tex2jax_ignore">rank</code> command to compute the ranks of matrices.</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{cases}
@@ -197,7 +207,7 @@ x_1 -2 x_2 + 3x_3 - x_4 \amp =  -3  \\
 \end{cases}
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-15"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-232">Write a function <code class="code-inline tex2jax_ignore">linearfit</code> that takes arguments <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">y</code> (vectors of the same size) and returns two numbers <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>, coefficients of the best-fitting line \(y=cx+d\text{.}\) Then apply it to the population of your hometown during years 1980, 1985, ..., 2010, 2015. (The data should be easy to find online; if not, use a larger nearby town). The code could look like this.</p>
+<p id="p-235">Write a function <code class="code-inline tex2jax_ignore">linearfit</code> that takes arguments <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">y</code> (vectors of the same size) and returns two numbers <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>, coefficients of the best-fitting line \(y=cx+d\text{.}\) Then apply it to the population of your hometown during years 1980, 1985, ..., 2010, 2015. (The data should be easy to find online; if not, use a larger nearby town). The code could look like this.</p>
 <pre class="code-block tex2jax_ignore">function hw6()
   x =  1980:5:2015;  % years  
   y =                % population of your hometown in these years 
@@ -214,7 +224,7 @@ function [k, c] = linearfit(x,y)
   ... then assign c and d based on its solution
 end
 </pre>
-<p id="p-233">The character <code class="code-inline tex2jax_ignore">%</code> is used for inserting comments in Matlab code: everything after it to the end of the line is ignored.</p></article></section></div></main>
+<p id="p-236">The character <code class="code-inline tex2jax_ignore">%</code> is used for inserting comments in Matlab code: everything after it to the end of the line is ignored.</p></article></section></div></main>
 </div>
 </body>
 </html>

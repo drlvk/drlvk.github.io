@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:14-04:00    *-->
+<!--*    on 2020-07-24T23:43:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,20 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Write a named function <code class="code-inline tex2jax_ignore">function y = cositer(x, n)</code> that takes two arguments x and n and returns the n-th iteration of the mathematical function \(x\mapsto 2\cos x\text{.}\) For example, if <code class="code-inline tex2jax_ignore">n = 4</code>, the result should be</p>
+<p>Write an anonymous function <code class="code-inline tex2jax_ignore">f = @(x, y) ...</code> which implements the mathematical function</p>
 <div class="displaymath">
 \begin{equation*}
-2\cos(2\cos (2\cos (2\cos x))))
+f(x, y) = \frac{xy^2}{x^2 + y^4}
 \end{equation*}
 </div>
-<p data-braille="continuation">Use this function to plot several of these iterates on the interval \([0, 2]\) as shown below.</p>
+<p data-braille="continuation">in such a way that the input variables x, y are allowed to be vectors. Then plot the values of \(f\) along the parametric curve</p>
+<div class="displaymath">
+\begin{align*}
+x \amp = t^2 \\
+y \amp = \sin t 
+\end{align*}
+</div>
+<p data-braille="continuation">as follows.</p>
 <span class="incontext"><a href="exercises-user-defined-functions.html#p-195">in-context</a></span>
 </body>
 </html>

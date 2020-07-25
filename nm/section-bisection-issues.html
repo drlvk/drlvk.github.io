@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:13-04:00    *-->
+<!--*    on 2020-07-24T23:43:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -161,6 +161,16 @@ MathJax.Hub.Config({
 <li><a href="exercises-fixed-point-iteration.html" data-scroll="exercises-fixed-point-iteration">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
+<li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
+<li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
+<li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
+<li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
@@ -169,7 +179,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-bisection-issues"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">7.4</span> <span class="title">Limitations of the bisection method</span>
 </h2>
-<p id="p-247">The main limitation of the bisection method are:</p>
+<p id="p-250">The main limitation of the bisection method are:</p>
 <ul class="disc">
 <li id="li-77">It does not apply to systems of more than one equation</li>
 <li id="li-78">It  requires the knowledge of a bracketing interval</li>
@@ -177,14 +187,14 @@ MathJax.Hub.Config({
 <li id="li-80">Its speed of convergence is slow (linear)</li>
 </ul>
 <p data-braille="continuation">To illustrate the second limitation, consider the equation \(x^2 - 2x + 0.9999 = 0\text{.}\) It has two roots, both of which are very close to 1. Outside of a small neighborhood of 1, the function is positive. So, in order to construct a bracketing interval one needs to place one of its endpoints very close to 1. This means one needs to have a good idea of where the roots are in order to start with the method.</p>
-<p id="p-248">Calculus methods involving the derivative \(f'\) can help us understand in what direction the function changes, improving our chance of finding a bracketing interval.</p>
+<p id="p-251">Calculus methods involving the derivative \(f'\) can help us understand in what direction the function changes, improving our chance of finding a bracketing interval.</p>
 <article class="example example-like" id="example-44"><a data-knowl="" class="id-ref original" data-refid="hk-example-44"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Find the number of roots and a bracketing interval for each of them.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><p id="p-249">For the function \(f(x) = 2e^x + x^3 - 1\text{,}\) determine the number of roots and find a bracketing interval for each of them.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><p id="p-252">For the function \(f(x) = 2e^x + x^3 - 1\text{,}\) determine the number of roots and find a bracketing interval for each of them.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">
-<p id="p-250">The derivative \(f'(x) = 2e^x + 3x^2\) is always positive. Therefore, the function \(f\) increases on the real line. Such a function either has no roots (if its graph never crosses the \(y\)-axis), or has one root. Since \(f(x)\to \infty\) as \(x\to \infty\) and \(f(x) \to -\infty\) as \(x\to-\infty\text{,}\) it follows that the graph crosses the \(y\)-axis. We need a finite bracketing interval, since for the bisection method to work, both \(a\) and \(b\) must be finite. Since \(f(0) = 2 + 0 - 1 = 1 &gt; 0\) it remains to find a negative value. For example, \(f(-1) = 2e^{-1} - 1 - 1 = 2(1-e)/e \lt 0\text{.}\)</p>
-<p id="p-251">Answer: one root, with a bracketing interval \([-1, 0]\text{.}\)</p>
+<p id="p-253">The derivative \(f'(x) = 2e^x + 3x^2\) is always positive. Therefore, the function \(f\) increases on the real line. Such a function either has no roots (if its graph never crosses the \(y\)-axis), or has one root. Since \(f(x)\to \infty\) as \(x\to \infty\) and \(f(x) \to -\infty\) as \(x\to-\infty\text{,}\) it follows that the graph crosses the \(y\)-axis. We need a finite bracketing interval, since for the bisection method to work, both \(a\) and \(b\) must be finite. Since \(f(0) = 2 + 0 - 1 = 1 &gt; 0\) it remains to find a negative value. For example, \(f(-1) = 2e^{-1} - 1 - 1 = 2(1-e)/e \lt 0\text{.}\)</p>
+<p id="p-254">Answer: one root, with a bracketing interval \([-1, 0]\text{.}\)</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

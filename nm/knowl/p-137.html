@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:14-04:00    *-->
+<!--*    on 2020-07-24T23:43:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Here we introduce a variable <code class="code-inline tex2jax_ignore">dx</code> that represents the difference between old and new values of <code class="code-inline tex2jax_ignore">x</code>. This variable can be initially assigned some arbitrary value that is greater than the tolerance, for example 1 or 100. This ensures that the condition <code class="code-inline tex2jax_ignore">abs(dx) &gt;= 1e-9</code> holds at the beginning of the loop. After that the loop changes the value of <code class="code-inline tex2jax_ignore">dx</code> and the process repeats until it becomes small enough.</p>
+<p>Another issue is that the condition we want to test may not be defined at the beginning of the loop. This occurs when our condition for stopping is that the value of a variable essentially stopped changing. For example, one way to compute the <dfn class="terminology">golden ratio</dfn> numerically is to start with any \(x &gt; 0\) and keep replacing \(x\) with \(\sqrt{x+1}\text{.}\) If we write this as:</p>
 <span class="incontext"><a href="section-while-loop.html#p-137">in-context</a></span>
 </body>
 </html>

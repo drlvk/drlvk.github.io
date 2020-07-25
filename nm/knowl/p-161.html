@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:14-04:00    *-->
+<!--*    on 2020-07-24T23:43:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,9 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An anonymous function can have multiple variables, for example the mathematical formula \(f(x) = (xy+1)/z\) could be defined as <code class="code-inline tex2jax_ignore">f = @(x,y,z) (x.*y + 1)./z</code>. The inclusion of periods allows this function to vectors for its inputs, provided the vectors are of the same size.</p>
+<p>The concept of an <dfn class="terminology">anonymous function</dfn> in Matlab closely corresponds to mathematical notion of a function: it consists of a formula that transforms input into output. For example, to have mathematical function \(f(x) = \exp(-x^2)\) in your code, you would write</p>
+<pre class="code-block tex2jax_ignore">f = @(x) exp(-x^2);</pre>
+<p data-braille="continuation">and then use <code class="code-inline tex2jax_ignore">f</code> in expressions such as <code class="code-inline tex2jax_ignore">f(0)</code> or <code class="code-inline tex2jax_ignore">3*f(x-2)</code>.</p>
 <span class="incontext"><a href="section-anonymous-functions.html#p-161">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:13-04:00    *-->
+<!--*    on 2020-07-24T23:43:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,21 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Some problems in engineering and in differential equations lead to matrices where nonzero coefficients are <em class="emphasis">close</em> to the main diagonal but not exactly at it: for example,</p>
+<p>A <dfn class="terminology">diagonal matrix</dfn> has zeros everywhere except on the main diagonal. The identity matrix \(I\) is a special case of a diagonal matrix. In Matlab, the command <code class="code-inline tex2jax_ignore">diag(v)</code> creates a diagonal matrix which has the elements of vector <code class="code-inline tex2jax_ignore">v</code> on its main diagonal. For example, <code class="code-inline tex2jax_ignore">diag([6 -4 7])</code> creates the matrix</p>
 <div class="displaymath">
 \begin{equation*}
-\begin{pmatrix}
-2 \amp -1 \amp 0\amp 0 \amp 0 \\ 
--1 \amp 2 \amp -1\amp 0 \amp 0 \\ 
-0 \amp -1 \amp 2\amp -1 \amp 0 \\ 
-0 \amp 0 \amp -1\amp 2 \amp -1 \\ 
-0 \amp 0 \amp 0\amp -1 \amp 2 \\ 
-\end{pmatrix}
+\begin{pmatrix} 6 \amp 0\amp 0 \\ 0\amp -4\amp 0 \\ 0\amp 0\amp 7 \end{pmatrix}
 \end{equation*}
 </div>
-<p data-braille="continuation">To construct such matrices we can use <code class="code-inline tex2jax_ignore">diag(v, k)</code> which places the elements of vector <code class="code-inline tex2jax_ignore">v</code> on the diagonal parallel to the main one but \(k\) positions above it. So, <code class="code-inline tex2jax_ignore">diag(v, 1)</code> is just above the main diagonal and <code class="code-inline tex2jax_ignore">diag(v, -1)</code> is just below. The matrix shown above could be formed as</p>
-<pre class="code-block tex2jax_ignore"> diag([2 2 2 2 2]) - diag([1 1 1 1], 1) - diag([1 1 1 1], -1)</pre>
-<p data-braille="continuation">This is an example of a <dfn class="terminology">tridiagonal matrix</dfn>: there are only three diagonals with nonzero entries. More generally, a matrix is called <dfn class="terminology">sparse</dfn> if most of its elements are 0. Large sparse matrices frequently arise in computations.</p>
 <span class="incontext"><a href="section-large-matrices.html#p-60">in-context</a></span>
 </body>
 </html>

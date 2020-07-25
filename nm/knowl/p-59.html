@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:13-04:00    *-->
+<!--*    on 2020-07-24T23:43:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,10 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A <dfn class="terminology">diagonal matrix</dfn> has zeros everywhere except on the main diagonal. The identity matrix \(I\) is a special case of a diagonal matrix. In Matlab, the command <code class="code-inline tex2jax_ignore">diag(v)</code> creates a diagonal matrix which has the elements of vector <code class="code-inline tex2jax_ignore">v</code> on its main diagonal. For example, <code class="code-inline tex2jax_ignore">diag([6 -4 7])</code> creates the matrix</p>
+<p>The <dfn class="terminology">identity matrix</dfn> is usually denoted \(I\) in mathematics, or \(I_n\) if it is necessary to emphasize its size. For example,</p>
 <div class="displaymath">
 \begin{equation*}
-\begin{pmatrix} 6 \amp 0\amp 0 \\ 0\amp -4\amp 0 \\ 0\amp 0\amp 7 \end{pmatrix}
+I_3 = \begin{pmatrix} 1 \amp 0\amp 0 \\ 0\amp 1\amp 0 \\ 0\amp 0\amp 1 \end{pmatrix}
+\end{equation*}
+</div>
+<p data-braille="continuation">In Matlab this matrix would be created as <code class="code-inline tex2jax_ignore">eye(3)</code>. The name of the command was chosen because “eye” is pronounced the same as “I”. We also get scalars multiples of the identity matrix, for example <code class="code-inline tex2jax_ignore">5*eye(3)</code> is</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} 5 \amp 0\amp 0 \\ 0\amp 5\amp 0 \\ 0\amp 0\amp 5 \end{pmatrix}
 \end{equation*}
 </div>
 <span class="incontext"><a href="section-large-matrices.html#p-59">in-context</a></span>

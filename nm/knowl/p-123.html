@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:14-04:00    *-->
+<!--*    on 2020-07-24T23:43:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Explanation: before entering the loop, we initialize the variable <code class="code-inline tex2jax_ignore">s</code> with 0, meaning that the value of the sum is 0 before we start adding things to it. Each time the command <code class="code-inline tex2jax_ignore">s = s + k^3</code> is executed, the cube of <code class="code-inline tex2jax_ignore">k</code> is added to <code class="code-inline tex2jax_ignore">s</code>. This repeats for each value in the vector <code class="code-inline tex2jax_ignore">1:10</code>. When the loop ends, the variable <code class="code-inline tex2jax_ignore">s</code> will contain the sum of cubes.</p>
+<p>Syntax of <code class="code-inline tex2jax_ignore">for</code> loop:</p>
+<pre class="code-block tex2jax_ignore">
+for (variable) = (some vector, usually regularly spaced a:h:b) 
+    (some computation)
+end
+</pre>
+<p data-braille="continuation">This means that “some computation” will be repeated for each entry of the vector specified in the line with <code class="code-inline tex2jax_ignore">for</code>. Do not forget to <code class="code-inline tex2jax_ignore">end</code> the loop: Matlab needs it to know which part of the code should be repeated in the loop. Indenting the body of the loop is optional but it improves readability.</p>
 <span class="incontext"><a href="section-for-loop.html#p-123">in-context</a></span>
 </body>
 </html>

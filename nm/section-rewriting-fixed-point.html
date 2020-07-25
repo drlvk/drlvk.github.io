@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:13-04:00    *-->
+<!--*    on 2020-07-24T23:43:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -161,6 +161,16 @@ MathJax.Hub.Config({
 <li><a href="exercises-fixed-point-iteration.html" data-scroll="exercises-fixed-point-iteration">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
+<li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
+<li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
+<li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
+<li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
@@ -169,19 +179,19 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-rewriting-fixed-point"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">8.2</span> <span class="title">Rewriting equations in the fixed-point form</span>
 </h2>
-<p id="p-277">We now have a new method of solving the equations \(f(x)=0\text{:}\) rewrite it as $g(x)=x$, and build a sequence \(x_{n+1} = g(x_n)\text{.}\) If this sequence has a limit, which we recognize by \(|x_{n+1} - x_n|\) being small, then we have a fixed point of \(g\text{,}\) hence a root of \(f\text{.}\) There are multiple ways to rewrite \(f(x)=0\) in the fixed-point form:</p>
+<p id="p-280">We now have a new method of solving the equations \(f(x)=0\text{:}\) rewrite it as \(g(x)=x\text{,}\) and build a sequence \(x_{n+1} = g(x_n)\text{.}\) If this sequence has a limit, which we recognize by \(|x_{n+1} - x_n|\) being small, then we have a fixed point of \(g\text{,}\) hence a root of \(f\text{.}\) There are multiple ways to rewrite \(f(x)=0\) in the fixed-point form:</p>
 <ul class="disc">
 <li id="li-88">\(\displaystyle f(x) + x = x\)</li>
 <li id="li-89">\(\displaystyle x - f(x) = x\)</li>
 <li id="li-90">\(\displaystyle x - 3 f(x)^3 = x\)</li>
 </ul>
 <p data-braille="continuation">and so on. Although the fixed points are the same each case (they are the roots of \(f\)), their classification may be different. For example, consider \(f(x) = x^3 + 4x -5\text{.}\) We know it has a root at \(x=1\text{.}\) If we try to rewrite the equation \(f(x) = 0\) as \(x^3 + 5x - 5 = x\) the fixed point at 1 is repelling because \((x^3+5x -5)' = 3x^2 + 5\) has modulus \(8&gt;1\text{.}\) Another rewrite is \((5-x^3)/4 = x\text{.}\) This one works because the derivative of \((5-x^3)/4\) is \(-3x^2/4\) with absolute value of \(3/4\) at \(x=1\text{.}\) The denominator 4 helped reduced the derivative here.</p>
-<article class="example example-like" id="example-49"><a data-knowl="" class="id-ref original" data-refid="hk-example-49"><h6 class="heading">
+<article class="example example-like" id="example-solve-fixed-point-iteration"><a data-knowl="" class="id-ref original" data-refid="hk-example-solve-fixed-point-iteration"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Rewrite and solve by fixed-point iteration.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-49"><article class="example example-like"><p id="p-278">Solve the equation \(x^3 + 5x  = 2\) by the fixed-point iteration method.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-solve-fixed-point-iteration"><article class="example example-like"><p id="p-281">Solve the equation \(x^3 + 5x  = 2\) by the fixed-point iteration method.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-11" id="solution-11"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-11"><div class="solution solution-like">
-<p id="p-279">The function \(x^3 + 5x\) is increasing from 0 to 6 on the interval \([0, 1]\text{.}\) Therefore, the equation has a solution in this interval. Following the idea of the previous paragraph, rewrite it as \((2-x^3)/5 = x\text{.}\) This means \(g(x) = (2-x^3)/5\) and \(g'(x) = -3x^2/5\text{.}\) Note this \(|g'| \lt 1\) on \([0, 1]\) which guarantees that the fixed point is attracting. Here is the code to find it.</p>
+<p id="p-282">The function \(x^3 + 5x\) is increasing from 0 to 6 on the interval \([0, 1]\text{.}\) Therefore, the equation has a solution in this interval. Following the idea of the previous paragraph, rewrite it as \((2-x^3)/5 = x\text{.}\) This means \(g(x) = (2-x^3)/5\) and \(g'(x) = -3x^2/5\text{.}\) Note this \(|g'| \lt 1\) on \([0, 1]\) which guarantees that the fixed point is attracting. Here is the code to find it.</p>
 <pre class="code-block tex2jax_ignore">g = @(x) (2-x^3)/5;
 x0 = 0;
 for k = 1:1000
@@ -192,12 +202,12 @@ for k = 1:1000
     x0 = x1;
 end
 if k &lt; 1000
-    fprintf('Found x = %.12g\n', x1);
+    fprintf('Found x = %.12g after %d steps\n', x1, k);
 else
     disp('Failed to converge')
 end
 </pre>
-<p id="p-280">The reason for using a <code class="code-inline tex2jax_ignore">for</code> loop is to set a limit for the number of attempts (1000). The loop ends sooner if the values of x essentially stop changing. We do not need separate variables for every element of the sequence: x0 and x1 keep being reused for “old” and “new” x-values. The output is “Found x = 0.388291441005”.</p>
+<p id="p-283">The reason for using a <code class="code-inline tex2jax_ignore">for</code> loop is to set a limit for the number of attempts (1000). The loop ends sooner if the values of x essentially stop changing. We do not need separate variables for every element of the sequence: x0 and x1 keep being reused for “old” and “new” x-values. The output is “Found x = 0.388291441005”.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

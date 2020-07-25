@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:12-04:00    *-->
+<!--*    on 2020-07-24T23:43:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -161,6 +161,16 @@ MathJax.Hub.Config({
 <li><a href="exercises-fixed-point-iteration.html" data-scroll="exercises-fixed-point-iteration">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
+<li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
+<li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
+<li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
+<li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
@@ -169,16 +179,16 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-matlab-interface"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.1</span> <span class="title">Matlab interface</span>
 </h2>
-<p id="p-13">The first thing you see in Matlab is its <dfn class="terminology">Command Window</dfn> where the prompt <code class="code-inline tex2jax_ignore">&gt;&gt;</code> invites you to enter any command that will be executed at once. This window is useful for quickly trying out things. You should use it to try out the one-line examples that appear in the text of these notes.</p>
-<p id="p-14">Most of our work, including homework assignments, will involve <dfn class="terminology">Script Editor</dfn>. To open this editor, click “New Script” button on the left of the “Home” menu of Matlab. The chain of commands entered in the editor forms a script. The button “Run” of the “Editor” menu runs a script; pressing <kbd class="kbdkey">F5</kbd> does the same.</p>
-<p id="p-15">The result of script computations can be shown in the Command Window. There are several ways to make it appear. One of them is <code class="code-inline tex2jax_ignore">disp</code> command: for example,</p>
+<p id="p-14">The first thing you see in Matlab is its <dfn class="terminology">Command Window</dfn> where the prompt <code class="code-inline tex2jax_ignore">&gt;&gt;</code> invites you to enter any command that will be executed at once. This window is useful for quickly trying out things. You should use it to try out the one-line examples that appear in the text of these notes.</p>
+<p id="p-15">Most of our work, including homework assignments, will involve <dfn class="terminology">Script Editor</dfn>. To open this editor, click “New Script” button on the left of the “Home” menu of Matlab. The chain of commands entered in the editor forms a script. The button “Run” of the “Editor” menu runs a script; pressing <kbd class="kbdkey">F5</kbd> does the same.</p>
+<p id="p-16">The result of script computations can be shown in the Command Window. There are several ways to make it appear. One of them is <code class="code-inline tex2jax_ignore">disp</code> command: for example,</p>
 <pre class="code-block tex2jax_ignore">disp('Hello world')</pre>
 <p data-braille="continuation">displays "Hello world", and</p>
 <pre class="code-block tex2jax_ignore">disp(2/3)</pre>
 <p data-braille="continuation">displays 0.6667. Notice that Matlab displays just four digits after the decimal dot. This is intentional: showing fewer digits of each number makes is possible to fit more of them on the screen. There are ways to change the number format to display more digits, which we will consider later.</p>
 <article class="example example-like" id="example-1"><a data-knowl="" class="id-ref original" data-refid="hk-example-1"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Golden ratio.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-1"><article class="example example-like"><p id="p-16">Write a script that displays an approximate decimal value of the <dfn class="terminology">golden ratio</dfn> \(\dfrac{\sqrt{5}+1}{2}\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-1"><article class="example example-like"><p id="p-17">Write a script that displays an approximate decimal value of the <dfn class="terminology">golden ratio</dfn> \(\dfrac{\sqrt{5}+1}{2}\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-1" id="answer-1"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-1"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">disp((sqrt(5)+1)/2)
 </pre></div></div>

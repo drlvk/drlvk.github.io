@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:13-04:00    *-->
+<!--*    on 2020-07-24T23:43:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -161,6 +161,16 @@ MathJax.Hub.Config({
 <li><a href="exercises-fixed-point-iteration.html" data-scroll="exercises-fixed-point-iteration">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
+<li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
+<li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
+<li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
+<li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
@@ -169,8 +179,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-classification-linear-systems"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.1</span> <span class="title">Classification of linear systems</span>
 </h2>
-<p id="p-198">A system of \(m\) linear equations with \(n\) unknowns can be written as \(Ax=b\) where \(A\) is a \(m\times n\) matrix, \(x\) is an unknown column vector with \(n\) coordinates, and \(b\) is a known column vector with \(m\) coordinates.  Linear systems are classified by consistency and shape.</p>
-<p id="p-199">A linear system is called <dfn class="terminology">consistent</dfn> if it has at least one solution. Otherwise it is <dfn class="terminology">inconsistent</dfn>. So, in terms of solutions there are three possibilities:</p>
+<p id="p-200">A system of \(m\) linear equations with \(n\) unknowns can be written as \(Ax=b\) where \(A\) is a \(m\times n\) matrix, \(x\) is an unknown column vector with \(n\) coordinates, and \(b\) is a known column vector with \(m\) coordinates.  Linear systems are classified by consistency and shape.</p>
+<p id="p-201">A linear system is called <dfn class="terminology">consistent</dfn> if it has at least one solution. Otherwise it is <dfn class="terminology">inconsistent</dfn>. So, in terms of solutions there are three possibilities:</p>
 <ol class="decimal">
 <li id="li-58">consistent with a unique solution</li>
 <li id="li-59">consistent with infinitely many solutions</li>
@@ -184,18 +194,18 @@ a_{21}x_1 + a_{22}x_2 \amp = b_2
 \end{align*}
 </div>
 <p data-braille="continuation">Each of these equations determines a line in the plane. In Case 1 the two lines intersect; in Case 2 they are the same line; in Case 3 they are parallel.</p>
-<p id="p-200">In terms of shape, a linear system is <dfn class="terminology">square</dfn> if it has as many equations as unknowns, \(m = n\text{.}\) It is called <dfn class="terminology">underdetermined</dfn> there are fewer equations than variables: \(m \lt n\text{,}\) matrix has more columns than rows. A system is <dfn class="terminology">overdetermined</dfn> if it has more  equations than variables: \(m \gt n\text{,}\) matrix has more rows than columns.</p>
-<p id="p-201">The three shapes do not exactly correspond to the three classes based on consistency. But if you pick a matrix at random (like using <code class="code-inline tex2jax_ignore">rand</code>), you will find that overdetermined systems are usually inconsistent, underdetermined systems are usually consistent with infinite solutions, and square systems are usually  consistent with a unique solution.</p>
-<p id="p-202">The consistency can be analyzed in terms of the <dfn class="terminology">rank</dfn> of a matrix. By definition, a matrix has rank \(r\) if it has \(r\) linearly independent columns, and all other columns are their linear combinations. One can replace “columns” by “rows” in the previous sentence. One can compute the rank with <code class="code-inline tex2jax_ignore">rank</code> in Matlab. Also, the Matlab formula <code class="code-inline tex2jax_ignore">[A b]</code> forms the <dfn class="terminology">augmented matrix</dfn> of the system  \(Ax=b\text{,}\) which has an extra column with the entries of \(b\text{.}\)</p>
+<p id="p-202">In terms of shape, a linear system is <dfn class="terminology">square</dfn> if it has as many equations as unknowns, \(m = n\text{.}\) It is called <dfn class="terminology">underdetermined</dfn> there are fewer equations than variables: \(m \lt n\text{,}\) matrix has more columns than rows. A system is <dfn class="terminology">overdetermined</dfn> if it has more  equations than variables: \(m \gt n\text{,}\) matrix has more rows than columns.</p>
+<p id="p-203">The three shapes do not exactly correspond to the three classes based on consistency. But if you pick a matrix at random (like using <code class="code-inline tex2jax_ignore">rand</code>), you will find that overdetermined systems are usually inconsistent, underdetermined systems are usually consistent with infinite solutions, and square systems are usually  consistent with a unique solution.</p>
+<p id="p-204">The consistency can be analyzed in terms of the <dfn class="terminology">rank</dfn> of a matrix. By definition, a matrix has rank \(r\) if it has \(r\) linearly independent columns, and all other columns are their linear combinations. One can replace “columns” by “rows” in the previous sentence. One can compute the rank with <code class="code-inline tex2jax_ignore">rank</code> in Matlab. Also, the Matlab formula <code class="code-inline tex2jax_ignore">[A b]</code> forms the <dfn class="terminology">augmented matrix</dfn> of the system  \(Ax=b\text{,}\) which has an extra column with the entries of \(b\text{.}\)</p>
 <article class="theorem theorem-like" id="theorem-1"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Consistency and rank.</span>
 </h6>
-<ul id="p-203" class="disc">
+<ul id="p-205" class="disc">
 <li id="li-61">The system  \(Ax=b\) is consistent if and only if <code class="code-inline tex2jax_ignore">rank([A b])</code> is equal to <code class="code-inline tex2jax_ignore">rank(A)</code>.</li>
 <li id="li-62">A consistent system has a unique solution if and only if <code class="code-inline tex2jax_ignore">rank(A)</code> is equal to the number of columns of \(A\text{.}\)</li>
 </ul></article><article class="example example-like" id="example-35"><a data-knowl="" class="id-ref original" data-refid="hk-example-35"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Determine the consistency of a system.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><p id="p-204">Use an if-elseif-else statement with <code class="code-inline tex2jax_ignore">rank</code> to determine the consistency and the number of solutions of the system with matrix</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><p id="p-206">Use an if-elseif-else statement with <code class="code-inline tex2jax_ignore">rank</code> to determine the consistency and the number of solutions of the system with matrix</p>
 <div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 2\amp  3 \\ 4 \amp 5 \amp 6\\ 7\amp  8 \amp 9 \end{pmatrix} 

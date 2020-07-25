@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-15T20:40:14-04:00    *-->
+<!--*    on 2020-07-24T23:43:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>There are two common issues with using <code class="code-inline tex2jax_ignore">while</code> loops. One is that it can go on forever, if the algorithm fails to reach its goal (the difference never becomes smaller than the tolerance). It is better to admit that the algorithm failed than to be stuck in an infinite loop: we will deal with this in <a href="section-if-statement.html" class="internal" title="Section 4.3: if statement">Section 4.3</a>. For now, note that if your program gets stuck in an infinite loop, you can terminate it by clicking within the Command Window and pressing <kbd class="kbdkey">Ctrl</kbd>+<kbd class="kbdkey">C</kbd>.</p>
+<p>Syntax of <code class="code-inline tex2jax_ignore">while</code> loop:</p>
+<pre class="code-block tex2jax_ignore">
+while (some condition) 
+    (some computation)
+end
+</pre>
+<p data-braille="continuation">The loop will repeat while condition after <code class="code-inline tex2jax_ignore">while</code> is true. It ends when this condition becomes false. So, if we want to stop when <code class="code-inline tex2jax_ignore">abs(x-y) &lt; 1e-9</code>, the loop should be written as <code class="code-inline tex2jax_ignore">while abs(x-y) &gt;= 1e-9</code>.</p>
 <span class="incontext"><a href="section-while-loop.html#p-134">in-context</a></span>
 </body>
 </html>
