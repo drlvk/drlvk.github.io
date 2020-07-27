@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-24T23:43:17-04:00    *-->
+<!--*    on 2020-07-26T22:29:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -9,7 +9,7 @@
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Named functions</title>
+<title>Systems of nonlinear equations</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/x-mathjax-config">
@@ -67,10 +67,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-anonymous-functions.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-user-defined-functions.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="examples-user-defined-functions.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="chapter-multivariate-newton.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-multivariate-newton.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-multivariate-newton.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-anonymous-functions.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-user-defined-functions.html" title="Up">Up</a><a class="next-button button toolbar-item" href="examples-user-defined-functions.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-multivariate-newton.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-multivariate-newton.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-multivariate-newton.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -126,7 +126,7 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="chapter-user-defined-functions.html" data-scroll="chapter-user-defined-functions"><span class="codenumber">5</span> <span class="title">User-defined functions</span></a><ul>
 <li><a href="section-anonymous-functions.html" data-scroll="section-anonymous-functions">Anonymous functions</a></li>
-<li><a href="named-functions.html" data-scroll="named-functions" class="active">Named functions</a></li>
+<li><a href="section-named-functions.html" data-scroll="section-named-functions">Named functions</a></li>
 <li><a href="examples-user-defined-functions.html" data-scroll="examples-user-defined-functions">Examples and questions</a></li>
 <li><a href="exercises-user-defined-functions.html" data-scroll="exercises-user-defined-functions">Homework</a></li>
 </ul>
@@ -171,108 +171,63 @@ MathJax.Hub.Config({
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-multivariate-newton.html" data-scroll="chapter-multivariate-newton"><span class="codenumber">10</span> <span class="title">Systems of several nonlinear equations: multivariate Newton's method</span></a><ul>
+<li><a href="section-nonlinear-systems.html" data-scroll="section-nonlinear-systems" class="active">Systems of nonlinear equations</a></li>
+<li><a href="section-multivariate-newton.html" data-scroll="section-multivariate-newton">Multivariate Newton's method</a></li>
+<li><a href="section-multivariate-newton-method-issues.html" data-scroll="section-multivariate-newton-method-issues">Potential issues</a></li>
+<li><a href="examples-multivariate-newton.html" data-scroll="examples-multivariate-newton">Examples and questions</a></li>
+<li><a href="exercises-multivariate-newton.html" data-scroll="exercises-multivariate-newton">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="named-functions"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Named functions</span>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="section-nonlinear-systems"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">10.1</span> <span class="title">Systems of nonlinear equations</span>
 </h2>
-<p id="p-169">Named functions can do the same thing as anonymous functions. Here is \(\exp(-x^2)\) again, this time as a named function.</p>
-<pre class="code-block tex2jax_ignore">function y = f(x) 
-    y = exp(-x.^2);
-end
-</pre>
-<p id="p-170">But there may be multiple lines within the body of a named function, including loops and conditional statements. In general, it looks like this.</p>
-<pre class="code-block tex2jax_ignore">function y = myFunction(x)
-    (do something);
-    (do more things);
-    (y = result of computations);  
-end
-</pre>
-<p id="p-171">A named functions can have multiple inputs: <code class="code-inline tex2jax_ignore">function w = myFunction(x, y, z)</code>. It can also have multiple outputs: <code class="code-inline tex2jax_ignore">function [u, v] = myFunction(x, y, z)</code> in which case both <code class="code-inline tex2jax_ignore">u</code> and <code class="code-inline tex2jax_ignore">v</code> must be assigned some values within the function.</p>
-<article class="example example-like" id="agm-named-function"><a data-knowl="" class="id-ref original" data-refid="hk-agm-named-function"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Arithmetic-geometric mean with given tolerance.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-agm-named-function"><article class="example example-like"><p id="p-172">Write a named function with three inputs: numbers <code class="code-inline tex2jax_ignore">x, y</code> and <code class="code-inline tex2jax_ignore">tol</code>, which finds the arithmetic-geometric mean of <code class="code-inline tex2jax_ignore">a, b</code> with tolerance <code class="code-inline tex2jax_ignore">tol</code> (meaning that the process stops when the difference of arithmetic and geometric mean is less than <code class="code-inline tex2jax_ignore">tol</code>.)</p>
-<div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-30" id="answer-30"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-30"><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">function z = agm(x, y, tol) 
-   while abs(x - y) &gt;= tol
-       a = (x + y)/2;
-       g = sqrt(x*y);
-       x = a;
-       y = g;
-   end
-   z = x;
-end
-</pre>
-<p id="p-173">Note that the result has to be assigned to whichever function variable was designated as output on th first line of the function: in this case, <code class="code-inline tex2jax_ignore">z</code>.</p>
-</div></div>
-</div></article></div>
-<p id="p-174"><a class="xref" data-knowl="./knowl/agm-named-function.html" title="Example 5.2.1: Arithmetic-geometric mean with given tolerance">Example 5.2.1</a> illustrates an important point: a function has limited communication with the code outside of it. It receives input and produces certain output; nothing else that it does has any influence on the outside world. Suppose that the following sequence of commands was executed.</p>
-<pre class="code-block tex2jax_ignore">x = 0.3;
-y = 12;
-disp(agm(x, y, 1e-6))
-disp(x)
-disp(a)
-</pre>
-<p id="p-175">The third line will display the AGM which happens to be 3.7136. The fourth line will display the original value of x, which is <code class="code-inline tex2jax_ignore">0.3</code>. Why is it still 0.3, even though the function <code class="code-inline tex2jax_ignore">agm</code> changed the value of x in the loop? This is because a function operates like a separate program with its own variables. The variable x inside of the function is its own <em class="emphasis">local</em> variable x, and changing it does not change x in other places. For the same reason, the last command <code class="code-inline tex2jax_ignore">disp(a)</code> produces an error: the variable <code class="code-inline tex2jax_ignore">a</code> is undefined. A variable with that name was introduces inside of function <code class="code-inline tex2jax_ignore">agm</code> but it does not exist outside of it.</p>
-<p id="p-176">One can have a function that does not return any values. Here is a function whose job is to plot the sine function on the interval \([a, b]\) using a given number of points.</p>
-<pre class="code-block tex2jax_ignore">function plotsin(a, b, num) 
-    x = linspace(a, b, num);
-    plot(x, sin(x))
-end
-</pre>
-<p id="p-177">One can also have a function with no arguments (no input values). For example, this function computes an approximate value of the Golden Ratio by iterating \(\sqrt{x+1}\text{.}\)</p>
-<pre class="code-block tex2jax_ignore">function z = goldenratio() 
-   z = 1;
-   for k = 1:100
-       z = sqrt(z+1);
-   end
-end
-</pre>
-<p id="p-178">One can use this function same as others: <code class="code-inline tex2jax_ignore">x = goldenratio();</code> or <code class="code-inline tex2jax_ignore">disp(goldenratio())</code>.</p>
-<p id="p-179">Back in the days when Matlab was designed, the convention was to put every function in a separate “M-file” named as that function: for example, <code class="code-inline tex2jax_ignore">goldenratio.m</code>. Today, tying the name of a function to the name of a file in which it is contained seems strange but Matlab still insists on this. Fortunately, it allows us to have multiple functions in the same script file, with the following constraints:</p>
+<p id="p-332">Consider a non-linear system of more than one equation, such as</p>
+<div class="displaymath">
+\begin{equation}
+\begin{cases} x^2e^{3y}-30 \amp = 0 \\
+xy-\sin(x+y^2) \amp =0 
+\end{cases} \label{eq-nonlinear-system}\tag{10.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">What method could we use to solve it numerically?</p>
 <ul class="disc">
-<li id="li-56">The first function is named as the file itself. This function gets executed when we click Run or press <kbd class="kbdkey">F5</kbd>.</li>
-<li id="li-57">If a script contains named functions, all of its code must be within some function.</li>
+<li id="li-94">Bisection method does not apply. If we try to imitate it by taking a rectangle in the xy-plane and dividing it into 4 equal subrectangles, it is not clear which rectangle should be kept and why. The issue is that Intermediate Value Theorem, on which this method is based, does not generalize to systems.</li>
+<li id="li-95">Fixed point iteration still makes sense: we can rewrite the system as<div class="displaymath">
+\begin{equation*}
+\begin{cases} x \amp = g(x, y) \\ y \amp = h(x, y)
+\end{cases} 
+\end{equation*}
+</div>and start iteration from some point \((x_0, y_0)\text{:}\) that is, \(x_1= g(x_0, y_0)\text{,}\) \(y_1 = h(x_0, y_0)\) and so on. If the process converges, we have a solution of the original system. But since there are more directions in which points can move under iteration, convergence is less likely than it was in one dimension.</li>
+<li id="li-96">Newton's method, which is essentially a systematic approach to fixed-point iteration, still works. This is the method we will use in this section.</li>
+<li id="li-97">It is not clear whether secant method makes sense, but its general idea - modifying Newton's method to avoid the use of derivatives - can be carried out. This will be considered later.</li>
 </ul>
-<p data-braille="continuation">This means that if a script contains named functions, and is saved in a file named <code class="code-inline tex2jax_ignore">hw5.m</code>, it must begin with <code class="code-inline tex2jax_ignore">function hw5()</code>, for example:</p>
-<pre class="code-block tex2jax_ignore">function hw5()
-    x = 0.3;
-    y = 12;
-    disp(agm(x, y, 1e-6))
-end
-
-function z = agm(x, y, tol) 
-   while abs(x - y) &gt;= tol
-       a = (x + y)/2;
-       g = sqrt(x*y);
-       x = a;
-       y = g;
-   end
-   z = x;
-end
+<p id="p-333">For notational convenience, we express a nonlinear system of \(n\) equations with \(n\) unknowns as a <dfn class="terminology">vector equation</dfn> \(\vec F(\vec x)=0\) where \(\vec x\) is an unknown vector with \(n\) components. For example, to express <a class="xref" data-knowl="./knowl/eq-nonlinear-system.html" title="Equation 10.1.1">(10.1.1)</a> in vector form we write</p>
+<div class="displaymath">
+\begin{equation}
+\vec x = \begin{pmatrix} x \\ y \end{pmatrix},\quad 
+\vec F(\vec x) = \begin{pmatrix}  x_1^2e^{3x_2}-30 \\ x_1 x_2 - \sin(x_1 + x_2^2) \end{pmatrix}\label{eq-function-F}\tag{10.1.2}
+\end{equation}
+</div>
+<p id="p-334">How should we write a vector function \(\vec F\) in Matlab? It can be an anonymous function.</p>
+<pre class="code-block tex2jax_ignore">F = @(x) [x(1)^2*exp(3*x(2)) - 30; x(1)*x(2) - sin(x(1) + x(2)^2)];
+x = [3; -2];
+disp(F(x))
 </pre>
-<p id="p-180">Here the first (main) function is executed: it assigns values to x and y, and then calls another function to compute their AGM.</p>
-<p id="p-181">Anonymous functions, described in <a href="section-anonymous-functions.html" class="internal" title="Section 5.1: Anonymous functions">Section 5.1</a>, have no such restrictions.</p>
-<article class="example example-like" id="example-31"><a data-knowl="" class="id-ref original" data-refid="hk-example-31"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Smallest prime that is greater than a given number.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><p id="p-182">Write a function which, given a value <code class="code-inline tex2jax_ignore">n</code>, finds the smallest prime number that is greater than <code class="code-inline tex2jax_ignore">n</code>.</p>
-<p id="p-183">To determine whether some number <code class="code-inline tex2jax_ignore">k</code> is prime, use <code class="code-inline tex2jax_ignore">isprime(k)</code>. For example, <code class="code-inline tex2jax_ignore">while isprime(k)</code> is a loop that runs as long as <code class="code-inline tex2jax_ignore">k</code> stays prime. To have a loop that runs while <code class="code-inline tex2jax_ignore">k</code> is <em class="emphasis">not</em> prime, use <code class="code-inline tex2jax_ignore">while ~sprime(k)</code>. The character <code class="code-inline tex2jax_ignore">~</code> means logical NOT in Matlab (recall that <code class="code-inline tex2jax_ignore">~=</code> means “not equal”.)</p>
-<div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-31" id="answer-31"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-31"><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">function k = smallestprime(n)
-    k = n + 1;
-    while ~isprime(k)
-        k = k + 1;
-    end
+<p id="p-335">In this example, the argument of F is a vector and the value it returns is also a vector. Note that <code class="code-inline tex2jax_ignore">F(3, -2)</code> would result in an error “too many input arguments” because F takes only one argument (which is a vector). It needs to be <code class="code-inline tex2jax_ignore">F([3; -2])</code>. Writing the input as a row vector, <code class="code-inline tex2jax_ignore">F([3, -2])</code> would have the same effect but for consistency with the formulas below it is better to use column vectors.</p>
+<p id="p-336">When the notation <code class="code-inline tex2jax_ignore">x(1), x(2)</code> becomes too cumbersome, one can consider writing F as a named function, where the input vector is first unpacked into separate variables such as <code class="code-inline tex2jax_ignore">x, y</code>. This makes the formula more readable. The downside is the restriction on named functions in Matlab, noted in <a href="section-named-functions.html" class="internal" title="Section 5.2: Named functions">Section 5.2</a>.</p>
+<pre class="code-block tex2jax_ignore">function v = F(u)
+    x = u(1);
+    y = u(2);
+    v = [x^2*exp(3*y) - 30; x*y - sin(x + y^2)];
 end
-</pre>
-<p id="p-184">For example, <code class="code-inline tex2jax_ignore">smallestprime(31)</code> is 37, because the numbers 32, 33, 34, 35, 36 are not prime.</p>
-</div></div>
-</div></article></div></section></div></main>
+</pre></section></div></main>
 </div>
 </body>
 </html>

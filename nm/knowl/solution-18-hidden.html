@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-07-26T22:29:55-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="solution solution-like">
+<p>The Jacobian matrix is</p>
+<div class="displaymath">
+\begin{equation*}
+J = \begin{pmatrix}
+2x_1e^{3x_2} \amp 3x_1^2e^{3x_2}  \\ 
+x_2-\cos(x_1+x_2^2) \amp x_1-2x_2\cos(x_1+x_2^2) 
+\end{pmatrix} 
+\end{equation*}
+</div>
+<p data-braille="continuation">As a Matlab function, it can be written as follows.</p>
+<pre class="code-block tex2jax_ignore">J = @(x) [2*x(1)*exp(3*x(2)), 3*x(1)^2*exp(3*x(2)); 
+          x(2) - cos(x(1) + x(2)^2), x(1) - 2*x(2)*cos(x(1) + x(2)^2)];
+</pre>
+<p>The linebreak between matrix rows is optional but improves readability.</p>
+</div></body>
+</html>

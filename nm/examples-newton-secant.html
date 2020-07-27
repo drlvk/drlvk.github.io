@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-24T23:43:18-04:00    *-->
+<!--*    on 2020-07-26T22:29:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -126,7 +126,7 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="chapter-user-defined-functions.html" data-scroll="chapter-user-defined-functions"><span class="codenumber">5</span> <span class="title">User-defined functions</span></a><ul>
 <li><a href="section-anonymous-functions.html" data-scroll="section-anonymous-functions">Anonymous functions</a></li>
-<li><a href="named-functions.html" data-scroll="named-functions">Named functions</a></li>
+<li><a href="section-named-functions.html" data-scroll="section-named-functions">Named functions</a></li>
 <li><a href="examples-user-defined-functions.html" data-scroll="examples-user-defined-functions">Examples and questions</a></li>
 <li><a href="exercises-user-defined-functions.html" data-scroll="exercises-user-defined-functions">Homework</a></li>
 </ul>
@@ -171,6 +171,15 @@ MathJax.Hub.Config({
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-multivariate-newton.html" data-scroll="chapter-multivariate-newton"><span class="codenumber">10</span> <span class="title">Systems of several nonlinear equations: multivariate Newton's method</span></a><ul>
+<li><a href="section-nonlinear-systems.html" data-scroll="section-nonlinear-systems">Systems of nonlinear equations</a></li>
+<li><a href="section-multivariate-newton.html" data-scroll="section-multivariate-newton">Multivariate Newton's method</a></li>
+<li><a href="section-multivariate-newton-method-issues.html" data-scroll="section-multivariate-newton-method-issues">Potential issues</a></li>
+<li><a href="examples-multivariate-newton.html" data-scroll="examples-multivariate-newton">Examples and questions</a></li>
+<li><a href="exercises-multivariate-newton.html" data-scroll="exercises-multivariate-newton">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
@@ -199,21 +208,21 @@ MathJax.Hub.Config({
 <div class="displaymath">
 \begin{align*}
 x - \frac{x-p}{f(x)-f(p)} f(x)
-\amp = x - \frac{x-p}{(x-p) + (x^2-p^2)}(x-x^2) \\
-\amp = x - \frac{1}{1 + x +p}(x-x^2)  \\
+\amp = x - \frac{x-p}{(x-p) + (x^2-p^2)}(x+x^2) \\
+\amp = x - \frac{1}{1 + x +p}(x+x^2)  \\
 \amp = \frac{x + x^2 + px - (x+x^2)}{1 - x -p} \\
 \amp = \frac{px}{1 - x -p} 
 \end{align*}
 </div>
-<p data-braille="continuation">Since \(x, p \to 0\text{,}\) the denominator is close to 1. Therefore, the method goes from \(x\) to approximately \(px\) where <p id="p-323">p</p> is the point preceding \(x\text{.}\) For comparison, linear convergence would mean going from \(x\) to approximately \(cx\) where \(c\) is a fixed number. Since the factor <p id="p-324">p</p> itself goes to zero, the secant method has faster than linear rate of convergence.</p>
+<p data-braille="continuation">Since \(x, p \to 0\text{,}\) the denominator is close to 1. Therefore, the method goes from \(x\) to approximately \(px\) where \(p\) is the point preceding \(x\text{.}\) For comparison, linear convergence would mean going from \(x\) to approximately \(cx\) where \(c\) is a fixed number. Since the factor \(p\) itself goes to zero, the secant method has faster than linear rate of convergence.</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-16"><a data-knowl="" class="id-ref original" data-refid="hk-question-16"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">9.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Equation with no solution.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-16"><article class="question example-like"><p id="p-325">What happens if either Newton's method or secant method is applied to the equation \(|x|+1 = 0\) (which, of course, has no solutions)?</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-16"><article class="question example-like"><p id="p-323">What happens if either Newton's method or secant method is applied to the equation \(|x|+1 = 0\) (which, of course, has no solutions)?</p></article></div>
 <article class="question example-like" id="question-17"><a data-knowl="" class="id-ref original" data-refid="hk-question-17"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">9.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Another equation with no solution.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-17"><article class="question example-like"><p id="p-326">What happens if Newton's method is applied to the equation \(e^x = 0\) (which has no solutions)?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-17"><article class="question example-like"><p id="p-324">What happens if Newton's method is applied to the equation \(e^x = 0\) (which has no solutions)?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

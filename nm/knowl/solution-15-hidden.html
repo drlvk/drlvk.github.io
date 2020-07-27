@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-24T23:43:19-04:00    *-->
+<!--*    on 2020-07-26T22:29:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -15,8 +15,9 @@
 <pre class="code-block tex2jax_ignore">f = @(x) x^3 - x;
 x = 5;
 p = 7;
+max_tries = 1000
 
-for k = 1:1000
+for k = 1:max_tries
     x1 = x - f(x)*(x-p)/(f(x)-f(p));
     if abs(x1-x) &lt; 100*eps(x)
         break
@@ -25,7 +26,7 @@ for k = 1:1000
     x = x1;
 end
 
-if k &lt; 1000
+if k &lt; max_tries
     fprintf('Found x = %.12g after %d steps\n', x, k);
 else
     disp('Failed to converge')
