@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:52-04:00    *-->
+<!--*    on 2020-08-02T21:55:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -180,7 +180,26 @@ MathJax.Hub.Config({
 <li><a href="exercises-multivariate-newton.html" data-scroll="exercises-multivariate-newton">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-broyden.html" data-scroll="chapter-broyden"><span class="codenumber">11</span> <span class="title">Broyden's method</span></a><ul>
+<li><a href="section-broyden-intro.html" data-scroll="section-broyden-intro">Idea of Broyden's method</a></li>
+<li><a href="section-broyden-linear-algebra.html" data-scroll="section-broyden-linear-algebra">Outer products</a></li>
+<li><a href="section-broyden-method.html" data-scroll="section-broyden-method">Details of Broyden's method</a></li>
+<li><a href="examples-broyden.html" data-scroll="examples-broyden">Examples and questions</a></li>
+<li><a href="exercises-broyden.html" data-scroll="exercises-broyden">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
+<li class="link">
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
+<li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
+<li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
+<li><a href="section-richardson-extrapolation.html" data-scroll="section-richardson-extrapolation">Richardson extrapolation</a></li>
+<li><a href="examples-numerical-differentiation.html" data-scroll="examples-numerical-differentiation">Examples and questions</a></li>
+<li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -188,13 +207,13 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-meaning-numeric-solution"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">7.2</span> <span class="title">The meaning of a numeric solution</span>
 </h2>
-<p id="p-240">In what sense do we expect the equation \(f(x)=0\) to hold? Because of the round-off errors (<a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off-errors">Section 6.4</a>), we wlll not necessarily get 0 when plugging in some number x. For example, if <code class="code-inline tex2jax_ignore">f = @(x) x^2-2;</code> then we would expect <code class="code-inline tex2jax_ignore">f(sqrt(2))</code> to be 0, but actually <code class="code-inline tex2jax_ignore">f(sqrt(2))</code> produces <code class="code-inline tex2jax_ignore">4.4409e-16</code>, a small but nonzero number. We could ask for <code class="code-inline tex2jax_ignore">abs(f(x))</code> to be small, for example <code class="code-inline tex2jax_ignore">abs(f(x)) &lt; eps</code> where the Matlab command <code class="code-inline tex2jax_ignore">eps</code> returns <code class="code-inline tex2jax_ignore">2^{-52}</code>, the amount of round-off error one can expect for numbers of size about 1. But there are two issues with this approach:</p>
+<p id="p-242">In what sense do we expect the equation \(f(x)=0\) to hold? Because of the round-off errors (<a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off-errors">Section 6.4</a>), we wlll not necessarily get 0 when plugging in some number x. For example, if <code class="code-inline tex2jax_ignore">f = @(x) x^2-2;</code> then we would expect <code class="code-inline tex2jax_ignore">f(sqrt(2))</code> to be 0, but actually <code class="code-inline tex2jax_ignore">f(sqrt(2))</code> produces <code class="code-inline tex2jax_ignore">4.4409e-16</code>, a small but nonzero number. We could ask for <code class="code-inline tex2jax_ignore">abs(f(x))</code> to be small, for example <code class="code-inline tex2jax_ignore">abs(f(x)) &lt; eps</code> where the Matlab command <code class="code-inline tex2jax_ignore">eps</code> returns <code class="code-inline tex2jax_ignore">2^{-52}</code>, the amount of round-off error one can expect for numbers of size about 1. But there are two issues with this approach:</p>
 <ol class="decimal">
 <li id="li-69">The error in computing <code class="code-inline tex2jax_ignore">f(x)</code> may be much larger than <code class="code-inline tex2jax_ignore">eps</code>, as round-off errors may accumulate.</li>
 <li id="li-70">Very small value of <code class="code-inline tex2jax_ignore">f(x)</code> do not mean that <code class="code-inline tex2jax_ignore">x</code> is near a root of function <code class="code-inline tex2jax_ignore">f</code>: for example, the function <code class="code-inline tex2jax_ignore">f = @(x) exp(-x^2);</code> has <code class="code-inline tex2jax_ignore">abs(f(7)) &lt; eps</code>, but the equation \(f(x)=0\) has  no solutions at all.</li>
 </ol>
-<p id="p-241">A more robust approach is to look not for a single number but for an <em class="emphasis">interval</em> \([a, b]\) that is known to contain a root of function \(f\text{.}\) If the interval is small enough, it does not really matter where in the interval the solution is. How small is small enough? There is no universal answer. For many practical purposes, \(b-a \lt 10^{-6}\) is good enough. Or we may want \(b-a \lt 10^{-12}\) to get a more accurate answer. This makes sense when the root itself is not extremely large or extremely small. But when the root is of size \(10^{20}\) we cannot possibly hope to get an interval of length \(10^{-6}\) around it, or even of length 1. Indeed, the comparison <code class="code-inline tex2jax_ignore">10^20 + 1 == 10^(20)</code> evaluates as True in Matlab, meaning that it cannot tell these numbers apart because of the limitation of computer arithmetic.</p>
-<p id="p-242">For the reason mentioned in the previous paragraph, the Matlab command <code class="code-inline tex2jax_ignore">eps(x)</code> gives the smallest possible size of an interval including <code class="code-inline tex2jax_ignore">x</code> that can be expressed in its arithmetic. For example, <code class="code-inline tex2jax_ignore">eps(10^20)</code> returns 16384, indicating we cannot expect an interval around \(10^{20}\) to be smaller than 16384. When looking for a root, a reasonable approach is to consider an interval \([a, b]\) “small enough” when <code class="code-inline tex2jax_ignore">b - a &lt; 100*eps(a)</code> where the factor 100 allows for accumulation of round-off errors during the computation.</p></section></div></main>
+<p id="p-243">A more robust approach is to look not for a single number but for an <em class="emphasis">interval</em> \([a, b]\) that is known to contain a root of function \(f\text{.}\) If the interval is small enough, it does not really matter where in the interval the solution is. How small is small enough? There is no universal answer. For many practical purposes, \(b-a \lt 10^{-6}\) is good enough. Or we may want \(b-a \lt 10^{-12}\) to get a more accurate answer. This makes sense when the root itself is not extremely large or extremely small. But when the root is of size \(10^{20}\) we cannot possibly hope to get an interval of length \(10^{-6}\) around it, or even of length 1. Indeed, the comparison <code class="code-inline tex2jax_ignore">10^20 + 1 == 10^(20)</code> evaluates as True in Matlab, meaning that it cannot tell these numbers apart because of the limitation of computer arithmetic.</p>
+<p id="p-244">For the reason mentioned in the previous paragraph, the Matlab command <code class="code-inline tex2jax_ignore">eps(x)</code> gives the smallest possible size of an interval including <code class="code-inline tex2jax_ignore">x</code> that can be expressed in its arithmetic. For example, <code class="code-inline tex2jax_ignore">eps(10^20)</code> returns 16384, indicating we cannot expect an interval around \(10^{20}\) to be smaller than 16384. When looking for a root, a reasonable approach is to consider an interval \([a, b]\) “small enough” when <code class="code-inline tex2jax_ignore">b - a &lt; 100*eps(a)</code> where the factor 100 allows for accumulation of round-off errors during the computation.</p></section></div></main>
 </div>
 </body>
 </html>

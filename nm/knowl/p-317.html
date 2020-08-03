@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:55-04:00    *-->
+<!--*    on 2020-08-02T21:55:56-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
-<span class="incontext"><a href="examples-newton-secant.html#p-317">in-context</a></span>
+<p>How to determine an appropriate value of \(\omega\text{?}\) Consider the case of a multiple root: \(f(x) = x^p\) with \(p &gt; 1\text{.}\)  Here</p>
+<div class="displaymath">
+\begin{equation*}
+g(x) = x - \omega \frac{f(x)}{f'(x)} = x - \omega \frac{x^p}{px^{p-1}} = (1- \omega/p)x
+\end{equation*}
+</div>
+<p data-braille="continuation">so the best value to use \(\omega = p\text{,}\) which makes \(g(x)=0\text{,}\) the solution is found in one step. So, for a double root, when the graph of \(f\) looks like a parabola near the root, we should use over-relaxation with \(\omega = 2\text{;}\) for triple roots, \(\omega = 3\text{,}\) and so on. Over-relaxation needs to be done very carefully: in these examples, any value of \(\omega\) other than the correct one will fail to achieve the desired speed up of convergence.</p>
+<span class="incontext"><a href="section-relaxation-parameter.html#p-317">in-context</a></span>
 </body>
 </html>

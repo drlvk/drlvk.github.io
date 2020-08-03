@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:53-04:00    *-->
+<!--*    on 2020-08-02T21:55:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -180,7 +180,26 @@ MathJax.Hub.Config({
 <li><a href="exercises-multivariate-newton.html" data-scroll="exercises-multivariate-newton">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-broyden.html" data-scroll="chapter-broyden"><span class="codenumber">11</span> <span class="title">Broyden's method</span></a><ul>
+<li><a href="section-broyden-intro.html" data-scroll="section-broyden-intro">Idea of Broyden's method</a></li>
+<li><a href="section-broyden-linear-algebra.html" data-scroll="section-broyden-linear-algebra">Outer products</a></li>
+<li><a href="section-broyden-method.html" data-scroll="section-broyden-method">Details of Broyden's method</a></li>
+<li><a href="examples-broyden.html" data-scroll="examples-broyden">Examples and questions</a></li>
+<li><a href="exercises-broyden.html" data-scroll="exercises-broyden">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
+<li class="link">
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
+<li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
+<li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
+<li><a href="section-richardson-extrapolation.html" data-scroll="section-richardson-extrapolation">Richardson extrapolation</a></li>
+<li><a href="examples-numerical-differentiation.html" data-scroll="examples-numerical-differentiation">Examples and questions</a></li>
+<li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -188,7 +207,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-multivariate-newton"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">10.2</span> <span class="title">Multivariate Newton's method</span>
 </h2>
-<p id="p-337">Newton's method (<a href="section-newton-method-intro.html" class="internal" title="Section 9.1: Newton's method">Section 9.1</a>) is based on the idea of replacing a nonlinear function with its linear approximation, and solving the resulting linear equation. The linear approximation comes from the derivative. In the setting of several variables we have <dfn class="terminology">partial derivatives</dfn> which are arranged into the <dfn class="terminology">Jacobian matrix</dfn>. The \((i, j)\) entry of the Jacobian matrix is the derivative of the \(i\)th component of \(\vec F\) with respect to the \(j\)th component of \(\vec x\text{:}\)</p>
+<p id="p-339">Newton's method (<a href="section-newton-method-intro.html" class="internal" title="Section 9.1: Newton's method">Section 9.1</a>) is based on the idea of replacing a nonlinear function with its linear approximation, and solving the resulting linear equation. The linear approximation comes from the derivative. In the setting of several variables we have <dfn class="terminology">partial derivatives</dfn> which are arranged into the <dfn class="terminology">Jacobian matrix</dfn>. The \((i, j)\) entry of the Jacobian matrix is the derivative of the \(i\)th component of \(\mathbf F\) with respect to the \(j\)th component of \(\mathbf x\text{:}\)</p>
 <div class="displaymath">
 \begin{equation*}
 J = \begin{pmatrix} \partial F_1/\partial x_1 \amp \partial F_1/\partial x_2 \\
@@ -198,10 +217,10 @@ J = \begin{pmatrix} \partial F_1/\partial x_1 \amp \partial F_1/\partial x_2 \\
 <p data-braille="continuation">(or more rows/columns if there are more variables).</p>
 <article class="example example-like" id="example-56"><a data-knowl="" class="id-ref original" data-refid="hk-example-56"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">10.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Find the Jacobian matrix.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-56"><article class="example example-like"><p id="p-338">Find the Jacobian matrix of the function <a class="xref" data-knowl="./knowl/eq-function-F.html" title="Equation 10.1.2">(10.1.2)</a>. Express it as an anonymous function in Matlab.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-56"><article class="example example-like"><p id="p-340">Find the Jacobian matrix of the function <a class="xref" data-knowl="./knowl/eq-function-F.html" title="Equation 10.1.2">(10.1.2)</a>. Express it as an anonymous function in Matlab.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-18" id="solution-18"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-18"><div class="solution solution-like">
-<p id="p-339">The Jacobian matrix is</p>
+<p id="p-341">The Jacobian matrix is</p>
 <div class="displaymath">
 \begin{equation*}
 J = \begin{pmatrix}
@@ -214,13 +233,13 @@ x_2-\cos(x_1+x_2^2) \amp x_1-2x_2\cos(x_1+x_2^2)
 <pre class="code-block tex2jax_ignore">J = @(x) [2*x(1)*exp(3*x(2)), 3*x(1)^2*exp(3*x(2)); 
           x(2) - cos(x(1) + x(2)^2), x(1) - 2*x(2)*cos(x(1) + x(2)^2)];
 </pre>
-<p id="p-340">The linebreak between matrix rows is optional but improves readability.</p>
+<p id="p-342">The linebreak between matrix rows is optional but improves readability.</p>
 </div></div>
 </div></article></div>
-<p id="p-341">The linear approximation to \(\vec F\) at a point \(\vec x\) is \(\vec F(\vec x + \vec h) \approx \vec F(\vec x) + J\vec h\) where \(J\vec h\) is a matrix-vector product.</p>
+<p id="p-343">The linear approximation to \(\mathbf F\) at a point \(\mathbf x\) is \(\mathbf F(\mathbf x + \mathbf h) \approx \mathbf F(\mathbf x) + J\mathbf h\) where \(J\mathbf h\) is a matrix-vector product.</p>
 <article class="example example-like" id="example-linear-approx-multivariate"><a data-knowl="" class="id-ref original" data-refid="hk-example-linear-approx-multivariate"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">10.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Find the linear approximation.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-linear-approx-multivariate"><article class="example example-like"><p id="p-342">Find the linear approximation to function <a class="xref" data-knowl="./knowl/eq-function-F.html" title="Equation 10.1.2">(10.1.2)</a> using <code class="code-inline tex2jax_ignore">x = [2; -1]</code> and <code class="code-inline tex2jax_ignore">h = [0.3, 0.2]</code>. Compare the approximation to the actual value of <code class="code-inline tex2jax_ignore">F(x+h)</code>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-linear-approx-multivariate"><article class="example example-like"><p id="p-344">Find the linear approximation to function <a class="xref" data-knowl="./knowl/eq-function-F.html" title="Equation 10.1.2">(10.1.2)</a> using <code class="code-inline tex2jax_ignore">x = [2; -1]</code> and <code class="code-inline tex2jax_ignore">h = [0.3, 0.2]</code>. Compare the approximation to the actual value of <code class="code-inline tex2jax_ignore">F(x+h)</code>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-19" id="solution-19"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-19"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">F = @(x) [x(1)^2*exp(3*x(2)) - 30; x(1)*x(2) - sin(x(1) + x(2)^2)];
@@ -232,21 +251,21 @@ h = [0.3; 0.2];
 fprintf("Linear approximation: (%g, %g)\n", F(x) + J(x)*h)
 fprintf("Actual value: (%g, %g)\n", F(x + h))
 </pre>
-<p id="p-343">The output:</p>
+<p id="p-345">The output:</p>
 <pre class="code-block tex2jax_ignore">Linear approximation: (-29.6216, -2.14012)
 Actual value: (-29.5201, -2.04023)
 </pre>
-<p id="p-344">These are close, so the approximation is good. Note the use of formatted strings with vectors: Matlab automatically “unpacks” vectors when they are used in <code class="code-inline tex2jax_ignore">fprintf</code>. This means one should have a formatting code for every entry of the vector, like <code class="code-inline tex2jax_ignore">(%g, %g)</code> above. The formatting code <code class="code-inline tex2jax_ignore">%g</code> without any specification of precision means the numbers are shown as Matlab would normally shows them.</p>
+<p id="p-346">These are close, so the approximation is good. Note the use of formatted strings with vectors: Matlab automatically “unpacks” vectors when they are used in <code class="code-inline tex2jax_ignore">fprintf</code>. This means one should have a formatting code for every entry of the vector, like <code class="code-inline tex2jax_ignore">(%g, %g)</code> above. The formatting code <code class="code-inline tex2jax_ignore">%g</code> without any specification of precision means the numbers are shown as Matlab would normally shows them.</p>
 </div></div>
 </div></article></div>
-<p id="p-345">As with the single-variable Newton method, we equate the linear approximation to zero and solve the linear equation. The solution of \(\vec F(\vec x) + J\vec h=0\) is \(\vec h = -J^{-1} \vec F(\vec x)\text{.}\) This formula is only for writing down the theoretical approach, in practice we do not invert the matrix \(J\) and simply ask Matlab to solve the linear system (this is more efficient than computing the inverse matrix). So, in Matlab terms the formula is <code class="code-inline tex2jax_ignore">h = -J\F(x)</code>. Having found the vector \(\vec h\) we replace \(\vec x\) with \(\vec x + \vec h\) and repeat. The process stops when the steps becomes sufficiently small, indicating we approached a solution. The size of vectors is measured by their norm: <code class="code-inline tex2jax_ignore">norm(h)</code>.</p>
-<p id="p-346">The typical behavior of Newton's method is that it jumps around for several steps, but once it gets in a neighborhood of a solution, it converges to it very quickly.</p>
+<p id="p-347">As with the single-variable Newton method, we equate the linear approximation to zero and solve the linear equation. The solution of \(\mathbf F(\mathbf x) + J\mathbf h=0\) is \(\mathbf h = -J^{-1} \mathbf F(\mathbf x)\text{.}\) This formula is only for writing down the theoretical approach, in practice we do not invert the matrix \(J\) and simply ask Matlab to solve the linear system (this is more efficient than computing the inverse matrix). So, in Matlab terms the formula is <code class="code-inline tex2jax_ignore">h = -J\F(x)</code>. Having found the vector \(\mathbf h\) we replace \(\mathbf x\) with \(\mathbf x + \mathbf h\) and repeat. The process stops when the steps becomes sufficiently small, indicating we approached a solution. The size of vectors is measured by their norm: <code class="code-inline tex2jax_ignore">norm(h)</code>.</p>
+<p id="p-348">The typical behavior of Newton's method is that it jumps around for several steps, but once it gets in a neighborhood of a solution, it converges to it very quickly.</p>
 <article class="example example-like" id="example-multivariate-newton-solve"><a data-knowl="" class="id-ref original" data-refid="hk-example-multivariate-newton-solve"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">10.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Solve a system using Newton's method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-multivariate-newton-solve"><article class="example example-like"><p id="p-347">Solve the system <a class="xref" data-knowl="./knowl/eq-nonlinear-system.html" title="Equation 10.1.1">(10.1.1)</a> using Newton's method. Try different initial points. Does the method always converge? Does it converge to the same solution?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-multivariate-newton-solve"><article class="example example-like"><p id="p-349">Solve the system <a class="xref" data-knowl="./knowl/eq-nonlinear-system.html" title="Equation 10.1.1">(10.1.1)</a> using Newton's method. Try different initial points. Does the method always converge? Does it converge to the same solution?</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-20" id="solution-20"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-20"><div class="solution solution-like">
-<p id="p-348">Following the structure of single-variable Newton method with notational adjustments:</p>
+<p id="p-350">Following the structure of single-variable Newton method with notational adjustments:</p>
 <pre class="code-block tex2jax_ignore">F = @(x) [x(1)^2*exp(3*x(2)) - 30; x(1)*x(2) - sin(x(1) + x(2)^2)];
 J = @(x) [2*x(1)*exp(3*x(2)), 3*x(1)^2*exp(3*x(2)); 
           x(2) - cos(x(1) + x(2)^2), x(1) - 2*x(2)*cos(x(1) + x(2)^2)];
@@ -271,7 +290,7 @@ else
     disp('Failed to converge')
 end
 </pre>
-<p id="p-349">It is reasonable to increase the “max tries” number in Newton's method when several variables are involved, as convergence may take longer. In the above example, with initial point <code class="code-inline tex2jax_ignore">[2; 1]</code>, a solution <code class="code-inline tex2jax_ignore">[-0.0019; 5.3185]</code> is found in 15 steps. With initial point <code class="code-inline tex2jax_ignore">[1; 2]</code> the method fails to converge. With initial point <code class="code-inline tex2jax_ignore">[2; 2]</code> it converges in 10 steps to a different solution, <code class="code-inline tex2jax_ignore">[-0.2734; 1.9982]</code>.</p>
+<p id="p-351">It is reasonable to increase the “max tries” number in Newton's method when several variables are involved, as convergence may take longer. In the above example, with initial point <code class="code-inline tex2jax_ignore">[2; 1]</code>, a solution <code class="code-inline tex2jax_ignore">[-0.0019; 5.3185]</code> is found in 15 steps. With initial point <code class="code-inline tex2jax_ignore">[1; 2]</code> the method fails to converge. With initial point <code class="code-inline tex2jax_ignore">[2; 2]</code> it converges in 10 steps to a different solution, <code class="code-inline tex2jax_ignore">[-0.2734; 1.9982]</code>.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

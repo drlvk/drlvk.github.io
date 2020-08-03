@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:53-04:00    *-->
+<!--*    on 2020-08-02T21:55:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -180,7 +180,26 @@ MathJax.Hub.Config({
 <li><a href="exercises-multivariate-newton.html" data-scroll="exercises-multivariate-newton">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-broyden.html" data-scroll="chapter-broyden"><span class="codenumber">11</span> <span class="title">Broyden's method</span></a><ul>
+<li><a href="section-broyden-intro.html" data-scroll="section-broyden-intro">Idea of Broyden's method</a></li>
+<li><a href="section-broyden-linear-algebra.html" data-scroll="section-broyden-linear-algebra">Outer products</a></li>
+<li><a href="section-broyden-method.html" data-scroll="section-broyden-method">Details of Broyden's method</a></li>
+<li><a href="examples-broyden.html" data-scroll="examples-broyden">Examples and questions</a></li>
+<li><a href="exercises-broyden.html" data-scroll="exercises-broyden">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
+<li class="link">
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
+<li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
+<li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
+<li><a href="section-richardson-extrapolation.html" data-scroll="section-richardson-extrapolation">Richardson extrapolation</a></li>
+<li><a href="examples-numerical-differentiation.html" data-scroll="examples-numerical-differentiation">Examples and questions</a></li>
+<li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -188,10 +207,10 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-secant-method"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">9.3</span> <span class="title">The secant method</span>
 </h2>
-<p id="p-311">The secant method is a close relative of Newton's method. The only difference is that instead of drawing a tangent line and finding where it crosses the line \(y=0\) we do the same for a secant line. The slope of a secant line is computed as \((f(x)-f(p))/(x-p)\) where \(x, p\) are two distinct points on the x-axis. The benefit is that we do not need the derivative of \(f\text{,}\) we only use the function itself. The drawback is that we have to keep track not of just one point, but of two. This makes the algorithm slightly more complicated: it is not just fixed-point iteration of some function \(g\) as in Newton's method. Also, the analysis of its speed of convergence is more complicated: generally, it is between linear and quadratic; faster than bisection but slower than Newton.</p>
+<p id="p-313">The secant method is a close relative of Newton's method. The only difference is that instead of drawing a tangent line and finding where it crosses the line \(y=0\) we do the same for a secant line. The slope of a secant line is computed as \((f(x)-f(p))/(x-p)\) where \(x, p\) are two distinct points on the x-axis. The benefit is that we do not need the derivative of \(f\text{,}\) we only use the function itself. The drawback is that we have to keep track not of just one point, but of two. This makes the algorithm slightly more complicated: it is not just fixed-point iteration of some function \(g\) as in Newton's method. Also, the analysis of its speed of convergence is more complicated: generally, it is between linear and quadratic; faster than bisection but slower than Newton.</p>
 <article class="example example-like" id="example-secant-method"><a data-knowl="" class="id-ref original" data-refid="hk-example-secant-method"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Implement the secant method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-secant-method"><article class="example example-like"><p id="p-312">Write a script that starts with the definition of a function \(f\) and two initial points, for example</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-secant-method"><article class="example example-like"><p id="p-314">Write a script that starts with the definition of a function \(f\) and two initial points, for example</p>
 <pre class="code-block tex2jax_ignore">
 f = @(x) x^3 - x;
 x = 5;
@@ -226,7 +245,7 @@ else
     disp('Failed to converge')
 end
 </pre>
-<p id="p-313">This script follows the structure of <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a> except that we compute "new x", called x1, on the basis of two previous values (called <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code>). After the computation, <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code> are replaced by <code class="code-inline tex2jax_ignore">x1</code> and <code class="code-inline tex2jax_ignore">x</code>: the newly computed point becomes one of the two points through which we draw next secant line.</p>
+<p id="p-315">This script follows the structure of <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a> except that we compute "new x", called x1, on the basis of two previous values (called <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code>). After the computation, <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code> are replaced by <code class="code-inline tex2jax_ignore">x1</code> and <code class="code-inline tex2jax_ignore">x</code>: the newly computed point becomes one of the two points through which we draw next secant line.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:53-04:00    *-->
+<!--*    on 2020-08-02T21:55:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -180,7 +180,26 @@ MathJax.Hub.Config({
 <li><a href="exercises-multivariate-newton.html" data-scroll="exercises-multivariate-newton">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-broyden.html" data-scroll="chapter-broyden"><span class="codenumber">11</span> <span class="title">Broyden's method</span></a><ul>
+<li><a href="section-broyden-intro.html" data-scroll="section-broyden-intro">Idea of Broyden's method</a></li>
+<li><a href="section-broyden-linear-algebra.html" data-scroll="section-broyden-linear-algebra">Outer products</a></li>
+<li><a href="section-broyden-method.html" data-scroll="section-broyden-method">Details of Broyden's method</a></li>
+<li><a href="examples-broyden.html" data-scroll="examples-broyden">Examples and questions</a></li>
+<li><a href="exercises-broyden.html" data-scroll="exercises-broyden">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
+<li class="link">
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
+<li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
+<li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
+<li><a href="section-richardson-extrapolation.html" data-scroll="section-richardson-extrapolation">Richardson extrapolation</a></li>
+<li><a href="examples-numerical-differentiation.html" data-scroll="examples-numerical-differentiation">Examples and questions</a></li>
+<li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -188,19 +207,19 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-classification-fixed-points"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">8.1</span> <span class="title">Classification of fixed points</span>
 </h2>
-<p id="p-271">A <dfn class="terminology">fixed point</dfn> of a function \(g\) is a number \(x^*\) such that \(g(x^*)=x^*\text{.}\) This is the same as a root of \(g(x)-x=0\) but we will see that writing an equation with \(x\) on the right provides a new approach to solving it.</p>
+<p id="p-273">A <dfn class="terminology">fixed point</dfn> of a function \(g\) is a number \(x^*\) such that \(g(x^*)=x^*\text{.}\) This is the same as a root of \(g(x)-x=0\) but we will see that writing an equation with \(x\) on the right provides a new approach to solving it.</p>
 <article class="example example-like" id="example-47"><a data-knowl="" class="id-ref original" data-refid="hk-example-47"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Find all fixed points of a function.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-47"><article class="example example-like"><p id="p-272">Find all fixed points of the function \(g(x) = \sqrt{1+x}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-47"><article class="example example-like"><p id="p-274">Find all fixed points of the function \(g(x) = \sqrt{1+x}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like">
-<p id="p-273">Squaring both sides of \(\sqrt{1+x} = x\) yields \(x^2 - x - 1\) which is a quadratic equation with roots \((1\pm \sqrt{5})/2 \text{.}\) However, the negative root does not satisfy the original equation  \(\sqrt{1+x} = x\text{.}\)</p>
-<p id="p-274">Answer: one fixed point   \(x^* = (1+\sqrt{5})/2\text{.}\)</p>
+<p id="p-275">Squaring both sides of \(\sqrt{1+x} = x\) yields \(x^2 - x - 1\) which is a quadratic equation with roots \((1\pm \sqrt{5})/2 \text{.}\) However, the negative root does not satisfy the original equation  \(\sqrt{1+x} = x\text{.}\)</p>
+<p id="p-276">Answer: one fixed point   \(x^* = (1+\sqrt{5})/2\text{.}\)</p>
 </div></div>
 </div></article></div>
-<p id="p-275">The process of <dfn class="terminology">iterating</dfn> some function \(g\) consists of the following: start from some initial value \(x_0\text{,}\) let \(x_1=g(x_0)\text{,}\) \(x_2 = g(x_1)\text{,}\) and generally \(x_{n+1} = g(x_n)\text{.}\) If the sequence \(x_n\) has a limit  \(x^* \text{,}\) and \(g\) is a continuous function, it follows that \(g(x^*)=x^*\text{.}\)</p>
-<p id="p-276">However, can we expect the iteration to converge to a fixed point \(x^* \text{?}\) The answer depends on the value of \(g'(x^*)\text{.}\) Indeed, when \(x\approx x^*\text{,}\) the difference \(g(x)-x^*\) is approximately \(g'(x^*)(x-x^*)\) because the graph of a differential function is close to its tangent line. When \(|g'(x^*)|\lt 1\text{,}\) the distance to fixed point is decreasing but if  \(|g'(x^*)| &gt; 1\) it is increasing. This leads us to introduce the following concept.</p>
-<p id="p-277"><em class="emphasis">Classification of fixed points</em>. A fixed point \(x^*\) is called</p>
+<p id="p-277">The process of <dfn class="terminology">iterating</dfn> some function \(g\) consists of the following: start from some initial value \(x_0\text{,}\) let \(x_1=g(x_0)\text{,}\) \(x_2 = g(x_1)\text{,}\) and generally \(x_{n+1} = g(x_n)\text{.}\) If the sequence \(x_n\) has a limit  \(x^* \text{,}\) and \(g\) is a continuous function, it follows that \(g(x^*)=x^*\text{.}\)</p>
+<p id="p-278">However, can we expect the iteration to converge to a fixed point \(x^* \text{?}\) The answer depends on the value of \(g'(x^*)\text{.}\) Indeed, when \(x\approx x^*\text{,}\) the difference \(g(x)-x^*\) is approximately \(g'(x^*)(x-x^*)\) because the graph of a differential function is close to its tangent line. When \(|g'(x^*)|\lt 1\text{,}\) the distance to fixed point is decreasing but if  \(|g'(x^*)| &gt; 1\) it is increasing. This leads us to introduce the following concept.</p>
+<p id="p-279"><em class="emphasis">Classification of fixed points</em>. A fixed point \(x^*\) is called</p>
 <ul class="disc">
 <li id="li-81">
 <dfn class="terminology">repelling</dfn> if \(|g'(x^*)| &gt; 1\)</li>
@@ -214,10 +233,10 @@ MathJax.Hub.Config({
 <p data-braille="continuation">According to the above, iteration of \(g\) may converge to an attracting point but will not converge to a repelling one. The neutral points are a borderline case: some of them are limits of iterative process, some are not.</p>
 <article class="example example-like" id="example-48"><a data-knowl="" class="id-ref original" data-refid="hk-example-48"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Find and classify the fixed points.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-48"><article class="example example-like"><p id="p-278">Find and classify all fixed points of the function \(g(x) = x^3 + x^2 - x\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-48"><article class="example example-like"><p id="p-280">Find and classify all fixed points of the function \(g(x) = x^3 + x^2 - x\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-10" id="solution-10"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-10"><div class="solution solution-like">
-<p id="p-279">The equation \(x^3 + x^2 - x = x\) simplifies to \(x(x^2 + x - 2) =0\) which has roots \(0, 1, -2\text{.}\) These are the three fixed points. Plug each into the derivative \(g'(x) = 3x^2 + 2x - 1\) to find that</p>
+<p id="p-281">The equation \(x^3 + x^2 - x = x\) simplifies to \(x(x^2 + x - 2) =0\) which has roots \(0, 1, -2\text{.}\) These are the three fixed points. Plug each into the derivative \(g'(x) = 3x^2 + 2x - 1\) to find that</p>
 <ul class="disc">
 <li id="li-85">\(|g'(0)| = |-1| = 1\text{,}\) a neutral fixed point</li>
 <li id="li-86">\(|g'(1)| = |4| = 4\text{,}\) a repelling fixed point</li>

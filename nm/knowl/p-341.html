@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:55-04:00    *-->
+<!--*    on 2020-08-02T21:55:57-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The linear approximation to \(\vec F\) at a point \(\vec x\) is \(\vec F(\vec x + \vec h) \approx \vec F(\vec x) + J\vec h\) where \(J\vec h\) is a matrix-vector product.</p>
+<p>The Jacobian matrix is</p>
+<div class="displaymath">
+\begin{equation*}
+J = \begin{pmatrix}
+2x_1e^{3x_2} \amp 3x_1^2e^{3x_2}  \\ 
+x_2-\cos(x_1+x_2^2) \amp x_1-2x_2\cos(x_1+x_2^2) 
+\end{pmatrix} 
+\end{equation*}
+</div>
+<p data-braille="continuation">As a Matlab function, it can be written as follows.</p>
 <span class="incontext"><a href="section-multivariate-newton.html#p-341">in-context</a></span>
 </body>
 </html>

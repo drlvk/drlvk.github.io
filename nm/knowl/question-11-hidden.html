@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:54-04:00    *-->
+<!--*    on 2020-08-02T21:55:56-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,6 +11,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><article class="question example-like"><p>How different is the best-fit parabola in <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a> from the line of best fit? If you have to choose between fitting a line or a parabola to this data set, what would you use?</p>
-<p>Later we will consider the issue of <em class="emphasis">model selection</em> systematically: how to decide which model is more appropriate (for example, linear or quadratic).</p></article></body>
+<body><article class="question example-like"><p>Linear algebra says that an \(n\times n\) matrix \(A\) is singular (non-invertible) if and only if \(\det A = 0\text{,}\) if and only if \(\rank A \lt n\text{.}\) But in computational practice these two tests for invertibility can give different results. Consider the diagonal matrix with entries \(10^{16}\) and \(1\text{.}\)</p>
+<pre class="code-block tex2jax_ignore">A = [1e16 0; 0 1];
+disp(det(A))
+disp(rank(A))
+</pre>
+<p>Matlab says the determinant is \(10^{16}\) which makes sense: it is the product of diagonal entries. Yet, it also says the rank is \(1\text{.}\) Why?</p></article></body>
 </html>

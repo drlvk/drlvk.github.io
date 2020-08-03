@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:55-04:00    *-->
+<!--*    on 2020-08-02T21:55:57-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>As with the single-variable Newton method, we equate the linear approximation to zero and solve the linear equation. The solution of \(\vec F(\vec x) + J\vec h=0\) is \(\vec h = -J^{-1} \vec F(\vec x)\text{.}\) This formula is only for writing down the theoretical approach, in practice we do not invert the matrix \(J\) and simply ask Matlab to solve the linear system (this is more efficient than computing the inverse matrix). So, in Matlab terms the formula is <code class="code-inline tex2jax_ignore">h = -J\F(x)</code>. Having found the vector \(\vec h\) we replace \(\vec x\) with \(\vec x + \vec h\) and repeat. The process stops when the steps becomes sufficiently small, indicating we approached a solution. The size of vectors is measured by their norm: <code class="code-inline tex2jax_ignore">norm(h)</code>.</p>
+<p>The output:</p>
 <span class="incontext"><a href="section-multivariate-newton.html#p-345">in-context</a></span>
 </body>
 </html>

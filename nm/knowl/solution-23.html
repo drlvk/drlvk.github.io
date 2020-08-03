@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-08-02T21:55:57-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">11.2.1.1</span><span class="period">.</span>
+</h6>
+<pre class="code-block tex2jax_ignore">a = rand(5, 1);
+b = rand(5, 1);
+M = a*b';
+disp(rank(M))
+disp(det(M))
+</pre>
+<p>The result should be: rank is 1, and the determinant is some extremely small (but nonzero) number, for example <code class="code-inline tex2jax_ignore">3.2391e-69</code>. Mathematically this is impossible: a 5<span class="times-sign">×</span>5 matrix of rank less than 5 must have determinant equal to 0. But the reality of computer arithmetic is that floating point numbers rarely add up exactly to zero, as noted in <a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off-errors">Section 6.4</a>. Matlab's <code class="code-inline tex2jax_ignore">rank</code> command takes this into account and reports the rank as 1 when the matrix is “close enough” to actually having rank 1.</p>
+</div>
+<span class="incontext"><a href="section-broyden-linear-algebra.html#solution-23">in-context</a></span>
+</body>
+</html>

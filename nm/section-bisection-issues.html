@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:52-04:00    *-->
+<!--*    on 2020-08-02T21:55:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -180,7 +180,26 @@ MathJax.Hub.Config({
 <li><a href="exercises-multivariate-newton.html" data-scroll="exercises-multivariate-newton">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-broyden.html" data-scroll="chapter-broyden"><span class="codenumber">11</span> <span class="title">Broyden's method</span></a><ul>
+<li><a href="section-broyden-intro.html" data-scroll="section-broyden-intro">Idea of Broyden's method</a></li>
+<li><a href="section-broyden-linear-algebra.html" data-scroll="section-broyden-linear-algebra">Outer products</a></li>
+<li><a href="section-broyden-method.html" data-scroll="section-broyden-method">Details of Broyden's method</a></li>
+<li><a href="examples-broyden.html" data-scroll="examples-broyden">Examples and questions</a></li>
+<li><a href="exercises-broyden.html" data-scroll="exercises-broyden">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
+<li class="link">
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
+<li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
+<li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
+<li><a href="section-richardson-extrapolation.html" data-scroll="section-richardson-extrapolation">Richardson extrapolation</a></li>
+<li><a href="examples-numerical-differentiation.html" data-scroll="examples-numerical-differentiation">Examples and questions</a></li>
+<li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -188,7 +207,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-bisection-issues"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">7.4</span> <span class="title">Limitations of the bisection method</span>
 </h2>
-<p id="p-250">The main limitation of the bisection method are:</p>
+<p id="p-252">The main limitation of the bisection method are:</p>
 <ul class="disc">
 <li id="li-77">It does not apply to systems of more than one equation</li>
 <li id="li-78">It  requires the knowledge of a bracketing interval</li>
@@ -196,14 +215,14 @@ MathJax.Hub.Config({
 <li id="li-80">Its speed of convergence is slow (linear)</li>
 </ul>
 <p data-braille="continuation">To illustrate the second limitation, consider the equation \(x^2 - 2x + 0.9999 = 0\text{.}\) It has two roots, both of which are very close to 1. Outside of a small neighborhood of 1, the function is positive. So, in order to construct a bracketing interval one needs to place one of its endpoints very close to 1. This means one needs to have a good idea of where the roots are in order to start with the method.</p>
-<p id="p-251">Calculus methods involving the derivative \(f'\) can help us understand in what direction the function changes, improving our chance of finding a bracketing interval.</p>
+<p id="p-253">Calculus methods involving the derivative \(f'\) can help us understand in what direction the function changes, improving our chance of finding a bracketing interval.</p>
 <article class="example example-like" id="example-44"><a data-knowl="" class="id-ref original" data-refid="hk-example-44"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Find the number of roots and a bracketing interval for each of them.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><p id="p-252">For the function \(f(x) = 2e^x + x^3 - 1\text{,}\) determine the number of roots and find a bracketing interval for each of them.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><p id="p-254">For the function \(f(x) = 2e^x + x^3 - 1\text{,}\) determine the number of roots and find a bracketing interval for each of them.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">
-<p id="p-253">The derivative \(f'(x) = 2e^x + 3x^2\) is always positive. Therefore, the function \(f\) increases on the real line. Such a function either has no roots (if its graph never crosses the \(y\)-axis), or has one root. Since \(f(x)\to \infty\) as \(x\to \infty\) and \(f(x) \to -\infty\) as \(x\to-\infty\text{,}\) it follows that the graph crosses the \(y\)-axis. We need a finite bracketing interval, since for the bisection method to work, both \(a\) and \(b\) must be finite. Since \(f(0) = 2 + 0 - 1 = 1 &gt; 0\) it remains to find a negative value. For example, \(f(-1) = 2e^{-1} - 1 - 1 = 2(1-e)/e \lt 0\text{.}\)</p>
-<p id="p-254">Answer: one root, with a bracketing interval \([-1, 0]\text{.}\)</p>
+<p id="p-255">The derivative \(f'(x) = 2e^x + 3x^2\) is always positive. Therefore, the function \(f\) increases on the real line. Such a function either has no roots (if its graph never crosses the \(y\)-axis), or has one root. Since \(f(x)\to \infty\) as \(x\to \infty\) and \(f(x) \to -\infty\) as \(x\to-\infty\text{,}\) it follows that the graph crosses the \(y\)-axis. We need a finite bracketing interval, since for the bisection method to work, both \(a\) and \(b\) must be finite. Since \(f(0) = 2 + 0 - 1 = 1 &gt; 0\) it remains to find a negative value. For example, \(f(-1) = 2e^{-1} - 1 - 1 = 2(1-e)/e \lt 0\text{.}\)</p>
+<p id="p-256">Answer: one root, with a bracketing interval \([-1, 0]\text{.}\)</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

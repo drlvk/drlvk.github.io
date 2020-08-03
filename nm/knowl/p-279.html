@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:54-04:00    *-->
+<!--*    on 2020-08-02T21:55:56-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,18 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The equation \(x^3 + x^2 - x = x\) simplifies to \(x(x^2 + x - 2) =0\) which has roots \(0, 1, -2\text{.}\) These are the three fixed points. Plug each into the derivative \(g'(x) = 3x^2 + 2x - 1\) to find that</p>
+<p><em class="emphasis">Classification of fixed points</em>. A fixed point \(x^*\) is called</p>
 <ul class="disc">
-<li>\(|g'(0)| = |-1| = 1\text{,}\) a neutral fixed point</li>
-<li>\(|g'(1)| = |4| = 4\text{,}\) a repelling fixed point</li>
-<li>\(|g'(-2)| = |7| = 7\text{,}\) a repelling fixed point</li>
+<li>
+<dfn class="terminology">repelling</dfn> if \(|g'(x^*)| &gt; 1\)</li>
+<li>
+<dfn class="terminology">attracting</dfn> if \(|g'(x^*)| \lt 1\)</li>
+<li>
+<dfn class="terminology">super-attracting</dfn> if \(g'(x^*) = 0 \) (a special case of attracting fixed points)</li>
+<li>
+<dfn class="terminology">neutral</dfn> if \(|g'(x^*)| = 1 \)</li>
 </ul>
+<p data-braille="continuation">According to the above, iteration of \(g\) may converge to an attracting point but will not converge to a repelling one. The neutral points are a borderline case: some of them are limits of iterative process, some are not.</p>
 <span class="incontext"><a href="section-classification-fixed-points.html#p-279">in-context</a></span>
 </body>
 </html>

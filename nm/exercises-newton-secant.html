@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:53-04:00    *-->
+<!--*    on 2020-08-02T21:55:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -180,7 +180,26 @@ MathJax.Hub.Config({
 <li><a href="exercises-multivariate-newton.html" data-scroll="exercises-multivariate-newton">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-broyden.html" data-scroll="chapter-broyden"><span class="codenumber">11</span> <span class="title">Broyden's method</span></a><ul>
+<li><a href="section-broyden-intro.html" data-scroll="section-broyden-intro">Idea of Broyden's method</a></li>
+<li><a href="section-broyden-linear-algebra.html" data-scroll="section-broyden-linear-algebra">Outer products</a></li>
+<li><a href="section-broyden-method.html" data-scroll="section-broyden-method">Details of Broyden's method</a></li>
+<li><a href="examples-broyden.html" data-scroll="examples-broyden">Examples and questions</a></li>
+<li><a href="exercises-broyden.html" data-scroll="exercises-broyden">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
+<li class="link">
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
+<li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
+<li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
+<li><a href="section-richardson-extrapolation.html" data-scroll="section-richardson-extrapolation">Richardson extrapolation</a></li>
+<li><a href="examples-numerical-differentiation.html" data-scroll="examples-numerical-differentiation">Examples and questions</a></li>
+<li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -189,14 +208,14 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">9.6</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-20"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-325">(Theoretical problem.) Suppose that Newton's method is used to solve \(f(x)=0\) with \(f(x) = e^x + e^{-x} - 2\text{.}\) Show that the function \(g(x)=x-f(x)/f'(x)\) (extended by \(g(0)=0\)) has a nonzero derivative at \(0\) by computing the limit of \(g(x)/x\) as \(x\to 0\text{.}\)</p>
+<p id="p-327">(Theoretical problem.) Suppose that Newton's method is used to solve \(f(x)=0\) with \(f(x) = e^x + e^{-x} - 2\text{.}\) Show that the function \(g(x)=x-f(x)/f'(x)\) (extended by \(g(0)=0\)) has a nonzero derivative at \(0\) by computing the limit of \(g(x)/x\) as \(x\to 0\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-hint-3" id="hint-3"><span class="type">Hint</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-3"><div class="hint solution-like"><p id="p-326">Hint: To simplify \(f(x)/f'(x)\text{,}\) you can multiply the numerator and denominator by \(e^x\) and recognize that they both can be factored.</p></div></div>
+<a data-knowl="" class="id-ref original" data-refid="hk-hint-3" id="hint-3"><span class="type">Hint</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-3"><div class="hint solution-like"><p id="p-328">Hint: To simplify \(f(x)/f'(x)\text{,}\) you can multiply the numerator and denominator by \(e^x\) and recognize that they both can be factored.</p></div></div>
 </div></article><article class="exercise exercise-like" id="exercise-21"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-327">(Theoretical problem.) Show that if we use \(g(x)=x-2f(x)/f'(x)\) in the previous problem, this function \(g\) has \(g'(0)=0\text{,}\) which makes \(0\) a superattracting fixed point.</p></article><article class="exercise exercise-like" id="exercise-22"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-328">Write a script that attempts to solve the equation \(\tan x - 1 = 0\) using Newton's method. Similarly to <a class="xref" data-knowl="./knowl/example-secant-method.html" title="Example 9.3.1: Implement the secant method">Example 9.3.1</a> and <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>, the script should show the number of steps it took to find a solution, or report that it failed to converge. Allow the algorithm up to 10000 steps before giving up. As the initial point <code class="code-inline tex2jax_ignore">x0</code>, use the number formed by the first two digits of your SUID. (Note: it is expected that your script will fail to converge.)</p>
-<p id="p-329">Introduce a relaxation parameter \(\omega\) in your script to help it converge. What value of \(\omega\) achieves convergence? Be careful: \(\omega\) should be small, but if it is too small, the algorithm will fail to converge because it takes too long.</p>
-<p id="p-330">When submitting homework on Blackboard, comment on what values of \(\omega\) you found to be too large for convergence, what value was too small for convergence, and what value achieved convergence.</p></article></section></div></main>
+<p id="p-329">(Theoretical problem.) Show that if we use \(g(x)=x-2f(x)/f'(x)\) in the previous problem, this function \(g\) has \(g'(0)=0\text{,}\) which makes \(0\) a superattracting fixed point.</p></article><article class="exercise exercise-like" id="exercise-22"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
+<p id="p-330">Write a script that attempts to solve the equation \(\tan x - 1 = 0\) using Newton's method. Similarly to <a class="xref" data-knowl="./knowl/example-secant-method.html" title="Example 9.3.1: Implement the secant method">Example 9.3.1</a> and <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>, the script should show the number of steps it took to find a solution, or report that it failed to converge. Allow the algorithm up to 10000 steps before giving up. As the initial point <code class="code-inline tex2jax_ignore">x0</code>, use the number formed by the first two digits of your SUID. (Note: it is expected that your script will fail to converge.)</p>
+<p id="p-331">Introduce a relaxation parameter \(\omega\) in your script to help it converge. What value of \(\omega\) achieves convergence? Be careful: \(\omega\) should be small, but if it is too small, the algorithm will fail to converge because it takes too long.</p>
+<p id="p-332">When submitting homework on Blackboard, comment on what values of \(\omega\) you found to be too large for convergence, what value was too small for convergence, and what value achieved convergence.</p></article></section></div></main>
 </div>
 </body>
 </html>

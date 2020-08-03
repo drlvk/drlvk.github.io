@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-07-26T22:29:53-04:00    *-->
+<!--*    on 2020-08-02T21:55:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -180,7 +180,26 @@ MathJax.Hub.Config({
 <li><a href="exercises-multivariate-newton.html" data-scroll="exercises-multivariate-newton">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-broyden.html" data-scroll="chapter-broyden"><span class="codenumber">11</span> <span class="title">Broyden's method</span></a><ul>
+<li><a href="section-broyden-intro.html" data-scroll="section-broyden-intro">Idea of Broyden's method</a></li>
+<li><a href="section-broyden-linear-algebra.html" data-scroll="section-broyden-linear-algebra">Outer products</a></li>
+<li><a href="section-broyden-method.html" data-scroll="section-broyden-method">Details of Broyden's method</a></li>
+<li><a href="examples-broyden.html" data-scroll="examples-broyden">Examples and questions</a></li>
+<li><a href="exercises-broyden.html" data-scroll="exercises-broyden">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
+<li class="link">
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
+<li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
+<li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
+<li><a href="section-richardson-extrapolation.html" data-scroll="section-richardson-extrapolation">Richardson extrapolation</a></li>
+<li><a href="examples-numerical-differentiation.html" data-scroll="examples-numerical-differentiation">Examples and questions</a></li>
+<li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -188,8 +207,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-multivariate-newton-method-issues"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">10.3</span> <span class="title">Potential issues</span>
 </h2>
-<p id="p-350">All of the issues of single-variable method in <a href="section-newton-method-issues.html" class="internal" title="Section 9.2: Potential issues with Newton's method">Section 9.2</a> are present here as well. In particular, the problem with derivative \(f'(x)\) being zero (or close to it) now becomes the problem with the Jacobian matrix \(J\) being singular (not invertible) or close to being such. This is when Matlab displays the warning “Matrix is close to singular or badly scaled. Results may be inaccurate.” Note that despite this warning, the final outcome may be an accurate solution.  Indeed, the issue with solving the linear system for \(\vec h\) may result in a wrong value of \(\vec h\) at some step. But this only means that at that particular step, the algorithm jumps where it should not have. It may still converge to a solution afterwards if at the new value of \(\vec x\) the Jacobian matrix behaves better. The script in <a class="xref" data-knowl="./knowl/example-multivariate-newton-solve.html" title="Example 10.2.3: Solve a system using Newton's method">Example 10.2.3</a> displays the value \(\vec F(\vec x)\) at the end as a reassurance that the method indeed found a solution, despite the possible problems at intermediate steps.</p>
-<p id="p-351">A new issue is the <dfn class="terminology">scaling</dfn> of variables. When the components of unknown vector have very different orders of magnitude, it is hard to understand what changes are significant or not. Suppose we are solving a system involving the distance and speed of <a class="external" href="https://en.wikipedia.org/wiki/New_Horizons" target="_blank">New Horizons probe</a> which is traveling at the speed of about 14 km/s and has distance about \(6.43\times 10^9\) km from the Sun (as of 2020). So the vector we work with will look like <code class="code-inline tex2jax_ignore">[14; 6.43e9]</code>. The difference between this vector and, for example, <code class="code-inline tex2jax_ignore">[20; 6.43e9]</code> looks relatively small: the difference has norm about \(10^{-9}\) times the norm of the original vector, one billionth. But of course the difference between 14 and 20 is quite significant. To avoid this, one should try to use units in which the quantities involved have about the same order of magnitude. For New Horizons, one could measure distance in astronomical units (AU) which makes it about 43. So the vector becomes <code class="code-inline tex2jax_ignore">[14; 43]</code> which is much better numerically.</p></section></div></main>
+<p id="p-352">All of the issues of single-variable method in <a href="section-newton-method-issues.html" class="internal" title="Section 9.2: Potential issues with Newton's method">Section 9.2</a> are present here as well. In particular, the problem with derivative \(f'(x)\) being zero (or close to it) now becomes the problem with the Jacobian matrix \(J\) being singular (not invertible) or close to being such. This is when Matlab displays the warning “Matrix is close to singular or badly scaled. Results may be inaccurate.” Note that despite this warning, the final outcome may be an accurate solution.  Indeed, the issue with solving the linear system for \(\mathbf h\) may result in a wrong value of \(\mathbf h\) at some step. But this only means that at that particular step, the algorithm jumps where it should not have. It may still converge to a solution afterwards if at the new value of \(\mathbf x\) the Jacobian matrix behaves better. The script in <a class="xref" data-knowl="./knowl/example-multivariate-newton-solve.html" title="Example 10.2.3: Solve a system using Newton's method">Example 10.2.3</a> displays the value \(\mathbf F(\mathbf x)\) at the end as a reassurance that the method indeed found a solution, despite the possible problems at intermediate steps.</p>
+<p id="p-353">A new issue is the <dfn class="terminology">scaling</dfn> of variables. When the components of unknown vector have very different orders of magnitude, it is hard to understand what changes are significant or not. Suppose we are solving a system involving the distance and speed of <a class="external" href="https://en.wikipedia.org/wiki/New_Horizons" target="_blank">New Horizons probe</a> which is traveling at the speed of about 14 km/s and has distance about \(6.43\times 10^9\) km from the Sun (as of 2020). So the vector we work with will look like <code class="code-inline tex2jax_ignore">[14; 6.43e9]</code>. The difference between this vector and, for example, <code class="code-inline tex2jax_ignore">[20; 6.43e9]</code> looks relatively small: the difference has norm about \(10^{-9}\) times the norm of the original vector, one billionth. But of course the difference between 14 and 20 is quite significant. To avoid this, one should try to use units in which the quantities involved have about the same order of magnitude. For New Horizons, one could measure distance in astronomical units (AU) which makes it about 43. So the vector becomes <code class="code-inline tex2jax_ignore">[14; 43]</code> which is much better numerically.</p></section></div></main>
 </div>
 </body>
 </html>
