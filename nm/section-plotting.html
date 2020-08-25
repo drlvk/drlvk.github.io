@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:52-04:00    *-->
+<!--*    on 2020-08-25T08:18:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -200,6 +200,12 @@ MathJax.Hub.Config({
 <li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-trapezoid-midpoint.html" data-scroll="chapter-trapezoid-midpoint"><span class="codenumber">13</span> <span class="title">Numerical integration: basic rules</span></a><ul>
+<li><a href="section-riemann-sums.html" data-scroll="section-riemann-sums">Riemann sums</a></li>
+<li><a href="section-left-right-midpoint.html" data-scroll="section-left-right-midpoint">Left, right, midpoint rules</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -207,20 +213,20 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-plotting"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.4</span> <span class="title">Plotting</span>
 </h2>
-<p id="p-70">The command <code class="code-inline tex2jax_ignore">plot(x, y)</code> receives two vectors: the first has x-coordinates of the points to be shown, the second has y-coordinates. It also connects these points by lines. So, for example,</p>
+<p id="p-71">The command <code class="code-inline tex2jax_ignore">plot(x, y)</code> receives two vectors: the first has x-coordinates of the points to be shown, the second has y-coordinates. It also connects these points by lines. So, for example,</p>
 <pre class="code-block tex2jax_ignore">plot([1 2 5 6], [5 0.4 2 1])</pre>
 <p data-braille="continuation">produces the following plot:</p>
 <figure class="figure figure-like" id="figure-1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/plotting1.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.1<span class="period">.</span></span><span class="space"> </span>A plot based on four points</figcaption></figure><p id="p-71">Sometimes we do not want to connect the points by a line: treating them as individual data points rather than representative of some function \(y = f(x)\text{.}\) If so,</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.1<span class="period">.</span></span><span class="space"> </span>A plot based on four points</figcaption></figure><p id="p-72">Sometimes we do not want to connect the points by a line: treating them as individual data points rather than representative of some function \(y = f(x)\text{.}\) If so,</p>
 <pre class="code-block tex2jax_ignore">plot([1 2 5 6], [5 0.4 2 1], '*')</pre>
 <p data-braille="continuation">simply puts an asterisk <code class="code-inline tex2jax_ignore">*</code> for each point, without connecting them.</p>
 <figure class="figure figure-like" id="figure-2"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/plotting2.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.2<span class="period">.</span></span><span class="space"> </span>Four points (two are hard to see because of the axes)</figcaption></figure><p id="p-72">Let us plot the function \(y = x^3 e^{-2x}\) on the interval \([0, 3]\text{:}\)</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.2<span class="period">.</span></span><span class="space"> </span>Four points (two are hard to see because of the axes)</figcaption></figure><p id="p-73">Let us plot the function \(y = x^3 e^{-2x}\) on the interval \([0, 3]\text{:}\)</p>
 <pre class="code-block tex2jax_ignore">x = 0:0.1:3;
 y = x.^3 .* exp(-2*x);
 plot(x, y)
 </pre>
-<p id="p-73">In the first line, I chose 0.1 as the step size for the x-interval. It would be a mistake to use <code class="code-inline tex2jax_ignore">x = 0:3</code> because the step size of 1 unit would make a very rough (low-resolution) plot with only four points used. The step size could be 0.01 instead: we may get smoother graph at the expense of more computations. The second line compute the y-values. Consider the following:</p>
+<p id="p-74">In the first line, I chose 0.1 as the step size for the x-interval. It would be a mistake to use <code class="code-inline tex2jax_ignore">x = 0:3</code> because the step size of 1 unit would make a very rough (low-resolution) plot with only four points used. The step size could be 0.01 instead: we may get smoother graph at the expense of more computations. The second line compute the y-values. Consider the following:</p>
 <ul class="disc">
 <li id="li-24">The period in <code class="code-inline tex2jax_ignore">x.^3</code> is required to have elementwise power operation</li>
 <li id="li-25">We do not need a period in <code class="code-inline tex2jax_ignore">-2*x</code> because multiplying a vector by a scalar already works elementwise. There is no difference between <code class="code-inline tex2jax_ignore">-2*x</code> and <code class="code-inline tex2jax_ignore">-2.*x</code>
@@ -229,10 +235,10 @@ plot(x, y)
 <li id="li-27">Whitespace around <code class="code-inline tex2jax_ignore">.*</code> is not necessary but some people find <code class="code-inline tex2jax_ignore">x.^3.*exp(-2*x)</code> harder to read because <code class="code-inline tex2jax_ignore">3.</code> looks like a decimal dot after 3.</li>
 </ul>
 <figure class="figure figure-like" id="figure-3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/plotting3.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.3<span class="period">.</span></span><span class="space"> </span>Plot of the function \(y = x^3 e^{-2x}\) on the interval \([0, 3]\)</figcaption></figure><p id="p-74">Specifying the x-values by choosing step size like in <code class="code-inline tex2jax_ignore">x = 0:0.1:3</code> can be tedious, because the same step size would not work as well for the intervals \([2, 2.04]\) or for \([0, 50000]\text{.}\) The command <code class="code-inline tex2jax_ignore">linspace</code> can be more convenient: <code class="code-inline tex2jax_ignore">linspace(a, b, n)</code> creates a vector with <code class="code-inline tex2jax_ignore">n</code> uniformly spaced numbers from <code class="code-inline tex2jax_ignore">a</code> to <code class="code-inline tex2jax_ignore">b</code>. Usually, 500 points are enough for a smooth plot, so one can reasonably use <code class="code-inline tex2jax_ignore">x = linspace(a, b, 500)</code> for plots no matter how small or large the interval \([a, b]\) is.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.3<span class="period">.</span></span><span class="space"> </span>Plot of the function \(y = x^3 e^{-2x}\) on the interval \([0, 3]\)</figcaption></figure><p id="p-75">Specifying the x-values by choosing step size like in <code class="code-inline tex2jax_ignore">x = 0:0.1:3</code> can be tedious, because the same step size would not work as well for the intervals \([2, 2.04]\) or for \([0, 50000]\text{.}\) The command <code class="code-inline tex2jax_ignore">linspace</code> can be more convenient: <code class="code-inline tex2jax_ignore">linspace(a, b, n)</code> creates a vector with <code class="code-inline tex2jax_ignore">n</code> uniformly spaced numbers from <code class="code-inline tex2jax_ignore">a</code> to <code class="code-inline tex2jax_ignore">b</code>. Usually, 500 points are enough for a smooth plot, so one can reasonably use <code class="code-inline tex2jax_ignore">x = linspace(a, b, 500)</code> for plots no matter how small or large the interval \([a, b]\) is.</p>
 <article class="example example-like" id="example-12"><a data-knowl="" class="id-ref original" data-refid="hk-example-12"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span><span class="space"> </span><span class="title">Parametric plot.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like"><p id="p-75">Draw the curve with parametric equations</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like"><p id="p-76">Draw the curve with parametric equations</p>
 <div class="displaymath">
 \begin{align*}
 x \amp = t\cos t\\
@@ -245,7 +251,7 @@ y \amp = t\sin t
 <pre class="code-block tex2jax_ignore">t = linspace(0, 20, 500);
 plot(t.*cos(t), t.*sin(t))
 </pre>
-<p id="p-76">This curve is called the <dfn class="terminology">Archimedian spiral</dfn>.</p>
+<p id="p-77">This curve is called the <dfn class="terminology">Archimedian spiral</dfn>.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

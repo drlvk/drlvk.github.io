@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:54-04:00    *-->
+<!--*    on 2020-08-25T08:18:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -200,6 +200,12 @@ MathJax.Hub.Config({
 <li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-trapezoid-midpoint.html" data-scroll="chapter-trapezoid-midpoint"><span class="codenumber">13</span> <span class="title">Numerical integration: basic rules</span></a><ul>
+<li><a href="section-riemann-sums.html" data-scroll="section-riemann-sums">Riemann sums</a></li>
+<li><a href="section-left-right-midpoint.html" data-scroll="section-left-right-midpoint">Left, right, midpoint rules</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -207,23 +213,23 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-newton-secant"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">9.5</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-319">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-320">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-newton-discontinuous"><a data-knowl="" class="id-ref original" data-refid="hk-example-newton-discontinuous"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Newton's method with a discontinuous function.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-newton-discontinuous"><article class="example example-like"><p id="p-320">Recall from <a class="xref" data-knowl="./knowl/example-bisection-discontinuity.html" title="Example 7.5.2: Incorrect answer obtained by bisection">Example 7.5.2</a> that the bisection method had a difficulty with the equation \(\tan x = 0\text{,}\) mistaking a discontinuity of this function for its root. How does Newton's method behave here, and why?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-newton-discontinuous"><article class="example example-like"><p id="p-321">Recall from <a class="xref" data-knowl="./knowl/example-bisection-discontinuity.html" title="Example 7.5.2: Incorrect answer obtained by bisection">Example 7.5.2</a> that the bisection method had a difficulty with the equation \(\tan x = 0\text{,}\) mistaking a discontinuity of this function for its root. How does Newton's method behave here, and why?</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-16" id="solution-16"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-16"><div class="solution solution-like">
-<p id="p-321">Newton's method has no issues with this function: if the starting point is close to a discontinuity, it will move away from it, toward the nearest zero. It will never overshoot the zero because of the concavity of the function: it is concave away from the x-axis, which means the tangent lines are between the graph and the x-axis.</p>
+<p id="p-322">Newton's method has no issues with this function: if the starting point is close to a discontinuity, it will move away from it, toward the nearest zero. It will never overshoot the zero because of the concavity of the function: it is concave away from the x-axis, which means the tangent lines are between the graph and the x-axis.</p>
 <figure class="figure figure-like" id="newton4-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/newton4.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.5.2<span class="period">.</span></span><span class="space"> </span>Newton's method works fine for the tangent function</figcaption></figure><p id="p-322">Generally, vertical asymptotes are not a problem for Newton's method: horizontal asymptotes (and horizontal tangent lines) are.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.5.2<span class="period">.</span></span><span class="space"> </span>Newton's method works fine for the tangent function</figcaption></figure><p id="p-323">Generally, vertical asymptotes are not a problem for Newton's method: horizontal asymptotes (and horizontal tangent lines) are.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-secant-speed"><a data-knowl="" class="id-ref original" data-refid="hk-example-secant-speed"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Rate of convergence of the secant method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-secant-speed"><article class="example example-like"><p id="p-323">It is difficult to analyze the convergence of secant method in general. A representative example where such analysis can be done is \(f(x) = x + x^2\text{.}\) Find a simplified form of the function \(x - \dfrac{x-p}{f(x)-f(p)} f(x)\) and try to justify the statement that the rate of convergence is faster than linear, assuming that \(x\) and \(p\) converge to 0.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-secant-speed"><article class="example example-like"><p id="p-324">It is difficult to analyze the convergence of secant method in general. A representative example where such analysis can be done is \(f(x) = x + x^2\text{.}\) Find a simplified form of the function \(x - \dfrac{x-p}{f(x)-f(p)} f(x)\) and try to justify the statement that the rate of convergence is faster than linear, assuming that \(x\) and \(p\) converge to 0.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-17" id="solution-17"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-17"><div class="solution solution-like">
-<p id="p-324">Simplification shows that</p>
+<p id="p-325">Simplification shows that</p>
 <div class="displaymath">
 \begin{align*}
 x - \frac{x-p}{f(x)-f(p)} f(x)
@@ -238,10 +244,10 @@ x - \frac{x-p}{f(x)-f(p)} f(x)
 </div></article></div>
 <article class="question example-like" id="question-17"><a data-knowl="" class="id-ref original" data-refid="hk-question-17"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">9.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Equation with no solution.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-17"><article class="question example-like"><p id="p-325">What happens if either Newton's method or secant method is applied to the equation \(|x|+1 = 0\) (which, of course, has no solutions)?</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-17"><article class="question example-like"><p id="p-326">What happens if either Newton's method or secant method is applied to the equation \(|x|+1 = 0\) (which, of course, has no solutions)?</p></article></div>
 <article class="question example-like" id="question-18"><a data-knowl="" class="id-ref original" data-refid="hk-question-18"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">9.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Another equation with no solution.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-18"><article class="question example-like"><p id="p-326">What happens if Newton's method is applied to the equation \(e^x = 0\) (which has no solutions)?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-18"><article class="question example-like"><p id="p-327">What happens if Newton's method is applied to the equation \(e^x = 0\) (which has no solutions)?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

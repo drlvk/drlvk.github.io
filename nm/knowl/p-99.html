@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:55-04:00    *-->
+<!--*    on 2020-08-25T08:18:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The command <code class="code-inline tex2jax_ignore">hist(v, k)</code> displays a histograph of the data collected in vector <code class="code-inline tex2jax_ignore">v</code> using <code class="code-inline tex2jax_ignore">k</code> bins. This means that the interval from <code class="code-inline tex2jax_ignore">min(v)</code> to <code class="code-inline tex2jax_ignore">max(v)</code> is divided into <code class="code-inline tex2jax_ignore">k</code> equal subintervals, and the histogram counts how many data points fall in each subinterval. If the number of bins <code class="code-inline tex2jax_ignore">k</code> is not provided, Matlab will try to choose it itself. Usually we want 10-50 bins. For example,</p>
-<pre class="code-block tex2jax_ignore">
-v = rand(1, 10000);
-hist(v, 20);
-</pre>
-<p data-braille="continuation">produces a histogram from 10000 random numbers. This will not be an interesting histogram since the numbers are uniformly distributed between 0 and 1.</p>
+<p>The command <code class="code-inline tex2jax_ignore">rand</code> produces random numbers uniformly distributed in the interval from 0 to 1. Without providing parameters, we get a single number: <code class="code-inline tex2jax_ignore">x = rand()</code> can make x equal to, for example, 0.8248. With parameters <code class="code-inline tex2jax_ignore">rand(m, n)</code> we get a random m<span class="times-sign">×</span>n matrix, meaning a matrix in which each entry is chosen randomly.</p>
 <span class="incontext"><a href="section-random-numbers-histograms.html#p-99">in-context</a></span>
 </body>
 </html>

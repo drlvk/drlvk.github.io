@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:57-04:00    *-->
+<!--*    on 2020-08-25T08:18:56-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,16 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>(Theoretical problem.)  Find a matrix \(A\) of rank 1 such that</p>
-<div class="displaymath">
-\begin{equation*}
-A \begin{pmatrix}
-1 \\ 2 \\ 3
-\end{pmatrix} = \begin{pmatrix}
-3 \\ 1 \\ 5
-\end{pmatrix}
-\end{equation*}
-</div>
-<span class="incontext"><a href="exercises-broyden.html#p-389">in-context</a></span>
+<p>If we keep the starting point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> in <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a> but change the initial guess for inverse Jacobian to the matrix</p>
+<pre class="code-block tex2jax_ignore">
+B = 0.1*eye(3);
+</pre>
+<p data-braille="continuation">the algorithm converges much faster: in 53 steps. Why could this be? In what way does the “smaller” matrix help? Is the factor of 0.1 an under-relaxation parameter here?</p>
+<span class="incontext"><a href="examples-broyden.html#p-389">in-context</a></span>
 </body>
 </html>

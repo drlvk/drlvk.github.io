@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:53-04:00    *-->
+<!--*    on 2020-08-25T08:18:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -200,6 +200,12 @@ MathJax.Hub.Config({
 <li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-trapezoid-midpoint.html" data-scroll="chapter-trapezoid-midpoint"><span class="codenumber">13</span> <span class="title">Numerical integration: basic rules</span></a><ul>
+<li><a href="section-riemann-sums.html" data-scroll="section-riemann-sums">Riemann sums</a></li>
+<li><a href="section-left-right-midpoint.html" data-scroll="section-left-right-midpoint">Left, right, midpoint rules</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -207,8 +213,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-rate-convergence"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">8.3</span> <span class="title">The speed of convergence of fixed-point iteration</span>
 </h2>
-<p id="p-286">Near an attracting fixed point with \(0 \lt |g'(x^*)| \lt  1\text{,}\) the convergence is linear in the sense that the error at the next step is about \(|g'(x^*)|\) times the error of the previous step. But if \(g'(x^*)=0\) (meaning \(x_0\) is a superattractive fixed point), then the rate of convergence is extremely fast. Indeed, Taylor's formula says that \(|g(x)-g(x^*)|\) is bounded by a constant multiple of \(|x-x^*|^2\text{,}\) where the constant depends on the value of the second derivative \(f''(x^*)\text{.}\) This rate of convergence is called <dfn class="terminology">quadratic</dfn> because at each step, the error size gets squared (and multiplied by a constant).</p>
-<p id="p-287">Compare two functions: \(g_1(x) = \sqrt{x}\) and \(g_2(x) = (x+1/x)/2\text{.}\) Both have a fixed point \(x^*=1\text{.}\) Since \(|g_1'(1)| = 1/2\) and \(|g_2'(1)| = 0\text{,}\) the point 1 is attracting for \(g_1\) and super-attracting for \(g_1\text{.}\) Let's see how quickly the iteration converges to the fixed point, starting from 5 for example.</p>
+<p id="p-287">Near an attracting fixed point with \(0 \lt |g'(x^*)| \lt  1\text{,}\) the convergence is linear in the sense that the error at the next step is about \(|g'(x^*)|\) times the error of the previous step. But if \(g'(x^*)=0\) (meaning \(x_0\) is a superattractive fixed point), then the rate of convergence is extremely fast. Indeed, Taylor's formula says that \(|g(x)-g(x^*)|\) is bounded by a constant multiple of \(|x-x^*|^2\text{,}\) where the constant depends on the value of the second derivative \(f''(x^*)\text{.}\) This rate of convergence is called <dfn class="terminology">quadratic</dfn> because at each step, the error size gets squared (and multiplied by a constant).</p>
+<p id="p-288">Compare two functions: \(g_1(x) = \sqrt{x}\) and \(g_2(x) = (x+1/x)/2\text{.}\) Both have a fixed point \(x^*=1\text{.}\) Since \(|g_1'(1)| = 1/2\) and \(|g_2'(1)| = 0\text{,}\) the point 1 is attracting for \(g_1\) and super-attracting for \(g_1\text{.}\) Let's see how quickly the iteration converges to the fixed point, starting from 5 for example.</p>
 <pre class="code-block tex2jax_ignore">g = @(x) sqrt(x);
 x = 5;
 for k = 1:10
@@ -216,7 +222,7 @@ for k = 1:10
     fprintf('After %d steps got %.15g\n', k, x)
 end
 </pre>
-<p id="p-288">The numbers approach 1 but not very quickly.</p>
+<p id="p-289">The numbers approach 1 but not very quickly.</p>
 <pre class="code-block tex2jax_ignore">After 1 steps got 2.23606797749979
 After 2 steps got 1.49534878122122
 After 3 steps got 1.22284454499385
@@ -225,7 +231,7 @@ After 5 steps got 1.05158119849598
 After 6 steps got 1.02546633220988
 After 7 steps got 1.01265311543977
 </pre>
-<p id="p-289">And so on: each error is about half of the previous, indicating linear speed of convergence. After 10 steps we are still more than 0.001 away from the fixed point. In contrast, running the above code with <code class="code-inline tex2jax_ignore">g = @(x) (x+1/x)/2;</code> results in much faster convergence.</p>
+<p id="p-290">And so on: each error is about half of the previous, indicating linear speed of convergence. After 10 steps we are still more than 0.001 away from the fixed point. In contrast, running the above code with <code class="code-inline tex2jax_ignore">g = @(x) (x+1/x)/2;</code> results in much faster convergence.</p>
 <pre class="code-block tex2jax_ignore">After 1 steps got 2.6
 After 2 steps got 1.49230769230769
 After 3 steps got 1.0812053925456
@@ -234,7 +240,7 @@ After 5 steps got 1.00000463565079
 After 6 steps got 1.00000000001074
 After 7 steps got 1
 </pre>
-<p id="p-290">After just 7 steps of iteration, the value is so close to 1 that it becomes equal to 1, due to round-off involved.</p></section></div></main>
+<p id="p-291">After just 7 steps of iteration, the value is so close to 1 that it becomes equal to 1, due to round-off involved.</p></section></div></main>
 </div>
 </body>
 </html>

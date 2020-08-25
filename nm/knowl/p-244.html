@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:56-04:00    *-->
+<!--*    on 2020-08-25T08:18:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>For the reason mentioned in the previous paragraph, the Matlab command <code class="code-inline tex2jax_ignore">eps(x)</code> gives the smallest possible size of an interval including <code class="code-inline tex2jax_ignore">x</code> that can be expressed in its arithmetic. For example, <code class="code-inline tex2jax_ignore">eps(10^20)</code> returns 16384, indicating we cannot expect an interval around \(10^{20}\) to be smaller than 16384. When looking for a root, a reasonable approach is to consider an interval \([a, b]\) “small enough” when <code class="code-inline tex2jax_ignore">b - a &lt; 100*eps(a)</code> where the factor 100 allows for accumulation of round-off errors during the computation.</p>
+<p>A more robust approach is to look not for a single number but for an <em class="emphasis">interval</em> \([a, b]\) that is known to contain a root of function \(f\text{.}\) If the interval is small enough, it does not really matter where in the interval the solution is. How small is small enough? There is no universal answer. For many practical purposes, \(b-a \lt 10^{-6}\) is good enough. Or we may want \(b-a \lt 10^{-12}\) to get a more accurate answer. This makes sense when the root itself is not extremely large or extremely small. But when the root is of size \(10^{20}\) we cannot possibly hope to get an interval of length \(10^{-6}\) around it, or even of length 1. Indeed, the comparison <code class="code-inline tex2jax_ignore">10^20 + 1 == 10^(20)</code> evaluates as True in Matlab, meaning that it cannot tell these numbers apart because of the limitation of computer arithmetic.</p>
 <span class="incontext"><a href="section-meaning-numeric-solution.html#p-244">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:54-04:00    *-->
+<!--*    on 2020-08-25T08:18:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -200,6 +200,12 @@ MathJax.Hub.Config({
 <li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-trapezoid-midpoint.html" data-scroll="chapter-trapezoid-midpoint"><span class="codenumber">13</span> <span class="title">Numerical integration: basic rules</span></a><ul>
+<li><a href="section-riemann-sums.html" data-scroll="section-riemann-sums">Riemann sums</a></li>
+<li><a href="section-left-right-midpoint.html" data-scroll="section-left-right-midpoint">Left, right, midpoint rules</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -207,7 +213,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-differentiation-intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">12.1</span> <span class="title">Definition of derivative and the order of error</span>
 </h2>
-<p id="p-393">The definition of derivative says:</p>
+<p id="p-394">The definition of derivative says:</p>
 <div class="displaymath">
 \begin{equation*}
 f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
@@ -226,7 +232,7 @@ f'(x) \approx \frac{f(x+h)-f(x)}{h}\label{eq-diff-f1}\tag{12.1.1}
 \end{equation*}
 </div>
 <p data-braille="continuation">where the error term \(e\) is a function of \(h\text{.}\) The accuracy of approximation is measured by the <dfn class="terminology">order</dfn> of the error term, which is a number \(d\) such that \(|e(h)|\) is bounded by some multiple of \(|h|^d\text{.}\)</p>
-<p id="p-394">There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
+<p id="p-395">There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
 <ol class="decimal">
 <li id="li-98">Let \(n= 0\)</li>
 <li id="li-99">Plug \(f(x) = x^n\) into the formula and find the error term.</li>
@@ -235,10 +241,10 @@ f'(x) \approx \frac{f(x+h)-f(x)}{h}\label{eq-diff-f1}\tag{12.1.1}
 </ol>
 <article class="example example-like" id="example-error-diff-f1"><a data-knowl="" class="id-ref original" data-refid="hk-example-error-diff-f1"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Find the order of error of approximation to \(f'\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-diff-f1"><article class="example example-like"><p id="p-395">Find the order of error of the formuls <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-diff-f1"><article class="example example-like"><p id="p-396">Find the order of error of the formuls <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-25" id="solution-25"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-25"><div class="solution solution-like">
-<ul id="p-396" class="disc">
+<ul id="p-397" class="disc">
 <li id="li-102">With \(f(x) = x^0\) we get \(f'(x) = 0\) and \(\frac{f(x+h)-f(x)}{h}=0\text{,}\) so the error term is zero for this function.</li>
 <li id="li-103">With \(f(x) = x^1\) we get \(f'(x) = 1\) and \(\frac{f(x+h)-f(x)}{h}=\frac{h}{h}=1\text{,}\) so the error term is zero for this function.</li>
 <li id="li-104">With \(f(x) = x^2\) we get \(f'(x) = 2x\) and \(\frac{f(x+h)-f(x)}{h}=\frac{x^2+2xh+h^2}{h}=2x + h\text{,}\) so the error term for this function is \(h^1\text{.}\)</li>
@@ -246,7 +252,7 @@ f'(x) \approx \frac{f(x+h)-f(x)}{h}\label{eq-diff-f1}\tag{12.1.1}
 <p data-braille="continuation">In conclusion, the formula has order of error 1.</p>
 </div></div>
 </div></article></div>
-<p id="p-397">The importance of the order of error can be illustrated by an example. Suppose we want to find \(f'(x)\) with absolute error at most \(10^{-12}\text{.}\)</p>
+<p id="p-398">The importance of the order of error can be illustrated by an example. Suppose we want to find \(f'(x)\) with absolute error at most \(10^{-12}\text{.}\)</p>
 <ul class="disc">
 <li id="li-105">If the error term of our formula is \(h^1\text{,}\) we need to use extremely small \(h\text{;}\) that is \(|h|\le 10^{-12}\text{.}\)</li>
 <li id="li-106">If the error term is \(h^2\text{,}\) we need \(|h|\le 10^{-6}\) which is still small but not as extreme.</li>

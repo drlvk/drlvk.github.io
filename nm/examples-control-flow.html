@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:52-04:00    *-->
+<!--*    on 2020-08-25T08:18:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -200,6 +200,12 @@ MathJax.Hub.Config({
 <li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-trapezoid-midpoint.html" data-scroll="chapter-trapezoid-midpoint"><span class="codenumber">13</span> <span class="title">Numerical integration: basic rules</span></a><ul>
+<li><a href="section-riemann-sums.html" data-scroll="section-riemann-sums">Riemann sums</a></li>
+<li><a href="section-left-right-midpoint.html" data-scroll="section-left-right-midpoint">Left, right, midpoint rules</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -207,10 +213,10 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-control-flow"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.5</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-148">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-149">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-harmonic-series"><a data-knowl="" class="id-ref original" data-refid="hk-example-harmonic-series"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Partial sums of the harmonic series.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-harmonic-series"><article class="example example-like"><p id="p-149">The harmonic series \(1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots\) diverges, meaning that its partial sums grow without a bound. So, if we add enough terms of this series, we will get a number greater than 10. Use a <code class="code-inline tex2jax_ignore">while</code> loop to determine how many terms are required to get a partial sum that is greater than 10.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-harmonic-series"><article class="example example-like"><p id="p-150">The harmonic series \(1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots\) diverges, meaning that its partial sums grow without a bound. So, if we add enough terms of this series, we will get a number greater than 10. Use a <code class="code-inline tex2jax_ignore">while</code> loop to determine how many terms are required to get a partial sum that is greater than 10.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-27" id="answer-27"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-27"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">s = 0;
@@ -221,12 +227,12 @@ while s &lt;= 10
 end
 fprintf('The partial sum has %d terms\n', n-1)
 </pre>
-<p id="p-150"><em class="emphasis">Explanation</em>: The variable <code class="code-inline tex2jax_ignore">s</code> represents partial sums. We add <code class="code-inline tex2jax_ignore">1/n</code> to it, and then increase the value of <code class="code-inline tex2jax_ignore">n</code>. When <code class="code-inline tex2jax_ignore">s &gt; 10</code> the process stops. The output uses formatting code <code class="code-inline tex2jax_ignore">%d</code> for integers, since the answer is an integer. Why does the output have <code class="code-inline tex2jax_ignore">n-1</code> and not <code class="code-inline tex2jax_ignore">n</code>? Because of the way that the loop is written, the value of n is increased <em class="emphasis">after</em> each addition. So at the end of it, <code class="code-inline tex2jax_ignore">n</code> is the number that is 1 more than the number of terms we added.</p>
+<p id="p-151"><em class="emphasis">Explanation</em>: The variable <code class="code-inline tex2jax_ignore">s</code> represents partial sums. We add <code class="code-inline tex2jax_ignore">1/n</code> to it, and then increase the value of <code class="code-inline tex2jax_ignore">n</code>. When <code class="code-inline tex2jax_ignore">s &gt; 10</code> the process stops. The output uses formatting code <code class="code-inline tex2jax_ignore">%d</code> for integers, since the answer is an integer. Why does the output have <code class="code-inline tex2jax_ignore">n-1</code> and not <code class="code-inline tex2jax_ignore">n</code>? Because of the way that the loop is written, the value of n is increased <em class="emphasis">after</em> each addition. So at the end of it, <code class="code-inline tex2jax_ignore">n</code> is the number that is 1 more than the number of terms we added.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-collatz"><a data-knowl="" class="id-ref original" data-refid="hk-example-collatz"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">The Collatz conjecture.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-collatz"><article class="example example-like"><p id="p-151">The Collatz conjecture, also known as the <dfn class="terminology">Syracuse problem</dfn>, is a famous unsolved problem in mathematics. Its subject is the following process.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-collatz"><article class="example example-like"><p id="p-152">The Collatz conjecture, also known as the <dfn class="terminology">Syracuse problem</dfn>, is a famous unsolved problem in mathematics. Its subject is the following process.</p>
 <ol class="decimal">
 <li id="li-53">Start with a positive integer k.</li>
 <li id="li-54">If k is even, divide it by 2. Otherwise multiply it by 3 and add 1.</li>
@@ -252,16 +258,16 @@ for n = 1:N
 end
 plot(1:N, steps, '.')
 </pre>
-<p id="p-152"><em class="emphasis">Explanation</em>. The array <code class="code-inline tex2jax_ignore">steps</code> is created as a bunch of zeros, to be replaced with actual counts of steps. The initial value of Collatz process is called <code class="code-inline tex2jax_ignore">n</code> and it runs through the numbers from 1 to 500. So the variable <code class="code-inline tex2jax_ignore">k</code> is initially assigned the value <code class="code-inline tex2jax_ignore">n</code> and then modified according to the rules stated above. Every time it is modified, the <code class="code-inline tex2jax_ignore">count</code> of steps is increased by 1. The plot at the end shows each data point as an individual dot, not connecting them by lines.</p>
-<p id="p-153">This example demonstrates the use of both kinds of loops. Note that the variable involved in <code class="code-inline tex2jax_ignore">while</code> loop condition, <code class="code-inline tex2jax_ignore">while k &gt; 1</code>, should be modified within the loop, otherwise it will never end. In contrast, the variable involved in <code class="code-inline tex2jax_ignore">for</code> loop condition <code class="code-inline tex2jax_ignore">for n = 1:N</code> should <em class="emphasis">not</em> be modified since it is automatically incremented with each run of the loop.</p>
+<p id="p-153"><em class="emphasis">Explanation</em>. The array <code class="code-inline tex2jax_ignore">steps</code> is created as a bunch of zeros, to be replaced with actual counts of steps. The initial value of Collatz process is called <code class="code-inline tex2jax_ignore">n</code> and it runs through the numbers from 1 to 500. So the variable <code class="code-inline tex2jax_ignore">k</code> is initially assigned the value <code class="code-inline tex2jax_ignore">n</code> and then modified according to the rules stated above. Every time it is modified, the <code class="code-inline tex2jax_ignore">count</code> of steps is increased by 1. The plot at the end shows each data point as an individual dot, not connecting them by lines.</p>
+<p id="p-154">This example demonstrates the use of both kinds of loops. Note that the variable involved in <code class="code-inline tex2jax_ignore">while</code> loop condition, <code class="code-inline tex2jax_ignore">while k &gt; 1</code>, should be modified within the loop, otherwise it will never end. In contrast, the variable involved in <code class="code-inline tex2jax_ignore">for</code> loop condition <code class="code-inline tex2jax_ignore">for n = 1:N</code> should <em class="emphasis">not</em> be modified since it is automatically incremented with each run of the loop.</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-7"><a data-knowl="" class="id-ref original" data-refid="hk-question-7"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Avoiding an intermediate variable.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-7"><article class="question example-like"><p id="p-154">If in <a class="xref" data-knowl="./knowl/example-agm-for-loop.html" title="Example 4.1.2: Arithmetic-geometric mean using a for loop">Example 4.1.2</a> we did not introduce the variable <code class="code-inline tex2jax_ignore">g</code> and simply wrote <code class="code-inline tex2jax_ignore">y = sqrt(x*y)</code>, would the result still be correct? Why or why not?</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-7"><article class="question example-like"><p id="p-155">If in <a class="xref" data-knowl="./knowl/example-agm-for-loop.html" title="Example 4.1.2: Arithmetic-geometric mean using a for loop">Example 4.1.2</a> we did not introduce the variable <code class="code-inline tex2jax_ignore">g</code> and simply wrote <code class="code-inline tex2jax_ignore">y = sqrt(x*y)</code>, would the result still be correct? Why or why not?</p></article></div>
 <article class="question example-like" id="question-8"><a data-knowl="" class="id-ref original" data-refid="hk-question-8"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Changing the <code class="code-inline tex2jax_ignore">for</code> loop variable.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-8"><article class="question example-like"><p id="p-155">What exactly would go wrong in <a class="xref" data-knowl="./knowl/example-collatz.html" title="Example 4.5.2: The Collatz conjecture">Example 4.5.2</a> if we did not introduce <code class="code-inline tex2jax_ignore">k</code> and simply wrote the same <code class="code-inline tex2jax_ignore">while</code> loop with <code class="code-inline tex2jax_ignore">n</code>, as below?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-8"><article class="question example-like"><p id="p-156">What exactly would go wrong in <a class="xref" data-knowl="./knowl/example-collatz.html" title="Example 4.5.2: The Collatz conjecture">Example 4.5.2</a> if we did not introduce <code class="code-inline tex2jax_ignore">k</code> and simply wrote the same <code class="code-inline tex2jax_ignore">while</code> loop with <code class="code-inline tex2jax_ignore">n</code>, as below?</p>
 <pre class="code-block tex2jax_ignore">while n &gt; 1
     if mod(n, 2) == 0
         n = n/2;

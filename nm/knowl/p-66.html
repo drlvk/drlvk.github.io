@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:55-04:00    *-->
+<!--*    on 2020-08-25T08:18:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,30 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><em class="emphasis">Summary</em>: without a preceding period, <code class="code-inline tex2jax_ignore">*</code>, <code class="code-inline tex2jax_ignore">/</code> and <code class="code-inline tex2jax_ignore">^</code> refer to what we do with matrices and vectors in linear algebra. Adding a period tells Matlab to forget about linear algebra and handle each term individually. Compare two ways to multiply the matrices</p>
-<div class="displaymath">
-\begin{equation*}
-A  = \begin{pmatrix} 3 \amp -2 \\ 2 \amp 5\end{pmatrix}, \quad
-B  = \begin{pmatrix} -5 \amp 4 \\ 1 \amp 3\end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">The command</p>
-<pre class="code-block tex2jax_ignore">[3 -2; 2 5] * [-5 4; 1 3]</pre>
-<p data-braille="continuation">produces</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{pmatrix} -17 \amp 6 \\ -5 \amp 23 \end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">which is the matrix product according to linear algebra. The command</p>
-<pre class="code-block tex2jax_ignore">[3 -2; 2 5] .* [-5 4; 1 3]</pre>
-<p data-braille="continuation">produces</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{pmatrix} -15 \amp -8 \\ 2\amp 15 \end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">which is the elementwise product: it would be considered a wrong way to multiply matrices in a linear algebra course.</p>
+<p>Suppose <code class="code-inline tex2jax_ignore">v = [5 2 -3]</code> and we want to get the squares of the elements of <code class="code-inline tex2jax_ignore">v</code>. By analogy with the above, we try <code class="code-inline tex2jax_ignore">v^2</code> but get an <em class="alert">error</em>. The problem is that squaring <code class="code-inline tex2jax_ignore">v</code> is understood as <code class="code-inline tex2jax_ignore">v*v</code> which in Matlab means multiplication according to the rules of <a href="section-operations-vectors-matrices.html" class="internal" title="Section 1.4: Operations on vectors and matrices">Section 1.4</a>. The row vector <code class="code-inline tex2jax_ignore">v</code> is treated as a matrix of size 1<span class="times-sign">×</span>3. And one cannot multiply a 1<span class="times-sign">×</span>3 matrix by another 1<span class="times-sign">×</span>3 matrix: the inner dimensions do not match. But we just want <em class="emphasis">elementwise</em> squaring, not any kind of matrix multiplication. To tell Matlab this, put a period <code class="code-inline tex2jax_ignore">.</code> before the operation character: <code class="code-inline tex2jax_ignore">v.^2</code> gives <code class="code-inline tex2jax_ignore">[25 4 9]</code>. Similarly, <code class="code-inline tex2jax_ignore">.*</code> and <code class="code-inline tex2jax_ignore">./</code> are used for elementwise multiplication and division: <code class="code-inline tex2jax_ignore">[3 4].*[2 -5]</code> is <code class="code-inline tex2jax_ignore">[6 -20]</code> and <code class="code-inline tex2jax_ignore">[3 4]./[2 -5]</code> is <code class="code-inline tex2jax_ignore">[1.5 -0.8]</code>. We never need a period in front of <code class="code-inline tex2jax_ignore">+</code> or <code class="code-inline tex2jax_ignore">-</code> because these operations are always performed elementwise.</p>
 <span class="incontext"><a href="section-vectorization.html#p-66">in-context</a></span>
 </body>
 </html>

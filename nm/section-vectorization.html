@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:52-04:00    *-->
+<!--*    on 2020-08-25T08:18:50-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -200,6 +200,12 @@ MathJax.Hub.Config({
 <li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-trapezoid-midpoint.html" data-scroll="chapter-trapezoid-midpoint"><span class="codenumber">13</span> <span class="title">Numerical integration: basic rules</span></a><ul>
+<li><a href="section-riemann-sums.html" data-scroll="section-riemann-sums">Riemann sums</a></li>
+<li><a href="section-left-right-midpoint.html" data-scroll="section-left-right-midpoint">Left, right, midpoint rules</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -207,13 +213,13 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-vectorization"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.3</span> <span class="title">Array operations</span>
 </h2>
-<p id="p-64">Matlab supports <dfn class="terminology">array operations</dfn> in which the input data is placed into an array (usually a vector or a matrix) and some mathematical operation is carried out on all of the data at once. For example, to get the square roots of the first 25 positive integers we can execute</p>
+<p id="p-65">Matlab supports <dfn class="terminology">array operations</dfn> in which the input data is placed into an array (usually a vector or a matrix) and some mathematical operation is carried out on all of the data at once. For example, to get the square roots of the first 25 positive integers we can execute</p>
 <pre class="code-block tex2jax_ignore">sqrt(1:25)</pre>
 <p data-braille="continuation">with the result</p>
 <pre class="code-block tex2jax_ignore">[1.0000 1.4142 1.7321 2.0000 2.2361 ... 4.8990 5.0000]</pre>
 <p data-braille="continuation">More generally, if <code class="code-inline tex2jax_ignore">v</code> is a vector of nonnegative numbers, then <code class="code-inline tex2jax_ignore">sqrt(v)</code> has the roots of those numbers. Other functions like <code class="code-inline tex2jax_ignore">sin</code> and <code class="code-inline tex2jax_ignore">exp</code> work the same way. The benefts of array operations are more compact code and faster execution.</p>
-<p id="p-65">Suppose <code class="code-inline tex2jax_ignore">v = [5 2 -3]</code> and we want to get the squares of the elements of <code class="code-inline tex2jax_ignore">v</code>. By analogy with the above, we try <code class="code-inline tex2jax_ignore">v^2</code> but get an <em class="alert">error</em>. The problem is that squaring <code class="code-inline tex2jax_ignore">v</code> is understood as <code class="code-inline tex2jax_ignore">v*v</code> which in Matlab means multiplication according to the rules of <a href="section-operations-vectors-matrices.html" class="internal" title="Section 1.4: Operations on vectors and matrices">Section 1.4</a>. The row vector <code class="code-inline tex2jax_ignore">v</code> is treated as a matrix of size 1<span class="times-sign">×</span>3. And one cannot multiply a 1<span class="times-sign">×</span>3 matrix by another 1<span class="times-sign">×</span>3 matrix: the inner dimensions do not match. But we just want <em class="emphasis">elementwise</em> squaring, not any kind of matrix multiplication. To tell Matlab this, put a period <code class="code-inline tex2jax_ignore">.</code> before the operation character: <code class="code-inline tex2jax_ignore">v.^2</code> gives <code class="code-inline tex2jax_ignore">[25 4 9]</code>. Similarly, <code class="code-inline tex2jax_ignore">.*</code> and <code class="code-inline tex2jax_ignore">./</code> are used for elementwise multiplication and division: <code class="code-inline tex2jax_ignore">[3 4].*[2 -5]</code> is <code class="code-inline tex2jax_ignore">[6 -20]</code> and <code class="code-inline tex2jax_ignore">[3 4]./[2 -5]</code> is <code class="code-inline tex2jax_ignore">[1.5 -0.8]</code>. We never need a period in front of <code class="code-inline tex2jax_ignore">+</code> or <code class="code-inline tex2jax_ignore">-</code> because these operations are always performed elementwise.</p>
-<p id="p-66"><em class="emphasis">Summary</em>: without a preceding period, <code class="code-inline tex2jax_ignore">*</code>, <code class="code-inline tex2jax_ignore">/</code> and <code class="code-inline tex2jax_ignore">^</code> refer to what we do with matrices and vectors in linear algebra. Adding a period tells Matlab to forget about linear algebra and handle each term individually. Compare two ways to multiply the matrices</p>
+<p id="p-66">Suppose <code class="code-inline tex2jax_ignore">v = [5 2 -3]</code> and we want to get the squares of the elements of <code class="code-inline tex2jax_ignore">v</code>. By analogy with the above, we try <code class="code-inline tex2jax_ignore">v^2</code> but get an <em class="alert">error</em>. The problem is that squaring <code class="code-inline tex2jax_ignore">v</code> is understood as <code class="code-inline tex2jax_ignore">v*v</code> which in Matlab means multiplication according to the rules of <a href="section-operations-vectors-matrices.html" class="internal" title="Section 1.4: Operations on vectors and matrices">Section 1.4</a>. The row vector <code class="code-inline tex2jax_ignore">v</code> is treated as a matrix of size 1<span class="times-sign">×</span>3. And one cannot multiply a 1<span class="times-sign">×</span>3 matrix by another 1<span class="times-sign">×</span>3 matrix: the inner dimensions do not match. But we just want <em class="emphasis">elementwise</em> squaring, not any kind of matrix multiplication. To tell Matlab this, put a period <code class="code-inline tex2jax_ignore">.</code> before the operation character: <code class="code-inline tex2jax_ignore">v.^2</code> gives <code class="code-inline tex2jax_ignore">[25 4 9]</code>. Similarly, <code class="code-inline tex2jax_ignore">.*</code> and <code class="code-inline tex2jax_ignore">./</code> are used for elementwise multiplication and division: <code class="code-inline tex2jax_ignore">[3 4].*[2 -5]</code> is <code class="code-inline tex2jax_ignore">[6 -20]</code> and <code class="code-inline tex2jax_ignore">[3 4]./[2 -5]</code> is <code class="code-inline tex2jax_ignore">[1.5 -0.8]</code>. We never need a period in front of <code class="code-inline tex2jax_ignore">+</code> or <code class="code-inline tex2jax_ignore">-</code> because these operations are always performed elementwise.</p>
+<p id="p-67"><em class="emphasis">Summary</em>: without a preceding period, <code class="code-inline tex2jax_ignore">*</code>, <code class="code-inline tex2jax_ignore">/</code> and <code class="code-inline tex2jax_ignore">^</code> refer to what we do with matrices and vectors in linear algebra. Adding a period tells Matlab to forget about linear algebra and handle each term individually. Compare two ways to multiply the matrices</p>
 <div class="displaymath">
 \begin{equation*}
 A  = \begin{pmatrix} 3 \amp -2 \\ 2 \amp 5\end{pmatrix}, \quad
@@ -239,14 +245,14 @@ B  = \begin{pmatrix} -5 \amp 4 \\ 1 \amp 3\end{pmatrix}
 <p data-braille="continuation">which is the elementwise product: it would be considered a wrong way to multiply matrices in a linear algebra course.</p>
 <article class="example example-like" id="example-11"><a data-knowl="" class="id-ref original" data-refid="hk-example-11"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Roots of integers.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-11"><article class="example example-like"><p id="p-67">Use array operations to display the numbers \(n^{1/n}\) for \(n=1, \dots, 10\text{.}\) What value of \(n\) has the largest such root?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-11"><article class="example example-like"><p id="p-68">Use array operations to display the numbers \(n^{1/n}\) for \(n=1, \dots, 10\text{.}\) What value of \(n\) has the largest such root?</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-11" id="answer-11"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-11"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">v = 1:10;
 disp(v.^(1./v))
 </pre>
-<p id="p-68">The root is largest for \(n = 3\text{.}\)</p>
-<p id="p-69">Note that both periods are necessary. Without the second one, Matlab would try to interpet <code class="code-inline tex2jax_ignore">1/v</code> as a linear system with coefficients <code class="code-inline tex2jax_ignore">v</code> and right hand side <code class="code-inline tex2jax_ignore">1</code>, which is not what we want. With <code class="code-inline tex2jax_ignore">1./v</code> we get the vector <code class="code-inline tex2jax_ignore">[1/1 1/2 1/3 ...]</code>. Similarly, without the first period Matlab would try to interpret <code class="code-inline tex2jax_ignore">v^(...)</code> as a matrix power, which would not make sense either.</p>
+<p id="p-69">The root is largest for \(n = 3\text{.}\)</p>
+<p id="p-70">Note that both periods are necessary. Without the second one, Matlab would try to interpet <code class="code-inline tex2jax_ignore">1/v</code> as a linear system with coefficients <code class="code-inline tex2jax_ignore">v</code> and right hand side <code class="code-inline tex2jax_ignore">1</code>, which is not what we want. With <code class="code-inline tex2jax_ignore">1./v</code> we get the vector <code class="code-inline tex2jax_ignore">[1/1 1/2 1/3 ...]</code>. Similarly, without the first period Matlab would try to interpret <code class="code-inline tex2jax_ignore">v^(...)</code> as a matrix power, which would not make sense either.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

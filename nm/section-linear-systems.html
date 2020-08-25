@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-02T21:55:52-04:00    *-->
+<!--*    on 2020-08-25T08:18:50-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -200,6 +200,12 @@ MathJax.Hub.Config({
 <li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-trapezoid-midpoint.html" data-scroll="chapter-trapezoid-midpoint"><span class="codenumber">13</span> <span class="title">Numerical integration: basic rules</span></a><ul>
+<li><a href="section-riemann-sums.html" data-scroll="section-riemann-sums">Riemann sums</a></li>
+<li><a href="section-left-right-midpoint.html" data-scroll="section-left-right-midpoint">Left, right, midpoint rules</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -207,7 +213,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-linear-systems"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.1</span> <span class="title">Systems of linear equations</span>
 </h2>
-<p id="p-55">A system of linear equations, such as</p>
+<p id="p-56">A system of linear equations, such as</p>
 <div class="displaymath">
 \begin{align*}
 3x_1 - 2x_2 \amp = 6 \\
@@ -229,10 +235,10 @@ b = \begin{pmatrix} 6  \\ -3 \end{pmatrix}
 <p data-braille="continuation">The Matlab command for solving \(Ax=b\) is very short:</p>
 <pre class="code-block tex2jax_ignore">x = A\b</pre>
 <p data-braille="continuation">The result is the column vector <code class="code-inline tex2jax_ignore">[1.2632; -1.1053]</code>, meaning that \(x_1\approx 1.2632\) and \(x_2 \approx -1.1053\text{.}\)</p>
-<p id="p-56">Mathematically, \(x\) could be found as \(x = A^{-1}b\) where \(A^{-1}\) is the inverse matrix. However, this is not a computationally efficient way to solve a linear system. Matlab does not actually compute the inverse matrix when solving a linear system. It chooses one of several algorithms based on the nature of the matrix; usually it is a form of “LU factorization” which is discussed in MAT 532. But even though the formula \(x = A^{-1}b\) is not actually used, it suggests the notation used by Matlab. For two numbers \(a, b\) we can write \(ba^{-1}\) as <code class="code-inline tex2jax_ignore">b/a</code>, meaning \(b\) divided by \(a\text{.}\) If the order of multiplication was important (as it is for matrices), then perhaps \(a^{-1}b\) could be written as <code class="code-inline tex2jax_ignore">a\b</code>, meaning \(b\) divided by \(a\) <em class="emphasis">from the left</em>. We do not actually “divide a vector by a matrix” but the notation <code class="code-inline tex2jax_ignore">A\b</code> can remind us of \(A^{-1}b\text{.}\)</p>
+<p id="p-57">Mathematically, \(x\) could be found as \(x = A^{-1}b\) where \(A^{-1}\) is the inverse matrix. However, this is not a computationally efficient way to solve a linear system. Matlab does not actually compute the inverse matrix when solving a linear system. It chooses one of several algorithms based on the nature of the matrix; usually it is a form of “LU factorization” which is discussed in MAT 532. But even though the formula \(x = A^{-1}b\) is not actually used, it suggests the notation used by Matlab. For two numbers \(a, b\) we can write \(ba^{-1}\) as <code class="code-inline tex2jax_ignore">b/a</code>, meaning \(b\) divided by \(a\text{.}\) If the order of multiplication was important (as it is for matrices), then perhaps \(a^{-1}b\) could be written as <code class="code-inline tex2jax_ignore">a\b</code>, meaning \(b\) divided by \(a\) <em class="emphasis">from the left</em>. We do not actually “divide a vector by a matrix” but the notation <code class="code-inline tex2jax_ignore">A\b</code> can remind us of \(A^{-1}b\text{.}\)</p>
 <article class="example example-like" id="example-9"><a data-knowl="" class="id-ref original" data-refid="hk-example-9"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Solve and verify.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><p id="p-57">Write a Matlab which solves the linear system</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><p id="p-58">Write a Matlab which solves the linear system</p>
 <div class="displaymath">
 \begin{align*}
 5x_1 + 3x_2 \amp = 2 \\
