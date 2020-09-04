@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-08-25T23:10:29-04:00    *-->
+<!--*    on 2020-09-03T21:18:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -222,7 +222,7 @@ MathJax.Hub.Config({
 <pre class="code-block tex2jax_ignore">x = linspace(-3, 3, 500);
 plot(x, f(x))
 </pre>
-<p id="p-164">An anonymous function can have multiple variables, for example the mathematical formula \(f(x) = (xy+1)/z\) could be defined as <code class="code-inline tex2jax_ignore">f = @(x,y,z) (x.*y + 1)./z</code>. The inclusion of periods allows this function to vectors for its inputs, provided the vectors are of the same size.</p>
+<p id="p-164">An anonymous function can have multiple variables, for example the mathematical formula \(f(x, y, z) = (xy+1)/z\) could be defined as <code class="code-inline tex2jax_ignore">f = @(x,y,z) (x.*y + 1)./z</code>. The inclusion of periods allows this function to vectors for its inputs, provided the vectors are of the same size.</p>
 <p id="p-165">The names of the parameters (variables inside of anonymous function) do not matter outside of that function. For example, there is no problem with the following code</p>
 <pre class="code-block tex2jax_ignore">f = @(x) x + 4;
 x = 1;
