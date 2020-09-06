@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-09-03T21:18:29-04:00    *-->
+<!--*    on 2020-09-05T21:05:44-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -19,12 +19,9 @@
 <pre class="code-block tex2jax_ignore">function hw6()
   x =  1980:5:2015;  % years  
   y =                % population of your hometown in these years 
-  plot(x, y, 'r*')   % plot as red asterisks
-  hold on            % keep this plot; we'll put another one on top of it
   [c, d] = linearfit(x, y);            % find the coefficient of linear fit
   xx = linspace(min(x), max(x), 500);  % to be used for plotting the line
-  plot(t, c*xx + d)                    % plot the line
-  hold off                             % stop holding on to the plot 
+  plot(x, y, 'r*', xx, c*xx + d, 'b')  % plot red points and blue line
 end
 
 function [k, c] = linearfit(x,y)
