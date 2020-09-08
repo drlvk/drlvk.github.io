@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-09-05T21:05:43-04:00    *-->
+<!--*    on 2020-09-07T21:51:07-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -204,6 +204,10 @@ MathJax.Hub.Config({
 <a href="chapter-trapezoid-midpoint.html" data-scroll="chapter-trapezoid-midpoint"><span class="codenumber">13</span> <span class="title">Numerical integration: basic rules</span></a><ul>
 <li><a href="section-riemann-sums.html" data-scroll="section-riemann-sums" class="active">Riemann sums</a></li>
 <li><a href="section-left-right-midpoint.html" data-scroll="section-left-right-midpoint">Left, right, midpoint rules</a></li>
+<li><a href="section-trapezoidal-rulet.html" data-scroll="section-trapezoidal-rulet">Trapezoidal rule</a></li>
+<li><a href="section-lrtm-error-estimates.html" data-scroll="section-lrtm-error-estimates">Error estimates</a></li>
+<li><a href="examples-trapezoid-midpoint.html" data-scroll="examples-trapezoid-midpoint">Examples and questions</a></li>
+<li><a href="exercises-trapezoid-midpoint.html" data-scroll="exercises-trapezoid-midpoint">Homework</a></li>
 </ul>
 </li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
@@ -213,7 +217,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-riemann-sums"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">13.1</span> <span class="title">Riemann sums</span>
 </h2>
-<p id="p-428">Numerical integration problem amounts to the following: we have a function \(f\) on some interval \([a,b]\text{,}\) and we try to compute \(\int_a^b f(x)\,dx\) based on evaluating \(f\) at some points of this interval. To begin with, recall that by definition, \(\int_a^b f(x)\,dx\) is the limit of <dfn class="terminology">Riemann sums</dfn> of $f$. The process of computing a Riemann sum is as follows.</p>
+<p id="p-428">Numerical integration problem amounts to the following: we have a function \(f\) on some interval \([a,b]\text{,}\) and we try to compute \(\int_a^b f(x)\,dx\) based on evaluating \(f\) at some points of this interval. To begin with, recall that by definition, \(\int_a^b f(x)\,dx\) is the limit of <dfn class="terminology">Riemann sums</dfn> of \(f\text{.}\) The process of computing a Riemann sum is as follows.</p>
 <ol class="decimal">
 <li id="li-113">Divide \([a,b]\) into subintervals. It can be divided into \(n\) subintervals by choosing some points \(x_0 \lt x_1 \lt x_2 \lt \cdots \lt  x_n\) so that \(x_0=a\) and \(x_n=b\text{.}\) The subintervals are \(I_k = [x_{k-1},x_k]\) where \(k=1, 2, \dots, n\)</li>
 <li id="li-114">Evaluate \(f\) at some point \(s_k\) (a sample point) of each subinterval \(I_k\text{.}\)</li>
