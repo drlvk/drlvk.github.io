@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-09-17T16:04:12-04:00    *-->
+<!--*    on 2020-09-19T21:08:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -212,9 +212,18 @@ MathJax.Hub.Config({
 </li>
 <li class="link">
 <a href="chapter-simpson-newton-cotes.html" data-scroll="chapter-simpson-newton-cotes"><span class="codenumber">14</span> <span class="title">Simpson's rule and other Newton-Cotes rules</span></a><ul>
-<li><a href="section-simpson-rule.html" data-scroll="section-simpson-rule">Simpson's Rule</a></li>
+<li><a href="section-simpson-rule.html" data-scroll="section-simpson-rule">Simpson's rule</a></li>
 <li><a href="section-newton-cotes.html" data-scroll="section-newton-cotes">Newton-Cotes rules</a></li>
 <li><a href="exercises-simpson-newton-cotes.html" data-scroll="exercises-simpson-newton-cotes">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-legendre-laguerre.html" data-scroll="chapter-legendre-laguerre"><span class="codenumber">15</span> <span class="title">Legendre polynomials and Laguerre polynomials</span></a><ul>
+<li><a href="section-legendre-motivation.html" data-scroll="section-legendre-motivation">Motivation: search for better evaluation points</a></li>
+<li><a href="section-legendre-polynomials.html" data-scroll="section-legendre-polynomials">Legendre polynomials</a></li>
+<li><a href="section-laguerre-polynomials.html" data-scroll="section-laguerre-polynomials">Laguerre polynomials</a></li>
+<li><a href="examples-legendre-laguerre.html" data-scroll="examples-legendre-laguerre">Examples and questions</a></li>
+<li><a href="exercises-legendre-laguerre.html" data-scroll="exercises-legendre-laguerre">Homework</a></li>
 </ul>
 </li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
@@ -238,8 +247,8 @@ B_1 \mathbf w = \mathbf h\label{eq-B1-equation}\tag{11.3.1}
 </div>
 <article class="question example-like" id="question-22"><a data-knowl="" class="id-ref original" data-refid="hk-question-22"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">11.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Why would not an outer product work here?</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-22"><article class="question example-like"><p id="p-380">We already know how to find a matrix that satisfies <a class="xref" data-knowl="./knowl/eq-B1-equation.html" title="Equation 11.3.1">(11.3.1)</a>, by taking an outer product multiplied by a scalar (<a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>). But this would be a bad, illogical choice for \(B_1\text{.}\) Why?</p></article></div>
-<p id="p-381">We want \(B_1\) to have some similarity to \(B_0\) in the hope that the process of improving guesses\(B_0, B_1, \dots\) will converge to something, rather than just jump around. We want to improve the previous guess, not replace it entirely. So, let \(B_1 = (I + M)B_0 = B_0 + MB_0\) where \(M\) can be constructed from an outer product as in <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. Namely, we want</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-22"><article class="question example-like"><p id="p-380">We already know how to find a matrix that satisfies <a class="xref" data-knowl="./knowl/eq-B1-equation.html" title="Equation 11.3.1">(11.3.1)</a>, by taking an outer product multiplied by a scalar <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. But this would be a bad, illogical choice for \(B_1\text{.}\) Why?</p></article></div>
+<p id="p-381">We want \(B_1\) to have some similarity to \(B_0\) in the hope that the process of improving guesses \(B_0, B_1, \dots\) will converge to something, rather than just jump around. We want to improve the previous guess, not replace it entirely. So, let \(B_1 = (I + M)B_0 = B_0 + MB_0\) where \(M\) can be constructed from an outer product as in <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. Namely, we want</p>
 <div class="displaymath">
 \begin{equation*}
 B_0 \mathbf w + M B_0 \mathbf w = \mathbf h
