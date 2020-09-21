@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-09-19T21:08:40-04:00    *-->
+<!--*    on 2020-09-20T21:25:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -226,6 +226,15 @@ MathJax.Hub.Config({
 <li><a href="exercises-legendre-laguerre.html" data-scroll="exercises-legendre-laguerre">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-gaussian-integration.html" data-scroll="chapter-gaussian-integration"><span class="codenumber">16</span> <span class="title">Gauss-Legendre and Gauss-Laguerre integration</span></a><ul>
+<li><a href="section-orthogonal-polynomials-recap.html" data-scroll="section-orthogonal-polynomials-recap">Brief recap of orthogonal polynomials</a></li>
+<li><a href="section-gauss-legendre.html" data-scroll="section-gauss-legendre">Gauss-Legendre integration</a></li>
+<li><a href="section-gauss-laguerre.html" data-scroll="section-gauss-laguerre">Gauss-Laguerre integration</a></li>
+<li><a href="examples-gaussian-integration.html" data-scroll="examples-gaussian-integration">Examples and questions</a></li>
+<li><a href="exercises-gaussian-integration.html" data-scroll="exercises-gaussian-integration">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -266,7 +275,6 @@ hold off
 <p id="p-489">The command <code class="code-inline tex2jax_ignore">roots</code> can be used to find the roots. A convenient way to plot them so that one can tell the difference between different degrees is to use the y-coordinate for the degree.</p>
 <pre class="code-block tex2jax_ignore">p = [1];
 q = [1 0];
-x = linspace(-1, 1, 1000);
 hold on
 for n = 1:10
     r = ((2*n+1)*[q 0] - n*[0 0 p])/(n+1);

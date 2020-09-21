@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-09-19T21:08:40-04:00    *-->
+<!--*    on 2020-09-20T21:25:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -67,10 +67,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="examples-legendre-laguerre.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-legendre-laguerre.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="part-data.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="examples-legendre-laguerre.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-legendre-laguerre.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-gaussian-integration.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="examples-legendre-laguerre.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-legendre-laguerre.html" title="Up">Up</a><a class="next-button button toolbar-item" href="part-data.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="examples-legendre-laguerre.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-legendre-laguerre.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-gaussian-integration.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -226,6 +226,15 @@ MathJax.Hub.Config({
 <li><a href="exercises-legendre-laguerre.html" data-scroll="exercises-legendre-laguerre" class="active">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-gaussian-integration.html" data-scroll="chapter-gaussian-integration"><span class="codenumber">16</span> <span class="title">Gauss-Legendre and Gauss-Laguerre integration</span></a><ul>
+<li><a href="section-orthogonal-polynomials-recap.html" data-scroll="section-orthogonal-polynomials-recap">Brief recap of orthogonal polynomials</a></li>
+<li><a href="section-gauss-legendre.html" data-scroll="section-gauss-legendre">Gauss-Legendre integration</a></li>
+<li><a href="section-gauss-laguerre.html" data-scroll="section-gauss-laguerre">Gauss-Laguerre integration</a></li>
+<li><a href="examples-gaussian-integration.html" data-scroll="examples-gaussian-integration">Examples and questions</a></li>
+<li><a href="exercises-gaussian-integration.html" data-scroll="exercises-gaussian-integration">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -234,7 +243,10 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">15.5</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-36"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-491">Adapt <a class="xref" data-knowl="./knowl/example-computation-legendre-coefficients.html" title="Example 15.4.1: Computing and plotting Legendre polynomials">Example 15.4.1</a> to Laguerre polynomials. That is, compute and plot Laguerre polynomials up to degree 10. Use \([0, 5]\) as an interval for plotting since we cannot plot on \([0, \infty)\text{.}\) Also, comment on some pattern you observe in their behavior.</p></article><article class="exercise exercise-like" id="exercise-37"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-491">Adapt <a class="xref" data-knowl="./knowl/example-computation-legendre-coefficients.html" title="Example 15.4.1: Computing and plotting Legendre polynomials">Example 15.4.1</a> to Laguerre polynomials. That is, compute and plot Laguerre polynomials up to degree 10. Use \([0, 5]\) as an interval for plotting since we cannot plot on \([0, \infty)\text{.}\) Also, comment on some pattern you observe in their behavior.</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref original" data-refid="hk-hint-6" id="hint-6"><span class="type">Hint</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-6"><div class="hint solution-like">Note that the degree 1 polynomial is no longer <code class="code-inline tex2jax_ignore">q = [1 0]</code>. Also, the recursive formula needs to be changed. When changing it, think of \((2n+1-x) L_n(x) - n L_{n-1}(x)\) as \((2n+1)L_n(x) - xL_n(x) - n L_{n-1}(x)\) and find the vector of coefficients for each of these three terms.</div></div>
+</div></article><article class="exercise exercise-like" id="exercise-37"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
 <p id="p-492">Adapt <a class="xref" data-knowl="./knowl/example-computation-legendre-roots.html" title="Example 15.4.2: The roots of Legendre polynomials">Example 15.4.2</a> to Laguerre polynomials. That is, compute and plot the roots of Laguerre polynomials of degrees 2 to 10. Also, comment on some pattern you observe in their behavior.</p></article></section></div></main>
 </div>
 </body>

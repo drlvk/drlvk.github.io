@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-09-20T21:25:42-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<p>One difference is the right hand side of the system which we use to solve for the weights \(w_k\text{.}\) For Gauss-Legendre integration we have \(\int_{-1}^1 x^p\,dx = (1-(-1)^{p+1})/(p+1)\) there. For Gauss-Laguerre integration we have \(\int_{0}^\infty x^p e^{-x}\,dx\) which takes a but more work. Integration by parts helps:</p>
+<div class="displaymath">
+\begin{equation*}
+\int_{0}^\infty x^p e^{-x}\,dx -x^pe^{-x}\bigg|_{x=0}^{x\to\infty} - \int_{0}^\infty p x^{p-1} (-e^{-x})\,dx 
+= p \int_{0}^\infty x^{p-1} e^{-x}\,dx
+\end{equation*}
+</div>
+<p data-braille="continuation">which shows, by induction, that \(\int_{0}^\infty x^p e^{-x}\,dx = p!\text{.}\)</p>
+<span class="incontext"><a href="section-gauss-laguerre.html#p-504">in-context</a></span>
+</body>
+</html>
