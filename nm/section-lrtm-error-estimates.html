@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-09-24T08:46:15-04:00    *-->
+<!--*    on 2020-09-30T00:25:56-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -245,6 +245,14 @@ MathJax.Hub.Config({
 <li><a href="exercises-adaptive-integration.html" data-scroll="exercises-adaptive-integration">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-multivariable-integration.html" data-scroll="chapter-multivariable-integration"><span class="codenumber">18</span> <span class="title">Multivariable integration</span></a><ul>
+<li><a href="section-integration-rectangle.html" data-scroll="section-integration-rectangle">Double integrals over rectangles</a></li>
+<li><a href="section-integration-general-2d.html" data-scroll="section-integration-general-2d">Double integrals over general regions</a></li>
+<li><a href="section-integration-monte-carlo.html" data-scroll="section-integration-monte-carlo">High-dimensional integration: Monte-Carlo method</a></li>
+<li><a href="exercises-multivariable-integration.html" data-scroll="exercises-multivariable-integration">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -267,7 +275,7 @@ MathJax.Hub.Config({
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-midpoint-rule"><article class="example example-like"><p id="p-438">Using the process describe above, estimate the error of the midpoint rule.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-32" id="solution-32"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-32"><div class="solution solution-like">
-<p id="p-439">The midpoint rule is exact for \(x^0\) and \(x^1\text{.}\) But for \(\int_0^h x^2\,dx\) it predicts \(\int_0^h x^2\,dx  = h^3/4\text{,}\) while the true value is \(h^3/3\text{.}\) So we stop at \(d=2\) with the error of \(h^3/12\text{,}\) which cam be written as \(\dfrac{1}{24} \ 2! \ h^3\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/24\text{.}\) In conclusion, the error of the midpoint rule is at most</p>
+<p id="p-439">The midpoint rule is exact for \(x^0\) and \(x^1\text{.}\) But for \(\int_0^h x^2\,dx\) it predicts \(\int_0^h x^2\,dx  = h^3/4\text{,}\) while the true value is \(h^3/3\text{.}\) So we stop at \(d=2\) with the error of \(h^3/12\text{,}\) which can be written as \(\dfrac{1}{24} \ 2! \ h^3\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/24\text{.}\) In conclusion, the error of the midpoint rule is at most</p>
 <div class="displaymath">
 \begin{equation*}
 |\text{error}| \le \frac{1}{24}\max_{[a,b]} |f''|  (b-a) h^2
