@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-09-30T12:56:58-04:00    *-->
+<!--*    on 2020-10-03T21:17:29-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The error is about \(8.2\cdot 10^{-10}\) for the first integral and about \(0.058\) for the second. Somehow, the rule is 100 million times more accurate for the first function than for the second, even though they are both perfectly smooth functions on the interval \([-1, 1]\text{.}\) The reason for such a different behavior is that \(e^x\) is easy to approximate by polynomials while \((9x^2+1)^{-1}\) is not so easy; it has to do with the Taylor series of these functions. This will come up again when we study approximation of functions.</p>
+<p>Not repeating the code from <a class="xref" data-knowl="./knowl/example-find-gauss-legendre-weights.html" title="Example 16.4.1: Compute the Gauss-Legendre points and weights">Example 16.4.1</a>, assume it already ran and computed <code class="code-inline tex2jax_ignore">x, w</code>. With <code class="code-inline tex2jax_ignore">exp(x)*w</code> we get an approximation to the integral of \(e^x\text{.}\) And <code class="code-inline tex2jax_ignore">f(x)*w</code> does the same for the second function, if we define it as <code class="code-inline tex2jax_ignore">f = @(x) (9*x.^2+1).^(-1)</code>.</p>
 <span class="incontext"><a href="examples-gaussian-integration.html#p-514">in-context</a></span>
 </body>
 </html>

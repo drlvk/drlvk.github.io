@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-09-30T12:56:59-04:00    *-->
+<!--*    on 2020-10-03T21:17:29-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Integration over a \(d\)-dimensional region with large \(d\) presents new challenges. One is setting up all the boundaries for multiple variables. Another is the number of evaluation points. If we use \(n\) evaluation points for each of \(d\) variables, the total number of evaluations is \(n^d\) which  grows exponentially with dimension. It becomes crucial to not have large \(n\text{,}\) which is why Gaussian integration is often used.</p>
-<span class="incontext"><a href="section-integration-monte-carlo.html#p-565">in-context</a></span>
+<p>The result is 11.8764, compared to the WolframAlpha output 12.5419. This is less accurate than what we got for rectangle. Note that all points with \(x=\pm 2\) are wasted because there is no interval to integrate over with respect to \(y\text{.}\) For this reason, open-ended rules such as Gaussian integration is preferable. Replacing the choice of <code class="code-inline tex2jax_ignore">x, w</code> above with the 3-point Gaussian rule</p>
+<pre class="code-block tex2jax_ignore">
+x = [-sqrt(3/5) 0 sqrt(3/5)]*(b-a)/2 + (a+b)/2;
+w = [5/9 8/9 5/9]*(b-a)/2;
+</pre>
+<p data-braille="continuation">we get 12.7081, which is much more accurate.</p>
+<span class="incontext"><a href="section-integration-general-2d.html#p-565">in-context</a></span>
 </body>
 </html>

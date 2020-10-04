@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-09-30T12:56:58-04:00    *-->
+<!--*    on 2020-10-03T21:17:29-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One difference is the right hand side of the system which we use to solve for the weights \(w_k\text{.}\) For Gauss-Legendre integration we have \(\int_{-1}^1 x^p\,dx = (1-(-1)^{p+1})/(p+1)\) there. For Gauss-Laguerre integration we have \(\int_{0}^\infty x^p e^{-x}\,dx\) which takes a but more work. Integration by parts helps:</p>
-<div class="displaymath">
-\begin{equation*}
-\int_{0}^\infty x^p e^{-x}\,dx -x^pe^{-x}\bigg|_{x=0}^{x\to\infty} - \int_{0}^\infty p x^{p-1} (-e^{-x})\,dx 
-= p \int_{0}^\infty x^{p-1} e^{-x}\,dx
-\end{equation*}
-</div>
-<p data-braille="continuation">which shows, by induction, that \(\int_{0}^\infty x^p e^{-x}\,dx = p!\text{.}\)</p>
+<p>It is important to recognize that although there is an exponential term \(e^{-x}\) on the left hand side of <a class="xref" data-knowl="./knowl/eq-gauss-legendre-rule.html" title="Equation 16.3.1">(16.3.1)</a>, it does not appear on the right hand side. Think of it as being subsumed by the weights \(w_1, \dots, w_n\text{.}\) Aside: in terms of measure theory, we are approximating the continuous measure  \(e^{-x}\,dx\) by the discrete measure which puts mass \(w_k\) at the point \(x_k\) for each \(k\text{.}\)</p>
 <span class="incontext"><a href="section-gauss-laguerre.html#p-504">in-context</a></span>
 </body>
 </html>

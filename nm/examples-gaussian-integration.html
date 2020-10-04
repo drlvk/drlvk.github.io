@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-09-30T12:56:54-04:00    *-->
+<!--*    on 2020-10-03T21:17:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -260,13 +260,13 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-gaussian-integration"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">16.4</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-509">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-510">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-find-gauss-legendre-weights"><a data-knowl="" class="id-ref original" data-refid="hk-example-find-gauss-legendre-weights"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Compute the Gauss-Legendre points and weights.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-find-gauss-legendre-weights"><article class="example example-like"><p id="p-510">For a given integer \(n \ge 2\text{,}\) find the Gauss-Legendre evaluation points and weights.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-find-gauss-legendre-weights"><article class="example example-like"><p id="p-511">For a given integer \(n \ge 2\text{,}\) find the Gauss-Legendre evaluation points and weights.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-41" id="answer-41"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-41"><div class="answer solution-like">
-<p id="p-511">Combine the code from <a class="xref" data-knowl="./knowl/example-computation-legendre-roots.html" title="Example 15.4.2: The roots of Legendre polynomials">Example 15.4.2</a> (computation of Legendre roots) and <a class="xref" data-knowl="./knowl/example-find-cotes-weights.html" title="Example 14.2.1: Find the weights for a 5-point Newton-Cotes formula">Example 14.2.1</a> (computing the weights). This only requires some changes in variable names and in the orientation of vectors (row/column).</p>
+<p id="p-512">Combine the code from <a class="xref" data-knowl="./knowl/example-computation-legendre-roots.html" title="Example 15.4.2: The roots of Legendre polynomials">Example 15.4.2</a> (computation of Legendre roots) and <a class="xref" data-knowl="./knowl/example-find-cotes-weights.html" title="Example 14.2.1: Find the weights for a 5-point Newton-Cotes formula">Example 14.2.1</a> (computing the weights). This only requires some changes in variable names and in the orientation of vectors (row/column).</p>
 <pre class="code-block tex2jax_ignore">n = input('n = ');
 p = [1];
 q = [1 0];
@@ -287,10 +287,10 @@ disp(w');   %  the weights
 </div></article></div>
 <article class="example example-like" id="example-apply-gauss-legendre"><a data-knowl="" class="id-ref original" data-refid="hk-example-apply-gauss-legendre"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Apply the Gauss-Legendre integration rule.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-apply-gauss-legendre"><article class="example example-like"><p id="p-512">For a given integer \(n \ge 2\text{,}\) apply the Gauss-Legendre rule to the integrals \(\int_{-1}^1 e^x\,dx\) and \(\int_{-1}^1 (9x^2+1)^{-1}\,dx\text{.}\) In each case, find the difference between the approximate and exact values.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-apply-gauss-legendre"><article class="example example-like"><p id="p-513">For a given integer \(n \ge 2\text{,}\) apply the Gauss-Legendre rule to the integrals \(\int_{-1}^1 e^x\,dx\) and \(\int_{-1}^1 (9x^2+1)^{-1}\,dx\text{.}\) In each case, find the difference between the approximate and exact values.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-42" id="answer-42"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-42"><div class="answer solution-like">
-<p id="p-513">Not repeating the code from <a class="xref" data-knowl="./knowl/example-find-gauss-legendre-weights.html" title="Example 16.4.1: Compute the Gauss-Legendre points and weights">Example 16.4.1</a>, assume it already ran and computed <code class="code-inline tex2jax_ignore">x, w</code>. With <code class="code-inline tex2jax_ignore">exp(x)*w</code> we get an approximation to the integral of \(e^x\text{.}\) And <code class="code-inline tex2jax_ignore">f(x)*w</code> does the same for the second function, if we define it as <code class="code-inline tex2jax_ignore">f = @(x) (9*x.^2+1).^(-1)</code>.</p>
+<p id="p-514">Not repeating the code from <a class="xref" data-knowl="./knowl/example-find-gauss-legendre-weights.html" title="Example 16.4.1: Compute the Gauss-Legendre points and weights">Example 16.4.1</a>, assume it already ran and computed <code class="code-inline tex2jax_ignore">x, w</code>. With <code class="code-inline tex2jax_ignore">exp(x)*w</code> we get an approximation to the integral of \(e^x\text{.}\) And <code class="code-inline tex2jax_ignore">f(x)*w</code> does the same for the second function, if we define it as <code class="code-inline tex2jax_ignore">f = @(x) (9*x.^2+1).^(-1)</code>.</p>
 <pre class="code-block tex2jax_ignore">approx = exp(x)*w;
 exact = exp(1)-exp(-1);
 disp(abs(approx-exact));
@@ -300,16 +300,16 @@ approx = f(x)*w;
 exact = (2/3)*atan(3);
 disp(abs(approx-exact));
 </pre>
-<p id="p-514">The error is about \(8.2\cdot 10^{-10}\) for the first integral and about \(0.058\) for the second. Somehow, the rule is 100 million times more accurate for the first function than for the second, even though they are both perfectly smooth functions on the interval \([-1, 1]\text{.}\) The reason for such a different behavior is that \(e^x\) is easy to approximate by polynomials while \((9x^2+1)^{-1}\) is not so easy; it has to do with the Taylor series of these functions. This will come up again when we study approximation of functions.</p>
+<p id="p-515">The error is about \(8.2\cdot 10^{-10}\) for the first integral and about \(0.058\) for the second. Somehow, the rule is 100 million times more accurate for the first function than for the second, even though they are both perfectly smooth functions on the interval \([-1, 1]\text{.}\) The reason for such a different behavior is that \(e^x\) is easy to approximate by polynomials while \((9x^2+1)^{-1}\) is not so easy; it has to do with the Taylor series of these functions. This will come up again when we study approximation of functions.</p>
 </div></div>
 </div></article></div>
-<p id="p-515">One could theoretically derive an estimate for the error of Gauss-Legendre integration rule in terms of the derivative of \(f\) of order \(2n\text{.}\) But this is impractical, because useful estimates of, for example, 10th derivative, are rarely available. The following example approaches the error estimation from another point of view.</p>
+<p id="p-516">One could theoretically derive an estimate for the error of Gauss-Legendre integration rule in terms of the derivative of \(f\) of order \(2n\text{.}\) But this is impractical, because useful estimates of, for example, 10th derivative, are rarely available. The following example approaches the error estimation from another point of view.</p>
 <article class="example example-like" id="example-error-gauss-legendre"><a data-knowl="" class="id-ref original" data-refid="hk-example-error-gauss-legendre"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Estimating the accuracy of the Gauss-Legendre integration.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-gauss-legendre"><article class="example example-like"><p id="p-516">Suppose that \(f\) is a function on \([-1, 1]\) and there exists a polynomial \(p\) of degree \(9\) such that \(|f(x)-p(x)| \le 10^{-7}\) for all \(x\in [-1, 1]\text{.}\) Estimate the error of the 5-point Gauss-Legendre rule applied to \(f\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-gauss-legendre"><article class="example example-like"><p id="p-517">Suppose that \(f\) is a function on \([-1, 1]\) and there exists a polynomial \(p\) of degree \(9\) such that \(|f(x)-p(x)| \le 10^{-7}\) for all \(x\in [-1, 1]\text{.}\) Estimate the error of the 5-point Gauss-Legendre rule applied to \(f\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-43" id="answer-43"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-43"><div class="answer solution-like">
-<p id="p-517">The integral triangle inequality yields</p>
+<p id="p-518">The integral triangle inequality yields</p>
 <div class="displaymath">
 \begin{equation*}
 \left|\int_{-1}^1 f - \int_{-1}^1 p\right| \le \int_{-1}^1 |f-p| \le  2\cdot 10^{-7}
@@ -328,7 +328,7 @@ disp(abs(approx-exact));
 \left|\int_{-1}^1 f -\sum_k w_k f(x_k)\right| \le 4\cdot 10^{-7}
 \end{equation*}
 </div>
-<p id="p-518">In general, the estimates above show that if \(f\) can be approximated within \(\varepsilon\) by some polynomial of degree \(2n-1\text{,}\) then the error of \(n\)-point Gauss-Legendre rule is at most \(4\varepsilon\text{.}\)</p>
+<p id="p-519">In general, the estimates above show that if \(f\) can be approximated within \(\varepsilon\) by some polynomial of degree \(2n-1\text{,}\) then the error of \(n\)-point Gauss-Legendre rule is at most \(4\varepsilon\text{.}\)</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>
