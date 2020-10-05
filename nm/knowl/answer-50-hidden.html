@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-10-04T22:50:30-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="answer solution-like"><pre class="code-block tex2jax_ignore">f = @(t, y) -t*y;   % or without -
+h = 0.3;   %  or 0.1, 0.01 
+t = 0:h:3;
+y0 = 1;
+y = y0*ones(size(t));
+
+for k = 1:numel(t)-1
+    y(k+1) = y(k) + h*f(t(k), y(k));
+end
+
+exact = exp(-t.^2 /2);   % or without -
+plot(t, y, t, exact)
+legend('Euler', 'exact')
+</pre></div></body>
+</html>
