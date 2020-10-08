@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-10-07T21:13:19-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Modeling with differential equations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="numerical-methods.html"><span class="title">Numerical Methods with Programming</span></a></h1>
+<p class="byline">Leonid Kovalev</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="exercises-ode-euler.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="part-calculus.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-ode-epidemiology.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="exercises-ode-euler.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="part-calculus.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-ode-epidemiology.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter"><span class="title">Front Matter</span></a><ul>
+<li><a href="acknowledgement.html" data-scroll="acknowledgement">Acknowledgements</a></li>
+<li><a href="preface.html" data-scroll="preface">Preface</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-matlab.html" data-scroll="part-matlab"><span class="codenumber">I</span> <span class="title">Using Matlab</span></a></li>
+<li class="link">
+<a href="chapter-scalars-vectors-matrices.html" data-scroll="chapter-scalars-vectors-matrices"><span class="codenumber">1</span> <span class="title">Scalars, vectors and matrices</span></a><ul>
+<li><a href="section-matlab-interface.html" data-scroll="section-matlab-interface">Matlab interface</a></li>
+<li><a href="section-scalars.html" data-scroll="section-scalars">Assigning scalar values</a></li>
+<li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
+<li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
+<li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">Examples and questions</a></li>
+<li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-systems-vectorization-plots.html" data-scroll="chapter-systems-vectorization-plots"><span class="codenumber">2</span> <span class="title">Linear systems, array operations, plots</span></a><ul>
+<li><a href="section-linear-systems.html" data-scroll="section-linear-systems">Systems of linear equations</a></li>
+<li><a href="section-large-matrices.html" data-scroll="section-large-matrices">More tools for constructing matrices</a></li>
+<li><a href="section-vectorization.html" data-scroll="section-vectorization">Array operations</a></li>
+<li><a href="section-plotting.html" data-scroll="section-plotting">Plotting</a></li>
+<li><a href="examples-systems-vectorization-plots.html" data-scroll="examples-systems-vectorization-plots">Examples and questions</a></li>
+<li><a href="exercises-systems-vectorization-plots.html" data-scroll="exercises-systems-vectorization-plots">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-functions-input-output.html" data-scroll="chapter-functions-input-output"><span class="codenumber">3</span> <span class="title">Built-in functions, input, output</span></a><ul>
+<li><a href="section-builtin-functions.html" data-scroll="section-builtin-functions">Built-in functions</a></li>
+<li><a href="section-random-numbers-histograms.html" data-scroll="section-random-numbers-histograms">Random numbers and histograms</a></li>
+<li><a href="section-user-input.html" data-scroll="section-user-input">User input</a></li>
+<li><a href="section-formatted-output.html" data-scroll="section-formatted-output">Formatted output</a></li>
+<li><a href="examples-functions-input-output.html" data-scroll="examples-functions-input-output">Examples and questions</a></li>
+<li><a href="exercises-functions-input-output.html" data-scroll="exercises-functions-input-output">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-control-flow.html" data-scroll="chapter-control-flow"><span class="codenumber">4</span> <span class="title">Control flow: loops and conditional statements</span></a><ul>
+<li><a href="section-for-loop.html" data-scroll="section-for-loop"><code class="code-inline tex2jax_ignore">for</code> loop</a></li>
+<li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
+<li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
+<li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
+<li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-user-defined-functions.html" data-scroll="chapter-user-defined-functions"><span class="codenumber">5</span> <span class="title">User-defined functions</span></a><ul>
+<li><a href="section-anonymous-functions.html" data-scroll="section-anonymous-functions">Anonymous functions</a></li>
+<li><a href="section-named-functions.html" data-scroll="section-named-functions">Named functions</a></li>
+<li><a href="examples-user-defined-functions.html" data-scroll="examples-user-defined-functions">Examples and questions</a></li>
+<li><a href="exercises-user-defined-functions.html" data-scroll="exercises-user-defined-functions">Homework</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-equations.html" data-scroll="part-equations"><span class="codenumber">II</span> <span class="title">Solving Equations</span></a></li>
+<li class="link">
+<a href="chapter-linear-systems.html" data-scroll="chapter-linear-systems"><span class="codenumber">6</span> <span class="title">Systems of linear equations</span></a><ul>
+<li><a href="section-classification-linear-systems.html" data-scroll="section-classification-linear-systems">Classification of linear systems</a></li>
+<li><a href="section-systems-without-free-variables.html" data-scroll="section-systems-without-free-variables">Systems without free variables</a></li>
+<li><a href="section-systems-with-free-variables.html" data-scroll="section-systems-with-free-variables">Systems with free variables</a></li>
+<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off-errors</a></li>
+<li><a href="examples-linear-systems.html" data-scroll="examples-linear-systems">Examples and questions</a></li>
+<li><a href="exercises-linear-systems.html" data-scroll="exercises-linear-systems">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-roots-bisection.html" data-scroll="chapter-roots-bisection"><span class="codenumber">7</span> <span class="title">Root finding: bisection</span></a><ul>
+<li><a href="section-motivation-numeric-solution.html" data-scroll="section-motivation-numeric-solution">Motivation for solving equations numerically</a></li>
+<li><a href="section-meaning-numeric-solution.html" data-scroll="section-meaning-numeric-solution">The meaning of a numeric solution</a></li>
+<li><a href="section-bisection-method.html" data-scroll="section-bisection-method">Bisection method</a></li>
+<li><a href="section-bisection-issues.html" data-scroll="section-bisection-issues">Limitations of the bisection method</a></li>
+<li><a href="examples-roots-bisection.html" data-scroll="examples-roots-bisection">Examples and questions</a></li>
+<li><a href="exercises-roots-bisection.html" data-scroll="exercises-roots-bisection">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-fixed-point-iteration.html" data-scroll="chapter-fixed-point-iteration"><span class="codenumber">8</span> <span class="title">Root finding: fixed point iteration</span></a><ul>
+<li><a href="section-classification-fixed-points.html" data-scroll="section-classification-fixed-points">Classification of fixed points</a></li>
+<li><a href="section-rewriting-fixed-point.html" data-scroll="section-rewriting-fixed-point">Rewriting equations in the fixed-point form</a></li>
+<li><a href="section-rate-convergence.html" data-scroll="section-rate-convergence">The speed of convergence of fixed-point iteration</a></li>
+<li><a href="examples-fixed-point-iteration.html" data-scroll="examples-fixed-point-iteration">Examples and questions</a></li>
+<li><a href="exercises-fixed-point-iteration.html" data-scroll="exercises-fixed-point-iteration">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
+<li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
+<li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
+<li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
+<li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-multivariate-newton.html" data-scroll="chapter-multivariate-newton"><span class="codenumber">10</span> <span class="title">Systems of several nonlinear equations: multivariate Newton's method</span></a><ul>
+<li><a href="section-nonlinear-systems.html" data-scroll="section-nonlinear-systems">Systems of nonlinear equations</a></li>
+<li><a href="section-multivariate-newton.html" data-scroll="section-multivariate-newton">Multivariate Newton's method</a></li>
+<li><a href="section-multivariate-newton-method-issues.html" data-scroll="section-multivariate-newton-method-issues">Potential issues</a></li>
+<li><a href="examples-multivariate-newton.html" data-scroll="examples-multivariate-newton">Examples and questions</a></li>
+<li><a href="exercises-multivariate-newton.html" data-scroll="exercises-multivariate-newton">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-broyden.html" data-scroll="chapter-broyden"><span class="codenumber">11</span> <span class="title">Broyden's method</span></a><ul>
+<li><a href="section-broyden-intro.html" data-scroll="section-broyden-intro">Idea of Broyden's method</a></li>
+<li><a href="section-broyden-linear-algebra.html" data-scroll="section-broyden-linear-algebra">Outer products</a></li>
+<li><a href="section-broyden-method.html" data-scroll="section-broyden-method">Details of Broyden's method</a></li>
+<li><a href="examples-broyden.html" data-scroll="examples-broyden">Examples and questions</a></li>
+<li><a href="exercises-broyden.html" data-scroll="exercises-broyden">Homework</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
+<li class="link">
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
+<li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
+<li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
+<li><a href="section-richardson-extrapolation.html" data-scroll="section-richardson-extrapolation">Richardson extrapolation</a></li>
+<li><a href="examples-numerical-differentiation.html" data-scroll="examples-numerical-differentiation">Examples and questions</a></li>
+<li><a href="exercises-numerical-differentiation.html" data-scroll="exercises-numerical-differentiation">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-trapezoid-midpoint.html" data-scroll="chapter-trapezoid-midpoint"><span class="codenumber">13</span> <span class="title">Numerical integration: basic rules</span></a><ul>
+<li><a href="section-riemann-sums.html" data-scroll="section-riemann-sums">Riemann sums</a></li>
+<li><a href="section-left-right-midpoint.html" data-scroll="section-left-right-midpoint">Left, right, midpoint rules</a></li>
+<li><a href="section-trapezoidal-rulet.html" data-scroll="section-trapezoidal-rulet">Trapezoidal rule</a></li>
+<li><a href="section-lrtm-error-estimates.html" data-scroll="section-lrtm-error-estimates">Error estimates</a></li>
+<li><a href="examples-trapezoid-midpoint.html" data-scroll="examples-trapezoid-midpoint">Examples and questions</a></li>
+<li><a href="exercises-trapezoid-midpoint.html" data-scroll="exercises-trapezoid-midpoint">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-simpson-newton-cotes.html" data-scroll="chapter-simpson-newton-cotes"><span class="codenumber">14</span> <span class="title">Simpson's rule and other Newton-Cotes rules</span></a><ul>
+<li><a href="section-simpson-rule.html" data-scroll="section-simpson-rule">Simpson's rule</a></li>
+<li><a href="section-newton-cotes.html" data-scroll="section-newton-cotes">Newton-Cotes rules</a></li>
+<li><a href="exercises-simpson-newton-cotes.html" data-scroll="exercises-simpson-newton-cotes">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-legendre-laguerre.html" data-scroll="chapter-legendre-laguerre"><span class="codenumber">15</span> <span class="title">Legendre polynomials and Laguerre polynomials</span></a><ul>
+<li><a href="section-legendre-motivation.html" data-scroll="section-legendre-motivation">Motivation: search for better evaluation points</a></li>
+<li><a href="section-legendre-polynomials.html" data-scroll="section-legendre-polynomials">Legendre polynomials</a></li>
+<li><a href="section-laguerre-polynomials.html" data-scroll="section-laguerre-polynomials">Laguerre polynomials</a></li>
+<li><a href="examples-legendre-laguerre.html" data-scroll="examples-legendre-laguerre">Examples and questions</a></li>
+<li><a href="exercises-legendre-laguerre.html" data-scroll="exercises-legendre-laguerre">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-gaussian-integration.html" data-scroll="chapter-gaussian-integration"><span class="codenumber">16</span> <span class="title">Gauss-Legendre and Gauss-Laguerre integration</span></a><ul>
+<li><a href="section-orthogonal-polynomials-recap.html" data-scroll="section-orthogonal-polynomials-recap">Brief recap of orthogonal polynomials</a></li>
+<li><a href="section-gauss-legendre.html" data-scroll="section-gauss-legendre">Gauss-Legendre integration</a></li>
+<li><a href="section-gauss-laguerre.html" data-scroll="section-gauss-laguerre">Gauss-Laguerre integration</a></li>
+<li><a href="examples-gaussian-integration.html" data-scroll="examples-gaussian-integration">Examples and questions</a></li>
+<li><a href="exercises-gaussian-integration.html" data-scroll="exercises-gaussian-integration">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-adaptive-integration.html" data-scroll="chapter-adaptive-integration"><span class="codenumber">17</span> <span class="title">Adaptive integration</span></a><ul>
+<li><a href="section-motivation-adaptive-integration.html" data-scroll="section-motivation-adaptive-integration">Why we need adaptive methods</a></li>
+<li><a href="section-adaptive-integration-error-estimate.html" data-scroll="section-adaptive-integration-error-estimate">Estimating error by using two step sizes</a></li>
+<li><a href="section-adaptive-integration-bisection.html" data-scroll="section-adaptive-integration-bisection">Recursive subdivision algorithm</a></li>
+<li><a href="section-adaptive-integration-rules.html" data-scroll="section-adaptive-integration-rules">Combining two rules</a></li>
+<li><a href="examples-adaptive-integration.html" data-scroll="examples-adaptive-integration">Examples and questions</a></li>
+<li><a href="exercises-adaptive-integration.html" data-scroll="exercises-adaptive-integration">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-multivariable-integration.html" data-scroll="chapter-multivariable-integration"><span class="codenumber">18</span> <span class="title">Multivariable integration</span></a><ul>
+<li><a href="section-integration-rectangle.html" data-scroll="section-integration-rectangle">Double integrals over rectangles</a></li>
+<li><a href="section-integration-general-2d.html" data-scroll="section-integration-general-2d">Double integrals over general regions</a></li>
+<li><a href="section-integration-monte-carlo.html" data-scroll="section-integration-monte-carlo">High-dimensional integration: Monte-Carlo method</a></li>
+<li><a href="exercises-multivariable-integration.html" data-scroll="exercises-multivariable-integration">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-ode-euler.html" data-scroll="chapter-ode-euler"><span class="codenumber">19</span> <span class="title">Differential equations: Euler's method and its relatives</span></a><ul>
+<li><a href="section-ode-intro.html" data-scroll="section-ode-intro">Ordinary differential equations</a></li>
+<li><a href="section-euler-method.html" data-scroll="section-euler-method">Euler's method</a></li>
+<li><a href="section-ode-order-accuracy.html" data-scroll="section-ode-order-accuracy">Estimating the accuracy of numeric ODE methods</a></li>
+<li><a href="section-ode-euler-improved.html" data-scroll="section-ode-euler-improved">Improving Euler's method</a></li>
+<li><a href="section-ode-systems.html" data-scroll="section-ode-systems">Solving systems of differential equations</a></li>
+<li><a href="exercises-ode-euler.html" data-scroll="exercises-ode-euler">Homework</a></li>
+</ul>
+</li>
+<li class="link active">
+<a href="chapter-ode-modeling.html" data-scroll="chapter-ode-modeling"><span class="codenumber">20</span> <span class="title">Modeling with differential equations</span></a><ul>
+<li><a href="section-ode-epidemiology.html" data-scroll="section-ode-epidemiology">Models of an epidemic</a></li>
+<li><a href="section-ode-predator-prey.html" data-scroll="section-ode-predator-prey">Predator-prey models</a></li>
+<li><a href="examples-ode-modeling.html" data-scroll="examples-ode-modeling">Examples and questions</a></li>
+<li><a href="exercises-ode-euler.html" data-scroll="exercises-ode-euler">Homework</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
+<li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="chapter" id="chapter-ode-modeling"><h2 class="heading">
+<span class="type">Chapter</span> <span class="codenumber">20</span> <span class="title">Modeling with differential equations</span>
+</h2>
+<section class="introduction" id="introduction-20"><p id="p-603">Systems of differential equations are among the main tools of mathematical modeling, which can be informally described as the process of matching real-world phenomena with mathematical structures. Useful models allow us to make predictions and recommendations for future actions based on mathematical methods, including numerical methods.</p></section><nav class="summary-links"><ul>
+<li><a href="section-ode-epidemiology.html"><span class="codenumber">20.1</span> <span class="title">Models of an epidemic</span></a></li>
+<li><a href="section-ode-predator-prey.html"><span class="codenumber">20.2</span> <span class="title">Predator-prey models</span></a></li>
+<li><a href="examples-ode-modeling.html"><span class="codenumber">20.3</span> <span class="title">Examples and questions</span></a></li>
+<li><a href="exercises-ode-euler.html"><span class="codenumber">20.4</span> <span class="title">Homework</span></a></li>
+</ul></nav></section></div></main>
+</div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-04T22:50:25-04:00    *-->
+<!--*    on 2020-10-07T21:13:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -263,6 +263,14 @@ MathJax.Hub.Config({
 <li><a href="exercises-ode-euler.html" data-scroll="exercises-ode-euler">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-ode-modeling.html" data-scroll="chapter-ode-modeling"><span class="codenumber">20</span> <span class="title">Modeling with differential equations</span></a><ul>
+<li><a href="section-ode-epidemiology.html" data-scroll="section-ode-epidemiology">Models of an epidemic</a></li>
+<li><a href="section-ode-predator-prey.html" data-scroll="section-ode-predator-prey">Predator-prey models</a></li>
+<li><a href="examples-ode-modeling.html" data-scroll="examples-ode-modeling">Examples and questions</a></li>
+<li><a href="exercises-ode-euler.html" data-scroll="exercises-ode-euler">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-data.html" data-scroll="part-data"><span class="codenumber">IV</span> <span class="title">Modeling Data</span></a></li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -299,7 +307,7 @@ MathJax.Hub.Config({
 <p id="p-556">Given the large number of terms in double sum <a class="xref" data-knowl="./knowl/eq-double-quad-gen.html" title="Equation 18.1.1">(18.1.1)</a>, we should try to organize such computations efficiently. The first thing to do is to evaluate the function on a rectangular grid formed by all \((x_i, y_j)\) points. A useful Matlab command is <code class="code-inline tex2jax_ignore">meshgrid</code>, which is used as</p>
 <pre class="code-block tex2jax_ignore">[X, Y] = meshgrid(x, y)</pre>
 <p data-braille="continuation">where <code class="code-inline tex2jax_ignore">x,y</code> are vectors with evaluation points. The output consists of two matrices <code class="code-inline tex2jax_ignore">X, Y</code> which represent the rectangular grid: <code class="code-inline tex2jax_ignore">X</code> has the x-coordinates of all the grid points, and <code class="code-inline tex2jax_ignore">Y</code> has their y-coordinates. The reason this is useful is that <code class="code-inline tex2jax_ignore">f(X, Y)</code> can now be used to evaluate the function on the entire grid at once (producing a matrix of its values), provided \(f\) is written so that it can handle matrix input.</p>
-<p id="p-557">Having computed <code class="code-inline tex2jax_ignore">V = f(X, Y)</code>, we need to combine it with weights and to get a single number at the end. Recall in one dimension we would do this as <code class="code-inline tex2jax_ignore">f(x)*w</code> where <code class="code-inline tex2jax_ignore">w</code> is a column vector of x-weights. We should still do this, but to also multiply and sum over the y-weights, we need <code class="code-inline tex2jax_ignore">v*f(x)*w</code> where <code class="code-inline tex2jax_ignore">v</code> is a row of vector of y-weights.</p>
+<p id="p-557">Having computed <code class="code-inline tex2jax_ignore">V = f(X, Y)</code>, we need to combine it with weights and to get a single number at the end. Recall in one dimension we would do this as <code class="code-inline tex2jax_ignore">f(x)*w</code> where <code class="code-inline tex2jax_ignore">w</code> is a column vector of x-weights. We should still do this, but to also multiply and sum over the y-weights, we need <code class="code-inline tex2jax_ignore">v*f(X, Y)*w</code> where <code class="code-inline tex2jax_ignore">v</code> is a row of vector of y-weights.</p>
 <article class="example example-like" id="example-rectangle-simpson-eval"><a data-knowl="" class="id-ref original" data-refid="hk-example-rectangle-simpson-eval"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Implement Simpson's rule over a rectangle.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rectangle-simpson-eval"><article class="example example-like"><p id="p-558">Write a Matlab script to integrate the function \(f(x) = \sqrt{4+xy+y^3}\) over the rectangle in <a class="xref" data-knowl="./knowl/example-rectangle-simpson.html" title="Example 18.1.1: Set up Simpson's rule over a rectangle">Example 18.1.1</a>, using the integration points and weights from that example.</p>
