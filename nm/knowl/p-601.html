@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-07T21:13:24-04:00    *-->
+<!--*    on 2020-10-08T08:46:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>(Theoretical) Rewrite the second-order equation \(y'' + yy' - ty^3 = e^{-t}\) as a system of two first-order equations.</p>
-<span class="incontext"><a href="exercises-ode-euler.html#p-601">in-context</a></span>
+<p>The plot displayed by <a class="xref" data-knowl="./knowl/example-implement-trapezoidal-ode-system.html" title="Example 19.5.1: Implement trapezoidal method for ODE system">Example 19.5.1</a>  is a <dfn class="terminology">time series plot</dfn> in which one axis represents the independent variable (usually time) and the other axis shows the components of \(\mathbf y\text{.}\) The other option we have is to make a <dfn class="terminology">phase plot</dfn> in which each component of \(\mathbf y\) gets its own axis, and there is no time axis. This is achieved with</p>
+<pre class="code-block tex2jax_ignore">
+plot(y(1,:), y(2,:))
+</pre>
+<p data-braille="continuation">The phase plot  may be preferable when the system does not involve time directly (an <dfn class="terminology">autonomous system</dfn>). Try both kinds of plots for the autonomous system</p>
+<pre class="code-block tex2jax_ignore">
+  f = @(t, y) [y(2)-y(2)^3; 2*y(1)];
+</pre>
+<span class="incontext"><a href="section-ode-systems.html#p-601">in-context</a></span>
 </body>
 </html>

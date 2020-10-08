@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-07T21:13:19-04:00    *-->
+<!--*    on 2020-10-08T08:46:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -278,7 +278,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-ode-predator-prey"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">20.2</span> <span class="title">Predator-prey models</span>
 </h2>
-<p id="p-611">A traditional example of predator-prey relation is foxes and rabbits (in SU neighborhood, it could be hawks and squirrels instead). The Lotka-Volterra model of this relationship involves four positive parameters \(a, b, c, d\text{:}\)</p>
+<p id="p-613">A traditional example of predator-prey relation is foxes and rabbits (in SU neighborhood, it could be hawks and squirrels instead). The Lotka-Volterra model of this relationship involves four positive parameters \(a, b, c, d\text{:}\)</p>
 <div class="displaymath">
 \begin{align}
 R' \amp = a R - b RF \label{eq-LV-R}\tag{20.2.1}\\
@@ -288,7 +288,7 @@ F' \amp =-c F + d RF \label{eq-LV-F}\tag{20.2.2}
 <p data-braille="continuation">The first equation indicates that without foxes, rabbit population would grow at a constant relative rate. As in SIR model, the number of interactions is proportional to the product \(RF\text{.}\) Each interaction has a chance of reducing the number of rabbits. These interactions also contribute to the growth of foxes but not necessarily at the same rate (an eaten rabbit does not mean there is now an extra fox; we are not modeling a zombie apocalipse). Finally, the minus sign in \(-cF\) ensures that without rabbits, foxes die out.</p>
 <article class="example example-like" id="example-LV-1"><a data-knowl="" class="id-ref original" data-refid="hk-example-LV-1"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">20.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Implement Lotka-Volterra model.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-LV-1"><article class="example example-like"><p id="p-612">Use <code class="code-inline tex2jax_ignore">ode45</code> to solve the equations <a class="xref" data-knowl="./knowl/eq-LV-R.html" title="Equation 20.2.1">(20.2.1)</a>-<a class="xref" data-knowl="./knowl/eq-LV-F.html" title="Equation 20.2.2">(20.2.2)</a> on the interval \([0, 100]\) with</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-LV-1"><article class="example example-like"><p id="p-614">Use <code class="code-inline tex2jax_ignore">ode45</code> to solve the equations <a class="xref" data-knowl="./knowl/eq-LV-R.html" title="Equation 20.2.1">(20.2.1)</a>-<a class="xref" data-knowl="./knowl/eq-LV-F.html" title="Equation 20.2.2">(20.2.2)</a> on the interval \([0, 100]\) with</p>
 <pre class="code-block tex2jax_ignore">a = 0.1;
 b = 0.004;
 c = 0.2;
@@ -297,13 +297,13 @@ y0 = [100; 30];
 </pre>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-54" id="answer-54"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-54"><div class="answer solution-like">
-<p id="p-613">To the code lines written above, we only have to add</p>
+<p id="p-615">To the code lines written above, we only have to add</p>
 <pre class="code-block tex2jax_ignore">rhs = @(t, y) [a*y(1) - b*y(1)*y(2); -c*y(2) + d*y(1)*y(2)];
 [t, y] = ode45(rhs, [0, 100], y0);
 plot(t, y, 'LineWidth', 3)
 legend('Rabbits', 'Foxes')
 </pre>
-<p id="p-614">Observing the periodicity of the solution, one may want to summarize it with a phase plot in addition to time-series plot:</p>
+<p id="p-616">Observing the periodicity of the solution, one may want to summarize it with a phase plot in addition to time-series plot:</p>
 <pre class="code-block tex2jax_ignore">
 figure()
 plot(y(:,1), y(:,2), 'LineWidth', 3)
@@ -312,7 +312,7 @@ ylabel('Foxes')
 </pre>
 </div></div>
 </div></article></div>
-<p id="p-615">The Lotka-Volterra model has two <dfn class="terminology">equilibrium points</dfn>: \((0,0)\) and \((c/d, a/b)\text{,}\) meaning that a solution with either of these initial conditions stays constant. The former is mutual extinction, the latter is stable coexistence. But since the solution is periodic, it does not converge to either equilibrium.</p></section></div></main>
+<p id="p-617">The Lotka-Volterra model has two <dfn class="terminology">equilibrium points</dfn>: \((0,0)\) and \((c/d, a/b)\text{,}\) meaning that a solution with either of these initial conditions stays constant. The former is mutual extinction, the latter is stable coexistence. But since the solution is periodic, it does not converge to either equilibrium.</p></section></div></main>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-07T21:13:19-04:00    *-->
+<!--*    on 2020-10-08T08:46:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -278,10 +278,10 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-ode-systems"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">19.5</span> <span class="title">Solving systems of differential equations</span>
 </h2>
-<p id="p-596">Conceptually, any of the above methods can be directly applied to systems of \(m\) differential equations, just by interpreting \(y\) as a vector function \(\mathbf y\text{.}\) The notation becomes awkward: now \(y_2\) refer to the second component of \(\mathbf y\text{,}\) while the value \(\mathbf y(t_2)\) might be denoted \(\mathbf y_2\text{.}\) There are also a few changes in Matlab notation regarding <code class="code-inline tex2jax_ignore">y</code>: it will now be a matrix, where rows correspond to components and columns correspond to points of evaluation. The right-hand side function <code class="code-inline tex2jax_ignore">f</code> should return a column vector of the same dimesion \(m\text{.}\)</p>
+<p id="p-598">Conceptually, any of the above methods can be directly applied to systems of \(m\) differential equations, just by interpreting \(y\) as a vector function \(\mathbf y\text{.}\) The notation becomes awkward: now \(y_2\) refer to the second component of \(\mathbf y\text{,}\) while the value \(\mathbf y(t_2)\) might be denoted \(\mathbf y_2\text{.}\) There are also a few changes in Matlab notation regarding <code class="code-inline tex2jax_ignore">y</code>: it will now be a matrix, where rows correspond to components and columns correspond to points of evaluation. The right-hand side function <code class="code-inline tex2jax_ignore">f</code> should return a column vector of the same dimesion \(m\text{.}\)</p>
 <article class="example example-like" id="example-implement-trapezoidal-ode-system"><a data-knowl="" class="id-ref original" data-refid="hk-example-implement-trapezoidal-ode-system"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">19.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Implement trapezoidal method for ODE system.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-implement-trapezoidal-ode-system"><article class="example example-like"><p id="p-597">Solve the system</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-implement-trapezoidal-ode-system"><article class="example example-like"><p id="p-599">Solve the system</p>
 <div class="displaymath">
 \begin{align*}
 y_1' \amp = t - 3y_2\\
@@ -304,10 +304,10 @@ end
 
 plot(t, y)
 </pre>
-<p id="p-598">The most visible difference is the notation <code class="code-inline tex2jax_ignore">y(:, k)</code> which takes the entire \(k\)th column of the matrix <code class="code-inline tex2jax_ignore">y</code>. Its mathematical meaning is the approximation to \(\mathbf y(t_k)\text{.}\) The initial condition <code class="code-inline tex2jax_ignore">y0</code> is a column vector, which makes the computation <code class="code-inline tex2jax_ignore">y = y0*ones(size(t));</code> an outer product: it creates a matrix in which every column is equal to <code class="code-inline tex2jax_ignore">y0</code>. This is convenient because we need the first column to be equal, and the other columns will be rewritten anyway.</p>
+<p id="p-600">The most visible difference is the notation <code class="code-inline tex2jax_ignore">y(:, k)</code> which takes the entire \(k\)th column of the matrix <code class="code-inline tex2jax_ignore">y</code>. Its mathematical meaning is the approximation to \(\mathbf y(t_k)\text{.}\) The initial condition <code class="code-inline tex2jax_ignore">y0</code> is a column vector, which makes the computation <code class="code-inline tex2jax_ignore">y = y0*ones(size(t));</code> an outer product: it creates a matrix in which every column is equal to <code class="code-inline tex2jax_ignore">y0</code>. This is convenient because we need the first column to be equal, and the other columns will be rewritten anyway.</p>
 </div></div>
 </div></article></div>
-<p id="p-599">The plot displayed by <a class="xref" data-knowl="./knowl/example-implement-trapezoidal-ode-system.html" title="Example 19.5.1: Implement trapezoidal method for ODE system">Example 19.5.1</a>  is a <dfn class="terminology">time series plot</dfn> in which one axis represents the independent variable (usually time) and the other axis shows the components of \(\mathbf y\text{.}\) The other option we have is to make a <dfn class="terminology">phase plot</dfn> in which each component of \(\mathbf y\) gets its own axis, and there is no time axis. This is achieved with</p>
+<p id="p-601">The plot displayed by <a class="xref" data-knowl="./knowl/example-implement-trapezoidal-ode-system.html" title="Example 19.5.1: Implement trapezoidal method for ODE system">Example 19.5.1</a>  is a <dfn class="terminology">time series plot</dfn> in which one axis represents the independent variable (usually time) and the other axis shows the components of \(\mathbf y\text{.}\) The other option we have is to make a <dfn class="terminology">phase plot</dfn> in which each component of \(\mathbf y\) gets its own axis, and there is no time axis. This is achieved with</p>
 <pre class="code-block tex2jax_ignore">
 plot(y(1,:), y(2,:))
 </pre>

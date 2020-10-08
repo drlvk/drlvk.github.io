@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-07T21:13:19-04:00    *-->
+<!--*    on 2020-10-08T08:46:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -303,12 +303,23 @@ disp(s/N)
 <article class="remark remark-like" id="remark-normal-distribution"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">18.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Averaging over a sphere.</span>
 </h6>
-<p id="p-572">Monte-Carlo method can also be used to average a function over a <em class="emphasis">sphere</em> with the help of <dfn class="terminology">normal distribution</dfn>. Namely, the commands</p>
+<p id="p-572">Monte-Carlo method can also be used to average a function over a <em class="emphasis">sphere</em> with the help of <dfn class="terminology">normal distribution</dfn>.  Here is a brief summary of random number generators in Matlab:</p>
+<ul class="disc">
+<li id="li-133">
+<code class="code-inline tex2jax_ignore">rand(m, n)</code> generates an \(m\times n\) matrix of random real numbers taken from the uniform distribution on the interval \([0, 1]\text{.}\)</li>
+<li id="li-134">
+<code class="code-inline tex2jax_ignore">randi([A B], m, n)</code> generates an \(m\times n\) matrix of random <em class="emphasis">integer</em> numbers taken from the discrete uniform distribution on the finite set \(A, A+1, \dots, B\text{.}\)</li>
+<li id="li-135">
+<code class="code-inline tex2jax_ignore">randn(m, n)</code> generates an \(m\times n\) matrix of random real numbers taken from the <a class="external" href="https://en.wikipedia.org/wiki/Normal_distribution" target="_blank">standard normal distribution</a> on the real line.</li>
+</ul>
+<p data-braille="continuation">Try them out with <code class="code-inline tex2jax_ignore">rand(1, 5)</code>, <code class="code-inline tex2jax_ignore">randi([2 7], 1, 5)</code>, and <code class="code-inline tex2jax_ignore">randn(1, 5)</code> to observe the differences in output.</p>
+<p id="p-573">One of the distinguishing features of the normal distribution is the following: if one generates a random \(d\)-dimensional vector \(\mathbf x\) by taking each component \(x_1, \dots, x_d\) independently from the normal distribution, the vector \(\mathbf x\) is equally likely to point in any given direction. More precisely, the unit vectors \(\mathbf x / |\mathbf x|\) are uniformly distributed over the unit sphere. With Matlab, this process amounts to the computations</p>
 <pre class="code-block tex2jax_ignore">
 x = randn(1, d);
 x = x/norm(x);
 </pre>
-<p data-braille="continuation">generate a \(d\)-dimensional random vector of unit length, and such vectors are uniformly distributed over the unit sphere in \(\mathbb R^d\text{.}\) This works specifically for the normal distribution because of the following property of its probability density function \(p\text{:}\) the product \(p(x_1)p(x_2)\cdots p(x_d)\) depends only on the norm of vector \(\mathbf x\text{.}\) Using this random vector in a loop, like in <a class="xref" data-knowl="./knowl/example-monte-carlo-box.html" title="Example 18.3.1: Implement the Monte-Carlo method over a high-dimensional cube">Example 18.3.1</a>, we find an approximate value of the average of \(f\) over the sphere \(\{\mathbf x\in \mathbb R^d\colon |\mathbf x|=1\}\text{.}\)</p></article></section></div></main>
+<p data-braille="continuation">Note that <code class="code-inline tex2jax_ignore">x = randn(1, d)/norm(randn(1, d))</code> would not do the job, because each use of <code class="code-inline tex2jax_ignore">randn</code> leads to a new random vector.</p>
+<p id="p-574">Using this random unit vector in a loop, like in <a class="xref" data-knowl="./knowl/example-monte-carlo-box.html" title="Example 18.3.1: Implement the Monte-Carlo method over a high-dimensional cube">Example 18.3.1</a>, we can find an approximate value of the average of a function \(f\) over the unit sphere \(\{\mathbf x\in \mathbb R^d\colon |\mathbf x|=1\}\text{.}\) This method works specifically for the normal distribution because of the following property of its probability density function \(p\text{:}\) the product \(p(x_1)p(x_2)\cdots p(x_d)\) depends only on the norm of vector \(\mathbf x\text{.}\)</p></article></section></div></main>
 </div>
 </body>
 </html>
