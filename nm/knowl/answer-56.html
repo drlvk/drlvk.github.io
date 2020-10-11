@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-09T23:23:25-04:00    *-->
+<!--*    on 2020-10-11T13:29:43-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -25,7 +25,7 @@ for k=2:n
     c(k:n) = (c(k:n)-c(k-1))./(x(k:n)-x(k-1));
 end
 
-t = linspace(min(x)-0.1, max(x)+0.1, 1000);
+t = linspace(min(x)-0.01, max(x)+0.01, 1000);
 p = c(n)*ones(size(t));
 for k=n-1:-1:1
     p = p.*(t-x(k)) + c(k);

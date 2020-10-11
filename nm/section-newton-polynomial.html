@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-09T23:23:20-04:00    *-->
+<!--*    on 2020-10-11T13:29:37-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -280,6 +280,14 @@ MathJax.Hub.Config({
 <li><a href="exercises-polynomial-interpolation.html" data-scroll="exercises-polynomial-interpolation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-chebyshev.html" data-scroll="chapter-chebyshev"><span class="codenumber">22</span> <span class="title">Chebyshev Polynomials and Interpolation</span></a><ul>
+<li><a href="section-error-polynomial-interpolation.html" data-scroll="section-error-polynomial-interpolation">Estimating the error of polynomial interpolation</a></li>
+<li><a href="section-chebyshev-polynomials-interpolation.html" data-scroll="section-chebyshev-polynomials-interpolation">Chebyshev polynomials and interpolation</a></li>
+<li><a href="section-chebyshev-extreme-points.html" data-scroll="section-chebyshev-extreme-points">Chebyshev extreme points</a></li>
+<li><a href="exercises-chebyshev.html" data-scroll="exercises-chebyshev">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -356,7 +364,7 @@ for k=2:n
     c(k:n) = (c(k:n)-c(k-1))./(x(k:n)-x(k-1));
 end
 
-t = linspace(min(x)-0.1, max(x)+0.1, 1000);
+t = linspace(min(x)-0.01, max(x)+0.01, 1000);
 p = c(n)*ones(size(t));
 for k=n-1:-1:1
     p = p.*(t-x(k)) + c(k);

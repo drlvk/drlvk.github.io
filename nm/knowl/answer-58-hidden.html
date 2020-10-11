@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-10-11T13:29:43-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="answer solution-like">
+<p>This is a straightforward modification of <a class="xref" data-knowl="./knowl/example-computation-legendre-coefficients.html" title="Example 15.4.1: Computing and plotting Legendre polynomials">Example 15.4.1</a>.</p>
+<pre class="code-block tex2jax_ignore">p = [1];
+q = [1 0];
+x = linspace(-1, 1, 1000);
+hold on
+plot(x, polyval(p, x), x, polyval(q, x));
+
+for n = 1:5
+    r = 2*[q 0] - [0 0 p];
+    p = q;
+    q = r;
+    plot(x, polyval(r, x))
+end
+hold off
+</pre>
+</div></body>
+</html>
