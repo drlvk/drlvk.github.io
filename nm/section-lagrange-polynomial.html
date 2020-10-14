@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-11T13:29:37-04:00    *-->
+<!--*    on 2020-10-14T17:32:46-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -288,6 +288,14 @@ MathJax.Hub.Config({
 <li><a href="exercises-chebyshev.html" data-scroll="exercises-chebyshev">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-spline-interpolation.html" data-scroll="chapter-spline-interpolation"><span class="codenumber">23</span> <span class="title">Spline Interpolation</span></a><ul>
+<li><a href="section-piecewise-linear-interpolation.html" data-scroll="section-piecewise-linear-interpolation">Piecewise linear interpolation</a></li>
+<li><a href="section-cubic-splines.html" data-scroll="section-cubic-splines">Cubic splines</a></li>
+<li><a href="section-using-cubic-splines.html" data-scroll="section-using-cubic-splines">Using cubic splines</a></li>
+<li><a href="exercises-spline-interpolation.html" data-scroll="exercises-spline-interpolation">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -343,7 +351,7 @@ end
 
 p = @(t) (y.*w*(t - x').^(-1)) ./ (w*(t - x').^(-1));
 t = linspace(min(x)-0.01, max(x)+0.01, 1000);
-plot(x, y, 'r*', t, p(t))
+plot(t, p(t), x, y, 'r*')
 </pre>
 <p id="p-632">The double loop computes the weights <code class="code-inline tex2jax_ignore">w</code> which do not involve the argument of the interpolating polynomial <code class="code-inline tex2jax_ignore">p</code>. This argument is called <code class="code-inline tex2jax_ignore">t</code> because <code class="code-inline tex2jax_ignore">x</code> is already used for the data points. The interval for plotting is chosen to contain the given x-values with a small margin on both sides: this helps both visualization and evaluation, because we avoid plugging in \(t = x_1, x_n\text{.}\) The barycentric evaluation of the polynomial is vectorized. When <code class="code-inline tex2jax_ignore">t</code> is a scalar, <code class="code-inline tex2jax_ignore">t - x'</code> is a column vector. Taking reciprocals element-wise gives another column vector. Dot-product with <code class="code-inline tex2jax_ignore">w</code> or <code class="code-inline tex2jax_ignore">y.*w</code> implements the sums such as \(\sum_{k=1}^n w_k/(t-x_k)\text{.}\)</p>
 <p id="p-633">How does <code class="code-inline tex2jax_ignore">p</code> accept a row vector as <code class="code-inline tex2jax_ignore">t</code>? The expression <code class="code-inline tex2jax_ignore">t - x'</code> is the difference of a row vector and a column vector; in Matlab this creates a matrix where \((i, j)\) entry is \(t_j - x_i\text{.}\) Subsequent operations proceed as above, and the result is a row vector of values \(p(t)\text{.}\)</p>

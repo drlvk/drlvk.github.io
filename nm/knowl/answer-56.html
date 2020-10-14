@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-11T13:29:43-04:00    *-->
+<!--*    on 2020-10-14T17:32:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -30,7 +30,7 @@ p = c(n)*ones(size(t));
 for k=n-1:-1:1
     p = p.*(t-x(k)) + c(k);
 end
-plot(x, y, 'r*', t, p)
+plot(t, p, x, y, 'r*')
 </pre>
 </div>
 <span class="incontext"><a href="section-newton-polynomial.html#answer-56">in-context</a></span>
