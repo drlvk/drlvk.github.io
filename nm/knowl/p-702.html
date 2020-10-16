@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-10-15T23:35:08-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<p>Before considering how the smooth bump function <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a> was constructed, let us try using it. One is the straightforward approach: replace \(H\) with \(B\) in the formula <a class="xref" data-knowl="./knowl/eq-hat-function.html" title="Equation 24.2.1">(24.2.1)</a>, obtaining a cubic spline</p>
+<div class="displaymath">
+\begin{equation}
+S(x) = \sum_{k=1}^n y_k B(x-k)\tag{24.2.3}
+\end{equation}
+</div>
+<p data-braille="continuation">The first thing to notice is that the spline \(S\) <em class="emphasis">does not interpolate the data</em>. Indeed, from <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a> we have \(B(0)=2/3\) and \(B(\pm 1)=1/6\text{,}\) which implies that</p>
+<div class="displaymath">
+\begin{equation}
+S(x_k) = \frac{y_{k-1} + 4y_k + y_{k+1}}{6}\tag{24.2.4}
+\end{equation}
+</div>
+<p data-braille="continuation">which is a Simpson-style averaging of neighboring \(y\)-values. It may be disappointing not to have \(S(x_k)=y_k\) but on the other hand, averaging raw data values within some moving window is a standard approach to eliminating noise and short-term fluctuations.</p>
+<span class="incontext"><a href="section-b-splines.html#p-702">in-context</a></span>
+</body>
+</html>
