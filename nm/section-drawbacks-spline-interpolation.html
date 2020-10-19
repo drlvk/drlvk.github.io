@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:02-04:00    *-->
+<!--*    on 2020-10-19T01:05:59-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,26 +304,35 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-drawbacks-spline-interpolation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">24.1</span> <span class="title">Weak points of spline interpolation</span>
 </h2>
-<p id="p-694">Looking closely at <a class="xref" data-knowl="./knowl/dashboard-spline-png.html" title="Figure 23.2.4">Figure 23.2.4</a> we can notice that the blue curve is not quite an increasing function: there is a small interval in which it decreases. This is not really logical since the curve follows the data (cumulative number of recovered cases) which cannot decrease. A smaller example is below.</p>
+<p id="p-695">Looking closely at <a class="xref" data-knowl="./knowl/dashboard-spline-png.html" title="Figure 23.2.4">Figure 23.2.4</a> we can notice that the blue curve is not quite an increasing function: there is a small interval in which it decreases. This is not really logical since the curve follows the data (cumulative number of recovered cases) which cannot decrease. A smaller example is below.</p>
 <pre class="code-block tex2jax_ignore">x = 1:6;
 y = [0 0 1 1 2 2];
 t = linspace(1, 6, 1000);
 plot(t, spline(x, y, t), x, y, 'r*')
 </pre>
-<p id="p-695">So, cubic splines <em class="emphasis">do not preserve monotonicity</em> (while piecewise linear interpolation does). Note that SU COVID dashboard later replaced splines with piecewise linear functions, which are monotone when the data values are monotone.</p>
-<p id="p-696">Another issue is that spline interpolation may produce <em class="emphasis">negative values from positive data</em>.</p>
+<p id="p-696">So, cubic splines <em class="emphasis">do not preserve monotonicity</em> (while piecewise linear interpolation does). Note that SU COVID dashboard later replaced splines with piecewise linear functions, which are monotone when the data values are monotone.</p>
+<p id="p-697">Another issue is that spline interpolation may produce <em class="emphasis">negative values from positive data</em>.</p>
 <pre class="code-block tex2jax_ignore">x = 1:6;
 y = [9 9 1 1 9 9];
 disp(spline(x, y, 3.5))
 </pre>
-<p id="p-697">The result is \(-0.4\text{.}\) This becomes a serious issue if the quantity being interpolated cannot in principle be negative (mass, density, number of people) and if the way in which the data is used relies on it not being negative (maybe one takes square root or plots the data on logarithmic scale).</p>
-<p id="p-698">Note again that this is something that piecewise linear interpolation would not do. A piecewise linear function through points with \(y_k &gt; 0\) stays positive.</p></section></div></main>
+<p id="p-698">The result is \(-0.4\text{.}\) This becomes a serious issue if the quantity being interpolated cannot in principle be negative (mass, density, number of people) and if the way in which the data is used relies on it not being negative (maybe one takes square root or plots the data on logarithmic scale).</p>
+<p id="p-699">Note again that this is something that piecewise linear interpolation would not do. A piecewise linear function through points with \(y_k &gt; 0\) stays positive.</p></section></div></main>
 </div>
 </body>
 </html>

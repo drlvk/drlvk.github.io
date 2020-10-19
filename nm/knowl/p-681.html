@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:08-04:00    *-->
+<!--*    on 2020-10-19T01:06:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Is the following function a spline? Why or why not?</p>
-<div class="displaymath">
-\begin{equation*}
-f(x)=\begin{cases} 1+x-x^3, &amp; 0\le x\le 1,\\  
-x,\quad &amp; 1\le x\le 2\end{cases}
-\end{equation*}
-</div>
+<p>The <em class="emphasis">knots</em> of a spline are the transition points where it turns from one polynomial to another. These are often, but not always, the points \(x_k\) from the given data. Requiring \(S'''\) to be continuous at \(x_2\) implies we have the same polynomial on both intervals \([x_1, x_2]\) and \([x_2, x_3]\) (why?), and therefore \(x_2\) is <em class="emphasis">not a knot</em> for this spline. Same for \(x_{n-1}\text{.}\) The not-a-knot condition is the standard choice when we do not have any reason to impose other conditions.</p>
 <span class="incontext"><a href="section-cubic-splines.html#p-681">in-context</a></span>
 </body>
 </html>

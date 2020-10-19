@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:02-04:00    *-->
+<!--*    on 2020-10-19T01:05:59-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -67,10 +67,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-construct-cardinal-splines.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-spline-approximation.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="part-optimization.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-construct-cardinal-splines.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-spline-approximation.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-discrete-fourier-transform.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-construct-cardinal-splines.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-spline-approximation.html" title="Up">Up</a><a class="next-button button toolbar-item" href="part-optimization.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-construct-cardinal-splines.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-spline-approximation.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-discrete-fourier-transform.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -304,6 +304,15 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation" class="active">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -311,17 +320,17 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">24.4</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-59"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-709">Following <a class="xref" data-knowl="./knowl/example-approximating-spline.html" title="Example 24.2.3: Implement cubic spline approximation">Example 24.2.3</a>, plot an approximating cubic spline for   the data \((k, \tan^{-1} k)\text{,}\) \(k=-5, -4, \dots, 5\text{.}\) For comparison, also plot the actual function \(y=\tan^{-1} x\) on the interval \([-5, 5]\text{.}\) How accurate is the approximation? Plot the difference of the spline and arctangent to answer this question.</p>
-<p id="p-710">(Recall that arctangent is <code class="code-inline tex2jax_ignore">atan</code> in Matlab.)</p></article><article class="exercise exercise-like" id="exercise-60"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-711">Let us revisit <a class="xref" data-knowl="./knowl/example-sums-random.html" title="Example 3.2.1: Distribution of sums of random numbers">Example 3.2.1</a>, changing it to the following.</p>
+<p id="p-710">Following <a class="xref" data-knowl="./knowl/example-approximating-spline.html" title="Example 24.2.3: Implement cubic spline approximation">Example 24.2.3</a>, plot an approximating cubic spline for   the data \((k, \tan^{-1} k)\text{,}\) \(k=-5, -4, \dots, 5\text{.}\) For comparison, also plot the actual function \(y=\tan^{-1} x\) on the interval \([-5, 5]\text{.}\) How accurate is the approximation? Plot the difference of the spline and arctangent to answer this question.</p>
+<p id="p-711">(Recall that arctangent is <code class="code-inline tex2jax_ignore">atan</code> in Matlab.)</p></article><article class="exercise exercise-like" id="exercise-60"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-712">Let us revisit <a class="xref" data-knowl="./knowl/example-sums-random.html" title="Example 3.2.1: Distribution of sums of random numbers">Example 3.2.1</a>, changing it to the following.</p>
 <pre class="code-block tex2jax_ignore">k = 2;
 A = rand(k, 1e7) - 1/2;
 S = sum(A, 1);
 histogram(S, 100, 'Normalization', 'pdf')
 </pre>
-<p id="p-712">(If using Octave where <code class="code-inline tex2jax_ignore">histogram</code> is not available, replace the last line with <code class="code-inline tex2jax_ignore">hist(S, 100, 100/k)</code>.)</p>
-<p id="p-713">This produces a <em class="emphasis">normalized</em> histogram of \(10^7\) sample sums, with \(k\) numbers in each sample. The numbers are chosen from uniform distribution on \([-1/2, 1/2]\text{.}\) Normalization means that the area under the histogram is 1 (in probability terms, this histogram approximates the <em class="emphasis">probability density function</em> of sample sums, hence the option “pdf”.)</p>
-<p id="p-714">What should the value \(k\) be in order for the histogram to resemble the cardinal B-splines of degree 3 shown in <a class="xref" data-knowl="./knowl/B-spline-png.html" title="Figure 24.2.1">Figure 24.2.1</a>? Find the answer experimentally after trying a few values of \(k\text{.}\) Having found a suitable \(k\text{,}\) confirm your guess by adding the graph of the cardinal spline to the histogram plot (recall <code class="code-inline tex2jax_ignore">hold on</code> / <code class="code-inline tex2jax_ignore">hold off</code>  are useful for combining graphs.)</p></article></section></div></main>
+<p id="p-713">(If using Octave where <code class="code-inline tex2jax_ignore">histogram</code> is not available, replace the last line with <code class="code-inline tex2jax_ignore">hist(S, 100, 100/k)</code>.)</p>
+<p id="p-714">This produces a <em class="emphasis">normalized</em> histogram of \(10^7\) sample sums, with \(k\) numbers in each sample. The numbers are chosen from uniform distribution on \([-1/2, 1/2]\text{.}\) Normalization means that the area under the histogram is 1 (in probability terms, this histogram approximates the <em class="emphasis">probability density function</em> of sample sums, hence the option “pdf”.)</p>
+<p id="p-715">What should the value \(k\) be in order for the histogram to resemble the cardinal B-splines of degree 3 shown in <a class="xref" data-knowl="./knowl/B-spline-png.html" title="Figure 24.2.1">Figure 24.2.1</a>? Find the answer experimentally after trying a few values of \(k\text{.}\) Having found a suitable \(k\text{,}\) confirm your guess by adding the graph of the cardinal spline to the histogram plot (recall <code class="code-inline tex2jax_ignore">hold on</code> / <code class="code-inline tex2jax_ignore">hold off</code>  are useful for combining graphs.)</p></article></section></div></main>
 </div>
 </body>
 </html>

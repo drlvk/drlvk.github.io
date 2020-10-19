@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:57-04:00    *-->
+<!--*    on 2020-10-19T01:05:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,13 +304,22 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-trapezoidal-rulet"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">13.3</span> <span class="title">Trapezoidal rule</span>
 </h2>
-<p id="p-433">When a function is increasing, the leftpoint rule underestimates its integral, and rightpoint rule overestimates it. So, their average \(T_n=(L_n+R_n)/2\) should be a better approximation. This is the <dfn class="terminology">Trapezoidal Rule</dfn>:</p>
+<p id="p-434">When a function is increasing, the leftpoint rule underestimates its integral, and rightpoint rule overestimates it. So, their average \(T_n=(L_n+R_n)/2\) should be a better approximation. This is the <dfn class="terminology">Trapezoidal Rule</dfn>:</p>
 <div class="displaymath">
 \begin{equation*}
 T_n = \frac{h}{2}(f(a)+f(b)) + h( f(x_1)+\dots+f(x_{n-1}))
@@ -326,7 +335,7 @@ T = (y(1) + y(end)) * h/2 + sum(y(2:end-1))*h;
 </pre>
 <article class="example example-like" id="example-lrmt-rules-compare"><a data-knowl="" class="id-ref original" data-refid="hk-example-lrmt-rules-compare"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Comparing the accuracy of four rules.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lrmt-rules-compare"><article class="example example-like"><p id="p-434">For the function \(f(x) = e^x \) on the interval \([-1, 1]\text{,}\) use Matlab to compute the left-, right, and midpoint approximations with \(n=10\) and find the error of each approximation (that is, its difference with the actual integral).</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lrmt-rules-compare"><article class="example example-like"><p id="p-435">For the function \(f(x) = e^x \) on the interval \([-1, 1]\text{,}\) use Matlab to compute the left-, right, and midpoint approximations with \(n=10\) and find the error of each approximation (that is, its difference with the actual integral).</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-31" id="solution-31"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-31"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) exp(x);
@@ -347,7 +356,7 @@ exact = exp(1)-exp(-1);
 er = abs([L R T M] - exact);
 fprintf('Errors: Leftpoint %g, Rightpoint %g, Trapezoidal %g, Midpoint %g\n', er);
 </pre>
-<p id="p-435">Here <code class="code-inline tex2jax_ignore">fprintf</code> “unpacks” the vector <code class="code-inline tex2jax_ignore">er</code>, inserting its entries in the right places.</p>
+<p id="p-436">Here <code class="code-inline tex2jax_ignore">fprintf</code> “unpacks” the vector <code class="code-inline tex2jax_ignore">er</code>, inserting its entries in the right places.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

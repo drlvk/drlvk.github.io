@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-10-19T01:06:06-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="answer solution-like">
+<p>This example uses \(T=2\pi\) (the choice of period does not change these plots). Note the vectorized evaluation <code class="code-inline tex2jax_ignore">c*exp(1i*k'*t)</code> and recognize the role of transpose <code class="code-inline tex2jax_ignore">k'</code> here.</p>
+<pre class="code-block tex2jax_ignore">n = 3;
+c = randn(1, 2*n+1)  + 1i*randn(1, 2*n+1);
+t = linspace(0, 2*pi, 1000);
+k = -n:n;
+z = c*exp(1i*k'*t);
+plot(z)
+</pre>
+</div></body>
+</html>

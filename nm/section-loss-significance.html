@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:56-04:00    *-->
+<!--*    on 2020-10-19T01:05:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,21 +304,30 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-loss-significance"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">12.2</span> <span class="title">Loss of significance</span>
 </h2>
-<p id="p-399"><dfn class="terminology">Loss of significance</dfn> may occur when we subtract two numbers that are very close to each other. This can occur in any context, not just numeric differentiation. But since differentiation involves expressions like \(f(x+h)-f(x)\) with small \(h\text{,}\) it is particularly vulnerable to the loss of significance.</p>
-<p id="p-400">A simplified illustration of the loss of significance: suppose we can only have three decimal digits, any others have to be rounded. This can still be useful for approximate computations like \(9.23 + 3.45 = 12.7\) or \(3.45 + 100 = 103\) (note the rounding here). These approximate results are relatively close to what we would get with exact arithmetic. But when <em class="emphasis">subtraction</em> of nearly equal quantities are involved, the results can be less satisfactory:</p>
+<p id="p-400"><dfn class="terminology">Loss of significance</dfn> may occur when we subtract two numbers that are very close to each other. This can occur in any context, not just numeric differentiation. But since differentiation involves expressions like \(f(x+h)-f(x)\) with small \(h\text{,}\) it is particularly vulnerable to the loss of significance.</p>
+<p id="p-401">A simplified illustration of the loss of significance: suppose we can only have three decimal digits, any others have to be rounded. This can still be useful for approximate computations like \(9.23 + 3.45 = 12.7\) or \(3.45 + 100 = 103\) (note the rounding here). These approximate results are relatively close to what we would get with exact arithmetic. But when <em class="emphasis">subtraction</em> of nearly equal quantities are involved, the results can be less satisfactory:</p>
 <div class="displaymath">
 \begin{equation}
 (3.45 + 100) - 102 = 103 - 102 = 1\label{eq-loss-sig1}\tag{12.2.1}
 \end{equation}
 </div>
 <p data-braille="continuation">while the exact arithmetic gives \(1.45\text{.}\) The error is nearly \(50\%\text{.}\)</p>
-<p id="p-401">An actual illustration is the following attempt to compute the derivative of \(f(x) = \sqrt{x}\) at the point \(x = 10^6\text{.}\) Note that \(f(10^6) = 1000\) and \(f'(10^6) = 1/2000 = 5\cdot 10^{-4}\text{.}\) Both looks like reasonable numbers. Let us try to use the approximation <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a> with the values \(h = 10^{-9}, 10^{-10}, 10^{-11}\text{,}\) in Matlab console:</p>
+<p id="p-402">An actual illustration is the following attempt to compute the derivative of \(f(x) = \sqrt{x}\) at the point \(x = 10^6\text{.}\) Note that \(f(10^6) = 1000\) and \(f'(10^6) = 1/2000 = 5\cdot 10^{-4}\text{.}\) Both looks like reasonable numbers. Let us try to use the approximation <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a> with the values \(h = 10^{-9}, 10^{-10}, 10^{-11}\text{,}\) in Matlab console:</p>
 <pre class="code-block tex2jax_ignore">&gt;&gt; x = 1e6;
 &gt;&gt; h = 1e-9; (sqrt(x+h) - sqrt(x))/h
 ans = 5.6843e-04
@@ -329,8 +338,8 @@ ans = 0.0011
 &gt;&gt; h = 1e-11; (sqrt(x+h) - sqrt(x))/h
 ans = 0
 </pre>
-<p id="p-402">The first result is off by about \(10\%\text{,}\) the second is more than twice the real answer, the third is even worse. All this is due to the loss of significant digits similar to what we see in <a class="xref" data-knowl="./knowl/eq-loss-sig1.html" title="Equation 12.2.1">(12.2.1)</a>.</p>
-<p id="p-403">Sometimes one can avoid the loss of significance by rearranging the expression algebraically. For example,</p>
+<p id="p-403">The first result is off by about \(10\%\text{,}\) the second is more than twice the real answer, the third is even worse. All this is due to the loss of significant digits similar to what we see in <a class="xref" data-knowl="./knowl/eq-loss-sig1.html" title="Equation 12.2.1">(12.2.1)</a>.</p>
+<p id="p-404">Sometimes one can avoid the loss of significance by rearranging the expression algebraically. For example,</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{\sqrt{x+h} - \sqrt{x}}{h} = 	\frac{(\sqrt{x+h} - \sqrt{x})(\sqrt{x+h} + \sqrt{x})}{h(\sqrt{x+h} + \sqrt{x})} = \frac{x+h-x}{h(\sqrt{x+h} + \sqrt{x})} = \frac{1}{\sqrt{x+h} + \sqrt{x}} 

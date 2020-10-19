@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:01-04:00    *-->
+<!--*    on 2020-10-19T01:05:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,30 +304,39 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-piecewise-linear-interpolation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">23.1</span> <span class="title">Piecewise linear interpolation</span>
 </h2>
-<p id="p-669">The current version of <a class="external" href="https://www.syracuse.edu/covid-dashboard/" target="_blank">SU COVID dashboard</a> uses <em class="emphasis">piecewise linear interpolation</em>. Geometrically this concept is clear: connect the points by straight lines, which is also what Matlab's <code class="code-inline tex2jax_ignore">plot</code> does.</p>
+<p id="p-670">The current version of <a class="external" href="https://www.syracuse.edu/covid-dashboard/" target="_blank">SU COVID dashboard</a> uses <em class="emphasis">piecewise linear interpolation</em>. Geometrically this concept is clear: connect the points by straight lines, which is also what Matlab's <code class="code-inline tex2jax_ignore">plot</code> does.</p>
 <figure class="figure figure-like" id="dashboard-pl-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/dashboard_pl.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.1.1<span class="period">.</span></span><span class="space"> </span>Piecewise linear interpolation</figcaption></figure><p id="p-670">Formally, piecewise linear interpolation means that given some points \(a=x_1 \lt x_2 \lt \cdots \lt x_n = b\) on an interval \([a, b]\) and corresponding y-values \(y_1, \dots, y_n\text{,}\) we define a function \(S\colon [a, b]\to \mathbb R\) by the piecewise formula</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.1.1<span class="period">.</span></span><span class="space"> </span>Piecewise linear interpolation</figcaption></figure><p id="p-671">Formally, piecewise linear interpolation means that given some points \(a=x_1 \lt x_2 \lt \cdots \lt x_n = b\) on an interval \([a, b]\) and corresponding y-values \(y_1, \dots, y_n\text{,}\) we define a function \(S\colon [a, b]\to \mathbb R\) by the piecewise formula</p>
 <div class="displaymath">
 \begin{equation}
 S(x) = y_k + \frac{y_{k+1}-y_k}{x_{k+1} - x_{k}} (x - x_k),\quad  x_{k}\le x\le x_{k+1}\label{eq-pl-interpolant}\tag{23.1.1}
 \end{equation}
 </div>
 <p data-braille="continuation">where the right hand side is a linear function through two points \((x_{k}, y_k)\) and \((x_{k+1}, y_{k+1})\text{.}\) So, instead of \(1\) interpolating polynomial of degree \(n-1\) we use \(n-1\) polynomials of degree \(1\text{.}\) The function \(S\) is a spline of degree 1 meaning it is a piecewise function where the pieces are polynomials of degree 1.</p>
-<p id="p-671">A more abstract approach to the construction of degree 1 spline is as follows:</p>
+<p id="p-672">A more abstract approach to the construction of degree 1 spline is as follows:</p>
 <ul class="disc">
-<li id="li-154">We have \(n-1\) subintervals between \(n\) data points.</li>
-<li id="li-155">On each subinterval we choose a degree 1 polynomial; this means we have \(2(n-1)\) coefficients to choose.</li>
-<li id="li-156">But we want to spline to be continuous, so the values at each interior data point from the left and from the right must match. There are \(n-2\) interior data points, so the continuity imposes \(n-2\) equations.</li>
-<li id="li-157">Finally, the spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
-<li id="li-158">The total is \(n-2+n=2n-2\) equations with \(2(n-1) = 2n-2\) unknowns, so we expect (and get) a unique solution.</li>
+<li id="li-155">We have \(n-1\) subintervals between \(n\) data points.</li>
+<li id="li-156">On each subinterval we choose a degree 1 polynomial; this means we have \(2(n-1)\) coefficients to choose.</li>
+<li id="li-157">But we want to spline to be continuous, so the values at each interior data point from the left and from the right must match. There are \(n-2\) interior data points, so the continuity imposes \(n-2\) equations.</li>
+<li id="li-158">Finally, the spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
+<li id="li-159">The total is \(n-2+n=2n-2\) equations with \(2(n-1) = 2n-2\) unknowns, so we expect (and get) a unique solution.</li>
 </ul>
-<p id="p-672">There are infinitely many ways to connect given data points. The function <a class="xref" data-knowl="./knowl/eq-pl-interpolant.html" title="Equation 23.1.1">(23.1.1)</a> does so by a curve of minimal length, meaning that the graph of \(S\) is the shortest curve passing through the given data points. This is a reasonable way of connecting the points, but not necessarily the best or most natural way. The corners at the data points do not look natural. The piecewise linear graph does not give much insight into the rate of change of the function because it treats the rate as constant on each interval. For example, given the function values</p>
+<p id="p-673">There are infinitely many ways to connect given data points. The function <a class="xref" data-knowl="./knowl/eq-pl-interpolant.html" title="Equation 23.1.1">(23.1.1)</a> does so by a curve of minimal length, meaning that the graph of \(S\) is the shortest curve passing through the given data points. This is a reasonable way of connecting the points, but not necessarily the best or most natural way. The corners at the data points do not look natural. The piecewise linear graph does not give much insight into the rate of change of the function because it treats the rate as constant on each interval. For example, given the function values</p>
 <pre class="code-block tex2jax_ignore">
 x = 1:5;
 y = [8 5.5 5.3333 5.75 6.4];

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:02-04:00    *-->
+<!--*    on 2020-10-19T01:06:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Write a script which illustrates that the product of two 2<span class="times-sign">×</span>2 matrices depends on their order.</p>
+<p>One can also multiply two vectors, or two matrices, or a vector and a matrix. To understand how this works in Matlab, keep in mind that a vector is treated as a matrix with one row (or one column). Two matrices can be multiplied only when the inner dimensions agree: that is, two matrices of sizes \(m\times n\) and \(p\times q\) can be multiplied when \(n = p\text{.}\) The product has size \(m\times q\text{.}\) Some examples:</p>
+<ul class="disc">
+<li>
+<code class="code-inline tex2jax_ignore">[3 7] * [4 2]</code> is <em class="alert">an error</em>: the first argument has size \(1\times 2\text{,}\) the second also has size \(1\times 2\text{,}\) and the inner dimensions do not agree: \(2\ne 1\text{.}\)</li>
+<li>
+<code class="code-inline tex2jax_ignore">[3 7] * [4; 2]</code> is <code class="code-inline tex2jax_ignore">26</code>. the first argument has size \(1\times 2\text{,}\) the second has size \(2\times 1\text{,}\) so the product is defined and has size \(1\times 1\) which makes it a scalar. This is how one computes the <dfn class="terminology">scalar product</dfn> of two vectors: it comes from multiplying a row vector by a column vector.</li>
+<li>
+<code class="code-inline tex2jax_ignore">[1 2 3; 4 5 6] * [-4; 0; 3]</code> is <code class="code-inline tex2jax_ignore">[5; 2]</code>. The sizes \(2\times 3\) and \(3\times 1\) are compatible and the product has size \(2\times 1\text{.}\) This is how <dfn class="terminology">matrix-vector</dfn> products work in linear algebra too: the vector, placed to the right of a matrix, must be written as a column.</li>
+<li>
+<code class="code-inline tex2jax_ignore">[5 -2] * [1 2 3; 4 5 6]</code> is <code class="code-inline tex2jax_ignore">[-3 0 3]</code>. The sizes \(1\times 2\) and \(2\times 3\) are compatible and the product has size \(1\times 3\text{.}\) So, we can have a vector to the left of a matrix when it is a row vector.</li>
+<li>
+<code class="code-inline tex2jax_ignore">[0 1; -1 0] * [1 2 3; 4 5 6]</code> is <code class="code-inline tex2jax_ignore">[4   5   6; -1  -2  -3]</code>. This is a <dfn class="terminology">matrix product</dfn>. Two matrices have compatible sizes \(2\times 2\) and \(2\times 3\text{,}\) and the product is of size \(2\times 3\text{.}\)</li>
+</ul>
 <span class="incontext"><a href="section-operations-vectors-matrices.html#p-34">in-context</a></span>
 </body>
 </html>

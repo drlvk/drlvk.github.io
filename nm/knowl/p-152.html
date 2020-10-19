@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:03-04:00    *-->
+<!--*    on 2020-10-19T01:06:01-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The Collatz conjecture, also known as the <dfn class="terminology">Syracuse problem</dfn>, is a famous unsolved problem in mathematics. Its subject is the following process.</p>
-<ol class="decimal">
-<li>Start with a positive integer k.</li>
-<li>If k is even, divide it by 2. Otherwise multiply it by 3 and add 1.</li>
-<li>Repeat Step 2.</li>
-</ol>
-<p data-braille="continuation">The conjecture is that this process always reaches the number 1 (after 1 it enters infinite loop 1, 4, 2, 1, 4, 2, ...) Write a script that verify this conjecture for initial values of k from 1 to 500, and for each of them record the number of steps that it takes to reach 1. Then plot the number of steps. Note: the condition that k is even can be tested as <code class="code-inline tex2jax_ignore">if mod(k, 2) == 0</code> where <code class="code-inline tex2jax_ignore">mod(k, 2)</code> computes the remained of dividing k by 2.</p>
+<p><em class="emphasis">Explanation</em>: The variable <code class="code-inline tex2jax_ignore">s</code> represents partial sums. We add <code class="code-inline tex2jax_ignore">1/n</code> to it, and then increase the value of <code class="code-inline tex2jax_ignore">n</code>. When <code class="code-inline tex2jax_ignore">s &gt; 10</code> the process stops. The output uses formatting code <code class="code-inline tex2jax_ignore">%d</code> for integers, since the answer is an integer. Why does the output have <code class="code-inline tex2jax_ignore">n-1</code> and not <code class="code-inline tex2jax_ignore">n</code>? Because of the way that the loop is written, the value of n is increased <em class="emphasis">after</em> each addition. So at the end of it, <code class="code-inline tex2jax_ignore">n</code> is the number that is 1 more than the number of terms we added.</p>
 <span class="incontext"><a href="examples-control-flow.html#p-152">in-context</a></span>
 </body>
 </html>

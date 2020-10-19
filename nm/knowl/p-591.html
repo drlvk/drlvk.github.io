@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:07-04:00    *-->
+<!--*    on 2020-10-19T01:06:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Euler's method has \(y_1 = 1 + h\text{,}\) hence \(|e^h - y_1| = h^2/2 + \dots\text{,}\) the local error is of second order. The cumulative error is of order \(1\text{.}\) This is consistent with what we know about left endpoint method of integration.</p>
+<p>Evaluating the accuracy of ODE solution methods is a more complex issue because they involve approximate computations based on the results of previous other approximate computations. A convenient model problem to use is \(y'=y\) with \(y(0)=1\text{.}\) Its exact solution at  \(x= h\) is</p>
+<div class="displaymath">
+\begin{equation*}
+e^h = \sum_{n=0}^\infty \frac{h^n}{n!} =  1+h+h^2/2+h^3/6+\cdots
+\end{equation*}
+</div>
+<p data-braille="continuation">The  approximate solution \(y_1\) at \(x= h\) will be some other expression. The difference \(|e^h - y_1|\) gives us the <dfn class="terminology">local error</dfn> of the method (for one step). The cumulative error can be estimated by multiplying the local error by the necessary number of steps to cover an interval \([a, b]\text{,}\) which is \((b-a)/h\text{.}\)</p>
 <span class="incontext"><a href="section-ode-order-accuracy.html#p-591">in-context</a></span>
 </body>
 </html>

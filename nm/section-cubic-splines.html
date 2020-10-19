@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:01-04:00    *-->
+<!--*    on 2020-10-19T01:05:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,45 +304,54 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-cubic-splines"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">23.2</span> <span class="title">Cubic splines</span>
 </h2>
-<p id="p-673">A cubic spline is a function \(S\) that is piecewise a degree 3 polynomial, and such that \(S, S', S''\) are continuous (have the same value from both sides at the points where pieces meet). In our context of fitting to data points \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) it is natural to have each cubic polynomial defined on \([x_{k}, x_{k+1}]\text{.}\) The continuity of first and second derivatives means that the graph of a cubic spline has no corners of sudden changes of curvature, it flows quite naturally. Compare the plots below, for the same data set.</p>
+<p id="p-674">A cubic spline is a function \(S\) that is piecewise a degree 3 polynomial, and such that \(S, S', S''\) are continuous (have the same value from both sides at the points where pieces meet). In our context of fitting to data points \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) it is natural to have each cubic polynomial defined on \([x_{k}, x_{k+1}]\text{.}\) The continuity of first and second derivatives means that the graph of a cubic spline has no corners of sudden changes of curvature, it flows quite naturally. Compare the plots below, for the same data set.</p>
 <figure class="figure figure-like" id="pl-example-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/pl_example.png" style="width: 100%; height: auto;" alt=""></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.2.1<span class="period">.</span></span><span class="space"> </span>Piecewise linear interpolation</figcaption></figure><figure class="figure figure-like" id="interpol-example-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/interpol_example.png" style="width: 100%; height: auto;" alt=""></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.2.2<span class="period">.</span></span><span class="space"> </span>Interpolating polynomial</figcaption></figure><figure class="figure figure-like" id="spline-example-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/spline_example.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.2.3<span class="period">.</span></span><span class="space"> </span>Cubic spline</figcaption></figure><p id="p-674">Cubic splines were also used by the first version of SU COVID dashboard:</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.2.3<span class="period">.</span></span><span class="space"> </span>Cubic spline</figcaption></figure><p id="p-675">Cubic splines were also used by the first version of SU COVID dashboard:</p>
 <figure class="figure figure-like" id="dashboard-spline-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/dashboard_spline.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.2.4<span class="period">.</span></span><span class="space"> </span>Dashboard with splines</figcaption></figure><p id="p-675">Let us count unknowns and equations involved in the constructio of a cubic spline.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.2.4<span class="period">.</span></span><span class="space"> </span>Dashboard with splines</figcaption></figure><p id="p-676">Let us count unknowns and equations involved in the construction of a cubic spline.</p>
 <ul class="disc">
-<li id="li-159">We have \(n-1\) subintervals between \(n\) data points.</li>
-<li id="li-160">On each subinterval we choose a degree 3 polynomial; this means we have \(4(n-1)\) coefficients to choose.</li>
-<li id="li-161">In order for \(S, S', S''\) to be continuous at each of \(n-2\) interior data points, there are \(3(n-2)\) equations to satisfy.</li>
-<li id="li-162">The spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
-<li id="li-163">The total is \(3(n-2)+n=4n-6\) equations with \(4(n-1)=4n-4\) unknowns, so need two more equations to make the solution unique.</li>
+<li id="li-160">We have \(n-1\) subintervals between \(n\) data points.</li>
+<li id="li-161">On each subinterval we choose a degree 3 polynomial; this means we have \(4(n-1)\) coefficients to choose.</li>
+<li id="li-162">In order for \(S, S', S''\) to be continuous at each of \(n-2\) interior data points, there are \(3(n-2)\) equations to satisfy.</li>
+<li id="li-163">The spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
+<li id="li-164">The total is \(3(n-2)+n=4n-6\) equations with \(4(n-1)=4n-4\) unknowns, so need two more equations to make the solution unique.</li>
 </ul>
-<p id="p-676">When discussing spline coefficients, it should be noted they are not necessarily the coefficients of powers of \(x\text{.}\) It is more natural and numerically safer to represent the spline on each subinterval \([x_k, x_{k+1}]\) in terms of the powers of \((x-x_k)\text{.}\) That is,</p>
+<p id="p-677">When discussing spline coefficients, it should be noted they are not necessarily the coefficients of powers of \(x\text{.}\) It is more natural and numerically safer to represent the spline on each subinterval \([x_k, x_{k+1}]\) in terms of the powers of \((x-x_k)\text{.}\) That is,</p>
 <div class="displaymath">
 \begin{equation}
 S(x) = A_k(x-x_k)^3 + B_k(x-x_k)^2 + C_k(x-x_k) + D_k\label{eq-piece-spline}\tag{23.2.1}
 \end{equation}
 </div>
 <p data-braille="continuation">where the coefficients \(a_k, b_k, c_k, d_k\) are to be determined. Of course, \(D_k=y_k\) but to find the rest one needs to solve a linear system.</p>
-<p id="p-677">Here are three different ways to add two more equations to the linear system for coefficients; they result in three different kinds of cubic splines:</p>
+<p id="p-678">Here are three different ways to add two more equations to the linear system for coefficients; they result in three different kinds of cubic splines:</p>
 <ul class="disc">
-<li id="li-164">Require \(S''(a) = 0 = S''(b)\text{.}\) This is a “natural spline”.</li>
-<li id="li-165">Require \(S'(a) = p\) and  \(S'(b)=q\) for some values \(p, q\text{.}\) This is a “clamped spline”.</li>
-<li id="li-166">Require \(S'''\) to be continuous at \(x_2\) and at \(x_{n-1}\text{.}\) This is a “not-a-knot spline”.</li>
+<li id="li-165">Require \(S''(a) = 0 = S''(b)\text{.}\) This is a “natural spline”.</li>
+<li id="li-166">Require \(S'(a) = p\) and  \(S'(b)=q\) for some values \(p, q\text{.}\) This is a “clamped spline”.</li>
+<li id="li-167">Require \(S'''\) to be continuous at \(x_2\) and at \(x_{n-1}\text{.}\) This is a “not-a-knot spline”.</li>
 </ul>
-<p id="p-678">This terminology needs some explanation. The word <a class="external" href="https://en.wikipedia.org/wiki/Flat_spline" target="_blank">spline</a> used to refer to a long thin strip of flexible material (e.g., metal) which, if constrained at several points, assumes the shape of a smooth curve passing through these points. Unlike an elastic band which minimizes its length (creating a piecewise linear shape), the spline minimizes its <em class="emphasis">bending energy</em>. A mathematical idealization of the bending energy of a curve \(y=f(x)\) is the integral \(\int_a^b f''(x)^2\,dx\text{.}\) It can be shown that among <em class="emphasis">all functions</em> (of whatever form) that satisfy the constraints \(f(x_k)=y_k\text{,}\) the “natural spline” has the smallest value of \(\int_a^b f''(x)^2\,dx\text{.}\) This attractive mathematical property earned it the “natural” name… but upon further reflection, the boundary conditions \(S''(a) = 0 = S''(b)\) are actually not that natural. If we are interpolating some smooth function \(y=f(x)\text{,}\) there is no reason to assume that \(f''\) happens to be \(0\) at the endpoints.</p>
-<p id="p-679">Clamped splines refer to holding the ends of the metal strip with a <a class="external" href="https://en.wikipedia.org/wiki/Clamp_(tool)" target="_blank">clamp</a>, which restricts not only its position but also the angle. This spline is useful for for modeling a problem with boundary conditions on the derivative.</p>
-<p id="p-680">The <em class="emphasis">knots</em> of a spline are the transition points where it turns from one polynomial to another. These are often, but not always, the points \(x_k\) from the given data. Requiring \(S'''\) to be continuous at \(x_2\) implies we have the same polynomial on both intervals \([x_1, x_2]\) and \([x_2, x_3]\) (why?), and therefore \(x_2\) is <em class="emphasis">not a knot</em> for this spline. Same for \(x_{n-1}\text{.}\) The not-a-knot condition is the standard choice when we do not have any reason to impose other conditions.</p>
+<p id="p-679">This terminology needs some explanation. The word <a class="external" href="https://en.wikipedia.org/wiki/Flat_spline" target="_blank">spline</a> used to refer to a long thin strip of flexible material (e.g., metal) which, if constrained at several points, assumes the shape of a smooth curve passing through these points. Unlike an elastic band which minimizes its length (creating a piecewise linear shape), the spline minimizes its <em class="emphasis">bending energy</em>. A mathematical idealization of the bending energy of a curve \(y=f(x)\) is the integral \(\int_a^b f''(x)^2\,dx\text{.}\) It can be shown that among <em class="emphasis">all functions</em> (of whatever form) that satisfy the constraints \(f(x_k)=y_k\text{,}\) the “natural spline” has the smallest value of \(\int_a^b f''(x)^2\,dx\text{.}\) This attractive mathematical property earned it the “natural” name… but upon further reflection, the boundary conditions \(S''(a) = 0 = S''(b)\) are actually not that natural. If we are interpolating some smooth function \(y=f(x)\text{,}\) there is no reason to assume that \(f''\) happens to be \(0\) at the endpoints.</p>
+<p id="p-680">Clamped splines refer to holding the ends of the metal strip with a <a class="external" href="https://en.wikipedia.org/wiki/Clamp_(tool)" target="_blank">clamp</a>, which restricts not only its position but also the angle. This spline is useful for for modeling a problem with boundary conditions on the derivative.</p>
+<p id="p-681">The <em class="emphasis">knots</em> of a spline are the transition points where it turns from one polynomial to another. These are often, but not always, the points \(x_k\) from the given data. Requiring \(S'''\) to be continuous at \(x_2\) implies we have the same polynomial on both intervals \([x_1, x_2]\) and \([x_2, x_3]\) (why?), and therefore \(x_2\) is <em class="emphasis">not a knot</em> for this spline. Same for \(x_{n-1}\text{.}\) The not-a-knot condition is the standard choice when we do not have any reason to impose other conditions.</p>
 <article class="question example-like" id="question-33"><a data-knowl="" class="id-ref original" data-refid="hk-question-33"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">23.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Is this a cubic spline?</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-33"><article class="question example-like"><p id="p-681">Is the following function a spline? Why or why not?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-33"><article class="question example-like"><p id="p-682">Is the following function a spline? Why or why not?</p>
 <div class="displaymath">
 \begin{equation*}
 f(x)=\begin{cases} 1+x-x^3, &amp; 0\le x\le 1,\\  
@@ -351,7 +360,7 @@ x,\quad &amp; 1\le x\le 2\end{cases}
 </div></article></div>
 <article class="example example-like" id="example-find-missing-piece"><a data-knowl="" class="id-ref original" data-refid="hk-example-find-missing-piece"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">23.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Complete the formula for a natural spline.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-find-missing-piece"><article class="example example-like"><p id="p-682">Complete the formula</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-find-missing-piece"><article class="example example-like"><p id="p-683">Complete the formula</p>
 <div class="displaymath">
 \begin{equation*}
 S(x)=\begin{cases} 1+x-x^3 &amp; 0\le x\le 1,\\  
@@ -361,7 +370,7 @@ S(x)=\begin{cases} 1+x-x^3 &amp; 0\le x\le 1,\\
 <p data-braille="continuation">given that it describes a natural spline on \([0, 2]\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-61" id="answer-61"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-61"><div class="answer solution-like">
-<p id="p-683">The continuity of \(S, S', S''\) implies that the difference of two polynomials used on both sides of \(x=1\) must be a constant multiple of \((x-1)^3\text{.}\)  Therefore, the second polynomial must be of the form \(1+x-x^3+c(x-1)^3\text{.}\) Using the natural spline  condition \(S''(2)=0\) we can find \(c=2\text{.}\) Thus,</p>
+<p id="p-684">The continuity of \(S, S', S''\) implies that the difference of two polynomials used on both sides of \(x=1\) must be a constant multiple of \((x-1)^3\text{.}\)  Therefore, the second polynomial must be of the form \(1+x-x^3+c(x-1)^3\text{.}\) Using the natural spline  condition \(S''(2)=0\) we can find \(c=2\text{.}\) Thus,</p>
 <div class="displaymath">
 \begin{equation*}
 S(x)=\begin{cases} 1+x-x^3,\quad &amp; 0\le x\le 1,\\  

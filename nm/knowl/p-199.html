@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:03-04:00    *-->
+<!--*    on 2020-10-19T01:06:01-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Remark: the command <code class="code-inline tex2jax_ignore">hold on</code> refers to displaying several functions on the same plot. Normally, Matlab replaces each plot with next one. With <code class="code-inline tex2jax_ignore">hold on</code>, it keeps the previous plot and draws next one over it, using a different color (unless you specify a color). At the end, <code class="code-inline tex2jax_ignore">hold off</code> is used to restore the normal behavior.</p>
+<p>Write a named function <code class="code-inline tex2jax_ignore">function y = cositer(x, n)</code> that takes two arguments x and n and returns the n-th iteration of the mathematical function \(x\mapsto 2\cos x\text{.}\) For example, if <code class="code-inline tex2jax_ignore">n = 4</code>, the result should be</p>
+<div class="displaymath">
+\begin{equation*}
+2\cos(2\cos (2\cos (2\cos x))))
+\end{equation*}
+</div>
+<p data-braille="continuation">Use this function to plot several of these iterates on the interval \([0, 2]\) as shown below.</p>
 <span class="incontext"><a href="exercises-user-defined-functions.html#p-199">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:53-04:00    *-->
+<!--*    on 2020-10-19T01:05:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -305,13 +305,22 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-for-loop"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.1</span> <span class="title"><code class="code-inline tex2jax_ignore">for</code> loop</span>
 </h2>
-<p id="p-124">Syntax of <code class="code-inline tex2jax_ignore">for</code> loop:</p>
+<p id="p-125">Syntax of <code class="code-inline tex2jax_ignore">for</code> loop:</p>
 <pre class="code-block tex2jax_ignore">
 for (variable) = (some vector, usually regularly spaced a:h:b) 
     (some computation)
@@ -320,7 +329,7 @@ end
 <p data-braille="continuation">This means that “some computation” will be repeated for each entry of the vector specified in the line with <code class="code-inline tex2jax_ignore">for</code>. Do not forget to <code class="code-inline tex2jax_ignore">end</code> the loop: Matlab needs it to know which part of the code should be repeated in the loop. Indenting the body of the loop is optional but it improves readability.</p>
 <article class="example example-like" id="example-sum-cubes-for-loop"><a data-knowl="" class="id-ref original" data-refid="hk-example-sum-cubes-for-loop"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Sum of cubes.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-sum-cubes-for-loop"><article class="example example-like"><p id="p-125">Find the sum of cubes of the integers from 1 to 10 using a <code class="code-inline tex2jax_ignore">for</code> loop.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-sum-cubes-for-loop"><article class="example example-like"><p id="p-126">Find the sum of cubes of the integers from 1 to 10 using a <code class="code-inline tex2jax_ignore">for</code> loop.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-23" id="answer-23"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-23"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">s = 0;
@@ -328,15 +337,15 @@ for k = 1:10
     s = s + k^3;
 end
 </pre>
-<p id="p-126">Explanation: before entering the loop, we initialize the variable <code class="code-inline tex2jax_ignore">s</code> with 0, meaning that the value of the sum is 0 before we start adding things to it. Each time the command <code class="code-inline tex2jax_ignore">s = s + k^3</code> is executed, the cube of <code class="code-inline tex2jax_ignore">k</code> is added to <code class="code-inline tex2jax_ignore">s</code>. This repeats for each value in the vector <code class="code-inline tex2jax_ignore">1:10</code>. When the loop ends, the variable <code class="code-inline tex2jax_ignore">s</code> will contain the sum of cubes.</p>
-<p id="p-127">This example is for illustration only: in practice the array operation <code class="code-inline tex2jax_ignore">sum((1:10).^3)</code> would be a better choice because it is shorter and possibly more efficient than the loop.</p>
-<p id="p-128">One could use a more descriptive variable name instead of <code class="code-inline tex2jax_ignore">s</code>, for example <code class="code-inline tex2jax_ignore">total</code>. But do not use <code class="code-inline tex2jax_ignore">sum</code> because this is the name of a built-in Matlab function. Same goes for <code class="code-inline tex2jax_ignore">max</code> and <code class="code-inline tex2jax_ignore">min</code>: since they are names of built-in functions, they should not be used as variable names. Also, although mathematicians often use \(i\) as index variable, it is too easy to confuse with digit \(1\) and so is best avoided.</p>
+<p id="p-127">Explanation: before entering the loop, we initialize the variable <code class="code-inline tex2jax_ignore">s</code> with 0, meaning that the value of the sum is 0 before we start adding things to it. Each time the command <code class="code-inline tex2jax_ignore">s = s + k^3</code> is executed, the cube of <code class="code-inline tex2jax_ignore">k</code> is added to <code class="code-inline tex2jax_ignore">s</code>. This repeats for each value in the vector <code class="code-inline tex2jax_ignore">1:10</code>. When the loop ends, the variable <code class="code-inline tex2jax_ignore">s</code> will contain the sum of cubes.</p>
+<p id="p-128">This example is for illustration only: in practice the array operation <code class="code-inline tex2jax_ignore">sum((1:10).^3)</code> would be a better choice because it is shorter and possibly more efficient than the loop.</p>
+<p id="p-129">One could use a more descriptive variable name instead of <code class="code-inline tex2jax_ignore">s</code>, for example <code class="code-inline tex2jax_ignore">total</code>. But do not use <code class="code-inline tex2jax_ignore">sum</code> because this is the name of a built-in Matlab function. Same goes for <code class="code-inline tex2jax_ignore">max</code> and <code class="code-inline tex2jax_ignore">min</code>: since they are names of built-in functions, they should not be used as variable names. Also, although mathematicians often use \(i\) as index variable, it is too easy to confuse with digit \(1\) and so is best avoided.</p>
 </div></div>
 </div></article></div>
-<p id="p-129">A loop is necessary for <dfn class="terminology">iterative</dfn> computations, when every step of computation uses the result of the previous one. <a class="xref" data-knowl="./knowl/example-sum-cubes-for-loop.html" title="Example 4.1.1: Sum of cubes">Example 4.1.1</a> is not like this, since the cubes of 1, 2, 3,... can be computed independently of each other: we do not need the cube of 5 in order to compute the cube of 6. In contrast, the computation of arithmetic-geometric mean in <a class="xref" data-knowl="./knowl/example-agm.html" title="Example 1.2.1: Arithmetic and geometric means">Example 1.2.1</a> is iterative: we compute the arithmetic and geometric means, and then use them as an input for next computation.</p>
+<p id="p-130">A loop is necessary for <dfn class="terminology">iterative</dfn> computations, when every step of computation uses the result of the previous one. <a class="xref" data-knowl="./knowl/example-sum-cubes-for-loop.html" title="Example 4.1.1: Sum of cubes">Example 4.1.1</a> is not like this, since the cubes of 1, 2, 3,... can be computed independently of each other: we do not need the cube of 5 in order to compute the cube of 6. In contrast, the computation of arithmetic-geometric mean in <a class="xref" data-knowl="./knowl/example-agm.html" title="Example 1.2.1: Arithmetic and geometric means">Example 1.2.1</a> is iterative: we compute the arithmetic and geometric means, and then use them as an input for next computation.</p>
 <article class="example example-like" id="example-agm-for-loop"><a data-knowl="" class="id-ref original" data-refid="hk-example-agm-for-loop"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Arithmetic-geometric mean using a <code class="code-inline tex2jax_ignore">for</code> loop.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-agm-for-loop"><article class="example example-like"><p id="p-130">Find the arithmetic-geometric mean (AGM) of 11 and 31 using a <code class="code-inline tex2jax_ignore">for</code> loop.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-agm-for-loop"><article class="example example-like"><p id="p-131">Find the arithmetic-geometric mean (AGM) of 11 and 31 using a <code class="code-inline tex2jax_ignore">for</code> loop.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-24" id="answer-24"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-24"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">x = 11;
@@ -349,14 +358,14 @@ for k = 1:10
 end
 disp(x)
 </pre>
-<p id="p-131">It does not matter whether we display <code class="code-inline tex2jax_ignore">x</code> or <code class="code-inline tex2jax_ignore">y</code> at the end because they become nearly equal after 10 iterations. The output is the number 19.7127, which we can check for correctness using, for example, Wolfram Alpha: <a class="external" href="https://www.wolframalpha.com/input/?i=agm%2811%2C31%29" target="_blank">agm(11,31)</a>.</p>
-<p id="p-132">The logic of the script: compute arithmetic and geometric means of x and y, then use them as our new values of x and y. One may be tempted to shorten the loop as follows</p>
+<p id="p-132">It does not matter whether we display <code class="code-inline tex2jax_ignore">x</code> or <code class="code-inline tex2jax_ignore">y</code> at the end because they become nearly equal after 10 iterations. The output is the number 19.7127, which we can check for correctness using, for example, Wolfram Alpha: <a class="external" href="https://www.wolframalpha.com/input/?i=agm%2811%2C31%29" target="_blank">agm(11,31)</a>.</p>
+<p id="p-133">The logic of the script: compute arithmetic and geometric means of x and y, then use them as our new values of x and y. One may be tempted to shorten the loop as follows</p>
 <pre class="code-block tex2jax_ignore">for k = 1:10
     x = (x+y)/2;
     y = sqrt(x*y);
 end
 </pre>
-<p id="p-133">But this loop produces a wrong answer: 23.9912. The reason this script is wrong is that it changes x before the computation of geometric mean.  The definition of AGM requires both arithmetic and geometric means to be computed from the same pair x, y. Only after both means are computed, we can replace x and y with new values.</p>
+<p id="p-134">But this loop produces a wrong answer: 23.9912. The reason this script is wrong is that it changes x before the computation of geometric mean.  The definition of AGM requires both arithmetic and geometric means to be computed from the same pair x, y. Only after both means are computed, we can replace x and y with new values.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

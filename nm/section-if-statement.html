@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:53-04:00    *-->
+<!--*    on 2020-10-19T01:05:50-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -305,20 +305,29 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-if-statement"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.3</span> <span class="title"><code class="code-inline tex2jax_ignore">if</code> statement</span>
 </h2>
-<p id="p-141">A <code class="code-inline tex2jax_ignore">if</code> statement controls the flow of the program by executing one part of it if a certain condition is true (and possibly, executing another if the condition is false). The syntax is</p>
+<p id="p-142">A <code class="code-inline tex2jax_ignore">if</code> statement controls the flow of the program by executing one part of it if a certain condition is true (and possibly, executing another if the condition is false). The syntax is</p>
 <pre class="code-block tex2jax_ignore">if (condition)
     (what to do if the condition is true)
 else
     (what to do if the condition is false)
 end
 </pre>
-<p id="p-142">The part with <code class="code-inline tex2jax_ignore">else</code> is optional if you don't want to do anything special when the condition is false. The <code class="code-inline tex2jax_ignore">end</code> is required, as with loops. Here is a simple script that tells the user if the number they entered is positive or negative.</p>
+<p id="p-143">The part with <code class="code-inline tex2jax_ignore">else</code> is optional if you don't want to do anything special when the condition is false. The <code class="code-inline tex2jax_ignore">end</code> is required, as with loops. Here is a simple script that tells the user if the number they entered is positive or negative.</p>
 <pre class="code-block tex2jax_ignore">x = input('x = ');
 if x &lt; 0
     disp('negative')
@@ -326,7 +335,7 @@ else
     disp('positive')
 end
 </pre>
-<p id="p-143">This code has a bug: if the user enters 0, the output is ‘positive’. To correct this, we need to put another <code class="code-inline tex2jax_ignore">if</code> in the <code class="code-inline tex2jax_ignore">else</code> clause. This is done with <code class="code-inline tex2jax_ignore">elseif</code>:</p>
+<p id="p-144">This code has a bug: if the user enters 0, the output is ‘positive’. To correct this, we need to put another <code class="code-inline tex2jax_ignore">if</code> in the <code class="code-inline tex2jax_ignore">else</code> clause. This is done with <code class="code-inline tex2jax_ignore">elseif</code>:</p>
 <pre class="code-block tex2jax_ignore">x = input('x = ');
 if x &lt; 0
     disp('negative')
@@ -336,25 +345,25 @@ else
     disp('zero')
 end
 </pre>
-<p id="p-144">Generally, conditions in <code class="code-inline tex2jax_ignore">while</code> and <code class="code-inline tex2jax_ignore">if</code> are of the form x (relation) y where the relation can be</p>
+<p id="p-145">Generally, conditions in <code class="code-inline tex2jax_ignore">while</code> and <code class="code-inline tex2jax_ignore">if</code> are of the form x (relation) y where the relation can be</p>
 <ul class="disc">
-<li id="li-47">
-<code class="code-inline tex2jax_ignore">&lt;</code> less than</li>
 <li id="li-48">
-<code class="code-inline tex2jax_ignore">&gt;</code> greater than</li>
+<code class="code-inline tex2jax_ignore">&lt;</code> less than</li>
 <li id="li-49">
-<code class="code-inline tex2jax_ignore">&lt;=</code> less than or equal</li>
+<code class="code-inline tex2jax_ignore">&gt;</code> greater than</li>
 <li id="li-50">
-<code class="code-inline tex2jax_ignore">&gt;=</code> greater than or equal</li>
+<code class="code-inline tex2jax_ignore">&lt;=</code> less than or equal</li>
 <li id="li-51">
-<code class="code-inline tex2jax_ignore">==</code> equal</li>
+<code class="code-inline tex2jax_ignore">&gt;=</code> greater than or equal</li>
 <li id="li-52">
+<code class="code-inline tex2jax_ignore">==</code> equal</li>
+<li id="li-53">
 <code class="code-inline tex2jax_ignore">~=</code> not equal</li>
 </ul>
 <p data-braille="continuation"><em class="emphasis">Warning</em>: <code class="code-inline tex2jax_ignore">if (x=y)</code> is incorrect, because a single = sign means <em class="emphasis">assignment</em> (make x equal to y), not equality (is x equal to y?). Also, we rarely need to test equality because it can fail because of tiny errors in computer arithmetics with non-integer numbers.</p>
 <article class="example example-like" id="example-equality-floats"><a data-knowl="" class="id-ref original" data-refid="hk-example-equality-floats"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Testing the equality of two numbers.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-equality-floats"><article class="example example-like"><p id="p-145">Write an <code class="code-inline tex2jax_ignore">if</code> statement that tests whether \(0.1+0.2\) is equal to \(0.3\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-equality-floats"><article class="example example-like"><p id="p-146">Write an <code class="code-inline tex2jax_ignore">if</code> statement that tests whether \(0.1+0.2\) is equal to \(0.3\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-26" id="answer-26"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-26"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">if 0.1 + 0.2 == 0.3
@@ -363,7 +372,7 @@ else
     disp('not equal')
 end
 </pre>
-<p id="p-146">Running this code you will see a surprising result: “not equal”. We will consider this later. The point to be taken here is that testing for equality is practical only when both sides of <code class="code-inline tex2jax_ignore">==</code> are integers.</p>
+<p id="p-147">Running this code you will see a surprising result: “not equal”. We will consider this later. The point to be taken here is that testing for equality is practical only when both sides of <code class="code-inline tex2jax_ignore">==</code> are integers.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:52-04:00    *-->
+<!--*    on 2020-10-19T01:05:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,26 +304,35 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-systems-vectorization-plots"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-78">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-79">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-13"><a data-knowl="" class="id-ref original" data-refid="hk-example-13"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Tridiagonal matrix of arbitrary size.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-13"><article class="example example-like">Given a positive integer \(n\text{,}\) construct a tridiagonal matrix which has entries -1, 2, -1 (as in <a href="section-large-matrices.html" class="internal" title="Section 2.2: More tools for constructing matrices">Section 2.2</a>) and size \(n\times n\text{.}\)<div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-13" id="answer-13"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-13"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">diag(2*ones(1, n)) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
 </pre>
-<p id="p-79">or</p>
+<p id="p-80">or</p>
 <pre class="code-block tex2jax_ignore">2*diag(ones(1, n)) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
 </pre>
-<p id="p-80">or</p>
+<p id="p-81">or</p>
 <pre class="code-block tex2jax_ignore">2*eye(n) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
 </pre>
-<p id="p-81">It is important to recognize why <code class="code-inline tex2jax_ignore">n-1</code> appears above. The main diagonal has length <code class="code-inline tex2jax_ignore">n</code> but the diagonals next to it are shorter by 1 element, so their length is <code class="code-inline tex2jax_ignore">n-1</code>.</p>
+<p id="p-82">It is important to recognize why <code class="code-inline tex2jax_ignore">n-1</code> appears above. The main diagonal has length <code class="code-inline tex2jax_ignore">n</code> but the diagonals next to it are shorter by 1 element, so their length is <code class="code-inline tex2jax_ignore">n-1</code>.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-14"><a data-knowl="" class="id-ref original" data-refid="hk-example-14"><h6 class="heading">
@@ -347,7 +356,7 @@ b(end) = 2;
 x = A\b;
 disp(x)
 </pre>
-<p id="p-82"><em class="emphasis">Explanation</em>. The coefficient matrix has 3 on the main diagonal, and -1 above and below it. This matrix is created with the help of <code class="code-inline tex2jax_ignore">diag</code> as explained in <a href="section-large-matrices.html" class="internal" title="Section 2.2: More tools for constructing matrices">Section 2.2</a>. The right-hand size column vector begins with all-zeros: note that <code class="code-inline tex2jax_ignore">zeros(n, 1)</code> is a column of zeros, while <code class="code-inline tex2jax_ignore">zeros(1, n)</code> is a row of zeros. The first and last entries of <code class="code-inline tex2jax_ignore">b</code> are changed as described in the system.</p>
+<p id="p-83"><em class="emphasis">Explanation</em>. The coefficient matrix has 3 on the main diagonal, and -1 above and below it. This matrix is created with the help of <code class="code-inline tex2jax_ignore">diag</code> as explained in <a href="section-large-matrices.html" class="internal" title="Section 2.2: More tools for constructing matrices">Section 2.2</a>. The right-hand size column vector begins with all-zeros: note that <code class="code-inline tex2jax_ignore">zeros(n, 1)</code> is a column of zeros, while <code class="code-inline tex2jax_ignore">zeros(1, n)</code> is a row of zeros. The first and last entries of <code class="code-inline tex2jax_ignore">b</code> are changed as described in the system.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-15"><a data-knowl="" class="id-ref original" data-refid="hk-example-15"><h6 class="heading">
@@ -359,16 +368,16 @@ y = (x - 1)./(x.^2 + 1);
 plot(x, y)
 </pre>
 <figure class="figure figure-like" id="figure-4"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/plotting4.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.4<span class="period">.</span></span><span class="space"> </span>Plot of \(y = (x - 1)/(x^2 + 1)\) on \([-1, 5]\)</figcaption></figure><p id="p-83">Note the use of semicolons to prevent Matlab from displaying hundreds of numbers that we do not need to see.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.4<span class="period">.</span></span><span class="space"> </span>Plot of \(y = (x - 1)/(x^2 + 1)\) on \([-1, 5]\)</figcaption></figure><p id="p-84">Note the use of semicolons to prevent Matlab from displaying hundreds of numbers that we do not need to see.</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-3"><a data-knowl="" class="id-ref original" data-refid="hk-question-3"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">2.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">x as a function of y.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-3"><article class="question example-like"><p id="p-84">How would you plot a function where \(x\) is given as a function of \(y\text{,}\) for example \(x = y + \cos y\) with \(-5\le y\le 5\text{?}\)</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-3"><article class="question example-like"><p id="p-85">How would you plot a function where \(x\) is given as a function of \(y\text{,}\) for example \(x = y + \cos y\) with \(-5\le y\le 5\text{?}\)</p></article></div>
 <article class="question example-like" id="question-4"><a data-knowl="" class="id-ref original" data-refid="hk-question-4"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">2.5.6</span><span class="period">.</span><span class="space"> </span><span class="title">A “wrong” way to multiply matrices.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-4"><article class="question example-like"><p id="p-85">Can you imagine a situation where you would want to compute <code class="code-inline tex2jax_ignore">A.*B</code> where both <code class="code-inline tex2jax_ignore">A</code> and <code class="code-inline tex2jax_ignore">B</code> are square matrices of the same size?</p>
-<p id="p-86">An idea: a matrix can be used to store a greyscale image, so that each entry is the brightness of the corresponding pixel. What would elementwise  multiplication <code class="code-inline tex2jax_ignore">A.*B</code> mean in this context?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-4"><article class="question example-like"><p id="p-86">Can you imagine a situation where you would want to compute <code class="code-inline tex2jax_ignore">A.*B</code> where both <code class="code-inline tex2jax_ignore">A</code> and <code class="code-inline tex2jax_ignore">B</code> are square matrices of the same size?</p>
+<p id="p-87">An idea: a matrix can be used to store a greyscale image, so that each entry is the brightness of the corresponding pixel. What would elementwise  multiplication <code class="code-inline tex2jax_ignore">A.*B</code> mean in this context?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

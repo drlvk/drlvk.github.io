@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:54-04:00    *-->
+<!--*    on 2020-10-19T01:05:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,16 +304,25 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-linear-systems"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.5</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-227">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-228">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-parabola-best-fit"><a data-knowl="" class="id-ref original" data-refid="hk-example-parabola-best-fit"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Parabola of best fit.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-parabola-best-fit"><article class="example example-like"><p id="p-228">Using the data of <a class="xref" data-knowl="./knowl/example-line-best-fit.html" title="Example 6.2.2: Line of best fit">Example 6.2.2</a>, find and plot the parabola \(y = cx^2+dx+e\) that fits the data best in the sense of least squares.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-parabola-best-fit"><article class="example example-like"><p id="p-229">Using the data of <a class="xref" data-knowl="./knowl/example-line-best-fit.html" title="Example 6.2.2: Line of best fit">Example 6.2.2</a>, find and plot the parabola \(y = cx^2+dx+e\) that fits the data best in the sense of least squares.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-38" id="answer-38"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-38"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">x = [-1, 0, 2, 3, 4, 7]'; 
@@ -324,14 +333,14 @@ xx = linspace(min(x), max(x), 500)';
 yy = [xx.^2, xx, xx.^0]*z;
 plot(xx, yy, 'b', x, y, 'r*')
 </pre>
-<p id="p-229"><em class="emphasis">Explanation</em>: the only modification that we need is to add a column with the squares of x-values. In general, this process allows us to fit a function of the form \(c_1 f_1(x) + c_2 f_2(x) + \cdots + c_n f_n(x) \) where \(f_1, f_2, \dots, f_n\) are given functions and \(c_1, c_2, \dots, c_n\) are coefficients (parameters) to be determined.</p>
+<p id="p-230"><em class="emphasis">Explanation</em>: the only modification that we need is to add a column with the squares of x-values. In general, this process allows us to fit a function of the form \(c_1 f_1(x) + c_2 f_2(x) + \cdots + c_n f_n(x) \) where \(f_1, f_2, \dots, f_n\) are given functions and \(c_1, c_2, \dots, c_n\) are coefficients (parameters) to be determined.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-42"><a data-knowl="" class="id-ref original" data-refid="hk-example-42"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Slight perturbation of a singular system.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><p id="p-230">Modify <a class="xref" data-knowl="./knowl/example-square-rank-deficient.html" title="Example 6.3.2: Square rank-deficient system">Example 6.3.2</a> by replacing 1 with 1.000001. How does the solution change? Repeat, this time replacing 9 by 9.000001. How did the solution change now?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><p id="p-231">Modify <a class="xref" data-knowl="./knowl/example-square-rank-deficient.html" title="Example 6.3.2: Square rank-deficient system">Example 6.3.2</a> by replacing 1 with 1.000001. How does the solution change? Repeat, this time replacing 9 by 9.000001. How did the solution change now?</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like"><p id="p-231"><pre class="code-block tex2jax_ignore">A = [1.000001 2 3; 4 5 6; 7 8 9];
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like"><p id="p-232"><pre class="code-block tex2jax_ignore">A = [1.000001 2 3; 4 5 6; 7 8 9];
 b = [10; 11; 12];
 </pre>leads to <code class="code-inline tex2jax_ignore">A\b</code> being <code class="code-inline tex2jax_ignore">[0.0000; -9.0000; 9.3333]</code>. In contrast, with<pre class="code-block tex2jax_ignore">A = [1 2 3; 4 5 6; 7 8 9.000001];
 </pre>we get the solution <code class="code-inline tex2jax_ignore">[-9.3333; 9.6667; 0.0000]</code> which is quite different. Note that Matlab shows no warnings in either case. These systems do not have a free variable: the rank of A is 3. Yet, the solution is very sensitive to small changes of the system, because the matrix is close to being singular (or degenerate).</p></div></div>

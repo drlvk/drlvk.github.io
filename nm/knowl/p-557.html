@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:06-04:00    *-->
+<!--*    on 2020-10-19T01:06:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,9 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Having computed <code class="code-inline tex2jax_ignore">V = f(X, Y)</code>, we need to combine it with weights and to get a single number at the end. Recall in one dimension we would do this as <code class="code-inline tex2jax_ignore">f(x)*w</code> where <code class="code-inline tex2jax_ignore">w</code> is a column vector of x-weights. We should still do this, but to also multiply and sum over the y-weights, we need <code class="code-inline tex2jax_ignore">v*f(X, Y)*w</code> where <code class="code-inline tex2jax_ignore">v</code> is a row of vector of y-weights.</p>
+<p>Given the large number of terms in double sum <a class="xref" data-knowl="./knowl/eq-double-quad-gen.html" title="Equation 18.1.1">(18.1.1)</a>, we should try to organize such computations efficiently. The first thing to do is to evaluate the function on a rectangular grid formed by all \((x_i, y_j)\) points. A useful Matlab command is <code class="code-inline tex2jax_ignore">meshgrid</code>, which is used as</p>
+<pre class="code-block tex2jax_ignore">[X, Y] = meshgrid(x, y)</pre>
+<p data-braille="continuation">where <code class="code-inline tex2jax_ignore">x,y</code> are vectors with evaluation points. The output consists of two matrices <code class="code-inline tex2jax_ignore">X, Y</code> which represent the rectangular grid: <code class="code-inline tex2jax_ignore">X</code> has the x-coordinates of all the grid points, and <code class="code-inline tex2jax_ignore">Y</code> has their y-coordinates. The reason this is useful is that <code class="code-inline tex2jax_ignore">f(X, Y)</code> can now be used to evaluate the function on the entire grid at once (producing a matrix of its values), provided \(f\) is written so that it can handle matrix input.</p>
 <span class="incontext"><a href="section-integration-rectangle.html#p-557">in-context</a></span>
 </body>
 </html>

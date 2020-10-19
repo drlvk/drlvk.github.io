@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:51-04:00    *-->
+<!--*    on 2020-10-19T01:05:48-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,25 +304,34 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-scalars"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">Assigning scalar values</span>
 </h2>
-<p id="p-18">The command</p>
+<p id="p-19">The command</p>
 <pre class="code-block tex2jax_ignore">x = 3/4</pre>
 <p data-braille="continuation">assigns the value of 0.75 to variable <code class="code-inline tex2jax_ignore">x</code>. Matlab will also display the result of this assignment (the number 0.75) to you. Most of the time, we do not need it to print the result of every computation. Ending a command with a semicolon <kbd class="kbdkey">;</kbd> suppresses the output: try</p>
 <pre class="code-block tex2jax_ignore">x = 3/4;</pre>
-<p id="p-19">Now that the variable <code class="code-inline tex2jax_ignore">x</code> has a value, we can use it in computations. For example,</p>
+<p id="p-20">Now that the variable <code class="code-inline tex2jax_ignore">x</code> has a value, we can use it in computations. For example,</p>
 <pre class="code-block tex2jax_ignore">y = x^2 + 5*x - 1</pre>
 <p data-braille="continuation">will result in <code class="code-inline tex2jax_ignore">y</code> being assigned the value 3.3125. It is important to realize that every variable must be assigned a value before it can be used on the right hand side of an assignment. If we try to execute <code class="code-inline tex2jax_ignore">y = x^2</code> without assigning any value to <code class="code-inline tex2jax_ignore">x</code>, the result will be an error: <code class="code-inline tex2jax_ignore">x</code> is undefined.</p>
-<p id="p-20">It is important to understand the difference between equations and assignments. In mathematics, \(x = x + 1\) is an equation which has no solutions. In Matlab,</p>
+<p id="p-21">It is important to understand the difference between equations and assignments. In mathematics, \(x = x + 1\) is an equation which has no solutions. In Matlab,</p>
 <pre class="code-block tex2jax_ignore">x = x + 1;</pre>
 <p data-braille="continuation">is an assignment command which means “take the current value of x, add 1 to it, and assign the result to x”. The effect is that the value of x is increase by 1.</p>
 <article class="example example-like" id="example-agm"><a data-knowl="" class="id-ref original" data-refid="hk-example-agm"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Arithmetic and geometric means.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-agm"><article class="example example-like"><p id="p-21">Write a script that does the following. Assign two unequal positive numbers to x and y (for example, two different digits of your SUID). Compute their arithmetic mean \(a = \dfrac{x+y}{2}\) and geometric mean \(g = \sqrt{xy}\text{.}\) Then display the arithmetic mean of \(a\) and \(g\text{.}\) Finally, display the geometric mean of \(a\) and \(g\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-agm"><article class="example example-like"><p id="p-22">Write a script that does the following. Assign two unequal positive numbers to x and y (for example, two different digits of your SUID). Compute their arithmetic mean \(a = \dfrac{x+y}{2}\) and geometric mean \(g = \sqrt{xy}\text{.}\) Then display the arithmetic mean of \(a\) and \(g\text{.}\) Finally, display the geometric mean of \(a\) and \(g\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-2" id="answer-2"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-2"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">x = 4; 
@@ -332,7 +341,7 @@ g = sqrt(x*y);
 disp((a+g)/2)
 disp(sqrt(a*g))
 </pre>
-<p id="p-22">Remark: Karl Gauss discovered that if the above process of taking arithmetic and geometric means is repeated, both these means <em class="emphasis">quickly</em> converge to the same number. This number is called the <dfn class="terminology">arithmetic-geometric mean</dfn> of x and y. It is linked to certain integrals which cannot be evaluated with calculus methods, and therefore provides an efficient computational approach to such integrals. For more, see <a class="external" href="https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean" target="_blank">Wikipedia</a>.</p>
+<p id="p-23">Remark: Karl Gauss discovered that if the above process of taking arithmetic and geometric means is repeated, both these means <em class="emphasis">quickly</em> converge to the same number. This number is called the <dfn class="terminology">arithmetic-geometric mean</dfn> of x and y. It is linked to certain integrals which cannot be evaluated with calculus methods, and therefore provides an efficient computational approach to such integrals. For more, see <a class="external" href="https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean" target="_blank">Wikipedia</a>.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

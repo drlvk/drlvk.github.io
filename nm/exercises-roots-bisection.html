@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:54-04:00    *-->
+<!--*    on 2020-10-19T01:05:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,6 +304,15 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -311,8 +320,8 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">7.6</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-16"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-271">For the function \(f(x) = \log(x^2 + 1/2)  + 9x^4 \text{,}\) use  the derivative \(f'\) determine the number of roots and find a bracketing interval for each of them. (No programming is needed.)</p></article><article class="exercise exercise-like" id="exercise-17"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-272">Write a Matlab script which finds and prints <em class="emphasis">both</em> roots of the equation \(30x e^{10x} = -1\text{,}\) using the bisection of the bracketing interval found in <a class="xref" data-knowl="./knowl/example-bracketing-30x-exp.html" title="Example 7.5.1: Number of roots and a bracketing interval for each of them">Example 7.5.1</a>. To avoid duplicating code, write a named function <code class="code-inline tex2jax_ignore">bisection(f, a, b)</code> which takes the function and a bracketing interval as arguments and returns a root by using the algorithm in <a href="section-bisection-method.html" class="internal" title="Section 7.3: Bisection method">Section 7.3</a>. The script could look as follows.</p>
+<p id="p-272">For the function \(f(x) = \log(x^2 + 1/2)  + 9x^4 \text{,}\) use  the derivative \(f'\) determine the number of roots and find a bracketing interval for each of them. (No programming is needed.)</p></article><article class="exercise exercise-like" id="exercise-17"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-273">Write a Matlab script which finds and prints <em class="emphasis">both</em> roots of the equation \(30x e^{10x} = -1\text{,}\) using the bisection of the bracketing interval found in <a class="xref" data-knowl="./knowl/example-bracketing-30x-exp.html" title="Example 7.5.1: Number of roots and a bracketing interval for each of them">Example 7.5.1</a>. To avoid duplicating code, write a named function <code class="code-inline tex2jax_ignore">bisection(f, a, b)</code> which takes the function and a bracketing interval as arguments and returns a root by using the algorithm in <a href="section-bisection-method.html" class="internal" title="Section 7.3: Bisection method">Section 7.3</a>. The script could look as follows.</p>
 <pre class="code-block tex2jax_ignore">function hw7()
     f = @(x) 30*x*exp(10*x) + 1;
     root1 = bisection(f, -1, -0.1);

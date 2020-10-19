@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:52-04:00    *-->
+<!--*    on 2020-10-19T01:05:48-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,36 +304,45 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-operations-vectors-matrices"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.4</span> <span class="title">Operations on vectors and matrices</span>
 </h2>
-<p id="p-31"><em class="emphasis">Addition</em> and <em class="emphasis">subtraction</em> works the same way as it does in Linear Algebra. If two vectors, or two matrices, have the same size, they can be added or subtracted. For example:</p>
+<p id="p-32"><em class="emphasis">Addition</em> and <em class="emphasis">subtraction</em> works the same way as it does in Linear Algebra. If two vectors, or two matrices, have the same size, they can be added or subtracted. For example:</p>
 <pre class="code-block tex2jax_ignore">
     x = [3 7 2];
     y = [8 -2 0];
     z = x + y;
 </pre>
 <p data-braille="continuation">results in <code class="code-inline tex2jax_ignore">z</code> being <code class="code-inline tex2jax_ignore">[11 5 2]</code>. But we cannot add <code class="code-inline tex2jax_ignore">[8 -2]</code> and <code class="code-inline tex2jax_ignore">[2 5 8]</code> because these vectors have different sizes.</p>
-<p id="p-32"><em class="emphasis">Scalar multiplication</em> also works as expected: with <code class="code-inline tex2jax_ignore">x</code> as above, <code class="code-inline tex2jax_ignore">3*x</code> is the vector <code class="code-inline tex2jax_ignore">[9 21 6]</code>.</p>
-<p id="p-33">One can also multiply two vectors, or two matrices, or a vector and a matrix. To understand how this works in Matlab, keep in mind that a vector is treated as a matrix with one row (or one column). Two matrices can be multiplied only when the inner dimensions agree: that is, two matrices of sizes \(m\times n\) and \(p\times q\) can be multiplied when \(n = p\text{.}\) The product has size \(m\times q\text{.}\) Some examples:</p>
+<p id="p-33"><em class="emphasis">Scalar multiplication</em> also works as expected: with <code class="code-inline tex2jax_ignore">x</code> as above, <code class="code-inline tex2jax_ignore">3*x</code> is the vector <code class="code-inline tex2jax_ignore">[9 21 6]</code>.</p>
+<p id="p-34">One can also multiply two vectors, or two matrices, or a vector and a matrix. To understand how this works in Matlab, keep in mind that a vector is treated as a matrix with one row (or one column). Two matrices can be multiplied only when the inner dimensions agree: that is, two matrices of sizes \(m\times n\) and \(p\times q\) can be multiplied when \(n = p\text{.}\) The product has size \(m\times q\text{.}\) Some examples:</p>
 <ul class="disc">
-<li id="li-9">
-<code class="code-inline tex2jax_ignore">[3 7] * [4 2]</code> is <em class="alert">an error</em>: the first argument has size \(1\times 2\text{,}\) the second also has size \(1\times 2\text{,}\) and the inner dimensions do not agree: \(2\ne 1\text{.}\)</li>
 <li id="li-10">
-<code class="code-inline tex2jax_ignore">[3 7] * [4; 2]</code> is <code class="code-inline tex2jax_ignore">26</code>. the first argument has size \(1\times 2\text{,}\) the second has size \(2\times 1\text{,}\) so the product is defined and has size \(1\times 1\) which makes it a scalar. This is how one computes the <dfn class="terminology">scalar product</dfn> of two vectors: it comes from multiplying a row vector by a column vector.</li>
+<code class="code-inline tex2jax_ignore">[3 7] * [4 2]</code> is <em class="alert">an error</em>: the first argument has size \(1\times 2\text{,}\) the second also has size \(1\times 2\text{,}\) and the inner dimensions do not agree: \(2\ne 1\text{.}\)</li>
 <li id="li-11">
-<code class="code-inline tex2jax_ignore">[1 2 3; 4 5 6] * [-4; 0; 3]</code> is <code class="code-inline tex2jax_ignore">[5; 2]</code>. The sizes \(2\times 3\) and \(3\times 1\) are compatible and the product has size \(2\times 1\text{.}\) This is how <dfn class="terminology">matrix-vector</dfn> products work in linear algebra too: the vector, placed to the right of a matrix, must be written as a column.</li>
+<code class="code-inline tex2jax_ignore">[3 7] * [4; 2]</code> is <code class="code-inline tex2jax_ignore">26</code>. the first argument has size \(1\times 2\text{,}\) the second has size \(2\times 1\text{,}\) so the product is defined and has size \(1\times 1\) which makes it a scalar. This is how one computes the <dfn class="terminology">scalar product</dfn> of two vectors: it comes from multiplying a row vector by a column vector.</li>
 <li id="li-12">
-<code class="code-inline tex2jax_ignore">[5 -2] * [1 2 3; 4 5 6]</code> is <code class="code-inline tex2jax_ignore">[-3 0 3]</code>. The sizes \(1\times 2\) and \(2\times 3\) are compatible and the product has size \(1\times 3\text{.}\) So, we can have a vector to the left of a matrix when it is a row vector.</li>
+<code class="code-inline tex2jax_ignore">[1 2 3; 4 5 6] * [-4; 0; 3]</code> is <code class="code-inline tex2jax_ignore">[5; 2]</code>. The sizes \(2\times 3\) and \(3\times 1\) are compatible and the product has size \(2\times 1\text{.}\) This is how <dfn class="terminology">matrix-vector</dfn> products work in linear algebra too: the vector, placed to the right of a matrix, must be written as a column.</li>
 <li id="li-13">
+<code class="code-inline tex2jax_ignore">[5 -2] * [1 2 3; 4 5 6]</code> is <code class="code-inline tex2jax_ignore">[-3 0 3]</code>. The sizes \(1\times 2\) and \(2\times 3\) are compatible and the product has size \(1\times 3\text{.}\) So, we can have a vector to the left of a matrix when it is a row vector.</li>
+<li id="li-14">
 <code class="code-inline tex2jax_ignore">[0 1; -1 0] * [1 2 3; 4 5 6]</code> is <code class="code-inline tex2jax_ignore">[4   5   6; -1  -2  -3]</code>. This is a <dfn class="terminology">matrix product</dfn>. Two matrices have compatible sizes \(2\times 2\) and \(2\times 3\text{,}\) and the product is of size \(2\times 3\text{.}\)</li>
 </ul>
 <article class="example example-like" id="example-4"><a data-knowl="" class="id-ref original" data-refid="hk-example-4"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Matrix multiplication is not commutative.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><p id="p-34">Write a script which illustrates that the product of two 2<span class="times-sign">×</span>2 matrices depends on their order.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><p id="p-35">Write a script which illustrates that the product of two 2<span class="times-sign">×</span>2 matrices depends on their order.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-4" id="answer-4"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-4"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">A = [1 2; 3 4];
@@ -341,7 +350,7 @@ B = [5 6; 7 8];
 disp(A*B)
 disp(B*A)
 </pre>
-<p id="p-35">Remark: the particular numbers are not important: if you fill two square matrices with random nonzero numbers, you will probably find their product depends on the order of term.</p>
+<p id="p-36">Remark: the particular numbers are not important: if you fill two square matrices with random nonzero numbers, you will probably find their product depends on the order of term.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

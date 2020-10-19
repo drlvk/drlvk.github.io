@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:03-04:00    *-->
+<!--*    on 2020-10-19T01:06:01-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In <a class="xref" data-knowl="./knowl/example-agm-for-loop.html" title="Example 4.1.2: Arithmetic-geometric mean using a for loop">Example 4.1.2</a> we used 10 iterations of arithmetic and geometric means computation. This was an arbitrary number. For some input values it may be enough or too many, for others not enough. A better approach is to stop the computation when the required precision is achieved. If we want the result to be accurate within \(10^{-9}\text{,}\) which is <code class="code-inline tex2jax_ignore">1e-9</code> in Matlab notation, then we can stop as soon as the difference between the two means has absolute value less than that number (called the <dfn class="terminology">tolerance</dfn>). This is what <code class="code-inline tex2jax_ignore">while</code> loop can be used for.</p>
-<span class="incontext"><a href="section-while-loop.html#p-134">in-context</a></span>
+<p>But this loop produces a wrong answer: 23.9912. The reason this script is wrong is that it changes x before the computation of geometric mean.  The definition of AGM requires both arithmetic and geometric means to be computed from the same pair x, y. Only after both means are computed, we can replace x and y with new values.</p>
+<span class="incontext"><a href="section-for-loop.html#p-134">in-context</a></span>
 </body>
 </html>

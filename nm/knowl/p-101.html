@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:03-04:00    *-->
+<!--*    on 2020-10-19T01:06:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Technical remark: Matlab recommends a newer command <code class="code-inline tex2jax_ignore">histogram</code> instead of <code class="code-inline tex2jax_ignore">hist</code> but they both work for our purposes. I am using <code class="code-inline tex2jax_ignore">hist</code> because it also works in Octave.</p>
+<p>The command <code class="code-inline tex2jax_ignore">hist(v, k)</code> displays a histograph of the data collected in vector <code class="code-inline tex2jax_ignore">v</code> using <code class="code-inline tex2jax_ignore">k</code> bins. This means that the interval from <code class="code-inline tex2jax_ignore">min(v)</code> to <code class="code-inline tex2jax_ignore">max(v)</code> is divided into <code class="code-inline tex2jax_ignore">k</code> equal subintervals, and the histogram counts how many data points fall in each subinterval. If the number of bins <code class="code-inline tex2jax_ignore">k</code> is not provided, Matlab will try to choose it itself. Usually we want 10-50 bins. For example,</p>
+<pre class="code-block tex2jax_ignore">
+v = rand(1, 10000);
+hist(v, 20);
+</pre>
+<p data-braille="continuation">produces a histogram from 10000 random numbers. This will not be an interesting histogram since the numbers are uniformly distributed between 0 and 1.</p>
 <span class="incontext"><a href="section-random-numbers-histograms.html#p-101">in-context</a></span>
 </body>
 </html>

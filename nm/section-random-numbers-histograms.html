@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:52-04:00    *-->
+<!--*    on 2020-10-19T01:05:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,30 +304,39 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-random-numbers-histograms"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Random numbers and histograms</span>
 </h2>
-<p id="p-99">The command <code class="code-inline tex2jax_ignore">rand</code> produces random numbers uniformly distributed in the interval from 0 to 1. Without providing parameters, we get a single number: <code class="code-inline tex2jax_ignore">x = rand()</code> can make x equal to, for example, 0.8248. With parameters <code class="code-inline tex2jax_ignore">rand(m, n)</code> we get a random m<span class="times-sign">×</span>n matrix, meaning a matrix in which each entry is chosen randomly.</p>
-<p id="p-100">The command <code class="code-inline tex2jax_ignore">hist(v, k)</code> displays a histograph of the data collected in vector <code class="code-inline tex2jax_ignore">v</code> using <code class="code-inline tex2jax_ignore">k</code> bins. This means that the interval from <code class="code-inline tex2jax_ignore">min(v)</code> to <code class="code-inline tex2jax_ignore">max(v)</code> is divided into <code class="code-inline tex2jax_ignore">k</code> equal subintervals, and the histogram counts how many data points fall in each subinterval. If the number of bins <code class="code-inline tex2jax_ignore">k</code> is not provided, Matlab will try to choose it itself. Usually we want 10-50 bins. For example,</p>
+<p id="p-100">The command <code class="code-inline tex2jax_ignore">rand</code> produces random numbers uniformly distributed in the interval from 0 to 1. Without providing parameters, we get a single number: <code class="code-inline tex2jax_ignore">x = rand()</code> can make x equal to, for example, 0.8248. With parameters <code class="code-inline tex2jax_ignore">rand(m, n)</code> we get a random m<span class="times-sign">×</span>n matrix, meaning a matrix in which each entry is chosen randomly.</p>
+<p id="p-101">The command <code class="code-inline tex2jax_ignore">hist(v, k)</code> displays a histograph of the data collected in vector <code class="code-inline tex2jax_ignore">v</code> using <code class="code-inline tex2jax_ignore">k</code> bins. This means that the interval from <code class="code-inline tex2jax_ignore">min(v)</code> to <code class="code-inline tex2jax_ignore">max(v)</code> is divided into <code class="code-inline tex2jax_ignore">k</code> equal subintervals, and the histogram counts how many data points fall in each subinterval. If the number of bins <code class="code-inline tex2jax_ignore">k</code> is not provided, Matlab will try to choose it itself. Usually we want 10-50 bins. For example,</p>
 <pre class="code-block tex2jax_ignore">
 v = rand(1, 10000);
 hist(v, 20);
 </pre>
 <p data-braille="continuation">produces a histogram from 10000 random numbers. This will not be an interesting histogram since the numbers are uniformly distributed between 0 and 1.</p>
-<p id="p-101">Technical remark: Matlab recommends a newer command <code class="code-inline tex2jax_ignore">histogram</code> instead of <code class="code-inline tex2jax_ignore">hist</code> but they both work for our purposes. I am using <code class="code-inline tex2jax_ignore">hist</code> because it also works in Octave.</p>
+<p id="p-102">Technical remark: Matlab recommends a newer command <code class="code-inline tex2jax_ignore">histogram</code> instead of <code class="code-inline tex2jax_ignore">hist</code> but they both work for our purposes. I am using <code class="code-inline tex2jax_ignore">hist</code> because it also works in Octave.</p>
 <article class="example example-like" id="example-sums-random"><a data-knowl="" class="id-ref original" data-refid="hk-example-sums-random"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Distribution of sums of random numbers.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-sums-random"><article class="example example-like"><p id="p-102">Suppose we take 10 random numbers, uniformly distributed between 0 and 1, and compute their sum. Repeating this experiment 10000 times, we get 10000 such sums. Plot the histogram of these random sums.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-sums-random"><article class="example example-like"><p id="p-103">Suppose we take 10 random numbers, uniformly distributed between 0 and 1, and compute their sum. Repeating this experiment 10000 times, we get 10000 such sums. Plot the histogram of these random sums.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-18" id="answer-18"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-18"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">A = rand(10, 10000);
 S = sum(A, 1);
 hist(S, 30);
 </pre>
-<p id="p-103">This histogram resembles a “bell curve” of normal distribution. The similarly grows stronger if we take sums of more numbers, and plot more random sums. This is the content of <dfn class="terminology">Central Limit Theorem</dfn> in probability.</p>
+<p id="p-104">This histogram resembles a “bell curve” of normal distribution. The similarly grows stronger if we take sums of more numbers, and plot more random sums. This is the content of <dfn class="terminology">Central Limit Theorem</dfn> in probability.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

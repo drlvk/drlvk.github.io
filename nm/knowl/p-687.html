@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:08-04:00    *-->
+<!--*    on 2020-10-19T01:06:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Looking at the coefficients, we can also find the critical points of a spline, answering the question raised at the end of <a href="section-piecewise-linear-interpolation.html" class="internal" title="Section 23.1: Piecewise linear interpolation">Section 23.1</a>. Indeed, we have \(A, B, C, D\) coefficients of a cubic polynomial, so its derivative is a quadratic polynomial with coefficients \(3A, 2B, C\text{.}\) We can find its roots with <code class="code-inline tex2jax_ignore">roots</code> but one must be careful to check if a root indeed falls into the subinterval on which this polynomial is used.</p>
+<p>How else could we use the spline data? The formula <a class="xref" data-knowl="./knowl/eq-piece-spline.html" title="Equation 23.2.1">(23.2.1)</a> shows that \(S'(x_k) = C_k\text{,}\) which is the entry of the 3rd column of matrix <code class="code-inline tex2jax_ignore">s.coefs</code>. Try <code class="code-inline tex2jax_ignore">s.coefs(:, 3)'</code> and compare the values with the slope of the spline at the data points. This is another approach to <em class="emphasis">numerical differentiation</em>, different from what we did in <a href="chapter-numerical-differentiation.html" class="internal" title="Chapter 12: Numerical Differentiation">Chapter 12</a>: given discrete data, fit a spline to it and differentiate the spline.</p>
 <span class="incontext"><a href="section-using-cubic-splines.html#p-687">in-context</a></span>
 </body>
 </html>

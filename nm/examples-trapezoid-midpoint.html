@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:57-04:00    *-->
+<!--*    on 2020-10-19T01:05:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,19 +304,28 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-trapezoid-midpoint"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">13.5</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-440">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-441">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-error-rightpoint-rule"><a data-knowl="" class="id-ref original" data-refid="hk-example-error-rightpoint-rule"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">The error of rightpoint rule.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-rightpoint-rule"><article class="example example-like"><p id="p-441">Estimate the error of the rightpoint rule.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-rightpoint-rule"><article class="example example-like"><p id="p-442">Estimate the error of the rightpoint rule.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-33" id="solution-33"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-33"><div class="solution solution-like">
-<p id="p-442">The rightpoint rule is exact for \(x^0\text{.}\) But for \(\int_0^h x^1\,dx\) it predicts \(\int_0^h x^1\,dx  = h^2\text{,}\) while the true value is \(h^2/2\text{.}\) So we stop at \(d=1\) with the error of \(h^2/2\text{,}\) which cam be written as \(\dfrac{1}{2} \ 1! \ h^2\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/2\text{.}\) In conclusion, the error of the rightpoint rule is at most</p>
+<p id="p-443">The rightpoint rule is exact for \(x^0\text{.}\) But for \(\int_0^h x^1\,dx\) it predicts \(\int_0^h x^1\,dx  = h^2\text{,}\) while the true value is \(h^2/2\text{.}\) So we stop at \(d=1\) with the error of \(h^2/2\text{,}\) which cam be written as \(\dfrac{1}{2} \ 1! \ h^2\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/2\text{.}\) In conclusion, the error of the rightpoint rule is at most</p>
 <div class="displaymath">
 \begin{equation*}
 |\text{error}| \le \frac{1}{2}\max_{[a,b]} |f'|  (b-a) h
@@ -326,7 +335,7 @@ MathJax.Hub.Config({
 </div></article></div>
 <article class="example example-like" id="example-improper-substitution"><a data-knowl="" class="id-ref original" data-refid="hk-example-improper-substitution"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Using substitution to evaluate an improper integral.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-improper-substitution"><article class="example example-like"><p id="p-443">The integral</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-improper-substitution"><article class="example example-like"><p id="p-444">The integral</p>
 <div class="displaymath">
 \begin{equation*}
 \int_1^\infty \frac{e^{-x}}{x} \,dx
@@ -335,7 +344,7 @@ MathJax.Hub.Config({
 <p data-braille="continuation">is improper (of first kind, meaning the interval of integration is infinite). Having an integration limit \(b = \infty\) is not good for any of the integration rules in this chapter. Make a substitution to transform this  integral into a proper one.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-34" id="solution-34"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-34"><div class="solution solution-like">
-<p id="p-444">The substitution \(u = e^{-x}\) works well here. Since \(du = -e^{-x}\,dx\) and \(x = -\log u\text{,}\) it follows that</p>
+<p id="p-445">The substitution \(u = e^{-x}\) works well here. Since \(du = -e^{-x}\,dx\) and \(x = -\log u\text{,}\) it follows that</p>
 <div class="displaymath">
 \begin{equation*}
 \int_1^\infty \dfrac{e^{-x}}{x} \,dx 
@@ -343,12 +352,12 @@ MathJax.Hub.Config({
 \end{equation*}
 </div>
 <p data-braille="continuation">The integral on the right is proper. As \(u\to 0+\text{,}\) the logarithm tends to negative infinity, but this only makes the integrand zero; so it is a continuous function on the interval of integration.</p>
-<p id="p-445">Note that the substitution does not bring us any closer to the symbolic solution, since \(1/\log u\) cannot be integrated with calculus methods either. But it makes a more convenient integral for numerical methods.</p>
+<p id="p-446">Note that the substitution does not bring us any closer to the symbolic solution, since \(1/\log u\) cannot be integrated with calculus methods either. But it makes a more convenient integral for numerical methods.</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-26"><a data-knowl="" class="id-ref original" data-refid="hk-question-26"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">13.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Failure of error estimates.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-26"><article class="question example-like"><p id="p-446">The integral</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-26"><article class="question example-like"><p id="p-447">The integral</p>
 <div class="displaymath">
 \begin{equation*}
 \int_0^{1/e} \dfrac{1}{\log u} \,du
@@ -357,7 +366,7 @@ MathJax.Hub.Config({
 <p data-braille="continuation">could be approximated using any of the  rules in this chapter. The endpoint 0 is not a problem, because Matlab is okay with <code class="code-inline tex2jax_ignore">1/log(0)</code>: it simply evaluates it as 0. But it is still a good idea to avoid this endpoint, so the midpoint rule is preferable. Try it with \(n=5\text{,}\) for example. Then try to estimate the error of this rule using the formula in <a class="xref" data-knowl="./knowl/example-error-midpoint-rule.html" title="Example 13.4.1: The error of midpoint rule">Example 13.4.1</a>. What goes wrong, and what does this mean for the approximation?</p></article></div>
 <article class="question example-like" id="question-27"><a data-knowl="" class="id-ref original" data-refid="hk-question-27"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">13.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">An improper integral of second kind.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-27"><article class="question example-like"><p id="p-447">The integral \(\int_0^1 x^{-1/2}\,dx\) is improper (of second kind) but it converges. Which of the above integration rules could be used to evaluate this integral? Which of those rules would you use?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-27"><article class="question example-like"><p id="p-448">The integral \(\int_0^1 x^{-1/2}\,dx\) is improper (of second kind) but it converges. Which of the above integration rules could be used to evaluate this integral? Which of those rules would you use?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

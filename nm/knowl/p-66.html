@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:03-04:00    *-->
+<!--*    on 2020-10-19T01:06:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Suppose <code class="code-inline tex2jax_ignore">v = [5 2 -3]</code> and we want to get the squares of the elements of <code class="code-inline tex2jax_ignore">v</code>. By analogy with the above, we try <code class="code-inline tex2jax_ignore">v^2</code> but get an <em class="alert">error</em>. The problem is that squaring <code class="code-inline tex2jax_ignore">v</code> is understood as <code class="code-inline tex2jax_ignore">v*v</code> which in Matlab means multiplication according to the rules of <a href="section-operations-vectors-matrices.html" class="internal" title="Section 1.4: Operations on vectors and matrices">Section 1.4</a>. The row vector <code class="code-inline tex2jax_ignore">v</code> is treated as a matrix of size 1<span class="times-sign">×</span>3. And one cannot multiply a 1<span class="times-sign">×</span>3 matrix by another 1<span class="times-sign">×</span>3 matrix: the inner dimensions do not match. But we just want <em class="emphasis">elementwise</em> squaring, not any kind of matrix multiplication. To tell Matlab this, put a period <code class="code-inline tex2jax_ignore">.</code> before the operation character: <code class="code-inline tex2jax_ignore">v.^2</code> gives <code class="code-inline tex2jax_ignore">[25 4 9]</code>. Similarly, <code class="code-inline tex2jax_ignore">.*</code> and <code class="code-inline tex2jax_ignore">./</code> are used for elementwise multiplication and division: <code class="code-inline tex2jax_ignore">[3 4].*[2 -5]</code> is <code class="code-inline tex2jax_ignore">[6 -20]</code> and <code class="code-inline tex2jax_ignore">[3 4]./[2 -5]</code> is <code class="code-inline tex2jax_ignore">[1.5 -0.8]</code>. We never need a period in front of <code class="code-inline tex2jax_ignore">+</code> or <code class="code-inline tex2jax_ignore">-</code> because these operations are always performed elementwise.</p>
+<p>Matlab supports <dfn class="terminology">array operations</dfn> in which the input data is placed into an array (usually a vector or a matrix) and some mathematical operation is carried out on all of the data at once. For example, to get the square roots of the first 25 positive integers we can execute</p>
+<pre class="code-block tex2jax_ignore">sqrt(1:25)</pre>
+<p data-braille="continuation">with the result</p>
+<pre class="code-block tex2jax_ignore">[1.0000 1.4142 1.7321 2.0000 2.2361 ... 4.8990 5.0000]</pre>
+<p data-braille="continuation">More generally, if <code class="code-inline tex2jax_ignore">v</code> is a vector of nonnegative numbers, then <code class="code-inline tex2jax_ignore">sqrt(v)</code> has the roots of those numbers. Other functions like <code class="code-inline tex2jax_ignore">sin</code> and <code class="code-inline tex2jax_ignore">exp</code> work the same way. The benefts of array operations are more compact code and faster execution.</p>
 <span class="incontext"><a href="section-vectorization.html#p-66">in-context</a></span>
 </body>
 </html>

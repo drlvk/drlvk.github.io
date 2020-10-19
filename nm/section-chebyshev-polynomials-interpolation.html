@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:35:01-04:00    *-->
+<!--*    on 2020-10-19T01:05:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,13 +304,22 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-chebyshev-polynomials-interpolation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">22.2</span> <span class="title">Chebyshev polynomials and interpolation</span>
 </h2>
-<p id="p-649">In <a href="chapter-legendre-laguerre.html" class="internal" title="Chapter 15: Legendre polynomials and Laguerre polynomials">Chapter 15</a> we studied Legendre polynomials \(P_n\) which are orthogonal on the interval \([-1, 1]\) in the sense that \(\int_{-1}^1 P_n(x)P_k(x)\,dx = 0\) when \(n\ne k\text{.}\) We also use Laguerre polynomials \(L_n\) which are orthogonal on \([0, \infty)\) with the weight function \(e^{-x}\text{,}\) meaning that \(\int_{-1}^1 L_n(x)L_k(x)\,e^{-x}\,dx = 0\) when \(n\ne k\text{.}\) The <dfn class="terminology">Chebyshev polynomials</dfn> \(T_n\) are orthogonal on the interval \([-1, 1]\) with the weight function \(1/\sqrt{1-x^2}\text{,}\) meaning that</p>
+<p id="p-650">In <a href="chapter-legendre-laguerre.html" class="internal" title="Chapter 15: Legendre polynomials and Laguerre polynomials">Chapter 15</a> we studied Legendre polynomials \(P_n\) which are orthogonal on the interval \([-1, 1]\) in the sense that \(\int_{-1}^1 P_n(x)P_k(x)\,dx = 0\) when \(n\ne k\text{.}\) We also use Laguerre polynomials \(L_n\) which are orthogonal on \([0, \infty)\) with the weight function \(e^{-x}\text{,}\) meaning that \(\int_{-1}^1 L_n(x)L_k(x)\,e^{-x}\,dx = 0\) when \(n\ne k\text{.}\) The <dfn class="terminology">Chebyshev polynomials</dfn> \(T_n\) are orthogonal on the interval \([-1, 1]\) with the weight function \(1/\sqrt{1-x^2}\text{,}\) meaning that</p>
 <div class="displaymath">
 \begin{equation*}
 \int_{-1}^1 T_n(x)T_k(x)\,\frac{dx}{\sqrt{1-x^2}} = 0 \quad \text{when }n\ne k
@@ -325,10 +334,10 @@ T_{n+1}(x) = 2xT_n(x) -  T_{n-1}(x)\label{eq-chebyshev-recursion}\tag{22.2.1}
 <p data-braille="continuation">The recursion is simpler than for \(P_n\) or \(L_n\text{:}\) there is no division, so all polynomials \(T_n\) have integer coefficients.</p>
 <article class="example example-like" id="example-computation-chebyshev-coefficients"><a data-knowl="" class="id-ref original" data-refid="hk-example-computation-chebyshev-coefficients"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">22.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Plot Chebyshev polynomials \(T_n\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-computation-chebyshev-coefficients"><article class="example example-like"><p id="p-650">Recursively find the coefficients of Chebyshev polynomials \(T_n\) for \(n\le 6\text{.}\) Plot all of them on the interval \([-1, 1]\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-computation-chebyshev-coefficients"><article class="example example-like"><p id="p-651">Recursively find the coefficients of Chebyshev polynomials \(T_n\) for \(n\le 6\text{.}\) Plot all of them on the interval \([-1, 1]\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-58" id="answer-58"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-58"><div class="answer solution-like">
-<p id="p-651">This is a straightforward modification of <a class="xref" data-knowl="./knowl/example-computation-legendre-coefficients.html" title="Example 15.4.1: Computing and plotting Legendre polynomials">Example 15.4.1</a>.</p>
+<p id="p-652">This is a straightforward modification of <a class="xref" data-knowl="./knowl/example-computation-legendre-coefficients.html" title="Example 15.4.1: Computing and plotting Legendre polynomials">Example 15.4.1</a>.</p>
 <pre class="code-block tex2jax_ignore">p = [1];
 q = [1 0];
 x = linspace(-1, 1, 1000);
@@ -345,7 +354,7 @@ hold off
 </pre>
 </div></div>
 </div></article></div>
-<p id="p-652"><a class="xref" data-knowl="./knowl/example-computation-chebyshev-coefficients.html" title="Example 22.2.1: Plot Chebyshev polynomials \(T_n\)">Example 22.2.1</a> indicates that Chebyshev polynomials oscillate between \(-1\) and \(1\) on the interval \([-1, 1]\text{.}\) The following remarkable identity confirms this observation:</p>
+<p id="p-653"><a class="xref" data-knowl="./knowl/example-computation-chebyshev-coefficients.html" title="Example 22.2.1: Plot Chebyshev polynomials \(T_n\)">Example 22.2.1</a> indicates that Chebyshev polynomials oscillate between \(-1\) and \(1\) on the interval \([-1, 1]\text{.}\) The following remarkable identity confirms this observation:</p>
 <div class="displaymath">
 \begin{equation}
 T_n(\cos\theta) = \cos (n\theta)   \label{eq-chebyshev-cosine}\tag{22.2.2}
@@ -363,7 +372,7 @@ T_{n+1}(\cos \theta) = 2\cos \theta \cos (n\theta)  - \cos ((n-1)\theta) = \cos 
 2\cos \alpha \cos\beta = \cos (\alpha-\beta) + \cos(\alpha+\beta)
 \end{equation*}
 </div>
-<p id="p-653">The right hand side of <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> is zero when \(n\theta\) is an odd multiple of \(\pi/2\text{,}\) hence \(\theta = (2k-1)\frac{\pi}{2n}\text{.}\) Plugging \(k=1, \dots, n\) we find that</p>
+<p id="p-654">The right hand side of <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> is zero when \(n\theta\) is an odd multiple of \(\pi/2\text{,}\) hence \(\theta = (2k-1)\frac{\pi}{2n}\text{.}\) Plugging \(k=1, \dots, n\) we find that</p>
 <div class="displaymath">
 \begin{equation}
 T_n(x) = 0  \quad \text{when } x = \cos \left((2k-1)\frac{\pi}{2n}\right), \ k=1, \dots, n\label{eq-chebyshev-roots}\tag{22.2.3}
@@ -371,7 +380,7 @@ T_n(x) = 0  \quad \text{when } x = \cos \left((2k-1)\frac{\pi}{2n}\right), \ k=1
 </div>
 <p data-braille="continuation">and since the polynomial \(T_n\) can have at most \(n\) real roots, these are all of its roots. They are easy to visualize: draw a semi-circle with interval \([a, b]\) as diameter, divide it into \(n\) equal arcs, and project the <em class="emphasis">midpoint</em> of each arc back to the interval.</p>
 <figure class="figure figure-like" id="chebroots1-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/chebroots1.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">22.2.2<span class="period">.</span></span><span class="space"> </span>Chebyshev points of the first kind</figcaption></figure><p id="p-654">The recursive formula shows that the leading coefficient of \(T_n\) is \(2^{n-1}\text{.}\) Therefore,</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">22.2.2<span class="period">.</span></span><span class="space"> </span>Chebyshev points of the first kind</figcaption></figure><p id="p-655">The recursive formula shows that the leading coefficient of \(T_n\) is \(2^{n-1}\text{.}\) Therefore,</p>
 <div class="displaymath">
 \begin{equation*}
 T_n(x) = 2^{n-1}\prod_{k=1}^n (x-x_k)
@@ -380,10 +389,10 @@ T_n(x) = 2^{n-1}\prod_{k=1}^n (x-x_k)
 <p data-braille="continuation">where \(x_1, \dots, x_n\) are the roots <a class="xref" data-knowl="./knowl/eq-chebyshev-roots.html" title="Equation 22.2.3">(22.2.3)</a>. It follows that the absolute value of the product \(\prod_{k=1}^n (x-x_k)\) is bounded by \(2^{1-n}\text{.}\) It can be proved that \(2^{1-n}\) is as small as one can get for any choice of \(n\) points on the interval \([-1, 1]\text{.}\) This suggests that Chebyshev points should work well for polynomial interpolation, and they do. Let us re-do <a class="xref" data-knowl="./knowl/example-lagrange-polynomial.html" title="Example 21.2.1: Plot the Lagrange polynomial through 10 points">Example 21.2.1</a> with random data to illustrate this.</p>
 <article class="example example-like" id="example-lagrange-polynomial-chebyshev"><a data-knowl="" class="id-ref original" data-refid="hk-example-lagrange-polynomial-chebyshev"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">22.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">An interpolating polynomial using Chebyshev points.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lagrange-polynomial-chebyshev"><article class="example example-like"><p id="p-655">Let \(x_1, \dots, x_{10}\) be the roots of \(T_{10}\text{.}\) Choose \(y_k\) randomly from the standard normal distribution, and draw the interpolating polynomial through the points \((x_k, y_k)\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lagrange-polynomial-chebyshev"><article class="example example-like"><p id="p-656">Let \(x_1, \dots, x_{10}\) be the roots of \(T_{10}\text{.}\) Choose \(y_k\) randomly from the standard normal distribution, and draw the interpolating polynomial through the points \((x_k, y_k)\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-59" id="answer-59"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-59"><div class="answer solution-like">
-<p id="p-656">The only change to <a class="xref" data-knowl="./knowl/example-lagrange-polynomial.html" title="Example 21.2.1: Plot the Lagrange polynomial through 10 points">Example 21.2.1</a> is replacing the x-coordinates.</p>
+<p id="p-657">The only change to <a class="xref" data-knowl="./knowl/example-lagrange-polynomial.html" title="Example 21.2.1: Plot the Lagrange polynomial through 10 points">Example 21.2.1</a> is replacing the x-coordinates.</p>
 <pre class="code-block tex2jax_ignore">n = 10;
 x = cos((2*(1:n)-1)*pi/(2*n)); 
 y = randn(1, n);
@@ -402,7 +411,7 @@ plot(x, y, 'r*', t, p(t))
 </pre>
 </div></div>
 </div></article></div>
-<p id="p-657">Running the code <a class="xref" data-knowl="./knowl/example-lagrange-polynomial-chebyshev.html" title="Example 22.2.3: An interpolating polynomial using Chebyshev points">Example 22.2.3</a> several times, we see that the interpolating polynomial behaves reasonably, without unnatural oscillations that come from interpolating at equally spaced points.</p></section></div></main>
+<p id="p-658">Running the code <a class="xref" data-knowl="./knowl/example-lagrange-polynomial-chebyshev.html" title="Example 22.2.3: An interpolating polynomial using Chebyshev points">Example 22.2.3</a> several times, we see that the interpolating polynomial behaves reasonably, without unnatural oscillations that come from interpolating at equally spaced points.</p></section></div></main>
 </div>
 </body>
 </html>

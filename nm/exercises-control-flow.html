@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-15T23:34:53-04:00    *-->
+<!--*    on 2020-10-19T01:05:50-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -304,6 +304,15 @@ MathJax.Hub.Config({
 <li><a href="exercises-spline-approximation.html" data-scroll="exercises-spline-approximation">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-discrete-fourier-transform.html" data-scroll="chapter-discrete-fourier-transform"><span class="codenumber">25</span> <span class="title">Discrete Fourier Transform</span></a><ul>
+<li><a href="section-periodic-functions.html" data-scroll="section-periodic-functions">Periodic functions and trigonometric polynomials</a></li>
+<li><a href="section-fourier-series.html" data-scroll="section-fourier-series">Fourier series</a></li>
+<li><a href="section-discrete-fourier-transform.html" data-scroll="section-discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li><a href="section-trigonometric-interpolation.html" data-scroll="section-trigonometric-interpolation">Trigonometric Interpolation</a></li>
+<li><a href="exercises-discrete-fourier-transform.html" data-scroll="exercises-discrete-fourier-transform">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -311,10 +320,10 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">4.6</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-8"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-157">Explain the output of the script in <a href="section-break-statement.html" class="internal" title="Section 4.4: Breaking out of a loop">Section 4.4</a> mathematically. What does it converge to, and why does it sometimes fail to converge?  (This problem does not involve Matlab.)</p></article><article class="exercise exercise-like" id="exercise-9"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-158">If in <a class="xref" data-knowl="./knowl/example-harmonic-series.html" title="Example 4.5.1: Partial sums of the harmonic series">Example 4.5.1</a> we swap two lines <code class="code-inline tex2jax_ignore">s = s + 1/n;</code> and <code class="code-inline tex2jax_ignore">n = n + 1;</code> the answer becomes very different. Explain why this happens.</p></article><article class="exercise exercise-like" id="exercise-10"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-159">Write a script that computes the <dfn class="terminology">arithmetic-harmonic mean</dfn> which means is similar to <a class="xref" data-knowl="./knowl/example-agm-while-loop.html" title="Example 4.2.1: Arithmetic-geometric mean using a while loop">Example 4.2.1</a> except that instead of geometric mean <code class="code-inline tex2jax_ignore">g = sqrt(x*y);</code> we use the harmonic mean <code class="code-inline tex2jax_ignore">h = 2*x*y/(x+y)</code>.  As a testing case, check that the arithmetic-harmonic mean of 5 and 20 is 10.</p>
-<p id="p-160">Since there is no square root in this computation, we can use negative numbers too: the arithmetic-harmonic mean of -5 and -20 is -10. But if you start with two numbers of opposite signs, the loop never ends, so you will need to press <kbd class="kbdkey">Ctrl</kbd>+<kbd class="kbdkey">C</kbd> to end it. As a second part of this task, write another form of the loop, using the method from <a href="section-break-statement.html" class="internal" title="Section 4.4: Breaking out of a loop">Section 4.4</a> to put a limit on the number of tries, for example 1000.</p></article></section></div></main>
+<p id="p-158">Explain the output of the script in <a href="section-break-statement.html" class="internal" title="Section 4.4: Breaking out of a loop">Section 4.4</a> mathematically. What does it converge to, and why does it sometimes fail to converge?  (This problem does not involve Matlab.)</p></article><article class="exercise exercise-like" id="exercise-9"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-159">If in <a class="xref" data-knowl="./knowl/example-harmonic-series.html" title="Example 4.5.1: Partial sums of the harmonic series">Example 4.5.1</a> we swap two lines <code class="code-inline tex2jax_ignore">s = s + 1/n;</code> and <code class="code-inline tex2jax_ignore">n = n + 1;</code> the answer becomes very different. Explain why this happens.</p></article><article class="exercise exercise-like" id="exercise-10"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
+<p id="p-160">Write a script that computes the <dfn class="terminology">arithmetic-harmonic mean</dfn> which means is similar to <a class="xref" data-knowl="./knowl/example-agm-while-loop.html" title="Example 4.2.1: Arithmetic-geometric mean using a while loop">Example 4.2.1</a> except that instead of geometric mean <code class="code-inline tex2jax_ignore">g = sqrt(x*y);</code> we use the harmonic mean <code class="code-inline tex2jax_ignore">h = 2*x*y/(x+y)</code>.  As a testing case, check that the arithmetic-harmonic mean of 5 and 20 is 10.</p>
+<p id="p-161">Since there is no square root in this computation, we can use negative numbers too: the arithmetic-harmonic mean of -5 and -20 is -10. But if you start with two numbers of opposite signs, the loop never ends, so you will need to press <kbd class="kbdkey">Ctrl</kbd>+<kbd class="kbdkey">C</kbd> to end it. As a second part of this task, write another form of the loop, using the method from <a href="section-break-statement.html" class="internal" title="Section 4.4: Breaking out of a loop">Section 4.4</a> to put a limit on the number of tries, for example 1000.</p></article></section></div></main>
 </div>
 </body>
 </html>
