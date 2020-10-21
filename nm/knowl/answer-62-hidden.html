@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-19T01:06:05-04:00    *-->
+<!--*    on 2020-10-21T00:44:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -24,7 +24,7 @@ for k=1:numel(x)-1
     end
 end
 t = linspace(min(x), max(x), 1000);
-plot(t, ppval(s, t), critpts, ppval(s, critpts), 'k*')
+plot(t, ppval(s, t), x, y, 'r+', critpts, ppval(s, critpts), 'k*')
 </pre>
 <p>The script uses <code class="code-inline tex2jax_ignore">ppval</code> since the spline <code class="code-inline tex2jax_ignore">s</code> is already constructed; calling <code class="code-inline tex2jax_ignore">spline(x, y, ...)</code> repeatedly with the same <code class="code-inline tex2jax_ignore">x, y</code> seems wasteful.</p>
 </div></body>
