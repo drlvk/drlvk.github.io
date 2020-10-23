@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-21T00:44:12-04:00    *-->
+<!--*    on 2020-10-23T13:11:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -351,7 +351,7 @@ f(x) = \sqrt{1+\cos(2\pi x)} + i\log(2+\sin(2\pi x))
 <p data-braille="continuation">Then plot both the function and its partial Fourier sum \(\sum_{|k|\le 3} c_k f_k\) for comparison.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-65" id="answer-65"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-65"><div class="answer solution-like">
-<p id="p-724">The syntax of <code class="code-inline tex2jax_ignore">integral</code> is \(integral(@(x) ..., a, b)\) where \(a, b\) are the limits of integration and the function is expressed in a form that allows vectorized evaluation. Here is the computation of Fourier coefficient</p>
+<p id="p-724">The syntax of <code class="code-inline tex2jax_ignore">integral</code> is <code class="code-inline tex2jax_ignore">integral(@(x) ..., a, b)</code> where \(a, b\) are the limits of integration and the function is expressed in a form that allows vectorized evaluation. Here is the computation of Fourier coefficient</p>
 <pre class="code-block tex2jax_ignore">f = @(x) sqrt(1 + cos(2*pi*x)) + 1i*log(2 + sin(2*pi*x));
 n = 3;
 c = zeros(1, 2*n+1);
