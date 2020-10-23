@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-10-23T19:42:11-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="answer solution-like">
+<h6 class="heading">
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">27.2.1.1</span><span class="period">.</span>
+</h6>
+<pre class="code-block tex2jax_ignore">x = (0:14)';  
+y = [9 8 5 5 3 1 2 5 4 7 8 8 7 7 8]';  % data
+d = 2;                     % degree of polynomial
+X = x.^(0:d);              % matrix of linear system for parameters
+beta = X\y;                % optimal parameters
+f = @(x) (x.^(0:d))*beta;  % best-fitting function f
+
+t = linspace(min(x), max(x), 1000)';
+plot(t, f(t), 'b', x, y, 'r*')
+
+total = norm(y - mean(y))^2;
+residual = norm(y - f(x))^2;
+fprintf('R^2 for degree %d is %g\n', d, 1 - residual/total);
+</pre>
+</div>
+<span class="incontext"><a href="section-overfitting.html#answer-68">in-context</a></span>
+</body>
+</html>

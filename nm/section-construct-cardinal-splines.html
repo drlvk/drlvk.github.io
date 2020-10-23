@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-23T13:11:51-04:00    *-->
+<!--*    on 2020-10-23T19:42:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -321,13 +321,22 @@ MathJax.Hub.Config({
 <li><a href="exercises-dft-applications.html" data-scroll="exercises-dft-applications">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-linear-least-squares.html" data-scroll="chapter-linear-least-squares"><span class="codenumber">27</span> <span class="title">Linear Least Squares</span></a><ul>
+<li><a href="section-lsq-overview.html" data-scroll="section-lsq-overview">Overview of least squares</a></li>
+<li><a href="section-overfitting.html" data-scroll="section-overfitting">Overfitting, training and testing</a></li>
+<li><a href="section-standard-error.html" data-scroll="section-standard-error">The standard error of parameters</a></li>
+<li><a href="section-multiple-regression.html" data-scroll="section-multiple-regression">Multiple regression</a></li>
+<li><a href="exercises-linear-least-squares.html" data-scroll="exercises-linear-least-squares">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-construct-cardinal-splines"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">24.3</span> <span class="title">Construction of cardinal B-splines</span>
 </h2>
-<p id="p-708">The formula <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a> deserves some explanation. The idea is to start with the linear interpolant (degree 1 spline) \(S_1=L\) defined by <a class="xref" data-knowl="./knowl/eq-hat-function.html" title="Equation 24.2.1">(24.2.1)</a> and repeatedly smoothen it using a \(moving average\) with a window of size \(1\text{:}\)</p>
+<p id="p-708">The formula <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a> deserves some explanation. The idea is to start with the linear interpolant (degree 1 spline) \(S_1=L\) defined by <a class="xref" data-knowl="./knowl/eq-hat-function.html" title="Equation 24.2.1">(24.2.1)</a> and repeatedly smoothen it using a <dfn class="terminology">moving average</dfn> with a window of size \(1\text{:}\)</p>
 <div class="displaymath">
 \begin{equation}
 S_2(x) = \int_{x-1/2}^{x+1/2} S_1(t)\,dt\label{eq-integral-B2}\tag{24.3.1}
@@ -375,7 +384,7 @@ S_2(x) = \sum_{k=1}^n y_k  \int_{x-1/2}^{x+1/2} H(t)\,dt
 \end{cases} 
 \end{equation*}
 </div>
-<p data-braille="continuation">Quadratic B-splines are awkward to use because of the fractional transition points above, which do not align with grid points. Averaging again by <a class="xref" data-knowl="./knowl/eq-integral-B3.html" title="Equation 24.3.2">(24.3.2)</a> improves the situation and leads, after very boring computations, to the formula <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a>.</p></section></div></main>
+<p data-braille="continuation">Quadratic B-splines are awkward to use because of the fractional transition points above, which do not align with grid points. Averaging again by <a class="xref" data-knowl="./knowl/eq-integral-B3.html" title="Equation 24.3.2">(24.3.2)</a> improves the situation and leads, after tedious case-by-case computations, to the formula <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a>.</p></section></div></main>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-23T13:11:52-04:00    *-->
+<!--*    on 2020-10-23T19:42:03-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -67,10 +67,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-cosine-interpolation.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-dft-applications.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="part-optimization.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-cosine-interpolation.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-dft-applications.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-linear-least-squares.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-cosine-interpolation.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-dft-applications.html" title="Up">Up</a><a class="next-button button toolbar-item" href="part-optimization.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-cosine-interpolation.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-dft-applications.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-linear-least-squares.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -321,6 +321,15 @@ MathJax.Hub.Config({
 <li><a href="exercises-dft-applications.html" data-scroll="exercises-dft-applications" class="active">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-linear-least-squares.html" data-scroll="chapter-linear-least-squares"><span class="codenumber">27</span> <span class="title">Linear Least Squares</span></a><ul>
+<li><a href="section-lsq-overview.html" data-scroll="section-lsq-overview">Overview of least squares</a></li>
+<li><a href="section-overfitting.html" data-scroll="section-overfitting">Overfitting, training and testing</a></li>
+<li><a href="section-standard-error.html" data-scroll="section-standard-error">The standard error of parameters</a></li>
+<li><a href="section-multiple-regression.html" data-scroll="section-multiple-regression">Multiple regression</a></li>
+<li><a href="exercises-linear-least-squares.html" data-scroll="exercises-linear-least-squares">Homework</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -339,7 +348,7 @@ sorted = sort(abs(fc(:)));
 total = sum(sorted.^2); 
 </pre>
 <p data-braille="continuation">The key point is to write a while loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until they reach the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
-<p id="p-758">Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q=98</code>, <code class="code-inline tex2jax_ignore">q = 95</code>, and <code class="code-inline tex2jax_ignore">q = 90</code>.</p></article></section></div></main>
+<p id="p-758">Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q = 98</code>, <code class="code-inline tex2jax_ignore">q = 95</code>, and <code class="code-inline tex2jax_ignore">q = 90</code>.</p></article></section></div></main>
 </div>
 </body>
 </html>
