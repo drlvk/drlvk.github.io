@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-25T20:39:58-04:00    *-->
+<!--*    on 2020-10-26T17:27:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -337,8 +337,8 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">26.4</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-63"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-755">Instead of deciding in advance how many coefficients to discard, it is usually preferable to maintain some degree of quality of the image. This is often measured in terms of “energy”, defined as the sum of squares of absolute values of Fourier coefficients. That, is to have 95% quality, we want to keep enough Fourier coefficients so that the sum of their squares is at least 95% of the total sum of squares. Equivalently, we discard the coefficients that contribute 10% of the energy.</p>
-<p id="p-756">The goal of this exercise is to modify <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a> so that the input value is quality <code class="code-inline tex2jax_ignore">q</code> such as 95 or 98, and the image is compressed based on the energy consideration.</p>
+<p id="p-755">Instead of deciding in advance how many coefficients to discard, it is usually preferable to maintain some degree of quality of the image. This is often measured in terms of “energy”, defined as the sum of squares of absolute values of Fourier coefficients. That, is to have 95% quality, we want to keep enough Fourier coefficients so that the sum of their squares is at least 95% of the total sum of squares. Equivalently, we discard the coefficients that contribute 5% of the energy.</p>
+<p id="p-756">The goal of this exercise is to modify <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a> so that the input value is quality <code class="code-inline tex2jax_ignore">q</code> such as 95 or 98, and the image in <a class="xref" data-knowl="./knowl/winter-png.html" title="Figure 26.2.1">Figure 26.2.1</a> is compressed based on the energy consideration.</p>
 <p id="p-757">Suggestions: sort the Fourier coefficients from smallest to largest using</p>
 <pre class="code-block tex2jax_ignore">
 sorted = sort(abs(fc(:)));    
