@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-28T00:31:00-04:00    *-->
+<!--*    on 2020-10-28T01:02:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -27,7 +27,7 @@ t = linspace(min(x), max(x), 1000)';
 plot(t, f(t, opt), 'b', x, y, 'r*')
 </pre>
 <p>The two middle lines describe the logic of the method: set up a model as a function of explanatory variable(s) <code class="code-inline tex2jax_ignore">x</code> and parameter(s) <code class="code-inline tex2jax_ignore">b</code>, then minimize the sum of squares of the deviations <code class="code-inline tex2jax_ignore">y - f(x, b)</code>. Finally, the optimal (?) values of parameter <code class="code-inline tex2jax_ignore">b</code> are used to plot the best-fitting curve.</p>
-<p>The above code fails, as is often the case with multivariable optimization. We should think of a better way to choose the initial point than just <code class="code-inline tex2jax_ignore">[1; 1; 1]</code>. For example, the second parameter is the carrying capacity, and this is clearly at least as large as 120. An initial point like <code class="code-inline tex2jax_ignore">[1; 100; 1]</code> does the job. Note that the fit is much better than what we achieved in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to COVID data">Example 28.2.1</a>.</p>
+<p>The above code fails, as is often the case with multivariable optimization. We should think of a better way to choose the initial point than just <code class="code-inline tex2jax_ignore">[1; 1; 1]</code>. For example, the second parameter is the carrying capacity, and this is clearly at least as large as 120. An initial point like <code class="code-inline tex2jax_ignore">[1; 100; 1]</code> does the job. Note that the fit is much better than what we achieved in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a>.</p>
 </div>
 <span class="incontext"><a href="section-using-fminsearch-curvefit.html#answer-74">in-context</a></span>
 </body>
