@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-10-28T00:31:00-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="answer solution-like">
+<p>The problem is solved in three lines: model function, optimization, output. The components of vector <code class="code-inline tex2jax_ignore">b</code> below represent the parameters  \(A, C, u, v\) in this order.</p>
+<pre class="code-block tex2jax_ignore">f = @(x, y, b) b(1)*exp(-b(2)*((x-b(3)).^2 + (y-b(4)).^2));
+opt = fminsearch(@(b) sum((z - f(x, y, b)).^2), [1; 1; 1; 1]);
+fprintf('The source is located near (%g, %g) \n', opt(3:4))
+</pre>
+</div></body>
+</html>

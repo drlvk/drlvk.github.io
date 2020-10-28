@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-26T20:05:13-04:00    *-->
+<!--*    on 2020-10-28T00:30:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -67,10 +67,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-example-implicit-equation.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-transforming-data.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="part-optimization.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-example-implicit-equation.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-transforming-data.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-nonlinear-least-squares.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-example-implicit-equation.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-transforming-data.html" title="Up">Up</a><a class="next-button button toolbar-item" href="part-optimization.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-example-implicit-equation.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-transforming-data.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-nonlinear-least-squares.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -331,11 +331,20 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-transforming-data.html" data-scroll="chapter-transforming-data"><span class="codenumber">28</span> <span class="title">Transforming data for LLS</span></a><ul>
+<a href="chapter-transforming-data.html" data-scroll="chapter-transforming-data"><span class="codenumber">28</span> <span class="title">Transforming Data for LLS</span></a><ul>
 <li><a href="section-example-exponential-fit.html" data-scroll="section-example-exponential-fit">Exponential fit</a></li>
 <li><a href="section-example-logistic-fit.html" data-scroll="section-example-logistic-fit">Logistic fit</a></li>
 <li><a href="section-example-implicit-equation.html" data-scroll="section-example-implicit-equation">Fitting an ellipse to data points</a></li>
 <li><a href="exercises-transforming-data.html" data-scroll="exercises-transforming-data" class="active">Homework</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-nonlinear-least-squares.html" data-scroll="chapter-nonlinear-least-squares"><span class="codenumber">29</span> <span class="title">Nonlinear Least Squares</span></a><ul>
+<li><a href="section-nls-motivation.html" data-scroll="section-nls-motivation">Motivating examples for Nonlinear Least Squares</a></li>
+<li><a href="section-using-fminsearch-curvefit.html" data-scroll="section-using-fminsearch-curvefit">Using fminsearch for curve-fitting</a></li>
+<li><a href="section-source-location.html" data-scroll="section-source-location">Beyond curve-fitting: source location</a></li>
+<li><a href="section-logistic-curve.html" data-scroll="section-logistic-curve">A closer look at the logistic curve</a></li>
+<li><a href="exercises-nonlinear-least-squares.html" data-scroll="exercises-nonlinear-least-squares">Homework</a></li>
 </ul>
 </li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
@@ -345,13 +354,14 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">28.4</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-66"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-797">A <dfn class="terminology">power law</dfn> is a function of the form \(y = a x^p\text{.}\) By taking logarithm on both sides we get \(\log y = p \log x + \log a\text{,}\) which is a linear function of \(\log x\text{.}\) So, to fit a power law to given data \((x_k, y_k)\text{,}\) we apply the logarithm to both \(x_k\) and \(y_k\text{,}\) and follow the linear regression process.  Try this with France COVID data <a class="xref" data-knowl="./knowl/example-best-fit-exponential.html" title="Example 28.1.1: Fit an exponential to COVID data">Example 28.1.1</a>. Does the power law fit better or worse than exponential? (Compare visually, on the basis of plots.)</p></article><article class="exercise exercise-like" id="exercise-transforming-data-2"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-797">A <dfn class="terminology">power law</dfn> is a function of the form \(y = a x^p\text{.}\) By taking logarithm on both sides we get \(\log y = p \log x + \log a\text{,}\) which is a linear function of \(\log x\text{.}\) So, to fit a power law to given data \((x_k, y_k)\text{,}\) we apply the logarithm to both \(x_k\) and \(y_k\text{,}\) and follow the linear regression process.  Try this with France COVID data <a class="xref" data-knowl="./knowl/example-best-fit-exponential.html" title="Example 28.1.1: Fit an exponential to Covid data">Example 28.1.1</a>. Does the power law fit better or worse than exponential? (Compare visually, on the basis of plots.)</p></article><article class="exercise exercise-like" id="exercise-transforming-data-2"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
 <p id="p-798">The number of active COVID cases at SU duing October 1 - October 23 is given below.</p>
 <pre class="code-block tex2jax_ignore">
 y = [5 5 4 5 9 25 45 65 77 87 87 89 97 101 90 74 57 26 20 13 12 12 13]'; 
 </pre>
-<p data-braille="continuation">The x-values can be <code class="code-inline tex2jax_ignore">x = (1:23)'</code>. Considering the shape of this data, one may want to model it by a rational function of the form \(y = 1/(Ax^2 + Bx+ C)\) (to see why, think of how \(y=1/(x^2+1)\) looks.) Following the logic of <a class="xref" data-knowl="./knowl/example-best-fit-ellipse.html" title="Example 28.3.1: Fit an ellipse to given points">Example 28.3.1</a>, rewrite the equation as \(Ax^2 y + Bxy + Cy = 1\) and find the optimal \(A, B, C\) using least squares. Unlike in <a class="xref" data-knowl="./knowl/example-best-fit-ellipse.html" title="Example 28.3.1: Fit an ellipse to given points">Example 28.3.1</a>, we do not need an implicit plot here since the function \(y = 1/(Ax^2 + Bx+ C)\) can be plotted directly. Plot it together with the data points. How well does it fit?</p></article><article class="exercise exercise-like" id="exercise-68"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-799">There is an alternative approach to <a class="xref" data-knowl="./knowl/exercise-transforming-data-2.html" title="Exercise 28.4.2">Exercise 28.4.2</a>: transform only \(y\) by <code class="code-inline tex2jax_ignore">yt = 1./y</code> and fit a quadratic function to this transformed data in the usual way, using the matrix <code class="code-inline tex2jax_ignore">X = x.^(0:2)</code>. Then plot the reciprocal of that quadratic function. Try out this strategy. What goes wrong?</p></article></section></div></main>
+<p data-braille="continuation">The x-values can be <code class="code-inline tex2jax_ignore">x = (1:23)'</code>. Try to fit a “bell-shaped” Gaussian function \(y = \exp(Ax^2+Bx+C)\) (where \(C\lt 0\)) to the data. This can be done by the logarithmic transform <code class="code-inline tex2jax_ignore">yt = log(y)</code> followed by fitting a quadratic function to transformed data in the usual way, via the matrix <code class="code-inline tex2jax_ignore">X = x.^(0:2)</code>. Having found the parameters <code class="code-inline tex2jax_ignore">beta</code>, we get a suitable function <code class="code-inline tex2jax_ignore">f = @(x) exp(x.^(0:2)*beta)</code> which should be plotted together with the data points.</p></article><article class="exercise exercise-like" id="exercise-68"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
+<p id="p-799">As an alternative to <a class="xref" data-knowl="./knowl/exercise-transforming-data-2.html" title="Exercise 28.4.2">Exercise 28.4.2</a>, one may try to model the same data by a rational function of the form \(y = 1/(Ax^2 + Bx+ C)\text{.}\) (Indeed, the graph of function \(y=1/(x^2+1)\) also looks bell-shaped.) Try following the process of  <a class="xref" data-knowl="./knowl/exercise-transforming-data-2.html" title="Exercise 28.4.2">Exercise 28.4.2</a> by transforming data <code class="code-inline tex2jax_ignore">yt = 1./y</code>, fitting a quadratic function, and plotting the reciprocal of that function. What goes wrong?</p>
+<p id="p-800">Then try the following fix to the issue encountered in the previous paragraph. Following the logic of <a class="xref" data-knowl="./knowl/example-best-fit-ellipse.html" title="Example 28.3.1: Fit an ellipse to given points">Example 28.3.1</a>, rewrite the equation \(y = 1/(Ax^2 + Bx+ C)\) as \(Ax^2 y + Bxy + Cy = 1\) and find the optimal \(A, B, C\) using least squares. Unlike <a class="xref" data-knowl="./knowl/example-best-fit-ellipse.html" title="Example 28.3.1: Fit an ellipse to given points">Example 28.3.1</a>, you do not need <code class="code-inline tex2jax_ignore">fimplicit</code> to plot this function since the function \(y = 1/(Ax^2 + Bx+ C)\) can be plotted directly. Plot it together with the data points. Does it fit better or worse than the Gaussian function in <a class="xref" data-knowl="./knowl/exercise-transforming-data-2.html" title="Exercise 28.4.2">Exercise 28.4.2</a>?</p></article></section></div></main>
 </div>
 </body>
 </html>

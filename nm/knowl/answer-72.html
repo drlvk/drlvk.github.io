@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-26T20:05:21-04:00    *-->
+<!--*    on 2020-10-28T00:31:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -16,10 +16,10 @@
 <h6 class="heading">
 <span class="type">Answer</span><span class="space"> </span><span class="codenumber">28.2.1.1</span><span class="period">.</span>
 </h6>
-<p>The vector <code class="code-inline tex2jax_ignore">y</code> is already defined above, but we need to compute proportions <code class="code-inline tex2jax_ignore">p = y/121</code> and transform them by <code class="code-inline tex2jax_ignore">yt = log(p/(1-p))</code>. Then the usual linear regression is applied.</p>
+<p>The vector <code class="code-inline tex2jax_ignore">y</code> is already defined above, but we need to compute proportions <code class="code-inline tex2jax_ignore">p = y/121</code> and transform them by <code class="code-inline tex2jax_ignore">yt = log(p./(1-p))</code>. Then the usual linear regression is applied.</p>
 <pre class="code-block tex2jax_ignore">x = (1:numel(y))';  
 p = y/121;
-yt = log(p/(1-p));
+yt = log(p./(1-p));
 X = x.^(0:1); 
 beta = X\yt;
 f = @(x) 1 ./ (1 + exp(-(x.^(0:1))*beta));
