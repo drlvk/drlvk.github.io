@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-28T01:02:44-04:00    *-->
+<!--*    on 2020-10-29T00:09:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -380,8 +380,7 @@ X = x.^(0:d);
 beta = X\y;        
 f = @(x) (x.^(0:d))*beta; 
 
-n = numel(y);
-p = d+1;
+[n, p] = size(X);
 s2 = norm(y-f(x))^2/(n-p);
 C = s2*inv(X'*X);         
 ts = beta./sqrt(diag(C));
