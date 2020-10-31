@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-29T00:09:18-04:00    *-->
+<!--*    on 2020-10-31T18:41:38-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -348,6 +348,15 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
+<li class="link">
+<a href="chapter-single-variable-minimization.html" data-scroll="chapter-single-variable-minimization"><span class="codenumber">30</span> <span class="title">Single Variable Minimization</span></a><ul>
+<li><a href="section-introduction-optimization.html" data-scroll="section-introduction-optimization">Basic concepts of optimization</a></li>
+<li><a href="section-brute-force.html" data-scroll="section-brute-force">Brute force search</a></li>
+<li><a href="section-newton-method-min.html" data-scroll="section-newton-method-min">Newton method for minimization</a></li>
+<li><a href="section-golden-section.html" data-scroll="section-golden-section">Golden section search</a></li>
+<li><a href="exercises-single-variable-minimization.html" data-scroll="exercises-single-variable-minimization">Homework</a></li>
+</ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-standard-error"><h2 class="heading hide-type">
@@ -371,7 +380,7 @@ ts = beta./sqrt(diag(C));    % the t-statistics of the parameters
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">27.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Computing the t-statistics of parameters.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-t-statistics-parameters"><article class="example example-like"><p id="p-773">Modify <a class="xref" data-knowl="./knowl/example-best-fit-polynomial.html" title="Example 27.2.1: Fitting a polynomial of any degree">Example 27.2.1</a> to include the computation of t-statistics for each coefficient of the polynomial.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-70" id="answer-70"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-70"><div class="answer solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-40" id="solution-40"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-40"><div class="solution solution-like">
 <p id="p-774">Note that the vector of t-statistics, which is called <code class="code-inline tex2jax_ignore">ts</code> below, contains the statistics for the coefficients of \(x^0, \dots, x^d\) in this order. This means that \(ts(end)\) is really the value of most interest here.</p>
 <pre class="code-block tex2jax_ignore">x = (0:14)';  
 y = [9 8 5 5 3 1 2 5 4 7 8 8 7 7 8]'; 

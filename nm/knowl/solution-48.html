@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-10-31T18:41:47-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">30.4.2.1</span><span class="period">.</span>
+</h6>
+<pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
+a = -2;
+b = 2;
+r = (3-sqrt(5))/2;
+
+while b-a &gt;= 100*eps(a)
+    c = a + r*(b-a);
+    d = b - r*(b-a);
+    if f(c) &lt; f(d)
+        b = d;
+    else
+        a = c;
+    end
+end
+
+fprintf('Found a minimum x = %g with f(x) = %g \n', c, f(c));
+</pre>
+</div>
+<span class="incontext"><a href="section-golden-section.html#solution-48">in-context</a></span>
+</body>
+</html>

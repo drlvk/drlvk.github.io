@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-29T00:09:17-04:00    *-->
+<!--*    on 2020-10-31T18:41:37-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -348,6 +348,15 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
+<li class="link">
+<a href="chapter-single-variable-minimization.html" data-scroll="chapter-single-variable-minimization"><span class="codenumber">30</span> <span class="title">Single Variable Minimization</span></a><ul>
+<li><a href="section-introduction-optimization.html" data-scroll="section-introduction-optimization">Basic concepts of optimization</a></li>
+<li><a href="section-brute-force.html" data-scroll="section-brute-force">Brute force search</a></li>
+<li><a href="section-newton-method-min.html" data-scroll="section-newton-method-min">Newton method for minimization</a></li>
+<li><a href="section-golden-section.html" data-scroll="section-golden-section">Golden section search</a></li>
+<li><a href="exercises-single-variable-minimization.html" data-scroll="exercises-single-variable-minimization">Homework</a></li>
+</ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-2d-dft"><h2 class="heading hide-type">
@@ -378,7 +387,7 @@ thr = prctile(abs(fc(:)), 75);
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">26.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Compress an image using Discrete Fourier Transform.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-compress-image"><article class="example example-like"><p id="p-744">Given a percentage <code class="code-inline tex2jax_ignore">p</code>, such as 75, compress the “winter” image by setting <code class="code-inline tex2jax_ignore">p</code> percent of its Fourier coefficients to zero.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-66" id="answer-66"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-66"><div class="answer solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-36" id="solution-36"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-36"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">p = 75;
 im = imread('winter.png');
 fc = fft2(im);

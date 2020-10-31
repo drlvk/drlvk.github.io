@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-29T00:09:18-04:00    *-->
+<!--*    on 2020-10-31T18:41:38-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -348,6 +348,15 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
+<li class="link">
+<a href="chapter-single-variable-minimization.html" data-scroll="chapter-single-variable-minimization"><span class="codenumber">30</span> <span class="title">Single Variable Minimization</span></a><ul>
+<li><a href="section-introduction-optimization.html" data-scroll="section-introduction-optimization">Basic concepts of optimization</a></li>
+<li><a href="section-brute-force.html" data-scroll="section-brute-force">Brute force search</a></li>
+<li><a href="section-newton-method-min.html" data-scroll="section-newton-method-min">Newton method for minimization</a></li>
+<li><a href="section-golden-section.html" data-scroll="section-golden-section">Golden section search</a></li>
+<li><a href="exercises-single-variable-minimization.html" data-scroll="exercises-single-variable-minimization">Homework</a></li>
+</ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-example-logistic-fit"><h2 class="heading hide-type">
@@ -375,7 +384,7 @@ y = [1 1 1 5 8 10 27 44 62 93 101 110 112 115 116 117 118 120]';
 </pre>
 <p data-braille="continuation">Consider these as proportions of the total “population” of 121 and fit a logistic function to these proportions.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-72" id="answer-72"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-72"><div class="answer solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-42" id="solution-42"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-42"><div class="solution solution-like">
 <p id="p-789">The vector <code class="code-inline tex2jax_ignore">y</code> is already defined above, but we need to compute proportions <code class="code-inline tex2jax_ignore">p = y/121</code> and transform them by <code class="code-inline tex2jax_ignore">yt = log(p./(1-p))</code>. Then the usual linear regression is applied.</p>
 <pre class="code-block tex2jax_ignore">x = (1:numel(y))';  
 p = y/121;

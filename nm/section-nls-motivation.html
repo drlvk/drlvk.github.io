@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-29T00:09:19-04:00    *-->
+<!--*    on 2020-10-31T18:41:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -348,6 +348,15 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
+<li class="link">
+<a href="chapter-single-variable-minimization.html" data-scroll="chapter-single-variable-minimization"><span class="codenumber">30</span> <span class="title">Single Variable Minimization</span></a><ul>
+<li><a href="section-introduction-optimization.html" data-scroll="section-introduction-optimization">Basic concepts of optimization</a></li>
+<li><a href="section-brute-force.html" data-scroll="section-brute-force">Brute force search</a></li>
+<li><a href="section-newton-method-min.html" data-scroll="section-newton-method-min">Newton method for minimization</a></li>
+<li><a href="section-golden-section.html" data-scroll="section-golden-section">Golden section search</a></li>
+<li><a href="exercises-single-variable-minimization.html" data-scroll="exercises-single-variable-minimization">Homework</a></li>
+</ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-nls-motivation"><h2 class="heading hide-type">
@@ -379,7 +388,7 @@ S(A, M, r) = \sum_{k=1}^n \left(y_k - \frac{M}{1 + Ae^{-rx_k}}\right)^2\label{eq
 \end{equation}
 </div>
 <p data-braille="continuation">But this system will be <em class="emphasis">nonlinear</em> and is unlikely to have a symbolic solution. Should we try some  multivariable root-finding method such as Newton's method?</p>
-<p id="p-804">In practice, trying to minimize a function by solving <a class="xref" data-knowl="./knowl/eq-critical-points-eq.html" title="Equation 29.1.4">(29.1.4)</a> is not the most productive approach: there are probably many critical points, some of them saddle points, and some of them may be poitns of local maximum rather than minimum. It is better to search for a minimum directly, which is a problem of <dfn class="terminology">multivariable optimization</dfn>. We will study optimization in the last part of this course. For now, we'll use the built-in Matlab tool <code class="code-inline tex2jax_ignore">fminsearch</code>, the underlying principle of which (the Nelder-Mead method) will be considered later.</p></section></div></main>
+<p id="p-804">In practice, trying to minimize a function by solving <a class="xref" data-knowl="./knowl/eq-critical-points-eq.html" title="Equation 29.1.4">(29.1.4)</a> is not the most productive approach: there are probably many critical points, some of them saddle points, and some of them may be points of local maximum rather than minimum. It is better to search for a minimum directly, which is a problem of <dfn class="terminology">multivariable optimization</dfn>. We will study optimization in the last part of this course. For now, we'll use the built-in Matlab tool <code class="code-inline tex2jax_ignore">fminsearch</code>, the underlying principle of which (the Nelder-Mead method) will be considered later.</p></section></div></main>
 </div>
 </body>
 </html>

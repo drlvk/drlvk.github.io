@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-29T00:09:19-04:00    *-->
+<!--*    on 2020-10-31T18:41:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -348,6 +348,15 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
+<li class="link">
+<a href="chapter-single-variable-minimization.html" data-scroll="chapter-single-variable-minimization"><span class="codenumber">30</span> <span class="title">Single Variable Minimization</span></a><ul>
+<li><a href="section-introduction-optimization.html" data-scroll="section-introduction-optimization">Basic concepts of optimization</a></li>
+<li><a href="section-brute-force.html" data-scroll="section-brute-force">Brute force search</a></li>
+<li><a href="section-newton-method-min.html" data-scroll="section-newton-method-min">Newton method for minimization</a></li>
+<li><a href="section-golden-section.html" data-scroll="section-golden-section">Golden section search</a></li>
+<li><a href="exercises-single-variable-minimization.html" data-scroll="exercises-single-variable-minimization">Homework</a></li>
+</ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-source-location"><h2 class="heading hide-type">
@@ -370,7 +379,7 @@ z = [3 9 8 4 6 9 8 3 6 6 5];
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">29.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Find the source of pollution.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-2d-gaussian"><article class="example example-like"><p id="p-815">Fit a two-dimensional Gaussian to the above data and report the expected location of the source.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-75" id="answer-75"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-75"><div class="answer solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-45" id="solution-45"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-45"><div class="solution solution-like">
 <p id="p-816">The problem is solved in three lines: model function, optimization, output. The components of vector <code class="code-inline tex2jax_ignore">b</code> below represent the parameters  \(A, C, u, v\) in this order.</p>
 <pre class="code-block tex2jax_ignore">f = @(x, y, b) b(1)*exp(-b(2)*((x-b(3)).^2 + (y-b(4)).^2));
 opt = fminsearch(@(b) sum((z - f(x, y, b)).^2), [1; 1; 1; 1]);

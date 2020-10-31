@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-29T00:09:18-04:00    *-->
+<!--*    on 2020-10-31T18:41:38-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -348,6 +348,15 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link part"><a href="part-optimization.html" data-scroll="part-optimization"><span class="codenumber">V</span> <span class="title">Optimization</span></a></li>
+<li class="link">
+<a href="chapter-single-variable-minimization.html" data-scroll="chapter-single-variable-minimization"><span class="codenumber">30</span> <span class="title">Single Variable Minimization</span></a><ul>
+<li><a href="section-introduction-optimization.html" data-scroll="section-introduction-optimization">Basic concepts of optimization</a></li>
+<li><a href="section-brute-force.html" data-scroll="section-brute-force">Brute force search</a></li>
+<li><a href="section-newton-method-min.html" data-scroll="section-newton-method-min">Newton method for minimization</a></li>
+<li><a href="section-golden-section.html" data-scroll="section-golden-section">Golden section search</a></li>
+<li><a href="exercises-single-variable-minimization.html" data-scroll="exercises-single-variable-minimization">Homework</a></li>
+</ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-overfitting"><h2 class="heading hide-type">
@@ -358,7 +367,7 @@ MathJax.Hub.Config({
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">27.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Fitting a polynomial of any degree.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-polynomial"><article class="example example-like"><p id="p-764">Improve <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a> to work with polynomials of any degree \(d\text{,}\) and add a computation of \(R^2\) to it.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-68" id="answer-68"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-68"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = (0:14)';  
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-38" id="solution-38"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-38"><div class="solution solution-like"><pre class="code-block tex2jax_ignore">x = (0:14)';  
 y = [9 8 5 5 3 1 2 5 4 7 8 8 7 7 8]';  % data
 d = 2;                     % degree of polynomial
 X = x.^(0:d);              % matrix of linear system for parameters
@@ -388,7 +397,7 @@ x_test = x(2:2:end);
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">27.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Training-testing split.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-training-testing"><article class="example example-like"><p id="p-767">Use the training-testing split in <a class="xref" data-knowl="./knowl/example-best-fit-polynomial.html" title="Example 27.2.1: Fitting a polynomial of any degree">Example 27.2.1</a>.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-69" id="answer-69"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-69"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = (0:14)';  
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-39" id="solution-39"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-39"><div class="solution solution-like"><pre class="code-block tex2jax_ignore">x = (0:14)';  
 y = [9 8 5 5 3 1 2 5 4 7 8 8 7 7 8]';
 x_train = x(1:2:end);
 y_train = y(1:2:end);
