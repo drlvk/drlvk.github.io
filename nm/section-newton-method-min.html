@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-10-31T18:41:39-04:00    *-->
+<!--*    on 2020-11-01T19:51:53-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -357,6 +357,13 @@ MathJax.Hub.Config({
 <li><a href="exercises-single-variable-minimization.html" data-scroll="exercises-single-variable-minimization">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-parabolic-interpolation-descent.html" data-scroll="chapter-parabolic-interpolation-descent"><span class="codenumber">31</span> <span class="title">Parabolic Interpolation and Gradient Descent</span></a><ul>
+<li><a href="section-parabolic-interpolation.html" data-scroll="section-parabolic-interpolation">Successive parabolic interpolation</a></li>
+<li><a href="section-gradient-descent-1d.html" data-scroll="section-gradient-descent-1d">Gradient descent in one dimension</a></li>
+<li><a href="exercises-parabolic-interpolation-descent.html" data-scroll="exercises-parabolic-interpolation-descent">Homework</a></li>
+</ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-newton-method-min"><h2 class="heading hide-type">
@@ -371,7 +378,7 @@ g(x) = x - \frac{f'(x)}{f''(x)}\label{eq-iterate-newton-min}\tag{30.3.1}
 <p data-braille="continuation">Let's try this out on a simple example.</p>
 <article class="example example-like" id="example-newton-method-min"><a data-knowl="" class="id-ref original" data-refid="hk-example-newton-method-min"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">30.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Using Newton method for minimization.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-newton-method-min"><article class="example example-like"><p id="p-840">Minimize \(f(x) = x^4 - 3 x^2 + x + 1\) using the Newton method. How does the result depend on the initial point?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-newton-method-min"><article class="example example-like"><p id="p-840">Minimize \(f(x) = x^4 - 3 x^2 + x + 1\) using the Newton method with initial point \(x_0=0\text{.}\) How does the result depend on the initial point?</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-47" id="solution-47"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-47"><div class="solution solution-like">
 <p id="p-841">First compute the derivatives \(f'(x) = 4x^3 - 6x+1\) and \(f''(x) = 12x^2 - 6\text{.}\) Then iterate the function \(g\) from <a class="xref" data-knowl="./knowl/eq-iterate-newton-min.html" title="Equation 30.3.1">(30.3.1)</a> as in <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>. Most of the code is copied from there.</p>
