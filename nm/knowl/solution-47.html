@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-02T21:55:23-05:00    *-->
+<!--*    on 2020-11-04T11:30:34-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -17,9 +17,9 @@
 <span class="type">Solution</span><span class="space"> </span><span class="codenumber">30.3.1.1</span><span class="period">.</span>
 </h6>
 <p>First compute the derivatives \(f'(x) = 4x^3 - 6x+1\) and \(f''(x) = 12x^2 - 6\text{.}\) Then iterate the function \(g\) from <a class="xref" data-knowl="./knowl/eq-iterate-newton-min.html" title="Equation 30.3.1">(30.3.1)</a> as in <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>. Most of the code is copied from there.</p>
-<pre class="code-block tex2jax_ignore">f = @(x) x^4 - 3*x^2 + x + 1;
-fp = @(x) 4*x^3 - 6*x + 1;
-fpp = @(x) 12*x^2 - 6;
+<pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
+fp = @(x) 4*x.^3 - 6*x + 1;
+fpp = @(x) 12*x.^2 - 6;
 
 g = @(x) x - fp(x)/fpp(x);
 x0 = 0;
