@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-11-04T18:49:15-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">32.3.1.1</span><span class="period">.</span>
+</h6>
+<pre class="code-block tex2jax_ignore">f = @(x) (x(1)-1).^2 + (x(1).^2 - x(2)).^2;
+fg = @(x) [2*(x(1)-1) + 4*x(1)*(x(1).^2 - x(2)); -2*(x(1).^2 - x(2))];
+
+x = randn(2, 1);
+v = zeros(2, 1);
+gamma = 0;
+max_tries = 10000;
+
+path = zeros(2, max_tries);
+for k = 1:max_tries
+    path(:, k) = x;
+    w = -fg(x) + gamma*v;  % with correction
+    t_min = fminbnd(@(t) f(x + t*w), 0, 1);
+    dx = t_min*w;
+    if norm(dx) &lt; 1e-6
+        break
+    end
+
+    gamma = norm(fg(x+dx))^2/norm(fg(x))^2;  % update gamma
+    x = x + dx;                              % update x
+    v = w;                 % record the step for the future
+end
+
+plot(path(1, 1:k), path(2, 1:k), '-+')
+if k &lt; max_tries
+    fprintf('Found x = (%g, %g) with f(x) = %g after %d steps\n', x, f(x), k);
+else
+    disp('Failed to converge')
+end
+</pre>
+<p>Compare the search path to what we get without correction in <code class="code-inline tex2jax_ignore">w</code>: it is less zigzagging. However, if we use the original Rosenbrock function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> which is very far from quadratic or convex, the search diverges to infinity. Several other correction terms (different choices for \(\gamma\) coefficient) have been proposed for the nonlinear conjugate gradient method. But it appears that the “narrow valley” landscape of the Rosenbrock function is best navigated either by using both first and second order derivatives (the Newton method) or by using no derivatives at all (the Nelder-Mead method, to be considered later).</p>
+</div>
+<span class="incontext"><a href="section-conjugate-gradient.html#solution-54">in-context</a></span>
+</body>
+</html>
