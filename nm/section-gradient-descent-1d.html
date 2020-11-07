@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-04T18:49:05-05:00    *-->
+<!--*    on 2020-11-07T18:43:14-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -372,6 +372,14 @@ MathJax.Hub.Config({
 <li><a href="exercises-gradient-newton-conjugate.html" data-scroll="exercises-gradient-newton-conjugate">Homework</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-nelder-mead.html" data-scroll="chapter-nelder-mead"><span class="codenumber">33</span> <span class="title">The Nelder-Mead method</span></a><ul>
+<li><a href="section-nelder-mead-reflect.html" data-scroll="section-nelder-mead-reflect">First attempt at derivative-free minimization</a></li>
+<li><a href="section-nelder-mead-contract.html" data-scroll="section-nelder-mead-contract">Reflection-contraction combination</a></li>
+<li><a href="section-nelder-mead-expand.html" data-scroll="section-nelder-mead-expand">Reflection-contraction-expansion Nelder-Mead method</a></li>
+<li><a href="exercises-nelder-mead.html" data-scroll="exercises-nelder-mead">Homework</a></li>
+</ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-gradient-descent-1d"><h2 class="heading hide-type">
@@ -415,7 +423,7 @@ end
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-51" id="solution-51"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-51"><div class="solution solution-like"><p id="p-872">Here \(f'(x) = 2Mx\text{,}\) hence \(a - \beta f'(a) = (1-2M\beta)a\text{.}\) This converges to \(0 \) if and only if \(|1-2M\beta| \lt 1\text{.}\) This means we need \(0 \lt \beta \lt 1/M\text{,}\) and the optimal value of \(\beta\) is \(1/(2M)\text{.}\) Note that \(f''(x) = 2M\text{.}\)</p></div></div>
 </div></article></div>
-<p id="p-873">The message of <a class="xref" data-knowl="./knowl/example-model-case-gradient-descent.html" title="Example 31.2.2: Model case of gradient descent">Example 31.2.2</a> is that we should try to adjust \(\beta\) to be of the size \(1/f''\text{,}\) even if we do not have a formula for \(f''\text{.}\) One way to do this is to start with a guess like \(\beta=0.1\) and then <em class="emphasis">update</em> \(\beta\) after every step using \(\beta = |x-p|/|f'(x)-f'(p)|\text{.}\) This makes \(\beta\) approximately the reciprocal of \(|f''|\text{.}\) (Similar idea was used in Broyden's method in <a href="chapter-broyden.html" class="internal" title="Chapter 11: Broyden's method">Chapter 11</a>.) To implement this idea, we insert the line</p>
+<p id="p-873">The message of <a class="xref" data-knowl="./knowl/example-model-case-gradient-descent.html" title="Example 31.2.2: Model case of gradient descent">Example 31.2.2</a> is that we should try to adjust \(\beta\) to be of the size \(1/f''\text{,}\) even if we do not have a formula for \(f''\text{.}\) One way to do this is to start with a guess like \(\beta=0.1\) and then <em class="emphasis">update</em> \(\beta\) after every step using \(\beta = |x-a|/|f'(x)-f'(a)|\text{.}\) This makes \(\beta\) approximately the reciprocal of \(|f''|\text{.}\) (Similar idea was used in Broyden's method in <a href="chapter-broyden.html" class="internal" title="Chapter 11: Broyden's method">Chapter 11</a>.) To implement this idea, we insert the line</p>
 <pre class="code-block tex2jax_ignore">
 beta = abs(x-a)/abs(fp(x)-fp(a));
 </pre>
