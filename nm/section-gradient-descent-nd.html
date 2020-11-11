@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-07T18:43:14-05:00    *-->
+<!--*    on 2020-11-11T12:52:34-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -385,7 +385,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-gradient-descent-nd"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">32.1</span> <span class="title">Gradient descent in several variables</span>
 </h2>
-<p id="p-879">In order to minimize a function \(f\colon \mathbb R^n \to \mathbb R\text{,}\) we can start with initial vector \(\mathbf a\) and compute \(\mathbf x = \mathbf a - \beta \nabla f(a)\text{,}\) then replace \(\mathbf a\) with \(\mathbf x\) and repeat until convergence is achieved (or the limit on steps is reached). This is the \(n\)-dimensional version of the gradient descent method in <a href="section-gradient-descent-1d.html" class="internal" title="Section 31.2: Gradient descent in one dimension">Section 31.2</a>. We already saw that the choice of \(\beta\) is difficult even in one dimension. It gets worse in several dimensions.</p>
+<p id="p-879">In order to minimize a function \(f\colon \mathbb R^n \to \mathbb R\text{,}\) we can start with initial vector \(\mathbf a\) and compute \(\mathbf x = \mathbf a - \beta \nabla f(\mathbf a)\text{,}\) then replace \(\mathbf a\) with \(\mathbf x\) and repeat until convergence is achieved (or the limit on steps is reached). This is the \(n\)-dimensional version of the gradient descent method in <a href="section-gradient-descent-1d.html" class="internal" title="Section 31.2: Gradient descent in one dimension">Section 31.2</a>. We already saw that the choice of \(\beta\) is difficult even in one dimension. It gets worse in several dimensions.</p>
 <p id="p-880">Consider the function</p>
 <div class="displaymath">
 \begin{equation}
@@ -400,7 +400,7 @@ f(\mathbf x) = x_1^2 + 10^6 x_2^2\label{eq-quadratic-badly-scaled}\tag{32.1.1}
 </div>
 <p data-braille="continuation">There is no good value of \(\beta\) to use here. If \(\beta &gt; 10^{-6}\text{,}\) the second coordinate grows exponentially.  If \(\beta \lt 10^{-6}\text{,}\) for example \(\beta = 10^{-6}/2\) (which is optimal for the second coordinate), it will take a million steps just to reduce the first coordinate, say, from \(1\) to \(0.37\text{.}\)</p>
 <p id="p-881">The underlying issue is that the direction \(-\nabla f\) does not really point toward the minimum of \(f\) in this example. The steepest descent goes sideways due to very different rates of change in different variables. This is one of main reasons why optimization in several variables is hard, and why it is sensitive to <em class="emphasis">scaling</em> of the variables. We would not have such difficulties with \(x_1^2 + 3 x_2^2\text{.}\)</p>
-<p id="p-882">One way to improve the situation is to run a one-variable minimization algorithm, <dfn class="terminology">line search</dfn> at each step, to find the minimum of \(f\) on the line of steepest descent. This means minimizing the function \(h(t) = f(\mathbf a - t \mathbf g)\) where \(g = \nabla f(\mathbf a)\text{.}\) If we find the exact minimum on the line, then the minimization process for function <a class="xref" data-knowl="./knowl/eq-quadratic-badly-scaled.html" title="Equation 32.1.1">(32.1.1)</a> ends in two steps. But for slightly more complicated functions the difficulty emerges again. Consider <a class="external" href="https://en.wikipedia.org/wiki/Rosenbrock_function" target="_blank">Rosenbrock's function</a></p>
+<p id="p-882">One way to improve the situation is to run a one-variable minimization algorithm, <dfn class="terminology">line search</dfn> at each step, to find the minimum of \(f\) on the line of steepest descent. This means minimizing the function \(h(t) = f(\mathbf a + t \mathbf g)\) where \(\mathbf g = -\nabla f(\mathbf a)\text{.}\) If we find the exact minimum on the line each time, then the minimization process for function converges to the minimum quickly. But for slightly more complicated functions the difficulty emerges again. Consider <a class="external" href="https://en.wikipedia.org/wiki/Rosenbrock_function" target="_blank">Rosenbrock's function</a></p>
 <div class="displaymath">
 \begin{equation}
 f(\mathbf x) = (x_1 - 1)^2 + 100(x_1^2 - x_2)^2\label{eq-rosenbrock}\tag{32.1.2}
