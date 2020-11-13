@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-12T22:50:40-05:00    *-->
+<!--*    on 2020-11-13T17:46:41-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -29,9 +29,9 @@ path = zeros(2, max_tries);
 for k = 1:max_tries
     path(:, k) = mean(T, 2);
     values = [f(T(:,1)) f(T(:,2)) f(T(:,3))];
-    [fmin, ind] = max(values);
+    [fmax, ind] = max(values);
     R = sum(T, 2) - 2*T(:, ind);
-    if f(R) &lt; fmin
+    if f(R) &lt; fmax
         T(:, ind) = R;
     else 
         break

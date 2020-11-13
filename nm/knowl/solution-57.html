@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-12T22:50:40-05:00    *-->
+<!--*    on 2020-11-13T17:46:41-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -32,9 +32,9 @@ for k = 1:max_tries
         break
     end
     values = [f(T(:,1)) f(T(:,2)) f(T(:,3))];
-    [fmin, ind] = max(values);
+    [fmax, ind] = max(values);
     R = sum(T, 2) - 2*T(:, ind);
-    if f(R) &lt; fmin
+    if f(R) &lt; fmax
         E = 1.5*sum(T, 2) - 3.5*T(:, ind);  % consider expansion
         if f(E) &lt; f(R)
             T(:, ind) = E;                  % choose to expand
@@ -42,7 +42,7 @@ for k = 1:max_tries
             T(:, ind) = R;                  % choose to reflect
         end
     else 
-        [fmax, ind] = min(values);
+        [fmin, ind] = min(values);
         T = (T + T(:, ind))/2;
     end
 end
