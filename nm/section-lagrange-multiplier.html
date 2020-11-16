@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-15T23:01:48-05:00    *-->
+<!--*    on 2020-11-16T12:44:56-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -403,7 +403,7 @@ MathJax.Hub.Config({
 <p id="p-930">Suppose we want to minimize \(f\) subject to equality constraint \(c = 0\) in \(n\)-dimensional space. A point \(x^*\) of such constrained minimum must have \(\nabla f\) perpendicular to the surface \(c = 0\text{.}\) Therefore, \(\nabla f \) is parallel to \(\nabla c\text{.}\) We can express this as \(\nabla f = \lambda \nabla c\) where \(\lambda\) is the <dfn class="terminology">Lagrange multiplier</dfn> (so far unknown). We have the system</p>
 <div class="displaymath">
 \begin{equation*}
-\nabla f(\mathbf x) - \lambda c(\mathbf x) = 0, \quad c(\mathbf x) = 0
+\nabla f(\mathbf x) - \lambda \nabla c(\mathbf x) = 0, \quad c(\mathbf x) = 0
 \end{equation*}
 </div>
 <p data-braille="continuation">of \(n+1\) equations with \(n+1\) unknowns. The Jacobian of this system is the block matrix</p>
@@ -418,7 +418,13 @@ MathJax.Hub.Config({
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lagrange-multiplier"><article class="example example-like"><p id="p-931">Minimize  \(f(\mathbf x) = x_1^4 + \exp(3x_1+x_2)\) on the circle \(x_1^2 + x_2^2 = 1\) using the Lagrange multiplier method.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-60" id="solution-60"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-60"><div class="solution solution-like">
-<p id="p-932">The code is similar to <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> but with more complicated gradient and Hessian. To avoid notational confusion, it uses <code class="code-inline tex2jax_ignore">x</code> for the vector \((x_1, x_2)\) and <code class="code-inline tex2jax_ignore">v</code> for the vector \((x_1, x_2, \lambda)\text{.}\)</p>
+<p id="p-932">The code is similar to <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> but with more complicated gradient and Hessian. To avoid notational confusion, it uses <code class="code-inline tex2jax_ignore">x</code> for the vector \((x_1, x_2)\) and <code class="code-inline tex2jax_ignore">v</code> for the vector \((x_1, x_2, \lambda)\text{.}\) The functions <code class="code-inline tex2jax_ignore">Fg</code> and <code class="code-inline tex2jax_ignore">Fh</code> below are the gradient and Hessian of the function</p>
+<div class="displaymath">
+\begin{equation*}
+F(x_1, x_2, \lambda) = x_1^4 + \exp(3x_1+x_2) - \lambda (x_1^2 + x_2^2 - 1)
+\end{equation*}
+</div>
+<p data-braille="continuation">We equate <code class="code-inline tex2jax_ignore">Fg</code> to zero vector, and use <code class="code-inline tex2jax_ignore">Fh</code> according to Newton's method.</p>
 <pre class="code-block tex2jax_ignore">f = @(x) x(1)^4 + exp(3*x(1)+x(2));
 
 Fg = @(v) [4*v(1)^3 + 3*exp(3*v(1) + v(2)) - v(3)*(2*v(1)); ...

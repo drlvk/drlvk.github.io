@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-15T23:01:59-05:00    *-->
+<!--*    on 2020-11-16T12:45:08-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -16,7 +16,13 @@
 <h6 class="heading">
 <span class="type">Solution</span><span class="space"> </span><span class="codenumber">34.2.1.1</span><span class="period">.</span>
 </h6>
-<p>The code is similar to <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> but with more complicated gradient and Hessian. To avoid notational confusion, it uses <code class="code-inline tex2jax_ignore">x</code> for the vector \((x_1, x_2)\) and <code class="code-inline tex2jax_ignore">v</code> for the vector \((x_1, x_2, \lambda)\text{.}\)</p>
+<p>The code is similar to <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> but with more complicated gradient and Hessian. To avoid notational confusion, it uses <code class="code-inline tex2jax_ignore">x</code> for the vector \((x_1, x_2)\) and <code class="code-inline tex2jax_ignore">v</code> for the vector \((x_1, x_2, \lambda)\text{.}\) The functions <code class="code-inline tex2jax_ignore">Fg</code> and <code class="code-inline tex2jax_ignore">Fh</code> below are the gradient and Hessian of the function</p>
+<div class="displaymath">
+\begin{equation*}
+F(x_1, x_2, \lambda) = x_1^4 + \exp(3x_1+x_2) - \lambda (x_1^2 + x_2^2 - 1)
+\end{equation*}
+</div>
+<p data-braille="continuation">We equate <code class="code-inline tex2jax_ignore">Fg</code> to zero vector, and use <code class="code-inline tex2jax_ignore">Fh</code> according to Newton's method.</p>
 <pre class="code-block tex2jax_ignore">f = @(x) x(1)^4 + exp(3*x(1)+x(2));
 
 Fg = @(v) [4*v(1)^3 + 3*exp(3*v(1) + v(2)) - v(3)*(2*v(1)); ...
