@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-16T12:44:57-05:00    *-->
+<!--*    on 2020-11-16T21:05:02-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -67,10 +67,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-lp-duality-economic.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-linear-programming.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-lp-duality-transportation.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-linear-programming.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-lp-duality-economic.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-linear-programming.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-lp-duality-transportation.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-linear-programming.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -391,27 +391,28 @@ MathJax.Hub.Config({
 <a href="chapter-linear-programming.html" data-scroll="chapter-linear-programming"><span class="codenumber">35</span> <span class="title">Linear Programming</span></a><ul>
 <li><a href="section-linear-programming-introduction.html" data-scroll="section-linear-programming-introduction">Introduction to linear programming</a></li>
 <li><a href="section-linear-programming-duality.html" data-scroll="section-linear-programming-duality">Duality in linear programming</a></li>
-<li><a href="section-lp-duality-economic.html" data-scroll="section-lp-duality-economic">Intepretation of duality in microeconomics</a></li>
+<li><a href="section-lp-duality-economic.html" data-scroll="section-lp-duality-economic">Interpretation of duality in microeconomics</a></li>
+<li><a href="section-lp-duality-transportation.html" data-scroll="section-lp-duality-transportation">Duality in optimal transportation</a></li>
 <li><a href="exercises-linear-programming.html" data-scroll="exercises-linear-programming" class="active">Homework</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="exercises" id="exercises-linear-programming"><h2 class="heading hide-type">
-<span class="type">Exercises</span> <span class="codenumber">35.4</span> <span class="title">Homework</span>
+<span class="type">Exercises</span> <span class="codenumber">35.5</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-linear-programming-1"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-972">Use Matlab to solve the primal problem in <a href="section-lp-duality-economic.html" class="internal" title="Section 35.3: Intepretation of duality in microeconomics">Section 35.3</a> with the following data:</p>
+<p id="p-984">Use Matlab to solve the primal problem in <a href="section-lp-duality-economic.html" class="internal" title="Section 35.3: Interpretation of duality in microeconomics">Section 35.3</a> with the following data:</p>
 <ul class="disc">
 <li id="li-213">Available amounts are \(L = 900\text{,}\) \(F = 600\text{,}\) \(P = 250\)</li>
 <li id="li-214">Each unit of wheat requires \(F_1 = 0.7\) units of fertilizer and \(P_1 = 0.2\) units of pesticide</li>
 <li id="li-215">Each unit of barley requires \(F_2 = 0.5\) units of fertilizer and \(P_2 = 0.3\) units of pesticide</li>
 <li id="li-216">The sell prices are \(S_1 = 60\) for wheat and \(S_2 = 70\) for barley.</li>
 </ul>
-<p data-braille="continuation">One way is to convert this LP problem to the form <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a> (including the nonnegativity requirements in the system of linear inequalities) and apply <code class="code-inline tex2jax_ignore">linprog(c, A, b)</code>. Another is to find from <code class="code-inline tex2jax_ignore">help linprog</code> how to impose the lower bound of \(0\) on the variables.</p>
-<p id="p-973">In a comment, answer the questions: how should the land be used? What will the total revenue be? Will there be any leftover land, fertilizer, or pesticide, and if so, how much?</p></article><article class="exercise exercise-like" id="exercise-79"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-974">Use Matlab to solve the dual problem in <a href="section-lp-duality-economic.html" class="internal" title="Section 35.3: Intepretation of duality in microeconomics">Section 35.3</a> with the same data as in <a class="xref" data-knowl="./knowl/exercise-linear-programming-1.html" title="Exercise 35.4.1">Exercise 35.4.1</a>.</p>
-<p id="p-975">In a comment, answer the questions: What prices should the planning board set? What will the total cost be?</p></article></section></div></main>
+<p data-braille="continuation">One way is to convert this LP problem to the form <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a> (including the nonnegativity requirements in the system of linear inequalities) and apply <code class="code-inline tex2jax_ignore">linprog(c, A, b)</code>. Another is to follow the examples in <a href="section-lp-duality-transportation.html" class="internal" title="Section 35.4: Duality in optimal transportation">Section 35.4</a> (or read <code class="code-inline tex2jax_ignore">help linprog</code>) and directly impose the lower bound of \(0\) on the variables.</p>
+<p id="p-985">In a comment, answer the questions: how should the land be used? What will the total revenue be? Will there be any leftover land, fertilizer, or pesticide, and if so, how much?</p></article><article class="exercise exercise-like" id="exercise-79"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-986">Use Matlab to solve the dual problem in <a href="section-lp-duality-economic.html" class="internal" title="Section 35.3: Interpretation of duality in microeconomics">Section 35.3</a> with the same data as in <a class="xref" data-knowl="./knowl/exercise-linear-programming-1.html" title="Exercise 35.5.1">Exercise 35.5.1</a>.</p>
+<p id="p-987">In a comment, answer the questions: What prices should the planning board set? What will the total cost be?</p></article></section></div></main>
 </div>
 </body>
 </html>
