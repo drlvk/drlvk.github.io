@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-18T13:24:15-05:00    *-->
+<!--*    on 2020-11-18T21:19:33-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -445,7 +445,37 @@ L(\mathbf c)  = \prod_{z_j = 1}  h_{\mathbf c}(\mathbf x_j)  \cdot \prod_{z_j = 
 \end{equation}
 </div>
 <p id="p-991">Once we find \(\mathbf c\) which maximizes \(\log L\text{,}\) the model can then be used to make predictions about unobserved outcomes on the basis of explanatory variables \(\mathbf x\text{.}\) If \(h_{\mathbf c}(\mathbf x)\) is close to \(1\text{,}\) we expect the outcome \(z=1\text{;}\) it is close to \(0\text{,}\) we expect the outcome \(z=0\text{.}\) The quantity \(h_{\mathbf c}(\mathbf x)\) may be interpreted as the probability of \(z=1\text{,}\) predicted by the model.</p>
-<p id="p-992">Example to be added.</p></section></div></main>
+<p id="p-992">Unless the explanatory variables \(\mathbf\) are centered (have zero mean), the exponential should include a constant term, as shown in the following example.</p>
+<article class="example example-like" id="example-smoker-logistic-regression"><a data-knowl="" class="id-ref original" data-refid="hk-example-smoker-logistic-regression"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">36.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Smoking,  age and blood pressure.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-smoker-logistic-regression"><article class="example example-like"><p id="p-993">The following data, taken from Matlab's built-in <code class="code-inline tex2jax_ignore">patient</code> data sample (<a class="external" href="https://www.mathworks.com/help/matlab/matlab_prog/split-data-into-groups-and-calculate-statistics.html" target="_blank">reference</a>), records the ages and systolic pressure of 10 smokers (\(z=1\)) and 12 nonsmokers (\(z=0\)). Train a logistic regression model on this data.</p>
+<pre class="code-block tex2jax_ignore">age1 = [38 33 39 48 32 27 44 28 30 45];
+sys1 = [124 130 130 130 124 123 128 129 127 134];
+age0 = [43 38 40 49 46 40 28 31 45 42 25 36];
+sys0 = [109 125 117 122 121 115 115 118 114 115 127 114];
+</pre>
+<p id="p-994">Then test the model on the data set, generating predictions for the people based on their age and systolic pressure.</p>
+<pre class="code-block tex2jax_ignore">age = [38 45 30 48 48 25 44 49 45 48];
+sys = [138 124 130 123 129 128 124 119 136 114];
+</pre>
+<p id="p-995">Finally, compare the model's prediction with actual smoker status.</p>
+<pre class="code-block tex2jax_ignore">actual = [1 0 0 0 0 1 1 0 1 0];
+</pre>
+<div class="solutions">
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-62" id="solution-62"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-62"><div class="solution solution-like">
+<p id="p-996">We set up the log-likelihood function <code class="code-inline tex2jax_ignore">LogL</code>, maximize it, and use the optimal parameters <code class="code-inline tex2jax_ignore">cc</code> to predict the status of the 10 people who were not a part of the training set.</p>
+<pre class="code-block tex2jax_ignore">LogL = @(c) sum(log(1./(1+exp(-c(1)*age1-c(2)*sys1-c(3))))) + sum(log(1 - 1./(1+exp(-c(1)*age0-c(2)*sys0-c(3)))));
+cc = fminsearch(@(c) -LogL(c), [0; 0; 0]);
+
+age = [38 45 30 48 48 25 44 49 45 48];
+sys = [138 124 130 123 129 128 124 119 136 114];
+prediction = 1./(1+exp(-cc(1)*age-cc(2)*sys-cc(3)));
+actual = [1 0 0 0 0 1 1 0 1 0];
+disp([prediction' actual']);
+</pre>
+<p id="p-997">Excluding the cases where prediction is a number close to \(0.5\) (which should be considered a “don't know” answer), the model got 6 out of 8 right.</p>
+</div></div>
+</div></article></div></section></div></main>
 </div>
 </body>
 </html>

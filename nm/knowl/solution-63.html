@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-11-18T21:19:45-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">36.2.1.1</span><span class="period">.</span>
+</h6>
+<p>We maximize \(w\) subject to constraints \(y_j\ge ax_j^2 + bx_j + c + w\) in the first group and \(y_j\le ax_j^2 + bx_j + c - w\) in the second. Rewrite the constraints as</p>
+<div class="displaymath">
+\begin{equation*}
+ax_j^2 + bx_j + c + w \le y_j
+\end{equation*}
+</div>
+<p data-braille="continuation">in the first group and</p>
+<div class="displaymath">
+\begin{equation*}
+-ax_j^2 - bx_j - c + w \le -y_j
+\end{equation*}
+</div>
+<p data-braille="continuation">in the second. So, given the vectors <code class="code-inline tex2jax_ignore">xt, yt</code> describing the first group and <code class="code-inline tex2jax_ignore">xb, yb</code> for the second, we can form a system of linear inequalities \(A\mathbf x\le \mathbf b\text{.}\)</p>
+<pre class="code-block tex2jax_ignore">xt = [2; 4; 7];
+yt = [3; 6; 4];
+xb = [3; 5];
+yb = [4; 5];
+A = [xt.^2 xt xt.^0 xt.^0; -xb.^2 -xb -xb.^0 xb.^0];
+b = [yt; -yb];
+opt = linprog([0; 0; 0; -1], A, b);
+
+t = linspace(min([xt; xb]), max([xt; xb]), 1000);
+y = opt(1)*t.^2 + opt(2)*t + opt(3);
+plot(xt, yt, 'b*', xb, yb, 'r*', t, y, 'k')
+</pre>
+</div>
+<span class="incontext"><a href="section-classification-linear-programming.html#solution-63">in-context</a></span>
+</body>
+</html>
