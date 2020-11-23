@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-20T14:40:34-05:00    *-->
+<!--*    on 2020-11-23T10:30:48-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -28,19 +28,25 @@ ax_j^2 + bx_j + c + w \le y_j
 -ax_j^2 - bx_j - c + w \le -y_j
 \end{equation*}
 </div>
-<p data-braille="continuation">in the second. So, given the vectors <code class="code-inline tex2jax_ignore">xt, yt</code> describing the first group and <code class="code-inline tex2jax_ignore">xb, yb</code> for the second, we can form a system of linear inequalities \(A\mathbf x\le \mathbf b\text{.}\)</p>
+<p data-braille="continuation">in the second. Also, \(w\ge 0\) is required by the geometric meaning of \(w\) as the “width” of separation. Given the vectors <code class="code-inline tex2jax_ignore">xt, yt</code> describing the first group and <code class="code-inline tex2jax_ignore">xb, yb</code> for the second, we can form a system of linear inequalities \(A\mathbf x\le \mathbf b\) as below</p>
 <pre class="code-block tex2jax_ignore">xt = [2; 4; 7];
 yt = [3; 6; 4];
 xb = [3; 5];
 yb = [4; 5];
-A = [xt.^2 xt xt.^0 xt.^0; -xb.^2 -xb -xb.^0 xb.^0];
-b = [yt; -yb];
+A = [xt.^2 xt xt.^0 xt.^0; -xb.^2 -xb -xb.^0 xb.^0; 0 0 0 -1];
+b = [yt; -yb; 0];
 opt = linprog([0; 0; 0; -1], A, b);
 
 t = linspace(min([xt; xb]), max([xt; xb]), 1000);
 y = opt(1)*t.^2 + opt(2)*t + opt(3);
 plot(xt, yt, 'b*', xb, yb, 'r*', t, y, 'k')
 </pre>
+<p>Instead of including \(-w \le 0\) as one of the inequalities in the system \(A\mathbf x\le b\text{,}\) we can impose this constraint separately as a lower bound in <code class="code-inline tex2jax_ignore">linprog</code>.</p>
+<pre class="code-block tex2jax_ignore">A = [xt.^2 xt xt.^0 xt.^0; -xb.^2 -xb -xb.^0 xb.^0];
+b = [yt; -yb];
+opt = linprog([0; 0; 0; -1], A, b, [], [], [-Inf; -Inf; -Inf; 0]);
+</pre>
+<p>The result is the same. With either version of the code, if the data points are changed so that there is no parabola that separates them completely, we get the message “No feasible solution found. Linprog stopped because no point satisfies the constraints.”</p>
 </div>
 <span class="incontext"><a href="section-classification-linear-programming.html#solution-63">in-context</a></span>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-11-20T14:40:21-05:00    *-->
+<!--*    on 2020-11-23T10:30:35-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -428,26 +428,32 @@ ax_j^2 + bx_j + c + w \le y_j
 -ax_j^2 - bx_j - c + w \le -y_j
 \end{equation*}
 </div>
-<p data-braille="continuation">in the second. So, given the vectors <code class="code-inline tex2jax_ignore">xt, yt</code> describing the first group and <code class="code-inline tex2jax_ignore">xb, yb</code> for the second, we can form a system of linear inequalities \(A\mathbf x\le \mathbf b\text{.}\)</p>
+<p data-braille="continuation">in the second. Also, \(w\ge 0\) is required by the geometric meaning of \(w\) as the “width” of separation. Given the vectors <code class="code-inline tex2jax_ignore">xt, yt</code> describing the first group and <code class="code-inline tex2jax_ignore">xb, yb</code> for the second, we can form a system of linear inequalities \(A\mathbf x\le \mathbf b\) as below</p>
 <pre class="code-block tex2jax_ignore">xt = [2; 4; 7];
 yt = [3; 6; 4];
 xb = [3; 5];
 yb = [4; 5];
-A = [xt.^2 xt xt.^0 xt.^0; -xb.^2 -xb -xb.^0 xb.^0];
-b = [yt; -yb];
+A = [xt.^2 xt xt.^0 xt.^0; -xb.^2 -xb -xb.^0 xb.^0; 0 0 0 -1];
+b = [yt; -yb; 0];
 opt = linprog([0; 0; 0; -1], A, b);
 
 t = linspace(min([xt; xb]), max([xt; xb]), 1000);
 y = opt(1)*t.^2 + opt(2)*t + opt(3);
 plot(xt, yt, 'b*', xb, yb, 'r*', t, y, 'k')
 </pre>
+<p id="p-1003">Instead of including \(-w \le 0\) as one of the inequalities in the system \(A\mathbf x\le b\text{,}\) we can impose this constraint separately as a lower bound in <code class="code-inline tex2jax_ignore">linprog</code>.</p>
+<pre class="code-block tex2jax_ignore">A = [xt.^2 xt xt.^0 xt.^0; -xb.^2 -xb -xb.^0 xb.^0];
+b = [yt; -yb];
+opt = linprog([0; 0; 0; -1], A, b, [], [], [-Inf; -Inf; -Inf; 0]);
+</pre>
+<p id="p-1004">The result is the same. With either version of the code, if the data points are changed so that there is no parabola that separates them completely, we get the message “No feasible solution found. Linprog stopped because no point satisfies the constraints.”</p>
 </div></div>
 </div></article></div>
-<p id="p-1003">Complete separation of the categories may be impossible (which makes the linear programming problem infeasible, as Matlab would report). Perhaps some data points  have incorrect measurement values, or are mislabeled by category, or perhaps (quite likely) one simply cannot predict the outcome with certainty, based on the explanatory variables we have. In such a case we can still look for a separating line or curve, but the separation will be <em class="emphasis">incomplete</em>, with some points left on the “wrong” side.</p>
-<p id="p-1004">We look for a line that minimizes the sum of penalties, the penalty being the amount by which a point falls into the wrong group. Formally, we minimize \(\sum p_j\) where \(p_j\ge 0\) are the penalties, subject to constraints \(y_j\ge ax_j + b - p_j\) for points in the “top” category and \(y_j \le ax_j + b + p_j\) for points in the “bottom” category. This is still a linear programming problem, but there are more variables now: \(a, b, p_1, \dots, p_n\text{,}\) and the objective function is  \(\sum p_j\text{.}\)</p>
+<p id="p-1005">Complete separation of the categories may be impossible (which makes the linear programming problem infeasible, as Matlab would report). Perhaps some data points  have incorrect measurement values, or are mislabeled by category, or perhaps (quite likely) one simply cannot predict the outcome with certainty, based on the explanatory variables we have. In such a case we can still look for a separating line or curve, but the separation will be <em class="emphasis">incomplete</em>, with some points left on the “wrong” side.</p>
+<p id="p-1006">We look for a line that minimizes the sum of penalties, the penalty being the amount by which a point falls into the wrong group. Formally, we minimize \(\sum p_j\) where \(p_j\ge 0\) are the penalties, subject to constraints \(y_j\ge ax_j + b - p_j\) for points in the “top” category and \(y_j \le ax_j + b + p_j\) for points in the “bottom” category. This is still a linear programming problem, but there are more variables now: \(a, b, p_1, \dots, p_n\text{,}\) and the objective function is  \(\sum p_j\text{.}\)</p>
 <article class="example example-like" id="example-separate-by-line"><a data-knowl="" class="id-ref original" data-refid="hk-example-separate-by-line"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">36.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Incomplete linear separation.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-separate-by-line"><article class="example example-like"><p id="p-1005">Find and plot the best line that separates (probably not completely) 8 random points from 7 other random points, which are generated as follows:</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-separate-by-line"><article class="example example-like"><p id="p-1007">Find and plot the best line that separates (probably not completely) 8 random points from 7 other random points, which are generated as follows:</p>
 <pre class="code-block tex2jax_ignore">xt = randn(8, 1);
 yt = randn(8, 1) + 1;
 xb = randn(7, 1);
@@ -455,7 +461,7 @@ yb = randn(7, 1);
 </pre>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-64" id="solution-64"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-64"><div class="solution solution-like">
-<p id="p-1006">We minimize \(\sum p_j\) subject to constraints \(y_j\ge ax_j + b - p_j\) in the first group and \(y_j\le ax_j + b + p_j\) in the second. Rewrite the constraints as</p>
+<p id="p-1008">We minimize \(\sum p_j\) subject to constraints \(y_j\ge ax_j + b - p_j\) in the first group and \(y_j\le ax_j + b + p_j\) in the second. Rewrite the constraints as</p>
 <div class="displaymath">
 \begin{equation*}
 ax_j + b - p_j \le y_j
@@ -478,7 +484,7 @@ t = linspace(min([xt; xb]), max([xt; xb]), 1000);
 y = opt(1)*t + opt(2);
 plot(xt, yt, 'b*', xb, yb, 'r*', t, y, 'k')
 </pre>
-<p id="p-1007">The reason that the presence of penalties changes the matrix as <code class="code-inline tex2jax_ignore">A = [A -eye(n)];</code> is that we subtract \(p_1\) from the first inequality, \(p_2\) from the second, and so on. The penalties make it possible for all the constraints to be satisfied, but their sum \(p_1+\cdots+p_n\) needs to be minimized. In this example, the variables are \(a, b, p_1, \dots, p_n\) and accordingly, the coefficients of the objective function are \(0, 0, 1, \dots, 1\text{.}\)</p>
+<p id="p-1009">The reason that the presence of penalties changes the matrix as <code class="code-inline tex2jax_ignore">A = [A -eye(n)];</code> is that we subtract \(p_1\) from the first inequality, \(p_2\) from the second, and so on. The penalties make it possible for all the constraints to be satisfied, but their sum \(p_1+\cdots+p_n\) needs to be minimized. In this example, the variables are \(a, b, p_1, \dots, p_n\) and accordingly, the coefficients of the objective function are \(0, 0, 1, \dots, 1\text{.}\)</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>
