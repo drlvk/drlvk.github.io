@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-29T18:52:13-05:00    *-->
+<!--*    on 2020-12-30T16:48:01-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -95,12 +95,18 @@ MathJax.Hub.Config({
 </li>
 <li class="link part"><a href="part-hilbert-spaces.html" data-scroll="part-hilbert-spaces"><span class="codenumber">I</span> <span class="title">Hilbert Spaces</span></a></li>
 <li class="link">
-<a href="chapter-hilbert-space-properties.html" data-scroll="chapter-hilbert-space-properties"><span class="codenumber">1</span> <span class="title">Hilbert spaces: basic properties and examples (section 1.1)</span></a><ul>
+<a href="chapter-hilbert-space-properties.html" data-scroll="chapter-hilbert-space-properties"><span class="codenumber">1</span> <span class="title">Hilbert spaces: basic properties and examples (1.1)</span></a><ul>
 <li><a href="section-hilbert-spaces.html" data-scroll="section-hilbert-spaces">Hilbert spaces definition and examples</a></li>
 <li><a href="subsection-hilbert-spaces-ip.html" data-scroll="subsection-hilbert-spaces-ip">Inner product</a></li>
 <li><a href="subsection-hilbert-spaces-norm.html" data-scroll="subsection-hilbert-spaces-norm">Norm</a></li>
 <li><a href="subsection-hilbert-spaces-converge.html" data-scroll="subsection-hilbert-spaces-converge" class="active">Convergence and completeness</a></li>
 <li><a href="subsection-hilbert-spaces-completeness.html" data-scroll="subsection-hilbert-spaces-completeness">Proof of completeness</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-hilbert-space-orthogonality-1.html" data-scroll="chapter-hilbert-space-orthogonality-1"><span class="codenumber">2</span> <span class="title">Hilbert spaces: orthogonality (1.2) part 1</span></a><ul>
+<li><a href="section-hilbert-manifold-subspace.html" data-scroll="section-hilbert-manifold-subspace">Linear manifolds and subspaces</a></li>
+<li><a href="section-hilbert-orthogonal-decomposition.html" data-scroll="section-hilbert-orthogonal-decomposition">Orthogonal decomposition</a></li>
 </ul>
 </li>
 <li class="link part"><a href="part-operators-hilbert-spaces.html" data-scroll="part-operators-hilbert-spaces"><span class="codenumber">II</span> <span class="title">Operators on Hilbert Spaces</span></a></li>
@@ -111,10 +117,10 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="subsection-hilbert-spaces-converge"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.4</span> <span class="title">Convergence and completeness</span>
 </h2>
-<p id="p-14">Metric gives us notion of convergence (and everything else: open, closed, compact sets...) In particular, we can ask whether the inner product space is <em class="emphasis">complete</em> (all Cauchy sequences converge). If it is, it's a Hilbert space. Functional analysis with spaces that are not complete is like  real analysis with only rational numbers.</p>
-<p id="p-15">Consider convergence in \(\ell^2\text{.}\) If \(x_n\to x\text{,}\) then for every  \(k\) \(x_n(k)\to x(k)\text{.}\) Not conversely. For example, let \(x_n(k)=1/n\) if \(k\le n\) and \(0\) otherwise. This converges pointwise to zero sequence, but not in the norm.</p>
-<p id="p-16">An example of convergent sequence in \(\ell^2\text{.}\) Let \(x_n(k)=1/k\) if \(k\le n\) (otherwise \(0\)). Then \(\{x_n\}\) converges   to the sequence \(x(k)=1/k\) for all \(k\text{.}\) Indeed, \(\|x-x_n\|^2 = \sum_{k&gt;n}1/k^2\to 0\text{.}\)</p>
-<p id="p-17">As a consequence, \(c_{00}\) is not complete. (Why?)</p></section></div></main>
+<p id="p-15">Metric gives us notion of convergence (and everything else: open, closed, compact sets...) In particular, we can ask whether the inner product space is <em class="emphasis">complete</em> (all Cauchy sequences converge). If it is, it's a Hilbert space. Functional analysis with spaces that are not complete is like  real analysis with only rational numbers.</p>
+<p id="p-16">Consider convergence in \(\ell^2\text{.}\) If \(x_n\to x\text{,}\) then for every  \(k\) \(x_n(k)\to x(k)\text{.}\) Not conversely. For example, let \(x_n(k)=1/n\) if \(k\le n\) and \(0\) otherwise. This converges pointwise to zero sequence, but not in the norm.</p>
+<p id="p-17">An example of convergent sequence in \(\ell^2\text{.}\) Let \(x_n(k)=1/k\) if \(k\le n\) (otherwise \(0\)). Then \(\{x_n\}\) converges   to the sequence \(x(k)=1/k\) for all \(k\text{.}\) Indeed, \(\|x-x_n\|^2 = \sum_{k&gt;n}1/k^2\to 0\text{.}\)</p>
+<p id="p-18">As a consequence, \(c_{00}\) is not complete.</p></section></div></main>
 </div>
 </body>
 </html>

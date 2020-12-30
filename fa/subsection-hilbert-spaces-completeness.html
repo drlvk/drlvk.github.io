@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-29T18:52:13-05:00    *-->
+<!--*    on 2020-12-30T16:48:01-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -82,10 +82,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="subsection-hilbert-spaces-converge.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-hilbert-space-properties.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="part-operators-hilbert-spaces.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="subsection-hilbert-spaces-converge.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-hilbert-space-properties.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-hilbert-space-orthogonality-1.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="subsection-hilbert-spaces-converge.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-hilbert-space-properties.html" title="Up">Up</a><a class="next-button button toolbar-item" href="part-operators-hilbert-spaces.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="subsection-hilbert-spaces-converge.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-hilbert-space-properties.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-hilbert-space-orthogonality-1.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -95,12 +95,18 @@ MathJax.Hub.Config({
 </li>
 <li class="link part"><a href="part-hilbert-spaces.html" data-scroll="part-hilbert-spaces"><span class="codenumber">I</span> <span class="title">Hilbert Spaces</span></a></li>
 <li class="link">
-<a href="chapter-hilbert-space-properties.html" data-scroll="chapter-hilbert-space-properties"><span class="codenumber">1</span> <span class="title">Hilbert spaces: basic properties and examples (section 1.1)</span></a><ul>
+<a href="chapter-hilbert-space-properties.html" data-scroll="chapter-hilbert-space-properties"><span class="codenumber">1</span> <span class="title">Hilbert spaces: basic properties and examples (1.1)</span></a><ul>
 <li><a href="section-hilbert-spaces.html" data-scroll="section-hilbert-spaces">Hilbert spaces definition and examples</a></li>
 <li><a href="subsection-hilbert-spaces-ip.html" data-scroll="subsection-hilbert-spaces-ip">Inner product</a></li>
 <li><a href="subsection-hilbert-spaces-norm.html" data-scroll="subsection-hilbert-spaces-norm">Norm</a></li>
 <li><a href="subsection-hilbert-spaces-converge.html" data-scroll="subsection-hilbert-spaces-converge">Convergence and completeness</a></li>
 <li><a href="subsection-hilbert-spaces-completeness.html" data-scroll="subsection-hilbert-spaces-completeness" class="active">Proof of completeness</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-hilbert-space-orthogonality-1.html" data-scroll="chapter-hilbert-space-orthogonality-1"><span class="codenumber">2</span> <span class="title">Hilbert spaces: orthogonality (1.2) part 1</span></a><ul>
+<li><a href="section-hilbert-manifold-subspace.html" data-scroll="section-hilbert-manifold-subspace">Linear manifolds and subspaces</a></li>
+<li><a href="section-hilbert-orthogonal-decomposition.html" data-scroll="section-hilbert-orthogonal-decomposition">Orthogonal decomposition</a></li>
 </ul>
 </li>
 <li class="link part"><a href="part-operators-hilbert-spaces.html" data-scroll="part-operators-hilbert-spaces"><span class="codenumber">II</span> <span class="title">Operators on Hilbert Spaces</span></a></li>
@@ -111,13 +117,20 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="subsection-hilbert-spaces-completeness"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.5</span> <span class="title">Proof of completeness</span>
 </h2>
-<p id="p-18">Let's prove that \(\ell^2\) is complete. The plan is:</p>
+<p id="p-19">When proving that some metric space is complete, the following facts are useful.</p>
 <ol class="decimal">
-<li id="li-1">Given a Cauchy sequence \(\{x_n\}\text{,}\) prove that it converges coordinate-wise to something (call it \(x\)), meaning \(x_n(k)\to x(k)\) for \(k\in \mathbb N\text{.}\)</li>
-<li id="li-2">Prove that the coordinate-wise limit \(x\) is also in \(\ell^2\text{.}\)</li>
-<li id="li-3">Prove that \(x_n\to x\) in the \(\ell^2\) norm.</li>
+<li id="li-1">If a Cauchy sequence has a convergent subsequence, then it converges.</li>
+<li id="li-2">Every Cauchy sequence \(\{x_n\}\) has a “geometric” subsequence \(\{x_{n_k}\}\text{,}\) meaning \(d(x_{n_k}, x_{n_{k+1}})\le 2^{-k}\) for all \(k\text{.}\)</li>
 </ol>
-<p id="p-19">Step 1 is easy. Step 2 can be rolled into Step 3, which is the most difficult one. It's very important to realize that knowing 1 and 2 does not imply 3. One uses the Dominated Convergence theorem, but constructing the dominating function is tricky.</p></section></div></main>
+<p data-braille="continuation">Therefore, it suffices to prove that every sequence \(\{x_n\}\) with the property \(d(x_n, x_{n+1}) \le 2^{-n}\) converges.</p>
+<p id="p-20">Given a sequence \(\{x_n\}\) in \(\ell^2\) with \(\|x_n - x_{n+1}\| \le 2^{-n}\text{,}\) we:</p>
+<ol class="decimal">
+<li id="li-3">Show that it converges coordinate-wise to something (call it \(x\)), meaning \(x_n(k)\to x(k)\) for \(k\in \mathbb N\text{.}\)</li>
+<li id="li-4">Construct a dominating function (sequence) \(z  = |x_1| + \sum_{n=1}^\infty |x_n-x_{n+1}|\text{.}\) Here \(z(k)\) is finite and \(|x_n(k)|\le |z(k)|\) for every \(n, k\text{.}\) Consequently \(|x(k)|\le |z(k)|\text{.}\)</li>
+<li id="li-5">Prove that \(z\in \ell^2\text{:}\) this follows from the Monotone Convergence Theorem and the fact that the \(\ell^2\) norm of any partial sums in the definition of \(z\) is bounded by \(\|x_1\|_2 + \sum_{n=1}^\infty 2^{-n} = \|x_1\|_2 + 1\text{.}\)</li>
+<li id="li-6">Apply the Dominated Convergence Theorem: since \(|x_n(k)-x(k)|^2 \to 0\) for each coordinate \(k\text{,}\) and \(|x_n(k)-x(k)|^2\le 4|z(k)|^2\text{,}\) it follows that \(\sum_k |x_n(k)-x(k)|^2 \to 0\text{.}\) This means \(\|x_n-x\|\to 0\) as required.</li>
+</ol>
+<p id="p-21">The proof of completeness of \(L^2\) is similar, with an extra step at the beginning: every Cauchy sequence in \(L^2\) is Cauchy in measure, and therefore has a subsequence converging almost everywhere (from MAT 701). We also have to pay some attention (but not much) to the fact that the elements of \(L^2\) are equivalence classes: in practice, one picks a representative of each equivalence class without saying this.</p></section></div></main>
 </div>
 </body>
 </html>

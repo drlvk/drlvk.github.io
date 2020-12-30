@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-29T18:52:13-05:00    *-->
+<!--*    on 2020-12-30T16:48:01-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -95,12 +95,18 @@ MathJax.Hub.Config({
 </li>
 <li class="link part"><a href="part-hilbert-spaces.html" data-scroll="part-hilbert-spaces"><span class="codenumber">I</span> <span class="title">Hilbert Spaces</span></a></li>
 <li class="link">
-<a href="chapter-hilbert-space-properties.html" data-scroll="chapter-hilbert-space-properties"><span class="codenumber">1</span> <span class="title">Hilbert spaces: basic properties and examples (section 1.1)</span></a><ul>
+<a href="chapter-hilbert-space-properties.html" data-scroll="chapter-hilbert-space-properties"><span class="codenumber">1</span> <span class="title">Hilbert spaces: basic properties and examples (1.1)</span></a><ul>
 <li><a href="section-hilbert-spaces.html" data-scroll="section-hilbert-spaces">Hilbert spaces definition and examples</a></li>
 <li><a href="subsection-hilbert-spaces-ip.html" data-scroll="subsection-hilbert-spaces-ip" class="active">Inner product</a></li>
 <li><a href="subsection-hilbert-spaces-norm.html" data-scroll="subsection-hilbert-spaces-norm">Norm</a></li>
 <li><a href="subsection-hilbert-spaces-converge.html" data-scroll="subsection-hilbert-spaces-converge">Convergence and completeness</a></li>
 <li><a href="subsection-hilbert-spaces-completeness.html" data-scroll="subsection-hilbert-spaces-completeness">Proof of completeness</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-hilbert-space-orthogonality-1.html" data-scroll="chapter-hilbert-space-orthogonality-1"><span class="codenumber">2</span> <span class="title">Hilbert spaces: orthogonality (1.2) part 1</span></a><ul>
+<li><a href="section-hilbert-manifold-subspace.html" data-scroll="section-hilbert-manifold-subspace">Linear manifolds and subspaces</a></li>
+<li><a href="section-hilbert-orthogonal-decomposition.html" data-scroll="section-hilbert-orthogonal-decomposition">Orthogonal decomposition</a></li>
 </ul>
 </li>
 <li class="link part"><a href="part-operators-hilbert-spaces.html" data-scroll="part-operators-hilbert-spaces"><span class="codenumber">II</span> <span class="title">Operators on Hilbert Spaces</span></a></li>
@@ -114,7 +120,8 @@ MathJax.Hub.Config({
 <p id="p-8">An inner product gives the space geometry: we can talk about orthogonal vectors. Later it also gives the notion of norm, hence of metric. By definition the inner product \(\inn{x,y}\) is sesquilinear and positive.</p>
 <p id="p-9">For finite-dimensional vector spaces, the standard inner product is \(\sum_{k=1}^n x(k)\overline{y(k)}\text{.}\) More generally, if there is a measure \(\mu\) on the space \(\Omega\text{,}\) we can do \(\int_\Omega  x\overline{y}\,d\mu\text{.}\) Special cases: \(\Omega=[0, 1]\) with the Lebesgue measure; \(\Omega=\mathbb N\) with counting measure.</p>
 <p id="p-10">We should be more careful with the last example because here because expressions like \(\sum_{k=1}^\infty x(k)\overline{y(k)}\) might not converge. One way to avoid this issue it by restricting the set of functions or sequences involved. A convenient example of an inner product space is \(c_{00}\) is the space of sequences \(x:\mathbb N\to\mathbb C\) such that the support \(\{k: x(k)\ne 0\}\) is finite. However, this is not a Hilbert space, as we will see soon.</p>
-<p id="p-11">A more sophisticated approach is to require \(\sum |x(k)|^2 &lt; \infty\text{;}\) this defines \(\ell^2\text{,}\) the most basic and most important infinite-dimensional Hilbert space.</p></section></div></main>
+<p id="p-11">A more sophisticated approach is to require \(\sum |x(k)|^2 &lt; \infty\text{;}\) this defines \(\ell^2\text{,}\) the canonical example of an infinite-dimensional Hilbert space.</p>
+<p id="p-12">More generally, given a measure space \(\Omega\) with a measure \(\mu\text{,}\) we can define the space \(L^2(\Omega)\) as the set of equivalence classes of Lebesgue measurable functions \(f\colon \Omega\to\mathbb C\) such that \(|f|^2\) is integrable (\(\int_\Omega |f|^2\,d\mu &lt; \infty\) is finite). The unit interval with the Lebesgue measure is a standard example: \(L^2([0, 1])\text{.}\)</p></section></div></main>
 </div>
 </body>
 </html>

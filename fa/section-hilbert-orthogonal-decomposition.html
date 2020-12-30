@@ -9,7 +9,7 @@
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Norm</title>
+<title>Orthogonal decomposition</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/x-mathjax-config">
@@ -82,10 +82,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="subsection-hilbert-spaces-ip.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-hilbert-space-properties.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="subsection-hilbert-spaces-converge.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-hilbert-manifold-subspace.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-hilbert-space-orthogonality-1.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="part-operators-hilbert-spaces.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="subsection-hilbert-spaces-ip.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-hilbert-space-properties.html" title="Up">Up</a><a class="next-button button toolbar-item" href="subsection-hilbert-spaces-converge.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-hilbert-manifold-subspace.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-hilbert-space-orthogonality-1.html" title="Up">Up</a><a class="next-button button toolbar-item" href="part-operators-hilbert-spaces.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -98,7 +98,7 @@ MathJax.Hub.Config({
 <a href="chapter-hilbert-space-properties.html" data-scroll="chapter-hilbert-space-properties"><span class="codenumber">1</span> <span class="title">Hilbert spaces: basic properties and examples (1.1)</span></a><ul>
 <li><a href="section-hilbert-spaces.html" data-scroll="section-hilbert-spaces">Hilbert spaces definition and examples</a></li>
 <li><a href="subsection-hilbert-spaces-ip.html" data-scroll="subsection-hilbert-spaces-ip">Inner product</a></li>
-<li><a href="subsection-hilbert-spaces-norm.html" data-scroll="subsection-hilbert-spaces-norm" class="active">Norm</a></li>
+<li><a href="subsection-hilbert-spaces-norm.html" data-scroll="subsection-hilbert-spaces-norm">Norm</a></li>
 <li><a href="subsection-hilbert-spaces-converge.html" data-scroll="subsection-hilbert-spaces-converge">Convergence and completeness</a></li>
 <li><a href="subsection-hilbert-spaces-completeness.html" data-scroll="subsection-hilbert-spaces-completeness">Proof of completeness</a></li>
 </ul>
@@ -106,7 +106,7 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="chapter-hilbert-space-orthogonality-1.html" data-scroll="chapter-hilbert-space-orthogonality-1"><span class="codenumber">2</span> <span class="title">Hilbert spaces: orthogonality (1.2) part 1</span></a><ul>
 <li><a href="section-hilbert-manifold-subspace.html" data-scroll="section-hilbert-manifold-subspace">Linear manifolds and subspaces</a></li>
-<li><a href="section-hilbert-orthogonal-decomposition.html" data-scroll="section-hilbert-orthogonal-decomposition">Orthogonal decomposition</a></li>
+<li><a href="section-hilbert-orthogonal-decomposition.html" data-scroll="section-hilbert-orthogonal-decomposition" class="active">Orthogonal decomposition</a></li>
 </ul>
 </li>
 <li class="link part"><a href="part-operators-hilbert-spaces.html" data-scroll="part-operators-hilbert-spaces"><span class="codenumber">II</span> <span class="title">Operators on Hilbert Spaces</span></a></li>
@@ -114,11 +114,23 @@ MathJax.Hub.Config({
 <li class="link part"><a href="part-lcs-weak-topologies.html" data-scroll="part-lcs-weak-topologies"><span class="codenumber">IV</span> <span class="title">LCS and Weak Topologies</span></a></li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="subsection-hilbert-spaces-norm"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">Norm</span>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="section-hilbert-orthogonal-decomposition"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Orthogonal decomposition</span>
 </h2>
-<p id="p-13">In general, a norm is homogeneous, positive except at \(0\text{,}\) and satisfies the triangle inequality. An inner product induces a norm by \(\|x\|=\sqrt{\inn{x,x}}\text{.}\) The triangle inequality is not obvious, and for it we need the CBS inequalityin its abstract form \(\abs{\inn{x,y}}\le \|x\| \|y\|\text{.}\) Originally it was proved for sums, then for integrals. Often attributed to Cauchy-Schwarz, omitting Bunyakowsky.</p>
-<p id="p-14">Proof of CBS inequality: \(0\le \inn{x+ty,x+ty}\) for real \(t\) implies \(\re \inn{x,y}\le \|x\|\|y\|\text{.}\) Improved by rotating \(x\) by a unimodular scalar factor.</p></section></div></main>
+<p id="p-25">Two vectors are orthogonal if their inner product is zero. The Pythagorean theorem applies: \(\|x+y\|^2=\|x\|^2+\|y\|^2\) when \(x, y \) are orthogonal.</p>
+<p id="p-26">For a subset \(A\text{,}\) its <dfn class="terminology">orthogonal complement</dfn> \(A^\perp\) is the set of vectors orthogonal to every element of \(A\text{.}\) Note that this is a linear subspace even if \(A\) is not.</p>
+<p id="p-27">Suppose \(\Mi\) is a linear subspace of \(\Hi\text{.}\) We'd like to decompose every element \(x\in\Hi\) as \(x'+x''\) with \(x'\in \Mi\text{,}\) \(x''\in \Mi^\perp\text{.}\)</p>
+<p id="p-28">Geometric idea: let \(x'\) be the nearest element of \(\Mi\) to \(x\text{.}\) If such a thing exists, then we are guaranteed that \(x-x'\in \Mi^\perp\) (take \(u\in \Mi\) such that \(\inn{u,x-x''}&gt;0\text{,}\) and consider \(x'+tu\)).</p>
+<p id="p-29">Why does such \(x'\) exist? You may recall about distance to compact set being attained. But we don't have compactness here. Completeness will have to do, but we need a Cauchy sequence.</p>
+<p id="p-30">So, let \(d\) be the distance from \(x\) to \(\Mi\) and pick \(x_n\) such that \(\|x-x_n\|&lt; d+1/n\text{.}\) Can \(x_n-x_m\) be large? This is a 2D picture, really: both \(x_n,x_m\) lie within a disk of radius \(d+1/n\text{,}\) and the chord stays at distance \(d\) from the center. So, the chord must be short. To justify this, use the parallelogram identity \(\|a+b\|^2 + \|a-b\|^2 = 2\|a\|^2 + 2\|b\|^2\text{.}\)</p>
+<p id="p-31">So, the sequence is Cauchy, hence convergent. We get \(x'\) and with it \(x''\text{,}\) completing the proof of existence of orthogonal decomposition \(x=x'+x''\text{.}\)</p>
+<p id="p-32">Note that this decomposition is unique, because if we also had \(x=y'+y''\) then \(x'+x'' = y'+y''\) implies \(x'-y' = x''-y'' \in \Mi\cap \Mi\perp\text{.}\)</p>
+<p id="p-33">We can define orthogonal projection onto \(\Mi\) by  \(P_{\Mi} x = x'\text{.}\) Some claims to consider:</p>
+<ul class="disc">
+<li id="li-11">\(\displaystyle \|P_{\Mi}(x)-P_{\Mi}(y)\|\le \|x-y\|\)</li>
+<li id="li-12">\(P_{\Mi}\) is linear (formal definition will be given later)</li>
+</ul>
+<p id="p-34">Bonus problem: for every fixed \(y\text{,}\) the function \(f(x) = \inn{x,y}\) is continuous on \(\Hi\text{.}\)</p></section></div></main>
 </div>
 </body>
 </html>
