@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-01-01T17:34:42-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Hilbert spaces: orthogonality (1.2) part 2</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\inn}[1]{\langle#1\rangle}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Hi}{\mathcal{H}}
+\newcommand{\Ki}{\mathcal{K}}
+\newcommand{\Mi}{\mathcal{M}}
+\newcommand{\Ni}{\mathcal{N}}
+\newcommand{\D}{\partial}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="functional-analysis.html"><span class="title">Functional Analysis</span></a></h1>
+<p class="byline">Leonid Kovalev</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-hilbert-orthogonal-decomposition.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="part-hilbert-spaces.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-hilbert-orthogonal-projection-properties.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-hilbert-orthogonal-decomposition.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="part-hilbert-spaces.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-hilbert-orthogonal-projection-properties.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter"><span class="title">Front Matter</span></a><ul><li><a href="acknowledgement.html" data-scroll="acknowledgement">Acknowledgements</a></li></ul>
+</li>
+<li class="link part"><a href="part-hilbert-spaces.html" data-scroll="part-hilbert-spaces"><span class="codenumber">I</span> <span class="title">Hilbert Spaces</span></a></li>
+<li class="link">
+<a href="chapter-hilbert-space-properties.html" data-scroll="chapter-hilbert-space-properties"><span class="codenumber">1</span> <span class="title">Hilbert spaces: basic properties and examples (1.1)</span></a><ul>
+<li><a href="section-hilbert-spaces.html" data-scroll="section-hilbert-spaces">Hilbert spaces definition and examples</a></li>
+<li><a href="subsection-hilbert-spaces-ip.html" data-scroll="subsection-hilbert-spaces-ip">Inner product</a></li>
+<li><a href="subsection-hilbert-spaces-norm.html" data-scroll="subsection-hilbert-spaces-norm">Norm</a></li>
+<li><a href="subsection-hilbert-spaces-converge.html" data-scroll="subsection-hilbert-spaces-converge">Convergence and completeness</a></li>
+<li><a href="subsection-hilbert-spaces-completeness.html" data-scroll="subsection-hilbert-spaces-completeness">Proof of completeness</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-hilbert-space-orthogonality-1.html" data-scroll="chapter-hilbert-space-orthogonality-1"><span class="codenumber">2</span> <span class="title">Hilbert spaces: orthogonality (1.2) part 1</span></a><ul>
+<li><a href="section-hilbert-manifold-subspace.html" data-scroll="section-hilbert-manifold-subspace">Linear manifolds and subspaces</a></li>
+<li><a href="section-hilbert-orthogonal-decomposition.html" data-scroll="section-hilbert-orthogonal-decomposition">Orthogonal decomposition</a></li>
+</ul>
+</li>
+<li class="link active">
+<a href="chapter-hilbert-space-orthogonality-2.html" data-scroll="chapter-hilbert-space-orthogonality-2"><span class="codenumber">3</span> <span class="title">Hilbert spaces: orthogonality (1.2) part 2</span></a><ul>
+<li><a href="section-hilbert-orthogonal-projection-properties.html" data-scroll="section-hilbert-orthogonal-projection-properties">Properties of orthogonal projection</a></li>
+<li><a href="section-hilbert-orthogonal-decomposition-examples.html" data-scroll="section-hilbert-orthogonal-decomposition-examples">Examples of orthogonal decomposition and projection</a></li>
+<li><a href="section-hilbert-dense-manifolds.html" data-scroll="section-hilbert-dense-manifolds">Dense linear manifolds</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-riesz-representation.html" data-scroll="chapter-riesz-representation"><span class="codenumber">4</span> <span class="title">Riesz Representation Theorem (1.3)</span></a><ul>
+<li><a href="section-linear-functionals.html" data-scroll="section-linear-functionals">Linear functionals: definition, examples, properties</a></li>
+<li><a href="section-riesz-representation.html" data-scroll="section-riesz-representation">Riesz Representation theorem</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-operators-hilbert-spaces.html" data-scroll="part-operators-hilbert-spaces"><span class="codenumber">II</span> <span class="title">Operators on Hilbert Spaces</span></a></li>
+<li class="link part"><a href="part-banach-spaces.html" data-scroll="part-banach-spaces"><span class="codenumber">III</span> <span class="title">Banach Spaces</span></a></li>
+<li class="link part"><a href="part-lcs-weak-topologies.html" data-scroll="part-lcs-weak-topologies"><span class="codenumber">IV</span> <span class="title">LCS and Weak Topologies</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="chapter" id="chapter-hilbert-space-orthogonality-2"><h2 class="heading">
+<span class="type">Lecture</span> <span class="codenumber">3</span> <span class="title">Hilbert spaces: orthogonality (1.2) part 2</span>
+</h2>
+<section class="introduction" id="introduction-3"><p id="p-34">We consider more examples of orthogonal decomposition, and then apply this concept to prove that certain linear manifolds are dense.</p></section><nav class="summary-links"><ul>
+<li><a href="section-hilbert-orthogonal-projection-properties.html"><span class="codenumber">3.1</span> <span class="title">Properties of orthogonal projection</span></a></li>
+<li><a href="section-hilbert-orthogonal-decomposition-examples.html"><span class="codenumber">3.2</span> <span class="title">Examples of orthogonal decomposition and projection</span></a></li>
+<li><a href="section-hilbert-dense-manifolds.html"><span class="codenumber">3.3</span> <span class="title">Dense linear manifolds</span></a></li>
+</ul></nav></section></div></main>
+</div>
+</body>
+</html>
