@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-01-01T17:34:42-05:00    *-->
+<!--*    on 2021-01-03T21:25:03-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -63,7 +63,10 @@ MathJax.Hub.Config({
 \newcommand{\norm}[1]{\lVert#1\rVert}
 \newcommand{\inn}[1]{\langle#1\rangle}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Ei}{\mathcal{E}}
 \newcommand{\Hi}{\mathcal{H}}
 \newcommand{\Ki}{\mathcal{K}}
 \newcommand{\Mi}{\mathcal{M}}
@@ -122,6 +125,13 @@ MathJax.Hub.Config({
 <li><a href="section-riesz-representation.html" data-scroll="section-riesz-representation">Riesz Representation theorem</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-orthonormal-sets-bases.html" data-scroll="chapter-orthonormal-sets-bases"><span class="codenumber">5</span> <span class="title">Orthonormal Sets and Bases (1.4)</span></a><ul>
+<li><a href="section-on-sets-bessel.html" data-scroll="section-on-sets-bessel">Orthonormal sets and Bessel's inequality</a></li>
+<li><a href="section-on-bases-parseval.html" data-scroll="section-on-bases-parseval">Orthonormal bases and Parseval's identity</a></li>
+<li><a href="section-unconditional-convergence.html" data-scroll="section-unconditional-convergence">Unconditional convergence</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-operators-hilbert-spaces.html" data-scroll="part-operators-hilbert-spaces"><span class="codenumber">II</span> <span class="title">Operators on Hilbert Spaces</span></a></li>
 <li class="link part"><a href="part-banach-spaces.html" data-scroll="part-banach-spaces"><span class="codenumber">III</span> <span class="title">Banach Spaces</span></a></li>
 <li class="link part"><a href="part-lcs-weak-topologies.html" data-scroll="part-lcs-weak-topologies"><span class="codenumber">IV</span> <span class="title">LCS and Weak Topologies</span></a></li>
@@ -133,7 +143,7 @@ MathJax.Hub.Config({
 <p id="p-41">A subset \(E\subset \Hi\) is <dfn class="terminology">dense</dfn> if its closure \(\overline{E}\) is all of \(\Hi\text{.}\)</p>
 <p id="p-42">Claim: for any subspace \(E\) we have \(\overline{E}^\perp = E^\perp\text{.}\) The reason is the continuity of inner product with respect to each argument.</p>
 <p id="p-43">If \(A\) is a linear manifold, then its  closure \(\overline{A}\) is a linear subspace.</p>
-<p id="p-44">A typical way to prove that a linear manifold \(A\) of \(\Hi\) is dense is to show that \(A^\perp = \{0\}\text{.}\) Indeed, if \(A\) is not dense, then its closure would be a proper linear subspace, and that would have a nontrivial orthogonal complement.</p>
+<p id="p-44">A linear manifold \(A\) is dense in \(\Hi\) if and only if  \(A^\perp = \{0\}\text{.}\) Indeed, if \(A^\perp\) contains a nonzero vector \(x\text{,}\) then we have \(\|x-a\|\ge \|x\|\) for all \(a\in A\text{,}\) so \(A\) is not dense. Conversely, if \(A\) is not dense, then \(\overline{A}\) is a proper linear subspace, which has a nontrivial orthogonal complement.</p>
 <p id="p-45">Examples:</p>
 <ol class="decimal">
 <li id="li-13">\(c_{00}\) is dense in \(\ell^2\)</li>

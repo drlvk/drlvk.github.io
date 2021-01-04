@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-01-01T17:34:42-05:00    *-->
+<!--*    on 2021-01-03T21:25:03-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -63,7 +63,10 @@ MathJax.Hub.Config({
 \newcommand{\norm}[1]{\lVert#1\rVert}
 \newcommand{\inn}[1]{\langle#1\rangle}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Ei}{\mathcal{E}}
 \newcommand{\Hi}{\mathcal{H}}
 \newcommand{\Ki}{\mathcal{K}}
 \newcommand{\Mi}{\mathcal{M}}
@@ -122,6 +125,13 @@ MathJax.Hub.Config({
 <li><a href="section-riesz-representation.html" data-scroll="section-riesz-representation">Riesz Representation theorem</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-orthonormal-sets-bases.html" data-scroll="chapter-orthonormal-sets-bases"><span class="codenumber">5</span> <span class="title">Orthonormal Sets and Bases (1.4)</span></a><ul>
+<li><a href="section-on-sets-bessel.html" data-scroll="section-on-sets-bessel">Orthonormal sets and Bessel's inequality</a></li>
+<li><a href="section-on-bases-parseval.html" data-scroll="section-on-bases-parseval">Orthonormal bases and Parseval's identity</a></li>
+<li><a href="section-unconditional-convergence.html" data-scroll="section-unconditional-convergence">Unconditional convergence</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-operators-hilbert-spaces.html" data-scroll="part-operators-hilbert-spaces"><span class="codenumber">II</span> <span class="title">Operators on Hilbert Spaces</span></a></li>
 <li class="link part"><a href="part-banach-spaces.html" data-scroll="part-banach-spaces"><span class="codenumber">III</span> <span class="title">Banach Spaces</span></a></li>
 <li class="link part"><a href="part-lcs-weak-topologies.html" data-scroll="part-lcs-weak-topologies"><span class="codenumber">IV</span> <span class="title">LCS and Weak Topologies</span></a></li>
@@ -137,7 +147,7 @@ MathJax.Hub.Config({
 <li id="li-18">On \(L^2([a,b])\text{,}\) the integral \(I(f) = \int_a^b f(x)\,dx\) is a linear functional.</li>
 </ol>
 <p id="p-48">The sum functional \(\Sigma\) is <em class="emphasis">not continuous</em> on \(c_{00}\text{.}\) Indeed, let \(x_n(k)=1/n\) when \(k\le n \) and zero otherwise. Then \(\sigma(x_n)=1\) for every \(n\text{,}\) but \(x_n\to 0\) in \(c_{00}\text{,}\) and of course \(\sigma(0)=0\text{.}\)</p>
-<p id="p-49">Using a Hamel basis on \(\ell^2\) one can extend the sum functional \(\Sigma\) to \(\sigma\colon \ell^2\to \C\) (not in any explicit way), thus obtaining a discontinuous linear functional on a Hilbert space. There are no explicit examples of this kind.</p>
+<p id="p-49">A <dfn class="terminology">Hamel basis</dfn> is a maximal linearly independent set. Every vector space has one, although in some infinite dimensional spaces, including \(\ell^2\text{,}\) there is no explicit form of such a basis; we infer its existence from Zorn's Lemma. Using a Hamel basis in \(\ell^2\text{,}\) one can extend the sum functional \(\Sigma\) to \(\sigma\colon \ell^2\to \C\) (not in any explicit way), thus obtaining a discontinuous linear functional on a Hilbert space. There are no explicit examples of this kind.</p>
 <p id="p-50">The following properties of a linear functional \(L\) on a Hilbert space \(\Hi\) are equivalent:</p>
 <ol class="decimal">
 <li id="li-19">\(L\) is continuous on \(\Hi\)</li>

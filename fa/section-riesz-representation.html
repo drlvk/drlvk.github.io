@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-01-01T17:34:42-05:00    *-->
+<!--*    on 2021-01-03T21:25:03-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -63,7 +63,10 @@ MathJax.Hub.Config({
 \newcommand{\norm}[1]{\lVert#1\rVert}
 \newcommand{\inn}[1]{\langle#1\rangle}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Ei}{\mathcal{E}}
 \newcommand{\Hi}{\mathcal{H}}
 \newcommand{\Ki}{\mathcal{K}}
 \newcommand{\Mi}{\mathcal{M}}
@@ -82,10 +85,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-linear-functionals.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-riesz-representation.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="part-operators-hilbert-spaces.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-linear-functionals.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-riesz-representation.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-orthonormal-sets-bases.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-linear-functionals.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-riesz-representation.html" title="Up">Up</a><a class="next-button button toolbar-item" href="part-operators-hilbert-spaces.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-linear-functionals.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-riesz-representation.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-orthonormal-sets-bases.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -122,6 +125,13 @@ MathJax.Hub.Config({
 <li><a href="section-riesz-representation.html" data-scroll="section-riesz-representation" class="active">Riesz Representation theorem</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-orthonormal-sets-bases.html" data-scroll="chapter-orthonormal-sets-bases"><span class="codenumber">5</span> <span class="title">Orthonormal Sets and Bases (1.4)</span></a><ul>
+<li><a href="section-on-sets-bessel.html" data-scroll="section-on-sets-bessel">Orthonormal sets and Bessel's inequality</a></li>
+<li><a href="section-on-bases-parseval.html" data-scroll="section-on-bases-parseval">Orthonormal bases and Parseval's identity</a></li>
+<li><a href="section-unconditional-convergence.html" data-scroll="section-unconditional-convergence">Unconditional convergence</a></li>
+</ul>
+</li>
 <li class="link part"><a href="part-operators-hilbert-spaces.html" data-scroll="part-operators-hilbert-spaces"><span class="codenumber">II</span> <span class="title">Operators on Hilbert Spaces</span></a></li>
 <li class="link part"><a href="part-banach-spaces.html" data-scroll="part-banach-spaces"><span class="codenumber">III</span> <span class="title">Banach Spaces</span></a></li>
 <li class="link part"><a href="part-lcs-weak-topologies.html" data-scroll="part-lcs-weak-topologies"><span class="codenumber">IV</span> <span class="title">LCS and Weak Topologies</span></a></li>
@@ -132,7 +142,7 @@ MathJax.Hub.Config({
 </h2>
 <p id="p-53"><dfn class="terminology">Riesz Representation theorem</dfn> (for Hilbert spaces): For each bounded linear functional \(L\) on a Hilbert space \(\Hi\) there exists a unique \(h_0\in \Hi \) such that \(L(h)=\langle h, h_0\rangle\) for all \(h\in \Hi\text{.}\)</p>
 <p id="p-54"><em class="emphasis">Proof</em>. Uniqueness is easy. The case \(L\equiv 0\) is trivial.</p>
-<p id="p-55">Let \(L\) be bounded and not identically zero. Let \(\Mi = \ker L\text{,}\) a proper linear subspace. Pick a nonzero vector \(h\in\Mi^\perp\text{.}\) Consider the functional \(f(x)=\frac{L(h)}{\|h\|^2}\inn{x,h}\text{.}\) It agrees with \(L\) on \(\Mi\) and at \(h\text{.}\) But every element of \(\Hi\) admits orthogonal decomposition \(x = x' + th\) where \(x'\in \Mi\) and \(t\in \C\text{.}\) Hence \(L(x) = tL(h) = tf(h) = f(x)\) for every \(x\in \Hi\text{.}\)</p></section></div></main>
+<p id="p-55">Let \(L\) be bounded and not identically zero. Let \(\Mi = \ker L\text{,}\) a proper linear subspace. Pick a nonzero vector \(h\in\Mi^\perp\text{.}\) Consider the functional \(f(x)=\dfrac{L(h)}{\|h\|^2}\inn{x,h}\text{.}\) It agrees with \(L\) on \(\Mi\) and at \(h\text{.}\) But every element of \(\Hi\) admits orthogonal decomposition \(x = x' + th\) where \(x'\in \Mi\) and \(t\in \C\text{.}\) Hence \(L(x) = tL(h) = tf(h) = f(x)\) for every \(x\in \Hi\text{.}\)</p></section></div></main>
 </div>
 </body>
 </html>
