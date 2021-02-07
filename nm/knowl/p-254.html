@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:25-05:00    *-->
+<!--*    on 2021-02-07T18:00:22-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The main limitation of the bisection method are:</p>
-<ul class="disc">
-<li>It does not apply to systems of more than one equation</li>
-<li>It  requires the knowledge of a bracketing interval</li>
-<li>It requires a continuous function</li>
-<li>Its speed of convergence is slow (linear)</li>
-</ul>
-<p data-braille="continuation">To illustrate the second limitation, consider the equation \(x^2 - 2x + 0.9999 = 0\text{.}\) It has two roots, both of which are very close to 1. Outside of a small neighborhood of 1, the function is positive. So, in order to construct a bracketing interval one needs to place one of its endpoints very close to 1. This means one needs to have a good idea of where the roots are in order to start with the method.</p>
-<span class="incontext"><a href="section-bisection-issues.html#p-254">in-context</a></span>
+<p>If the function has the same sign at both given endpoints, the bisection method cannot run, so the command <code class="code-inline tex2jax_ignore">error</code> is used to display a message and exit the program. This is a useful command to use when the computation has to be interrupted. The <code class="code-inline tex2jax_ignore">while</code> loop runs until either the interval becomes small enough (length less than <code class="code-inline tex2jax_ignore">100*eps(a)</code>) or we accidentally reach \(f(c)=0\) so the loop stops.</p>
+<span class="incontext"><a href="section-bisection-method.html#p-254">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:28-05:00    *-->
+<!--*    on 2021-02-07T18:00:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>It turns out there is a much more accurate two-point integration rule:</p>
-<div class="displaymath">
-\begin{equation*}
-\int_{-1}^1 f(x)\,dx\approx f(-1/\sqrt{3}) + f(1/\sqrt{3}) 
-\end{equation*}
-</div>
-<p data-braille="continuation">For the exponential function it gives \(2.3427\text{,}\) the error of only 0.0077. This is about 100 times more accurate than the trapezoidal rule, with the same number of function evaluations.</p>
-<span class="incontext"><a href="section-legendre-motivation.html#p-469">in-context</a></span>
+<p>In a loop over <code class="code-inline tex2jax_ignore">n=2:10</code>, do the following. First, compute the weights for \(n\)-point Newton-Cotes rule (of the standard type, as in <a class="xref" data-knowl="./knowl/example-find-cotes-weights.html" title="Example 14.2.1: Find the weights for a 5-point Newton-Cotes formula">Example 14.2.1</a>). Then use this rule to approximate \(\int_{-1}^1 e^x\,dx\text{.}\) After the loop ends you should have 9 approximations to this integral. Show how their accuracy changes with \(n\) by plotting the logarithm of absolute value of the difference between the integral and approximation, as a function of \(n\text{.}\)</p>
+<span class="incontext"><a href="exercises-simpson-newton-cotes.html#p-469">in-context</a></span>
 </body>
 </html>

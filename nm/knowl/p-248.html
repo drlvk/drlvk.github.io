@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:25-05:00    *-->
+<!--*    on 2021-02-07T18:00:22-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An interval  \([a, b]\) such that \(f(a)f(b) \lt 0\) is called a <dfn class="terminology">bracketing interval</dfn>. As <a class="xref" data-knowl="./knowl/bisection1-png.html" title="Figure 7.3.1">Figure 7.3.1</a> shows, there could be multiple roots inside of the bracketing interva. The bisection method will find <em class="emphasis">one</em> of them.</p>
-<span class="incontext"><a href="section-bisection-method.html#p-248">in-context</a></span>
+<p>A more robust approach is to look not for a single number but for an <em class="emphasis">interval</em> \([a, b]\) that is known to contain a root of function \(f\text{.}\) If the interval is small enough, it does not really matter where in the interval the solution is. How small is small enough? There is no universal answer. For many practical purposes, \(b-a \lt 10^{-6}\) is good enough. Or we may want \(b-a \lt 10^{-12}\) to get a more accurate answer. This makes sense when the root itself is not extremely large or extremely small. But when the root is of size \(10^{20}\) we cannot possibly hope to get an interval of length \(10^{-6}\) around it, or even of length 1. Indeed, the comparison <code class="code-inline tex2jax_ignore">10^20 + 1 == 10^(20)</code> evaluates as True in Matlab, meaning that it cannot tell these numbers apart because of the limitation of computer arithmetic.</p>
+<span class="incontext"><a href="section-meaning-numeric-solution.html#p-248">in-context</a></span>
 </body>
 </html>

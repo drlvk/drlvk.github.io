@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:31-05:00    *-->
+<!--*    on 2021-02-07T18:00:28-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,21 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Choose some complex numbers \(z_0, z_1, \dots, z_{n-1}\) (with odd \(n\)) so that connecting them in this order (and connecting \(z_{n-1}\) to \(z_0\)) one gets a closed curve similar to letter B. Then use Discrete Fourier Transform to plot a trigonometric polynomial interpolating these numbers. Does its plot look like letter B?</p>
-<span class="incontext"><a href="exercises-discrete-fourier-transform.html#p-736">in-context</a></span>
+<p>A key term here is <dfn class="terminology">aliasing</dfn>, which is the fact that different trigonometric (or complex exponential) functions may coincide when restricted to a discrete grid of points (<a class="external" href="https://en.wikipedia.org/wiki/Aliasing#/media/File:AliasingSines.svg" target="_blank">illustration</a>). Specifically,</p>
+<div class="displaymath">
+\begin{equation*}
+\exp(2\pi i k t)  = \exp(2\pi i (k-n) t), \quad t = 0, 1/n, 2/n, \dots, 1
+\end{equation*}
+</div>
+<p data-braille="continuation">In order to avoid extraneous oscillations we should subtract \(n\) from large elements of the vector <code class="code-inline tex2jax_ignore">k = 0:n-1</code> above, so that instead of</p>
+<pre class="code-block tex2jax_ignore">
+k = [0 1 2 3 4 5 6 7 8];
+</pre>
+<p data-braille="continuation">we have</p>
+<pre class="code-block tex2jax_ignore">
+k = [0 1 2 3 4 -4 -3 -2 -1];
+</pre>
+<p data-braille="continuation">Replacing <code class="code-inline tex2jax_ignore">k = 0:n-1</code> in the above code with <code class="code-inline tex2jax_ignore">k = [0:(n-1)/2 (1-n)/2:-1];</code> corrects the issue.</p>
+<span class="incontext"><a href="section-trigonometric-interpolation.html#p-736">in-context</a></span>
 </body>
 </html>

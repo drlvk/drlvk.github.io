@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:06-05:00    *-->
+<!--*    on 2021-02-07T18:00:02-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -89,6 +89,7 @@ MathJax.Hub.Config({
 <li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
 <li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
 <li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="section-comments-sections.html" data-scroll="section-comments-sections">Comments and sections in a script</a></li>
 <li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">Examples and questions</a></li>
 <li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
 </ul>
@@ -409,7 +410,7 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">10.5</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-23"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-367">(Theoretical problem.) Let</p>
+<p id="p-370">(Theoretical problem.) Let</p>
 <div class="displaymath">
 \begin{equation*}
 \mathbf F(x,y,z)
@@ -417,14 +418,14 @@ MathJax.Hub.Config({
 \end{equation*}
 </div>
 <p data-braille="continuation">Find the Jacobian matrix of \(\mathbf F\text{.}\) (The matrix entries will involve the variables \(x,y,z\)).</p></article><article class="exercise exercise-like" id="exercise-24"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-368">At which of the following points \((x,y,z)\) is the Jacobian matrix from the previous exercise  invertible?</p>
+<p id="p-371">At which of the following points \((x,y,z)\) is the Jacobian matrix from the previous exercise  invertible?</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{pmatrix} 1\\1\\1\end{pmatrix}, \begin{pmatrix} 3\\1\\5\end{pmatrix},  \begin{pmatrix} 2\\1\\2\end{pmatrix}
 \end{equation*}
 </div>
 <p data-braille="continuation">To save time,  use Matlab: define an anonymous function like <code class="code-inline tex2jax_ignore">J = @(x,y,z) [... ; ... ; ...]</code> so that you can then do <code class="code-inline tex2jax_ignore">rank(J(1,1,1))</code> and so on, without computing the matrices yourself. Note the difference between this approach to J and the approach of <a href="section-multivariate-newton.html" class="internal" title="Section 10.2: Multivariate Newton's method">Section 10.2</a>: here the function <code class="code-inline tex2jax_ignore">J</code> takes three scalar arguments, instead of one vector argument.</p></article><article class="exercise exercise-like" id="exercise-25"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-369">Let \(V = 36 + 2a\text{,}\) \(A = 72 + 3a\text{,}\) and \(D = 7 + a/5\) where \(a\) is the first digit of your SUID. Write a Matlab script which uses  Newton's method to find the dimensions of a rectangular box with volume \(V\text{,}\) surface area \(A\text{,}\) and space diagonal \(D\text{.}\) The computations in Problem 1 will be helpful, because a box with dimensions \(x, y, z\) has volume \(xyz\text{,}\) surface area \(2(xy+yz+xz)\text{,}\) and space diagonal \(\sqrt{x^2+y^2+z^2}\text{.}\)</p></article></section></div></main>
+<p id="p-372">Let \(V = 36 + 2a\text{,}\) \(A = 72 + 3a\text{,}\) and \(D = 7 + a/5\) where \(a\) is the first digit of your SUID. Write a Matlab script which uses  Newton's method to find the dimensions of a rectangular box with volume \(V\text{,}\) surface area \(A\text{,}\) and space diagonal \(D\text{.}\) The computations in Problem 1 will be helpful, because a box with dimensions \(x, y, z\) has volume \(xyz\text{,}\) surface area \(2(xy+yz+xz)\text{,}\) and space diagonal \(\sqrt{x^2+y^2+z^2}\text{.}\)</p></article></section></div></main>
 </div>
 </body>
 </html>

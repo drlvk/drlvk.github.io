@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:31-05:00    *-->
+<!--*    on 2021-02-07T18:00:29-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Here the vector of parameters is called <code class="code-inline tex2jax_ignore">b</code> instead of <code class="code-inline tex2jax_ignore">beta</code> to shorten the implicit formula. It is obtained by solving a system with 1 on the right hand side, according to <a class="xref" data-knowl="./knowl/eq-ellipse-implicit.html" title="Equation 28.3.1">(28.3.1)</a>. The plot window is calculated from the data to allow margins of 1 unit on all sides.</p>
+<p>Not all data points represent a function of the form \(y = f(x)\text{.}\) They may happen to accumulate along some closed curve such as an ellipse. General implicit equation of an ellipse is</p>
+<div class="displaymath">
+\begin{equation}
+Ax^2 + Bxy + Cy^2 + Dx + Ey  = 1\tag{28.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">There are five unknown coefficients here. So, given a set of points \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) we get a linear system by plugging each point into <a class="xref" data-knowl="./knowl/eq-ellipse-implicit.html" title="Equation 28.3.1">(28.3.1)</a>. Its least squares solution describes an ellipse that fits the data best in the sense of having the smallest sum</p>
+<div class="displaymath">
+\begin{equation*}
+\sum_{k=1}^n (Ax_k^2 + Bx_ky_k + Cy_k^2 + Dx_k + Ey_k  - 1)^2
+\end{equation*}
+</div>
+<p data-braille="continuation">which should hopefully fit the ellipse.</p>
 <span class="incontext"><a href="section-example-implicit-equation.html#p-794">in-context</a></span>
 </body>
 </html>

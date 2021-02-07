@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:34-05:00    *-->
+<!--*    on 2021-02-07T18:00:31-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This section will describe how each LP problem has a <dfn class="terminology">dual</dfn> LP problem. Specifically:</p>
+<p>The following terms may appear in error messages or warnings issued by <code class="code-inline tex2jax_ignore">linprog</code> or its analogues in other software.</p>
 <ul class="disc">
-<li>A problem of type IR has a dual of type EN</li>
-<li>A problem of type EN has a dual of type IR</li>
-<li>A problem of type IN has a dual of type IN</li>
+<li>A <dfn class="terminology">feasible point</dfn> is a vector \(x\) that satisfies the constraints. The set of all such points is the feasible set.</li>
+<li>A problem is <dfn class="terminology">infeasible</dfn> if there are no feasible points. (Example: \(x_1\ge 2\text{,}\) \(x_2\ge 2\text{,}\) \(x_1+x_2\le 3\text{.}\)) Such a problem has no solution.</li>
+<li>A problem is <dfn class="terminology">unbounded</dfn> if the objective function takes arbitrarily small values on the feasible set (in case of minimization) or arbitrarily large values (in case of maximization). Such a problem has no solution.</li>
+<li>If the feasible set is nonempty and bounded, the problem surely has a solution. But it is possible to have an unbounded feasible set on which the objective function is bounded: recall <a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a>.</li>
 </ul>
-<p data-braille="continuation">In general, the dual of the dual problem is the original (<dfn class="terminology">primal</dfn>) problem. The IN-IN duality is symmetric while IR-EN duality is asymmetric.</p>
-<span class="incontext"><a href="section-linear-programming-duality.html#p-957">in-context</a></span>
+<span class="incontext"><a href="section-linear-programming-introduction.html#p-957">in-context</a></span>
 </body>
 </html>

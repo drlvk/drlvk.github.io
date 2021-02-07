@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:29-05:00    *-->
+<!--*    on 2021-02-07T18:00:26-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>For the sake of efficiency and numerical stability, the evaluation of \(p\) can be arranged as follows. Since the denominators in <a class="xref" data-knowl="./knowl/eq-lagrange-basis.html" title="Equation 21.2.1">(21.2.1)</a> do not involve \(x\text{,}\) they can be computed in advance. Specifically, we compute “barycentric weights”</p>
-<div class="displaymath">
-\begin{equation}
-w_k = \prod_{j\ne k} (x_k-x_j)^{-1} \tag{21.2.3}
-\end{equation}
-</div>
-<p data-braille="continuation">and then the polynomial \(p\) can be computed as the quotient of two rational functions:</p>
-<div class="displaymath">
-\begin{equation}
-p(x) = \frac{\sum_{k=1}^n y_k w_k(x-x_k)^{-1}}{ \sum_{k=1}^n w_k (x-x_k)^{-1} } \tag{21.2.4}
-\end{equation}
-</div>
-<p data-braille="continuation">The advantage of <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.4">(21.2.4)</a> over the original form is that we avoid a large number of multiplications involving \((x-x_j)\) for every point \(x\text{.}\) A slight disadvantage is that one cannot plug in \(x=x_k\) into <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.4">(21.2.4)</a>, but we know that \(p(x_k)=y_k\) anyway.</p>
-<span class="incontext"><a href="section-lagrange-polynomial.html#p-631">in-context</a></span>
+<p>We are used to seeing polynomials written in terms of the <dfn class="terminology">monomial basis</dfn> \(x^0, x^1, \dots, x^d\text{,}\) that is, as a linear combination of the monomials. But this basis is ill-suited for numerical computations away from the point \(x=0\text{.}\) For example, consider the simple polynomial \(p(x) = (x-7)^{15}\text{.}\) If we expand it in the monomial basis and then try to compute its values on the interval \([6, 8]\text{,}\) the result will be disappointing. In the code below, <code class="code-inline tex2jax_ignore">c</code> is a vector of coefficients; the ellipsis notation allows it to by split between lines for readability.</p>
+<span class="incontext"><a href="section-monomial-basis.html#p-631">in-context</a></span>
 </body>
 </html>

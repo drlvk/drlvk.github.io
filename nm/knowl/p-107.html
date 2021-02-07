@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:24-05:00    *-->
+<!--*    on 2021-02-07T18:00:20-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We have been using <code class="code-inline tex2jax_ignore">disp</code> command to display some number or text. But we may want to display a sentence with some numbers included in it. And we may want to show more (or fewer) digits than <code class="code-inline tex2jax_ignore">disp</code> does. For this, the command <code class="code-inline tex2jax_ignore">fprintf</code> is useful:  it produces an <dfn class="terminology">interpolated string</dfn> which combines text and numeric data according to some formatting codes. For example,</p>
-<pre class="code-block tex2jax_ignore">fprintf('The number pi is %.15f and its cube is %.3f\n', pi, pi^3)</pre>
-<p data-braille="continuation">displays “The number pi is 3.141592653589793 and its cube is 31.006”. Explanation:</p>
-<ul class="disc">
-<li>The first argument of <code class="code-inline tex2jax_ignore">fprintf</code> is a string, the other arguments are numbers which will be inserted into the string. Here the numbers are pi and pi cubed.</li>
-<li>The formatting code <code class="code-inline tex2jax_ignore">%.15f</code> says: insert a number with 15 digits after decimal point. This is the first formatting code, so it uses the first number provided after the string, which is pi.</li>
-<li>The formatting code <code class="code-inline tex2jax_ignore">%.3f</code> says: insert a number with 3 digits after decimal point. Since this is the second formatting code in the string, it will use the second of the numbers after the string, which is pi cubed.</li>
-<li>The string ends with new line character <code class="code-inline tex2jax_ignore">\n</code>, which is a good idea in general. Without it, subsequent output would appear on the same line, and would be hard to read.</li>
-</ul>
-<span class="incontext"><a href="section-formatted-output.html#p-107">in-context</a></span>
+<p>This histogram resembles a “bell curve” of normal distribution. The similarly grows stronger if we take sums of more numbers, and plot more random sums. This is the content of <dfn class="terminology">Central Limit Theorem</dfn> in probability.</p>
+<span class="incontext"><a href="section-random-numbers-histograms.html#p-107">in-context</a></span>
 </body>
 </html>

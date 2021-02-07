@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:24-05:00    *-->
+<!--*    on 2021-02-07T18:00:21-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This example demonstrates the use of both kinds of loops. Note that the variable involved in <code class="code-inline tex2jax_ignore">while</code> loop condition, <code class="code-inline tex2jax_ignore">while k &gt; 1</code>, should be modified within the loop, otherwise it will never end. In contrast, the variable involved in <code class="code-inline tex2jax_ignore">for</code> loop condition <code class="code-inline tex2jax_ignore">for n = 1:N</code> should <em class="emphasis">not</em> be modified since it is automatically incremented with each run of the loop.</p>
+<p><em class="emphasis">Explanation</em>: The variable <code class="code-inline tex2jax_ignore">s</code> represents partial sums. We add <code class="code-inline tex2jax_ignore">1/n</code> to it, and then increase the value of <code class="code-inline tex2jax_ignore">n</code>. When <code class="code-inline tex2jax_ignore">s &gt; 10</code> the process stops. The output uses formatting code <code class="code-inline tex2jax_ignore">%d</code> for integers, since the answer is an integer. Why does the output have <code class="code-inline tex2jax_ignore">n-1</code> and not <code class="code-inline tex2jax_ignore">n</code>? Because of the way that the loop is written, the value of n is increased <em class="emphasis">after</em> each addition. So at the end of it, <code class="code-inline tex2jax_ignore">n</code> is the number that is 1 more than the number of terms we added.</p>
 <span class="incontext"><a href="examples-control-flow.html#p-155">in-context</a></span>
 </body>
 </html>

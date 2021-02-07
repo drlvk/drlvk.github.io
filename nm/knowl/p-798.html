@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:32-05:00    *-->
+<!--*    on 2021-02-07T18:00:29-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The number of active Covid cases at SU during October 1 - October 23 is given below.</p>
+<p>Note that while it's safe to leave spaces around <code class="code-inline tex2jax_ignore">+</code> signs in the formula <code class="code-inline tex2jax_ignore">fun</code> (some find it improves readability), one has to be extra careful with such spaces within a vector. Indeed,</p>
 <pre class="code-block tex2jax_ignore">
-y = [5 5 4 5 9 25 45 65 77 87 87 89 97 101 90 74 57 26 20 13 12 12 13]'; 
+[min(x) -1 max(x) +1 min(y) -1 max(y) +1]  
 </pre>
-<p data-braille="continuation">The x-values can be <code class="code-inline tex2jax_ignore">x = (1:23)'</code>. Try to fit a “bell-shaped” Gaussian function \(y = \exp(Ax^2+Bx+C)\) (where \(A\lt 0\)) to the data. This can be done by the logarithmic transform <code class="code-inline tex2jax_ignore">yt = log(y)</code> followed by fitting a quadratic function to transformed data in the usual way, via the matrix <code class="code-inline tex2jax_ignore">X = x.^(0:2)</code>. Having found the parameters <code class="code-inline tex2jax_ignore">beta</code>, we get a suitable function <code class="code-inline tex2jax_ignore">f = @(x) exp(x.^(0:2)*beta)</code> which should be plotted together with the data points.</p>
-<span class="incontext"><a href="exercises-transforming-data.html#p-798">in-context</a></span>
+<p data-braille="continuation">would be a vector of 8 numbers, not 4. Matlab does understand</p>
+<pre class="code-block tex2jax_ignore">
+[min(x) - 1 max(x) + 1 min(y) - 1 max(y) + 1];
+</pre>
+<p data-braille="continuation">as a vector of 4 numbers, however.</p>
+<span class="incontext"><a href="section-example-implicit-equation.html#p-798">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:24-05:00    *-->
+<!--*    on 2021-02-07T18:00:21-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,9 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When writing a function, one should consider whether it should accept input in the form of a vector or a matrix. The function in the previous paragraph works fine with scalar input, such as <code class="code-inline tex2jax_ignore">f(2)</code> but throws an error if the input is a vector, for example <code class="code-inline tex2jax_ignore">f([0 1 2 3])</code>. The reason is that with this input, <code class="code-inline tex2jax_ignore">x^2</code> becomes <code class="code-inline tex2jax_ignore">[0 1 2 3]^2</code> which is an error in Matlab where <code class="code-inline tex2jax_ignore">^2</code> means matrix multiplication. We want an array operation, not a matrix product. Thus, the function should be written as</p>
-<pre class="code-block tex2jax_ignore">f = @(x) exp(-x.^2);</pre>
-<p data-braille="continuation">Then we can apply this function to a vector, for example to plot it.</p>
-<span class="incontext"><a href="section-anonymous-functions.html#p-164">in-context</a></span>
+<p>Since there is no square root in this computation, we can use negative numbers too: the arithmetic-harmonic mean of -5 and -20 is -10. But if you start with two numbers of opposite signs, the loop never ends, so you will need to press <kbd class="kbdkey">Ctrl</kbd>+<kbd class="kbdkey">C</kbd> to end it. As a second part of this task, write another form of the loop, using the method from <a href="section-break-statement.html" class="internal" title="Section 4.4: Breaking out of a loop">Section 4.4</a> to put a limit on the number of tries, for example 1000.</p>
+<span class="incontext"><a href="exercises-control-flow.html#p-164">in-context</a></span>
 </body>
 </html>

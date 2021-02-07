@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:28-05:00    *-->
+<!--*    on 2021-02-07T18:00:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In order to design better integration rules than Newton-Cotes rules found so far, we need more mathematical tools. This chapter introduces two families of <dfn class="terminology">orthogonal polynomials</dfn>, which appear in many areas of mathematics. The roots of these polynomials will later be shown to be optimal points of evaluation for integration rules.</p>
-<span class="incontext"><a href="chapter-legendre-laguerre.html#p-467">in-context</a></span>
+<p>Sometimes one needs an “open-ended” version of Newton-Cotes rules, which does not use the values of the function at the endpoints (because the function may not be defined at the endpoints). Find the coefficients in the integration rule</p>
+<div class="displaymath">
+\begin{equation*}
+\int_{-1}^1 f(x)\,dx \approx w_1 f(-1/2) + w_2 f(0) + w_3 f(1/2)
+\end{equation*}
+</div>
+<p data-braille="continuation">so that the rule is precise for \(x^0\text{,}\) \(x^1\text{,}\) and \(x^2\text{.}\) (You can use Matlab for solving the system of equations for the weights.)</p>
+<span class="incontext"><a href="exercises-simpson-newton-cotes.html#p-467">in-context</a></span>
 </body>
 </html>

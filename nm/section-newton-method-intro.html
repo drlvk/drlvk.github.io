@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:05-05:00    *-->
+<!--*    on 2021-02-07T18:00:01-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -89,6 +89,7 @@ MathJax.Hub.Config({
 <li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
 <li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
 <li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="section-comments-sections.html" data-scroll="section-comments-sections">Comments and sections in a script</a></li>
 <li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">Examples and questions</a></li>
 <li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
 </ul>
@@ -408,9 +409,9 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-newton-method-intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">9.1</span> <span class="title">Newton's method</span>
 </h2>
-<p id="p-304">The idea of Newton's method is geometrically natural. We want to solve \(f(x) = 0\) but since \(f\) may be complicated, we replace it by its linear approximation (tangent line at a certain point). The resulting linear equation is easy to solve. Of course, its solution is probably not a solution of the original equation, but perhaps it is close to it. The process repeats, using the previously found solution as a new point at which to draw a tangent line. A static image of this process is below. <a class="external" href="https://www.intmath.com/applications-differentiation/newtons-method-interactive.php" target="_blank">Interactive visualization</a> is also available.</p>
+<p id="p-307">The idea of Newton's method is geometrically natural. We want to solve \(f(x) = 0\) but since \(f\) may be complicated, we replace it by its linear approximation (tangent line at a certain point). The resulting linear equation is easy to solve. Of course, its solution is probably not a solution of the original equation, but perhaps it is close to it. The process repeats, using the previously found solution as a new point at which to draw a tangent line. A static image of this process is below. <a class="external" href="https://www.intmath.com/applications-differentiation/newtons-method-interactive.php" target="_blank">Interactive visualization</a> is also available.</p>
 <figure class="figure figure-like" id="newton1-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/newton1.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.1<span class="period">.</span></span><span class="space"> </span>Two steps of Newton's method</figcaption></figure><p id="p-305">Formally, the linear approximation to \(f\) at a point \(x\) is \(f(x+h) \approx f(x) + f'(x)h\text{.}\) Equating the right hand side to 0 we find \(h = -f(x)/f'(x)\) which means that the point where the tangent line at \(x\) meets the line \(y=0\) is \(x + h = x - f(x)/f'(x)\text{.}\) Therefore, we can express Newton's method as iteration of the function</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.1<span class="period">.</span></span><span class="space"> </span>Two steps of Newton's method</figcaption></figure><p id="p-308">Formally, the linear approximation to \(f\) at a point \(x\) is \(f(x+h) \approx f(x) + f'(x)h\text{.}\) Equating the right hand side to 0 we find \(h = -f(x)/f'(x)\) which means that the point where the tangent line at \(x\) meets the line \(y=0\) is \(x + h = x - f(x)/f'(x)\text{.}\) Therefore, we can express Newton's method as iteration of the function</p>
 <div class="displaymath">
 \begin{equation*}
 g(x) = x  - \frac{f(x)}{f'(x)} = \frac{xf'(x) -f(x)}{f'(x)}
@@ -425,10 +426,10 @@ g'(x) = 1  - \frac{f'(x)f'(x) - f(x)f''(x)}{(f'(x))^2} = \frac{f(x)f''(x)}{(f'(x
 <p data-braille="continuation">which is zero when \(f(x) = 0\text{.}\)</p>
 <article class="example example-like" id="example-newton-find-g"><a data-knowl="" class="id-ref original" data-refid="hk-example-newton-find-g"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Find and simplify the function \(g\) of Newton's method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-newton-find-g"><article class="example example-like"><p id="p-306">Given \(f(x) = x^3 - x\text{,}\) find and simplify the function \(g(x) = x - f(x)/f'(x)\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-newton-find-g"><article class="example example-like"><p id="p-309">Given \(f(x) = x^3 - x\text{,}\) find and simplify the function \(g(x) = x - f(x)/f'(x)\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-14" id="solution-14"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-14"><div class="solution solution-like">
-<p id="p-307">Bringing \(g\) to common denominator often helps:</p>
+<p id="p-310">Bringing \(g\) to common denominator often helps:</p>
 <div class="displaymath">
 \begin{equation*}
 g(x) = \frac{xf'(x) -f(x)}{f'(x)} = \frac{x(3x^2-1) - (x^3-x)}{3x^2-1} = \frac{2x^3}{3x^2-1}
@@ -436,7 +437,7 @@ g(x) = \frac{xf'(x) -f(x)}{f'(x)} = \frac{x(3x^2-1) - (x^3-x)}{3x^2-1} = \frac{2
 </div>
 </div></div>
 </div></article></div>
-<p id="p-308">Once we have the function \(g\text{,}\) the rest of the process is the same as in <a href="chapter-fixed-point-iteration.html" class="internal" title="Chapter 8: Root finding: fixed point iteration">Chapter 8</a>, in particular in <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>. Changing the first two lines of that program to</p>
+<p id="p-311">Once we have the function \(g\text{,}\) the rest of the process is the same as in <a href="chapter-fixed-point-iteration.html" class="internal" title="Chapter 8: Root finding: fixed point iteration">Chapter 8</a>, in particular in <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>. Changing the first two lines of that program to</p>
 <pre class="code-block tex2jax_ignore">
 g = @(x) 2*x^3/(3*x^2-1); 
 x0 = 0.6;

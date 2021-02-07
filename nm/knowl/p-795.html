@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:31-05:00    *-->
+<!--*    on 2021-02-07T18:00:29-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Note that while it's safe to leave spaces around <code class="code-inline tex2jax_ignore">+</code> signs in the formula <code class="code-inline tex2jax_ignore">fun</code> (some find it improves readability), one has to be extra careful with such spaces within a vector. Indeed,</p>
-<pre class="code-block tex2jax_ignore">
-[min(x) -1 max(x) +1 min(y) -1 max(y) +1]  
+<p>Plot an ellipse that fits the given 7 data points:</p>
+<pre class="code-block tex2jax_ignore">  
+x = [1 2 4 5 4 3 1]'; 
+y = [2 0 -1 1 2 3 4]';
 </pre>
-<p data-braille="continuation">would be a vector of 8 numbers, not 4. Matlab does understand</p>
+<p data-braille="continuation">Then plot it together with the points, using <code class="code-inline tex2jax_ignore">fimplicit</code> command. Its syntax is</p>
 <pre class="code-block tex2jax_ignore">
-[min(x) - 1 max(x) + 1 min(y) - 1 max(y) + 1];
+fimplicit(@(x, y) ..., [xmin xmax ymin ymax])  
 </pre>
-<p data-braille="continuation">as a vector of 4 numbers, however.</p>
+<p data-braille="continuation">where the first argument is the implicit equation (something equated to 0), and the second is the plot window.</p>
 <span class="incontext"><a href="section-example-implicit-equation.html#p-795">in-context</a></span>
 </body>
 </html>

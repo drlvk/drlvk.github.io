@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:24-05:00    *-->
+<!--*    on 2021-02-07T18:00:20-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When running numerical experiments like those in <a href="section-random-numbers-histograms.html" class="internal" title="Section 3.2: Random numbers and histograms">Section 3.2</a>, it is inconvenient to edit the script every time we want to change the numbers in it, like the number of rows/columns of a matrix. One can use user input instead, making the script interactive:</p>
-<pre class="code-block tex2jax_ignore">
-m = input('Number of rows: ');
-n = input('Number of columns: ');
-</pre>
-<p data-braille="continuation">The text in <code class="code-inline tex2jax_ignore">input</code> command will be shown to the user as a prompt. When the user enters a number, that number gets assigned to the variable <code class="code-inline tex2jax_ignore">m</code>. Same happens with <code class="code-inline tex2jax_ignore">n</code>. After that the computation proceeds.</p>
-<span class="incontext"><a href="section-user-input.html#p-105">in-context</a></span>
+<p>Technical remark: Matlab recommends a newer command <code class="code-inline tex2jax_ignore">histogram</code> instead of <code class="code-inline tex2jax_ignore">hist</code> but they both work for our purposes. I am using <code class="code-inline tex2jax_ignore">hist</code> because it also works in Octave.</p>
+<span class="incontext"><a href="section-random-numbers-histograms.html#p-105">in-context</a></span>
 </body>
 </html>

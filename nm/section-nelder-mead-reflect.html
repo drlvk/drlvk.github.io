@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:21-05:00    *-->
+<!--*    on 2021-02-07T18:00:17-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -89,6 +89,7 @@ MathJax.Hub.Config({
 <li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
 <li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
 <li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="section-comments-sections.html" data-scroll="section-comments-sections">Comments and sections in a script</a></li>
 <li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">Examples and questions</a></li>
 <li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
 </ul>
@@ -408,18 +409,18 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-nelder-mead-reflect"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">33.1</span> <span class="title">First attempt at derivative-free minimization</span>
 </h2>
-<p id="p-902">The intuitive picture of steepest descent (the gradient method) is a drop of water sliding down the graph of a function under the force of gravity: the water follows the steepest way down. The intuition of the Nelder-Mead method is a geometric shape like a triangle or a tetrahedron tumbling down a sloped surface. In two dimensions, the shape is a triangle, in three dimensions it is a tetrahedron; in \(n\) dimensions it is an \(n\)-dimensional <dfn class="terminology">simplex</dfn>, meaning \(n+1\) points that are not contained in any hyperplane. To keep the explanation simple, we focus on the case \(n=2\text{.}\)</p>
-<p id="p-903">Given a triangle \(ABC\) in \(xy\)-plane, we evaluate the function \(f\) at its vertices. The vertex with the largest value of \(f\) (for example, \(C\)) <em class="emphasis">might</em> get replaced by its reflection. One could imagine reflecting \(C\) about the opposite side \(AB\) by dropping a perpendicular line from \(C\) onto \(AB\) and following it. However, this kind of reflection is not invariant under linear transformations of \(xy\) plane, such as the scaling of coordinates. The Nelder-Mead method uses reflection about the midpoint of \(AB\) which can be expressed in vector form as</p>
+<p id="p-905">The intuitive picture of steepest descent (the gradient method) is a drop of water sliding down the graph of a function under the force of gravity: the water follows the steepest way down. The intuition of the Nelder-Mead method is a geometric shape like a triangle or a tetrahedron tumbling down a sloped surface. In two dimensions, the shape is a triangle, in three dimensions it is a tetrahedron; in \(n\) dimensions it is an \(n\)-dimensional <dfn class="terminology">simplex</dfn>, meaning \(n+1\) points that are not contained in any hyperplane. To keep the explanation simple, we focus on the case \(n=2\text{.}\)</p>
+<p id="p-906">Given a triangle \(ABC\) in \(xy\)-plane, we evaluate the function \(f\) at its vertices. The vertex with the largest value of \(f\) (for example, \(C\)) <em class="emphasis">might</em> get replaced by its reflection. One could imagine reflecting \(C\) about the opposite side \(AB\) by dropping a perpendicular line from \(C\) onto \(AB\) and following it. However, this kind of reflection is not invariant under linear transformations of \(xy\) plane, such as the scaling of coordinates. The Nelder-Mead method uses reflection about the midpoint of \(AB\) which can be expressed in vector form as</p>
 <div class="displaymath">
 \begin{equation}
 R = A + B - C = (A+B+C) - 2C\label{eq-nm-reflection}\tag{33.1.1}
 \end{equation}
 </div>
 <p data-braille="continuation">The second version is slightly easier to code, see below.</p>
-<p id="p-904">However, it would be pointless to replace \(C\) by \(R\) if this did not make the function smaller. So the replacement only happens if \(f(R)\lt f(C)\text{.}\) Otherwise the program stops and reports the midpoint \((A+B+C)/3\) of the last computed triangle as an approximate point of minimum. This is a “reflection-only” version of the Nelder-Mead method.</p>
+<p id="p-907">However, it would be pointless to replace \(C\) by \(R\) if this did not make the function smaller. So the replacement only happens if \(f(R)\lt f(C)\text{.}\) Otherwise the program stops and reports the midpoint \((A+B+C)/3\) of the last computed triangle as an approximate point of minimum. This is a “reflection-only” version of the Nelder-Mead method.</p>
 <article class="example example-like" id="example-reflection-nelder-mead"><a data-knowl="" class="id-ref original" data-refid="hk-example-reflection-nelder-mead"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">33.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Reflection-only Nelder-Mead method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-reflection-nelder-mead"><article class="example example-like"><p id="p-905">Minimize the function</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-reflection-nelder-mead"><article class="example example-like"><p id="p-908">Minimize the function</p>
 <div class="displaymath">
 \begin{equation}
 f(\mathbf x) = x_1^4 + x_2^2 - \sin(x_1+x_2)\label{eq-objective-function-sine}\tag{33.1.2}
@@ -428,7 +429,7 @@ f(\mathbf x) = x_1^4 + x_2^2 - \sin(x_1+x_2)\label{eq-objective-function-sine}\t
 <p data-braille="continuation">using the reflection-only version of the Nelder-Mead method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code> as one vertex \(A\) of the initial triangle, and let other vertices be \(A+h\mathbf e_1\text{,}\) \(A+h\mathbf e_2\) with small \(h = 0.01\) (this makes a small right isosceles triangle). Plot the path of the search.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-55" id="solution-55"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-55"><div class="solution solution-like">
-<p id="p-906">It is convenient to arrange column vectors \(A, B, C\) into a matrix \(T\) representing a triangle. This makes it easy to replace the vertex with greatest value of \(f\) after identifying it with two-output <code class="code-inline tex2jax_ignore">max</code> command. The command <code class="code-inline tex2jax_ignore">mean(T, 2)</code> computes the mean \((A+B+C)/3\) while <code class="code-inline tex2jax_ignore">sum(T, 2)</code> is \(A+B+C\text{.}\)</p>
+<p id="p-909">It is convenient to arrange column vectors \(A, B, C\) into a matrix \(T\) representing a triangle. This makes it easy to replace the vertex with greatest value of \(f\) after identifying it with two-output <code class="code-inline tex2jax_ignore">max</code> command. The command <code class="code-inline tex2jax_ignore">mean(T, 2)</code> computes the mean \((A+B+C)/3\) while <code class="code-inline tex2jax_ignore">sum(T, 2)</code> is \(A+B+C\text{.}\)</p>
 <pre class="code-block tex2jax_ignore">f = @(x) x(1)^4 + x(2)^2 - sin(x(1)+x(2));
 
 A = randn(2, 1);

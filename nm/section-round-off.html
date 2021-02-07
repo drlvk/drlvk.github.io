@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:04-05:00    *-->
+<!--*    on 2021-02-07T18:00:00-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -89,6 +89,7 @@ MathJax.Hub.Config({
 <li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
 <li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
 <li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="section-comments-sections.html" data-scroll="section-comments-sections">Comments and sections in a script</a></li>
 <li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">Examples and questions</a></li>
 <li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
 </ul>
@@ -408,15 +409,15 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-round-off"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.4</span> <span class="title">The effect of round-off-errors</span>
 </h2>
-<p id="p-224">The round-off errors made by a computer are usually very small: for example,</p>
+<p id="p-227">The round-off errors made by a computer are usually very small: for example,</p>
 <pre class="code-block tex2jax_ignore">0.1 + 0.2 - 0.3</pre>
 <p data-braille="continuation">produces <code class="code-inline tex2jax_ignore">5.5511e-17</code> instead of the expected <code class="code-inline tex2jax_ignore">0</code>. The underlying reason is that, for example, the number \(0.1\) is internally represented not as \(1/10\) but as a fraction \(p/q\) where \(q\) must be a power of 2 (because the computer arithmetic is binary in nature. Both \(p\) and \(q\) are chosen very large which makes the approximation \(p/q \approx  1/10\) very good for most purposes. But it cannot be perfect, because if \(p/q = 1/10\text{,}\) then \(10p = q\) which is a contradiction: the left hand side is divisible by 5, so the right hand side cannot be a power of 2.</p>
 <article class="example example-like" id="example-40"><a data-knowl="" class="id-ref original" data-refid="hk-example-40"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Approximating numbers by fractions with a power of 2.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-40"><article class="example example-like"><p id="p-225">For each of the numbers 0.1, 0.2, 0.3, find a fraction with denominator 32 which is the best approximation to it. Use these approximations, instead of the actual numbers, in the formula \(0.1 + 0.2 - 0.3\text{.}\) What is the result?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-40"><article class="example example-like"><p id="p-228">For each of the numbers 0.1, 0.2, 0.3, find a fraction with denominator 32 which is the best approximation to it. Use these approximations, instead of the actual numbers, in the formula \(0.1 + 0.2 - 0.3\text{.}\) What is the result?</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">
-<p id="p-226">To find approximations, multiply each of the numbers by 32 and round the result to the nearest integer. Thus, \(0.1\approx 3/32\text{,}\) \(0.2\approx 6/32\text{,}\) and \(0.3 \approx 10/32\) (because \(0.3\cdot 32 = 9.6\) rounds to 10). Hence</p>
+<p id="p-229">To find approximations, multiply each of the numbers by 32 and round the result to the nearest integer. Thus, \(0.1\approx 3/32\text{,}\) \(0.2\approx 6/32\text{,}\) and \(0.3 \approx 10/32\) (because \(0.3\cdot 32 = 9.6\) rounds to 10). Hence</p>
 <div class="displaymath">
 \begin{equation*}
 0.1 + 0.2 - 0.3 \approx \frac{3}{32} + \frac{6}{32} - \frac{10}{32} = -\frac{1}{32}
@@ -425,7 +426,7 @@ MathJax.Hub.Config({
 <p data-braille="continuation">The result is not zero due to round-off errors. This is exactly what happens in Matlab computations, except that they involve a much larger power of 2.</p>
 </div></div>
 </div></article></div>
-<p id="p-227">The tiny round-off errors have a major impact on the solution of linear systems when, as a result of some row operations, some entry should theoretically be zero but in practice it is not (like \(0.1 + 0.2 - 0.3\) above). So, the process of elimination that was supposed to eliminate a redundant equation, making it \(0=0\text{,}\) instead turns it into some “numerical garbage”. Matlab tries to detect such situations and warn the user about them, indicating that the solution it finds may be useless.</p></section></div></main>
+<p id="p-230">The tiny round-off errors have a major impact on the solution of linear systems when, as a result of some row operations, some entry should theoretically be zero but in practice it is not (like \(0.1 + 0.2 - 0.3\) above). So, the process of elimination that was supposed to eliminate a redundant equation, making it \(0=0\text{,}\) instead turns it into some “numerical garbage”. Matlab tries to detect such situations and warn the user about them, indicating that the solution it finds may be useless.</p></section></div></main>
 </div>
 </body>
 </html>

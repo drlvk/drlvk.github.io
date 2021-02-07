@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:01-05:00    *-->
+<!--*    on 2021-02-07T17:59:58-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -89,6 +89,7 @@ MathJax.Hub.Config({
 <li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
 <li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
 <li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="section-comments-sections.html" data-scroll="section-comments-sections">Comments and sections in a script</a></li>
 <li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">Examples and questions</a></li>
 <li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
 </ul>
@@ -408,7 +409,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-user-input"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.3</span> <span class="title">User input</span>
 </h2>
-<p id="p-105">When running numerical experiments like those in <a href="section-random-numbers-histograms.html" class="internal" title="Section 3.2: Random numbers and histograms">Section 3.2</a>, it is inconvenient to edit the script every time we want to change the numbers in it, like the number of rows/columns of a matrix. One can use user input instead, making the script interactive:</p>
+<p id="p-108">When running numerical experiments like those in <a href="section-random-numbers-histograms.html" class="internal" title="Section 3.2: Random numbers and histograms">Section 3.2</a>, it is inconvenient to edit the script every time we want to change the numbers in it, like the number of rows/columns of a matrix. One can use user input instead, making the script interactive:</p>
 <pre class="code-block tex2jax_ignore">
 m = input('Number of rows: ');
 n = input('Number of columns: ');
@@ -416,7 +417,7 @@ n = input('Number of columns: ');
 <p data-braille="continuation">The text in <code class="code-inline tex2jax_ignore">input</code> command will be shown to the user as a prompt. When the user enters a number, that number gets assigned to the variable <code class="code-inline tex2jax_ignore">m</code>. Same happens with <code class="code-inline tex2jax_ignore">n</code>. After that the computation proceeds.</p>
 <article class="example example-like" id="example-19"><a data-knowl="" class="id-ref original" data-refid="hk-example-19"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Sums of random numbers with user input.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-19"><article class="example example-like"><p id="p-106">Modify <a class="xref" data-knowl="./knowl/example-sums-random.html" title="Example 3.2.1: Distribution of sums of random numbers">Example 3.2.1</a> so that instead of fixed numbers 10 and 10000, it takes user input for those numbers.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-19"><article class="example example-like"><p id="p-109">Modify <a class="xref" data-knowl="./knowl/example-sums-random.html" title="Example 3.2.1: Distribution of sums of random numbers">Example 3.2.1</a> so that instead of fixed numbers 10 and 10000, it takes user input for those numbers.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-19" id="answer-19"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-19"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">m = input('How many numbers in a sum? ');
 n = input('How many sums to compute? ');

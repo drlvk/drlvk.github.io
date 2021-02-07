@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:27-05:00    *-->
+<!--*    on 2021-02-07T18:00:24-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Expressions like <code class="code-inline tex2jax_ignore">y(3:end) - y(1:end-2)</code> will be useful. Note that while the values of \(f\) can be plotted against the given vector <code class="code-inline tex2jax_ignore">x</code>, the derivatives need to be plotted against <code class="code-inline tex2jax_ignore">x(2:end-1)</code> because the symmetric formulas do not apply at the endpoints. Recall we can combine several functions in one plot command like <code class="code-inline tex2jax_ignore">plot(x, y, xx, yy)</code>.</p>
+<p>Rewrite the formula</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{\sqrt{9 + x^4} - 3}{\sin(x^4)}
+\end{equation*}
+</div>
+<p data-braille="continuation">to avoid the loss of significance when \(x\) is close to \(0\text{.}\) Evaluate both the original and rewritten formulas when \(x = 10^{-4}\text{.}\) How different are the results?</p>
 <span class="incontext"><a href="exercises-numerical-differentiation.html#p-427">in-context</a></span>
 </body>
 </html>

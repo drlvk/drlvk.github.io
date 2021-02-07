@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:25-05:00    *-->
+<!--*    on 2021-02-07T18:00:22-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,17 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>For this reason, Matlab has a built-in root-finding function <code class="code-inline tex2jax_ignore">fzero</code>. Its first argument is the function which should be equated to zero, the second argument is our initial guess at where the solution may be (put 0 if you have no idea). For example,</p>
-<pre class="code-block tex2jax_ignore">fzero(@(x) 2*exp(x) + x^3 - 1, 0)</pre>
-<p data-braille="continuation">finds the solution <code class="code-inline tex2jax_ignore">-0.5439</code>. But even though we have <code class="code-inline tex2jax_ignore">fzero</code>, we still have to understand the methods used for finding roots, because</p>
-<ol class="lower-alpha">
-<li>
-<code class="code-inline tex2jax_ignore">fzero</code> only gives one solution, there may be others;</li>
-<li>the output of <code class="code-inline tex2jax_ignore">fzero</code>  may be wrong.</li>
-</ol>
-<p data-braille="continuation">An example of wrong answer:</p>
-<pre class="code-block tex2jax_ignore">fzero(@(x) exp(-x^2), 0)</pre>
-<p data-braille="continuation">returns <code class="code-inline tex2jax_ignore">x=-28.9631</code>. In reality, \(e^{-x^2} = 0\) has no solutions, and there is nothing special about the number produced by <code class="code-inline tex2jax_ignore">fzero</code>: this is just where its algorithm decided to stop, thinking “close enough”.</p>
-<span class="incontext"><a href="section-motivation-numeric-solution.html#p-243">in-context</a></span>
+<p>The character <code class="code-inline tex2jax_ignore">%</code> is used for inserting comments in Matlab code: everything after it to the end of the line is ignored.</p>
+<span class="incontext"><a href="exercises-linear-systems.html#p-243">in-context</a></span>
 </body>
 </html>

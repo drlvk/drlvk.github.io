@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:28-05:00    *-->
+<!--*    on 2021-02-07T18:00:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One has to carefully consider when the difference <code class="code-inline tex2jax_ignore">abs(I1 - I2)</code> is “small enough”. One approach is to ask for small relative error, like <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6 * abs(I2)</code>. However this risks infinite recursion for functions like \(f(x) = \sqrt{x}\) near \(0\text{,}\) which is both small and poorly behaved. No matter how small an interval \([0, \epsilon]\) we use, dividing it further will result in a change that is not very small in relative terms. The process terminates with Matlab reporting: “Out of memory. The likely cause is an infinite recursion within the program.”</p>
-<span class="incontext"><a href="section-adaptive-integration-bisection.html#p-538">in-context</a></span>
+<p>Let us return to <a class="xref" data-knowl="./knowl/example-simpson-error-estimate-poor.html" title="Example 17.1.1: Error of Simpson's method">Example 17.1.1</a> where Simpson's method with \(h=4\) was used to get an approximation \(A_1 = 96.9618\text{.}\) Reducing the step size to \(h=2\) we get a second approximation:</p>
+<div class="displaymath">
+\begin{equation*}
+A_2 = \frac{2}{3}(f(1) + 4f(3) + 2f(5) + 4f(7) + f(9)) \approx 96.8176
+\end{equation*}
+</div>
+<p data-braille="continuation">Since Simpson's rule has order \(d=4\text{,}\) the error of second approximation can be estimated by <a class="xref" data-knowl="./knowl/eq-error-estimate-comparison.html" title="Equation 17.2.1">(17.2.1)</a> as follows:</p>
+<div class="displaymath">
+\begin{equation*}
+|A_2-E| \lessapprox  \frac{|A_1-A_2|}{15}  = 0.0096
+\end{equation*}
+</div>
+<p data-braille="continuation">Recalling that the exact value is \(E = 96.8\text{,}\) we see that \(|A_2-E| = 0.0176\text{.}\) So our error estimate, while not rigorous, is much closer to reality than the theoretical estimate <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a>.</p>
+<span class="incontext"><a href="section-adaptive-integration-error-estimate.html#p-538">in-context</a></span>
 </body>
 </html>

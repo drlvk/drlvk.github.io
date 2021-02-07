@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:26-05:00    *-->
+<!--*    on 2021-02-07T18:00:23-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The second reason the zeros of derivative are problematic is that a point where \(f(x) = f'(x) = 0\) is not a superattracting fixed point of \(g\text{,}\) even if we manage to extend the definition of \(g\) to such a point by canceling out the zero in the denominator. For example, let \(f(x) = x^p\) where \(p \gt 1\text{.}\) Clearly, \(f(0)=f'(0)=0\text{.}\) Computing</p>
-<div class="displaymath">
-\begin{equation*}
-g(x) = \frac{xf'(x) -f(x)}{f'(x)} = \frac{px^p - x^p}{px^{p-1}} = \frac{p-1}{p}x 
-\end{equation*}
-</div>
-<p data-braille="continuation">we see that \(g\) can be extended to \(g(0)=0\text{.}\) Since \(|g'(0)| = (p-1)/p \lt 1\text{,}\) this is an attracting point. But it is not a super-attracting one, which means the speed of convergence of Newton's method to such <dfn class="terminology">multiple roots</dfn> is slow: linear instead of quadratic. Here is an example of what happens with \(f(x) = x^3\text{:}\) the points approach the root \(x=0\) quite slowly, with each step being \(1/3\) of the distance to the root. This is even slower than bisection.</p>
-<span class="incontext"><a href="section-newton-method-issues.html#p-311">in-context</a></span>
+<p>Once we have the function \(g\text{,}\) the rest of the process is the same as in <a href="chapter-fixed-point-iteration.html" class="internal" title="Chapter 8: Root finding: fixed point iteration">Chapter 8</a>, in particular in <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>. Changing the first two lines of that program to</p>
+<pre class="code-block tex2jax_ignore">
+g = @(x) 2*x^3/(3*x^2-1); 
+x0 = 0.6;
+</pre>
+<p data-braille="continuation">we get “Found x = 1 after 11 steps”.  If the starting point is different, the process may converge to a different root of the equation \(x^3-x = 0\text{.}\) For example with <code class="code-inline tex2jax_ignore">x0 = 0.57</code> we get “Found x = -1 after 14 steps”. A small change of initial condition produced a rather different solution; we went from finding x = 1 to finding x = -1. The pattern of what starting points produce which solution can be very complicated: see the illustrations on Wikipedia page <a class="external" href="https://en.wikipedia.org/wiki/Newton_fractal" target="_blank">Newton fractal</a>.</p>
+<span class="incontext"><a href="section-newton-method-intro.html#p-311">in-context</a></span>
 </body>
 </html>

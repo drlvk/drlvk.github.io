@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:24-05:00    *-->
+<!--*    on 2021-02-07T18:00:21-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Another issue is that the condition we want to test may not be defined at the beginning of the loop. This occurs when our condition for stopping is that the value of a variable essentially stopped changing. For example, one way to compute the <dfn class="terminology">golden ratio</dfn> numerically is to start with any \(x &gt; 0\) and keep replacing \(x\) with \(\sqrt{x+1}\text{.}\) If we write this as:</p>
+<p>Syntax of <code class="code-inline tex2jax_ignore">while</code> loop:</p>
+<pre class="code-block tex2jax_ignore">
+while (some condition) 
+    (some computation)
+end
+</pre>
+<p data-braille="continuation">The loop will repeat while condition after <code class="code-inline tex2jax_ignore">while</code> is true. It ends when this condition becomes false. So, if we want to stop when <code class="code-inline tex2jax_ignore">abs(x-y) &lt; 1e-9</code>, the loop should be written as <code class="code-inline tex2jax_ignore">while abs(x-y) &gt;= 1e-9</code>.</p>
 <span class="incontext"><a href="section-while-loop.html#p-139">in-context</a></span>
 </body>
 </html>

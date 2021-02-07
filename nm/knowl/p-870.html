@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:32-05:00    *-->
+<!--*    on 2021-02-07T18:00:30-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Unfortunately, gradient descent with fixed \(\beta\) is not a reliable  method. Simply multiplying both <code class="code-inline tex2jax_ignore">f</code> and <code class="code-inline tex2jax_ignore">fp</code> by 2 in <a class="xref" data-knowl="./knowl/example-simplest-form-gradient-descent.html" title="Example 31.2.1: First attempt at gradient descent">Example 31.2.1</a> results in failure to converge (why? add <code class="code-inline tex2jax_ignore">disp(x)</code> to the loop to see). We could make \(\beta\) smaller and restore convergence, but this is manual fine-tuning. The underlying issue is <em class="emphasis">scaling</em>: multiplying \(f\) by a positive constant does not change the location of its minima, yet it affects the gradient descent if it uses the same \(\beta\) value. (Newton's method is invariant under scaling because  \(f'/f''\) is invariant.)</p>
+<p>Minimize the function \(f(x) = x^4 - 3 x^2 + x + 1\) from <a class="xref" data-knowl="./knowl/example-newton-method-min.html" title="Example 30.3.1: Using Newton method for minimization">Example 30.3.1</a> using gradient descent with \(\beta = 0.1\) and initial point \(0\text{.}\)</p>
 <span class="incontext"><a href="section-gradient-descent-1d.html#p-870">in-context</a></span>
 </body>
 </html>

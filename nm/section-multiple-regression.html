@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:17-05:00    *-->
+<!--*    on 2021-02-07T18:00:13-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -89,6 +89,7 @@ MathJax.Hub.Config({
 <li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
 <li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
 <li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="section-comments-sections.html" data-scroll="section-comments-sections">Comments and sections in a script</a></li>
 <li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">Examples and questions</a></li>
 <li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
 </ul>
@@ -408,7 +409,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-multiple-regression"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">27.4</span> <span class="title">Multiple regression</span>
 </h2>
-<p id="p-775">Least squares method, as outlined at the beginning of <a href="section-lsq-overview.html" class="internal" title="Section 27.1: Overview of least squares">Section 27.1</a>, includes <dfn class="terminology">multiple linear regression</dfn>, in which we model a dependent variable by a linear combination of several independent variables. In this form, the matrix \(X\) consists not of various powers of one variable, but of several explanatory variables. In the following example the observations modeled are the scores on a final exam, while explanatory variables are Homework average, Quiz average, Exam 1 score, Exam 2, and Exam 3. After fitting a linear combination of these five variable to the final exam score, the code calculates \(R^2\) and \(t\)-statistics.</p>
+<p id="p-778">Least squares method, as outlined at the beginning of <a href="section-lsq-overview.html" class="internal" title="Section 27.1: Overview of least squares">Section 27.1</a>, includes <dfn class="terminology">multiple linear regression</dfn>, in which we model a dependent variable by a linear combination of several independent variables. In this form, the matrix \(X\) consists not of various powers of one variable, but of several explanatory variables. In the following example the observations modeled are the scores on a final exam, while explanatory variables are Homework average, Quiz average, Exam 1 score, Exam 2, and Exam 3. After fitting a linear combination of these five variable to the final exam score, the code calculates \(R^2\) and \(t\)-statistics.</p>
 <pre class="code-block tex2jax_ignore">hw = [97 99 90 76 96 80 100 55 69 85 89 100 73 89 95 98 98 73 100 84]';
 quiz = [94 104 101 76 102 83 90 81 101 101 105 99 91 98 95 101 88 77 97 95]';
 exam1 = [96 100 93 79 95 62 83 88 86 96 95 96 74 91 88 94 96 98 97 94]';
@@ -433,7 +434,7 @@ ts = beta./sqrt(diag(C));
 disp('t-statistic values');
 disp(ts')
 </pre>
-<p id="p-776">How to intepret these results? Can the model be improved by discarding some explanatory variables which fail to explain anything?</p></section></div></main>
+<p id="p-779">How to intepret these results? Can the model be improved by discarding some explanatory variables which fail to explain anything?</p></section></div></main>
 </div>
 </body>
 </html>

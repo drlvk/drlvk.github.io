@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:29-05:00    *-->
+<!--*    on 2021-02-07T18:00:26-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Using this random unit vector in a loop, like in <a class="xref" data-knowl="./knowl/example-monte-carlo-box.html" title="Example 18.3.1: Implement the Monte-Carlo method over a high-dimensional cube">Example 18.3.1</a>, we can find an approximate value of the average of a function \(f\) over the unit sphere \(\{\mathbf x\in \mathbb R^d\colon |\mathbf x|=1\}\text{.}\) This method works specifically for the normal distribution because of the following property of its probability density function \(p\text{:}\) the product \(p(x_1)p(x_2)\cdots p(x_d)\) depends only on the norm of vector \(\mathbf x\text{.}\)</p>
+<p>The above code is not vectorized: it uses a loop to evaluate \(f\) at consecutive points. One could generate all these points at once with <code class="code-inline tex2jax_ignore">rand(N, d)</code> and try to get all values of  \(f\) at once. But this requires coding <code class="code-inline tex2jax_ignore">f</code> in such a way that it can consume a matrix and produce a vector of values, and this may be difficult.</p>
 <span class="incontext"><a href="section-integration-monte-carlo.html#p-575">in-context</a></span>
 </body>
 </html>

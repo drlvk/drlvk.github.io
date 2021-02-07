@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:27-05:00    *-->
+<!--*    on 2021-02-07T18:00:24-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Here is a quick computation in Matlab console which compares the performance of both formulas on the function \(f(x) = e^x\) at \(x = 0\) with \(h = 0.1\text{.}\) The error of symmetric difference formula is about 30 times smaller in this example, despite the same value of \(h\) and the same amount of computations involved.</p>
+<p>Although the formula <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a> looks natural, it is not the best way to find the approximate value of \(f'(x)\text{.}\) The following <dfn class="terminology">symmetric difference</dfn> formula works better:</p>
+<div class="displaymath">
+\begin{equation}
+f'(x) \approx \frac{f(x+h)-f(x-h)}{2h}\tag{12.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">The following computation explains why.</p>
 <span class="incontext"><a href="section-symmetric-difference.html#p-408">in-context</a></span>
 </body>
 </html>

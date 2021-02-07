@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:11-05:00    *-->
+<!--*    on 2021-02-07T18:00:07-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -89,6 +89,7 @@ MathJax.Hub.Config({
 <li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
 <li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
 <li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="section-comments-sections.html" data-scroll="section-comments-sections">Comments and sections in a script</a></li>
 <li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">Examples and questions</a></li>
 <li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
 </ul>
@@ -408,7 +409,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-adaptive-integration-error-estimate"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">17.2</span> <span class="title">Estimating error by using two step sizes</span>
 </h2>
-<p id="p-534">A practical way to estimate the error of some method of integration is to use it twice with two different step sizes, and compare the results. Typically, one compares the computations with steps \(h\) and \(h/2\text{.}\) Say, the first computation resulted in \(A_1\) and the second, more accurate, in \(A_2\text{.}\) If the exact value is \(E\text{,}\) then we expect \(|A_1-E|\approx 2^d|A_2-E|\) where \(d\) is the order of accuracy of the method. By the triangle inequality,</p>
+<p id="p-537">A practical way to estimate the error of some method of integration is to use it twice with two different step sizes, and compare the results. Typically, one compares the computations with steps \(h\) and \(h/2\text{.}\) Say, the first computation resulted in \(A_1\) and the second, more accurate, in \(A_2\text{.}\) If the exact value is \(E\text{,}\) then we expect \(|A_1-E|\approx 2^d|A_2-E|\) where \(d\) is the order of accuracy of the method. By the triangle inequality,</p>
 <div class="displaymath">
 \begin{equation*}
 |A_1-A_2| \ge |A_1-E| - |A_2-E| \approx (2^d-1) |A_2-E| 
@@ -421,7 +422,7 @@ MathJax.Hub.Config({
 \end{equation}
 </div>
 <p data-braille="continuation">where the symbol \(\lessapprox\) means the error is bounded by something like the right hand side. We do not assert this is an exact inequality, because the relation involving \(2^d\) is only approximate.</p>
-<p id="p-535">Let us return to <a class="xref" data-knowl="./knowl/example-simpson-error-estimate-poor.html" title="Example 17.1.1: Error of Simpson's method">Example 17.1.1</a> where Simpson's method with \(h=4\) was used to get an approximation \(A_1 = 96.9618\text{.}\) Reducing the step size to \(h=2\) we get a second approximation:</p>
+<p id="p-538">Let us return to <a class="xref" data-knowl="./knowl/example-simpson-error-estimate-poor.html" title="Example 17.1.1: Error of Simpson's method">Example 17.1.1</a> where Simpson's method with \(h=4\) was used to get an approximation \(A_1 = 96.9618\text{.}\) Reducing the step size to \(h=2\) we get a second approximation:</p>
 <div class="displaymath">
 \begin{equation*}
 A_2 = \frac{2}{3}(f(1) + 4f(3) + 2f(5) + 4f(7) + f(9)) \approx 96.8176

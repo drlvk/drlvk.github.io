@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:27-05:00    *-->
+<!--*    on 2021-02-07T18:00:23-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>If <code class="code-inline tex2jax_ignore">a</code> and <code class="code-inline tex2jax_ignore">b</code> are column vectors with \(n\) entries, then <code class="code-inline tex2jax_ignore">a'*b</code> in Matlab is their scalar product (also called the inner product or the dot product):</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{pmatrix}a_1 \amp a_2 \amp \cdots \amp a_n \end{pmatrix} \begin{pmatrix}b_1 \\ b_2 \\ \cdots \\ b_n \end{pmatrix} = a_1b_1 + a_2b_2 + \dots +a_n b_n 
-\end{equation*}
-</div>
-<p data-braille="continuation">where multiplication is carried out by the rules of matrix products: 1<span class="times-sign">×</span>n matrix times n<span class="times-sign">×</span>1 matrix gives a 1<span class="times-sign">×</span>1 matrix, a single number. The rules of matrix multiplication also allow us to compute <code class="code-inline tex2jax_ignore">a*b'</code>:</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{pmatrix}a_1 \\ a_2 \\ \cdots \\ a_n \end{pmatrix} \begin{pmatrix}b_1 \amp b_2 \amp \cdots \amp b_n \end{pmatrix} = 
-\begin{pmatrix}
-a_1b_1 \amp a_1b_2 \amp \dots \amp  a_1 b_n \\  
-a_2b_1 \amp a_2b_2 \amp \dots \amp  a_2 b_n \\  
-\vdots \amp \vdots \amp \ddots \amp  \vdots \\  
-a_nb_1 \amp a_nb_2 \amp \dots \amp  a_n b_n \\  
-\end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">This matrix is the <dfn class="terminology">outer product</dfn> of vectors \(\mathbf a\) and \(\mathbf b\text{.}\) Since all of its rows are proportional to one another, its rank is at most 1. The rank is 0 if one of two vectors is the zero vector; otherwise it is equal to 1.</p>
-<span class="incontext"><a href="section-broyden-linear-algebra.html#p-375">in-context</a></span>
+<p>Let us return to one-variable situation first. Newton's method proceeds in steps computed as \(h = -f(x_0)/f'(x_0)\) which requires the knowledge of \(f'(x_0)\text{.}\) Suppose we do not know the derivative but are willing to guess. For notational convenience, let us say we are guessing the value of \(1/f'(x_0)\text{.}\) We want some non-zero number. Knowing nothing whatsoever, we can guess "1". Let us call this guess \(b_0 = 1\text{.}\) Armed with this number, we proceed as usual in Newton's method: make the step \(h = -b_0 f(x_0)\) arriving at the point \(x_1 = x_0\text{.}\)</p>
+<span class="incontext"><a href="section-broyden-intro.html#p-375">in-context</a></span>
 </body>
 </html>

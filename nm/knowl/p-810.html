@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:32-05:00    *-->
+<!--*    on 2021-02-07T18:00:29-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The two middle lines describe the logic of the method: set up a model as a function of explanatory variable(s) <code class="code-inline tex2jax_ignore">x</code> and parameter(s) <code class="code-inline tex2jax_ignore">b</code>, then minimize the sum of squares of the deviations <code class="code-inline tex2jax_ignore">y - f(x, b)</code>. Finally, the optimal (?) values of parameter <code class="code-inline tex2jax_ignore">b</code> are used to plot the best-fitting curve.</p>
+<p>Since our models generally have more than one parameter, we need multivariable <code class="code-inline tex2jax_ignore">fminsearch</code>. For example,</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(b) b(1)^2 + b(2)^4 + 3*b(1) - b(2), [1; 2])
+</pre>
+<p data-braille="continuation">finds the minimum of \(b_1^2 + b_2^4 + 3b_1 - b_2\) (using letter b to shorten the formula, as usually our parameters are called \(\beta_1, \beta_2,\dots\text{.}\)) Note that the function being minimized still has only one  argument, but this argument is now a vector.</p>
 <span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-810">in-context</a></span>
 </body>
 </html>

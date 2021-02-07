@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:33-05:00    *-->
+<!--*    on 2021-02-07T18:00:30-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Given a triangle \(ABC\) in \(xy\)-plane, we evaluate the function \(f\) at its vertices. The vertex with the largest value of \(f\) (for example, \(C\)) <em class="emphasis">might</em> get replaced by its reflection. One could imagine reflecting \(C\) about the opposite side \(AB\) by dropping a perpendicular line from \(C\) onto \(AB\) and following it. However, this kind of reflection is not invariant under linear transformations of \(xy\) plane, such as the scaling of coordinates. The Nelder-Mead method uses reflection about the midpoint of \(AB\) which can be expressed in vector form as</p>
-<div class="displaymath">
-\begin{equation}
-R = A + B - C = (A+B+C) - 2C\tag{33.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">The second version is slightly easier to code, see below.</p>
-<span class="incontext"><a href="section-nelder-mead-reflect.html#p-903">in-context</a></span>
+<p>Remark: the combination of ideas of Broyden's method and line search, with some modifications, is known as the <a class="external" href="https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm" target="_blank">BFGS algorithm</a>, which is widely used for gradient-based unconstrained optimization. It is implemented in Matlab (<code class="code-inline tex2jax_ignore">fminunc</code> command), Python scientific library SciPy, etc.</p>
+<span class="incontext"><a href="exercises-gradient-newton-conjugate.html#p-903">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:22-05:00    *-->
+<!--*    on 2021-02-07T18:00:18-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -89,6 +89,7 @@ MathJax.Hub.Config({
 <li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
 <li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
 <li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="section-comments-sections.html" data-scroll="section-comments-sections">Comments and sections in a script</a></li>
 <li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">Examples and questions</a></li>
 <li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
 </ul>
@@ -408,21 +409,21 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-linear-programming-introduction"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">35.1</span> <span class="title">Introduction to linear programming</span>
 </h2>
-<p id="p-940">Suppose we want to maximize the function \(f(\mathbf x) = x_1+2x_2-5x_3\) subject to constraints \(0\le x_1\le x_2\le x_3\le 10\) and \(2x_3 - x_1\ge 3\text{.}\) This is a linear programming <dfn class="terminology">(LP)</dfn> problem, since each constraint is a linear inequality and the objective function is linear.</p>
-<p id="p-941">There are various <dfn class="terminology">standard forms</dfn> to which linear programming problems can be transformed by  manipulations such as the following:</p>
+<p id="p-943">Suppose we want to maximize the function \(f(\mathbf x) = x_1+2x_2-5x_3\) subject to constraints \(0\le x_1\le x_2\le x_3\le 10\) and \(2x_3 - x_1\ge 3\text{.}\) This is a linear programming <dfn class="terminology">(LP)</dfn> problem, since each constraint is a linear inequality and the objective function is linear.</p>
+<p id="p-944">There are various <dfn class="terminology">standard forms</dfn> to which linear programming problems can be transformed by  manipulations such as the following:</p>
 <ul class="disc">
 <li id="li-194">An equality constraint can be expressed as the combination of \(\le \) and \(\ge\) constraints.</li>
 <li id="li-195">Any \(\ge \) constraint becomes \(\le \) after multiplication by \(-1\text{.}\)</li>
 <li id="li-196">Maximization of \(f\) is equivalent to minimization of \(-f\text{.}\)</li>
 </ul>
-<p id="p-942">Using the transformations described above, any LP can be expressed as:</p>
+<p id="p-945">Using the transformations described above, any LP can be expressed as:</p>
 <div class="displaymath">
 \begin{equation}
 \mathbf c^T \mathbf x\to \min  \quad \text{where } A\mathbf x \le \mathbf b\label{eq-standard-form-IR}\tag{35.1.1}
 \end{equation}
 </div>
 <p data-braille="continuation">where the inequality between vectors \(A\mathbf x \le \mathbf b\) is understood as a system of linear inequalities: each component on the left is less than or equal to the corresponding component on the right. Compare this to how  \(A\mathbf x  = \mathbf b\) means a system of linear equations.</p>
-<p id="p-943">Sometimes the nature of the problem requires the variables \(x_k\) to be nonnegative, which leads to</p>
+<p id="p-946">Sometimes the nature of the problem requires the variables \(x_k\) to be nonnegative, which leads to</p>
 <div class="displaymath">
 \begin{equation}
 \mathbf c^T \mathbf x\to \min  \quad \text{where } A\mathbf x \le \mathbf b, \quad \mathbf x \ge 0\label{eq-standard-form-IN}\tag{35.1.2}
@@ -435,34 +436,34 @@ MathJax.Hub.Config({
 \end{equation}
 </div>
 <p data-braille="continuation">One can convert between these three “standard” forms as follows.</p>
-<p id="p-944">From <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a> to <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a>: replace each variable \(x_k\) with the difference \(x_k = x_k' - x_k''\text{,}\) and require \(x_k', x_k''\) to be nonnegative. Since every real number is the difference of two nonnegative numbers, this does not change the essence of the problem. In terms of \(A, b\text{,}\) this transformation keeps \(\mathbf b\) the same but doubles the size of \(A\) by appending \(-A\) to the right. The vector \(\mathbf c\) is similarly doubled.</p>
-<p id="p-945">From <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a> to <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a>: add linear inequalities of the form \(-x_k \le 0\text{.}\) This means appending \(-I\) to the bottom of matrix \(A\text{,}\) with zeros added to the bottom of vector \(\mathbf b\text{.}\)</p>
-<p id="p-946">From <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a> to <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a>: introduce <dfn class="terminology">slack variables</dfn> \(z_k = b_k - (A\mathbf x)_k\text{.}\) Then replace all linear inequalities \(A\mathbf x\le \mathbf b\) with nonnegativity constraints \(\mathbf z\ge 0\text{.}\) What remains is the definition of slack variables, which is a system of linear <em class="emphasis">equations</em>.</p>
-<p id="p-947">From <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a> to <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a>: rewrite each linear equation as two linear inequalities. That is, a system of linear equations \(A\mathbf x = \mathbf b\) is equivalent to having two systems of linear inequalities: \(A\mathbf x \le \mathbf b\)  and \(A\mathbf x \ge \mathbf b\text{.}\) The latter system is rewritten as \((-A)\mathbf x \le -\mathbf b\) and appended to the former.</p>
-<p id="p-948">In Matlab, the problem <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a> is solved with</p>
+<p id="p-947">From <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a> to <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a>: replace each variable \(x_k\) with the difference \(x_k = x_k' - x_k''\text{,}\) and require \(x_k', x_k''\) to be nonnegative. Since every real number is the difference of two nonnegative numbers, this does not change the essence of the problem. In terms of \(A, b\text{,}\) this transformation keeps \(\mathbf b\) the same but doubles the size of \(A\) by appending \(-A\) to the right. The vector \(\mathbf c\) is similarly doubled.</p>
+<p id="p-948">From <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a> to <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a>: add linear inequalities of the form \(-x_k \le 0\text{.}\) This means appending \(-I\) to the bottom of matrix \(A\text{,}\) with zeros added to the bottom of vector \(\mathbf b\text{.}\)</p>
+<p id="p-949">From <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a> to <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a>: introduce <dfn class="terminology">slack variables</dfn> \(z_k = b_k - (A\mathbf x)_k\text{.}\) Then replace all linear inequalities \(A\mathbf x\le \mathbf b\) with nonnegativity constraints \(\mathbf z\ge 0\text{.}\) What remains is the definition of slack variables, which is a system of linear <em class="emphasis">equations</em>.</p>
+<p id="p-950">From <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a> to <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a>: rewrite each linear equation as two linear inequalities. That is, a system of linear equations \(A\mathbf x = \mathbf b\) is equivalent to having two systems of linear inequalities: \(A\mathbf x \le \mathbf b\)  and \(A\mathbf x \ge \mathbf b\text{.}\) The latter system is rewritten as \((-A)\mathbf x \le -\mathbf b\) and appended to the former.</p>
+<p id="p-951">In Matlab, the problem <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a> is solved with</p>
 <pre class="code-block tex2jax_ignore">
 x = linprog(c, A, b)
 </pre>
 <p data-braille="continuation">which returns the optimal \(\mathbf x\text{.}\) One can get the optimal value of objective function with <code class="code-inline tex2jax_ignore">c'*x</code>.</p>
 <article class="example example-like" id="example-solving-with-linprog"><a data-knowl="" class="id-ref original" data-refid="hk-example-solving-with-linprog"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">35.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">A simple linear programming problem.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-solving-with-linprog"><article class="example example-like"><p id="p-949">Maximize \(x_1+x_2\) subject to constraints \(x_1 + 2x_2 \le 4\) and \(3x_1 + x_2 \le 5\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-solving-with-linprog"><article class="example example-like"><p id="p-952">Maximize \(x_1+x_2\) subject to constraints \(x_1 + 2x_2 \le 4\) and \(3x_1 + x_2 \le 5\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-61" id="solution-61"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-61"><div class="solution solution-like">
-<p id="p-950">Rephrasing this as the minimization of \(-x_1-x_2\text{,}\) we see that the coefficient vector should be <code class="code-inline tex2jax_ignore">[-1 -1]</code>. Executing</p>
+<p id="p-953">Rephrasing this as the minimization of \(-x_1-x_2\text{,}\) we see that the coefficient vector should be <code class="code-inline tex2jax_ignore">[-1 -1]</code>. Executing</p>
 <pre class="code-block tex2jax_ignore">
 linprog([-1; -1], [1 2; 3 1], [4; 5])
 </pre>
 <p data-braille="continuation">yields <code class="code-inline tex2jax_ignore">[1.2; 1.4]</code>. (Try to visualize this problem and its solution.)</p>
 </div></div>
 </div></article></div>
-<p id="p-951"><a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a> illustrates basic use of <code class="code-inline tex2jax_ignore">linprog</code>. This command allows more parameters which express equality constraints and additional lower and upper bounds on the variables: see <code class="code-inline tex2jax_ignore">help linprog</code>.</p>
-<p id="p-952"><em class="emphasis">Octave-specific remark</em>. The current version of Octave has a similar function <code class="code-inline tex2jax_ignore">glpk</code> instead of <code class="code-inline tex2jax_ignore">linprog</code>. The main difference is that <code class="code-inline tex2jax_ignore">glpk(c, A, b)</code> solves <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a> instead of <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a>. However, the fourth argument of <code class="code-inline tex2jax_ignore">glpk</code> can be used to set lower bounds to \(-\infty\) instead of \(0\text{,}\) the fifth argument (for upper bounds) can be left empty <code class="code-inline tex2jax_ignore">[]</code>, and the sixth argument is a string indicating the form of constraints, with letters 'U' for \(\le\text{.}\) So, <a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a> with Octave would be</p>
+<p id="p-954"><a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a> illustrates basic use of <code class="code-inline tex2jax_ignore">linprog</code>. This command allows more parameters which express equality constraints and additional lower and upper bounds on the variables: see <code class="code-inline tex2jax_ignore">help linprog</code>.</p>
+<p id="p-955"><em class="emphasis">Octave-specific remark</em>. The current version of Octave has a similar function <code class="code-inline tex2jax_ignore">glpk</code> instead of <code class="code-inline tex2jax_ignore">linprog</code>. The main difference is that <code class="code-inline tex2jax_ignore">glpk(c, A, b)</code> solves <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a> instead of <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a>. However, the fourth argument of <code class="code-inline tex2jax_ignore">glpk</code> can be used to set lower bounds to \(-\infty\) instead of \(0\text{,}\) the fifth argument (for upper bounds) can be left empty <code class="code-inline tex2jax_ignore">[]</code>, and the sixth argument is a string indicating the form of constraints, with letters 'U' for \(\le\text{.}\) So, <a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a> with Octave would be</p>
 <pre class="code-block tex2jax_ignore">
 glpk([-1; -1], [1 2; 3 1], [4; 5], [-Inf; -Inf], [], 'UU')
 </pre>
 <p data-braille="continuation">See <code class="code-inline tex2jax_ignore">help glpk</code> for more.</p>
-<p id="p-953">As an additional example, let us solve the problem at the beginning of this section. The objective function \(f(\mathbf x) = x_1+2x_2-5x_3\) was to be maximized, so we minimize \(-f\) which means <code class="code-inline tex2jax_ignore">c = [-1; -2; 5]</code>. The constraints \(0\le x_1\le x_2\le x_3\le 10\) become \(-x_1\le 0\text{,}\) \(x_1-x_2\le 0\text{,}\) \(x_2-x_3\le 0\text{,}\) and \(x_3\le 10\text{.}\) Finally, \(2x_3 - x_1\ge 3\) becomes \(x_1 - 2x_3 \le -3\text{.}\) We arrive at a system of five linear constraints, summarized in <code class="code-inline tex2jax_ignore">A, b</code> below:</p>
+<p id="p-956">As an additional example, let us solve the problem at the beginning of this section. The objective function \(f(\mathbf x) = x_1+2x_2-5x_3\) was to be maximized, so we minimize \(-f\) which means <code class="code-inline tex2jax_ignore">c = [-1; -2; 5]</code>. The constraints \(0\le x_1\le x_2\le x_3\le 10\) become \(-x_1\le 0\text{,}\) \(x_1-x_2\le 0\text{,}\) \(x_2-x_3\le 0\text{,}\) and \(x_3\le 10\text{.}\) Finally, \(2x_3 - x_1\ge 3\) becomes \(x_1 - 2x_3 \le -3\text{.}\) We arrive at a system of five linear constraints, summarized in <code class="code-inline tex2jax_ignore">A, b</code> below:</p>
 <pre class="code-block tex2jax_ignore">
 c = [-1; -2; 5];
 A = [-1 0 0; 1 -1 0; 0 1 -1; 0 0 1; 1 0 -2];
@@ -471,14 +472,14 @@ x = linprog(c, A, b);
 fprintf('Found x = (%g, %g, %g) with c*x = %g \n', x, c'*x) ;
 </pre>
 <p data-braille="continuation">Note that <code class="code-inline tex2jax_ignore">A*x</code> is the vector <code class="code-inline tex2jax_ignore">[0; -1.5; 0; 1.5; -3]</code> where three of components are equal to the components of <code class="code-inline tex2jax_ignore">b</code> and the others are strictly less. The equality means that the corresponding constraints, such as \(-x_1 \le 0\text{,}\) are <dfn class="terminology">active</dfn> at the optimal point: the point pushes against them. The constraints \(x_1\le x_2\) and \(x_3\le 10\) are <dfn class="terminology">inactive</dfn> at this point: they hold as strict inequalities. The solution would stay the same if the inactive constraints were removed.</p>
-<p id="p-954">The following terms may appear in error messages or warnings issued by <code class="code-inline tex2jax_ignore">linprog</code> or its analogues in other software.</p>
+<p id="p-957">The following terms may appear in error messages or warnings issued by <code class="code-inline tex2jax_ignore">linprog</code> or its analogues in other software.</p>
 <ul class="disc">
 <li id="li-197">A <dfn class="terminology">feasible point</dfn> is a vector \(x\) that satisfies the constraints. The set of all such points is the feasible set.</li>
 <li id="li-198">A problem is <dfn class="terminology">infeasible</dfn> if there are no feasible points. (Example: \(x_1\ge 2\text{,}\) \(x_2\ge 2\text{,}\) \(x_1+x_2\le 3\text{.}\)) Such a problem has no solution.</li>
 <li id="li-199">A problem is <dfn class="terminology">unbounded</dfn> if the objective function takes arbitrarily small values on the feasible set (in case of minimization) or arbitrarily large values (in case of maximization). Such a problem has no solution.</li>
 <li id="li-200">If the feasible set is nonempty and bounded, the problem surely has a solution. But it is possible to have an unbounded feasible set on which the objective function is bounded: recall <a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a>.</li>
 </ul>
-<p id="p-955">Applied LP problems tend to have many variables and constraints, and a lot of work went into developing refining its solution methods such as the simplex method (walking along the edges of the feasible set) and interior point methods (moving through the interior of the feasible set toward its boundary).</p></section></div></main>
+<p id="p-958">Applied LP problems tend to have many variables and constraints, and a lot of work went into developing refining its solution methods such as the simplex method (walking along the edges of the feasible set) and interior point methods (moving through the interior of the feasible set toward its boundary).</p></section></div></main>
 </div>
 </body>
 </html>

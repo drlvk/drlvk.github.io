@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:26-05:00    *-->
+<!--*    on 2021-02-07T18:00:23-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Recall from <a class="xref" data-knowl="./knowl/example-bisection-discontinuity.html" title="Example 7.5.2: Incorrect answer obtained by bisection">Example 7.5.2</a> that the bisection method had a difficulty with the equation \(\tan x = 0\text{,}\) mistaking a discontinuity of this function for its root. How does Newton's method behave here, and why?</p>
-<span class="incontext"><a href="examples-newton-secant.html#p-322">in-context</a></span>
+<p>How to determine an appropriate value of \(\omega\text{?}\) Consider the case of a multiple root: \(f(x) = x^p\) with \(p &gt; 1\text{.}\)  Here</p>
+<div class="displaymath">
+\begin{equation*}
+g(x) = x - \omega \frac{f(x)}{f'(x)} = x - \omega \frac{x^p}{px^{p-1}} = (1- \omega/p)x
+\end{equation*}
+</div>
+<p data-braille="continuation">so the best value to use \(\omega = p\text{,}\) which makes \(g(x)=0\text{,}\) the solution is found in one step. So, for a double root, when the graph of \(f\) looks like a parabola near the root, we should use over-relaxation with \(\omega = 2\text{;}\) for triple roots, \(\omega = 3\text{,}\) and so on. Over-relaxation needs to be done very carefully: in these examples, any value of \(\omega\) other than the correct one will fail to achieve the desired speed up of convergence.</p>
+<span class="incontext"><a href="section-relaxation-parameter.html#p-322">in-context</a></span>
 </body>
 </html>

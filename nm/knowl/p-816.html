@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:32-05:00    *-->
+<!--*    on 2021-02-07T18:00:29-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The problem is solved in three lines: model function, optimization, output. The components of vector <code class="code-inline tex2jax_ignore">b</code> below represent the parameters  \(A, C, u, v\) in this order.</p>
+<p>The theory of partial differential equations tells us that if a substance diffuses from a point source at \((u, v)\) under somewhat idealized conditions (ignoring currents, decay, etc) then its concentration after some time will be expressed by the two-dimensional Gaussian function</p>
+<div class="displaymath">
+\begin{equation}
+z = A\exp\left(-C((x-u)^2 + (y-v)^2)\right)\tag{29.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">Here \(A, C\) are the shape parameters of the Gaussian (describing how tall and wide it is) and \((u, v)\) are its location parameters (where it is centered). We are really interested in the latter, but all four will need to be determined by the nonlinear least squares process.</p>
 <span class="incontext"><a href="section-source-location.html#p-816">in-context</a></span>
 </body>
 </html>

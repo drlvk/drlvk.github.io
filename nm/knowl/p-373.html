@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:27-05:00    *-->
+<!--*    on 2021-02-07T18:00:23-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Our next guess, for the value of \(1/f'(x_1)\) can be better educated: we can think of the secant line through the two points \((x_0, f(x_0))\) and \((x_1, f(x_1))\text{,}\) and decide it would be logical for \(b_1\) to be the reciprocal of the slope of this secant line. This means we pick \(b_1\) so that</p>
-<div class="displaymath">
-\begin{equation}
-b_1(f(x_1)- f(x_0)) = x_1-x_0 \tag{11.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">Then the process continues: we make the step \(h = -b_1 f(x_1)\text{,}\) arrive at \(x_2 = x_1+h\) and use the secant slope through the two newest points,</p>
-<div class="displaymath">
-\begin{equation*}
-b_2(f(x_2)- f(x_1)) = x_2-x_1 
-\end{equation*}
-</div>
-<p data-braille="continuation">Apart from the initial uneducated guess for \(b_0\) this is exactly the secant method, expressed in different notation.</p>
-<span class="incontext"><a href="section-broyden-intro.html#p-373">in-context</a></span>
+<p>A major difficulty in using multivariate Newton's method is having to specify the Jacobian matrix. Broyden's method offers a workaround by building an approximation to the Jacobian matrix based on the values of the function. It can be viewed as a multivariate form of the secant method.</p>
+<span class="incontext"><a href="chapter-broyden.html#p-373">in-context</a></span>
 </body>
 </html>

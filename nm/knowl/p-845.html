@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:32-05:00    *-->
+<!--*    on 2021-02-07T18:00:29-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This is a bracket-based method for minimization which is similar to bisection method. However, if we applied bisection method to \(f'\) we might find a local maximum. The <dfn class="terminology">golden section</dfn> search will not do that; it is designed to search for a minimum.</p>
-<span class="incontext"><a href="section-golden-section.html#p-845">in-context</a></span>
+<p>The result is obtained quickly: “Found x = 0.169938 with f(x) = 1.08414 after 5 steps”. But is this a minimum? Try</p>
+<pre class="code-block tex2jax_ignore">
+t = linspace(-2, 2, 1000);
+plot(t, f(t))
+</pre>
+<p data-braille="continuation">to check. Also, note that looking at a graph like this is essentially a human-assisted brute-force search, since the function was evaluated on a uniform grid through the interval \([-2, 2]\text{.}\)</p>
+<span class="incontext"><a href="section-newton-method-min.html#p-845">in-context</a></span>
 </body>
 </html>

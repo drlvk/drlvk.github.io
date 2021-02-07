@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:31-05:00    *-->
+<!--*    on 2021-02-07T18:00:28-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The <a class="external" href="https://en.wikipedia.org/wiki/JPEG#Encoding" target="_blank">JPEG compression algorithm</a> is based on the Fourier Transform but differs from the above example in several ways:</p>
-<ul class="disc">
-<li>It divides the image into 8<span class="times-sign">×</span>8 pixel blocks and operates on each block separately.</li>
-<li>It uses Discrete Cosine Transform in which the role of complex exponentials \(\exp(2\pi i k/m)\) is played by cosine functions \(\cos(2\pi k/m)\text{.}\) This improves the efficiency and eliminates the appearance of complex numbers.</li>
-<li>In addition to setting small Fourier coefficients to 0, it quantizes the other ones: rounds to the nearest integer, or nearest multiple of 5, etc.</li>
-<li>Since setting many elements to 0 does not by itself make a matrix smaller, the final step of the process is running a lossless compression algorithm which exploits the existence of many equal entries in the matrix.</li>
-</ul>
+<p>We can set all small Fourier coefficients (less than some threshold <code class="code-inline tex2jax_ignore">thr</code>) to zero using <code class="code-inline tex2jax_ignore">fc(abs(fc) &lt; thr) = 0;</code>. One way to determine the threshold reasonably is to use <dfn class="terminology">percentiles</dfn>: for example,</p>
+<pre class="code-block tex2jax_ignore">
+thr = prctile(abs(fc(:)), 75);
+</pre>
+<p data-braille="continuation">returns the number <code class="code-inline tex2jax_ignore">thr</code> such that 75 percent of Fourier coefficients are less than it, and the other are greater (in absolute value).</p>
 <span class="incontext"><a href="section-2d-dft.html#p-746">in-context</a></span>
 </body>
 </html>

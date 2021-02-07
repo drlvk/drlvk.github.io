@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:29-05:00    *-->
+<!--*    on 2021-02-07T18:00:26-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Thinking of the set of all polynomials of degree less than \(n\) is a vector space of dimension \(n\text{,}\) we should realize this space may have a better basis for our task than \(x^0, x^1, \dots, x^{n-1}\text{.}\) Given interpolation data \((x_k, y_k)\) with \(k=1, \dots, n\text{,}\) we can construct one such basis as follows. The <dfn class="terminology">Lagrange basis polynomials</dfn> are</p>
-<div class="displaymath">
-\begin{equation}
-\ell_k (x) = \prod_{j\ne k} \frac{x-x_j}{x_k-x_j} \tag{21.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">They are constructed so that \(\ell_k(x_j)=0\) when \(j\ne k\) and \(\ell_k(x_k)=1\text{.}\) Consequently, in this basis the interpolation problem is solved with the Lagrange interpolating polynomial</p>
-<div class="displaymath">
-\begin{equation}
-p(x) = \sum_{k=1}^n y_k\ell_k(x) \tag{21.2.2}
-\end{equation}
-</div>
-<p data-braille="continuation">which obviously satisfies \(p(x_k)=y_k\text{.}\) The coefficients of interpolating polynomial in this basis are just the given \(y\)-values.</p>
-<span class="incontext"><a href="section-lagrange-polynomial.html#p-630">in-context</a></span>
+<p>Given \(n\) data points \((x_k, y_k)\) with \(k=1, \dots, n\text{,}\) where all \(x_k\) are different, we are looking for a polynomial \(p\) of degree \(\lt n\) such that \(p(x_k) = y_k\) for  \(k=1, \dots, n\text{.}\) A straightforward way is to do this is to write \(p(x) = \sum_{j=0}^{n-1} c_j x^j\) and solve a linear system for \(c_j\text{;}\) it has \(n\) equations with \(n\) unknowns. But this process is both slow and numerically fragile; the matrix of the linear system is likely to be ill-conditioned. And even if we could find the coefficients of monomials \(x_j\) easily, we do not necessarily want to, for the following reason.</p>
+<span class="incontext"><a href="section-monomial-basis.html#p-630">in-context</a></span>
 </body>
 </html>

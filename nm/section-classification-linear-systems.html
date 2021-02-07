@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:03-05:00    *-->
+<!--*    on 2021-02-07T17:59:59-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -89,6 +89,7 @@ MathJax.Hub.Config({
 <li><a href="section-vectors-matrices.html" data-scroll="section-vectors-matrices">Creating vectors and matrices</a></li>
 <li><a href="section-operations-vectors-matrices.html" data-scroll="section-operations-vectors-matrices">Operations on vectors and matrices</a></li>
 <li><a href="section-indexing-vectors-matrices.html" data-scroll="section-indexing-vectors-matrices">Accessing the entries of vectors and matrices</a></li>
+<li><a href="section-comments-sections.html" data-scroll="section-comments-sections">Comments and sections in a script</a></li>
 <li><a href="examples-matrices-vectors.html" data-scroll="examples-matrices-vectors">Examples and questions</a></li>
 <li><a href="exercises-matrices-vectors.html" data-scroll="exercises-matrices-vectors">Homework</a></li>
 </ul>
@@ -408,8 +409,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-classification-linear-systems"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.1</span> <span class="title">Classification of linear systems</span>
 </h2>
-<p id="p-202">A system of \(m\) linear equations with \(n\) unknowns can be written as \(Ax=b\) where \(A\) is a \(m\times n\) matrix, \(x\) is an unknown column vector with \(n\) coordinates, and \(b\) is a known column vector with \(m\) coordinates.  Linear systems are classified by consistency and shape.</p>
-<p id="p-203">A linear system is called <dfn class="terminology">consistent</dfn> if it has at least one solution. Otherwise it is <dfn class="terminology">inconsistent</dfn>. So, in terms of solutions there are three possibilities:</p>
+<p id="p-205">A system of \(m\) linear equations with \(n\) unknowns can be written as \(Ax=b\) where \(A\) is a \(m\times n\) matrix, \(x\) is an unknown column vector with \(n\) coordinates, and \(b\) is a known column vector with \(m\) coordinates.  Linear systems are classified by consistency and shape.</p>
+<p id="p-206">A linear system is called <dfn class="terminology">consistent</dfn> if it has at least one solution. Otherwise it is <dfn class="terminology">inconsistent</dfn>. So, in terms of solutions there are three possibilities:</p>
 <ol class="decimal">
 <li id="li-59">consistent with a unique solution</li>
 <li id="li-60">consistent with infinitely many solutions</li>
@@ -423,18 +424,18 @@ a_{21}x_1 + a_{22}x_2 \amp = b_2
 \end{align*}
 </div>
 <p data-braille="continuation">Each of these equations determines a line in the plane. In Case 1 the two lines intersect; in Case 2 they are the same line; in Case 3 they are parallel.</p>
-<p id="p-204">In terms of shape, a linear system is <dfn class="terminology">square</dfn> if it has as many equations as unknowns, \(m = n\text{.}\) It is called <dfn class="terminology">underdetermined</dfn> there are fewer equations than variables: \(m \lt n\text{,}\) matrix has more columns than rows. A system is <dfn class="terminology">overdetermined</dfn> if it has more  equations than variables: \(m \gt n\text{,}\) matrix has more rows than columns.</p>
-<p id="p-205">The three shapes do not exactly correspond to the three classes based on consistency. But if you pick a matrix at random (like using <code class="code-inline tex2jax_ignore">rand</code>), you will find that overdetermined systems are usually inconsistent, underdetermined systems are usually consistent with infinite solutions, and square systems are usually  consistent with a unique solution.</p>
-<p id="p-206">The consistency can be analyzed in terms of the <dfn class="terminology">rank</dfn> of a matrix. By definition, a matrix has rank \(r\) if it has \(r\) linearly independent columns, and all other columns are their linear combinations. One can replace “columns” by “rows” in the previous sentence. One can compute the rank with <code class="code-inline tex2jax_ignore">rank</code> in Matlab. Also, the Matlab formula <code class="code-inline tex2jax_ignore">[A b]</code> forms the <dfn class="terminology">augmented matrix</dfn> of the system  \(Ax=b\text{,}\) which has an extra column with the entries of \(b\text{.}\)</p>
+<p id="p-207">In terms of shape, a linear system is <dfn class="terminology">square</dfn> if it has as many equations as unknowns, \(m = n\text{.}\) It is called <dfn class="terminology">underdetermined</dfn> there are fewer equations than variables: \(m \lt n\text{,}\) matrix has more columns than rows. A system is <dfn class="terminology">overdetermined</dfn> if it has more  equations than variables: \(m \gt n\text{,}\) matrix has more rows than columns.</p>
+<p id="p-208">The three shapes do not exactly correspond to the three classes based on consistency. But if you pick a matrix at random (like using <code class="code-inline tex2jax_ignore">rand</code>), you will find that overdetermined systems are usually inconsistent, underdetermined systems are usually consistent with infinite solutions, and square systems are usually  consistent with a unique solution.</p>
+<p id="p-209">The consistency can be analyzed in terms of the <dfn class="terminology">rank</dfn> of a matrix. By definition, a matrix has rank \(r\) if it has \(r\) linearly independent columns, and all other columns are their linear combinations. One can replace “columns” by “rows” in the previous sentence. One can compute the rank with <code class="code-inline tex2jax_ignore">rank</code> in Matlab. Also, the Matlab formula <code class="code-inline tex2jax_ignore">[A b]</code> forms the <dfn class="terminology">augmented matrix</dfn> of the system  \(Ax=b\text{,}\) which has an extra column with the entries of \(b\text{.}\)</p>
 <article class="theorem theorem-like" id="theorem-1"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Consistency and rank.</span>
 </h6>
-<ul id="p-207" class="disc">
+<ul id="p-210" class="disc">
 <li id="li-62">The system  \(Ax=b\) is consistent if and only if <code class="code-inline tex2jax_ignore">rank([A b])</code> is equal to <code class="code-inline tex2jax_ignore">rank(A)</code>.</li>
 <li id="li-63">A consistent system has a unique solution if and only if <code class="code-inline tex2jax_ignore">rank(A)</code> is equal to the number of columns of \(A\text{.}\)</li>
 </ul></article><article class="example example-like" id="example-35"><a data-knowl="" class="id-ref original" data-refid="hk-example-35"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Determine the consistency of a system.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><p id="p-208">Use an if-elseif-else statement with <code class="code-inline tex2jax_ignore">rank</code> to determine the consistency and the number of solutions of the system with matrix</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><p id="p-211">Use an if-elseif-else statement with <code class="code-inline tex2jax_ignore">rank</code> to determine the consistency and the number of solutions of the system with matrix</p>
 <div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 2\amp  3 \\ 4 \amp 5 \amp 6\\ 7\amp  8 \amp 9 \end{pmatrix} 

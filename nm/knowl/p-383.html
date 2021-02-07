@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:27-05:00    *-->
+<!--*    on 2021-02-07T18:00:23-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,18 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The matrix \(B_1\) is still a guess, it may be very different from the actual inverse of Jacobian matrix. But it is a more educated guess, and as this process repeats, these repeated corrections will produce more accurate guesses.</p>
+<p>Recall from <a href="section-broyden-intro.html" class="internal" title="Section 11.1: Idea of Broyden's method">Section 11.1</a> that we seek to improve our guess for the inverse of Jacobian by finding a matrix \(B_1\) such that</p>
+<div class="displaymath">
+\begin{equation*}
+B_1(\mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)) = \mathbf x_1 - \mathbf x_0 
+\end{equation*}
+</div>
+<p data-braille="continuation">To simplify notation, let \(\mathbf h = \mathbf x_1 - \mathbf x_0\) and \(\mathbf w = \mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)\text{;}\) both these vectors are known. We need</p>
+<div class="displaymath">
+\begin{equation}
+B_1 \mathbf w = \mathbf h\tag{11.3.1}
+\end{equation}
+</div>
 <span class="incontext"><a href="section-broyden-method.html#p-383">in-context</a></span>
 </body>
 </html>

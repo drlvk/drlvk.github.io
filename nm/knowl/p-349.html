@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-12-28T18:39:26-05:00    *-->
+<!--*    on 2021-02-07T18:00:23-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>As with the single-variable Newton method, we equate the linear approximation to zero and solve the linear equation. The solution of \(\mathbf F(\mathbf x) + J\mathbf h=0\) is \(\mathbf h = -J^{-1} \mathbf F(\mathbf x)\text{.}\) This formula is only for writing down the theoretical approach, in practice we do not invert the matrix \(J\) and simply ask Matlab to solve the linear system (this is more efficient than computing the inverse matrix). So, in Matlab terms the formula is <code class="code-inline tex2jax_ignore">h = -J\F(x)</code>. Having found the vector \(\mathbf h\) we replace \(\mathbf x\) with \(\mathbf x + \mathbf h\) and repeat. The process stops when the steps becomes sufficiently small, indicating we approached a solution. The size of vectors is measured by their norm: <code class="code-inline tex2jax_ignore">norm(h)</code>.</p>
+<p>Find the linear approximation to function <a class="xref" data-knowl="./knowl/eq-function-F.html" title="Equation 10.1.2">(10.1.2)</a> using <code class="code-inline tex2jax_ignore">x = [2; -1]</code> and <code class="code-inline tex2jax_ignore">h = [0.3, 0.2]</code>. Compare the approximation to the actual value of <code class="code-inline tex2jax_ignore">F(x+h)</code>.</p>
 <span class="incontext"><a href="section-multivariate-newton.html#p-349">in-context</a></span>
 </body>
 </html>
