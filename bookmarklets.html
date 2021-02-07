@@ -39,14 +39,21 @@
 <p>To use, drag the link in bold to your bookmark bar. </p>
 
 <table>
-<tr id="webwork-email">
-  <td class="name"> Open the page with WebWork problem about which you got an email.</td>
-  <td> <strong><a href="javascript:(function()%7Bw%20%3D%20document.querySelector('a%5Bhref*%3D%22webwork.syr.edu%22%5D').href.split(%22%3F%22)%5B0%5D%3Bu%20%3D%20document.querySelector('a%5Bhref*%3D%22mailto%3A%22%5D')%3Bif%20(u)%20%7Bu%20%3D%20u.href.split(%22%40%22)%5B0%5D.split(%22%3A%22)%5B1%5D%3B%7Delse%20%7Bu%20%3D%20document.querySelector('img%5Bsrc*%3D%22service.svc%22%5D')%3Bu%20%3D%20u.src.split(%22%25%22)%5B0%5D.split(%22email%3D%22)%5B1%5D%3B%7Dwindow.open(w%20%2B%20%22%3FshowCorrectAnswers%3D1%26effectiveUser%3D%22%20%2B%20u)%7D)()">WebWork email</a></strong>: 
-  When executed on a Gmail page or Outlook Web Access page with a student's email that contains a link to a WeBWork problem, it opens WebWork page with student's work. 
-  It is assumed that the student emails from their syr.edu account. The script locates the link to WebWork problem and the student's email address,
-  and creates a URL of the form "...course/set/problem/?showCorrectAnswers=1&amp;effectiveUser=username", which it then opens in a new tab.</td>
-<td><a href="https://github.com/drlvk/bookmarklets/blob/master/webwork-email.js">source</a></td>
+<thead>
+<tr>
+<th scope="col">Link</th>
+<th scope="col">Description</th>
 </tr>
+</thead>
+<thead>
+</thead>
+<tbody>
+<tr id="webwork-select">
+  <td class="name"> <a href="javascript:(function()%7Blet comm%3D%5B'21092'%2C'47925'%2C'50984'%2C'51973'%2C'99167'%2C'113577'%2C'152474'%2C'170212'%5D%3Bfor (ch of document.getElementById('rfacs').children) %7Bif (comm.indexOf(ch.value)>-1) %7Bch.selected%3D'selected'%7D%7Ddocument.getElementsByName('reml')%5B0%5D.checked%3D''%7D)()">Select Committee</a></td>
+  <td> 
+  When executed on a page with candidate's information, it selects all committee members and unchecks "email notify".</td>
+</tr>
+</tbody>
 </table>
 
 </body>
