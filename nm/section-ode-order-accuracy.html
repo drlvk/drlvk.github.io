@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:08-05:00    *-->
+<!--*    on 2021-02-09T15:31:12-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,15 +409,15 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-ode-order-accuracy"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">19.3</span> <span class="title">Estimating the accuracy of numeric ODE methods</span>
 </h2>
-<p id="p-594">Evaluating the accuracy of ODE solution methods is a more complex issue because they involve approximate computations based on the results of previous other approximate computations. A convenient model problem to use is \(y'=y\) with \(y(0)=1\text{.}\) Its exact solution at  \(x= h\) is</p>
+<p id="p-595">Evaluating the accuracy of ODE solution methods is a more complex issue because they involve approximate computations based on the results of previous other approximate computations. A convenient model problem to use is \(y'=y\) with \(y(0)=1\text{.}\) Its exact solution at  \(x= h\) is</p>
 <div class="displaymath">
 \begin{equation*}
 e^h = \sum_{n=0}^\infty \frac{h^n}{n!} =  1+h+h^2/2+h^3/6+\cdots
 \end{equation*}
 </div>
 <p data-braille="continuation">The  approximate solution \(y_1\) at \(x= h\) will be some other expression. The difference \(|e^h - y_1|\) gives us the <dfn class="terminology">local error</dfn> of the method (for one step). The cumulative error can be estimated by multiplying the local error by the necessary number of steps to cover an interval \([a, b]\text{,}\) which is \((b-a)/h\text{.}\)</p>
-<p id="p-595">Euler's method has \(y_1 = 1 + h\text{,}\) hence \(|e^h - y_1| = h^2/2 + \dots\text{,}\) the local error is of second order. The cumulative error is of order \(1\text{.}\) This is consistent with what we know about left endpoint method of integration.</p>
-<p id="p-596">The above does not capture the entire picture. Although errors might accumulate, they do not always do that. When solving an equation like \(y' = -ry\) (exponential decay) we get \(y_k = (1-rh)^k y_0\text{.}\) As long as \(h \lt 2/r\text{,}\) we have \(|1-rh| \lt 1\) and so the approximate solution decays exponentially as it should. But if \(h \gt 2/r\text{,}\)  the solution grows in magnitude instead of decreasing. This leads to the subject of <em class="emphasis">stability</em> of numerical ODE methods, which is beyond our scope.</p></section></div></main>
+<p id="p-596">Euler's method has \(y_1 = 1 + h\text{,}\) hence \(|e^h - y_1| = h^2/2 + \dots\text{,}\) the local error is of second order. The cumulative error is of order \(1\text{.}\) This is consistent with what we know about left endpoint method of integration.</p>
+<p id="p-597">The above does not capture the entire picture. Although errors might accumulate, they do not always do that. When solving an equation like \(y' = -ry\) (exponential decay) we get \(y_k = (1-rh)^k y_0\text{.}\) As long as \(h \lt 2/r\text{,}\) we have \(|1-rh| \lt 1\) and so the approximate solution decays exponentially as it should. But if \(h \gt 2/r\text{,}\)  the solution grows in magnitude instead of decreasing. This leads to the subject of <em class="emphasis">stability</em> of numerical ODE methods, which is beyond our scope.</p></section></div></main>
 </div>
 </body>
 </html>

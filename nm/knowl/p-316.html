@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:23-05:00    *-->
+<!--*    on 2021-02-09T15:31:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>But the most serious issue is that the method may fail to converge at all, either because the iteration of \(g\) gets stuck in a loop or because it tends to infinity. A typical example is \(f(x) = \tan^{-1}x\) (note that Matlab notation for arctangent function is <code class="code-inline tex2jax_ignore">atan</code>). Here \(g(x) = x - (x^2+1)\tan^{-1}(x)\text{,}\) which is <code class="code-inline tex2jax_ignore">g = @(x) x - (x^2+1)*atan(x);</code> in Matlab notation. With the initial value <code class="code-inline tex2jax_ignore">x0 = 1</code> the process quickly converges to 0. With the initial value <code class="code-inline tex2jax_ignore">x0 = 2</code> (or even 1.5) it fails to converge. The problem can be seen numerically by computing a few iterations in Matlab console.</p>
+<p>A way to improve convergence in this case is presented in <a href="section-relaxation-parameter.html" class="internal" title="Section 9.4: The relaxation parameter">Section 9.4</a>. 	Fortunately, a multiple root is a somewhat exceptional case and in practice we find Newton's method converging at quadratic rate.</p>
 <span class="incontext"><a href="section-newton-method-issues.html#p-316">in-context</a></span>
 </body>
 </html>

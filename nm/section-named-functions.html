@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T17:59:59-05:00    *-->
+<!--*    on 2021-02-09T15:31:02-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,22 +409,22 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-named-functions"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Named functions</span>
 </h2>
-<p id="p-174">Named functions can do the same thing as anonymous functions. Here is \(\exp(-x^2)\) again, this time as a named function.</p>
+<p id="p-175">Named functions can do the same thing as anonymous functions. Here is \(\exp(-x^2)\) again, this time as a named function.</p>
 <pre class="code-block tex2jax_ignore">function y = f(x) 
     y = exp(-x.^2);
 end
 </pre>
-<p id="p-175">But there may be multiple lines within the body of a named function, including loops and conditional statements. In general, it looks like this.</p>
+<p id="p-176">But there may be multiple lines within the body of a named function, including loops and conditional statements. In general, it looks like this.</p>
 <pre class="code-block tex2jax_ignore">function y = myFunction(x)
     (do something);
     (do more things);
     (y = result of computations);  
 end
 </pre>
-<p id="p-176">A named functions can have multiple inputs: <code class="code-inline tex2jax_ignore">function w = myFunction(x, y, z)</code>. It can also have multiple outputs: <code class="code-inline tex2jax_ignore">function [u, v] = myFunction(x, y, z)</code> in which case both <code class="code-inline tex2jax_ignore">u</code> and <code class="code-inline tex2jax_ignore">v</code> must be assigned some values within the function.</p>
+<p id="p-177">A named functions can have multiple inputs: <code class="code-inline tex2jax_ignore">function w = myFunction(x, y, z)</code>. It can also have multiple outputs: <code class="code-inline tex2jax_ignore">function [u, v] = myFunction(x, y, z)</code> in which case both <code class="code-inline tex2jax_ignore">u</code> and <code class="code-inline tex2jax_ignore">v</code> must be assigned some values within the function.</p>
 <article class="example example-like" id="agm-named-function"><a data-knowl="" class="id-ref original" data-refid="hk-agm-named-function"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Arithmetic-geometric mean with given tolerance.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-agm-named-function"><article class="example example-like"><p id="p-177">Write a named function with three inputs: numbers <code class="code-inline tex2jax_ignore">x, y</code> and <code class="code-inline tex2jax_ignore">tol</code>, which finds the arithmetic-geometric mean of <code class="code-inline tex2jax_ignore">a, b</code> with tolerance <code class="code-inline tex2jax_ignore">tol</code> (meaning that the process stops when the difference of arithmetic and geometric mean is less than <code class="code-inline tex2jax_ignore">tol</code>.)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-agm-named-function"><article class="example example-like"><p id="p-178">Write a named function with three inputs: numbers <code class="code-inline tex2jax_ignore">x, y</code> and <code class="code-inline tex2jax_ignore">tol</code>, which finds the arithmetic-geometric mean of <code class="code-inline tex2jax_ignore">a, b</code> with tolerance <code class="code-inline tex2jax_ignore">tol</code> (meaning that the process stops when the difference of arithmetic and geometric mean is less than <code class="code-inline tex2jax_ignore">tol</code>.)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-30" id="answer-30"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-30"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">function z = agm(x, y, tol) 
@@ -437,24 +437,24 @@ end
    z = x;
 end
 </pre>
-<p id="p-178">Note that the result has to be assigned to whichever function variable was designated as output on th first line of the function: in this case, <code class="code-inline tex2jax_ignore">z</code>.</p>
+<p id="p-179">Note that the result has to be assigned to whichever function variable was designated as output on th first line of the function: in this case, <code class="code-inline tex2jax_ignore">z</code>.</p>
 </div></div>
 </div></article></div>
-<p id="p-179"><a class="xref" data-knowl="./knowl/agm-named-function.html" title="Example 5.2.1: Arithmetic-geometric mean with given tolerance">Example 5.2.1</a> illustrates an important point: a function has limited communication with the code outside of it. It receives input and produces certain output; nothing else that it does has any influence on the outside world. Suppose that the following sequence of commands was executed.</p>
+<p id="p-180"><a class="xref" data-knowl="./knowl/agm-named-function.html" title="Example 5.2.1: Arithmetic-geometric mean with given tolerance">Example 5.2.1</a> illustrates an important point: a function has limited communication with the code outside of it. It receives input and produces certain output; nothing else that it does has any influence on the outside world. Suppose that the following sequence of commands was executed.</p>
 <pre class="code-block tex2jax_ignore">x = 0.3;
 y = 12;
 disp(agm(x, y, 1e-6))
 disp(x)
 disp(a)
 </pre>
-<p id="p-180">The third line will display the AGM which happens to be 3.7136. The fourth line will display the original value of x, which is <code class="code-inline tex2jax_ignore">0.3</code>. Why is it still 0.3, even though the function <code class="code-inline tex2jax_ignore">agm</code> changed the value of x in the loop? This is because a function operates like a separate program with its own variables. The variable x inside of the function is its own <em class="emphasis">local</em> variable x, and changing it does not change x in other places. For the same reason, the last command <code class="code-inline tex2jax_ignore">disp(a)</code> produces an error: the variable <code class="code-inline tex2jax_ignore">a</code> is undefined. A variable with that name was introduces inside of function <code class="code-inline tex2jax_ignore">agm</code> but it does not exist outside of it.</p>
-<p id="p-181">One can have a function that does not return any values. Here is a function whose job is to plot the sine function on the interval \([a, b]\) using a given number of points.</p>
+<p id="p-181">The third line will display the AGM which happens to be 3.7136. The fourth line will display the original value of x, which is <code class="code-inline tex2jax_ignore">0.3</code>. Why is it still 0.3, even though the function <code class="code-inline tex2jax_ignore">agm</code> changed the value of x in the loop? This is because a function operates like a separate program with its own variables. The variable x inside of the function is its own <em class="emphasis">local</em> variable x, and changing it does not change x in other places. For the same reason, the last command <code class="code-inline tex2jax_ignore">disp(a)</code> produces an error: the variable <code class="code-inline tex2jax_ignore">a</code> is undefined. A variable with that name was introduces inside of function <code class="code-inline tex2jax_ignore">agm</code> but it does not exist outside of it.</p>
+<p id="p-182">One can have a function that does not return any values. Here is a function whose job is to plot the sine function on the interval \([a, b]\) using a given number of points.</p>
 <pre class="code-block tex2jax_ignore">function plotsin(a, b, num) 
     x = linspace(a, b, num);
     plot(x, sin(x))
 end
 </pre>
-<p id="p-182">One can also have a function with no arguments (no input values). For example, this function computes an approximate value of the Golden Ratio by iterating \(\sqrt{x+1}\text{.}\)</p>
+<p id="p-183">One can also have a function with no arguments (no input values). For example, this function computes an approximate value of the Golden Ratio by iterating \(\sqrt{x+1}\text{.}\)</p>
 <pre class="code-block tex2jax_ignore">function z = goldenratio() 
    z = 1;
    for k = 1:100
@@ -462,8 +462,8 @@ end
    end
 end
 </pre>
-<p id="p-183">One can use this function same as others: <code class="code-inline tex2jax_ignore">x = goldenratio();</code> or <code class="code-inline tex2jax_ignore">disp(goldenratio())</code>.</p>
-<p id="p-184">Back in the days when Matlab was designed, the convention was to put every function in a separate “M-file” named as that function: for example, <code class="code-inline tex2jax_ignore">goldenratio.m</code>. Today, tying the name of a function to the name of a file in which it is contained seems strange but Matlab still insists on this. Fortunately, it allows us to have multiple functions in the same script file, with the following constraints:</p>
+<p id="p-184">One can use this function same as others: <code class="code-inline tex2jax_ignore">x = goldenratio();</code> or <code class="code-inline tex2jax_ignore">disp(goldenratio())</code>.</p>
+<p id="p-185">Back in the days when Matlab was designed, the convention was to put every function in a separate “M-file” named as that function: for example, <code class="code-inline tex2jax_ignore">goldenratio.m</code>. Today, tying the name of a function to the name of a file in which it is contained seems strange but Matlab still insists on this. Fortunately, it allows us to have multiple functions in the same script file, with the following constraints:</p>
 <ul class="disc">
 <li id="li-57">The first function is named as the file itself. This function gets executed when we click Run or press <kbd class="kbdkey">F5</kbd>.</li>
 <li id="li-58">If a script contains named functions, all of its code must be within some function.</li>
@@ -485,12 +485,12 @@ function z = agm(x, y, tol)
    z = x;
 end
 </pre>
-<p id="p-185">Here the first (main) function is executed: it assigns values to x and y, and then calls another function to compute their AGM.</p>
-<p id="p-186">Anonymous functions, described in <a href="section-anonymous-functions.html" class="internal" title="Section 5.1: Anonymous functions">Section 5.1</a>, have no such restrictions.</p>
+<p id="p-186">Here the first (main) function is executed: it assigns values to x and y, and then calls another function to compute their AGM.</p>
+<p id="p-187">Anonymous functions, described in <a href="section-anonymous-functions.html" class="internal" title="Section 5.1: Anonymous functions">Section 5.1</a>, have no such restrictions.</p>
 <article class="example example-like" id="example-31"><a data-knowl="" class="id-ref original" data-refid="hk-example-31"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Smallest prime that is greater than a given number.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><p id="p-187">Write a function which, given a value <code class="code-inline tex2jax_ignore">n</code>, finds the smallest prime number that is greater than <code class="code-inline tex2jax_ignore">n</code>.</p>
-<p id="p-188">To determine whether some number <code class="code-inline tex2jax_ignore">k</code> is prime, use <code class="code-inline tex2jax_ignore">isprime(k)</code>. For example, <code class="code-inline tex2jax_ignore">while isprime(k)</code> is a loop that runs as long as <code class="code-inline tex2jax_ignore">k</code> stays prime. To have a loop that runs while <code class="code-inline tex2jax_ignore">k</code> is <em class="emphasis">not</em> prime, use <code class="code-inline tex2jax_ignore">while ~sprime(k)</code>. The character <code class="code-inline tex2jax_ignore">~</code> means logical NOT in Matlab (recall that <code class="code-inline tex2jax_ignore">~=</code> means “not equal”.)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><p id="p-188">Write a function which, given a value <code class="code-inline tex2jax_ignore">n</code>, finds the smallest prime number that is greater than <code class="code-inline tex2jax_ignore">n</code>.</p>
+<p id="p-189">To determine whether some number <code class="code-inline tex2jax_ignore">k</code> is prime, use <code class="code-inline tex2jax_ignore">isprime(k)</code>. For example, <code class="code-inline tex2jax_ignore">while isprime(k)</code> is a loop that runs as long as <code class="code-inline tex2jax_ignore">k</code> stays prime. To have a loop that runs while <code class="code-inline tex2jax_ignore">k</code> is <em class="emphasis">not</em> prime, use <code class="code-inline tex2jax_ignore">while ~sprime(k)</code>. The character <code class="code-inline tex2jax_ignore">~</code> means logical NOT in Matlab (recall that <code class="code-inline tex2jax_ignore">~=</code> means “not equal”.)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-31" id="answer-31"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-31"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">function k = smallestprime(n)
@@ -500,7 +500,7 @@ end
     end
 end
 </pre>
-<p id="p-189">For example, <code class="code-inline tex2jax_ignore">smallestprime(31)</code> is 37, because the numbers 32, 33, 34, 35, 36 are not prime.</p>
+<p id="p-190">For example, <code class="code-inline tex2jax_ignore">smallestprime(31)</code> is 37, because the numbers 32, 33, 34, 35, 36 are not prime.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

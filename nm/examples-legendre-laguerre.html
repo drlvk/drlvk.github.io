@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:06-05:00    *-->
+<!--*    on 2021-02-09T15:31:09-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,13 +409,13 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-legendre-laguerre"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">15.4</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-488">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-489">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-computation-legendre-coefficients"><a data-knowl="" class="id-ref original" data-refid="hk-example-computation-legendre-coefficients"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">15.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Computing and plotting Legendre polynomials.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-computation-legendre-coefficients"><article class="example example-like"><p id="p-489">Recursively find the coefficients and roots of Legendre polynomials of degrees up to 10. Plot all of them on the interval \([-1, 1]\text{.}\) The polynomials should be represented as vectors of coefficients, for example <code class="code-inline tex2jax_ignore">q = [1 0]</code> represents \(q(x) = 1x+0 = x\text{.}\) Once the coefficients are computed, one can use <code class="code-inline tex2jax_ignore">polyval(q, x)</code> to evaluate the polynomial at every point of vector <code class="code-inline tex2jax_ignore">x</code>, so that, for example, <code class="code-inline tex2jax_ignore">plot(x, polyval(q, x))</code> can be used to plot it.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-computation-legendre-coefficients"><article class="example example-like"><p id="p-490">Recursively find the coefficients and roots of Legendre polynomials of degrees up to 10. Plot all of them on the interval \([-1, 1]\text{.}\) The polynomials should be represented as vectors of coefficients, for example <code class="code-inline tex2jax_ignore">q = [1 0]</code> represents \(q(x) = 1x+0 = x\text{.}\) Once the coefficients are computed, one can use <code class="code-inline tex2jax_ignore">polyval(q, x)</code> to evaluate the polynomial at every point of vector <code class="code-inline tex2jax_ignore">x</code>, so that, for example, <code class="code-inline tex2jax_ignore">plot(x, polyval(q, x))</code> can be used to plot it.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-39" id="answer-39"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-39"><div class="answer solution-like">
-<p id="p-490">We have to start with <code class="code-inline tex2jax_ignore">[1]</code> and <code class="code-inline tex2jax_ignore">[1 0]</code> which represent \(1\) and \(x\text{.}\) Once a vector of coefficients <code class="code-inline tex2jax_ignore">q</code> exists, one can use concatenation <code class="code-inline tex2jax_ignore">[q 0]</code> to shift the coefficients to the left, representing multiplication by \(x\text{.}\)</p>
+<p id="p-491">We have to start with <code class="code-inline tex2jax_ignore">[1]</code> and <code class="code-inline tex2jax_ignore">[1 0]</code> which represent \(1\) and \(x\text{.}\) Once a vector of coefficients <code class="code-inline tex2jax_ignore">q</code> exists, one can use concatenation <code class="code-inline tex2jax_ignore">[q 0]</code> to shift the coefficients to the left, representing multiplication by \(x\text{.}\)</p>
 <pre class="code-block tex2jax_ignore">p = [1];
 q = [1 0];
 x = linspace(-1, 1, 1000);
@@ -431,15 +431,15 @@ for n = 1:9
 end
 hold off
 </pre>
-<p id="p-491">The loop runs up to \(n=9\) because the polynomial being computed has degree \(m+1\text{.}\) In the loop, <code class="code-inline tex2jax_ignore">q</code> is a polynomial of degree \(n\) and <code class="code-inline tex2jax_ignore">p</code> is a polynomial of degree \(n - 1\text{.}\) Concatenation <code class="code-inline tex2jax_ignore">[0 0 p]</code> adds zero terms to the latter polynomial; this does not change it mathematically but makes it possible to do vector addition of coefficients.</p>
+<p id="p-492">The loop runs up to \(n=9\) because the polynomial being computed has degree \(m+1\text{.}\) In the loop, <code class="code-inline tex2jax_ignore">q</code> is a polynomial of degree \(n\) and <code class="code-inline tex2jax_ignore">p</code> is a polynomial of degree \(n - 1\text{.}\) Concatenation <code class="code-inline tex2jax_ignore">[0 0 p]</code> adds zero terms to the latter polynomial; this does not change it mathematically but makes it possible to do vector addition of coefficients.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-computation-legendre-roots"><a data-knowl="" class="id-ref original" data-refid="hk-example-computation-legendre-roots"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">15.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">The roots of Legendre polynomials.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-computation-legendre-roots"><article class="example example-like"><p id="p-492">Adapt the code in <a class="xref" data-knowl="./knowl/example-computation-legendre-coefficients.html" title="Example 15.4.1: Computing and plotting Legendre polynomials">Example 15.4.1</a> to find and plot the roots of Legendre polynomials of degrees 2 through 10.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-computation-legendre-roots"><article class="example example-like"><p id="p-493">Adapt the code in <a class="xref" data-knowl="./knowl/example-computation-legendre-coefficients.html" title="Example 15.4.1: Computing and plotting Legendre polynomials">Example 15.4.1</a> to find and plot the roots of Legendre polynomials of degrees 2 through 10.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-40" id="answer-40"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-40"><div class="answer solution-like">
-<p id="p-493">The command <code class="code-inline tex2jax_ignore">roots</code> can be used to find the roots. A convenient way to plot them so that one can tell the difference between different degrees is to use the y-coordinate for the degree.</p>
+<p id="p-494">The command <code class="code-inline tex2jax_ignore">roots</code> can be used to find the roots. A convenient way to plot them so that one can tell the difference between different degrees is to use the y-coordinate for the degree.</p>
 <pre class="code-block tex2jax_ignore">p = [1];
 q = [1 0];
 hold on
@@ -455,7 +455,7 @@ hold off
 </div></article></div>
 <article class="question example-like" id="question-30"><a data-knowl="" class="id-ref original" data-refid="hk-question-30"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">15.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Patterns in the roots of Legendre polynomials.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-30"><article class="question example-like"><p id="p-494">What patterns do you observe in the roots found in <a class="xref" data-knowl="./knowl/example-computation-legendre-roots.html" title="Example 15.4.2: The roots of Legendre polynomials">Example 15.4.2</a>?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-30"><article class="question example-like"><p id="p-495">What patterns do you observe in the roots found in <a class="xref" data-knowl="./knowl/example-computation-legendre-roots.html" title="Example 15.4.2: The roots of Legendre polynomials">Example 15.4.2</a>?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:30-05:00    *-->
+<!--*    on 2021-02-09T15:31:32-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The underlying issue is that the direction \(-\nabla f\) does not really point toward the minimum of \(f\) in this example. The steepest descent goes sideways due to very different rates of change in different variables. This is one of main reasons why optimization in several variables is hard, and why it is sensitive to <em class="emphasis">scaling</em> of the variables. We would not have such difficulties with \(x_1^2 + 3 x_2^2\text{.}\)</p>
+<p>Consider the function</p>
+<div class="displaymath">
+\begin{equation}
+f(\mathbf x) = x_1^2 + 10^6 x_2^2\tag{32.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">with the minimum at \((0, 0)\text{.}\) Its gradient is \(\nabla f = \langle 2x_1, 2\cdot 10^6 x_2\rangle\text{.}\) So, the process described above is</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf x = \langle (1-2\beta)a_1, (1-2\beta\cdot 10^6)a_2 \rangle
+\end{equation*}
+</div>
+<p data-braille="continuation">There is no good value of \(\beta\) to use here. If \(\beta &gt; 10^{-6}\text{,}\) the second coordinate grows exponentially.  If \(\beta \lt 10^{-6}\text{,}\) for example \(\beta = 10^{-6}/2\) (which is optimal for the second coordinate), it will take a million steps just to reduce the first coordinate, say, from \(1\) to \(0.37\text{.}\)</p>
 <span class="incontext"><a href="section-gradient-descent-nd.html#p-884">in-context</a></span>
 </body>
 </html>

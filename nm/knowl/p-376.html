@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:23-05:00    *-->
+<!--*    on 2021-02-09T15:31:26-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Our next guess, for the value of \(1/f'(x_1)\) can be better educated: we can think of the secant line through the two points \((x_0, f(x_0))\) and \((x_1, f(x_1))\text{,}\) and decide it would be logical for \(b_1\) to be the reciprocal of the slope of this secant line. This means we pick \(b_1\) so that</p>
-<div class="displaymath">
-\begin{equation}
-b_1(f(x_1)- f(x_0)) = x_1-x_0 \tag{11.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">Then the process continues: we make the step \(h = -b_1 f(x_1)\text{,}\) arrive at \(x_2 = x_1+h\) and use the secant slope through the two newest points,</p>
-<div class="displaymath">
-\begin{equation*}
-b_2(f(x_2)- f(x_1)) = x_2-x_1 
-\end{equation*}
-</div>
-<p data-braille="continuation">Apart from the initial uneducated guess for \(b_0\) this is exactly the secant method, expressed in different notation.</p>
+<p>Let us return to one-variable situation first. Newton's method proceeds in steps computed as \(h = -f(x_0)/f'(x_0)\) which requires the knowledge of \(f'(x_0)\text{.}\) Suppose we do not know the derivative but are willing to guess. For notational convenience, let us say we are guessing the value of \(1/f'(x_0)\text{.}\) We want some non-zero number. Knowing nothing whatsoever, we can guess "1". Let us call this guess \(b_0 = 1\text{.}\) Armed with this number, we proceed as usual in Newton's method: make the step \(h = -b_0 f(x_0)\) arriving at the point \(x_1 = x_0\text{.}\)</p>
 <span class="incontext"><a href="section-broyden-intro.html#p-376">in-context</a></span>
 </body>
 </html>

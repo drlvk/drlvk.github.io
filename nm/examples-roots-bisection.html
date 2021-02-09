@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:01-05:00    *-->
+<!--*    on 2021-02-09T15:31:04-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,22 +409,22 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-roots-bisection"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">7.5</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-262">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-263">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-bracketing-30x-exp"><a data-knowl="" class="id-ref original" data-refid="hk-example-bracketing-30x-exp"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Number of roots and a bracketing interval for each of them.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-bracketing-30x-exp"><article class="example example-like"><p id="p-263">For the function \(f(x) = 30x e^{10x} + 1\text{,}\) use  the derivative \(f'\) determine the number of roots and find a bracketing interval for each of them. (No programming is needed.)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-bracketing-30x-exp"><article class="example example-like"><p id="p-264">For the function \(f(x) = 30x e^{10x} + 1\text{,}\) use  the derivative \(f'\) determine the number of roots and find a bracketing interval for each of them. (No programming is needed.)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like">
-<p id="p-264">The derivative \(f'(x) = 30( 10x + 1) e^{10x}\) has the same sign as \(10x+1\text{.}\) Therefore, the function has a minimum at \(x = -1/10\text{.}\) Its value there is \(f(-1/10) = 
+<p id="p-265">The derivative \(f'(x) = 30( 10x + 1) e^{10x}\) has the same sign as \(10x+1\text{.}\) Therefore, the function has a minimum at \(x = -1/10\text{.}\) Its value there is \(f(-1/10) = 
 - 3e^{-1} + 1 = 1-3/e \lt 0 \text{.}\)</p>
-<p id="p-265">On the interval \((-\infty, -1/10)\) the function is decreasing, so there is at most one root here. Since \(f(-1) = -30e^{-10} + 1 &gt; 0\text{,}\) there is a root with bracketing interval \([-1, -1/10]\text{.}\)</p>
-<p id="p-266">On the interval \((-1/10,  \infty)\) the function is increasing, so there is at most one root here. Since \(f(0) = 1 &gt; 0\text{,}\) there is a root with bracketing interval \([-1/10, 0]\text{.}\)</p>
-<p id="p-267">Answer: two roots, with bracketing intervals \([-1, -1/10]\) and \([-1/10, 0]\text{.}\)</p>
+<p id="p-266">On the interval \((-\infty, -1/10)\) the function is decreasing, so there is at most one root here. Since \(f(-1) = -30e^{-10} + 1 &gt; 0\text{,}\) there is a root with bracketing interval \([-1, -1/10]\text{.}\)</p>
+<p id="p-267">On the interval \((-1/10,  \infty)\) the function is increasing, so there is at most one root here. Since \(f(0) = 1 &gt; 0\text{,}\) there is a root with bracketing interval \([-1/10, 0]\text{.}\)</p>
+<p id="p-268">Answer: two roots, with bracketing intervals \([-1, -1/10]\) and \([-1/10, 0]\text{.}\)</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-bisection-discontinuity"><a data-knowl="" class="id-ref original" data-refid="hk-example-bisection-discontinuity"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Incorrect answer obtained by bisection.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-bisection-discontinuity"><article class="example example-like"><p id="p-268">Run the code in <a class="xref" data-knowl="./knowl/example-bisection.html" title="Example 7.3.3: Finding a root by bisection">Example 7.3.3</a> with the following modification:</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-bisection-discontinuity"><article class="example example-like"><p id="p-269">Run the code in <a class="xref" data-knowl="./knowl/example-bisection.html" title="Example 7.3.3: Finding a root by bisection">Example 7.3.3</a> with the following modification:</p>
 <pre class="code-block tex2jax_ignore">
 f = @(x) tan(x);
 a = 1;
@@ -433,8 +433,8 @@ b = 2;
 <p data-braille="continuation">Note that \(\tan(1) \approx 1.5574 &gt; 0\) and \(\tan(2) \approx -2.1850 \lt 0\text{,}\) so the bisection algorithm can run. What is its output, and what is wrong with it? How could this error be avoided?</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like">
-<p id="p-269">The program output is “Found a root x = 1.57079632679”. But this value is not a solution of equation \(\tan x = 0\text{.}\) It is a point of discontinuity, where the tangent has vertical asymptote \(x = \pi/2\text{.}\) Because of discontinuity, the tangent function changes sign without passing through 0.</p>
-<p id="p-270">One way to avoid this error is to check whether the function has a “small” value at the root that we found, for example as follows.</p>
+<p id="p-270">The program output is “Found a root x = 1.57079632679”. But this value is not a solution of equation \(\tan x = 0\text{.}\) It is a point of discontinuity, where the tangent has vertical asymptote \(x = \pi/2\text{.}\) Because of discontinuity, the tangent function changes sign without passing through 0.</p>
+<p id="p-271">One way to avoid this error is to check whether the function has a “small” value at the root that we found, for example as follows.</p>
 <pre class="code-block tex2jax_ignore">x = (a+b)/2;
 if abs(f(x)) &lt; 1e-9
     fprintf('Found a root x = %.12g\n', x);
@@ -442,16 +442,16 @@ else
     fprintf('Suspected discontinuity at x = %.12g\n', x);
 end
 </pre>
-<p id="p-271">Then the output is “Suspected discontinuity at x = 1.57079632679”</p>
+<p id="p-272">Then the output is “Suspected discontinuity at x = 1.57079632679”</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-13"><a data-knowl="" class="id-ref original" data-refid="hk-question-13"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">7.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">“Trisection” method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-13"><article class="question example-like"><p id="p-272">The word “bisection” means dividing something into two parts, usually equal ones. In the bisection method, an interval is divided into two equal parts, of which we keep one. This means that the length of the interval is divided by 2 at each step.</p>
-<p id="p-273">One can imagine a similar “trisection method” where an interval is divided into three equal parts, and one of them is kept. With this method, the length of the interval is divided by 3 at each step, so the interval shrinks faster.  Does this make the trisection method faster than the bisection method? Why or why not?</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-13"><article class="question example-like"><p id="p-273">The word “bisection” means dividing something into two parts, usually equal ones. In the bisection method, an interval is divided into two equal parts, of which we keep one. This means that the length of the interval is divided by 2 at each step.</p>
+<p id="p-274">One can imagine a similar “trisection method” where an interval is divided into three equal parts, and one of them is kept. With this method, the length of the interval is divided by 3 at each step, so the interval shrinks faster.  Does this make the trisection method faster than the bisection method? Why or why not?</p></article></div>
 <article class="question example-like" id="question-14"><a data-knowl="" class="id-ref original" data-refid="hk-question-14"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">7.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Better detection of discontinuity.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-14"><article class="question example-like"><p id="p-274">In <a class="xref" data-knowl="./knowl/example-bisection-discontinuity.html" title="Example 7.5.2: Incorrect answer obtained by bisection">Example 7.5.2</a> we avoid mistaking discontinuity for a root by adding the check <code class="code-inline tex2jax_ignore">abs(f(x)) &lt; 1e-9</code>. What could go wrong with this approach? Think of some situation where this additional check will reject a valid solution. Could it be replaced by a better one?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-14"><article class="question example-like"><p id="p-275">In <a class="xref" data-knowl="./knowl/example-bisection-discontinuity.html" title="Example 7.5.2: Incorrect answer obtained by bisection">Example 7.5.2</a> we avoid mistaking discontinuity for a root by adding the check <code class="code-inline tex2jax_ignore">abs(f(x)) &lt; 1e-9</code>. What could go wrong with this approach? Think of some situation where this additional check will reject a valid solution. Could it be replaced by a better one?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

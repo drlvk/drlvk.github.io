@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:30-05:00    *-->
+<!--*    on 2021-02-09T15:31:32-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Compare the search path to what we get without correction in <code class="code-inline tex2jax_ignore">w</code>: it is less zigzagging. However, if we use the original Rosenbrock function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> which is very far from quadratic or convex, the search diverges to infinity. Several other correction terms (different choices for \(\gamma\) coefficient) have been proposed for the nonlinear conjugate gradient method. But it appears that the “narrow valley” landscape of the Rosenbrock function is best navigated either by using both first and second order derivatives (the Newton method) or by using no derivatives at all (the Nelder-Mead method, to be considered later).</p>
+<p>Modify <a class="xref" data-knowl="./knowl/example-gradient-descent-line-search.html" title="Example 32.1.1: Gradient descent with line search">Example 32.1.1</a> so that it minimizes the simplified Rosenbrock's function</p>
+<div class="displaymath">
+\begin{equation}
+f(\mathbf x) = (x_1 - 1)^2 + (x_1^2 - x_2)^2\tag{32.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">using conjugate gradient method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code>. Plot the path of the search.</p>
 <span class="incontext"><a href="section-conjugate-gradient.html#p-901">in-context</a></span>
 </body>
 </html>

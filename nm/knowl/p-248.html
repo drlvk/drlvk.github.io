@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:22-05:00    *-->
+<!--*    on 2021-02-09T15:31:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A more robust approach is to look not for a single number but for an <em class="emphasis">interval</em> \([a, b]\) that is known to contain a root of function \(f\text{.}\) If the interval is small enough, it does not really matter where in the interval the solution is. How small is small enough? There is no universal answer. For many practical purposes, \(b-a \lt 10^{-6}\) is good enough. Or we may want \(b-a \lt 10^{-12}\) to get a more accurate answer. This makes sense when the root itself is not extremely large or extremely small. But when the root is of size \(10^{20}\) we cannot possibly hope to get an interval of length \(10^{-6}\) around it, or even of length 1. Indeed, the comparison <code class="code-inline tex2jax_ignore">10^20 + 1 == 10^(20)</code> evaluates as True in Matlab, meaning that it cannot tell these numbers apart because of the limitation of computer arithmetic.</p>
+<p>In what sense do we expect the equation \(f(x)=0\) to hold? Because of the round-off errors (<a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off-errors">Section 6.4</a>), we wlll not necessarily get 0 when plugging in some number x. For example, if <code class="code-inline tex2jax_ignore">f = @(x) x^2-2;</code> then we would expect <code class="code-inline tex2jax_ignore">f(sqrt(2))</code> to be 0, but actually <code class="code-inline tex2jax_ignore">f(sqrt(2))</code> produces <code class="code-inline tex2jax_ignore">4.4409e-16</code>, a small but nonzero number. We could ask for <code class="code-inline tex2jax_ignore">abs(f(x))</code> to be small, for example <code class="code-inline tex2jax_ignore">abs(f(x)) &lt; eps</code> where the Matlab command <code class="code-inline tex2jax_ignore">eps</code> returns <code class="code-inline tex2jax_ignore">2^{-52}</code>, the amount of round-off error one can expect for numbers of size about 1. But there are two issues with this approach:</p>
+<ol class="decimal">
+<li>The error in computing <code class="code-inline tex2jax_ignore">f(x)</code> may be much larger than <code class="code-inline tex2jax_ignore">eps</code>, as round-off errors may accumulate.</li>
+<li>Very small value of <code class="code-inline tex2jax_ignore">f(x)</code> do not mean that <code class="code-inline tex2jax_ignore">x</code> is near a root of function <code class="code-inline tex2jax_ignore">f</code>: for example, the function <code class="code-inline tex2jax_ignore">f = @(x) exp(-x^2);</code> has <code class="code-inline tex2jax_ignore">abs(f(7)) &lt; eps</code>, but the equation \(f(x)=0\) has  no solutions at all.</li>
+</ol>
 <span class="incontext"><a href="section-meaning-numeric-solution.html#p-248">in-context</a></span>
 </body>
 </html>

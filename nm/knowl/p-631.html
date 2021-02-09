@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:26-05:00    *-->
+<!--*    on 2021-02-09T15:31:29-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We are used to seeing polynomials written in terms of the <dfn class="terminology">monomial basis</dfn> \(x^0, x^1, \dots, x^d\text{,}\) that is, as a linear combination of the monomials. But this basis is ill-suited for numerical computations away from the point \(x=0\text{.}\) For example, consider the simple polynomial \(p(x) = (x-7)^{15}\text{.}\) If we expand it in the monomial basis and then try to compute its values on the interval \([6, 8]\text{,}\) the result will be disappointing. In the code below, <code class="code-inline tex2jax_ignore">c</code> is a vector of coefficients; the ellipsis notation allows it to by split between lines for readability.</p>
+<p>Given \(n\) data points \((x_k, y_k)\) with \(k=1, \dots, n\text{,}\) where all \(x_k\) are different, we are looking for a polynomial \(p\) of degree \(\lt n\) such that \(p(x_k) = y_k\) for  \(k=1, \dots, n\text{.}\) A straightforward way is to do this is to write \(p(x) = \sum_{j=0}^{n-1} c_j x^j\) and solve a linear system for \(c_j\text{;}\) it has \(n\) equations with \(n\) unknowns. But this process is both slow and numerically fragile; the matrix of the linear system is likely to be ill-conditioned. And even if we could find the coefficients of monomials \(x_j\) easily, we do not necessarily want to, for the following reason.</p>
 <span class="incontext"><a href="section-monomial-basis.html#p-631">in-context</a></span>
 </body>
 </html>

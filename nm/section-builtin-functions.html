@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T17:59:57-05:00    *-->
+<!--*    on 2021-02-09T15:31:01-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,19 +409,19 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-builtin-functions"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Built-in functions</span>
 </h2>
-<p id="p-95">Mathematical functions in Matlab have recognizable names: <code class="code-inline tex2jax_ignore">sqrt</code>, <code class="code-inline tex2jax_ignore">log</code> (meaning natural logarithm, base e), <code class="code-inline tex2jax_ignore">exp</code>, <code class="code-inline tex2jax_ignore">abs</code> (absolute value), <code class="code-inline tex2jax_ignore">sin</code>, <code class="code-inline tex2jax_ignore">cos</code> and so on. They can be applied to vectors or matrices elementwise: for example <code class="code-inline tex2jax_ignore">exp([1 2 3])</code> returns a vector with components \(e^1, e^2, e^3\text{.}\)</p>
-<p id="p-96">There are also <dfn class="terminology">aggregate functions</dfn> which are useful for summarizing data. The most important of these are <code class="code-inline tex2jax_ignore">sum</code> (sum of values), <code class="code-inline tex2jax_ignore">max</code> (maximum) and <code class="code-inline tex2jax_ignore">min</code> (minimum). When applied to a vector, these functions return a single number. So, if <code class="code-inline tex2jax_ignore">v = [3 1 4 1]</code> then <code class="code-inline tex2jax_ignore">sum(v)</code> is 9, <code class="code-inline tex2jax_ignore">max(v)</code> is 4, and <code class="code-inline tex2jax_ignore">min(v)</code> is 1.</p>
+<p id="p-96">Mathematical functions in Matlab have recognizable names: <code class="code-inline tex2jax_ignore">sqrt</code>, <code class="code-inline tex2jax_ignore">log</code> (meaning natural logarithm, base e), <code class="code-inline tex2jax_ignore">exp</code>, <code class="code-inline tex2jax_ignore">abs</code> (absolute value), <code class="code-inline tex2jax_ignore">sin</code>, <code class="code-inline tex2jax_ignore">cos</code> and so on. They can be applied to vectors or matrices elementwise: for example <code class="code-inline tex2jax_ignore">exp([1 2 3])</code> returns a vector with components \(e^1, e^2, e^3\text{.}\)</p>
+<p id="p-97">There are also <dfn class="terminology">aggregate functions</dfn> which are useful for summarizing data. The most important of these are <code class="code-inline tex2jax_ignore">sum</code> (sum of values), <code class="code-inline tex2jax_ignore">max</code> (maximum) and <code class="code-inline tex2jax_ignore">min</code> (minimum). When applied to a vector, these functions return a single number. So, if <code class="code-inline tex2jax_ignore">v = [3 1 4 1]</code> then <code class="code-inline tex2jax_ignore">sum(v)</code> is 9, <code class="code-inline tex2jax_ignore">max(v)</code> is 4, and <code class="code-inline tex2jax_ignore">min(v)</code> is 1.</p>
 <article class="example example-like" id="example-16"><a data-knowl="" class="id-ref original" data-refid="hk-example-16"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Sum of cubes.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like"><p id="p-97">Find the sum of cubes of the integers from 1 to 10.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like"><p id="p-98">Find the sum of cubes of the integers from 1 to 10.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-16" id="answer-16"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-16"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">sum((1:10).^3)
 </pre>
-<p id="p-98">Note that the parentheses are important here: <code class="code-inline tex2jax_ignore">sum(1:10.^3)</code> would be the sum of all integers from 1 to 1000.</p>
+<p id="p-99">Note that the parentheses are important here: <code class="code-inline tex2jax_ignore">sum(1:10.^3)</code> would be the sum of all integers from 1 to 1000.</p>
 </div></div>
 </div></article></div>
-<p id="p-99">Aggregate functions get more complicated (and powerful) when they are applied to matrices. In this case they <em class="emphasis">do not</em> return a single number. Given a matrix A, for example <code class="code-inline tex2jax_ignore">A = [3 9; 5 2]</code>, we can find its:</p>
+<p id="p-100">Aggregate functions get more complicated (and powerful) when they are applied to matrices. In this case they <em class="emphasis">do not</em> return a single number. Given a matrix A, for example <code class="code-inline tex2jax_ignore">A = [3 9; 5 2]</code>, we can find its:</p>
 <ul class="disc">
 <li id="li-34">
 <dfn class="terminology">Column sums</dfn> with <code class="code-inline tex2jax_ignore">sum(A, 1)</code>: the result is a row vector <code class="code-inline tex2jax_ignore">[8 11]</code> which contains the sum of each column.</li>
@@ -429,15 +429,15 @@ MathJax.Hub.Config({
 <dfn class="terminology">Row sums</dfn> with <code class="code-inline tex2jax_ignore">sum(A, 2)</code>: the result is a column vector <code class="code-inline tex2jax_ignore">[12; 7]</code> which contains the sum of each row.</li>
 </ul>
 <p data-braille="continuation">The second argument (1 or 2) means that we sum along the 1st index (row index) or 2nd index (column index). Summing along the row index means A(1, 1) + A(2, 1) + A(3, 1) + ... which produces the sum within each column. Entering <code class="code-inline tex2jax_ignore">sum(A)</code> has the same effect as <code class="code-inline tex2jax_ignore">sum(A, 1)</code>.</p>
-<p id="p-100"><em class="emphasis">Stacking the columns of a matrix</em>. When we want the sum (or another aggregate function) of all entries of matrix A, we can <dfn class="terminology">stack</dfn> the columns of A using a single colon: <code class="code-inline tex2jax_ignore">A(:)</code>. Then an aggregate function can be applied to this column. For example, if <code class="code-inline tex2jax_ignore">A = [1 2; 3 4]</code> then <code class="code-inline tex2jax_ignore">A(:)</code> is the column <code class="code-inline tex2jax_ignore">[1; 3; 2; 4]</code> and <code class="code-inline tex2jax_ignore">sum(A(:))</code> is 10.</p>
+<p id="p-101"><em class="emphasis">Stacking the columns of a matrix</em>. When we want the sum (or another aggregate function) of all entries of matrix A, we can <dfn class="terminology">stack</dfn> the columns of A using a single colon: <code class="code-inline tex2jax_ignore">A(:)</code>. Then an aggregate function can be applied to this column. For example, if <code class="code-inline tex2jax_ignore">A = [1 2; 3 4]</code> then <code class="code-inline tex2jax_ignore">A(:)</code> is the column <code class="code-inline tex2jax_ignore">[1; 3; 2; 4]</code> and <code class="code-inline tex2jax_ignore">sum(A(:))</code> is 10.</p>
 <article class="example example-like" id="example-17"><a data-knowl="" class="id-ref original" data-refid="hk-example-17"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Maximum and minimum of row sums.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like"><p id="p-101">Given a matrix, such as <code class="code-inline tex2jax_ignore">A = [3 6; -8 4; 10 1]</code> find its “maximal absolute row sum”, meaning add up the absolute values of the elements within each row, and take the maximum of the results.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like"><p id="p-102">Given a matrix, such as <code class="code-inline tex2jax_ignore">A = [3 6; -8 4; 10 1]</code> find its “maximal absolute row sum”, meaning add up the absolute values of the elements within each row, and take the maximum of the results.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-17" id="answer-17"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-17"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">max(sum(abs(A), 2))
 </pre>
-<p id="p-102">The result is 12, coming from the second row. The maximal absolute row sum is important in applied linear algebra. It is one of several <dfn class="terminology">norms</dfn> that can be defined for a matrix.</p>
+<p id="p-103">The result is 12, coming from the second row. The maximal absolute row sum is important in applied linear algebra. It is one of several <dfn class="terminology">norms</dfn> that can be defined for a matrix.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

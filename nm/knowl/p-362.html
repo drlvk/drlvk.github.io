@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:23-05:00    *-->
+<!--*    on 2021-02-09T15:31:26-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,22 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Use the multivariate Newton method to solve the system from <a class="xref" data-knowl="./knowl/example-durand-kerner-setup.html" title="Example 10.4.1: Rewriting a polynomial equation in multivariate form">Example 10.4.1</a>.</p>
+<p>Expanding the product, we find</p>
+<div class="displaymath">
+\begin{equation*}
+x^3 + 2x^2 - 7x + 1 = (x-x_1)(x-x_2)(x-x_3) = x^3 + Ax^2 + Bx + C
+\end{equation*}
+</div>
+<p data-braille="continuation">where \(A = -(x_1+x_2+x_3)\text{,}\) \(B = x_1x_2 + x_1x_3 + x_2x_2\text{,}\) and \(C = -x_1x_2x_3\text{.}\) Equating the coefficients, we get the system</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{cases} x_1+x_2+x_3 \amp = -2  \\
+x_1x_2 + x_1x_3 + x_2x_3 \amp = -7 \\ 
+x_1x_2x_3 \amp = -1 
+\end{cases}
+\end{equation*}
+</div>
+<p data-braille="continuation">If we can solve this system, the solution will consist of all three roots of the original equation.</p>
 <span class="incontext"><a href="examples-multivariate-newton.html#p-362">in-context</a></span>
 </body>
 </html>

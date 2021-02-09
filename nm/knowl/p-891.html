@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:30-05:00    *-->
+<!--*    on 2021-02-09T15:31:32-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>There are several “weak line search” methods designed to determine a step size that makes the function noticeably smaller without finding its exact minimum. They can speed up the process but do not completely resolve the zigzagging issue which is the root of the difficulty in <a class="xref" data-knowl="./knowl/example-gradient-descent-line-search.html" title="Example 32.1.1: Gradient descent with line search">Example 32.1.1</a>. The <em class="emphasis">directions</em> seem to be a problem, not just the step sizes.</p>
+<p>Note there is a reason to have a less restrictive stopping conditions for step size <code class="code-inline tex2jax_ignore">norm(dx)</code> when the goal is minimization (compared to root-finding). A smooth function changes slowly near a point of minimum (like a parabola near its vertex), so an error of size \(10^{-6}\) in terms of location of the minimum could mean an error of about \(10^{-12}\) for the minimal value.</p>
 <span class="incontext"><a href="section-gradient-descent-nd.html#p-891">in-context</a></span>
 </body>
 </html>

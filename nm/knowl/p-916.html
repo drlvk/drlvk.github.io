@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:30-05:00    *-->
+<!--*    on 2021-02-09T15:31:33-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The process of changing the shape of the triangle is <em class="emphasis">expansion</em>, which is introduced as an alternative to reflection from <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a>. Suppose that the current triangle qualifies for reflection: for example, \(C\) is the point with largest value, and \(f(R) \lt f(C)\text{.}\) Consider the possibility of replacing \(C\) with a point \(E\) that lies beyong \(R\text{,}\) thus making the triangle longer. The point \(E\) is determined by the following equation, which  shows that it is as far from \(R\) as \(R\) is from the center of reflection \((A+B)/2\text{:}\)</p>
-<div class="displaymath">
-\begin{equation*}
-E = \frac{3}{2}(A+B) - 2C =  1.5 (A+B+C) - 3.5 C
-\end{equation*}
-</div>
-<p data-braille="continuation">If \(f(E) \lt f(R)\text{,}\) then we replace \(C\) with \(E\) rather than \(R\text{.}\) In other words, the “highest” vertex of the triangle is replaced by whichever of \(E, R\) is lower.</p>
+<p>The reason for the lack of success with Rosenbrock's function is that the version of Nelder-Mead method described in <a href="section-nelder-mead-contract.html" class="internal" title="Section 33.2: Reflection-contraction combination">Section 33.2</a>  does not allow the triangle to change its <em class="emphasis">shape</em> to fit the geometry of the graph. A long narrow valley calls for a long narrow triangle.</p>
 <span class="incontext"><a href="section-nelder-mead-expand.html#p-916">in-context</a></span>
 </body>
 </html>

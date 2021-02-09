@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:23-05:00    *-->
+<!--*    on 2021-02-09T15:31:26-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Find the Jacobian matrix of the function <a class="xref" data-knowl="./knowl/eq-function-F.html" title="Equation 10.1.2">(10.1.2)</a>. Express it as an anonymous function in Matlab.</p>
+<p>Newton's method (<a href="section-newton-method-intro.html" class="internal" title="Section 9.1: Newton's method">Section 9.1</a>) is based on the idea of replacing a nonlinear function with its linear approximation, and solving the resulting linear equation. The linear approximation comes from the derivative. In the setting of several variables we have <dfn class="terminology">partial derivatives</dfn> which are arranged into the <dfn class="terminology">Jacobian matrix</dfn>. The \((i, j)\) entry of the Jacobian matrix is the derivative of the \(i\)th component of \(\mathbf F\) with respect to the \(j\)th component of \(\mathbf x\text{:}\)</p>
+<div class="displaymath">
+\begin{equation*}
+J = \begin{pmatrix} \partial F_1/\partial x_1 \amp \partial F_1/\partial x_2 \\
+\partial F_2/\partial x_1 \amp \partial F_2/\partial x_2 \end{pmatrix}
+\end{equation*}
+</div>
+<p data-braille="continuation">(or more rows/columns if there are more variables).</p>
 <span class="incontext"><a href="section-multivariate-newton.html#p-345">in-context</a></span>
 </body>
 </html>

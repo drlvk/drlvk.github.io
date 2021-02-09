@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:22-05:00    *-->
+<!--*    on 2021-02-09T15:31:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The program output is “Found a root x = 1.57079632679”. But this value is not a solution of equation \(\tan x = 0\text{.}\) It is a point of discontinuity, where the tangent has vertical asymptote \(x = \pi/2\text{.}\) Because of discontinuity, the tangent function changes sign without passing through 0.</p>
+<p>Run the code in <a class="xref" data-knowl="./knowl/example-bisection.html" title="Example 7.3.3: Finding a root by bisection">Example 7.3.3</a> with the following modification:</p>
+<pre class="code-block tex2jax_ignore">
+f = @(x) tan(x);
+a = 1;
+b = 2;
+</pre>
+<p data-braille="continuation">Note that \(\tan(1) \approx 1.5574 &gt; 0\) and \(\tan(2) \approx -2.1850 \lt 0\text{,}\) so the bisection algorithm can run. What is its output, and what is wrong with it? How could this error be avoided?</p>
 <span class="incontext"><a href="examples-roots-bisection.html#p-269">in-context</a></span>
 </body>
 </html>

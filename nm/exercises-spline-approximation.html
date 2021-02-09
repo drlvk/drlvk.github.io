@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:12-05:00    *-->
+<!--*    on 2021-02-09T15:31:15-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -410,17 +410,17 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">24.4</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-59"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-713">Following <a class="xref" data-knowl="./knowl/example-approximating-spline.html" title="Example 24.2.3: Implement cubic spline approximation">Example 24.2.3</a>, plot an approximating cubic spline for   the data \((k, \tan^{-1} k)\text{,}\) \(k=-5, -4, \dots, 5\text{.}\) For comparison, also plot the actual function \(y=\tan^{-1} x\) on the interval \([-5, 5]\text{.}\) How accurate is the approximation? Plot the difference of the spline and arctangent to answer this question.</p>
-<p id="p-714">(Recall that arctangent is <code class="code-inline tex2jax_ignore">atan</code> in Matlab.)</p></article><article class="exercise exercise-like" id="exercise-60"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-715">Let us revisit <a class="xref" data-knowl="./knowl/example-sums-random.html" title="Example 3.2.1: Distribution of sums of random numbers">Example 3.2.1</a>, changing it to the following.</p>
+<p id="p-714">Following <a class="xref" data-knowl="./knowl/example-approximating-spline.html" title="Example 24.2.3: Implement cubic spline approximation">Example 24.2.3</a>, plot an approximating cubic spline for   the data \((k, \tan^{-1} k)\text{,}\) \(k=-5, -4, \dots, 5\text{.}\) For comparison, also plot the actual function \(y=\tan^{-1} x\) on the interval \([-5, 5]\text{.}\) How accurate is the approximation? Plot the difference of the spline and arctangent to answer this question.</p>
+<p id="p-715">(Recall that arctangent is <code class="code-inline tex2jax_ignore">atan</code> in Matlab.)</p></article><article class="exercise exercise-like" id="exercise-60"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-716">Let us revisit <a class="xref" data-knowl="./knowl/example-sums-random.html" title="Example 3.2.1: Distribution of sums of random numbers">Example 3.2.1</a>, changing it to the following.</p>
 <pre class="code-block tex2jax_ignore">k = 2;
 A = rand(k, 1e7) - 1/2;
 S = sum(A, 1);
 histogram(S, 100, 'Normalization', 'pdf')
 </pre>
-<p id="p-716">(If using Octave where <code class="code-inline tex2jax_ignore">histogram</code> is not available, replace the last line with <code class="code-inline tex2jax_ignore">hist(S, 100, 100/k)</code>.)</p>
-<p id="p-717">This produces a <em class="emphasis">normalized</em> histogram of \(10^7\) sample sums, with \(k\) numbers in each sample. The numbers are chosen from uniform distribution on \([-1/2, 1/2]\text{.}\) Normalization means that the area under the histogram is 1 (in probability terms, this histogram approximates the <em class="emphasis">probability density function</em> of sample sums, hence the option “pdf”.)</p>
-<p id="p-718">What should the value \(k\) be in order for the histogram to resemble the cardinal B-splines of degree 3 shown in <a class="xref" data-knowl="./knowl/B-spline-png.html" title="Figure 24.2.1">Figure 24.2.1</a>? Find the answer experimentally after trying a few values of \(k\text{.}\) Having found a suitable \(k\text{,}\) confirm your guess by adding the graph of the cardinal spline to the histogram plot (recall <code class="code-inline tex2jax_ignore">hold on</code> / <code class="code-inline tex2jax_ignore">hold off</code>  are useful for combining graphs.)</p></article></section></div></main>
+<p id="p-717">(If using Octave where <code class="code-inline tex2jax_ignore">histogram</code> is not available, replace the last line with <code class="code-inline tex2jax_ignore">hist(S, 100, 100/k)</code>.)</p>
+<p id="p-718">This produces a <em class="emphasis">normalized</em> histogram of \(10^7\) sample sums, with \(k\) numbers in each sample. The numbers are chosen from uniform distribution on \([-1/2, 1/2]\text{.}\) Normalization means that the area under the histogram is 1 (in probability terms, this histogram approximates the <em class="emphasis">probability density function</em> of sample sums, hence the option “pdf”.)</p>
+<p id="p-719">What should the value \(k\) be in order for the histogram to resemble the cardinal B-splines of degree 3 shown in <a class="xref" data-knowl="./knowl/B-spline-png.html" title="Figure 24.2.1">Figure 24.2.1</a>? Find the answer experimentally after trying a few values of \(k\text{.}\) Having found a suitable \(k\text{,}\) confirm your guess by adding the graph of the cardinal spline to the histogram plot (recall <code class="code-inline tex2jax_ignore">hold on</code> / <code class="code-inline tex2jax_ignore">hold off</code>  are useful for combining graphs.)</p></article></section></div></main>
 </div>
 </body>
 </html>

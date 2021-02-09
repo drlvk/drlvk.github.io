@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:25-05:00    *-->
+<!--*    on 2021-02-09T15:31:28-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In general, the estimates above show that if \(f\) can be approximated within \(\varepsilon\) by some polynomial of degree \(2n-1\text{,}\) then the error of \(n\)-point Gauss-Legendre rule is at most \(4\varepsilon\text{.}\)</p>
+<p>The integral triangle inequality yields</p>
+<div class="displaymath">
+\begin{equation*}
+\left|\int_{-1}^1 f - \int_{-1}^1 p\right| \le \int_{-1}^1 |f-p| \le  2\cdot 10^{-7}
+\end{equation*}
+</div>
+<p data-braille="continuation">Also by the triangle inequality,</p>
+<div class="displaymath">
+\begin{equation*}
+\left|\sum_k w_k f(x_k) - \sum_k w_k p(x_k)\right| \le \sum_k w_k |f(x_k)-p(x_k)| 
+\le  10^{-7} \sum_k w_k = 2\cdot 10^{-7}
+\end{equation*}
+</div>
+<p data-braille="continuation">where the last step uses a remark at the end of <a href="section-gauss-legendre.html" class="internal" title="Section 16.2: Gauss-Legendre integration">Section 16.2</a>. Finally, since the degree of \(p\) is \(9 &lt; 2\cdot 5\text{,}\) we have \(\int_{-1}^1 p = \sum_k w_k p(x_k)\text{.}\) Combining the above, we conclude that</p>
+<div class="displaymath">
+\begin{equation*}
+\left|\int_{-1}^1 f -\sum_k w_k f(x_k)\right| \le 4\cdot 10^{-7}
+\end{equation*}
+</div>
 <span class="incontext"><a href="examples-gaussian-integration.html#p-523">in-context</a></span>
 </body>
 </html>

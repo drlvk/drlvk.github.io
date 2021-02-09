@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:22-05:00    *-->
+<!--*    on 2021-02-09T15:31:24-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Compare the system</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{pmatrix}1\amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \\ 7 \amp 8 \amp 9 \end{pmatrix}x= \begin{pmatrix} 10 \\ 11 \\ 12 \end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">to <a class="xref" data-knowl="./knowl/example-system-free-variable.html" title="Example 6.3.1: System with a free variable">Example 6.3.1</a>. Does it have the same solution?</p>
+<p>There is another logical choice of solution in a problem like this: one could pick the point on the line that is closest to the origin \((0, 0, 0)\text{,}\) that is the solution of smallest norm. This is the approach that Octave uses: when given <a class="xref" data-knowl="./knowl/example-system-free-variable.html" title="Example 6.3.1: System with a free variable">Example 6.3.1</a> it would produce <code class="code-inline tex2jax_ignore">[-4.5556; 0.1111; 4.7778]</code>. One can get this solution with Matlab by using  <code class="code-inline tex2jax_ignore">pinv(A)*b</code>, which results in <code class="code-inline tex2jax_ignore">[-4.5556; 0.1111; 4.7778]</code>. This approach takes longer because it involves computing the <dfn class="terminology">pseudoinverse</dfn> of \(A\) which is a subject of MAT 532.</p>
 <span class="incontext"><a href="section-systems-with-free-variables.html#p-223">in-context</a></span>
 </body>
 </html>

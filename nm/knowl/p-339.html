@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:23-05:00    *-->
+<!--*    on 2021-02-09T15:31:26-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,26 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Consider a non-linear system of more than one equation, such as</p>
-<div class="displaymath">
-\begin{equation}
-\begin{cases} x^2e^{3y}-30 \amp = 0 \\
-xy-\sin(x+y^2) \amp =0 
-\end{cases} \tag{10.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">What method could we use to solve it numerically?</p>
-<ul class="disc">
-<li>Bisection method does not apply. If we try to imitate it by taking a rectangle in the xy-plane and dividing it into 4 equal subrectangles, it is not clear which rectangle should be kept and why. The issue is that Intermediate Value Theorem, on which this method is based, does not generalize to systems.</li>
-<li>Fixed point iteration still makes sense: we can rewrite the system as<div class="displaymath">
-\begin{equation*}
-\begin{cases} x \amp = g(x, y) \\ y \amp = h(x, y)
-\end{cases} 
-\end{equation*}
-</div>and start iteration from some point \((x_0, y_0)\text{:}\) that is, \(x_1= g(x_0, y_0)\text{,}\) \(y_1 = h(x_0, y_0)\) and so on. If the process converges, we have a solution of the original system. But since there are more directions in which points can move under iteration, convergence is less likely than it was in one dimension.</li>
-<li>Newton's method, which is essentially a systematic approach to fixed-point iteration, still works. This is the method we will use in this section.</li>
-<li>It is not clear whether secant method makes sense, but its general idea - modifying Newton's method to avoid the use of derivatives - can be carried out. This will be considered later.</li>
-</ul>
-<span class="incontext"><a href="section-nonlinear-systems.html#p-339">in-context</a></span>
+<p>Having learned to solve a nonlinear equation with one unknown, we now consider systems of several such equations, with several unknowns. We assume the number of unknowns is equal to the number of equations.</p>
+<span class="incontext"><a href="chapter-multivariate-newton.html#p-339">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:04-05:00    *-->
+<!--*    on 2021-02-09T15:31:07-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,13 +409,13 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-numerical-differentiation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">12.5</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-417">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-418">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-avoid-loss-of-significance"><a data-knowl="" class="id-ref original" data-refid="hk-example-avoid-loss-of-significance"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Rewrite a formula to avoid the loss of significance.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-avoid-loss-of-significance"><article class="example example-like"><p id="p-418">The formula \((1-\cos(x))/x^2\) is prone to loss of significance when \(x\) is close to \(0\text{.}\) Rewrite it in a mathematically equivalent way which avoids this issue. Compare the performance of both formulas in Matlab with \(x = 10^{-9}\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-avoid-loss-of-significance"><article class="example example-like"><p id="p-419">The formula \((1-\cos(x))/x^2\) is prone to loss of significance when \(x\) is close to \(0\text{.}\) Rewrite it in a mathematically equivalent way which avoids this issue. Compare the performance of both formulas in Matlab with \(x = 10^{-9}\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-28" id="solution-28"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-28"><div class="solution solution-like">
-<p id="p-419">The issue is that \(\cos x\) is close to \(1\) and we subtract it from \(1\text{.}\) The identity</p>
+<p id="p-420">The issue is that \(\cos x\) is close to \(1\) and we subtract it from \(1\text{.}\) The identity</p>
 <div class="displaymath">
 \begin{equation*}
 (1-\cos x)(1+\cos x) = 1-\cos^2 x = \sin^2 x
@@ -433,7 +433,7 @@ g = @(x) sin(x)^2/(x^2*(1+cos(x)));
 disp(f(1e-9))
 disp(g(1e-9))
 </pre>
-<p id="p-420">The first formula produces \(0\text{,}\) the second produces \(0.5\text{.}\) The second value is correct. Indeed,</p>
+<p id="p-421">The first formula produces \(0\text{,}\) the second produces \(0.5\text{.}\) The second value is correct. Indeed,</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{1-\cos(x)}{x^2} \to \frac12 \quad \text{as } x\to 0
@@ -443,7 +443,7 @@ disp(g(1e-9))
 </div></article></div>
 <article class="example example-like" id="example-plot-log-difference"><a data-knowl="" class="id-ref original" data-refid="hk-example-plot-log-difference"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Compare the accuracy of three approximations to \(f'\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-plot-log-difference"><article class="example example-like"><p id="p-421">Consider the function \(f(x) = \sin x\) on the interval \([0, 5]\text{.}\) Compare the accuracy of the three approximations to its derivative (<a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a>, <a class="xref" data-knowl="./knowl/eq-diff-f1-symm.html" title="Equation 12.3.1">(12.3.1)</a>, <a class="xref" data-knowl="./knowl/eq-symm-extrapolated.html" title="Equation 12.4.4">(12.4.4)</a>) by plotting the <em class="emphasis">base 10 logarithm</em> of the error for each of them. Use \(h = 0.1\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-plot-log-difference"><article class="example example-like"><p id="p-422">Consider the function \(f(x) = \sin x\) on the interval \([0, 5]\text{.}\) Compare the accuracy of the three approximations to its derivative (<a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a>, <a class="xref" data-knowl="./knowl/eq-diff-f1-symm.html" title="Equation 12.3.1">(12.3.1)</a>, <a class="xref" data-knowl="./knowl/eq-symm-extrapolated.html" title="Equation 12.4.4">(12.4.4)</a>) by plotting the <em class="emphasis">base 10 logarithm</em> of the error for each of them. Use \(h = 0.1\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-29" id="solution-29"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-29"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) sin(x);
@@ -464,9 +464,9 @@ plot(x, log10(abs(extrapolated - exact)))
 legend('original', 'symmetric', 'extrapolated')
 hold off
 </pre>
-<p id="p-422">The result, shown below, indicates that the error is about \(10^{-1}\) for the original formula (from the definition of derivative), about \(10^{-3}\) for the symmetric formula, and about \(10^{-6}\) for the extrapolated formula.</p>
+<p id="p-423">The result, shown below, indicates that the error is about \(10^{-1}\) for the original formula (from the definition of derivative), about \(10^{-3}\) for the symmetric formula, and about \(10^{-6}\) for the extrapolated formula.</p>
 <figure class="figure figure-like" id="differentiation1-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/differentiation1.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">12.5.3<span class="period">.</span></span><span class="space"> </span>Comparison of errors</figcaption></figure><p id="p-423">Note that Matlab's command <code class="code-inline tex2jax_ignore">semilogy</code> can be used to plot on logarithmic scale directly, for example</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">12.5.3<span class="period">.</span></span><span class="space"> </span>Comparison of errors</figcaption></figure><p id="p-424">Note that Matlab's command <code class="code-inline tex2jax_ignore">semilogy</code> can be used to plot on logarithmic scale directly, for example</p>
 <pre class="code-block tex2jax_ignore">semilogy(x, abs(original - exact))</pre>
 <p data-braille="continuation">has the same result as</p>
 <pre class="code-block tex2jax_ignore">plot(x, log10(abs(original - exact)))</pre>
@@ -474,8 +474,8 @@ hold off
 </div></article></div>
 <article class="question example-like" id="question-25"><a data-knowl="" class="id-ref original" data-refid="hk-question-25"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">12.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">What makes the error smaller in some places?</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-25"><article class="question example-like"><p id="p-424">As we see in <a class="xref" data-knowl="./knowl/differentiation1-png.html" title="Figure 12.5.3">Figure 12.5.3</a>, the size of error suddently becomes much smaller in certain parts of the interval. What is special about those places that makes the approximation more accurate?</p>
-<a data-knowl="" class="id-ref original" data-refid="hk-hint-4" id="hint-4"><span class="type">Hint</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-4"><div class="hint solution-like"><p id="p-425">Recall the connection with Taylor series: the error term involves derivatives of higher order.</p></div></div></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-25"><article class="question example-like"><p id="p-425">As we see in <a class="xref" data-knowl="./knowl/differentiation1-png.html" title="Figure 12.5.3">Figure 12.5.3</a>, the size of error suddently becomes much smaller in certain parts of the interval. What is special about those places that makes the approximation more accurate?</p>
+<a data-knowl="" class="id-ref original" data-refid="hk-hint-4" id="hint-4"><span class="type">Hint</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-4"><div class="hint solution-like"><p id="p-426">Recall the connection with Taylor series: the error term involves derivatives of higher order.</p></div></div></article></div></section></div></main>
 </div>
 </body>
 </html>

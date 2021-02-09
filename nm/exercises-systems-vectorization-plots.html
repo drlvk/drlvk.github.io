@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T17:59:57-05:00    *-->
+<!--*    on 2021-02-09T15:31:01-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -410,13 +410,13 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">2.6</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-4"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-91">Consider the following relations: \(F_0=1\text{,}\) \(F_1=1\text{,}\) \(F_2 = F_0+F_1\text{,}\) \(F_3=F_1+F_2\text{,}\) and so on until \(F_{6} = F_4+F_5\text{.}\) (These are the first 7 Fibonacci numbers).</p>
-<ol class="lower-alpha">
-<li id="li-29">Write down a linear system that expresses these relations in matrix form \(Af =b\text{.}\) Here, \(A\) will be a 7<span class="times-sign">×</span>7 matrix and \(b\) a column vector.</li>
-<li id="li-30">Write a Matlab script that creates this matrix \(A\) and vector \(b\text{,}\) then solves the linear system to find the Fibonacci numbers.</li>
+<p id="p-91">The Fibonacci numbers \(F_n\) are defined by the following relations: \(F_1=1\text{,}\) \(F_2=1\text{,}\) then \(F_3 = F_1+F_2\text{,}\) \(F_4 = F_2 + F_3\text{,}\) and so on: every number is the sum of two previous ones, \(F_n = F_{n-2}+F_{n-1}\text{.}\) We can consider these relations as a system of linear equations with unknowns \(F_1, \dots, F_n\) (to see this, move all the unknowns to the left, leaving constant terms on the right).</p>
+<ol id="p-92" class="lower-alpha">
+<li id="li-29">Find the first 30 Fibonacci numbers using Matlab's linear solver <code class="code-inline tex2jax_ignore">A\b</code>. To achieve this, you will first need to create a \(30\times 30\) matrix of the linear system and then create a column vector <code class="code-inline tex2jax_ignore">b</code> where the first two coordinates are \(1\) and the rest are \(0\text{.}\) The commands <code class="code-inline tex2jax_ignore">eye</code>, <code class="code-inline tex2jax_ignore">diag</code>, <code class="code-inline tex2jax_ignore">ones</code>, and <code class="code-inline tex2jax_ignore">zeros</code> will help.</li>
+<li id="li-30">Using the same method, find the first 30 “generalized Fibonacci numbers” that begin with \(a, b\) instead of \(1, 1\text{.}\) Use the first two digits of your SUID number as the starting values \(a, b\text{.}\) (For example, if your SUID begins with 2067… then \(a=2\text{,}\) \(b=0\text{.}\))</li>
 </ol></article><article class="exercise exercise-like" id="exercise-5"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-92">Write a script to do the following:</p>
-<ol id="p-93" class="lower-alpha">
+<p id="p-93">Write a script to do the following:</p>
+<ol id="p-94" class="lower-alpha">
 <li id="li-31">Create a 10<span class="times-sign">×</span>10 matrix A with 2 on the main diagonal, and -1 next to it (both above and below).</li>
 <li id="li-32">Solve the linear system \(Ay=b\) where \(b\) is the vector<div class="displaymath">
 \begin{equation*}
@@ -425,7 +425,7 @@ MathJax.Hub.Config({
 \end{pmatrix}
 \end{equation*}
 </div>Use a regularly-spaced vector, transpose, and <code class="code-inline tex2jax_ignore">sqrt</code> to create \(b\text{.}\)</li>
-<li id="li-33">Plot  the solution \(y\) against the vector \(x\) of 10 equally spaced entries, beginning with 0 and ending with 1. The <code class="code-inline tex2jax_ignore">linspace</code> command will be useful.</li>
+<li id="li-33">Plot the solution \(y\) against the vector \(x\) of 10 equally spaced numbers, beginning with 0 and ending with 1. The <code class="code-inline tex2jax_ignore">linspace</code> command will be useful.</li>
 </ol></article></section></div></main>
 </div>
 </body>

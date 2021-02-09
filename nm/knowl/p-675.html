@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-07T18:00:27-05:00    *-->
+<!--*    on 2021-02-09T15:31:30-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A more abstract approach to the construction of degree 1 spline is as follows:</p>
-<ul class="disc">
-<li>We have \(n-1\) subintervals between \(n\) data points.</li>
-<li>On each subinterval we choose a degree 1 polynomial; this means we have \(2(n-1)\) coefficients to choose.</li>
-<li>But we want to spline to be continuous, so the values at each interior data point from the left and from the right must match. There are \(n-2\) interior data points, so the continuity imposes \(n-2\) equations.</li>
-<li>Finally, the spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
-<li>The total is \(n-2+n=2n-2\) equations with \(2(n-1) = 2n-2\) unknowns, so we expect (and get) a unique solution.</li>
-</ul>
+<p>Formally, piecewise linear interpolation means that given some points \(a=x_1 \lt x_2 \lt \cdots \lt x_n = b\) on an interval \([a, b]\) and corresponding y-values \(y_1, \dots, y_n\text{,}\) we define a function \(S\colon [a, b]\to \mathbb R\) by the piecewise formula</p>
+<div class="displaymath">
+\begin{equation}
+S(x) = y_k + \frac{y_{k+1}-y_k}{x_{k+1} - x_{k}} (x - x_k),\quad  x_{k}\le x\le x_{k+1}\tag{23.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">where the right hand side is a linear function through two points \((x_{k}, y_k)\) and \((x_{k+1}, y_{k+1})\text{.}\) So, instead of \(1\) interpolating polynomial of degree \(n-1\) we use \(n-1\) polynomials of degree \(1\text{.}\) The function \(S\) is a spline of degree 1 meaning it is a piecewise function where the pieces are polynomials of degree 1.</p>
 <span class="incontext"><a href="section-piecewise-linear-interpolation.html#p-675">in-context</a></span>
 </body>
 </html>
