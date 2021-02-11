@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:14-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<p>As most numerical methods, <code class="code-inline tex2jax_ignore">fminsearch</code> may fail at its task:</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) exp(x), 0)  
+</pre>
+<p data-braille="continuation">returns “-786.4315” (there are no points of minimum, of course), while</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) x^3 - x, 4)
+</pre>
+<p data-braille="continuation">overlooks the local minimum at \(x = 1/\sqrt{3}\) and diverges to negative infinity. The success is much more likely if the initial point is chosen with some care. In case of fitting a curve to data, one should try to guess the signs and approximate sizes of the parameters.</p>
+<span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-810">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:11-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="answer solution-like">
+<p>When implementing Gauss rules on a general interval \([a, b]\text{,}\) it helps to introduce the midpoint \(c = (a+b)/2\) and half-length \(k = (b-a)/2\text{.}\) This is because the rule was originally designed for \([-1, 1]\) and the linear function from \([-1, 1]\) to \([a, b]\) is \(kx+c\text{.}\) The coefficient \(k\) will appear in the formulas due to the change of variable formula.</p>
+<pre class="code-block tex2jax_ignore">function adaptive_example()
+    f = @ (x) x.^(-1/2);
+    fprintf('The integral is %.6f\n', adaptive(f, 0, 9));
+end
+
+function I = adaptive(f, a, b)
+    c = (a+b)/2;
+    k = (b-a)/2;
+    I1 = k*2*f(c);    % midpoint, same as Gauss n=1
+    I2 = k*(f(c - k/sqrt(3)) + f(c + k/sqrt(3)));  % Gauss n=2
+    if abs(I1 - I2) &lt; 1e-6 * (b-a) + 1e-9 
+        I = I2;
+    else
+        I = adaptive(f, a, c) + adaptive(f, c, b);
+    end
+end
+</pre>
+<p>Note that the function is not defined at 0 which is an endpoints of the interval of integration. This would be a problem if we used, for example, trapezoidal or Simpson's rules. Not a problem for midpoint or Gauss rules. By the way, the midpoint rule can be viewed as the Gauss rule with 1 point, because the degree 1 Legendre polynomial is \(P_1(x)=x\text{,}\) with the zero at the middle of interval \([-1,1]\)</p>
+</div></body>
+</html>

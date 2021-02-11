@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:13-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="answer solution-like">
+<h6 class="heading">
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">25.2.1.1</span><span class="period">.</span>
+</h6>
+<p>The syntax of <code class="code-inline tex2jax_ignore">integral</code> is <code class="code-inline tex2jax_ignore">integral(@(x) ..., a, b)</code> where \(a, b\) are the limits of integration and the function is expressed in a form that allows vectorized evaluation. Here is the computation of Fourier coefficient</p>
+<pre class="code-block tex2jax_ignore">f = @(x) sqrt(1 + cos(2*pi*x)) + 1i*log(2 + sin(2*pi*x));
+n = 3;
+c = zeros(1, 2*n+1);
+for k = -n:n
+    c(k+n+1) = integral(@(x) f(x).*exp(-2*pi*1i*k*x), 0, 1);
+end
+disp(c)
+</pre>
+<p>Then we combine both complex plots using different colors.</p>
+<pre class="code-block tex2jax_ignore">t = linspace(0, 1, 1000);
+k = -n:n;
+p = c*exp(2*pi*1i*k'*t);
+hold on
+plot(f(t))
+plot(p, 'r')
+hold off
+</pre>
+<p>Note that the lack of smoothness at one point slows down the convergence of Fourier series. If the function had <code class="code-inline tex2jax_ignore">sqrt(1.1 + cos(2*pi*x))</code> instead, the convergence would be much better.</p>
+</div>
+<span class="incontext"><a href="section-fourier-series.html#answer-65">in-context</a></span>
+</body>
+</html>

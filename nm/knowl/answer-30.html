@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:07-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="answer solution-like">
+<h6 class="heading">
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">5.2.1.1</span><span class="period">.</span>
+</h6>
+<pre class="code-block tex2jax_ignore">function z = agm(x, y, tol) 
+   while abs(x - y) &gt;= tol
+       a = (x + y)/2;
+       g = sqrt(x*y);
+       x = a;
+       y = g;
+   end
+   z = x;
+end
+</pre>
+<p>Note that the result has to be assigned to whichever function variable was designated as output on th first line of the function: in this case, <code class="code-inline tex2jax_ignore">z</code>.</p>
+</div>
+<span class="incontext"><a href="section-named-functions.html#answer-30">in-context</a></span>
+</body>
+</html>

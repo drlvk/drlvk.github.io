@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:07-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="answer solution-like">
+<h6 class="heading">
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">4.5.1.1</span><span class="period">.</span>
+</h6>
+<pre class="code-block tex2jax_ignore">s = 0;
+n = 1;
+while s &lt;= 10
+    s = s + 1/n;
+    n = n + 1;
+end
+fprintf('The partial sum has %d terms\n', n-1)
+</pre>
+<p><em class="emphasis">Explanation</em>: The variable <code class="code-inline tex2jax_ignore">s</code> represents partial sums. We add <code class="code-inline tex2jax_ignore">1/n</code> to it, and then increase the value of <code class="code-inline tex2jax_ignore">n</code>. When <code class="code-inline tex2jax_ignore">s &gt; 10</code> the process stops. The output uses formatting code <code class="code-inline tex2jax_ignore">%d</code> for integers, since the answer is an integer. Why does the output have <code class="code-inline tex2jax_ignore">n-1</code> and not <code class="code-inline tex2jax_ignore">n</code>? Because of the way that the loop is written, the value of n is increased <em class="emphasis">after</em> each addition. So at the end of it, <code class="code-inline tex2jax_ignore">n</code> is the number that is 1 more than the number of terms we added.</p>
+</div>
+<span class="incontext"><a href="examples-control-flow.html#answer-27">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:06-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<p>Aggregate functions get more complicated (and powerful) when they are applied to matrices. In this case they <em class="emphasis">do not</em> return a single number. Given a matrix A, for example <code class="code-inline tex2jax_ignore">A = [3 9; 5 2]</code>, we can find its:</p>
+<ul class="disc">
+<li>
+<dfn class="terminology">Column sums</dfn> with <code class="code-inline tex2jax_ignore">sum(A, 1)</code>: the result is a row vector <code class="code-inline tex2jax_ignore">[8 11]</code> which contains the sum of each column.</li>
+<li>
+<dfn class="terminology">Row sums</dfn> with <code class="code-inline tex2jax_ignore">sum(A, 2)</code>: the result is a column vector <code class="code-inline tex2jax_ignore">[12; 7]</code> which contains the sum of each row.</li>
+</ul>
+<p data-braille="continuation">The second argument (1 or 2) means that we sum along the 1st index (row index) or 2nd index (column index). Summing along the row index means A(1, 1) + A(2, 1) + A(3, 1) + ... which produces the sum within each column. Entering <code class="code-inline tex2jax_ignore">sum(A)</code> has the same effect as <code class="code-inline tex2jax_ignore">sum(A, 1)</code>.</p>
+<span class="incontext"><a href="section-builtin-functions.html#p-100">in-context</a></span>
+</body>
+</html>

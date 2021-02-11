@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:11-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="answer solution-like">
+<h6 class="heading">
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">16.4.1.1</span><span class="period">.</span>
+</h6>
+<p>Combine the code from <a class="xref" data-knowl="./knowl/example-computation-legendre-roots.html" title="Example 15.4.2: The roots of Legendre polynomials">Example 15.4.2</a> (computation of Legendre roots) and <a class="xref" data-knowl="./knowl/example-find-cotes-weights.html" title="Example 14.2.1: Find the weights for a 5-point Newton-Cotes formula">Example 14.2.1</a> (computing the weights). This only requires some changes in variable names and in the orientation of vectors (row/column).</p>
+<pre class="code-block tex2jax_ignore">n = input('n = ');
+p = [1];
+q = [1 0];
+for m = 1:n-1
+    r = ((2*m+1)*[q 0] - m*[0 0 p])/(m+1);
+    p = q;
+    q = r;
+end
+x = roots(r)';
+disp(x);    %  the evaluation points
+i = (1:n)'; 
+A = x.^(i-1);
+b = (1-(-1).^i)./i;
+w = A\b;
+disp(w');   %  the weights
+</pre>
+</div>
+<span class="incontext"><a href="examples-gaussian-integration.html#answer-41">in-context</a></span>
+</body>
+</html>

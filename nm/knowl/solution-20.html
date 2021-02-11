@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:09-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">10.2.3.1</span><span class="period">.</span>
+</h6>
+<p>Following the structure of single-variable Newton method with notational adjustments:</p>
+<pre class="code-block tex2jax_ignore">F = @(x) [x(1)^2*exp(3*x(2)) - 30; x(1)*x(2) - sin(x(1) + x(2)^2)];
+J = @(x) [2*x(1)*exp(3*x(2)), 3*x(1)^2*exp(3*x(2)); 
+          x(2) - cos(x(1) + x(2)^2), x(1) - 2*x(2)*cos(x(1) + x(2)^2)];
+      
+x = [2; 1];
+max_tries = 10000;
+
+for k = 1:max_tries
+    h = -J(x)\F(x);
+    x = x + h;
+    if norm(h) &lt; 100*eps(norm(x))
+        break
+    end
+end
+
+if k &lt; max_tries
+    fprintf('Found a solution after %d steps:\n', k);
+    disp(x)
+    disp('The value F(x)')
+    disp(F(x))
+else
+    disp('Failed to converge')
+end
+</pre>
+<p>It is reasonable to increase the “max tries” number in Newton's method when several variables are involved, as convergence may take longer. In the above example, with initial point <code class="code-inline tex2jax_ignore">[2; 1]</code>, a solution <code class="code-inline tex2jax_ignore">[-0.0019; 5.3185]</code> is found in 15 steps. With initial point <code class="code-inline tex2jax_ignore">[1; 2]</code> the method fails to converge. With initial point <code class="code-inline tex2jax_ignore">[2; 2]</code> it converges in 10 steps to a different solution, <code class="code-inline tex2jax_ignore">[-0.2734; 1.9982]</code>.</p>
+</div>
+<span class="incontext"><a href="section-multivariate-newton.html#solution-20">in-context</a></span>
+</body>
+</html>

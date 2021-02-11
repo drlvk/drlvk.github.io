@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:06-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="answer solution-like">
+<pre class="code-block tex2jax_ignore">v = 1:10;
+disp(v.^(1./v))
+</pre>
+<p>The root is largest for \(n = 3\text{.}\)</p>
+<p>Note that both periods are necessary. Without the second one, Matlab would try to interpet <code class="code-inline tex2jax_ignore">1/v</code> as a linear system with coefficients <code class="code-inline tex2jax_ignore">v</code> and right hand side <code class="code-inline tex2jax_ignore">1</code>, which is not what we want. With <code class="code-inline tex2jax_ignore">1./v</code> we get the vector <code class="code-inline tex2jax_ignore">[1/1 1/2 1/3 ...]</code>. Similarly, without the first period Matlab would try to interpret <code class="code-inline tex2jax_ignore">v^(...)</code> as a matrix power, which would not make sense either.</p>
+</div></body>
+</html>

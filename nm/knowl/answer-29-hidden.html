@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:07-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="answer solution-like">
+<pre class="code-block tex2jax_ignore">H = @(n) sum((1:n).^(-1));
+</pre>
+<p>These sums are called <dfn class="terminology">harmonic numbers</dfn> (hence the letter H for this function). What happens if it is given a negative or fractional input? The regular vector <code class="code-inline tex2jax_ignore">1:n</code> contains all positive integers that are not greater than n. So, <code class="code-inline tex2jax_ignore">1:3.7</code> is <code class="code-inline tex2jax_ignore">[1 2 3]</code>, same as <code class="code-inline tex2jax_ignore">1:3</code>. This means <code class="code-inline tex2jax_ignore">H(3.7)</code> is <code class="code-inline tex2jax_ignore">1/1 + 1/2 + 1/3</code>, same as <code class="code-inline tex2jax_ignore">H(3)</code>. And if a number less than 1 is given, the regular vector <code class="code-inline tex2jax_ignore">1:n</code> is empty, and the sum of an empty set of numbers is 0. For example, <code class="code-inline tex2jax_ignore">H(-2)</code> is 0.</p>
+</div></body>
+</html>

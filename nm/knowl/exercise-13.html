@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:07-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="exercise exercise-like"><h6 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">3<span class="period">.</span></span>
+</h6>
+<p>Write a named function <code class="code-inline tex2jax_ignore">function y = cositer(x, n)</code> that takes two arguments x and n and returns the n-th iteration of the mathematical function \(x\mapsto 2\cos x\text{.}\) For example, if <code class="code-inline tex2jax_ignore">n = 4</code>, the result should be</p>
+<div class="displaymath">
+\begin{equation*}
+2\cos(2\cos (2\cos (2\cos x))))
+\end{equation*}
+</div>
+<p data-braille="continuation">Use this function to plot several of these iterates on the interval \([0, 2]\) as shown below.</p>
+<pre class="code-block tex2jax_ignore">function hw5()
+    x = linspace(0, 2, 2000);   
+    hold on
+    for n = [4 5 30 31]
+        plot(x, cositer(x, n))
+    end
+    hold off
+end
+
+function y = cositer(x, n)
+   (your function goes here)
+end
+</pre>
+<p>Remark: the command <code class="code-inline tex2jax_ignore">hold on</code> refers to displaying several functions on the same plot. Normally, Matlab replaces each plot with next one. With <code class="code-inline tex2jax_ignore">hold on</code>, it keeps the previous plot and draws next one over it, using a different color (unless you specify a color). At the end, <code class="code-inline tex2jax_ignore">hold off</code> is used to restore the normal behavior.</p></article><span class="incontext"><a href="exercises-user-defined-functions.html#exercise-13">in-context</a></span>
+</body>
+</html>

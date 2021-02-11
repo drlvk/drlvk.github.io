@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:06-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="answer solution-like">
+<h6 class="heading">
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">3.5.3.1</span><span class="period">.</span>
+</h6>
+<pre class="code-block tex2jax_ignore">A = rand(10, 10000); 
+m = mean(A, 1);
+md = median(A, 1);
+disp(max(abs(m-md)))
+</pre>
+<p>The result of computation depends on your luck. There is no guarantee that the maximum found after 10000 random tries is close to the actual maximum.</p>
+</div>
+<span class="incontext"><a href="examples-functions-input-output.html#answer-22">in-context</a></span>
+</body>
+</html>

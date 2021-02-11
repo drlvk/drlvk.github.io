@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:15-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="solution solution-like">
+<pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
+a = -2;
+b = 0;
+c = 2;
+
+max_tries = 10000;
+
+for k = 1:max_tries
+    alpha = (f(b)-f(a))/(b-a);
+    beta = (f(c)-f(a)-alpha*(c-a))/((c-a)*(c-b));
+    x = (a+b)/2 - alpha/(2*beta);
+    a = b;
+    b = c;
+    c = x;
+    if max([a b c]) - min([a b c]) &lt; 1e-6
+        break
+    end
+end
+
+if k &lt; max_tries
+    fprintf('Found x = %g with f(x) = %g after %d steps\n', c, f(c), k);
+else
+    disp('Failed to converge')
+end
+</pre>
+<p>As the example shows, parabolic interpolation can converge to a local maximum. Indeed, a closer look shows it does not distinguish between \(f\) and \(-f\text{,}\) so it can minimize just as well as maximize. As with Newton's method, we can benefit from this method by using it in a small neighborhood of minimum.</p>
+</div></body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-02-10T20:02:16-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="solution solution-like">
+<pre class="code-block tex2jax_ignore">f = @(x) (x(1) + 7*x(2)).^3;
+c = @(x) x(1).^2 + x(2).^2 - 1;
+x0 = randn(2, 1);
+
+for M = [1e3, 1e6, 1e9, 1e12]
+    x0 = fminsearch(@(x) f(x) + M*max(c(x), 0).^2, x0);
+end
+    
+fprintf('Found x = (%g, %g), |x| = %g, f(x) = %g \n', x0, norm(x0), f(x0));
+</pre>
+<p>With the linear penalty, the minimization process sometimes fails to converge within the allowed attempts; but if it converges, it stays in the unit disk. With the quadratic penalty, the convergence is more reliable but the norm of the point of minimum is usually greater than \(1\text{.}\)</p>
+</div></body>
+</html>
