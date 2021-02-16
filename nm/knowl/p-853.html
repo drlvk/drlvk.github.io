@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:15-05:00    *-->
+<!--*    on 2021-02-15T21:37:46-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,20 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Golden section method improves on the above by choosing \(c,d\) as follows:</p>
-<div class="displaymath">
-\begin{equation*}
-c = a+r(b-a), \quad d=b-r(b-a), \quad \text{where } r=\frac{3-\sqrt{5}}{2}
-\end{equation*}
-</div>
-<p data-braille="continuation">The number \(r\) is related to golden ratio \(\varphi = (\sqrt{5}+1 )/2\approx 1.618\) by \(r=1/\varphi^2\text{.}\) The following intervals are all in the golden ratio to each other:</p>
-<div class="displaymath">
-\begin{equation*}
-\frac{b-a}{d-a} = \frac{b-a}{b-c} = \frac{d-a}{c-a}  = \frac{b-c}{b-d} 
-= \frac{c-a}{d-c} = \frac{b-d}{d-c} = \varphi
-\end{equation*}
-</div>
-<p data-braille="continuation">The result of this invariance of the ratio is that when the bracket is reduced, the remaining interior point again divides it in the golden ratio.</p>
+<p>With each step of iteration, only one additional evaluation of \(f\) is needed. The bracket size is divided by \(\varphi\) at every step. This is linear rate of convergence, which is slow but reliable (if the function is unimodal), and we don't need the derivative of \(f\) to use this method.</p>
 <span class="incontext"><a href="section-golden-section.html#p-853">in-context</a></span>
 </body>
 </html>

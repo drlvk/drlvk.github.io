@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:01:48-05:00    *-->
+<!--*    on 2021-02-15T21:37:19-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,7 +409,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-relaxation-parameter"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">9.4</span> <span class="title">The relaxation parameter</span>
 </h2>
-<p id="p-322">When faced with an iterative method which moves either too slowly, undershooting the target (<a class="xref" data-knowl="./knowl/newton3-png.html" title="Figure 9.2.1">Figure 9.2.1</a>) or too quickly, overshooting it (<a class="xref" data-knowl="./knowl/newton2-png.html" title="Figure 9.2.2">Figure 9.2.2</a>), we can try and fix the issue by introducing a <dfn class="terminology">relaxation parameter</dfn>. This is a fixed positive number \(\omega \gt 0\) by which we multiply the step size \(h\) obtained from Newton's method (or secant method, etc). That is, instead of iterating the function</p>
+<p id="p-321">When faced with an iterative method which moves either too slowly, undershooting the target (<a class="xref" data-knowl="./knowl/newton3-png.html" title="Figure 9.2.1">Figure 9.2.1</a>) or too quickly, overshooting it (<a class="xref" data-knowl="./knowl/newton2-png.html" title="Figure 9.2.2">Figure 9.2.2</a>), we can try and fix the issue by introducing a <dfn class="terminology">relaxation parameter</dfn>. This is a fixed positive number \(\omega \gt 0\) by which we multiply the step size \(h\) obtained from Newton's method (or secant method, etc). That is, instead of iterating the function</p>
 <div class="displaymath">
 \begin{equation*}
 g(x) = x - \frac{f(x)}{f'(x)}
@@ -422,14 +422,14 @@ g(x) = x - \omega \frac{f(x)}{f'(x)}
 \end{equation*}
 </div>
 <p data-braille="continuation">If \(\omega &gt; 1\text{,}\) this is <dfn class="terminology">over-relaxation</dfn>, meant to make the process move faster. If \(\omega \lt 1\text{,}\) this is <dfn class="terminology">under-relaxation</dfn>, meant to slow down the process so it does not overshoot and run off in a wrong direction.</p>
-<p id="p-323">How to determine an appropriate value of \(\omega\text{?}\) Consider the case of a multiple root: \(f(x) = x^p\) with \(p &gt; 1\text{.}\)  Here</p>
+<p id="p-322">How to determine an appropriate value of \(\omega\text{?}\) Consider the case of a multiple root: \(f(x) = x^p\) with \(p &gt; 1\text{.}\)  Here</p>
 <div class="displaymath">
 \begin{equation*}
 g(x) = x - \omega \frac{f(x)}{f'(x)} = x - \omega \frac{x^p}{px^{p-1}} = (1- \omega/p)x
 \end{equation*}
 </div>
 <p data-braille="continuation">so the best value to use \(\omega = p\text{,}\) which makes \(g(x)=0\text{,}\) the solution is found in one step. So, for a double root, when the graph of \(f\) looks like a parabola near the root, we should use over-relaxation with \(\omega = 2\text{;}\) for triple roots, \(\omega = 3\text{,}\) and so on. Over-relaxation needs to be done very carefully: in these examples, any value of \(\omega\) other than the correct one will fail to achieve the desired speed up of convergence.</p>
-<p id="p-324">Similarly, a function shaped like \(f(x) = x^{1/3}\) may need under-relaxation, in this case the previous paragraph suggests \(\omega = 1/3\text{.}\) In general, under-relaxation is a less delicate issue than over-relaxation: seeing the failure to converge, one can simply try \(\omega = 0.1\text{,}\) and if that does not help, maybe \(\omega = 0.01\text{.}\) The convergence, if it is achieved, will usually be slow (linear).</p></section></div></main>
+<p id="p-323">Similarly, a function shaped like \(f(x) = x^{1/3}\) may need under-relaxation, in this case the previous paragraph suggests \(\omega = 1/3\text{.}\) In general, under-relaxation is a less delicate issue than over-relaxation: seeing the failure to converge, one can simply try \(\omega = 0.1\text{,}\) and if that does not help, maybe \(\omega = 0.01\text{.}\) The convergence, if it is achieved, will usually be slow (linear).</p></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:11-05:00    *-->
+<!--*    on 2021-02-15T21:37:42-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>So we need an algorithm that estimates the error of numerical integration and adapts to any unusual features of the function.</p>
-<span class="incontext"><a href="section-motivation-adaptive-integration.html#p-537">in-context</a></span>
+<p>A practical way to estimate the error of some method of integration is to use it twice with two different step sizes, and compare the results. Typically, one compares the computations with steps \(h\) and \(h/2\text{.}\) Say, the first computation resulted in \(A_1\) and the second, more accurate, in \(A_2\text{.}\) If the exact value is \(E\text{,}\) then we expect \(|A_1-E|\approx 2^d|A_2-E|\) where \(d\) is the order of accuracy of the method. By the triangle inequality,</p>
+<div class="displaymath">
+\begin{equation*}
+|A_1-A_2| \ge |A_1-E| - |A_2-E| \approx (2^d-1) |A_2-E| 
+\end{equation*}
+</div>
+<p data-braille="continuation">which gives us an idea of the error involved in \(A_2\) (the more accurate approximation):</p>
+<div class="displaymath">
+\begin{equation}
+|A_2-E| \lessapprox \frac{|A_1-A_2|}{2^d-1}  \tag{17.2.1}
+\end{equation}
+</div>
+<p data-braille="continuation">where the symbol \(\lessapprox\) means the error is bounded by something like the right hand side. We do not assert this is an exact inequality, because the relation involving \(2^d\) is only approximate.</p>
+<span class="incontext"><a href="section-adaptive-integration-error-estimate.html#p-537">in-context</a></span>
 </body>
 </html>

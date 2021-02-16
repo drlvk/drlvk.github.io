@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:12-05:00    *-->
+<!--*    on 2021-02-15T21:37:44-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><a class="xref" data-knowl="./knowl/chebroots1-png.html" title="Figure 22.2.2">Figure 22.2.2</a> involves the <em class="emphasis">midpoints</em> of equal arcs, which should remind us of the Midpoint Rule. There is a parallel  “trapezoidal” story, in which we consider the <em class="emphasis">endpoints</em> of all these arcs and give half the weight to the smallest and largest.</p>
+<p>These projections are called “Chebyshev extreme points” or “Chebyshev points of the second kind”. Explicitly, they are</p>
+<div class="displaymath">
+\begin{equation}
+x_k = \cos(\pi k/n) \quad \text{where } k=0, 1, \dots, n\tag{22.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">In Matlab one could write</p>
+<pre class="code-block tex2jax_ignore">
+x = cos(linspace(0, pi, n+1));
+</pre>
+<p data-braille="continuation">While the midpoint projections (Chebyshev points of the first kind) are the <em class="emphasis">roots</em> of polynomials \(T_n\text{,}\) the points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> are the <em class="emphasis">extreme points</em> of \(T_n\text{.}\) Indeed, the identity <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> says that \(T_n\) attains extreme values \(\pm 1\) when \(\cos (n\theta) = \pm 1\text{,}\) hence \(\theta = \pi k/n\text{,}\) hence \(x = \cos(\pi k/n)\text{.}\)</p>
 <span class="incontext"><a href="section-chebyshev-extreme-points.html#p-663">in-context</a></span>
 </body>
 </html>

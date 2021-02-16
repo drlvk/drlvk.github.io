@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:07-05:00    *-->
+<!--*    on 2021-02-15T21:37:39-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,10 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><pre class="code-block tex2jax_ignore">A = [1.000001 2 3; 4 5 6; 7 8 9];
-b = [10; 11; 12];
-</pre>leads to <code class="code-inline tex2jax_ignore">A\b</code> being <code class="code-inline tex2jax_ignore">[0.0000; -9.0000; 9.3333]</code>. In contrast, with<pre class="code-block tex2jax_ignore">A = [1 2 3; 4 5 6; 7 8 9.000001];
-</pre>we get the solution <code class="code-inline tex2jax_ignore">[-9.3333; 9.6667; 0.0000]</code> which is quite different. Note that Matlab shows no warnings in either case. These systems do not have a free variable: the rank of A is 3. Yet, the solution is very sensitive to small changes of the system, because the matrix is close to being singular (or degenerate).</p>
+<p>The simplest example of an inconsistent linear system is a system of two equations with one variable: \(x = b_1\) and \(x = b_2\) where \(b_1, b_2\) are two unequal real numbers. What is the least-squares solution of this system, and why? (Try to answer without Matlab, and then check the conclusion with Matlab.)</p>
 <span class="incontext"><a href="examples-linear-systems.html#p-236">in-context</a></span>
 </body>
 </html>

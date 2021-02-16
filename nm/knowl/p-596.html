@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:12-05:00    *-->
+<!--*    on 2021-02-15T21:37:43-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Euler's method has \(y_1 = 1 + h\text{,}\) hence \(|e^h - y_1| = h^2/2 + \dots\text{,}\) the local error is of second order. The cumulative error is of order \(1\text{.}\) This is consistent with what we know about left endpoint method of integration.</p>
+<p>The above does not capture the entire picture. Although errors might accumulate, they do not always do that. When solving an equation like \(y' = -ry\) (exponential decay) we get \(y_k = (1-rh)^k y_0\text{.}\) As long as \(h \lt 2/r\text{,}\) we have \(|1-rh| \lt 1\) and so the approximate solution decays exponentially as it should. But if \(h \gt 2/r\text{,}\)  the solution grows in magnitude instead of decreasing. This leads to the subject of <em class="emphasis">stability</em> of numerical ODE methods, which is beyond our scope.</p>
 <span class="incontext"><a href="section-ode-order-accuracy.html#p-596">in-context</a></span>
 </body>
 </html>

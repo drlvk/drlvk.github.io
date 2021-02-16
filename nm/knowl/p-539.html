@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:11-05:00    *-->
+<!--*    on 2021-02-15T21:37:42-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Let us return to <a class="xref" data-knowl="./knowl/example-simpson-error-estimate-poor.html" title="Example 17.1.1: Error of Simpson's method">Example 17.1.1</a> where Simpson's method with \(h=4\) was used to get an approximation \(A_1 = 96.9618\text{.}\) Reducing the step size to \(h=2\) we get a second approximation:</p>
-<div class="displaymath">
-\begin{equation*}
-A_2 = \frac{2}{3}(f(1) + 4f(3) + 2f(5) + 4f(7) + f(9)) \approx 96.8176
-\end{equation*}
-</div>
-<p data-braille="continuation">Since Simpson's rule has order \(d=4\text{,}\) the error of second approximation can be estimated by <a class="xref" data-knowl="./knowl/eq-error-estimate-comparison.html" title="Equation 17.2.1">(17.2.1)</a> as follows:</p>
-<div class="displaymath">
-\begin{equation*}
-|A_2-E| \lessapprox  \frac{|A_1-A_2|}{15}  = 0.0096
-\end{equation*}
-</div>
-<p data-braille="continuation">Recalling that the exact value is \(E = 96.8\text{,}\) we see that \(|A_2-E| = 0.0176\text{.}\) So our error estimate, while not rigorous, is much closer to reality than the theoretical estimate <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a>.</p>
-<span class="incontext"><a href="section-adaptive-integration-error-estimate.html#p-539">in-context</a></span>
+<p>The previous section showed how the accuracy of integration can be automatically estimated. Next question is, what can be done when it is insufficient? Using more evaluation points is logical. But if the algorithm keeps the interval of integration \([a, b]\) the same and just increases the number of points on that interval (e.g., in Simpson's rule), this is not the best way to adapt. Typically, the accuracy is poor because of insufficient smoothness or large derivative at some parts of the interval, while other parts are fine.</p>
+<span class="incontext"><a href="section-adaptive-integration-bisection.html#p-539">in-context</a></span>
 </body>
 </html>

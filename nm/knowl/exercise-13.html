@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:07-05:00    *-->
+<!--*    on 2021-02-15T21:37:39-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -22,14 +22,12 @@
 \end{equation*}
 </div>
 <p data-braille="continuation">Use this function to plot several of these iterates on the interval \([0, 2]\) as shown below.</p>
-<pre class="code-block tex2jax_ignore">function hw5()
-    x = linspace(0, 2, 2000);   
-    hold on
-    for n = [4 5 30 31]
-        plot(x, cositer(x, n))
-    end
-    hold off
+<pre class="code-block tex2jax_ignore">x = linspace(0, 2, 2000);   
+hold on
+for n = [4 5 30 31]
+    plot(x, cositer(x, n))
 end
+hold off
 
 function y = cositer(x, n)
    (your function goes here)

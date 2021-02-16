@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:10-05:00    *-->
+<!--*    on 2021-02-15T21:37:42-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Recursively find the coefficients and roots of Legendre polynomials of degrees up to 10. Plot all of them on the interval \([-1, 1]\text{.}\) The polynomials should be represented as vectors of coefficients, for example <code class="code-inline tex2jax_ignore">q = [1 0]</code> represents \(q(x) = 1x+0 = x\text{.}\) Once the coefficients are computed, one can use <code class="code-inline tex2jax_ignore">polyval(q, x)</code> to evaluate the polynomial at every point of vector <code class="code-inline tex2jax_ignore">x</code>, so that, for example, <code class="code-inline tex2jax_ignore">plot(x, polyval(q, x))</code> can be used to plot it.</p>
+<p>We have to start with <code class="code-inline tex2jax_ignore">[1]</code> and <code class="code-inline tex2jax_ignore">[1 0]</code> which represent \(1\) and \(x\text{.}\) Once a vector of coefficients <code class="code-inline tex2jax_ignore">q</code> exists, one can use concatenation <code class="code-inline tex2jax_ignore">[q 0]</code> to shift the coefficients to the left, representing multiplication by \(x\text{.}\)</p>
 <span class="incontext"><a href="examples-legendre-laguerre.html#p-490">in-context</a></span>
 </body>
 </html>

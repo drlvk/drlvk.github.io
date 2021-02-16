@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:12-05:00    *-->
+<!--*    on 2021-02-15T21:37:43-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>By analogy with Trapezoidal rule for numerical integration, one can try to improve the accuracy by using the average of both endpoints of an interval. That is, we would like to write</p>
-<div class="displaymath">
-\begin{equation*}
-y_{k+1} = y_k + h\frac{f(t_k,y_k)+f(t_{k+1},y_{k+1})}{2} 
-\end{equation*}
-</div>
-<p data-braille="continuation">However, this means we need to know \(y_{k+1}\) in order to find \(y_{k+1}\text{.}\) So we first make a prediction for \(y_{k+1}\) and then use it to compute \(y_{k+1}\) again, more accurately.  Namely, we use the original Euler's method to compute “predictor”</p>
-<div class="displaymath">
-\begin{equation}
-\tilde y_{k+1}=y_k + h f (t_k,y_k)\tag{19.4.1}
-\end{equation}
-</div>
-<p data-braille="continuation">and then compute the “corrector”</p>
-<div class="displaymath">
-\begin{equation}
-y_{k+1} = y_k + h\frac{f(t_k,y_k)+f(t_{k+1},\tilde y_{k+1})}{2} \tag{19.4.2}
-\end{equation}
-</div>
-<p data-braille="continuation">This is one of many <dfn class="terminology">predictor-corrector</dfn> methods for solving ODE. This particular method goes by various names (modified Euler method, improved Euler method); I prefer to call it the trapezoidal method, because this name describes the logic of <a class="xref" data-knowl="./knowl/eq-ode-corrector.html" title="Equation 19.4.2">(19.4.2)</a>.</p>
+<p>Modify <a class="xref" data-knowl="./knowl/example-implement-euler.html" title="Example 19.2.1: Implement Euler's method">Example 19.2.1</a> to use the trapezoidal method.</p>
 <span class="incontext"><a href="section-ode-euler-improved.html#p-598">in-context</a></span>
 </body>
 </html>

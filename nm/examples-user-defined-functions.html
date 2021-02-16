@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:01:45-05:00    *-->
+<!--*    on 2021-02-15T21:37:17-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,10 +409,10 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-user-defined-functions"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.3</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-191">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-190">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-mean-sine"><a data-knowl="" class="id-ref original" data-refid="hk-example-mean-sine"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Mean value of sine function.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-mean-sine"><article class="example example-like"><p id="p-192">Define an anonymous function <code class="code-inline tex2jax_ignore">meansin = @(n) ...</code> which computes the mean value of \(\sin(1)\text{,}\) \(\sin(2)\text{,}\) ..., \(\sin(n)\text{.}\) Use it to display the values <code class="code-inline tex2jax_ignore">meansin(n)</code> for n equal to 10, 50, 250, 1870, and 5000. What pattern do you observe?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-mean-sine"><article class="example example-like"><p id="p-191">Define an anonymous function <code class="code-inline tex2jax_ignore">meansin = @(n) ...</code> which computes the mean value of \(\sin(1)\text{,}\) \(\sin(2)\text{,}\) ..., \(\sin(n)\text{.}\) Use it to display the values <code class="code-inline tex2jax_ignore">meansin(n)</code> for n equal to 10, 50, 250, 1870, and 5000. What pattern do you observe?</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-32" id="answer-32"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-32"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">meansin = @(n) mean(sin(1:n));
@@ -421,19 +421,19 @@ for n = [10 50 250 1870 5000]
     disp(meansin(n))
 end
 </pre>
-<p id="p-193"><em class="emphasis">Explanation</em>: this is a reminder that the vector in <code class="code-inline tex2jax_ignore">for</code> loop does not have to be of the form <code class="code-inline tex2jax_ignore">a:b</code> even though this form is most common. Here the use of a loop avoids having to write</p>
+<p id="p-192"><em class="emphasis">Explanation</em>: this is a reminder that the vector in <code class="code-inline tex2jax_ignore">for</code> loop does not have to be of the form <code class="code-inline tex2jax_ignore">a:b</code> even though this form is most common. Here the use of a loop avoids having to write</p>
 <pre class="code-block tex2jax_ignore">
 disp(meansin(10))
 disp(meansin(50)) 
 disp(meansin(250)) 
 </pre>
 <p data-braille="continuation">and so on.</p>
-<p id="p-194">It appears that the mean values approach 0 as <code class="code-inline tex2jax_ignore">n</code> grows. This can be proved mathematically: see the homework section.</p>
+<p id="p-193">It appears that the mean values approach 0 as <code class="code-inline tex2jax_ignore">n</code> grows. This can be proved mathematically: see the homework section.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-eval-poly"><a data-knowl="" class="id-ref original" data-refid="hk-example-eval-poly"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Evaluating a polynomial.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-eval-poly"><article class="example example-like"><p id="p-195">Define a named function <code class="code-inline tex2jax_ignore">function y = p(x, a, n)</code> which computes the polynomial</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-eval-poly"><article class="example example-like"><p id="p-194">Define a named function <code class="code-inline tex2jax_ignore">function y = p(x, a, n)</code> which computes the polynomial</p>
 <div class="displaymath">
 \begin{equation*}
 p(x, a, n) = 1 + \frac{x}{a} + \frac{x^2}{a + 1} + \frac{x^3}{a+2} + \cdots + \frac{x^n}{a+n-1}
@@ -449,12 +449,12 @@ p(x, a, n) = 1 + \frac{x}{a} + \frac{x^2}{a + 1} + \frac{x^3}{a+2} + \cdots + \f
     end
 end
 </pre>
-<p id="p-196">One could also start with <code class="code-inline tex2jax_ignore">y = 0</code> and run the loop <code class="code-inline tex2jax_ignore">for k=0:n</code>; the result is the same.</p>
+<p id="p-195">One could also start with <code class="code-inline tex2jax_ignore">y = 0</code> and run the loop <code class="code-inline tex2jax_ignore">for k=0:n</code>; the result is the same.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-plot-poly"><a data-knowl="" class="id-ref original" data-refid="hk-example-plot-poly"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Plotting a polynomial.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-plot-poly"><article class="example example-like"><p id="p-197">Use the function from <a class="xref" data-knowl="./knowl/example-eval-poly.html" title="Example 5.3.2: Evaluating a polynomial">Example 5.3.2</a> to plot the polynomial with \(a = -3/2\) and \(n = 6\) on the interval \([-1, 1]\text{.}\) Assume the script is in the file <code class="code-inline tex2jax_ignore">example.m</code>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-plot-poly"><article class="example example-like"><p id="p-196">Use the function from <a class="xref" data-knowl="./knowl/example-eval-poly.html" title="Example 5.3.2: Evaluating a polynomial">Example 5.3.2</a> to plot the polynomial with \(a = -3/2\) and \(n = 6\) on the interval \([-1, 1]\text{.}\) Assume the script is in the file <code class="code-inline tex2jax_ignore">example.m</code>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-34" id="answer-34"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-34"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">function example()
     x = linspace(-1, 1, 500);
@@ -471,7 +471,7 @@ end
 </div></article></div>
 <article class="question example-like" id="question-9"><a data-knowl="" class="id-ref original" data-refid="hk-question-9"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Function creating a vector.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-9"><article class="question example-like"><p id="p-198">What does the function <code class="code-inline tex2jax_ignore">f</code> defined by <code class="code-inline tex2jax_ignore">f = @(x, y) [x y]</code> do? Can one give it vector inputs <code class="code-inline tex2jax_ignore">x, y</code>. If so, does it matter if they are row vectors or column vectors? Do they need to be of the same size?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-9"><article class="question example-like"><p id="p-197">What does the function <code class="code-inline tex2jax_ignore">f</code> defined by <code class="code-inline tex2jax_ignore">f = @(x, y) [x y]</code> do? Can one give it vector inputs <code class="code-inline tex2jax_ignore">x, y</code>. If so, does it matter if they are row vectors or column vectors? Do they need to be of the same size?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

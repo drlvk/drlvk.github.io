@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:09-05:00    *-->
+<!--*    on 2021-02-15T21:37:40-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>These are close, so the approximation is good. Note the use of formatted strings with vectors: Matlab automatically “unpacks” vectors when they are used in <code class="code-inline tex2jax_ignore">fprintf</code>. This means one should have a formatting code for every entry of the vector, like <code class="code-inline tex2jax_ignore">(%g, %g)</code> above. The formatting code <code class="code-inline tex2jax_ignore">%g</code> without any specification of precision means the numbers are shown as Matlab would normally shows them.</p>
+<p>As with the single-variable Newton method, we equate the linear approximation to zero and solve the linear equation. The solution of \(\mathbf F(\mathbf x) + J\mathbf h=0\) is \(\mathbf h = -J^{-1} \mathbf F(\mathbf x)\text{.}\) This formula is only for writing down the theoretical approach, in practice we do not invert the matrix \(J\) and simply ask Matlab to solve the linear system (this is more efficient than computing the inverse matrix). So, in Matlab terms the formula is <code class="code-inline tex2jax_ignore">h = -J\F(x)</code>. Having found the vector \(\mathbf h\) we replace \(\mathbf x\) with \(\mathbf x + \mathbf h\) and repeat. The process stops when the steps becomes sufficiently small, indicating we approached a solution. The size of vectors is measured by their norm: <code class="code-inline tex2jax_ignore">norm(h)</code>.</p>
 <span class="incontext"><a href="section-multivariate-newton.html#p-352">in-context</a></span>
 </body>
 </html>

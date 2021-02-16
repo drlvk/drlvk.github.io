@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:08-05:00    *-->
+<!--*    on 2021-02-15T21:37:40-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Once we have the function \(g\text{,}\) the rest of the process is the same as in <a href="chapter-fixed-point-iteration.html" class="internal" title="Chapter 8: Root finding: fixed point iteration">Chapter 8</a>, in particular in <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>. Changing the first two lines of that program to</p>
-<pre class="code-block tex2jax_ignore">
-g = @(x) 2*x^3/(3*x^2-1); 
-x0 = 0.6;
-</pre>
-<p data-braille="continuation">we get “Found x = 1 after 11 steps”.  If the starting point is different, the process may converge to a different root of the equation \(x^3-x = 0\text{.}\) For example with <code class="code-inline tex2jax_ignore">x0 = 0.57</code> we get “Found x = -1 after 14 steps”. A small change of initial condition produced a rather different solution; we went from finding x = 1 to finding x = -1. The pattern of what starting points produce which solution can be very complicated: see the illustrations on Wikipedia page <a class="external" href="https://en.wikipedia.org/wiki/Newton_fractal" target="_blank">Newton fractal</a>.</p>
-<span class="incontext"><a href="section-newton-method-intro.html#p-312">in-context</a></span>
+<p>First potential issue: we might not have a formula for the derivative of function \(f\text{.}\) This can be overcome by using numeric differentiation, which is covered later in the course.</p>
+<span class="incontext"><a href="section-newton-method-issues.html#p-312">in-context</a></span>
 </body>
 </html>

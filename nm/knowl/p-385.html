@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:09-05:00    *-->
+<!--*    on 2021-02-15T21:37:41-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,31 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We already know how to find a matrix that satisfies <a class="xref" data-knowl="./knowl/eq-B1-equation.html" title="Equation 11.3.1">(11.3.1)</a>, by taking an outer product multiplied by a scalar <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. But this would be a bad, illogical choice for \(B_1\text{.}\) Why?</p>
+<p>We want \(B_1\) to have some similarity to \(B_0\) in the hope that the process of improving guesses \(B_0, B_1, \dots\) will converge to something, rather than just jump around. We want to improve the previous guess, not replace it entirely. So, let \(B_1 = (I + M)B_0 = B_0 + MB_0\) where \(M\) can be constructed from an outer product as in <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. Namely, we want</p>
+<div class="displaymath">
+\begin{equation*}
+B_0 \mathbf w + M B_0 \mathbf w = \mathbf h
+\end{equation*}
+</div>
+<p data-braille="continuation">so</p>
+<div class="displaymath">
+\begin{equation*}
+M B_0 \mathbf w = \mathbf h - B_0 \mathbf w 
+\end{equation*}
+</div>
+<p data-braille="continuation">According to <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a> we can achieve this by letting</p>
+<div class="displaymath">
+\begin{equation*}
+M = \frac{1}{\mathbf h^T \mathbf B_0 \mathbf w} (\mathbf h - B_0 \mathbf w) \mathbf h^T 
+\end{equation*}
+</div>
+<p data-braille="continuation">where the chose the term \(\mathbf b\) to be \(\mathbf h\text{.}\) To summarize, the formula for updating our guess for inverse Jacobian is</p>
+<div class="displaymath">
+\begin{equation*}
+B_1 = B_0 + \frac{1}{\mathbf h^T \mathbf B_0 \mathbf w} (\mathbf h - B_0 \mathbf w) \mathbf h^T B_0 
+\end{equation*}
+</div>
+<p data-braille="continuation">It looks messy, but at least the derivation was logical.</p>
 <span class="incontext"><a href="section-broyden-method.html#p-385">in-context</a></span>
 </body>
 </html>

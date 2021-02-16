@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:02:14-05:00    *-->
+<!--*    on 2021-02-15T21:37:46-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Here the vector of parameters is called <code class="code-inline tex2jax_ignore">b</code> instead of <code class="code-inline tex2jax_ignore">beta</code> to shorten the implicit formula. It is obtained by solving a system with 1 on the right hand side, according to <a class="xref" data-knowl="./knowl/eq-ellipse-implicit.html" title="Equation 28.3.1">(28.3.1)</a>. The plot window is calculated from the data to allow margins of 1 unit on all sides.</p>
+<p>Note that while it's safe to leave spaces around <code class="code-inline tex2jax_ignore">+</code> signs in the formula <code class="code-inline tex2jax_ignore">fun</code> (some find it improves readability), one has to be extra careful with such spaces within a vector. Indeed,</p>
+<pre class="code-block tex2jax_ignore">
+[min(x) -1 max(x) +1 min(y) -1 max(y) +1]  
+</pre>
+<p data-braille="continuation">would be a vector of 8 numbers, not 4. Matlab does understand</p>
+<pre class="code-block tex2jax_ignore">
+[min(x) - 1 max(x) + 1 min(y) - 1 max(y) + 1];
+</pre>
+<p data-braille="continuation">as a vector of 4 numbers, however.</p>
 <span class="incontext"><a href="section-example-implicit-equation.html#p-798">in-context</a></span>
 </body>
 </html>

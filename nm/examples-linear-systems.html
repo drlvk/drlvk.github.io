@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:01:46-05:00    *-->
+<!--*    on 2021-02-15T21:37:17-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,10 +409,10 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-linear-systems"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.5</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-232">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-231">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-parabola-best-fit"><a data-knowl="" class="id-ref original" data-refid="hk-example-parabola-best-fit"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Parabola of best fit.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-parabola-best-fit"><article class="example example-like"><p id="p-233">Using the data of <a class="xref" data-knowl="./knowl/example-line-best-fit.html" title="Example 6.2.2: Line of best fit">Example 6.2.2</a>, find and plot the parabola \(y = cx^2+dx+e\) that fits the data best in the sense of least squares.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-parabola-best-fit"><article class="example example-like"><p id="p-232">Using the data of <a class="xref" data-knowl="./knowl/example-line-best-fit.html" title="Example 6.2.2: Line of best fit">Example 6.2.2</a>, find and plot the parabola \(y = cx^2+dx+e\) that fits the data best in the sense of least squares.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-38" id="answer-38"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-38"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">x = [-1, 0, 2, 3, 4, 7]'; 
@@ -423,33 +423,33 @@ xx = linspace(min(x), max(x), 500)';
 yy = [xx.^2, xx, xx.^0]*z;
 plot(xx, yy, 'b', x, y, 'r*')
 </pre>
-<p id="p-234"><em class="emphasis">Explanation</em>: the only modification that we need is to add a column with the squares of x-values. In general, this process allows us to fit a function of the form \(c_1 f_1(x) + c_2 f_2(x) + \cdots + c_n f_n(x) \) where \(f_1, f_2, \dots, f_n\) are given functions and \(c_1, c_2, \dots, c_n\) are coefficients (parameters) to be determined.</p>
+<p id="p-233"><em class="emphasis">Explanation</em>: the only modification that we need is to add a column with the squares of x-values. In general, this process allows us to fit a function of the form \(c_1 f_1(x) + c_2 f_2(x) + \cdots + c_n f_n(x) \) where \(f_1, f_2, \dots, f_n\) are given functions and \(c_1, c_2, \dots, c_n\) are coefficients (parameters) to be determined.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-42"><a data-knowl="" class="id-ref original" data-refid="hk-example-42"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Slight perturbation of a singular system.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><p id="p-235">Modify <a class="xref" data-knowl="./knowl/example-square-rank-deficient.html" title="Example 6.3.2: Square rank-deficient system">Example 6.3.2</a> by replacing 1 with 1.000001. How does the solution change? Repeat, this time replacing 9 by 9.000001. How did the solution change now?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><p id="p-234">Modify <a class="xref" data-knowl="./knowl/example-square-rank-deficient.html" title="Example 6.3.2: Square rank-deficient system">Example 6.3.2</a> by replacing 1 with 1.000001. How does the solution change? Repeat, this time replacing 9 by 9.000001. How did the solution change now?</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like"><p id="p-236"><pre class="code-block tex2jax_ignore">A = [1.000001 2 3; 4 5 6; 7 8 9];
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like"><p id="p-235"><pre class="code-block tex2jax_ignore">A = [1.000001 2 3; 4 5 6; 7 8 9];
 b = [10; 11; 12];
 </pre>leads to <code class="code-inline tex2jax_ignore">A\b</code> being <code class="code-inline tex2jax_ignore">[0.0000; -9.0000; 9.3333]</code>. In contrast, with<pre class="code-block tex2jax_ignore">A = [1 2 3; 4 5 6; 7 8 9.000001];
 </pre>we get the solution <code class="code-inline tex2jax_ignore">[-9.3333; 9.6667; 0.0000]</code> which is quite different. Note that Matlab shows no warnings in either case. These systems do not have a free variable: the rank of A is 3. Yet, the solution is very sensitive to small changes of the system, because the matrix is close to being singular (or degenerate).</p></div></div>
 </div></article></div>
 <article class="question example-like" id="question-10"><a data-knowl="" class="id-ref original" data-refid="hk-question-10"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">6.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Inconsistent system.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-10"><article class="question example-like"><p id="p-237">The simplest example of an inconsistent linear system is a system of two equations with one variable: \(x = b_1\) and \(x = b_2\) where \(b_1, b_2\) are two unequal real numbers. What is the least-squares solution of this system, and why? (Try to answer without Matlab, and then check the conclusion with Matlab.)</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-10"><article class="question example-like"><p id="p-236">The simplest example of an inconsistent linear system is a system of two equations with one variable: \(x = b_1\) and \(x = b_2\) where \(b_1, b_2\) are two unequal real numbers. What is the least-squares solution of this system, and why? (Try to answer without Matlab, and then check the conclusion with Matlab.)</p></article></div>
 <article class="question example-like" id="question-11"><a data-knowl="" class="id-ref original" data-refid="hk-question-11"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">6.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Testing for invertibility with determinant or rank.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-11"><article class="question example-like"><p id="p-238">Linear algebra says that an \(n\times n\) matrix \(A\) is singular (non-invertible) if and only if \(\det A = 0\text{,}\) if and only if \(\operatorname{rank} A \lt n\text{.}\) But in computational practice these two tests for invertibility can give different results. Consider the diagonal matrix with entries \(10^{16}\) and \(1\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-11"><article class="question example-like"><p id="p-237">Linear algebra says that an \(n\times n\) matrix \(A\) is singular (non-invertible) if and only if \(\det A = 0\text{,}\) if and only if \(\operatorname{rank} A \lt n\text{.}\) But in computational practice these two tests for invertibility can give different results. Consider the diagonal matrix with entries \(10^{16}\) and \(1\text{.}\)</p>
 <pre class="code-block tex2jax_ignore">A = [1e16 0; 0 1];
 disp(det(A))
 disp(rank(A))
 </pre>
-<p id="p-239">Matlab says the determinant is \(10^{16}\) which makes sense: it is the product of diagonal entries. Yet, it also says the rank is \(1\text{.}\) Why?</p></article></div>
+<p id="p-238">Matlab says the determinant is \(10^{16}\) which makes sense: it is the product of diagonal entries. Yet, it also says the rank is \(1\text{.}\) Why?</p></article></div>
 <article class="question example-like" id="question-12"><a data-knowl="" class="id-ref original" data-refid="hk-question-12"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">6.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Model selection.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-12"><article class="question example-like"><p id="p-240">How different is the best-fit parabola in <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a> from the line of best fit? If you have to choose between fitting a line or a parabola to this data set, what would you use?</p>
-<p id="p-241">Later we will consider the issue of <em class="emphasis">model selection</em> systematically: how to decide which model is more appropriate (for example, linear or quadratic).</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-12"><article class="question example-like"><p id="p-239">How different is the best-fit parabola in <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a> from the line of best fit? If you have to choose between fitting a line or a parabola to this data set, what would you use?</p>
+<p id="p-240">Later we will consider the issue of <em class="emphasis">model selection</em> systematically: how to decide which model is more appropriate (for example, linear or quadratic).</p></article></div></section></div></main>
 </div>
 </body>
 </html>

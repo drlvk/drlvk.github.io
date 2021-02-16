@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-10T20:01:46-05:00    *-->
+<!--*    on 2021-02-15T21:37:18-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,20 +409,20 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-bisection-method"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">7.3</span> <span class="title">Bisection method</span>
 </h2>
-<p id="p-251">The bisection method is based on the <dfn class="terminology">Intermediate Value Theorem</dfn>. Suppose that the function \(f\) is continuous on the interval \([a, b]\) and \(f(a)f(b) \lt 0\text{,}\) meaning that \(f\) takes on values of opposite sign at the endpoints. The Intermediate Value Theorem says that there exists some root of \(f\) between \(a\) and \(b\text{:}\) that is, there exists \(x\) in \((a, b)\) such that \(f(x)=0\text{.}\)</p>
+<p id="p-250">The bisection method is based on the <dfn class="terminology">Intermediate Value Theorem</dfn>. Suppose that the function \(f\) is continuous on the interval \([a, b]\) and \(f(a)f(b) \lt 0\text{,}\) meaning that \(f\) takes on values of opposite sign at the endpoints. The Intermediate Value Theorem says that there exists some root of \(f\) between \(a\) and \(b\text{:}\) that is, there exists \(x\) in \((a, b)\) such that \(f(x)=0\text{.}\)</p>
 <figure class="figure figure-like" id="bisection1-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/bisection1.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.1<span class="period">.</span></span><span class="space"> </span>To go from positive to negative, a function function must turn to 0</figcaption></figure><p id="p-252">An interval  \([a, b]\) such that \(f(a)f(b) \lt 0\) is called a <dfn class="terminology">bracketing interval</dfn>. As <a class="xref" data-knowl="./knowl/bisection1-png.html" title="Figure 7.3.1">Figure 7.3.1</a> shows, there could be multiple roots inside of the bracketing interva. The bisection method will find <em class="emphasis">one</em> of them.</p>
-<p id="p-253"><dfn class="terminology">Bisection method</dfn>: Divide the interval in two halves by the midpoint \(c = (a+b)/2\text{.}\) Since \(f(a)\) and \(f(b)\) have opposite signs, one of the following holds:</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.1<span class="period">.</span></span><span class="space"> </span>To go from positive to negative, a function function must turn to 0</figcaption></figure><p id="p-251">An interval  \([a, b]\) such that \(f(a)f(b) \lt 0\) is called a <dfn class="terminology">bracketing interval</dfn>. As <a class="xref" data-knowl="./knowl/bisection1-png.html" title="Figure 7.3.1">Figure 7.3.1</a> shows, there could be multiple roots inside of the bracketing interva. The bisection method will find <em class="emphasis">one</em> of them.</p>
+<p id="p-252"><dfn class="terminology">Bisection method</dfn>: Divide the interval in two halves by the midpoint \(c = (a+b)/2\text{.}\) Since \(f(a)\) and \(f(b)\) have opposite signs, one of the following holds:</p>
 <ul class="disc">
-<li id="li-72">If \(f(c)\) has the same sign as \(f(a)\text{,}\) then we replace \(a\) with \(c\text{,}\) making \([c, b]\) our new bracketing interval.</li>
-<li id="li-73">If \(f(c)\) has the same sign as \(f(b)\text{,}\) then we replace \(b\) with \(c\text{,}\) making \([a, c]\) our new bracketing interval.</li>
-<li id="li-74">If \(f(c) = 0\text{,}\) we already found a root so the process stops.</li>
+<li id="li-70">If \(f(c)\) has the same sign as \(f(a)\text{,}\) then we replace \(a\) with \(c\text{,}\) making \([c, b]\) our new bracketing interval.</li>
+<li id="li-71">If \(f(c)\) has the same sign as \(f(b)\text{,}\) then we replace \(b\) with \(c\text{,}\) making \([a, c]\) our new bracketing interval.</li>
+<li id="li-72">If \(f(c) = 0\text{,}\) we already found a root so the process stops.</li>
 </ul>
 <p data-braille="continuation">The above process repeats until the bracketing interval is small enough, as discussed in <a href="section-meaning-numeric-solution.html" class="internal" title="Section 7.2: The meaning of a numeric solution">Section 7.2</a>.</p>
 <figure class="figure figure-like" id="bisection2-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/bisection2.png" style="width: 100%; height: auto;" alt=""></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.2<span class="period">.</span></span><span class="space"> </span>Bisection method illustrated by marking the bracketing intervals</figcaption></figure><article class="example example-like" id="example-bisection"><a data-knowl="" class="id-ref original" data-refid="hk-example-bisection"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Finding a root by bisection.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-bisection"><article class="example example-like"><p id="p-254">Find a root of equation \(e^{-x/2} + \sin(3x) = 1/2\) on the interval \([-1, 1.5]\) using bisection. (This is the function shown on <a class="xref" data-knowl="./knowl/bisection2-png.html" title="Figure 7.3.2">Figure 7.3.2</a>). The Matlab function <code class="code-inline tex2jax_ignore">sign</code> can be used to compare the signs of values.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-bisection"><article class="example example-like"><p id="p-253">Find a root of equation \(e^{-x/2} + \sin(3x) = 1/2\) on the interval \([-1, 1.5]\) using bisection. (This is the function shown on <a class="xref" data-knowl="./knowl/bisection2-png.html" title="Figure 7.3.2">Figure 7.3.2</a>). The Matlab function <code class="code-inline tex2jax_ignore">sign</code> can be used to compare the signs of values.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) exp(-x/2) + sin(3*x) - 1/2;
@@ -445,18 +445,18 @@ end
 
 fprintf('Found a root x = %.12g\n', (a+b)/2);
 </pre>
-<p id="p-255">If the function has the same sign at both given endpoints, the bisection method cannot run, so the command <code class="code-inline tex2jax_ignore">error</code> is used to display a message and exit the program. This is a useful command to use when the computation has to be interrupted. The <code class="code-inline tex2jax_ignore">while</code> loop runs until either the interval becomes small enough (length less than <code class="code-inline tex2jax_ignore">100*eps(a)</code>) or we accidentally reach \(f(c)=0\) so the loop stops.</p>
+<p id="p-254">If the function has the same sign at both given endpoints, the bisection method cannot run, so the command <code class="code-inline tex2jax_ignore">error</code> is used to display a message and exit the program. This is a useful command to use when the computation has to be interrupted. The <code class="code-inline tex2jax_ignore">while</code> loop runs until either the interval becomes small enough (length less than <code class="code-inline tex2jax_ignore">100*eps(a)</code>) or we accidentally reach \(f(c)=0\) so the loop stops.</p>
 </div></div>
 </div></article></div>
-<p id="p-256">The bisection method is not very fast, but is very reliable. If the initial bracketing interval had length \(L\text{,}\) after \(n\) iterations we get an interval of length \(2^{-n}L\text{.}\) So, it takes about 50 iterations to reduce the bracketing interval from length \(100\) to length \(10^{-13}\text{.}\) The speed of convergence of a numerical method is often visualized by plotting the logarithm of the error as a function of the number of steps. For the bisection method, the error after \(n\) steps is \(2^{-n}|a-b|\) so the logarithm is \(\log|a-b| - n \log 2\text{.}\)</p>
+<p id="p-255">The bisection method is not very fast, but is very reliable. If the initial bracketing interval had length \(L\text{,}\) after \(n\) iterations we get an interval of length \(2^{-n}L\text{.}\) So, it takes about 50 iterations to reduce the bracketing interval from length \(100\) to length \(10^{-13}\text{.}\) The speed of convergence of a numerical method is often visualized by plotting the logarithm of the error as a function of the number of steps. For the bisection method, the error after \(n\) steps is \(2^{-n}|a-b|\) so the logarithm is \(\log|a-b| - n \log 2\text{.}\)</p>
 <figure class="figure figure-like" id="bisection3-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/bisection3.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.4<span class="period">.</span></span><span class="space"> </span>Logarithm of error as a function of the number of steps</figcaption></figure><p id="p-257">Generally, if some numerical method has error \(\epsilon_n\) after \(n\) steps, we say that the method is</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.4<span class="period">.</span></span><span class="space"> </span>Logarithm of error as a function of the number of steps</figcaption></figure><p id="p-256">Generally, if some numerical method has error \(\epsilon_n\) after \(n\) steps, we say that the method is</p>
 <ul class="disc">
-<li id="li-75">
+<li id="li-73">
 <dfn class="terminology">linearly convergent</dfn> if \(\epsilon_{n+1} \le c\epsilon_b\) with some constant \(c \lt 1\)</li>
-<li id="li-76">
+<li id="li-74">
 <dfn class="terminology">quadratically convergent</dfn> if \(\epsilon_{n+1} \le M\epsilon_n^2\) with some constant \(M\)</li>
-<li id="li-77">
+<li id="li-75">
 <dfn class="terminology">convergent with order \(p\)</dfn> if \(\epsilon_{n+1} \le M\epsilon_n^p\) with some constants \(M\text{,}\) \(p &gt; 0\text{.}\)</li>
 </ul>
 <p data-braille="continuation">Since for the bisection method \(\epsilon_{n+1} = \frac{1}{2}\epsilon_n\)m the bisection method is linearly convergent.</p></section></div></main>
