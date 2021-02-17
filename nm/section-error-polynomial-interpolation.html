@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:28-05:00    *-->
+<!--*    on 2021-02-17T15:02:06-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,15 +409,15 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-error-polynomial-interpolation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">22.1</span> <span class="title">Estimating the error of polynomial interpolation</span>
 </h2>
-<p id="p-647">One of the uses of polynomial interpolation (<a href="chapter-polynomial-interpolation.html" class="internal" title="Chapter 21: Polynomial Interpolation">Chapter 21</a>) is to approximate a possible complicated function \(y = f(x)\) by a polynomial, interpolating the values of the function at some points \(x_1, \dots, x_n\text{.}\) Indeed, this is what we tried in <a class="xref" data-knowl="./knowl/exercises-polynomial-interpolation-3.html" title="Exercise 21.4.3">Exercise 21.4.3</a> for the functions \(f(x)=\cos x\) and \(f(x)=\cos 2x\text{,}\) with mixed success. The following theorem is a first step toward understanding what is going on.</p>
-<p id="p-648">Suppose a polynomial \(p\) of degree less than \(n\) interpolates a smooth function \(f\) at some points \(x_1, \dots, x_n\) of an interval \([a, b]\text{.}\) Then for each \(x\in [a, b]\) there exists a point \(\xi \in [a, b]\) such that</p>
+<p id="p-648">One of the uses of polynomial interpolation (<a href="chapter-polynomial-interpolation.html" class="internal" title="Chapter 21: Polynomial Interpolation">Chapter 21</a>) is to approximate a possible complicated function \(y = f(x)\) by a polynomial, interpolating the values of the function at some points \(x_1, \dots, x_n\text{.}\) Indeed, this is what we tried in <a class="xref" data-knowl="./knowl/exercises-polynomial-interpolation-3.html" title="Exercise 21.4.3">Exercise 21.4.3</a> for the functions \(f(x)=\cos x\) and \(f(x)=\cos 2x\text{,}\) with mixed success. The following theorem is a first step toward understanding what is going on.</p>
+<p id="p-649">Suppose a polynomial \(p\) of degree less than \(n\) interpolates a smooth function \(f\) at some points \(x_1, \dots, x_n\) of an interval \([a, b]\text{.}\) Then for each \(x\in [a, b]\) there exists a point \(\xi \in [a, b]\) such that</p>
 <div class="displaymath">
 \begin{equation}
 f(x) - p(x) = \frac{f^{(n)}(\xi)}{n!} \prod_{k=1}^n (x-x_k)\label{eq-error-polynomial-interpolation}\tag{22.1.1}
 \end{equation}
 </div>
 <p data-braille="continuation">where \(f^{(n)}\) is the \(n\)th derivative of \(f\text{.}\)</p>
-<p id="p-649">The above theorem is easier to prove than one might expect. If \(x\) is one of interpolation points, then both sides of <a class="xref" data-knowl="./knowl/eq-error-polynomial-interpolation.html" title="Equation 22.1.1">(22.1.1)</a> are equal to 0. Suppose \(x\) is not equal to any interpolation point. Then we can let</p>
+<p id="p-650">The above theorem is easier to prove than one might expect. If \(x\) is one of interpolation points, then both sides of <a class="xref" data-knowl="./knowl/eq-error-polynomial-interpolation.html" title="Equation 22.1.1">(22.1.1)</a> are equal to 0. Suppose \(x\) is not equal to any interpolation point. Then we can let</p>
 <div class="displaymath">
 \begin{equation*}
 A = \frac{f(x) - p(x)}{ \prod_{k=1}^n (x-x_k) }
@@ -436,7 +436,7 @@ g^{(n)}(\xi) =  f^{(n)}(\xi) - 0 - A n!
 \end{equation*}
 </div>
 <p data-braille="continuation">hence  \(A = f^{(n)}(\xi) / n!\text{,}\) completing the proof of <a class="xref" data-knowl="./knowl/eq-error-polynomial-interpolation.html" title="Equation 22.1.1">(22.1.1)</a>.</p>
-<p id="p-650">What guidance can we extract from <a class="xref" data-knowl="./knowl/eq-error-polynomial-interpolation.html" title="Equation 22.1.1">(22.1.1)</a>? To minimize the interpolation error, we want the product</p>
+<p id="p-651">What guidance can we extract from <a class="xref" data-knowl="./knowl/eq-error-polynomial-interpolation.html" title="Equation 22.1.1">(22.1.1)</a>? To minimize the interpolation error, we want the product</p>
 <div class="displaymath">
 \begin{equation}
 \prod_{k=1}^n (x-x_k)\label{eq-product-interp-points}\tag{22.1.3}
@@ -445,7 +445,7 @@ g^{(n)}(\xi) =  f^{(n)}(\xi) - 0 - A n!
 <p data-braille="continuation">to be small on the interval \([a, b]\text{.}\) If the points \(x_1, \dots, x_n\) are equally spaced, the product <a class="xref" data-knowl="./knowl/eq-product-interp-points.html" title="Equation 22.1.3">(22.1.3)</a> can become large toward the endpoints, as the following Matlab example shows for 11 points on the interval \([0, 7]\text{.}\)</p>
 <article class="example example-like" id="example-product-plot"><a data-knowl="" class="id-ref original" data-refid="hk-example-product-plot"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">22.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Plot the product with equally spaced roots.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-product-plot"><article class="example example-like"><p id="p-651">Plot the product <a class="xref" data-knowl="./knowl/eq-product-interp-points.html" title="Equation 22.1.3">(22.1.3)</a> for 11 equally spaced points on the interval \([0, 7]\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-product-plot"><article class="example example-like"><p id="p-652">Plot the product <a class="xref" data-knowl="./knowl/eq-product-interp-points.html" title="Equation 22.1.3">(22.1.3)</a> for 11 equally spaced points on the interval \([0, 7]\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-57" id="answer-57"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-57"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">a = 0;
 b = 7;
@@ -455,7 +455,7 @@ t = linspace(a, b, 1000);  % points for plotting
 plot(t, prod(t - x'))
 </pre></div></div>
 </div></article></div>
-<p id="p-652">Using larger \(n\) in <a class="xref" data-knowl="./knowl/example-product-plot.html" title="Example 22.1.1: Plot the product with equally spaced roots">Example 22.1.1</a> would only make things worse. This indicates that polynomial interpolation at a large number of <em class="emphasis">equally spaced</em> points is unadvisable. As it was with numerical integration, a smarter choice of points \(x_1, \dots, x_n\) is possible, and once again it is provided by the roots of certain orthogonal polynomials.</p></section></div></main>
+<p id="p-653">Using larger \(n\) in <a class="xref" data-knowl="./knowl/example-product-plot.html" title="Example 22.1.1: Plot the product with equally spaced roots">Example 22.1.1</a> would only make things worse. This indicates that polynomial interpolation at a large number of <em class="emphasis">equally spaced</em> points is unadvisable. As it was with numerical integration, a smarter choice of points \(x_1, \dots, x_n\) is possible, and once again it is provided by the roots of certain orthogonal polynomials.</p></section></div></main>
 </div>
 </body>
 </html>

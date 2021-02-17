@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:39-05:00    *-->
+<!--*    on 2021-02-17T15:02:19-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When the rank of matrix \(A\) is less than the number of variables, the system has free variables. In a Linear Algebra course, we would move the free variables to the right, and solve the rest of the system. But Matlab sets free variables to \(0\) and then solves the system as described in <a href="section-systems-without-free-variables.html" class="internal" title="Section 6.2: Systems without free variables">Section 6.2</a>.</p>
-<span class="incontext"><a href="section-systems-with-free-variables.html#p-217">in-context</a></span>
+<p>Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'k*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx, xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later.</p>
+<span class="incontext"><a href="section-systems-without-free-variables.html#p-217">in-context</a></span>
 </body>
 </html>

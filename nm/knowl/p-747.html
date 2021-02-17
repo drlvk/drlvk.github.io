@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:45-05:00    *-->
+<!--*    on 2021-02-17T15:02:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Given a percentage <code class="code-inline tex2jax_ignore">p</code>, such as 75, compress the “winter” image by setting <code class="code-inline tex2jax_ignore">p</code> percent of its Fourier coefficients to zero.</p>
+<p>We can set all small Fourier coefficients (less than some threshold <code class="code-inline tex2jax_ignore">thr</code>) to zero using <code class="code-inline tex2jax_ignore">fc(abs(fc) &lt; thr) = 0;</code>. One way to determine the threshold reasonably is to use <dfn class="terminology">percentiles</dfn>: for example,</p>
+<pre class="code-block tex2jax_ignore">
+thr = prctile(abs(fc(:)), 75);
+</pre>
+<p data-braille="continuation">returns the number <code class="code-inline tex2jax_ignore">thr</code> such that 75 percent of Fourier coefficients are less than it, and the other are greater (in absolute value).</p>
 <span class="incontext"><a href="section-2d-dft.html#p-747">in-context</a></span>
 </body>
 </html>

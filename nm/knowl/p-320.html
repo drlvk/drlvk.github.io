@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:40-05:00    *-->
+<!--*    on 2021-02-17T15:02:20-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This script follows the structure of <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a> except that we compute "new x", called x1, on the basis of two previous values (called <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code>). After the computation, <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code> are replaced by <code class="code-inline tex2jax_ignore">x1</code> and <code class="code-inline tex2jax_ignore">x</code>: the newly computed point becomes one of the two points through which we draw next secant line.</p>
+<p>Write a script that starts with the definition of a function \(f\) and two initial points, for example</p>
+<pre class="code-block tex2jax_ignore">
+f = @(x) x^3 - x;
+x = 5;
+p = 7;
+</pre>
+<p data-braille="continuation">and proceeds to find a root of \(f\) using the secant method: the next point to be computed will be</p>
+<div class="displaymath">
+\begin{equation*}
+x - f(x) \frac{x-p}{f(x)-f(p)}
+\end{equation*}
+</div>
+<p data-braille="continuation">where the fraction represents division by the slope of secant line.</p>
 <span class="incontext"><a href="section-secant-method.html#p-320">in-context</a></span>
 </body>
 </html>

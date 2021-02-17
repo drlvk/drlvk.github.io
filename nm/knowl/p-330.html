@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:40-05:00    *-->
+<!--*    on 2021-02-17T15:02:20-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>What happens if either Newton's method or secant method is applied to the equation \(|x|+1 = 0\) (which, of course, has no solutions)?</p>
+<p>Simplification shows that</p>
+<div class="displaymath">
+\begin{align*}
+x - \frac{x-p}{f(x)-f(p)} f(x)
+\amp = x - \frac{x-p}{(x-p) + (x^2-p^2)}(x+x^2) \\
+\amp = x - \frac{1}{1 + x +p}(x+x^2)  \\
+\amp = \frac{x + x^2 + px - (x+x^2)}{1 - x -p} \\
+\amp = \frac{px}{1 - x -p} 
+\end{align*}
+</div>
+<p data-braille="continuation">Since \(x, p \to 0\text{,}\) the denominator is close to 1. Therefore, the method goes from \(x\) to approximately \(px\) where \(p\) is the point preceding \(x\text{.}\) For comparison, linear convergence would mean going from \(x\) to approximately \(cx\) where \(c\) is a fixed number. Since the factor \(p\) itself goes to zero, the secant method has faster than linear rate of convergence.</p>
 <span class="incontext"><a href="examples-newton-secant.html#p-330">in-context</a></span>
 </body>
 </html>

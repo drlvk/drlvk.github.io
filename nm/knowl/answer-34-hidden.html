@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:39-05:00    *-->
+<!--*    on 2021-02-17T15:02:18-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,13 +11,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="answer solution-like"><pre class="code-block tex2jax_ignore">function example()
-    x = linspace(-1, 1, 500);
-    plot(x, p(x, -3/2, 6))
-end
+<body><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = linspace(-1, 1, 500);
+plot(x, p(x, -3/2, 6))
 
 function y = p(x, a, n)
-    y = 1;
+    y = ones(size(x));
     for k = 1:n
         y = y + x.^k/(a+k-1);
     end

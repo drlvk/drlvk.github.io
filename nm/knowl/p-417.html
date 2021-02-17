@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:41-05:00    *-->
+<!--*    on 2021-02-17T15:02:21-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,26 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
-<span class="incontext"><a href="examples-numerical-differentiation.html#p-417">in-context</a></span>
+<p>Recall from <a class="xref" data-knowl="./knowl/example-error-diff-f1-symm.html" title="Example 12.3.1: Order of error of symmmetric difference approximation to \(f'\)">Example 12.3.1</a> that the symmetric difference formula has error of order 2. Therefore, in the equation <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> we have \(2\text{.}\) The approximation \(A_1\) is the original formula</p>
+<div class="displaymath">
+\begin{equation*}
+A_1 = \frac{f(x+h)-f(x-h)}{2h}
+\end{equation*}
+</div>
+<p data-braille="continuation">To get \(A_2\) we replace \(h\) by \(2h\text{:}\)</p>
+<div class="displaymath">
+\begin{equation*}
+A_2 = \frac{f(x+2h)-f(x-2h)}{4h}
+\end{equation*}
+</div>
+<p data-braille="continuation">The formula <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> now tells us that</p>
+<div class="displaymath">
+\begin{equation}
+f'(x) \approx 	\frac{4 A_1 - A_2}{3}
+= 2\frac{f(x+h)-f(x-h)}{3h} - \frac{f(x+2h)-f(x-2h)}{12h}\tag{12.4.4}
+\end{equation}
+</div>
+<p data-braille="continuation">which is the extrapolated approximation to \(f'(x)\text{.}\)</p>
+<span class="incontext"><a href="section-richardson-extrapolation.html#p-417">in-context</a></span>
 </body>
 </html>

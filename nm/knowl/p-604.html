@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:43-05:00    *-->
+<!--*    on 2021-02-17T15:02:23-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The most visible difference is the notation <code class="code-inline tex2jax_ignore">y(:, k)</code> which takes the entire \(k\)th column of the matrix <code class="code-inline tex2jax_ignore">y</code>. Its mathematical meaning is the approximation to \(\mathbf y(t_k)\text{.}\) The initial condition <code class="code-inline tex2jax_ignore">y0</code> is a column vector, which makes the computation <code class="code-inline tex2jax_ignore">y = y0*ones(size(t));</code> an outer product: it creates a matrix in which every column is equal to <code class="code-inline tex2jax_ignore">y0</code>. This is convenient because we need the first column to be equal, and the other columns will be rewritten anyway.</p>
+<p>Solve the system</p>
+<div class="displaymath">
+\begin{align*}
+y_1' \amp = t - 3y_2\\
+y_2' \amp = 2y_1
+\end{align*}
+</div>
+<p data-braille="continuation">with initial condition \(y(0) = \begin{pmatrix}1 \\ 0\end{pmatrix}\text{,}\) on the interval \([0, 10]\) using the trapezoidal method with the step \(h=0.01\text{.}\) Plot the solution.</p>
 <span class="incontext"><a href="section-ode-systems.html#p-604">in-context</a></span>
 </body>
 </html>

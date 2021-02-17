@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:21-05:00    *-->
+<!--*    on 2021-02-17T15:01:56-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,13 +409,13 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-broyden"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">11.4</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-387">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-388">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-durand-kerner-broyden"><a data-knowl="" class="id-ref original" data-refid="hk-example-durand-kerner-broyden"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Use Broyden's method to find all roots of a cubic polynomial.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-durand-kerner-broyden"><article class="example example-like"><p id="p-388">Redo <a class="xref" data-knowl="./knowl/example-durand-kerner-solve.html" title="Example 10.4.2: Find all roots of a polynomial simultaneously">Example 10.4.2</a> using Broyden's method instead of Newton's method.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-durand-kerner-broyden"><article class="example example-like"><p id="p-389">Redo <a class="xref" data-knowl="./knowl/example-durand-kerner-solve.html" title="Example 10.4.2: Find all roots of a polynomial simultaneously">Example 10.4.2</a> using Broyden's method instead of Newton's method.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-24" id="solution-24"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-24"><div class="solution solution-like">
-<p id="p-389">We have the same vector functionto be equated to zero</p>
+<p id="p-390">We have the same vector functionto be equated to zero</p>
 <div class="displaymath">
 \begin{equation*}
 \mathbf F(\mathbf x) = \begin{pmatrix} x_1+x_2+x_3 +2  \\ 
@@ -452,21 +452,21 @@ else
     disp('Failed to converge')
 end
 </pre>
-<p id="p-390">Starting from the same point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> as we used for Newton's method, we get:</p>
+<p id="p-391">Starting from the same point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> as we used for Newton's method, we get:</p>
 <pre class="code-block tex2jax_ignore">Found a solution after 1359 steps:
     1.7240
    -3.8737
     0.1497
 </pre>
-<p id="p-391">By contrast, Newton's method converged in 9 steps. There is a price to pay for the lack of Jacobian matrix.</p>
+<p id="p-392">By contrast, Newton's method converged in 9 steps. There is a price to pay for the lack of Jacobian matrix.</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-23"><a data-knowl="" class="id-ref original" data-refid="hk-question-23"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">11.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">The role of the starting point.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-23"><article class="question example-like"><p id="p-392">The starting point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> seems unfortunately chosen in <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>, because if we start with <code class="code-inline tex2jax_ignore">[1; 1; 1]</code> instead, the method converges much faster: in 37 steps. Recall that for Newton's method this starting point did not work at all. What makes the difference?</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-23"><article class="question example-like"><p id="p-393">The starting point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> seems unfortunately chosen in <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>, because if we start with <code class="code-inline tex2jax_ignore">[1; 1; 1]</code> instead, the method converges much faster: in 37 steps. Recall that for Newton's method this starting point did not work at all. What makes the difference?</p></article></div>
 <article class="question example-like" id="question-24"><a data-knowl="" class="id-ref original" data-refid="hk-question-24"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">11.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">The role of the starting matrix.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-24"><article class="question example-like"><p id="p-393">If we keep the starting point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> in <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a> but change the initial guess for inverse Jacobian to the matrix</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-24"><article class="question example-like"><p id="p-394">If we keep the starting point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> in <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a> but change the initial guess for inverse Jacobian to the matrix</p>
 <pre class="code-block tex2jax_ignore">
 B = 0.1*eye(3);
 </pre>

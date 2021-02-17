@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:40-05:00    *-->
+<!--*    on 2021-02-17T15:02:20-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Newton's method (<a href="section-newton-method-intro.html" class="internal" title="Section 9.1: Newton's method">Section 9.1</a>) is based on the idea of replacing a nonlinear function with its linear approximation, and solving the resulting linear equation. The linear approximation comes from the derivative. In the setting of several variables we have <dfn class="terminology">partial derivatives</dfn> which are arranged into the <dfn class="terminology">Jacobian matrix</dfn>. The \((i, j)\) entry of the Jacobian matrix is the derivative of the \(i\)th component of \(\mathbf F\) with respect to the \(j\)th component of \(\mathbf x\text{:}\)</p>
-<div class="displaymath">
-\begin{equation*}
-J = \begin{pmatrix} \partial F_1/\partial x_1 \amp \partial F_1/\partial x_2 \\
-\partial F_2/\partial x_1 \amp \partial F_2/\partial x_2 \end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">(or more rows/columns if there are more variables).</p>
-<span class="incontext"><a href="section-multivariate-newton.html#p-344">in-context</a></span>
+<p>When the notation <code class="code-inline tex2jax_ignore">x(1), x(2)</code> becomes too cumbersome, one can consider writing F as a named function, where the input vector is first unpacked into separate variables such as <code class="code-inline tex2jax_ignore">x, y</code>. This makes the formula more readable. The downside is the restriction on named functions in Matlab, noted in <a href="section-named-functions.html" class="internal" title="Section 5.2: Named functions">Section 5.2</a>.</p>
+<span class="incontext"><a href="section-nonlinear-systems.html#p-344">in-context</a></span>
 </body>
 </html>

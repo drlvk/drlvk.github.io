@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:41-05:00    *-->
+<!--*    on 2021-02-17T15:02:21-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><dfn class="terminology">Loss of significance</dfn> may occur when we subtract two numbers that are very close to each other. This can occur in any context, not just numeric differentiation. But since differentiation involves expressions like \(f(x+h)-f(x)\) with small \(h\text{,}\) it is particularly vulnerable to the loss of significance.</p>
-<span class="incontext"><a href="section-loss-significance.html#p-403">in-context</a></span>
+<p>The importance of the order of error can be illustrated by an example. Suppose we want to find \(f'(x)\) with absolute error at most \(10^{-12}\text{.}\)</p>
+<ul class="disc">
+<li>If the error term of our formula is \(h^1\text{,}\) we need to use extremely small \(h\text{;}\) that is \(|h|\le 10^{-12}\text{.}\)</li>
+<li>If the error term is \(h^2\text{,}\) we need \(|h|\le 10^{-6}\) which is still small but not as extreme.</li>
+<li>If the error term is \(h^3\text{,}\) we need \(|h|\le 10^{-4}\text{.}\)</li>
+<li>If the error term is \(h^4\text{,}\) we need \(|h|\le 10^{-3}\text{.}\)</li>
+</ul>
+<p data-braille="continuation">Thus, a higher-order formula should allow us to obtain an accurate result while avoidung extremely small values of \(h\text{.}\) But why do we want to avoid extremely small \(h\text{?}\) This is explained in next section.</p>
+<span class="incontext"><a href="section-differentiation-intro.html#p-403">in-context</a></span>
 </body>
 </html>

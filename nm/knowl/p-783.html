@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:45-05:00    *-->
+<!--*    on 2021-02-17T15:02:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,18 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Exponential growth is modeled by a function of the form \(f(x) = ae^{bt}\text{.}\) Suppose we have some data \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) and think that it describes exponential growth (which naturally occurs in ecology and epidemiology). A direct attempt to minimize the sum of differences squared:</p>
-<div class="displaymath">
-\begin{equation}
-\sum_{k=1}^n \left(y_k - ae^{bx_k}\right)^2 \to \min \tag{28.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">is possible but requires optimization methods which we will consider later. There is an alternative approach:  instead of fitting \(ae^{bx}\) to the values \(y_k\text{,}\) fit its logarithm, \(bx + \log a\text{,}\) to the values \(\log y_k\text{.}\) This means we will minimize the sum of squares of differences of (natural) logarithms:</p>
-<div class="displaymath">
-\begin{equation}
-\sum_{k=1}^n \left(\log(y_k) - bx_k - \log a\right)^2 \to \min\tag{28.1.2}
-\end{equation}
-</div>
-<span class="incontext"><a href="section-example-exponential-fit.html#p-783">in-context</a></span>
+<p>The method of previous chapter works only for models in which parameters appear in a linear way, as coefficients to predetermined functions. This is often insufficient: for example, exponential and logistic models contain some parameters nonlinearly. In this chapter we expand the reach of Linear Least Squares method by transforming the variables involved in the problem, or by applying the method to the coefficients of an implicit function.</p>
+<span class="incontext"><a href="chapter-transforming-data.html#p-783">in-context</a></span>
 </body>
 </html>

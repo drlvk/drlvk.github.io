@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:40-05:00    *-->
+<!--*    on 2021-02-17T15:02:19-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Solve the equation \(x^3 + 5x  = 2\) by the fixed-point iteration method.</p>
+<p>We now have a new method of solving the equations \(f(x)=0\text{:}\) rewrite it as \(g(x)=x\text{,}\) and build a sequence \(x_{n+1} = g(x_n)\text{.}\) If this sequence has a limit, which we recognize by \(|x_{n+1} - x_n|\) being small, then we have a fixed point of \(g\text{,}\) hence a root of \(f\text{.}\) There are multiple ways to rewrite \(f(x)=0\) in the fixed-point form:</p>
+<ul class="disc">
+<li>\(\displaystyle f(x) + x = x\)</li>
+<li>\(\displaystyle x - f(x) = x\)</li>
+<li>\(\displaystyle x - 3 f(x)^3 = x\)</li>
+</ul>
+<p data-braille="continuation">and so on. Although the fixed points are the same each case (they are the roots of \(f\)), their classification may be different. For example, consider \(f(x) = x^3 + 4x -5\text{.}\) We know it has a root at \(x=1\text{.}\) If we try to rewrite the equation \(f(x) = 0\) as \(x^3 + 5x - 5 = x\) the fixed point at 1 is repelling because \((x^3+5x -5)' = 3x^2 + 5\) has modulus \(8&gt;1\text{.}\) Another rewrite is \((5-x^3)/4 = x\text{.}\) This one works because the derivative of \((5-x^3)/4\) is \(-3x^2/4\) with absolute value of \(3/4\) at \(x=1\text{.}\) The denominator 4 helped reduced the derivative here.</p>
 <span class="incontext"><a href="section-rewriting-fixed-point.html#p-288">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:42-05:00    *-->
+<!--*    on 2021-02-17T15:02:21-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Questions to answer: (a) What values of \(b\) and \(n\) did you use to achieve 3.14? (b) If you increase \(b\) while keeping \(n\) fixed, does the answer become more precise or less precise? Why? (Hint: think of the error estimate formula)</p>
+<p>Calculate an approximate value of \(\pi\) using from the formula</p>
+<div class="displaymath">
+\begin{equation*}
+\int_0^\infty \sin(x^2)\,dx = \sqrt{\frac{\pi}{8}}
+\end{equation*}
+</div>
+<p data-braille="continuation">Two approximations must be made here: replacing \(\infty\) in the integral with a large number \(b\text{,}\) and using the <em class="emphasis">trapezoidal</em> rule with a large number of subintervals \(n\text{.}\) While avoiding extremely large \(b\) and \(n\) that might freeze your computer, calculate the value of integral \(I\) with enough precision so that <code class="code-inline tex2jax_ignore">round(8*I^2, 2)</code> (rounding to 2 places) produces 3.14, a reasonable approximation to \(\pi\text{.}\)</p>
 <span class="incontext"><a href="exercises-trapezoid-midpoint.html#p-454">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:36-05:00    *-->
+<!--*    on 2021-02-17T15:02:16-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,15 +409,15 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-lp-duality-transportation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">35.4</span> <span class="title">Duality in optimal transportation</span>
 </h2>
-<p id="p-975">The book <em class="emphasis">Topics in Optimal Transportation</em> by <a class="external" href="https://en.wikipedia.org/wiki/C%C3%A9dric_Villani" target="_blank">Cédric Villani</a> presents the following illustration of duality, credited by the author to <a class="external" href="https://en.wikipedia.org/wiki/Luis_Caffarelli" target="_blank">Luis Caffarelli</a>. In this book the duality theorem is named after <a class="external" href="https://en.wikipedia.org/wiki/Leonid_Kantorovich" target="_blank">Leonid Kantorovich</a>.</p>
+<p id="p-976">The book <em class="emphasis">Topics in Optimal Transportation</em> by <a class="external" href="https://en.wikipedia.org/wiki/C%C3%A9dric_Villani" target="_blank">Cédric Villani</a> presents the following illustration of duality, credited by the author to <a class="external" href="https://en.wikipedia.org/wiki/Luis_Caffarelli" target="_blank">Luis Caffarelli</a>. In this book the duality theorem is named after <a class="external" href="https://en.wikipedia.org/wiki/Leonid_Kantorovich" target="_blank">Leonid Kantorovich</a>.</p>
 <blockquote class="blockquote" id="blockquote-1">
-<p id="p-976">Suppose for instance that you are both a mathematician and an industrialist, and want to transfer a huge amount of coal from your mines to your factories. You can hire trucks to do this transportation problem, but you have to pay them \(c(X, Y)\) for each ton of coal which is transported from place \(X\) to place \(Y\text{.}\) Both the amount of coal which you can extract from each mine, and the amount which each factory should receive, are fixed. As you are trying to […] minimize the price you have to pay, another mathematician comes to you and tells you:</p>
-<p id="p-977">“My friend, let me handle this for you: I will ship all your coal with my own trucks and you won't have to worry about what goes where. I will just set a price \(\varphi(X)\) for loading one ton of coal at place \(X\text{,}\) and a price \(\psi(Y)\) for unloading it at destination \(Y\text{.}\) I will set the prices in such a way that your financial interest will be to let me handle all your transportation! Indeed, you can check very easily that for any \(X\) and \(Y\text{,}\) the sum \(\varphi(X)+\psi(Y)\) will always be \(\le c(X, Y)\) (in order to achieve this goal, I am even ready to give financial compensations for some places, in the form of negative prices!)”.</p>
-<p id="p-978">Of course you accept the deal. Now, what Kantorovich's duality tells you is that if this shipper is clever enough, then he can arrange the prices in such a way that you will pay […] as much as you would have been ready to spend by the other method.</p>
+<p id="p-977">Suppose for instance that you are both a mathematician and an industrialist, and want to transfer a huge amount of coal from your mines to your factories. You can hire trucks to do this transportation problem, but you have to pay them \(c(X, Y)\) for each ton of coal which is transported from place \(X\) to place \(Y\text{.}\) Both the amount of coal which you can extract from each mine, and the amount which each factory should receive, are fixed. As you are trying to […] minimize the price you have to pay, another mathematician comes to you and tells you:</p>
+<p id="p-978">“My friend, let me handle this for you: I will ship all your coal with my own trucks and you won't have to worry about what goes where. I will just set a price \(\varphi(X)\) for loading one ton of coal at place \(X\text{,}\) and a price \(\psi(Y)\) for unloading it at destination \(Y\text{.}\) I will set the prices in such a way that your financial interest will be to let me handle all your transportation! Indeed, you can check very easily that for any \(X\) and \(Y\text{,}\) the sum \(\varphi(X)+\psi(Y)\) will always be \(\le c(X, Y)\) (in order to achieve this goal, I am even ready to give financial compensations for some places, in the form of negative prices!)”.</p>
+<p id="p-979">Of course you accept the deal. Now, what Kantorovich's duality tells you is that if this shipper is clever enough, then he can arrange the prices in such a way that you will pay […] as much as you would have been ready to spend by the other method.</p>
 </blockquote>
-<p id="p-979">What form of duality is this, and where do negative prices come from? This is an example of asymmetric duality, where the primal problem is of type EN (moving nonnegative amounts of coal, which must add up exactly to what is available or required), and the dual problem is of type IR (setting possibly negative prices, allowing for inequalities \(\varphi(X)+\psi(Y) \le c(X, Y)\)). Here is a concrete example with two coal mines and three factories: the amounts of production, consumption, and transportation costs per unit are stated on the diagram.</p>
+<p id="p-980">What form of duality is this, and where do negative prices come from? This is an example of asymmetric duality, where the primal problem is of type EN (moving nonnegative amounts of coal, which must add up exactly to what is available or required), and the dual problem is of type IR (setting possibly negative prices, allowing for inequalities \(\varphi(X)+\psi(Y) \le c(X, Y)\)). Here is a concrete example with two coal mines and three factories: the amounts of production, consumption, and transportation costs per unit are stated on the diagram.</p>
 <figure class="figure figure-like" id="transportation-problem-svg"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/transportation_problem.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">35.4.1<span class="period">.</span></span><span class="space"> </span>Optimal transportation problem with amounts and unit costs</figcaption></figure><p id="p-980">Let \(x_1, x_2, x_3\) be the amounts sent from Mine 1 to Factories 1, 2, 3. Also let \(x_4, x_5, x_6\) be the amounts sent from Mine 2 to Factories 1, 2, 3. The constraints can be expressed in matrix form as \(A\mathbf x = \mathbf b\) where</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">35.4.1<span class="period">.</span></span><span class="space"> </span>Optimal transportation problem with amounts and unit costs</figcaption></figure><p id="p-981">Let \(x_1, x_2, x_3\) be the amounts sent from Mine 1 to Factories 1, 2, 3. Also let \(x_4, x_5, x_6\) be the amounts sent from Mine 2 to Factories 1, 2, 3. The constraints can be expressed in matrix form as \(A\mathbf x = \mathbf b\) where</p>
 <div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix}
@@ -431,7 +431,7 @@ A = \begin{pmatrix}
 \end{equation*}
 </div>
 <p data-braille="continuation">The coefficients of objective functions are the unit cost, \(\mathbf c^T = (4, 4, 5, 3, 9, 9)\text{.}\)  And of course, \(\mathbf x\ge 0\text{:}\) even if we wanted to allow factories to send excess coal back to a mine, this would not fit the LP model since the cost of such transportation would not be negative.</p>
-<p id="p-981">To solve the linear program in Matlab, we use expanded syntax of <code class="code-inline tex2jax_ignore">linprog</code>:</p>
+<p id="p-982">To solve the linear program in Matlab, we use expanded syntax of <code class="code-inline tex2jax_ignore">linprog</code>:</p>
 <pre class="code-block tex2jax_ignore">
 x = linprog(c, A, b, Aeq, beq, lb, ub);    
 </pre>
@@ -442,19 +442,19 @@ c = [4; 4; 5; 3; 9; 9];
 x = linprog(c, [], [], A, b, zeros(6, 1));
 fprintf('Found x = (%g, %g, %g, %g, %g, %g) with total cost %g \n', x, c'*x);
 </pre>
-<p id="p-982">The solution is pictured below.</p>
+<p id="p-983">The solution is pictured below.</p>
 <figure class="figure figure-like" id="transportation-solution-svg"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/transportation_solution.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">35.4.2<span class="period">.</span></span><span class="space"> </span>Solution of the transportation problem</figcaption></figure><p id="p-983">According to <a href="section-linear-programming-duality.html" class="internal" title="Section 35.2: Duality in linear programming">Section 35.2</a>, the dual problem is to maximize \(\mathbf b^T \mathbf y\) subject to the constraint \(A^T \mathbf y\le \mathbf c\text{.}\) The vector \(\mathbf y\) expresses the pricing policy of the second mathematician (or a shipping company): they charge \(y_1, y_2\) to load a unit of coal at Mines 1, 2, and also charge \(y_3, y_4, y_5\) to unload it at Factories 1, 2, 3. The constraint \(A^T \mathbf y\le \mathbf c\) is what the company needs to win your business, and the amount maximized, \(\mathbf b^T \mathbf y\text{,}\) is their total revenue.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">35.4.2<span class="period">.</span></span><span class="space"> </span>Solution of the transportation problem</figcaption></figure><p id="p-984">According to <a href="section-linear-programming-duality.html" class="internal" title="Section 35.2: Duality in linear programming">Section 35.2</a>, the dual problem is to maximize \(\mathbf b^T \mathbf y\) subject to the constraint \(A^T \mathbf y\le \mathbf c\text{.}\) The vector \(\mathbf y\) expresses the pricing policy of the second mathematician (or a shipping company): they charge \(y_1, y_2\) to load a unit of coal at Mines 1, 2, and also charge \(y_3, y_4, y_5\) to unload it at Factories 1, 2, 3. The constraint \(A^T \mathbf y\le \mathbf c\) is what the company needs to win your business, and the amount maximized, \(\mathbf b^T \mathbf y\text{,}\) is their total revenue.</p>
 <pre class="code-block tex2jax_ignore">y = linprog(-b, A', c);
 fprintf('Found y = (%g, %g, %g, %g, %g) with total revenue %g \n', y, b'*y);
 </pre>
-<p id="p-984">The solution is pictured below. The costs \(\mathbf c\) are included to demonstrate that the constraints are satisfied. The message “Found y = (4, 8, -5, 0, 1) with total revenue 640” shows that the company will subsidize unloading at Factory 1 in order to maximize its revenue while undercutting any competition.</p>
+<p id="p-985">The solution is pictured below. The costs \(\mathbf c\) are included to demonstrate that the constraints are satisfied. The message “Found y = (4, 8, -5, 0, 1) with total revenue 640” shows that the company will subsidize unloading at Factory 1 in order to maximize its revenue while undercutting any competition.</p>
 <figure class="figure figure-like" id="transportation-dual-svg"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/transportation_dual.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">35.4.3<span class="period">.</span></span><span class="space"> </span>Solution of the dual problem</figcaption></figure><p id="p-985">If we required the loading/unloading prices to be nonnegative, the transportation company would not be able to realize the same revenue.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">35.4.3<span class="period">.</span></span><span class="space"> </span>Solution of the dual problem</figcaption></figure><p id="p-986">If we required the loading/unloading prices to be nonnegative, the transportation company would not be able to realize the same revenue.</p>
 <pre class="code-block tex2jax_ignore">y = linprog(-b, A', c, [], [], zeros(5, 1));
 fprintf('Found y = (%g, %g, %g, %g, %g) with total revenue %g \n', y, b'*y);
 </pre>
-<p id="p-986">“Found y = (0, 3, 0, 4, 5) with total revenue 605”</p></section></div></main>
+<p id="p-987">“Found y = (0, 3, 0, 4, 5) with total revenue 605”</p></section></div></main>
 </div>
 </body>
 </html>

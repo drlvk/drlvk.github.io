@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-15T21:37:17-05:00    *-->
+<!--*    on 2021-02-17T15:01:51-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -443,26 +443,25 @@ p(x, a, n) = 1 + \frac{x}{a} + \frac{x^2}{a + 1} + \frac{x^3}{a+2} + \cdots + \f
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-33" id="answer-33"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-33"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">function y = p(x, a, n)
-    y = 1;
+    y = ones(size(x));
     for k = 1:n
         y = y + x.^k/(a+k-1);
     end
 end
 </pre>
-<p id="p-195">One could also start with <code class="code-inline tex2jax_ignore">y = 0</code> and run the loop <code class="code-inline tex2jax_ignore">for k=0:n</code>; the result is the same.</p>
+<p id="p-195">The command <code class="code-inline tex2jax_ignore">size(x)</code> returns the size of \(x\) as the number of rows and columns. Consequently, <code class="code-inline tex2jax_ignore">ones(size(x))</code> means creating a vector or matrix of the same size as <code class="code-inline tex2jax_ignore">x</code>, but with all entries 1. If we started with <code class="code-inline tex2jax_ignore">y = 1</code> instead, the computation would still work because adding 1 to a vector like <code class="code-inline tex2jax_ignore">x.^k</code> means adding 1 to each component of the vector. However, when <code class="code-inline tex2jax_ignore">n = 0</code> the loop does not run at all and the output would be a scalar <code class="code-inline tex2jax_ignore">1</code> instead of a vector, which is a bug.</p>
+<p id="p-196">One could also start with <code class="code-inline tex2jax_ignore">y = zeros(size(x))</code> and run the loop <code class="code-inline tex2jax_ignore">for k=0:n</code>; the result is the same.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-plot-poly"><a data-knowl="" class="id-ref original" data-refid="hk-example-plot-poly"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Plotting a polynomial.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-plot-poly"><article class="example example-like"><p id="p-196">Use the function from <a class="xref" data-knowl="./knowl/example-eval-poly.html" title="Example 5.3.2: Evaluating a polynomial">Example 5.3.2</a> to plot the polynomial with \(a = -3/2\) and \(n = 6\) on the interval \([-1, 1]\text{.}\) Assume the script is in the file <code class="code-inline tex2jax_ignore">example.m</code>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-plot-poly"><article class="example example-like"><p id="p-197">Use the function from <a class="xref" data-knowl="./knowl/example-eval-poly.html" title="Example 5.3.2: Evaluating a polynomial">Example 5.3.2</a> to plot the polynomial with \(a = -3/2\) and \(n = 6\) on the interval \([-1, 1]\text{.}\) Assume the script is in the file <code class="code-inline tex2jax_ignore">example.m</code>.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-34" id="answer-34"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-34"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">function example()
-    x = linspace(-1, 1, 500);
-    plot(x, p(x, -3/2, 6))
-end
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-34" id="answer-34"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-34"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = linspace(-1, 1, 500);
+plot(x, p(x, -3/2, 6))
 
 function y = p(x, a, n)
-    y = 1;
+    y = ones(size(x));
     for k = 1:n
         y = y + x.^k/(a+k-1);
     end
@@ -471,7 +470,7 @@ end
 </div></article></div>
 <article class="question example-like" id="question-9"><a data-knowl="" class="id-ref original" data-refid="hk-question-9"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Function creating a vector.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-9"><article class="question example-like"><p id="p-197">What does the function <code class="code-inline tex2jax_ignore">f</code> defined by <code class="code-inline tex2jax_ignore">f = @(x, y) [x y]</code> do? Can one give it vector inputs <code class="code-inline tex2jax_ignore">x, y</code>. If so, does it matter if they are row vectors or column vectors? Do they need to be of the same size?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-9"><article class="question example-like"><p id="p-198">What does the function <code class="code-inline tex2jax_ignore">f</code> defined by <code class="code-inline tex2jax_ignore">f = @(x, y) [x y]</code> do? Can one give it vector inputs <code class="code-inline tex2jax_ignore">x, y</code>. If so, does it matter if they are row vectors or column vectors? Do they need to be of the same size?</p></article></div></section></div></main>
 </div>
 </body>
 </html>
