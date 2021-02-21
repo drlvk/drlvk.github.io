@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:20-05:00    *-->
+<!--*    on 2021-02-21T12:36:48-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The initial point should be a point with distinct coordinates, because at points with equal coordinates like <code class="code-inline tex2jax_ignore">[0; 0; 0]</code> or <code class="code-inline tex2jax_ignore">[1; 1; 1]</code> the Jacobian matrix is singular (it has equal columns). For example, <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> works just fine.</p>
+<p>We have the vector function</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf F(\mathbf x) = \begin{pmatrix} x_1+x_2+x_3 +2  \\ 
+x_1x_2 + x_1x_3 + x_2x_3 + 7 \\
+x_1x_2x_3 + 1
+\end{pmatrix} 
+\end{equation*}
+</div>
+<p data-braille="continuation">and its Jacobian matrix is</p>
+<div class="displaymath">
+\begin{equation*}
+J(\mathbf x) = \begin{pmatrix} 1 \amp 1 \amp 1 \\
+x_2 + x_3 \amp x_1 + x_3 \amp x_1+x_2  \\
+x_2 x_3 \amp x_1 x_3 \amp x_1 x_2 
+\end{pmatrix}
+\end{equation*}
+</div>
+<p data-braille="continuation">Use the code from <a class="xref" data-knowl="./knowl/example-multivariate-newton-solve.html" title="Example 10.2.3: Solve a system using Newton's method">Example 10.2.3</a> with these functions:</p>
 <span class="incontext"><a href="examples-multivariate-newton.html#p-365">in-context</a></span>
 </body>
 </html>

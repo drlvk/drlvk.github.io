@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:22-05:00    *-->
+<!--*    on 2021-02-21T12:36:49-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,9 +13,8 @@
 </head>
 <body>
 <article class="exercise exercise-like"><h6 class="heading">
-<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span>
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">3<span class="period">.</span></span>
 </h6>
-<p>Adapt <a class="xref" data-knowl="./knowl/example-computation-legendre-coefficients.html" title="Example 15.4.1: Computing and plotting Legendre polynomials">Example 15.4.1</a> to Laguerre polynomials. That is, compute and plot Laguerre polynomials up to degree 10. Use \([0, 5]\) as an interval for plotting since we cannot plot on \([0, \infty)\text{.}\) Also, comment on some pattern you observe in their behavior.</p>
-<div class="solutions"><a class="original" data-knowl="./knowl/hint-6-hidden.html" title="Hint 15.5.1.1"><span class="type">Hint</span></a></div></article><span class="incontext"><a href="exercises-legendre-laguerre.html#exercise-36">in-context</a></span>
+<p>In a loop over <code class="code-inline tex2jax_ignore">n=2:10</code>, do the following. First, compute the weights for \(n\)-point Newton-Cotes rule (of the standard type, as in <a class="xref" data-knowl="./knowl/example-find-cotes-weights.html" title="Example 14.2.1: Find the weights for a 5-point Newton-Cotes formula">Example 14.2.1</a>). Then use this rule to approximate \(\int_{-1}^1 e^x\,dx\text{.}\) After the loop ends you should have 9 approximations to this integral. Show how their accuracy changes with \(n\) by plotting the logarithm of absolute value of the difference between the integral and approximation, as a function of \(n\text{.}\)</p></article><span class="incontext"><a href="exercises-simpson-newton-cotes.html#exercise-36">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:01:52-05:00    *-->
+<!--*    on 2021-02-21T12:36:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -138,7 +138,7 @@ MathJax.Hub.Config({
 <li><a href="section-classification-linear-systems.html" data-scroll="section-classification-linear-systems">Classification of linear systems</a></li>
 <li><a href="section-systems-without-free-variables.html" data-scroll="section-systems-without-free-variables" class="active">Systems without free variables</a></li>
 <li><a href="section-systems-with-free-variables.html" data-scroll="section-systems-with-free-variables">Systems with free variables</a></li>
-<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off-errors</a></li>
+<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off errors</a></li>
 <li><a href="examples-linear-systems.html" data-scroll="examples-linear-systems">Examples and questions</a></li>
 <li><a href="exercises-linear-systems.html" data-scroll="exercises-linear-systems">Homework</a></li>
 </ul>
@@ -422,12 +422,13 @@ MathJax.Hub.Config({
 <code class="code-inline tex2jax_ignore">sqrt(v'*v)</code> when <code class="code-inline tex2jax_ignore">v</code> is a column vector</li>
 <li id="li-64">
 <code class="code-inline tex2jax_ignore">sqrt(v*v')</code> when <code class="code-inline tex2jax_ignore">v</code> is a row vector</li>
-<li id="li-65"><code class="code-inline tex2jax_ignore">norm(v)</code></li>
+<li id="li-65"><code class="code-inline tex2jax_ignore">sqrt(dot(v, v))</code></li>
+<li id="li-66"><code class="code-inline tex2jax_ignore">norm(v)</code></li>
 </ul>
 <p data-braille="continuation">The last way is easiest.</p>
 <article class="example example-like" id="example-least-squares-norm-residual"><a data-knowl="" class="id-ref original" data-refid="hk-example-least-squares-norm-residual"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">The least-squares solution and the norm of residual vector.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-least-squares-norm-residual"><article class="example example-like"><p id="p-214">Find the least-squares solution \(x\) and the norm of residual vector $\(Ax-b\) for the system with the matrix</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-least-squares-norm-residual"><article class="example example-like"><p id="p-214">Find the least-squares solution \(x\) and the norm of residual vector \(Ax-b\) for the system with the matrix</p>
 <div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 2 \\ 4 \amp 3  \\ 5\amp  6 \end{pmatrix} 

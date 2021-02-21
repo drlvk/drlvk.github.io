@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:24-05:00    *-->
+<!--*    on 2021-02-21T12:36:52-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Since images are two-dimensional (considering either grayscale images, or working with each color channel separately), they can be processed using the two-dimensional version of Discrete Fourier Transform, implemented in Matlab as <code class="code-inline tex2jax_ignore">fft2</code> and (inverse) <code class="code-inline tex2jax_ignore">ifft2</code>. The formulas for 2D transform follow the same logic as one-dimensional formulas <a class="xref" data-knowl="./knowl/eq-fourier-coefficients-discrete.html" title="Equation 25.3.2">(25.3.2)</a>  and <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a>. Namely, the <dfn class="terminology">2D Fourier coefficients</dfn> of a given matrix \((z_{k\ell})\) with indices \(k=0, \dots, m-1\text{,}\) \(\ell=0, \dots, n-1\) are computed as:</p>
-<div class="displaymath">
-\begin{equation}
-c_{pq} = \sum_{k=0}^{m-1} \sum_{\ell=0}^{n-1} z_{k \ell} \exp(-2\pi i k p/m) \exp(-2\pi i \ell q/n) \tag{26.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">The matrix is reconstructed from its coefficients by inverse transform</p>
-<div class="displaymath">
-\begin{equation}
-z_{k\ell} = \frac{1}{mn} \sum_{p=0}^{m-1}\sum_{q=0}^{n-1} c_{pq} \exp(2\pi i kp/m) \exp(2\pi i \ell q/n) \tag{26.2.2}
-\end{equation}
-</div>
-<p data-braille="continuation">The fact that Matlab indices begin with 1 means they have to be shifted by 1 in the above formulas, but since we will just use  <code class="code-inline tex2jax_ignore">fft2</code> and (inverse) <code class="code-inline tex2jax_ignore">ifft2</code>, we will not worry about this.</p>
-<span class="incontext"><a href="section-2d-dft.html#p-744">in-context</a></span>
+<p>The command <code class="code-inline tex2jax_ignore">imshow(im)</code> displays the image. An image (an array of numbers) can be transformed in multiple ways and then either saved as a file with <code class="code-inline tex2jax_ignore">imwrite</code> or just displayed with <code class="code-inline tex2jax_ignore">imshow</code>; we will do the latter, which is simpler. Try the following and observe the effects:</p>
+<ul class="disc">
+<li>Remove one of colors entirely, for example <code class="code-inline tex2jax_ignore">im(:, :, 3)  = 0;</code>
+</li>
+<li>Set all pixels darker than some level to black (0) with <code class="code-inline tex2jax_ignore">im(im &lt; 128) = 0;</code>
+</li>
+<li>Set the intensity of some color to some specific value, for example <code class="code-inline tex2jax_ignore">im(:, :, 2)  = 64;</code>
+</li>
+<li>…</li>
+</ul>
+<p data-braille="continuation">If you do something that causes the array to lose its class “uint8”, that can usually be fixed with the command <code class="code-inline tex2jax_ignore">uint8(...)</code>.</p>
+<span class="incontext"><a href="section-image-compression.html#p-744">in-context</a></span>
 </body>
 </html>

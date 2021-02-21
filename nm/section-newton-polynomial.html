@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:05-05:00    *-->
+<!--*    on 2021-02-21T12:36:35-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -138,7 +138,7 @@ MathJax.Hub.Config({
 <li><a href="section-classification-linear-systems.html" data-scroll="section-classification-linear-systems">Classification of linear systems</a></li>
 <li><a href="section-systems-without-free-variables.html" data-scroll="section-systems-without-free-variables">Systems without free variables</a></li>
 <li><a href="section-systems-with-free-variables.html" data-scroll="section-systems-with-free-variables">Systems with free variables</a></li>
-<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off-errors</a></li>
+<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off errors</a></li>
 <li><a href="examples-linear-systems.html" data-scroll="examples-linear-systems">Examples and questions</a></li>
 <li><a href="exercises-linear-systems.html" data-scroll="exercises-linear-systems">Homework</a></li>
 </ul>
@@ -409,11 +409,11 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-newton-polynomial"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">21.3</span> <span class="title">Newton interpolating polynomial</span>
 </h2>
-<p id="p-639">Newton  polynomial is a third way of constructing an interpolating polynomial of degree \(\lt n\) through \(n\) given points. It is still the same polynomial, since there is only one such polynomial. But the method is different because, yet again, we use a different basis. The Newton basis is somewhere between monomial basis and Lagrange basis, in the following sense. Let \(\mathbf c\) be the vector of coefficients of interpolating polynomial in some basis; these coefficients are obtained from a linear system \(A\mathbf c=\mathbf y\) where the square matrix \(A\) depends on the basis.</p>
+<p id="p-640">Newton  polynomial is a third way of constructing an interpolating polynomial of degree \(\lt n\) through \(n\) given points. It is still the same polynomial, since there is only one such polynomial. But the method is different because, yet again, we use a different basis. The Newton basis is somewhere between monomial basis and Lagrange basis, in the following sense. Let \(\mathbf c\) be the vector of coefficients of interpolating polynomial in some basis; these coefficients are obtained from a linear system \(A\mathbf c=\mathbf y\) where the square matrix \(A\) depends on the basis.</p>
 <ul class="disc">
-<li id="li-140">For the monomial basis, the matrix \(A\) is dense and often ill-conditioned (it has entries \(x_j^{i-1}\) and is known as the <a class="external" href="https://en.wikipedia.org/wiki/Vandermonde_matrix" target="_blank">Vandermonde matrix</a>.</li>
-<li id="li-141">For the Lagrange basis, the matrix \(A\) is the identity matrix, so the coefficients \(c_k\) are simply the given values \(y_k\text{.}\)</li>
-<li id="li-142">For the Newton basis, the matrix \(A\) is <em class="emphasis">triangular</em>. This means there is some work to be done to obtain \(\mathbf c\) from \(\mathbf y\) but it is straightforward.</li>
+<li id="li-144">For the monomial basis, the matrix \(A\) is dense and often ill-conditioned (it has entries \(x_j^{i-1}\) and is known as the <a class="external" href="https://en.wikipedia.org/wiki/Vandermonde_matrix" target="_blank">Vandermonde matrix</a>.</li>
+<li id="li-145">For the Lagrange basis, the matrix \(A\) is the identity matrix, so the coefficients \(c_k\) are simply the given values \(y_k\text{.}\)</li>
+<li id="li-146">For the Newton basis, the matrix \(A\) is <em class="emphasis">triangular</em>. This means there is some work to be done to obtain \(\mathbf c\) from \(\mathbf y\) but it is straightforward.</li>
 </ul>
 <p data-braille="continuation">The <dfn class="terminology">Newton polynomial basis</dfn> consists of</p>
 <div class="displaymath">
@@ -425,11 +425,11 @@ MathJax.Hub.Config({
 \end{align*}
 </div>
 <p data-braille="continuation">and so on. An advantage of Newton polynomial is that it is easier to evaluate than Lagrange polynomial. Also, we will see that adding a new data point is very easy to handle because the computation processes one step at a time. A key fact is that \(\phi_j(x_k) = 0\) when \(k \lt j\text{.}\)</p>
-<p id="p-640">We are looking for \(c_1, \dots, c_n\) such that the polynomial \(p = c_1\phi_1 + \cdots + c_n\phi_n\) has \(p(x_k)=y_k\text{.}\)</p>
+<p id="p-641">We are looking for \(c_1, \dots, c_n\) such that the polynomial \(p = c_1\phi_1 + \cdots + c_n\phi_n\) has \(p(x_k)=y_k\text{.}\)</p>
 <ul class="disc">
-<li id="li-143">At \(x=x_1\) only \(\phi_1\) is nonzero, so we must have \(c_1=y_1\)</li>
-<li id="li-144">At \(x=x_2\) only \(\phi_1,\phi_2\) are nonzero, so \(c_1 + c_2 (x-x_1) = y_2\text{.}\) We can solve this for \(c_2\text{.}\)</li>
-<li id="li-145">At \(x=x_3\) only \(\phi_1,\phi_2,\phi_3\) are nonzero, so \(c_1 + c_2 (x-x_1)+c_3 (x-x_1)(x-x_2) = y_3\text{.}\) We can solve this for \(c_3\text{.}\) And so on.</li>
+<li id="li-147">At \(x=x_1\) only \(\phi_1\) is nonzero, so we must have \(c_1=y_1\)</li>
+<li id="li-148">At \(x=x_2\) only \(\phi_1,\phi_2\) are nonzero, so \(c_1 + c_2 (x-x_1) = y_2\text{.}\) We can solve this for \(c_2\text{.}\)</li>
+<li id="li-149">At \(x=x_3\) only \(\phi_1,\phi_2,\phi_3\) are nonzero, so \(c_1 + c_2 (x-x_1)+c_3 (x-x_1)(x-x_2) = y_3\text{.}\) We can solve this for \(c_3\text{.}\) And so on.</li>
 </ul>
 <p data-braille="continuation">The process of solving for \(c_k \) can be  described algorithmically, in terms of getting the vector \(c\) from the vector \(y\text{.}\) Indeed, we are trying to match two sides of</p>
 <div class="displaymath">
@@ -444,7 +444,7 @@ y(x) = c_1 + c_2(x-x_1) + c_3 (x-x_1)(x-x_2) + c_4 (x-x_1)(x-x_2)(x-x_3) + \cdot
 \end{equation}
 </div>
 <p data-braille="continuation">The coefficient \(c_2\) is the value of the left hand side at \(x=x_2\text{.}\) In Matlab terms, it's the second entry of the array of y-values after we applied the subtract-and-divide process to it.</p>
-<p id="p-641">This repeats: we start with <code class="code-inline tex2jax_ignore">c=y</code> and repeat the subtract-and-divide step to turn its term into the coefficients of the Newton polynomial.</p>
+<p id="p-642">This repeats: we start with <code class="code-inline tex2jax_ignore">c=y</code> and repeat the subtract-and-divide step to turn its term into the coefficients of the Newton polynomial.</p>
 <pre class="code-block tex2jax_ignore">
 c = y;
 for k=2:n
@@ -452,7 +452,7 @@ for k=2:n
 end
 </pre>
 <p data-braille="continuation">At the end of the loop, the vector <code class="code-inline tex2jax_ignore">c</code> contains the coefficients of Newton polynomial.</p>
-<p id="p-642">Evaluation of Newton's polynomial is done in a similar way, with repeated multiply-and-add process, using one coefficient at a time. Indeed, since</p>
+<p id="p-643">Evaluation of Newton's polynomial is done in a similar way, with repeated multiply-and-add process, using one coefficient at a time. Indeed, since</p>
 <div class="displaymath">
 \begin{equation*}
 c_3(x-x_2)(x-x_1) + c_2(x-x_1) + c_1 =   (c_3 (x-x_{2}) + c_2) (x-x_1) + c_1 
@@ -468,7 +468,7 @@ end
 <p data-braille="continuation">While being simpler than barycentric evaluation <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.4">(21.2.4)</a> of the Lagrange polynomial, the evaluation of Newton polynomial does not fit into an anonymous function because it uses a loop.</p>
 <article class="example example-like" id="example-newton-polynomial"><a data-knowl="" class="id-ref original" data-refid="hk-example-newton-polynomial"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">21.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Plot the Newton polynomial through 11 points.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-newton-polynomial"><article class="example example-like"><p id="p-643">Plot the Newton polynomial for the points \((k, \arctan k)\text{,}\) \(k=-5, \dots, 5\text{.}\) Then repeat with 5 replaced by 8.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-newton-polynomial"><article class="example example-like"><p id="p-644">Plot the Newton polynomial for the points \((k, \arctan k)\text{,}\) \(k=-5, \dots, 5\text{.}\) Then repeat with 5 replaced by 8.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-56" id="answer-56"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-56"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = -5:5;
 n = numel(x);

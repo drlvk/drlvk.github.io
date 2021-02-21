@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:01:52-05:00    *-->
+<!--*    on 2021-02-21T12:36:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -138,7 +138,7 @@ MathJax.Hub.Config({
 <li><a href="section-classification-linear-systems.html" data-scroll="section-classification-linear-systems">Classification of linear systems</a></li>
 <li><a href="section-systems-without-free-variables.html" data-scroll="section-systems-without-free-variables">Systems without free variables</a></li>
 <li><a href="section-systems-with-free-variables.html" data-scroll="section-systems-with-free-variables">Systems with free variables</a></li>
-<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off-errors</a></li>
+<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off errors</a></li>
 <li><a href="examples-linear-systems.html" data-scroll="examples-linear-systems">Examples and questions</a></li>
 <li><a href="exercises-linear-systems.html" data-scroll="exercises-linear-systems">Homework</a></li>
 </ul>
@@ -409,14 +409,14 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-motivation-numeric-solution"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">7.1</span> <span class="title">Motivation for solving equations numerically</span>
 </h2>
-<p id="p-246">We often want to solve an equation of the form \(f(x)=0\text{,}\) given a real-valued function \(f\) of one real variable \(x\text{.}\) Some such equations admit a <dfn class="terminology">symbolic</dfn> solution, obtained by some algebraic manipulations. For example, the equation \(2e^x - 3 = 0\) has the solution \(x=\log(3/2)\text{.}\) But if we put together two or more unrelated functions, for example \(2e^x + x^3 - 1 = 0\text{,}\) algebra does not help.</p>
-<p id="p-247">For this reason, Matlab has a built-in root-finding function <code class="code-inline tex2jax_ignore">fzero</code>. Its first argument is the function which should be equated to zero, the second argument is our initial guess at where the solution may be (put 0 if you have no idea). For example,</p>
+<p id="p-247">We often want to solve an equation of the form \(f(x)=0\text{,}\) given a real-valued function \(f\) of one real variable \(x\text{.}\) Some such equations admit a <dfn class="terminology">symbolic</dfn> solution, obtained by some algebraic manipulations. For example, the equation \(2e^x - 3 = 0\) has the solution \(x=\log(3/2)\text{.}\) But if we put together two or more unrelated functions, for example \(2e^x + x^3 - 1 = 0\text{,}\) algebra does not help.</p>
+<p id="p-248">For this reason, Matlab has a built-in root-finding function <code class="code-inline tex2jax_ignore">fzero</code>. Its first argument is the function which should be equated to zero, the second argument is our initial guess at where the solution may be (put 0 if you have no idea). For example,</p>
 <pre class="code-block tex2jax_ignore">fzero(@(x) 2*exp(x) + x^3 - 1, 0)</pre>
 <p data-braille="continuation">finds the solution <code class="code-inline tex2jax_ignore">-0.5439</code>. But even though we have <code class="code-inline tex2jax_ignore">fzero</code>, we still have to understand the methods used for finding roots, because</p>
 <ol class="lower-alpha">
-<li id="li-66">
+<li id="li-70">
 <code class="code-inline tex2jax_ignore">fzero</code> only gives one solution, there may be others;</li>
-<li id="li-67">the output of <code class="code-inline tex2jax_ignore">fzero</code>  may be wrong.</li>
+<li id="li-71">the output of <code class="code-inline tex2jax_ignore">fzero</code>  may be wrong.</li>
 </ol>
 <p data-braille="continuation">An example of wrong answer:</p>
 <pre class="code-block tex2jax_ignore">fzero(@(x) exp(-x^2), 0)</pre>

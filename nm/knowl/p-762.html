@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:25-05:00    *-->
+<!--*    on 2021-02-21T12:36:52-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q = 98</code>, <code class="code-inline tex2jax_ignore">q = 95</code>, and <code class="code-inline tex2jax_ignore">q = 90</code>.</p>
+<p>Suggestions: sort the Fourier coefficients from smallest to largest using</p>
+<pre class="code-block tex2jax_ignore">
+sorted = sort(abs(fc(:)));    
+</pre>
+<p data-braille="continuation">The total energy is</p>
+<pre class="code-block tex2jax_ignore">
+total = sum(sorted.^2); 
+</pre>
+<p data-braille="continuation">The key point is to write a while loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until they reach the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
 <span class="incontext"><a href="exercises-dft-applications.html#p-762">in-context</a></span>
 </body>
 </html>

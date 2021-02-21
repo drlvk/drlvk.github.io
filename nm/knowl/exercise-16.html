@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:19-05:00    *-->
+<!--*    on 2021-02-21T12:36:47-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,8 +13,14 @@
 </head>
 <body>
 <article class="exercise exercise-like"><h6 class="heading">
-<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span>
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">3<span class="period">.</span></span>
 </h6>
-<p>For the function \(f(x) = \log(x^2 + 1/2)  + 9x^4 \text{,}\) use  the derivative \(f'\) determine the number of roots and find a bracketing interval for each of them. (No programming is needed.)</p></article><span class="incontext"><a href="exercises-roots-bisection.html#exercise-16">in-context</a></span>
+<p>Write a script that:</p>
+<ol class="lower-alpha">
+<li>Creates a matrix \(A\) of size \(20\times 20\) according to the formula \(A_{ij} = 1/(i+j-1)\text{.}\) (This will require a double loop)</li>
+<li>Creates a column vector \(b\) with \(20\) elements which alternate like \((c, 0, c, 0, c, 0, \dots)\text{.}\) Here \(c\) is the first digit of your SUID.</li>
+<li>Computes the solution of \(Ax=b\) and displays the norm of the difference between \(Ax\) and \(b\text{.}\)</li>
+</ol>
+<p><em class="emphasis">Remark</em>. The matrix \(A\) is invertible, is not very large, and does not have any extremely large or extremely small entries: they are all between \(0.025\) and \(1\text{.}\) Yet, it is so close to being singular that the solution of this linear system is likely to be pure noise due to round-off errors.</p></article><span class="incontext"><a href="exercises-linear-systems.html#exercise-16">in-context</a></span>
 </body>
 </html>

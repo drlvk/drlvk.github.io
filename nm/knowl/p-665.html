@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:24-05:00    *-->
+<!--*    on 2021-02-21T12:36:51-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An advantage of using Chebyshev extreme points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> as the points of interpolation is that one does not need to compute the weights like we did in <a class="xref" data-knowl="./knowl/example-lagrange-polynomial-chebyshev.html" title="Example 22.2.3: An interpolating polynomial using Chebyshev points">Example 22.2.3</a>. For this specific choice of points, the weights in the barycentric formula <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.4">(21.2.4)</a> turn out to be</p>
+<p>These projections are called “Chebyshev extreme points” or “Chebyshev points of the second kind”. Explicitly, they are</p>
 <div class="displaymath">
 \begin{equation}
-w_k = (-1)^k   \quad \text{except } w_0=1/2, w_n = (-1)^n/2\tag{22.3.2}
+x_k = \cos(\pi k/n) \quad \text{where } k=0, 1, \dots, n\tag{22.3.1}
 \end{equation}
 </div>
-<p data-braille="continuation">This means that the barycentric formula for interpolation can be written as</p>
-<div class="displaymath">
-\begin{equation}
-p(x) = \frac{\sum'_{0\le k\le n} y_k (-1)^k (x-x_k)^{-1}}{ \sum'_{0\le k\le n} (-1)^k (x-x_k)^{-1} } \tag{22.3.3}
-\end{equation}
-</div>
-<p data-braille="continuation">where primes over summation signs mean that the terms with \(k=0, n\) should be divided by 2 (the “trapezoidal” adjustment). Formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> also works for an arbitrary interval \([a, b]\text{,}\) where the Chebyshev extreme points are</p>
-<div class="displaymath">
-\begin{equation*}
-x_k = \frac{b-a}{2}  \cos(\pi k/n) + \frac{a+b}{2}
-\end{equation*}
-</div>
-<p data-braille="continuation">Note that the function \(p\) is in fact a polynomial of degree \(n\text{,}\) even if the formula does not look like it. The straightforward way of expressing a polynomial of high degree, as a sum of powers with constant coefficients, is likely to cause numerical issues, while the barycentric formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> is numerically stable.</p>
+<p data-braille="continuation">In Matlab one could write</p>
+<pre class="code-block tex2jax_ignore">
+x = cos(linspace(0, pi, n+1));
+</pre>
+<p data-braille="continuation">While the midpoint projections (Chebyshev points of the first kind) are the <em class="emphasis">roots</em> of polynomials \(T_n\text{,}\) the points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> are the <em class="emphasis">extreme points</em> of \(T_n\text{.}\) Indeed, the identity <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> says that \(T_n\) attains extreme values \(\pm 1\) when \(\cos (n\theta) = \pm 1\text{,}\) hence \(\theta = \pi k/n\text{,}\) hence \(x = \cos(\pi k/n)\text{.}\)</p>
 <span class="incontext"><a href="section-chebyshev-extreme-points.html#p-665">in-context</a></span>
 </body>
 </html>

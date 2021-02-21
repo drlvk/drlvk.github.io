@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:23-05:00    *-->
+<!--*    on 2021-02-21T12:36:50-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,8 +13,22 @@
 </head>
 <body>
 <article class="exercise exercise-like"><h6 class="heading">
-<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span>
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">3<span class="period">.</span></span>
 </h6>
-<p>(Theoretical) Expand the Lotka-Volterra model <a class="xref" data-knowl="./knowl/eq-LV-R.html" title="Equation 20.2.1">(20.2.1)</a>-<a class="xref" data-knowl="./knowl/eq-LV-F.html" title="Equation 20.2.2">(20.2.2)</a> to include a second kind of predator, wolves \(W\text{,}\) which eats both rabbits and foxes. Note that the rate at which wolves eat rabbits would be different from the rate at which they eat foxes.</p></article><span class="incontext"><a href="exercises-ode-modeling.html#exercise-48">in-context</a></span>
+<p>Use the midpoint method with step size \(h=0.01\) to solve the autonomous system</p>
+<div class="displaymath">
+\begin{align*}
+y_1' \amp = y_2\\
+y_2' \amp = -y_1 - y_2^3
+\end{align*}
+</div>
+<p data-braille="continuation">with initial condition \(y(0) = \begin{pmatrix}1 \\ 1\end{pmatrix}\) on the interval \([0, 50]\text{.}\) Display both time series plot and phase plot side by side, for example</p>
+<pre class="code-block tex2jax_ignore">
+subplot(1, 2, 1)
+plot(t, y)
+subplot(1, 2, 2)
+plot(y(1,:), y(2,:))
+</pre>
+<p data-braille="continuation">How would you describe the long-term behaviour of this solution?</p></article><span class="incontext"><a href="exercises-ode-euler.html#exercise-48">in-context</a></span>
 </body>
 </html>

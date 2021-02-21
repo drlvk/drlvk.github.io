@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:01:52-05:00    *-->
+<!--*    on 2021-02-21T12:36:25-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -138,7 +138,7 @@ MathJax.Hub.Config({
 <li><a href="section-classification-linear-systems.html" data-scroll="section-classification-linear-systems">Classification of linear systems</a></li>
 <li><a href="section-systems-without-free-variables.html" data-scroll="section-systems-without-free-variables">Systems without free variables</a></li>
 <li><a href="section-systems-with-free-variables.html" data-scroll="section-systems-with-free-variables">Systems with free variables</a></li>
-<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off-errors</a></li>
+<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off errors</a></li>
 <li><a href="examples-linear-systems.html" data-scroll="examples-linear-systems">Examples and questions</a></li>
 <li><a href="exercises-linear-systems.html" data-scroll="exercises-linear-systems" class="active">Homework</a></li>
 </ul>
@@ -438,20 +438,24 @@ x_1 -2 x_2 + 3x_3 - x_4 \amp =  -3  \\
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-15"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
 <p id="p-243">Write a function <code class="code-inline tex2jax_ignore">linearfit</code> that takes arguments <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">y</code> (vectors of the same size) and returns two numbers <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>, coefficients of the best-fitting line \(y=cx+d\text{.}\) Then apply it to the population of your hometown during years 1980, 1985, ..., 2010, 2015. (The data should be easy to find online; if not, use a larger nearby town). The code could look like this.</p>
-<pre class="code-block tex2jax_ignore">function hw6()
-  x =  1980:5:2015;  % years  
-  y =                % population of your hometown in these years 
-  [c, d] = linearfit(x, y);            % find the coefficient of linear fit
-  xx = linspace(min(x), max(x), 500);  % to be used for plotting the line
-  plot(x, y, 'r*', xx, c*xx + d, 'b')  % plot red points and blue line
-end
+<pre class="code-block tex2jax_ignore">x =  1980:5:2015;  % years  
+y =                % population of your hometown in these years 
+[c, d] = linearfit(x, y);            % find the coefficient of linear fit
+xx = linspace(min(x), max(x), 500);  % to be used for plotting the line
+plot(x, y, 'r*', xx, c*xx + d, 'b')  % plot red points and blue line
 
 function [k, c] = linearfit(x,y)
   ... set up and solve an overdetermined system, 
   ... then assign c and d based on its solution
 end
-</pre>
-<p id="p-244">The character <code class="code-inline tex2jax_ignore">%</code> is used for inserting comments in Matlab code: everything after it to the end of the line is ignored.</p></article></section></div></main>
+</pre></article><article class="exercise exercise-like" id="exercise-16"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
+<p id="p-244">Write a script that:</p>
+<ol class="lower-alpha">
+<li id="li-67">Creates a matrix \(A\) of size \(20\times 20\) according to the formula \(A_{ij} = 1/(i+j-1)\text{.}\) (This will require a double loop)</li>
+<li id="li-68">Creates a column vector \(b\) with \(20\) elements which alternate like \((c, 0, c, 0, c, 0, \dots)\text{.}\) Here \(c\) is the first digit of your SUID.</li>
+<li id="li-69">Computes the solution of \(Ax=b\) and displays the norm of the difference between \(Ax\) and \(b\text{.}\)</li>
+</ol>
+<p id="p-245"><em class="emphasis">Remark</em>. The matrix \(A\) is invertible, is not very large, and does not have any extremely large or extremely small entries: they are all between \(0.025\) and \(1\text{.}\) Yet, it is so close to being singular that the solution of this linear system is likely to be pure noise due to round-off errors.</p></article></section></div></main>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:01:56-05:00    *-->
+<!--*    on 2021-02-21T12:36:28-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -138,7 +138,7 @@ MathJax.Hub.Config({
 <li><a href="section-classification-linear-systems.html" data-scroll="section-classification-linear-systems">Classification of linear systems</a></li>
 <li><a href="section-systems-without-free-variables.html" data-scroll="section-systems-without-free-variables">Systems without free variables</a></li>
 <li><a href="section-systems-with-free-variables.html" data-scroll="section-systems-with-free-variables">Systems with free variables</a></li>
-<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off-errors</a></li>
+<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off errors</a></li>
 <li><a href="examples-linear-systems.html" data-scroll="examples-linear-systems">Examples and questions</a></li>
 <li><a href="exercises-linear-systems.html" data-scroll="exercises-linear-systems">Homework</a></li>
 </ul>
@@ -409,23 +409,23 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="exercises" id="exercises-multivariate-newton"><h2 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">10.5</span> <span class="title">Homework</span>
 </h2>
-<article class="exercise exercise-like" id="exercise-23"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-371">(Theoretical problem.) Let</p>
+<article class="exercise exercise-like" id="exercise-24"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
+<p id="p-372">(Theoretical problem.) Let</p>
 <div class="displaymath">
 \begin{equation*}
 \mathbf F(x,y,z)
 =\begin{pmatrix} xyz \\ 2(xy+yz+xz) \\ x^2+y^2+z^2 \end{pmatrix} 
 \end{equation*}
 </div>
-<p data-braille="continuation">Find the Jacobian matrix of \(\mathbf F\text{.}\) (The matrix entries will involve the variables \(x,y,z\)).</p></article><article class="exercise exercise-like" id="exercise-24"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-372">At which of the following points \((x,y,z)\) is the Jacobian matrix from the previous exercise  invertible?</p>
+<p data-braille="continuation">Find the Jacobian matrix of \(\mathbf F\text{.}\) (The matrix entries will involve the variables \(x,y,z\)).</p></article><article class="exercise exercise-like" id="exercise-25"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-373">At which of the following points \((x,y,z)\) is the Jacobian matrix from the previous exercise  invertible?</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{pmatrix} 1\\1\\1\end{pmatrix}, \begin{pmatrix} 3\\1\\5\end{pmatrix},  \begin{pmatrix} 2\\1\\2\end{pmatrix}
 \end{equation*}
 </div>
-<p data-braille="continuation">To save time,  use Matlab: define an anonymous function like <code class="code-inline tex2jax_ignore">J = @(x,y,z) [... ; ... ; ...]</code> so that you can then do <code class="code-inline tex2jax_ignore">rank(J(1,1,1))</code> and so on, without computing the matrices yourself. Note the difference between this approach to J and the approach of <a href="section-multivariate-newton.html" class="internal" title="Section 10.2: Multivariate Newton's method">Section 10.2</a>: here the function <code class="code-inline tex2jax_ignore">J</code> takes three scalar arguments, instead of one vector argument.</p></article><article class="exercise exercise-like" id="exercise-25"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-373">Let \(V = 36 + 2a\text{,}\) \(A = 72 + 3a\text{,}\) and \(D = 7 + a/5\) where \(a\) is the first digit of your SUID. Write a Matlab script which uses  Newton's method to find the dimensions of a rectangular box with volume \(V\text{,}\) surface area \(A\text{,}\) and space diagonal \(D\text{.}\) The computations in Problem 1 will be helpful, because a box with dimensions \(x, y, z\) has volume \(xyz\text{,}\) surface area \(2(xy+yz+xz)\text{,}\) and space diagonal \(\sqrt{x^2+y^2+z^2}\text{.}\)</p></article></section></div></main>
+<p data-braille="continuation">To save time,  use Matlab: define an anonymous function like <code class="code-inline tex2jax_ignore">J = @(x,y,z) [... ; ... ; ...]</code> so that you can then do <code class="code-inline tex2jax_ignore">rank(J(1,1,1))</code> and so on, without computing the matrices yourself. Note the difference between this approach to J and the approach of <a href="section-multivariate-newton.html" class="internal" title="Section 10.2: Multivariate Newton's method">Section 10.2</a>: here the function <code class="code-inline tex2jax_ignore">J</code> takes three scalar arguments, instead of one vector argument.</p></article><article class="exercise exercise-like" id="exercise-26"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
+<p id="p-374">Let \(V = 36 + 2a\text{,}\) \(A = 72 + 3a\text{,}\) and \(D = 7 + a/5\) where \(a\) is the first digit of your SUID. Write a Matlab script which uses  Newton's method to find the dimensions of a rectangular box with volume \(V\text{,}\) surface area \(A\text{,}\) and space diagonal \(D\text{.}\) The computations in Problem 1 will be helpful, because a box with dimensions \(x, y, z\) has volume \(xyz\text{,}\) surface area \(2(xy+yz+xz)\text{,}\) and space diagonal \(\sqrt{x^2+y^2+z^2}\text{.}\)</p></article></section></div></main>
 </div>
 </body>
 </html>

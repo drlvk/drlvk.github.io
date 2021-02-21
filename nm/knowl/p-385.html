@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:20-05:00    *-->
+<!--*    on 2021-02-21T12:36:48-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,18 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We already know how to find a matrix that satisfies <a class="xref" data-knowl="./knowl/eq-B1-equation.html" title="Equation 11.3.1">(11.3.1)</a>, by taking an outer product multiplied by a scalar <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. But this would be a bad, illogical choice for \(B_1\text{.}\) Why?</p>
+<p>Recall from <a href="section-broyden-intro.html" class="internal" title="Section 11.1: Idea of Broyden's method">Section 11.1</a> that we seek to improve our guess for the inverse of Jacobian by finding a matrix \(B_1\) such that</p>
+<div class="displaymath">
+\begin{equation*}
+B_1(\mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)) = \mathbf x_1 - \mathbf x_0 
+\end{equation*}
+</div>
+<p data-braille="continuation">To simplify notation, let \(\mathbf h = \mathbf x_1 - \mathbf x_0\) and \(\mathbf w = \mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)\text{;}\) both these vectors are known. We need</p>
+<div class="displaymath">
+\begin{equation}
+B_1 \mathbf w = \mathbf h\tag{11.3.1}
+\end{equation}
+</div>
 <span class="incontext"><a href="section-broyden-method.html#p-385">in-context</a></span>
 </body>
 </html>

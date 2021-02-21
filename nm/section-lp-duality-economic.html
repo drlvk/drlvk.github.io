@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:16-05:00    *-->
+<!--*    on 2021-02-21T12:36:43-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -138,7 +138,7 @@ MathJax.Hub.Config({
 <li><a href="section-classification-linear-systems.html" data-scroll="section-classification-linear-systems">Classification of linear systems</a></li>
 <li><a href="section-systems-without-free-variables.html" data-scroll="section-systems-without-free-variables">Systems without free variables</a></li>
 <li><a href="section-systems-with-free-variables.html" data-scroll="section-systems-with-free-variables">Systems with free variables</a></li>
-<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off-errors</a></li>
+<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off errors</a></li>
 <li><a href="examples-linear-systems.html" data-scroll="examples-linear-systems">Examples and questions</a></li>
 <li><a href="exercises-linear-systems.html" data-scroll="exercises-linear-systems">Homework</a></li>
 </ul>
@@ -409,9 +409,9 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-lp-duality-economic"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">35.3</span> <span class="title">Interpretation of duality in microeconomics</span>
 </h2>
-<p id="p-967">The following example is adapted from Wikipedia article <a class="external" href="https://en.wikipedia.org/wiki/Dual_linear_program" target="_blank">Dual linear program</a>, available under the <a class="external" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License" target="_blank">Creative Commons Attribution-ShareAlike License</a>.</p>
-<p id="p-968">Consider a farmer who may grow wheat and barley with the set provision of some \(L\) land, \(F\) fertilizer and \(P\) pesticide. To grow one unit of wheat, one unit of land, \(F_1\) units of fertilizer and \(P_1\) units of pesticide must be used. Similarly, to grow one unit of barley, one unit of land, \(F_2\) units of fertilizer and \(P_2\) units of pesticide must be used.</p>
-<p id="p-969">The primal problem would be the farmer deciding how much wheat (\(x_1\)) and barley (\(x_2\)) to grow if their sell prices are \(S_1\) and \(S_2\) per unit. The goal is to maximize the total revenue:</p>
+<p id="p-968">The following example is adapted from Wikipedia article <a class="external" href="https://en.wikipedia.org/wiki/Dual_linear_program" target="_blank">Dual linear program</a>, available under the <a class="external" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License" target="_blank">Creative Commons Attribution-ShareAlike License</a>.</p>
+<p id="p-969">Consider a farmer who may grow wheat and barley with the set provision of some \(L\) land, \(F\) fertilizer and \(P\) pesticide. To grow one unit of wheat, one unit of land, \(F_1\) units of fertilizer and \(P_1\) units of pesticide must be used. Similarly, to grow one unit of barley, one unit of land, \(F_2\) units of fertilizer and \(P_2\) units of pesticide must be used.</p>
+<p id="p-970">The primal problem would be the farmer deciding how much wheat (\(x_1\)) and barley (\(x_2\)) to grow if their sell prices are \(S_1\) and \(S_2\) per unit. The goal is to maximize the total revenue:</p>
 <div class="displaymath">
 \begin{equation*}
 S_1 x_1 + S_2 x_2 \to \max
@@ -419,12 +419,12 @@ S_1 x_1 + S_2 x_2 \to \max
 </div>
 <p data-braille="continuation">subject to constraints:</p>
 <ul class="disc">
-<li id="li-204">\(x_1 + x_2 \leq L\) (cannot use more land than available)</li>
-<li id="li-205">\(F_1  x_1 + F_2  x_2 \leq F\)  (cannot use more fertilizer than available)</li>
-<li id="li-206">\(P_1  x_1 + P_2  x_2 \leq P\) (cannot use more pesticide than available)</li>
-<li id="li-207">\(x_1, x_2 \geq 0\) (cannot grow negative amounts)</li>
+<li id="li-208">\(x_1 + x_2 \leq L\) (cannot use more land than available)</li>
+<li id="li-209">\(F_1  x_1 + F_2  x_2 \leq F\)  (cannot use more fertilizer than available)</li>
+<li id="li-210">\(P_1  x_1 + P_2  x_2 \leq P\) (cannot use more pesticide than available)</li>
+<li id="li-211">\(x_1, x_2 \geq 0\) (cannot grow negative amounts)</li>
 </ul>
-<p id="p-970">For the dual problem assume that \(y\) unit prices for each of these means of production (inputs) are set by a planning board. The planning board's job is to minimize the total cost of procuring the set amounts of inputs while providing the farmer with a floor on the unit price of each of his crops (outputs), \(S_1\) for wheat and \(S_2\) for barley. This corresponds to the following problem: minimize the total cost</p>
+<p id="p-971">For the dual problem assume that \(y\) unit prices for each of these means of production (inputs) are set by a planning board. The planning board's job is to minimize the total cost of procuring the set amounts of inputs while providing the farmer with a floor on the unit price of each of his crops (outputs), \(S_1\) for wheat and \(S_2\) for barley. This corresponds to the following problem: minimize the total cost</p>
 <div class="displaymath">
 \begin{equation*}
 L y_L + F y_F + P y_P \to \min
@@ -432,11 +432,11 @@ L y_L + F y_F + P y_P \to \min
 </div>
 <p data-braille="continuation">subject to constraints:</p>
 <ul class="disc">
-<li id="li-208">\(y_L+F_1 y_F+P_1 y_P\geq S_1\) (the farmer must receive at least \(S_1\) for each unit of wheat)</li>
-<li id="li-209">\(y_L+F_2 y_F+P_2 y_P\geq S_2\) (the farmer must receive at least \(S_2\) for each unit of barley)</li>
-<li id="li-210">\(y_L, y_F, y_P\geq 0\) (prices cannot be negative)</li>
+<li id="li-212">\(y_L+F_1 y_F+P_1 y_P\geq S_1\) (the farmer must receive at least \(S_1\) for each unit of wheat)</li>
+<li id="li-213">\(y_L+F_2 y_F+P_2 y_P\geq S_2\) (the farmer must receive at least \(S_2\) for each unit of barley)</li>
+<li id="li-214">\(y_L, y_F, y_P\geq 0\) (prices cannot be negative)</li>
 </ul>
-<p id="p-971">In matrix form this becomes: minimize</p>
+<p id="p-972">In matrix form this becomes: minimize</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{pmatrix} L &amp; F &amp; P \end{pmatrix} \begin{pmatrix} y_L \\ y_F \\ y_P \end{pmatrix} 
@@ -454,10 +454,10 @@ L y_L + F y_F + P y_P \to \min
 \begin{pmatrix} y_L \\ y_F \\ y_P \end{pmatrix} \ge 0.
 \end{equation*}
 </div>
-<p id="p-972">The primal problem deals with physical quantities. With all inputs available in limited quantities, and assuming the unit prices of all outputs is known, what quantities of outputs to produce so as to maximize total revenue? The dual problem deals with economic values. With floor guarantees on all output unit prices, and assuming the available quantity of all inputs is known, what input unit pricing scheme to set so as to minimize total expenditure?</p>
-<p id="p-973">To each variable in the primal space corresponds an inequality to satisfy in the dual space, both indexed by output type. To each inequality to satisfy in the primal space corresponds a variable in the dual space, both indexed by input type.</p>
-<p id="p-974">The coefficients that bound the inequalities in the primal space are used to compute the objective in the dual space, input quantities in this example. The coefficients used to compute the objective in the primal space bound the inequalities in the dual space, output unit prices in this example.</p>
-<p id="p-975">Both the primal and the dual problems make use of the same matrix. In the primal space, this matrix expresses the consumption of physical quantities of inputs necessary to produce set quantities of outputs. In the dual space, it expresses the creation of the economic values associated with the outputs from set input unit prices.</p></section></div></main>
+<p id="p-973">The primal problem deals with physical quantities. With all inputs available in limited quantities, and assuming the unit prices of all outputs is known, what quantities of outputs to produce so as to maximize total revenue? The dual problem deals with economic values. With floor guarantees on all output unit prices, and assuming the available quantity of all inputs is known, what input unit pricing scheme to set so as to minimize total expenditure?</p>
+<p id="p-974">To each variable in the primal space corresponds an inequality to satisfy in the dual space, both indexed by output type. To each inequality to satisfy in the primal space corresponds a variable in the dual space, both indexed by input type.</p>
+<p id="p-975">The coefficients that bound the inequalities in the primal space are used to compute the objective in the dual space, input quantities in this example. The coefficients used to compute the objective in the primal space bound the inequalities in the dual space, output unit prices in this example.</p>
+<p id="p-976">Both the primal and the dual problems make use of the same matrix. In the primal space, this matrix expresses the consumption of physical quantities of inputs necessary to produce set quantities of outputs. In the dual space, it expresses the creation of the economic values associated with the outputs from set input unit prices.</p></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:25-05:00    *-->
+<!--*    on 2021-02-21T12:36:53-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Most importantly, the minimization problem <a class="xref" data-knowl="./knowl/eq-sum-squares-exponential-log.html" title="Equation 28.1.2">(28.1.2)</a> can be easily solved using the method of <a href="chapter-linear-least-squares.html" class="internal" title="Chapter 27: Linear Least Squares">Chapter 27</a>. For notational convenience let \(\beta_1= \log a\) and \(\beta_2 = b\text{.}\) If the left hand side of <a class="xref" data-knowl="./knowl/eq-sum-squares-exponential-log.html" title="Equation 28.1.2">(28.1.2)</a> was zero, that would mean that \(\beta_1, \beta_2\) is a solution of the overdetermined linear system</p>
-<div class="displaymath">
-\begin{equation}
-\beta_1 + \beta_2  x_k = \log y_k,\quad k=1, \dots, n\tag{28.1.3}
-\end{equation}
-</div>
-<p data-braille="continuation">The least squares solution of <a class="xref" data-knowl="./knowl/eq-transformed-lls.html" title="Equation 28.1.3">(28.1.3)</a> is the vector \(\beta = (\beta_1, \beta_2)\) that minimizes <a class="xref" data-knowl="./knowl/eq-sum-squares-exponential-log.html" title="Equation 28.1.2">(28.1.2)</a>.</p>
+<p>For example, if the given y-values are <code class="code-inline tex2jax_ignore">[1 2 10]</code> and we have two competing exponential functions: one predicts <code class="code-inline tex2jax_ignore">[0.5 2 10]</code> while the other predicts <code class="code-inline tex2jax_ignore">[1 2 11]</code>. Using the penalty function <a class="xref" data-knowl="./knowl/eq-sum-squares-exponential.html" title="Equation 28.1.1">(28.1.1)</a>, the first model has the penalty \(0.25\) while the second has penalty \(1\text{,}\) so the first looks better. But if we look at the differences of logarithms, then the first has penality \((\log 1 - \log 0.5)^2 = 0.48\) while the second has penalty \((\log 10 - \log 11)^2 = 0.01\text{,}\) so the second looks much better.</p>
 <span class="incontext"><a href="section-example-exponential-fit.html#p-787">in-context</a></span>
 </body>
 </html>

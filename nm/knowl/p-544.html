@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:22-05:00    *-->
+<!--*    on 2021-02-21T12:36:50-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A third approach is to enforce enforce error bound <em class="emphasis">relative to the size of interval</em>, for example <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6 * (b-a)</code>. This avoids the issue with functions that are problematic and small, such as \(f(x) = \sqrt{x}\) near \(0\text{.}\) But it runs into the same issue with functions that are problematic and large, such as  \(f(x) = 1/\sqrt{x}\) near \(0\text{.}\) Here the integral is</p>
+<p>If one uses an absolute error bound like <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6</code>, there is another issue. We do not know how many subintervals will be used in the process, so even if each of them contributes an error of less than \(10^{-6}\text{,}\) the total may be significantly higher.</p>
 <span class="incontext"><a href="section-adaptive-integration-bisection.html#p-544">in-context</a></span>
 </body>
 </html>

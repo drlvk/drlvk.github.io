@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:21-05:00    *-->
+<!--*    on 2021-02-21T12:36:48-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Although the formula <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a> looks natural, it is not the best way to find the approximate value of \(f'(x)\text{.}\) The following <dfn class="terminology">symmetric difference</dfn> formula works better:</p>
+<p>Sometimes one can avoid the loss of significance by rearranging the expression algebraically. For example,</p>
 <div class="displaymath">
-\begin{equation}
-f'(x) \approx \frac{f(x+h)-f(x-h)}{2h}\tag{12.3.1}
-\end{equation}
+\begin{equation*}
+\frac{\sqrt{x+h} - \sqrt{x}}{h} = 	\frac{(\sqrt{x+h} - \sqrt{x})(\sqrt{x+h} + \sqrt{x})}{h(\sqrt{x+h} + \sqrt{x})} = \frac{x+h-x}{h(\sqrt{x+h} + \sqrt{x})} = \frac{1}{\sqrt{x+h} + \sqrt{x}} 
+\end{equation*}
 </div>
-<p data-braille="continuation">The following computation explains why.</p>
-<span class="incontext"><a href="section-symmetric-difference.html#p-409">in-context</a></span>
+<p data-braille="continuation">Algebraically these expressions are identical, but in Matlab, <code class="code-inline tex2jax_ignore">1/(sqrt(x+h) + sqrt(x))</code> produces accurate answer <code class="code-inline tex2jax_ignore">5.0000e-04</code> for any of the above values of \(h\text{.}\) Matlab also has some built-in logic for avoiding loss of significance in two frequently encountered situations: \(e^{x} - 1\) and \(\log (1+x)\) when \(x\approx 0\text{.}\) These are the functions <code class="code-inline tex2jax_ignore">expm1</code> and <code class="code-inline tex2jax_ignore">log1p</code>. To see the difference, compare the results of <code class="code-inline tex2jax_ignore">(exp(x)-1)/x</code> and <code class="code-inline tex2jax_ignore">expm1(x)/x</code> when <code class="code-inline tex2jax_ignore">x=1e-20</code>.</p>
+<span class="incontext"><a href="section-loss-significance.html#p-409">in-context</a></span>
 </body>
 </html>

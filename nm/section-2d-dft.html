@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:09-05:00    *-->
+<!--*    on 2021-02-21T12:36:38-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -138,7 +138,7 @@ MathJax.Hub.Config({
 <li><a href="section-classification-linear-systems.html" data-scroll="section-classification-linear-systems">Classification of linear systems</a></li>
 <li><a href="section-systems-without-free-variables.html" data-scroll="section-systems-without-free-variables">Systems without free variables</a></li>
 <li><a href="section-systems-with-free-variables.html" data-scroll="section-systems-with-free-variables">Systems with free variables</a></li>
-<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off-errors</a></li>
+<li><a href="section-round-off.html" data-scroll="section-round-off">The effect of round-off errors</a></li>
 <li><a href="examples-linear-systems.html" data-scroll="examples-linear-systems">Examples and questions</a></li>
 <li><a href="exercises-linear-systems.html" data-scroll="exercises-linear-systems">Homework</a></li>
 </ul>
@@ -409,7 +409,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-2d-dft"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">26.2</span> <span class="title">Two-dimensional DFT</span>
 </h2>
-<p id="p-744">Since images are two-dimensional (considering either grayscale images, or working with each color channel separately), they can be processed using the two-dimensional version of Discrete Fourier Transform, implemented in Matlab as <code class="code-inline tex2jax_ignore">fft2</code> and (inverse) <code class="code-inline tex2jax_ignore">ifft2</code>. The formulas for 2D transform follow the same logic as one-dimensional formulas <a class="xref" data-knowl="./knowl/eq-fourier-coefficients-discrete.html" title="Equation 25.3.2">(25.3.2)</a>  and <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a>. Namely, the <dfn class="terminology">2D Fourier coefficients</dfn> of a given matrix \((z_{k\ell})\) with indices \(k=0, \dots, m-1\text{,}\) \(\ell=0, \dots, n-1\) are computed as:</p>
+<p id="p-745">Since images are two-dimensional (considering either grayscale images, or working with each color channel separately), they can be processed using the two-dimensional version of Discrete Fourier Transform, implemented in Matlab as <code class="code-inline tex2jax_ignore">fft2</code> and (inverse) <code class="code-inline tex2jax_ignore">ifft2</code>. The formulas for 2D transform follow the same logic as one-dimensional formulas <a class="xref" data-knowl="./knowl/eq-fourier-coefficients-discrete.html" title="Equation 25.3.2">(25.3.2)</a>  and <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a>. Namely, the <dfn class="terminology">2D Fourier coefficients</dfn> of a given matrix \((z_{k\ell})\) with indices \(k=0, \dots, m-1\text{,}\) \(\ell=0, \dots, n-1\) are computed as:</p>
 <div class="displaymath">
 \begin{equation}
 c_{pq} = \sum_{k=0}^{m-1} \sum_{\ell=0}^{n-1} z_{k \ell} \exp(-2\pi i k p/m) \exp(-2\pi i \ell q/n) \label{eq-fourier-coefficients-discrete-2d}\tag{26.2.1}
@@ -422,17 +422,17 @@ z_{k\ell} = \frac{1}{mn} \sum_{p=0}^{m-1}\sum_{q=0}^{n-1} c_{pq} \exp(2\pi i kp/
 \end{equation}
 </div>
 <p data-braille="continuation">The fact that Matlab indices begin with 1 means they have to be shifted by 1 in the above formulas, but since we will just use  <code class="code-inline tex2jax_ignore">fft2</code> and (inverse) <code class="code-inline tex2jax_ignore">ifft2</code>, we will not worry about this.</p>
-<p id="p-745">Let us try this with the grayscale version of the winter image, saved here as a PNG file for lossless compression.</p>
+<p id="p-746">Let us try this with the grayscale version of the winter image, saved here as a PNG file for lossless compression.</p>
 <figure class="figure figure-like" id="winter-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/winter.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">26.2.1<span class="period">.</span></span><span class="space"> </span>Grayscale PNG image</figcaption></figure><p id="p-746">After loading the image with <code class="code-inline tex2jax_ignore">im = imread('winter.png')</code>, check this is a matrix (no separate channels for colors). Try <code class="code-inline tex2jax_ignore">fc = fft2(im);</code> which produces a matrix of the same size but with complex entries. It is not easy to understand all of it. Small pieces can be inspected with <code class="code-inline tex2jax_ignore">fc(1:5, 1:5)</code> for example. A histogram can help visualize the distribution of their magnitudes: <code class="code-inline tex2jax_ignore">hist(abs(fc(:)), 50)</code>. (Recall that <code class="code-inline tex2jax_ignore">fc(:)</code> means flattening a matrix to a vector.) Looks like nearly all coefficients are much smaller than the largest ones.</p>
-<p id="p-747">We can set all small Fourier coefficients (less than some threshold <code class="code-inline tex2jax_ignore">thr</code>) to zero using <code class="code-inline tex2jax_ignore">fc(abs(fc) &lt; thr) = 0;</code>. One way to determine the threshold reasonably is to use <dfn class="terminology">percentiles</dfn>: for example,</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">26.2.1<span class="period">.</span></span><span class="space"> </span>Grayscale PNG image</figcaption></figure><p id="p-747">After loading the image with <code class="code-inline tex2jax_ignore">im = imread('winter.png')</code>, check this is a matrix (no separate channels for colors). Try <code class="code-inline tex2jax_ignore">fc = fft2(im);</code> which produces a matrix of the same size but with complex entries. It is not easy to understand all of it. Small pieces can be inspected with <code class="code-inline tex2jax_ignore">fc(1:5, 1:5)</code> for example. A histogram can help visualize the distribution of their magnitudes: <code class="code-inline tex2jax_ignore">hist(abs(fc(:)), 50)</code>. (Recall that <code class="code-inline tex2jax_ignore">fc(:)</code> means flattening a matrix to a vector.) Looks like nearly all coefficients are much smaller than the largest ones.</p>
+<p id="p-748">We can set all small Fourier coefficients (less than some threshold <code class="code-inline tex2jax_ignore">thr</code>) to zero using <code class="code-inline tex2jax_ignore">fc(abs(fc) &lt; thr) = 0;</code>. One way to determine the threshold reasonably is to use <dfn class="terminology">percentiles</dfn>: for example,</p>
 <pre class="code-block tex2jax_ignore">
 thr = prctile(abs(fc(:)), 75);
 </pre>
 <p data-braille="continuation">returns the number <code class="code-inline tex2jax_ignore">thr</code> such that 75 percent of Fourier coefficients are less than it, and the other are greater (in absolute value).</p>
 <article class="example example-like" id="example-compress-image"><a data-knowl="" class="id-ref original" data-refid="hk-example-compress-image"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">26.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Compress an image using Discrete Fourier Transform.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-compress-image"><article class="example example-like"><p id="p-748">Given a percentage <code class="code-inline tex2jax_ignore">p</code>, such as 75, compress the “winter” image by setting <code class="code-inline tex2jax_ignore">p</code> percent of its Fourier coefficients to zero.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-compress-image"><article class="example example-like"><p id="p-749">Given a percentage <code class="code-inline tex2jax_ignore">p</code>, such as 75, compress the “winter” image by setting <code class="code-inline tex2jax_ignore">p</code> percent of its Fourier coefficients to zero.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-36" id="solution-36"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-36"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">p = 75;
@@ -443,15 +443,15 @@ fc(abs(fc) &lt; thr) = 0;
 im2 = uint8(real(ifft2(fc)));
 imshow(im2)
 </pre>
-<p id="p-749">The inverse Fourier transform may have imaginary part due to the truncation of Fourier coefficients and rounding errors in computations. This imaginary part is removed with <code class="code-inline tex2jax_ignore">real</code>. The result is converted to unsigned 8-bit integers with <code class="code-inline tex2jax_ignore">uint8</code>.</p>
+<p id="p-750">The inverse Fourier transform may have imaginary part due to the truncation of Fourier coefficients and rounding errors in computations. This imaginary part is removed with <code class="code-inline tex2jax_ignore">real</code>. The result is converted to unsigned 8-bit integers with <code class="code-inline tex2jax_ignore">uint8</code>.</p>
 </div></div>
 </div></article></div>
-<p id="p-750">The <a class="external" href="https://en.wikipedia.org/wiki/JPEG#Encoding" target="_blank">JPEG compression algorithm</a> is based on the Fourier Transform but differs from the above example in several ways:</p>
+<p id="p-751">The <a class="external" href="https://en.wikipedia.org/wiki/JPEG#Encoding" target="_blank">JPEG compression algorithm</a> is based on the Fourier Transform but differs from the above example in several ways:</p>
 <ul class="disc">
-<li id="li-172">It divides the image into 8<span class="times-sign">×</span>8 pixel blocks and operates on each block separately.</li>
-<li id="li-173">It uses Discrete Cosine Transform in which the role of complex exponentials \(\exp(2\pi i k/m)\) is played by cosine functions \(\cos(2\pi k/m)\text{.}\) This improves the efficiency and eliminates the appearance of complex numbers.</li>
-<li id="li-174">In addition to setting small Fourier coefficients to 0, it quantizes the other ones: rounds to the nearest integer, or nearest multiple of 5, etc.</li>
-<li id="li-175">Since setting many elements to 0 does not by itself make a matrix smaller, the final step of the process is running a lossless compression algorithm which exploits the existence of many equal entries in the matrix.</li>
+<li id="li-176">It divides the image into 8<span class="times-sign">×</span>8 pixel blocks and operates on each block separately.</li>
+<li id="li-177">It uses Discrete Cosine Transform in which the role of complex exponentials \(\exp(2\pi i k/m)\) is played by cosine functions \(\cos(2\pi k/m)\text{.}\) This improves the efficiency and eliminates the appearance of complex numbers.</li>
+<li id="li-178">In addition to setting small Fourier coefficients to 0, it quantizes the other ones: rounds to the nearest integer, or nearest multiple of 5, etc.</li>
+<li id="li-179">Since setting many elements to 0 does not by itself make a matrix smaller, the final step of the process is running a lossless compression algorithm which exploits the existence of many equal entries in the matrix.</li>
 </ul></section></div></main>
 </div>
 </body>

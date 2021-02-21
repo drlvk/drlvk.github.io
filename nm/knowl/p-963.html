@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:28-05:00    *-->
+<!--*    on 2021-02-21T12:36:55-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,31 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><dfn class="terminology">Strong Duality Theorem</dfn>: Suppose that the primal LP problem has an optimal solution \(\mathbf x^*\text{.}\) Then the dual problem has an optimal solution \(\mathbf y^*\) where \(\mathbf c^T\mathbf x^*=\mathbf b^T\mathbf y^*\text{.}\) Thus, although these problems have different objective functions, both objective functions have the same extreme (optimal) value.</p>
+<p>Specifically, symmetric duality states that the dual of</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf c^T \mathbf x\to \max  \quad \text{where } A\mathbf x \le \mathbf b, \quad \mathbf x \ge 0\tag{35.2.1}
+\end{equation}
+</div>
+<p data-braille="continuation">is</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf b^T \mathbf y\to \min  \quad \text{where } A^T\mathbf y \ge \mathbf c, \quad \mathbf y \ge 0\tag{35.2.2}
+\end{equation}
+</div>
+<p data-braille="continuation">Asymmetric duality states that the dual of</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf c^T \mathbf x\to \max \quad \text{where } A\mathbf x \le \mathbf b\tag{35.2.3}
+\end{equation}
+</div>
+<p data-braille="continuation">is</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf b^T \mathbf y\to \min  \quad \text{where } A^T\mathbf y = \mathbf c, \quad \mathbf y \ge 0\tag{35.2.4}
+\end{equation}
+</div>
+<p data-braille="continuation">Note that in both cases, the variables and constraints trade places; the dual has as many constraints as the original problem had variables (not counting the nonnegativity requirements). Also, the dual of a maximization problem is a minimization problem (and the other way around).</p>
 <span class="incontext"><a href="section-linear-programming-duality.html#p-963">in-context</a></span>
 </body>
 </html>

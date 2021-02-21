@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-17T15:02:27-05:00    *-->
+<!--*    on 2021-02-21T12:36:54-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,16 +13,9 @@
 </head>
 <body>
 <article class="exercise exercise-like"><h6 class="heading">
-<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span>
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">2<span class="period">.</span></span>
 </h6>
-<p>Modify <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> to include the idea of Broyden's method from <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>: the script should not use the Hessian matrix <code class="code-inline tex2jax_ignore">fh</code>, instead relying on an approximation to its inverse obtained with Broyden's method. The following modification should help with convergence: start with small initial guess</p>
-<pre class="code-block tex2jax_ignore">
-B = 0.001*eye(2);
-</pre>
-<p data-braille="continuation">and make the stopping condition less restrictive:</p>
-<pre class="code-block tex2jax_ignore">
-norm(h) &lt; 1e-6
-</pre>
-<p data-braille="continuation">Re-run the script several times (about five): since it has a random initial point, the results may differ. Does the minimization process converge to the minimum \((1, 1)\) every time?</p></article><span class="incontext"><a href="exercises-gradient-newton-conjugate.html#exercise-74">in-context</a></span>
+<p>Parabolic interpolation is also useful when applied just once, without iteration. For example, after evaluating \(f\) on a grid \(x_1, \dots, x_n\) and choosing \(k\) with smallest \(f(x_k)\) (i.e., brute force minimization) we can get a more precise location of the minimum with parabolic interpolation through the points \((x_j, f(x_j))\text{,}\) \(j=k-1, k, k+1\text{.}\)</p>
+<p>Write a script that applies the above idea to the function \(f(x) = \sin (x)\) on the interval \([0, 7]\text{.}\) Use \(n=100\) points for brute force minimization, locating a grid point \(x_k\) with the smallest function value \(f(x_k)\text{.}\) Then find a more precise point of minimum \(x^*\) using parabolic interpolation. Since the exact point of minimum is \(3\pi/2\text{,}\)  the script should display the differences \(|x_k - 3\pi/2|\) and \(|x^* - 3\pi/2|\) to illustrate the benefit of parabolic interpolation.</p></article><span class="incontext"><a href="exercises-parabolic-interpolation-descent.html#exercise-74">in-context</a></span>
 </body>
 </html>
