@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:15-05:00    *-->
+<!--*    on 2021-02-26T21:02:36-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,10 +409,10 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-overfitting"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">27.2</span> <span class="title">Overfitting, training and testing</span>
 </h2>
-<p id="p-768">Recall <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a> in which we find a best-fitting parabola to given data. The code is extended below to allow arbitrary degree \(d\) of the polynomial, and to add the computation of \(R^2\) according to <a class="xref" data-knowl="./knowl/eq-coeff-determination.html" title="Equation 27.1.5">(27.1.5)</a>. Note the use of column vectors below.</p>
+<p id="p-769">Recall <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a> in which we find a best-fitting parabola to given data. The code is extended below to allow arbitrary degree \(d\) of the polynomial, and to add the computation of \(R^2\) according to <a class="xref" data-knowl="./knowl/eq-coeff-determination.html" title="Equation 27.1.5">(27.1.5)</a>. Note the use of column vectors below.</p>
 <article class="example example-like" id="example-best-fit-polynomial"><a data-knowl="" class="id-ref original" data-refid="hk-example-best-fit-polynomial"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">27.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Fitting a polynomial of any degree.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-polynomial"><article class="example example-like"><p id="p-769">Improve <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a> to work with polynomials of any degree \(d\text{,}\) and add a computation of \(R^2\) to it.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-polynomial"><article class="example example-like"><p id="p-770">Improve <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a> to work with polynomials of any degree \(d\text{,}\) and add a computation of \(R^2\) to it.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-38" id="solution-38"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-38"><div class="solution solution-like"><pre class="code-block tex2jax_ignore">x = (0:14)';  
 y = [9 8 5 5 3 1 2 5 4 7 8 8 7 7 8]';  % data
@@ -429,8 +429,8 @@ residual = norm(y - f(x))^2;
 fprintf('R^2 for degree %d is %g\n', d, 1 - residual/total);
 </pre></div></div>
 </div></article></div>
-<p id="p-770">If we increase \(n\) toward \(7\text{,}\) the curve gets closer to the points but it also becomes more wiggly. Most importantly, the prediction it makes for \(x=10\text{,}\) that is \(f(10)\text{,}\) becomes less realistic. This is <dfn class="terminology">overfitting</dfn>, which describes the situation in which our model \(f\) mostly memorizes the data instead of learning from it. (<a class="external" href="https://imgs.xkcd.com/comics/curve_fitting_2x.png" target="_blank">Food for thought from xkcd</a>)</p>
-<p id="p-771">A simple but effective way to combad overfitting is to split the data into two parts: one (training set) is used to compute the coefficients \(\beta_k\text{,}\) and then another part (testing set) is used to evaluate goodness of fit. The split may be done randomly, perhaps 50:50 or 60:40 proportion. Which of the following 50:50 splits looks better?</p>
+<p id="p-771">If we increase \(n\) toward \(7\text{,}\) the curve gets closer to the points but it also becomes more wiggly. Most importantly, the prediction it makes for \(x=10\text{,}\) that is \(f(10)\text{,}\) becomes less realistic. This is <dfn class="terminology">overfitting</dfn>, which describes the situation in which our model \(f\) mostly memorizes the data instead of learning from it. (<a class="external" href="https://imgs.xkcd.com/comics/curve_fitting_2x.png" target="_blank">Food for thought from xkcd</a>)</p>
+<p id="p-772">A simple but effective way to combad overfitting is to split the data into two parts: one (training set) is used to compute the coefficients \(\beta_k\text{,}\) and then another part (testing set) is used to evaluate goodness of fit. The split may be done randomly, perhaps 50:50 or 60:40 proportion. Which of the following 50:50 splits looks better?</p>
 <pre class="code-block tex2jax_ignore">
 x_train = x(1:8); 
 x_test = x(9:end);
@@ -442,7 +442,7 @@ x_test = x(2:2:end);
 </pre>
 <article class="example example-like" id="example-training-testing"><a data-knowl="" class="id-ref original" data-refid="hk-example-training-testing"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">27.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Training-testing split.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-training-testing"><article class="example example-like"><p id="p-772">Use the training-testing split in <a class="xref" data-knowl="./knowl/example-best-fit-polynomial.html" title="Example 27.2.1: Fitting a polynomial of any degree">Example 27.2.1</a>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-training-testing"><article class="example example-like"><p id="p-773">Use the training-testing split in <a class="xref" data-knowl="./knowl/example-best-fit-polynomial.html" title="Example 27.2.1: Fitting a polynomial of any degree">Example 27.2.1</a>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-39" id="solution-39"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-39"><div class="solution solution-like"><pre class="code-block tex2jax_ignore">x = (0:14)';  
 y = [9 8 5 5 3 1 2 5 4 7 8 8 7 7 8]';
@@ -465,7 +465,7 @@ residual = norm(y_test - f(x_test))^2;
 fprintf('R^2 for degree %d is %g\n', d, 1 - residual/total);
 </pre></div></div>
 </div></article></div>
-<p id="p-773">An additional detail: when one reports the model performance (not in this class, but perhaps for a publication), the reported value of \(R^2\) or other estimate of goodness-of-fit should be computed on a separate <dfn class="terminology">validation set</dfn> which was not used for either training or testing. Using the testing set for reporting \(R^2\) introduces a subtle source of bias: if <em class="emphasis">many</em> models are tested, and one of them wins, it is more likely than not that the winning model “had better luck” with the specific data set used for testing, and that would lead us to overestimate its goodness-of-fit. (Here is an <a class="external" href="https://imgs.xkcd.com/comics/significant.png" target="_blank">example</a> of testing too many models and not validating.)</p></section></div></main>
+<p id="p-774">An additional detail: when one reports the model performance (not in this class, but perhaps for a publication), the reported value of \(R^2\) or other estimate of goodness-of-fit should be computed on a separate <dfn class="terminology">validation set</dfn> which was not used for either training or testing. Using the testing set for reporting \(R^2\) introduces a subtle source of bias: if <em class="emphasis">many</em> models are tested, and one of them wins, it is more likely than not that the winning model “had better luck” with the specific data set used for testing, and that would lead us to overestimate its goodness-of-fit. (Here is an <a class="external" href="https://imgs.xkcd.com/comics/significant.png" target="_blank">example</a> of testing too many models and not validating.)</p></section></div></main>
 </div>
 </body>
 </html>

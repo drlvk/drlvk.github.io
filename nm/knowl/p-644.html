@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:28-05:00    *-->
+<!--*    on 2021-02-26T21:02:49-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,20 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Plot the Newton polynomial for the points \((k, \arctan k)\text{,}\) \(k=-5, \dots, 5\text{.}\) Then repeat with 5 replaced by 8.</p>
+<p>Evaluation of Newton's polynomial is done in a similar way, with repeated multiply-and-add process, using one coefficient at a time. Indeed, since</p>
+<div class="displaymath">
+\begin{equation*}
+c_3(x-x_2)(x-x_1) + c_2(x-x_1) + c_1 =   (c_3 (x-x_{2}) + c_2) (x-x_1) + c_1 
+\end{equation*}
+</div>
+<p data-braille="continuation">(and similarly for higher degrees), the evaluation of <code class="code-inline tex2jax_ignore">p(t)</code> goes as is: Thus: begin with constant function \(c_n\text{,}\) then in the loop multiply by \((x-x_k)\) and add \(c_k\text{,}\) where \(k\) goes from \(n-1\) to \(1\text{.}\)</p>
+<pre class="code-block tex2jax_ignore">
+p = c(n)*ones(size(t));
+for k=n-1:-1:1
+    p = p.*(t-x(k)) + c(k);
+end
+</pre>
+<p data-braille="continuation">While being simpler than barycentric evaluation <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.4">(21.2.4)</a> of the Lagrange polynomial, the evaluation of Newton polynomial does not fit into an anonymous function because it uses a loop.</p>
 <span class="incontext"><a href="section-newton-polynomial.html#p-644">in-context</a></span>
 </body>
 </html>

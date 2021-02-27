@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:26-05:00    *-->
+<!--*    on 2021-02-26T21:02:47-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,20 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>For the function \(f(x) = e^x \) on the interval \([-1, 1]\text{,}\) use Matlab to compute the left-, right, and midpoint approximations with \(n=10\) and find the error of each approximation (that is, its difference with the actual integral).</p>
+<p>When a function is increasing, the leftpoint rule underestimates its integral, and rightpoint rule overestimates it. So, their average \(T_n=(L_n+R_n)/2\) should be a better approximation. This is the <dfn class="terminology">Trapezoidal Rule</dfn>:</p>
+<div class="displaymath">
+\begin{equation*}
+T_n = \frac{h}{2}(f(a)+f(b)) + h( f(x_1)+\dots+f(x_{n-1}))
+\end{equation*}
+</div>
+<p data-braille="continuation">In Matlab, the computation is similar to <a class="xref" data-knowl="./knowl/example-lrm-rules.html" title="Example 13.2.1: Computing with left- right- and midpoint rules">Example 13.2.1</a></p>
+<pre class="code-block tex2jax_ignore">
+T = (f(x(1)) + f(x(end))) * h/2 + sum(f(x(2:end-1)))*h;	
+</pre>
+<p data-braille="continuation">It may be simpler to compute the vector <code class="code-inline tex2jax_ignore">y = f(x)</code> first, which reduces the number of calls to function <code class="code-inline tex2jax_ignore">f</code> and the number of parentheses:</p>
+<pre class="code-block tex2jax_ignore">
+T = (y(1) + y(end)) * h/2 + sum(y(2:end-1))*h;	
+</pre>
 <span class="incontext"><a href="section-trapezoidal-rulet.html#p-440">in-context</a></span>
 </body>
 </html>

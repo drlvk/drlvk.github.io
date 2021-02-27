@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:31-05:00    *-->
+<!--*    on 2021-02-26T21:02:52-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,16 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In order to try the method of previous paragraph in practice, we need a line-search subroutine we will use Matlab's command for one-dimensional minimization on an interval: <code class="code-inline tex2jax_ignore">fminbnd</code>.  Example:</p>
-<pre class="code-block tex2jax_ignore">
-fminbnd(@(t) t*cos(t), 0, 5)
-</pre>
-<p data-braille="continuation">returns \(3.4256\) which is the location of the minimum (not the minimum value). The command <code class="code-inline tex2jax_ignore">fminbnd</code> is guaranteed to stay within the given interval but is not guaranteed to find the absolute minimum on that interval. Indeed, <code class="code-inline tex2jax_ignore">fminbnd(@(t) t*cos(t), 0, 12)</code> returns the same \(3.4256\) even though the absolute minimum is at \(t \approx 9.5293\text{.}\) To see what is going on, use <code class="code-inline tex2jax_ignore">optimset</code> to enable the display of iterative minimization process.</p>
-<pre class="code-block tex2jax_ignore">
-options = optimset('Display', 'iter');
-fminbnd(@(t) t*cos(t), 0, 12, options)    
-</pre>
-<p data-braille="continuation">As this expanded output shows, the command <code class="code-inline tex2jax_ignore">fminbnd</code> is a straightforward combination of golden section and parabolic interpolation methods. As a result, it is fast but can easily miss the absolute minimum. For our purposes, using a line search at each step of gradient descent, “fast” is more important.</p>
+<p>One way to improve the situation is to run a one-variable minimization algorithm, <dfn class="terminology">line search</dfn> at each step, to find the minimum of \(f\) on the line of steepest descent. This means minimizing the function \(h(t) = f(\mathbf a + t \mathbf g)\) where \(\mathbf g = -\nabla f(\mathbf a)\text{.}\) If we find the exact minimum on the line each time, then the minimization process for function converges to the minimum quickly. But for slightly more complicated functions the difficulty emerges again. Consider <a class="external" href="https://en.wikipedia.org/wiki/Rosenbrock_function" target="_blank">Rosenbrock's function</a></p>
+<div class="displaymath">
+\begin{equation}
+f(\mathbf x) = (x_1 - 1)^2 + 100(x_1^2 - x_2)^2\tag{32.1.2}
+\end{equation}
+</div>
+<p data-braille="continuation">Its graph has a curved “valley” along the parabola \(x_2 = x_1^2\text{.}\) One-dimensional minimization along the line of steepest descent leads to each consecutive direction being perpendicular to the previous one (why?). So the algorithm ends up zig-zagging in tiny steps in the deep narrow valley, making very little progress toward minimum. And since each step is its own minimization problem (in one dimension), the entire process may take too long.</p>
 <span class="incontext"><a href="section-gradient-descent-nd.html#p-888">in-context</a></span>
 </body>
 </html>

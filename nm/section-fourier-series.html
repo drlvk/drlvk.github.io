@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:14-05:00    *-->
+<!--*    on 2021-02-26T21:02:35-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,7 +409,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-fourier-series"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">25.2</span> <span class="title">Fourier series</span>
 </h2>
-<p id="p-727">Using the period \(T=1\text{,}\) we find that the functions \(f_k(x) = \exp (2\pi i k x)\) are <em class="emphasis">orthonormal</em> with respect to the inner product</p>
+<p id="p-728">Using the period \(T=1\text{,}\) we find that the functions \(f_k(x) = \exp (2\pi i k x)\) are <em class="emphasis">orthonormal</em> with respect to the inner product</p>
 <div class="displaymath">
 \begin{equation}
 \langle f, g \rangle = \int_0^1 f(x)\overline{g(x)}\,dx\label{eq-inner-product}\tag{25.2.1}
@@ -424,7 +424,7 @@ c_k = \langle f, f_k\rangle = \int_0^1 f(x) e^{-2\pi i k x}\,dx\label{eq-fourier
 <p data-braille="continuation">For sufficiently nice periodic functions (having a continuous derivative is enough), the <dfn class="terminology">Fourier series</dfn> \(\sum c_k f_k\) converges to function \(f\text{.}\)</p>
 <article class="example example-like" id="example-compute-fourier-coefficients"><a data-knowl="" class="id-ref original" data-refid="hk-example-compute-fourier-coefficients"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">25.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Compute Fourier coefficients.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-compute-fourier-coefficients"><article class="example example-like"><p id="p-728">Use the built-in command <code class="code-inline tex2jax_ignore">integral</code> to compute the Fourier coefficients \(c_k\) for \(k=-3, \dots, 3\) for the complex-valued function</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-compute-fourier-coefficients"><article class="example example-like"><p id="p-729">Use the built-in command <code class="code-inline tex2jax_ignore">integral</code> to compute the Fourier coefficients \(c_k\) for \(k=-3, \dots, 3\) for the complex-valued function</p>
 <div class="displaymath">
 \begin{equation*}
 f(x) = \sqrt{1+\cos(2\pi x)} + i\log(2+\sin(2\pi x))
@@ -433,7 +433,7 @@ f(x) = \sqrt{1+\cos(2\pi x)} + i\log(2+\sin(2\pi x))
 <p data-braille="continuation">Then plot both the function and its partial Fourier sum \(\sum_{|k|\le 3} c_k f_k\) for comparison.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-65" id="answer-65"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-65"><div class="answer solution-like">
-<p id="p-729">The syntax of <code class="code-inline tex2jax_ignore">integral</code> is <code class="code-inline tex2jax_ignore">integral(@(x) ..., a, b)</code> where \(a, b\) are the limits of integration and the function is expressed in a form that allows vectorized evaluation. Here is the computation of Fourier coefficient</p>
+<p id="p-730">The syntax of <code class="code-inline tex2jax_ignore">integral</code> is <code class="code-inline tex2jax_ignore">integral(@(x) ..., a, b)</code> where \(a, b\) are the limits of integration and the function is expressed in a form that allows vectorized evaluation. Here is the computation of Fourier coefficient</p>
 <pre class="code-block tex2jax_ignore">f = @(x) sqrt(1 + cos(2*pi*x)) + 1i*log(2 + sin(2*pi*x));
 n = 3;
 c = zeros(1, 2*n+1);
@@ -442,7 +442,7 @@ for k = -n:n
 end
 disp(c)
 </pre>
-<p id="p-730">Then we combine both complex plots using different colors.</p>
+<p id="p-731">Then we combine both complex plots using different colors.</p>
 <pre class="code-block tex2jax_ignore">t = linspace(0, 1, 1000);
 k = -n:n;
 p = c*exp(2*pi*1i*k'*t);
@@ -451,7 +451,7 @@ plot(f(t))
 plot(p, 'r')
 hold off
 </pre>
-<p id="p-731">Note that the lack of smoothness at one point slows down the convergence of Fourier series. If the function had <code class="code-inline tex2jax_ignore">sqrt(1.1 + cos(2*pi*x))</code> instead, the convergence would be much better.</p>
+<p id="p-732">Note that the lack of smoothness at one point slows down the convergence of Fourier series. If the function had <code class="code-inline tex2jax_ignore">sqrt(1.1 + cos(2*pi*x))</code> instead, the convergence would be much better.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

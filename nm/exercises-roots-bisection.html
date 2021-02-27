@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:02-05:00    *-->
+<!--*    on 2021-02-26T21:02:23-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -410,7 +410,7 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">7.6</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-17"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-277">For the function \(f(x) = \log(x^2 + 1/2)  + 9x^4 \text{,}\) use  the derivative \(f'\) determine the number of roots and find a bracketing interval for each of them. (No programming is needed.)</p></article><article class="exercise exercise-like" id="exercise-18"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-277">For the function \(f(x) = \log(x^2 + 1/2)  + 9x^4 \text{,}\) use  the derivative \(f'\) determine the number of roots and find a bracketing interval for each of them. (No programming is needed. Here, as in Matlab and in most mathematical texts, \(\log\) means the natural logarithm, base \(e\text{.}\))</p></article><article class="exercise exercise-like" id="exercise-18"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
 <p id="p-278">Write a Matlab script which finds and prints <em class="emphasis">both</em> roots of the equation \(30x e^{10x} = -1\text{,}\) using the bisection of the bracketing interval found in <a class="xref" data-knowl="./knowl/example-bracketing-30x-exp.html" title="Example 7.5.1: Number of roots and a bracketing interval for each of them">Example 7.5.1</a>. To avoid duplicating code, write a named function <code class="code-inline tex2jax_ignore">bisection(f, a, b)</code> which takes the function and a bracketing interval as arguments and returns a root by using the algorithm in <a href="section-bisection-method.html" class="internal" title="Section 7.3: Bisection method">Section 7.3</a>. The script could look as follows.</p>
 <pre class="code-block tex2jax_ignore">f = @(x) 30*x*exp(10*x) + 1;
 root1 = bisection(f, -1, -0.1);

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:27-05:00    *-->
+<!--*    on 2021-02-26T21:02:48-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The result is 11.8764, compared to the WolframAlpha output 12.5419. This is less accurate than what we got for rectangle. Note that all points with \(x=\pm 2\) are wasted because there is no interval to integrate over with respect to \(y\text{.}\) For this reason, open-ended rules such as Gaussian integration is preferable. Replacing the choice of <code class="code-inline tex2jax_ignore">x, w</code> above with the 3-point Gaussian rule</p>
-<pre class="code-block tex2jax_ignore">
-x = [-sqrt(3/5) 0 sqrt(3/5)]*(b-a)/2 + (a+b)/2;
-w = [5/9 8/9 5/9]*(b-a)/2;
-</pre>
-<p data-braille="continuation">we get 12.7081, which is much more accurate.</p>
+<p>We need functions for top and bottom boundaries, according to the integral structure</p>
+<div class="displaymath">
+\begin{equation*}
+\int_a^b \int_{\text{bottom}}^{\text{top}} f(x, y)\,dy\,dx
+\end{equation*}
+</div>
+<p data-braille="continuation">In the x-variable, the points and weights are set once. But in the y-direction they are calculated within a loop, because different x-values produce different limits of integration for y. The vector <code class="code-inline tex2jax_ignore">innerint</code> is used below to store the values of the inner integral.</p>
 <span class="incontext"><a href="section-integration-general-2d.html#p-571">in-context</a></span>
 </body>
 </html>

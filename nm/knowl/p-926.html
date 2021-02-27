@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:32-05:00    *-->
+<!--*    on 2021-02-26T21:02:53-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The <em class="emphasis">constant penalty</em> <a class="xref" data-knowl="./knowl/eq-constant-penalty.html" title="Equation 34.1.1">(34.1.1)</a> has several disadvantages. It makes \(g\) discontinuous, and it does not eliminate <em class="emphasis">local</em> minima outside of \(D\text{.}\) Since minimization methods often converge to a local minimum, we may end up outside of \(D\) even though there are much smaller values within \(D\text{.}\)</p>
+<p>A typical problem of constrained optimization is to find the minimum of a function \(f\) on some region \(D\) of \(\mathbb R^n\text{.}\) One approach is to add a penalty for being outside of \(D\text{,}\) for example let</p>
+<div class="displaymath">
+\begin{equation}
+g(x) = \begin{cases} f(x)  &amp; x\in D \\ f(x) + M &amp; x\notin D \end{cases} \tag{34.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">where \(M\) is a large number, say \(10^6\text{.}\) Then try to minimize \(g\text{,}\) with the expectation that the minimum will be in \(D\text{.}\) Since \(g=f\) within \(D\text{,}\) such a minimum will also be a minimum of \(f\text{.}\)</p>
 <span class="incontext"><a href="section-penalty-method.html#p-926">in-context</a></span>
 </body>
 </html>

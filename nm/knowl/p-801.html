@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:30-05:00    *-->
+<!--*    on 2021-02-26T21:02:51-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>It is tempting to write the anonymous function as <code class="code-inline tex2jax_ignore">fun = @(x, y) [x.^2 x.*y y.^2 x y]*b - 1</code> which is shorter and consistent with how we used parameters in the past. And this works but Matlab complains: “Warning: Function behaves unexpectedly on array inputs. To improve performance, properly vectorize your function to return an output with the same size and shape as the input arguments.” What is it complaining about?</p>
+<p>Note that while it's safe to leave spaces around <code class="code-inline tex2jax_ignore">+</code> signs in the formula <code class="code-inline tex2jax_ignore">fun</code> (some find it improves readability), one has to be extra careful with such spaces within a vector. Indeed,</p>
+<pre class="code-block tex2jax_ignore">
+[min(x) -1 max(x) +1 min(y) -1 max(y) +1]  
+</pre>
+<p data-braille="continuation">would be a vector of 8 numbers, not 4. Matlab does understand</p>
+<pre class="code-block tex2jax_ignore">
+[min(x) - 1 max(x) + 1 min(y) - 1 max(y) + 1];
+</pre>
+<p data-braille="continuation">as a vector of 4 numbers, however.</p>
 <span class="incontext"><a href="section-example-implicit-equation.html#p-801">in-context</a></span>
 </body>
 </html>

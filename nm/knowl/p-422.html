@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:25-05:00    *-->
+<!--*    on 2021-02-26T21:02:46-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The first formula produces \(0\text{,}\) the second produces \(0.5\text{.}\) The second value is correct. Indeed,</p>
+<p>The issue is that \(\cos x\) is close to \(1\) and we subtract it from \(1\text{.}\) The identity</p>
 <div class="displaymath">
 \begin{equation*}
-\frac{1-\cos(x)}{x^2} \to \frac12 \quad \text{as } x\to 0
+(1-\cos x)(1+\cos x) = 1-\cos^2 x = \sin^2 x
 \end{equation*}
 </div>
+<p data-braille="continuation">can be used to avoid this issue. According to it,</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1-\cos(x)}{x^2} = \frac{\sin^2(x)}{x^2(1+\cos x)}
+\end{equation*}
+</div>
+<p data-braille="continuation">There is no loss of significance in the formula on the right. Compare in Matlab:</p>
 <span class="incontext"><a href="examples-numerical-differentiation.html#p-422">in-context</a></span>
 </body>
 </html>

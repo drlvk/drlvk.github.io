@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:15-05:00    *-->
+<!--*    on 2021-02-26T21:02:36-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,7 +409,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-cosine-interpolation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">26.3</span> <span class="title">Cosine interpolation of non-periodic functions</span>
 </h2>
-<p id="p-752">In <a href="chapter-discrete-fourier-transform.html" class="internal" title="Chapter 25: Discrete Fourier Transform">Chapter 25</a> we worked with periodic functions, approximating them by trigonometric polynomials. Can we use trigonometric polynomials to approximate non-periodic functions? For example, suppose we solved the initial-value problem</p>
+<p id="p-753">In <a href="chapter-discrete-fourier-transform.html" class="internal" title="Chapter 25: Discrete Fourier Transform">Chapter 25</a> we worked with periodic functions, approximating them by trigonometric polynomials. Can we use trigonometric polynomials to approximate non-periodic functions? For example, suppose we solved the initial-value problem</p>
 <div class="displaymath">
 \begin{equation}
 y'(t) =\sin(y^2)+t,\quad y(0)=1\label{eq-diffeq-for-intepolation}\tag{26.3.1}
@@ -425,13 +425,13 @@ y'(t) =\sin(y^2)+t,\quad y(0)=1\label{eq-diffeq-for-intepolation}\tag{26.3.1}
 <li id="li-181">Cubic spline interpolation? It would make a nice plot but in terms of a formula, the spline would have 120 coefficients (4 for each of 30 subintervals). This is hardly a simple solution.</li>
 <li id="li-182">Trigonometric polynomials? But they are periodic, and our function has different values at 0 and 3.</li>
 </ul>
-<p id="p-753">Compare the behavior of cosines \(\cos kx\) and sines \(\sin kx\) on the interval \([0, \pi]\text{.}\) The cosines have different values at \(0, \pi\) while the sines are always 0 at both ends. This makes cosines,  specifically in the form \(\cos (\pi k x/L)\text{,}\) preferable for approximating a non-periodic function on \([0, L]\text{.}\) The <dfn class="terminology">Discrete Cosine Transform</dfn> is a tool used to find the coefficients of a given function in the cosine basis. It is somewhat technical (there are 4 different types of the transform), but the essence of the method can be stated simply: apply Fourier transform to the <dfn class="terminology">even periodic extension</dfn> of the given function.</p>
-<p id="p-754">The discrete version of even periodic extension is as follows: given function values \(y_1, \dots, y_n\text{,}\) we extend them to \(y_1, \dots, y_n, y_{n-1}, \dots, y_2\) (for the total of \(2n-2\) values).  In Matlab terms, the extended vector is</p>
+<p id="p-754">Compare the behavior of cosines \(\cos kx\) and sines \(\sin kx\) on the interval \([0, \pi]\text{.}\) The cosines have different values at \(0, \pi\) while the sines are always 0 at both ends. This makes cosines,  specifically in the form \(\cos (\pi k x/L)\text{,}\) preferable for approximating a non-periodic function on \([0, L]\text{.}\) The <dfn class="terminology">Discrete Cosine Transform</dfn> is a tool used to find the coefficients of a given function in the cosine basis. It is somewhat technical (there are 4 different types of the transform), but the essence of the method can be stated simply: apply Fourier transform to the <dfn class="terminology">even periodic extension</dfn> of the given function.</p>
+<p id="p-755">The discrete version of even periodic extension is as follows: given function values \(y_1, \dots, y_n\text{,}\) we extend them to \(y_1, \dots, y_n, y_{n-1}, \dots, y_2\) (for the total of \(2n-2\) values).  In Matlab terms, the extended vector is</p>
 <pre class="code-block tex2jax_ignore">
 ye = [y y(end-1:-1:2)];
 </pre>
 <p data-braille="continuation">Why not simply <code class="code-inline tex2jax_ignore">[y y(end:-1:1)]</code>? Repeating the endpoint values \(y_1, y_n\) would distort the picture of this function. They should appear once while the rest appear twice; this can be viewed as yet another form of “trapezoidal adjustment”.</p>
-<p id="p-755">Having found the Fourier coefficients <code class="code-inline tex2jax_ignore">c = fft(ye)/numel(ye)</code> we observe they are all real (any imaginary component is due to round-off errors). This makes it possible to “fold” the sum of complex exponentials into a cosine sum: for \(k=1, \dots, n-2\) the pair of terms</p>
+<p id="p-756">Having found the Fourier coefficients <code class="code-inline tex2jax_ignore">c = fft(ye)/numel(ye)</code> we observe they are all real (any imaginary component is due to round-off errors). This makes it possible to “fold” the sum of complex exponentials into a cosine sum: for \(k=1, \dots, n-2\) the pair of terms</p>
 <div class="displaymath">
 \begin{equation*}
 c_k \exp(i k x ) +  c_{2n-k} \exp(i (2n-k) x )
@@ -452,10 +452,10 @@ c_0 + 2\sum_{k=1}^{n-2} c_k \cos (\pi kx/L) + c_{n-1} \cos (\pi (n-1) x/L)\label
 <p data-braille="continuation">And of course, Matlab indexing of the coefficients begins with 1, forcing another adjustment: see the following example.</p>
 <article class="example example-like" id="example-cosine-interpolation"><a data-knowl="" class="id-ref original" data-refid="hk-example-cosine-interpolation"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">26.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Interpolate with cosines.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-cosine-interpolation"><article class="example example-like"><p id="p-756">Apply the cosine interpolation to the numerical solution of ODE <a class="xref" data-knowl="./knowl/eq-diffeq-for-intepolation.html" title="Equation 26.3.1">(26.3.1)</a>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-cosine-interpolation"><article class="example example-like"><p id="p-757">Apply the cosine interpolation to the numerical solution of ODE <a class="xref" data-knowl="./knowl/eq-diffeq-for-intepolation.html" title="Equation 26.3.1">(26.3.1)</a>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-37" id="solution-37"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-37"><div class="solution solution-like">
-<p id="p-757">Since <code class="code-inline tex2jax_ignore">ode45</code> returns <code class="code-inline tex2jax_ignore">y</code> as a column, it is transposed in the code below. Then we extend this vector to <code class="code-inline tex2jax_ignore">ye</code>, take its Fourier Transform <code class="code-inline tex2jax_ignore">c</code>, and fold it into cosine coefficients <code class="code-inline tex2jax_ignore">cf</code>. Then plot the resulting sum of cosines.</p>
+<p id="p-758">Since <code class="code-inline tex2jax_ignore">ode45</code> returns <code class="code-inline tex2jax_ignore">y</code> as a column, it is transposed in the code below. Then we extend this vector to <code class="code-inline tex2jax_ignore">ye</code>, take its Fourier Transform <code class="code-inline tex2jax_ignore">c</code>, and fold it into cosine coefficients <code class="code-inline tex2jax_ignore">cf</code>. Then plot the resulting sum of cosines.</p>
 <pre class="code-block tex2jax_ignore">[t, y] = ode45(@(t, y) sin(y^2) + t, 0:0.1:3, 1);
 y = y';
 
@@ -472,12 +472,12 @@ plot(x, g, t, y, 'r*')
 </pre>
 </div></div>
 </div></article></div>
-<p id="p-758">The cosine sum in <a class="xref" data-knowl="./knowl/example-cosine-interpolation.html" title="Example 26.3.1: Interpolate with cosines">Example 26.3.1</a> has 31 terms, as many as there are data points. But many of them are very close to zero, as <code class="code-inline tex2jax_ignore">plot(cf)</code> shows. For example, we could keep the first <code class="code-inline tex2jax_ignore">m=8</code> of them and still have a good approximation for this function.</p>
+<p id="p-759">The cosine sum in <a class="xref" data-knowl="./knowl/example-cosine-interpolation.html" title="Example 26.3.1: Interpolate with cosines">Example 26.3.1</a> has 31 terms, as many as there are data points. But many of them are very close to zero, as <code class="code-inline tex2jax_ignore">plot(cf)</code> shows. For example, we could keep the first <code class="code-inline tex2jax_ignore">m=8</code> of them and still have a good approximation for this function.</p>
 <pre class="code-block tex2jax_ignore">m = 8;
 k = 0:m-1;
 g = cf(1:m)*cos(k'*x*pi/L);
 </pre>
-<p id="p-759">This is essentially a one-dimensional version of image compression discussed in <a href="section-2d-dft.html" class="internal" title="Section 26.2: Two-dimensional DFT">Section 26.2</a>.</p></section></div></main>
+<p id="p-760">This is essentially a one-dimensional version of image compression discussed in <a href="section-2d-dft.html" class="internal" title="Section 26.2: Two-dimensional DFT">Section 26.2</a>.</p></section></div></main>
 </div>
 </body>
 </html>

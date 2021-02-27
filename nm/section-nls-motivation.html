@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:16-05:00    *-->
+<!--*    on 2021-02-26T21:02:37-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,7 +409,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-nls-motivation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">29.1</span> <span class="title">Motivating examples for Nonlinear Least Squares</span>
 </h2>
-<p id="p-807">Suppose we observe population growth over time, and expect that it should be governed by a differential equation of the form</p>
+<p id="p-808">Suppose we observe population growth over time, and expect that it should be governed by a differential equation of the form</p>
 <div class="displaymath">
 \begin{equation}
 y' = ry(1-y/M)\label{eq-logistic-ode-growth}\tag{29.1.1}
@@ -422,7 +422,7 @@ y = \frac{M}{1 + Ae^{-rx}}\label{eq-general-logistic-curve}\tag{29.1.2}
 \end{equation}
 </div>
 <p data-braille="continuation">where \(A\) depends on the initial condition. In practice, we do not know the values of \(A, M, r\) but we can try to estimate them by fitting a function of type <a class="xref" data-knowl="./knowl/eq-general-logistic-curve.html" title="Equation 29.1.2">(29.1.2)</a> to observations \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{.}\) It seems impossible to transform the data in a way that will make all three parameters linear (logit transformation works only if \(M\) is known).</p>
-<p id="p-808">Recall that <em class="emphasis">least squares</em> method means minimizing the sum of squares of residuals, which is a function of parameters \(A, M, r\text{:}\)</p>
+<p id="p-809">Recall that <em class="emphasis">least squares</em> method means minimizing the sum of squares of residuals, which is a function of parameters \(A, M, r\text{:}\)</p>
 <div class="displaymath">
 \begin{equation}
 S(A, M, r) = \sum_{k=1}^n \left(y_k - \frac{M}{1 + Ae^{-rx_k}}\right)^2\label{eq-sum-logistic-residuals}\tag{29.1.3}
@@ -435,7 +435,7 @@ S(A, M, r) = \sum_{k=1}^n \left(y_k - \frac{M}{1 + Ae^{-rx_k}}\right)^2\label{eq
 \end{equation}
 </div>
 <p data-braille="continuation">But this system will be <em class="emphasis">nonlinear</em> and is unlikely to have a symbolic solution. Should we try some  multivariable root-finding method such as Newton's method?</p>
-<p id="p-809">In practice, trying to minimize a function by solving <a class="xref" data-knowl="./knowl/eq-critical-points-eq.html" title="Equation 29.1.4">(29.1.4)</a> is not the most productive approach: there are probably many critical points, some of them saddle points, and some of them may be points of local maximum rather than minimum. It is better to search for a minimum directly, which is a problem of <dfn class="terminology">multivariable optimization</dfn>. We will study optimization in the last part of this course. For now, we'll use the built-in Matlab tool <code class="code-inline tex2jax_ignore">fminsearch</code>, the underlying principle of which (the Nelder-Mead method) will be considered later.</p></section></div></main>
+<p id="p-810">In practice, trying to minimize a function by solving <a class="xref" data-knowl="./knowl/eq-critical-points-eq.html" title="Equation 29.1.4">(29.1.4)</a> is not the most productive approach: there are probably many critical points, some of them saddle points, and some of them may be points of local maximum rather than minimum. It is better to search for a minimum directly, which is a problem of <dfn class="terminology">multivariable optimization</dfn>. We will study optimization in the last part of this course. For now, we'll use the built-in Matlab tool <code class="code-inline tex2jax_ignore">fminsearch</code>, the underlying principle of which (the Nelder-Mead method) will be considered later.</p></section></div></main>
 </div>
 </body>
 </html>

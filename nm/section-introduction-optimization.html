@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-02-21T13:06:17-05:00    *-->
+<!--*    on 2021-02-26T21:02:38-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,20 +409,20 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-introduction-optimization"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">30.1</span> <span class="title">Basic concepts of optimization</span>
 </h2>
-<p id="p-831">Optimization may be naturally stated as search for maximum (for example, maximum profit) or minimum (minimum cost). But since every point of maximum of  a function \(f\) is also a point of minimum of \(-f\text{,}\) it is enough to study the minimization problem.</p>
-<p id="p-832">Suppose \(f\colon E\to \mathbb R\) is a real-valued function on some set \(E\subset \mathbb R^d\text{.}\) The function attains its <dfn class="terminology">global minimum</dfn> at \(p\in E\) if \(f(x)\ge f(p)\) for all \(x\in E\text{.}\) It is possible to have several points of global minimum, for example \(f(x)=\sin x\) on the interval \([0, 4\pi]\) attains global minimum of \(-1\) at the points \(x=3\pi/2\) and \(x = 7\pi/2\text{.}\)</p>
-<p id="p-833">The <dfn class="terminology">Extreme Value Theorem</dfn> states that if \(f\) is a continuous function and the set \(E\) is closed (includes all its boundary points) and bounded (is contained in some cube), then there is a point \(p\in E\) at which \(f\) attains its global minimum.</p>
-<p id="p-834">A function \(f\) attains its <dfn class="terminology">local minimum</dfn> at \(p\in E\) if there exists \(r &gt; 0\) such that \(f(x)\ge f(p)\) for all \(x\in E\) such that \(|x-r| \lt r\text{.}\) That is, there exists a neighborhood of point \(p\) such that the smallest value of \(f\) in that neighborhood is \(f(p)\text{.}\)</p>
-<p id="p-835">A major source of difficulty of optimization is searching for global minimum and finding only a local one. There is no universal recipe for avoiding this problem. Consider the function \(f(x) = \sin x + \sin \sqrt{2}x\) on some long interval such as \([-100, 100]\text{.}\) Where is its global minimum? There is no reliable and efficient way to find it.</p>
-<p id="p-836">A function that has only one minimum on some set is called <dfn class="terminology">unimodal</dfn>. For example, \(f(x) = x^2 - x\) is unimodal on the interval \([0, 2]\) but \(f(x) = x - x^2\) is not (according to our definition; when people focus on maximum instead of minimum, the situation is reversed). Working with unimodal functions is much easier because our algorithm is much more likely to find minimum.</p>
-<p id="p-837">A function is <dfn class="terminology">convex</dfn> (also called “concave up” in calculus) if its graph lies below its secant lines, meaning</p>
+<p id="p-832">Optimization may be naturally stated as search for maximum (for example, maximum profit) or minimum (minimum cost). But since every point of maximum of  a function \(f\) is also a point of minimum of \(-f\text{,}\) it is enough to study the minimization problem.</p>
+<p id="p-833">Suppose \(f\colon E\to \mathbb R\) is a real-valued function on some set \(E\subset \mathbb R^d\text{.}\) The function attains its <dfn class="terminology">global minimum</dfn> at \(p\in E\) if \(f(x)\ge f(p)\) for all \(x\in E\text{.}\) It is possible to have several points of global minimum, for example \(f(x)=\sin x\) on the interval \([0, 4\pi]\) attains global minimum of \(-1\) at the points \(x=3\pi/2\) and \(x = 7\pi/2\text{.}\)</p>
+<p id="p-834">The <dfn class="terminology">Extreme Value Theorem</dfn> states that if \(f\) is a continuous function and the set \(E\) is closed (includes all its boundary points) and bounded (is contained in some cube), then there is a point \(p\in E\) at which \(f\) attains its global minimum.</p>
+<p id="p-835">A function \(f\) attains its <dfn class="terminology">local minimum</dfn> at \(p\in E\) if there exists \(r &gt; 0\) such that \(f(x)\ge f(p)\) for all \(x\in E\) such that \(|x-r| \lt r\text{.}\) That is, there exists a neighborhood of point \(p\) such that the smallest value of \(f\) in that neighborhood is \(f(p)\text{.}\)</p>
+<p id="p-836">A major source of difficulty of optimization is searching for global minimum and finding only a local one. There is no universal recipe for avoiding this problem. Consider the function \(f(x) = \sin x + \sin \sqrt{2}x\) on some long interval such as \([-100, 100]\text{.}\) Where is its global minimum? There is no reliable and efficient way to find it.</p>
+<p id="p-837">A function that has only one minimum on some set is called <dfn class="terminology">unimodal</dfn>. For example, \(f(x) = x^2 - x\) is unimodal on the interval \([0, 2]\) but \(f(x) = x - x^2\) is not (according to our definition; when people focus on maximum instead of minimum, the situation is reversed). Working with unimodal functions is much easier because our algorithm is much more likely to find minimum.</p>
+<p id="p-838">A function is <dfn class="terminology">convex</dfn> (also called “concave up” in calculus) if its graph lies below its secant lines, meaning</p>
 <div class="displaymath">
 \begin{equation}
 f( (1-t) a + t b) \le t f(a) + (1-t) f(b), \quad 0 \lt  t \lt 1\label{eq-def-convexity}\tag{30.1.1}
 \end{equation}
 </div>
 <p data-braille="continuation">A function is <dfn class="terminology">strictly convex</dfn> if the inequality <a class="xref" data-knowl="./knowl/eq-def-convexity.html" title="Equation 30.1.1">(30.1.1)</a> is strict. Such a function is unimodal on any interval. (Can you find a unimodal function that is not convex?)</p>
-<p id="p-838">Also, \(f\) is called <dfn class="terminology">concave</dfn> (in calculus, “concave down”) if the sign of inequality in <a class="xref" data-knowl="./knowl/eq-def-convexity.html" title="Equation 30.1.1">(30.1.1)</a> is reversed.</p></section></div></main>
+<p id="p-839">Also, \(f\) is called <dfn class="terminology">concave</dfn> (in calculus, “concave down”) if the sign of inequality in <a class="xref" data-knowl="./knowl/eq-def-convexity.html" title="Equation 30.1.1">(30.1.1)</a> is reversed.</p></section></div></main>
 </div>
 </body>
 </html>
