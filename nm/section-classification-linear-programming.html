@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:46-05:00    *-->
+<!--*    on 2021-03-09T14:56:36-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -192,7 +192,7 @@ MathJax.Hub.Config({
 </li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link">
-<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical differentiation</span></a><ul>
 <li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
 <li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
 <li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
@@ -409,15 +409,15 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-classification-linear-programming"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">36.2</span> <span class="title">Classification and linear programming</span>
 </h2>
-<p id="p-1004">Linear programming offers a very different, geometric approach to classification. Think of observations with \(m\) explanatory variables as  points in \(\mathbb R^m\text{,}\) which are colored (say, red or blue) according to their category. Our goal is to find a plane (or surface) that separates the points of different colors as cleanly as possible.</p>
-<p id="p-1005">To help with visualization, consider the case \(m=2\) when the explanatory variables  \((x_1, x_2)\) are more conveniently labeled \((x, y)\text{.}\) We are looking for a line \(y = ax+b\) such that the points of one category are above it, and the points of other category are below it. If such a line exists, it is not unique, so we want to choose it to maximize the width of separation. That is, we look for maximal \(w\ge 0\) such that \(y_j\ge ax_j + b + w\) in the first set (above the line) and \(y_j\le ax_j +b - w\) in the second set (below the line). This is a linear programming problem, with three variables \(a, b, w\text{,}\) objective function \(w\text{,}\) and the linear constraints stated above.</p>
-<p id="p-1006">The same idea applies to separation by a curve (for example, a polynomial).</p>
+<p id="p-1005">Linear programming offers a very different, geometric approach to classification. Think of observations with \(m\) explanatory variables as  points in \(\mathbb R^m\text{,}\) which are colored (say, red or blue) according to their category. Our goal is to find a plane (or surface) that separates the points of different colors as cleanly as possible.</p>
+<p id="p-1006">To help with visualization, consider the case \(m=2\) when the explanatory variables  \((x_1, x_2)\) are more conveniently labeled \((x, y)\text{.}\) We are looking for a line \(y = ax+b\) such that the points of one category are above it, and the points of other category are below it. If such a line exists, it is not unique, so we want to choose it to maximize the width of separation. That is, we look for maximal \(w\ge 0\) such that \(y_j\ge ax_j + b + w\) in the first set (above the line) and \(y_j\le ax_j +b - w\) in the second set (below the line). This is a linear programming problem, with three variables \(a, b, w\text{,}\) objective function \(w\text{,}\) and the linear constraints stated above.</p>
+<p id="p-1007">The same idea applies to separation by a curve (for example, a polynomial).</p>
 <article class="example example-like" id="example-separate-by-parabola"><a data-knowl="" class="id-ref original" data-refid="hk-example-separate-by-parabola"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">36.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Complete nonlinear separation.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-separate-by-parabola"><article class="example example-like"><p id="p-1007">Find and plot the best parabola separating  the points \((2,3)\text{,}\) \((4,6)\text{,}\) and \((7,4)\) (the “top” group) from \((3,4)\) and \((5,5)\) (the “bottom” group).</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-separate-by-parabola"><article class="example example-like"><p id="p-1008">Find and plot the best parabola separating  the points \((2,3)\text{,}\) \((4,6)\text{,}\) and \((7,4)\) (the “top” group) from \((3,4)\) and \((5,5)\) (the “bottom” group).</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-63" id="solution-63"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-63"><div class="solution solution-like">
-<p id="p-1008">We maximize \(w\) subject to constraints \(y_j\ge ax_j^2 + bx_j + c + w\) in the first group and \(y_j\le ax_j^2 + bx_j + c - w\) in the second. Rewrite the constraints as</p>
+<p id="p-1009">We maximize \(w\) subject to constraints \(y_j\ge ax_j^2 + bx_j + c + w\) in the first group and \(y_j\le ax_j^2 + bx_j + c - w\) in the second. Rewrite the constraints as</p>
 <div class="displaymath">
 \begin{equation*}
 ax_j^2 + bx_j + c + w \le y_j
@@ -442,19 +442,19 @@ t = linspace(min([xt; xb]), max([xt; xb]), 1000);
 y = opt(1)*t.^2 + opt(2)*t + opt(3);
 plot(xt, yt, 'b*', xb, yb, 'r*', t, y, 'k')
 </pre>
-<p id="p-1009">Instead of including \(-w \le 0\) as one of the inequalities in the system \(A\mathbf x\le b\text{,}\) we can impose this constraint separately as a lower bound in <code class="code-inline tex2jax_ignore">linprog</code>.</p>
+<p id="p-1010">Instead of including \(-w \le 0\) as one of the inequalities in the system \(A\mathbf x\le b\text{,}\) we can impose this constraint separately as a lower bound in <code class="code-inline tex2jax_ignore">linprog</code>.</p>
 <pre class="code-block tex2jax_ignore">A = [xt.^2 xt xt.^0 xt.^0; -xb.^2 -xb -xb.^0 xb.^0];
 b = [yt; -yb];
 opt = linprog([0; 0; 0; -1], A, b, [], [], [-Inf; -Inf; -Inf; 0]);
 </pre>
-<p id="p-1010">The result is the same. With either version of the code, if the data points are changed so that there is no parabola that separates them completely, we get the message “No feasible solution found. Linprog stopped because no point satisfies the constraints.”</p>
+<p id="p-1011">The result is the same. With either version of the code, if the data points are changed so that there is no parabola that separates them completely, we get the message “No feasible solution found. Linprog stopped because no point satisfies the constraints.”</p>
 </div></div>
 </div></article></div>
-<p id="p-1011">Complete separation of the categories may be impossible (which makes the linear programming problem infeasible, as Matlab would report). Perhaps some data points  have incorrect measurement values, or are mislabeled by category, or perhaps (quite likely) one simply cannot predict the outcome with certainty, based on the explanatory variables we have. In such a case we can still look for a separating line or curve, but the separation will be <em class="emphasis">incomplete</em>, with some points left on the “wrong” side.</p>
-<p id="p-1012">We look for a line that minimizes the sum of penalties, the penalty being the amount by which a point falls into the wrong group. Formally, we minimize \(\sum p_j\) where \(p_j\ge 0\) are the penalties, subject to constraints \(y_j\ge ax_j + b - p_j\) for points in the “top” category and \(y_j \le ax_j + b + p_j\) for points in the “bottom” category. This is still a linear programming problem, but there are more variables now: \(a, b, p_1, \dots, p_n\text{,}\) and the objective function is  \(\sum p_j\text{.}\)</p>
+<p id="p-1012">Complete separation of the categories may be impossible (which makes the linear programming problem infeasible, as Matlab would report). Perhaps some data points  have incorrect measurement values, or are mislabeled by category, or perhaps (quite likely) one simply cannot predict the outcome with certainty, based on the explanatory variables we have. In such a case we can still look for a separating line or curve, but the separation will be <em class="emphasis">incomplete</em>, with some points left on the “wrong” side.</p>
+<p id="p-1013">We look for a line that minimizes the sum of penalties, the penalty being the amount by which a point falls into the wrong group. Formally, we minimize \(\sum p_j\) where \(p_j\ge 0\) are the penalties, subject to constraints \(y_j\ge ax_j + b - p_j\) for points in the “top” category and \(y_j \le ax_j + b + p_j\) for points in the “bottom” category. This is still a linear programming problem, but there are more variables now: \(a, b, p_1, \dots, p_n\text{,}\) and the objective function is  \(\sum p_j\text{.}\)</p>
 <article class="example example-like" id="example-separate-by-line"><a data-knowl="" class="id-ref original" data-refid="hk-example-separate-by-line"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">36.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Incomplete linear separation.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-separate-by-line"><article class="example example-like"><p id="p-1013">Find and plot the best line that separates (probably not completely) 8 random points from 7 other random points, which are generated as follows:</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-separate-by-line"><article class="example example-like"><p id="p-1014">Find and plot the best line that separates (probably not completely) 8 random points from 7 other random points, which are generated as follows:</p>
 <pre class="code-block tex2jax_ignore">xt = randn(8, 1);
 yt = randn(8, 1) + 1;
 xb = randn(7, 1);
@@ -462,7 +462,7 @@ yb = randn(7, 1);
 </pre>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-64" id="solution-64"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-64"><div class="solution solution-like">
-<p id="p-1014">We minimize \(\sum p_j\) subject to constraints \(y_j\ge ax_j + b - p_j\) in the first group and \(y_j\le ax_j + b + p_j\) in the second. Rewrite the constraints as</p>
+<p id="p-1015">We minimize \(\sum p_j\) subject to constraints \(y_j\ge ax_j + b - p_j\) in the first group and \(y_j\le ax_j + b + p_j\) in the second. Rewrite the constraints as</p>
 <div class="displaymath">
 \begin{equation*}
 ax_j + b - p_j \le y_j
@@ -485,7 +485,7 @@ t = linspace(min([xt; xb]), max([xt; xb]), 1000);
 y = opt(1)*t + opt(2);
 plot(xt, yt, 'b*', xb, yb, 'r*', t, y, 'k')
 </pre>
-<p id="p-1015">The reason that the presence of penalties changes the matrix as <code class="code-inline tex2jax_ignore">A = [A -eye(n)];</code> is that we subtract \(p_1\) from the first inequality, \(p_2\) from the second, and so on. The penalties make it possible for all the constraints to be satisfied, but their sum \(p_1+\cdots+p_n\) needs to be minimized. In this example, the variables are \(a, b, p_1, \dots, p_n\) and accordingly, the coefficients of the objective function are \(0, 0, 1, \dots, 1\text{.}\)</p>
+<p id="p-1016">The reason that the presence of penalties changes the matrix as <code class="code-inline tex2jax_ignore">A = [A -eye(n)];</code> is that we subtract \(p_1\) from the first inequality, \(p_2\) from the second, and so on. The penalties make it possible for all the constraints to be satisfied, but their sum \(p_1+\cdots+p_n\) needs to be minimized. In this example, the variables are \(a, b, p_1, \dots, p_n\) and accordingly, the coefficients of the objective function are \(0, 0, 1, \dots, 1\text{.}\)</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

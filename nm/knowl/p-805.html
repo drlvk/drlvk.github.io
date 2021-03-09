@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:55-05:00    *-->
+<!--*    on 2021-03-09T14:56:45-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>As an alternative to <a class="xref" data-knowl="./knowl/exercise-transforming-data-2.html" title="Exercise 28.4.2">Exercise 28.4.2</a>, one may try to model the same data by a rational function of the form \(y = 1/(Ax^2 + Bx+ C)\text{.}\) (Indeed, the graph of function \(y=1/(x^2+1)\) also looks bell-shaped.) Try following the process of  <a class="xref" data-knowl="./knowl/exercise-transforming-data-2.html" title="Exercise 28.4.2">Exercise 28.4.2</a> by transforming data <code class="code-inline tex2jax_ignore">yt = 1./y</code>, fitting a quadratic function, and plotting the reciprocal of that function. What goes wrong?</p>
+<p>The number of active Covid cases at SU during October 1 - October 23 is given below.</p>
+<pre class="code-block tex2jax_ignore">
+y = [5 5 4 5 9 25 45 65 77 87 87 89 97 101 90 74 57 26 20 13 12 12 13]'; 
+</pre>
+<p data-braille="continuation">The x-values can be <code class="code-inline tex2jax_ignore">x = (1:23)'</code>. Try to fit a “bell-shaped” Gaussian function \(y = \exp(Ax^2+Bx+C)\) (where \(A\lt 0\)) to the data. This can be done by the logarithmic transform <code class="code-inline tex2jax_ignore">yt = log(y)</code> followed by fitting a quadratic function to transformed data in the usual way, via the matrix <code class="code-inline tex2jax_ignore">X = x.^(0:2)</code>. Having found the parameters <code class="code-inline tex2jax_ignore">beta</code>, we get a suitable function <code class="code-inline tex2jax_ignore">f = @(x) exp(x.^(0:2)*beta)</code> which should be plotted together with the data points.</p>
 <span class="incontext"><a href="exercises-transforming-data.html#p-805">in-context</a></span>
 </body>
 </html>

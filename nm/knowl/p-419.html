@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:50-05:00    *-->
+<!--*    on 2021-03-09T14:56:40-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,26 +13,31 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Recall from <a class="xref" data-knowl="./knowl/example-error-diff-f1-symm.html" title="Example 12.3.1: Order of error of symmmetric difference approximation to \(f'\)">Example 12.3.1</a> that the symmetric difference formula has error of order 2. Therefore, in the equation <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> we have \(2\text{.}\) The approximation \(A_1\) is the original formula</p>
-<div class="displaymath">
-\begin{equation*}
-A_1 = \frac{f(x+h)-f(x-h)}{2h}
-\end{equation*}
-</div>
-<p data-braille="continuation">To get \(A_2\) we replace \(h\) by \(2h\text{:}\)</p>
-<div class="displaymath">
-\begin{equation*}
-A_2 = \frac{f(x+2h)-f(x-2h)}{4h}
-\end{equation*}
-</div>
-<p data-braille="continuation">The formula <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> now tells us that</p>
+<p>Let \(Q\) be the quantity we want to find. Using step size \(h\) we get an approximation \(A_1\) with error term \(E_1\text{,}\) meaning that</p>
 <div class="displaymath">
 \begin{equation}
-f'(x) \approx 	\frac{4 A_1 - A_2}{3}
-= 2\frac{f(x+h)-f(x-h)}{3h} - \frac{f(x+2h)-f(x-2h)}{12h}\tag{12.4.4}
+Q = A_1 + E_1\tag{12.4.1}
 \end{equation}
 </div>
-<p data-braille="continuation">which is the extrapolated approximation to \(f'(x)\text{.}\)</p>
+<p data-braille="continuation">Using step size \(2h\) we get an approximation \(A_2\) with error term \(E_2\text{,}\) meaning that</p>
+<div class="displaymath">
+\begin{equation}
+Q = A_2 + E_2\tag{12.4.2}
+\end{equation}
+</div>
+<p data-braille="continuation">Since we know that \(E_2\) is close to \(2^n E_1\text{,}\) we can try to cancel out the error terms: multiply <a class="xref" data-knowl="./knowl/eq-rich-1.html" title="Equation 12.4.1">(12.4.1)</a> by \(2^n\) and subtract <a class="xref" data-knowl="./knowl/eq-rich-2.html" title="Equation 12.4.2">(12.4.2)</a>. The result is</p>
+<div class="displaymath">
+\begin{equation*}
+(2^n-1) Q = 2^n A_1 - A_2 + [2^n E_1 - E_2]
+\end{equation*}
+</div>
+<p data-braille="continuation">Since the error terms should almost cancel each other, the new approximation</p>
+<div class="displaymath">
+\begin{equation}
+Q \approx \frac{2^n A_1 - A_2}{2^n-1}\tag{12.4.3}
+\end{equation}
+</div>
+<p data-braille="continuation">should be much more accurate than the original approximation <a class="xref" data-knowl="./knowl/eq-rich-1.html" title="Equation 12.4.1">(12.4.1)</a>. The formula <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> expresses the method of Richardson extrapolation. This idea is not specific to numerical differentiation; it can be used any time a computed quantity has an error proportional to a known power of step size.</p>
 <span class="incontext"><a href="section-richardson-extrapolation.html#p-419">in-context</a></span>
 </body>
 </html>

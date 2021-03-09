@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:50-05:00    *-->
+<!--*    on 2021-03-09T14:56:40-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -17,24 +17,14 @@ fp = @(x) cos(x);
 
 x = linspace(0, 5, 500);
 h = 0.1;
-
-original = (f(x+h) - f(x))/h;
-symmetric = (f(x+h) - f(x-h))/(2*h);
-extrapolated = 2*(f(x+h) - f(x-h))/(3*h) - (f(x+2*h) - f(x-2*h))/(12*h);
+orig = (f(x+h) - f(x))/h;
+symm = (f(x+h) - f(x-h))/(2*h);
+extr = 2*(f(x+h) - f(x-h))/(3*h) - (f(x+2*h) - f(x-2*h))/(12*h);
 exact = fp(x);
 
-hold on 
-plot(x, log10(abs(original - exact)))
-plot(x, log10(abs(symmetric - exact)))
-plot(x, log10(abs(extrapolated - exact)))
+semilogy(x, abs(orig-exact), x, abs(symm-exact), x, abs(extr-exact))
 legend('original', 'symmetric', 'extrapolated')
-hold off
 </pre>
-<p>The result, shown below, indicates that the error is about \(10^{-1}\) for the original formula (from the definition of derivative), about \(10^{-3}\) for the symmetric formula, and about \(10^{-6}\) for the extrapolated formula.</p>
-<figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/differentiation1.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">12.5.3<span class="period">.</span></span><span class="space"> </span>Comparison of errors</figcaption></figure><p>Note that Matlab's command <code class="code-inline tex2jax_ignore">semilogy</code> can be used to plot on logarithmic scale directly, for example</p>
-<pre class="code-block tex2jax_ignore">semilogy(x, abs(original - exact))</pre>
-<p data-braille="continuation">has the same result as</p>
-<pre class="code-block tex2jax_ignore">plot(x, log10(abs(original - exact)))</pre>
+<p>The result indicates that the error is about \(10^{-1}\) for the original formula (from the definition of derivative), about \(10^{-3}\) for the symmetric formula, and about \(10^{-6}\) for the extrapolated formula.</p>
 </div></body>
 </html>

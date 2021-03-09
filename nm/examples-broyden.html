@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:29-05:00    *-->
+<!--*    on 2021-03-09T14:56:20-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -192,7 +192,7 @@ MathJax.Hub.Config({
 </li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link">
-<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical differentiation</span></a><ul>
 <li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
 <li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
 <li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
@@ -415,7 +415,7 @@ MathJax.Hub.Config({
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-durand-kerner-broyden"><article class="example example-like"><p id="p-391">Redo <a class="xref" data-knowl="./knowl/example-durand-kerner-solve.html" title="Example 10.4.2: Find all roots of a polynomial simultaneously">Example 10.4.2</a> using Broyden's method instead of Newton's method.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-24" id="solution-24"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-24"><div class="solution solution-like">
-<p id="p-392">We have the same vector functionto be equated to zero</p>
+<p id="p-392">We have the same vector function to be equated to zero</p>
 <div class="displaymath">
 \begin{equation*}
 \mathbf F(\mathbf x) = \begin{pmatrix} x_1+x_2+x_3 +2  \\ 
@@ -446,8 +446,7 @@ end
 if k &lt; max_tries
     fprintf('Found a solution after %d steps:\n', k);
     disp(x)
-    disp('The value F(x)')
-    disp(F(x))
+    fprintf('The norm of F(x) is %g\n', norm(F(x)))
 else
     disp('Failed to converge')
 end

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:50-05:00    *-->
+<!--*    on 2021-03-09T14:56:40-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,31 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Let \(Q\) be the quantity we want to find. Using step size \(h\) we get an approximation \(A_1\) with error term \(E_1\text{,}\) meaning that</p>
+<p>The <em class="emphasis">second order derivative</em> also has a convenient symmetric formula:</p>
 <div class="displaymath">
 \begin{equation}
-Q = A_1 + E_1\tag{12.4.1}
+f''(x)\approx \frac{f(x+h)-2f(x)+f(x-h)}{h^2}\tag{12.3.2}
 \end{equation}
 </div>
-<p data-braille="continuation">Using step size \(2h\) we get an approximation \(A_2\) with error term \(E_2\text{,}\) meaning that</p>
+<p data-braille="continuation">One can derive many other formulas for derivative of any order \(k\text{,}\) starting with Taylor series for \(f\text{:}\)</p>
 <div class="displaymath">
 \begin{equation}
-Q = A_2 + E_2\tag{12.4.2}
+f(x + \delta) = f(x) + f'(x)\delta + \frac{f''(x)}{2} \delta^2 + \frac{f'''(x)}{6} \delta^3 + \cdots\tag{12.3.3}
 \end{equation}
 </div>
-<p data-braille="continuation">Since we know that \(E_2\) is close to \(2^n E_1\text{,}\) we can try to cancel out the error terms: multiply <a class="xref" data-knowl="./knowl/eq-rich-1.html" title="Equation 12.4.1">(12.4.1)</a> by \(2^n\) and subtract <a class="xref" data-knowl="./knowl/eq-rich-2.html" title="Equation 12.4.2">(12.4.2)</a>. The result is</p>
-<div class="displaymath">
-\begin{equation*}
-(2^n-1) Q = 2^n A_1 - A_2 + [2^n E_1 - E_2]
-\end{equation*}
-</div>
-<p data-braille="continuation">Since the error terms should almost cancel each other, the new approximation</p>
-<div class="displaymath">
-\begin{equation}
-Q \approx \frac{2^n A_1 - A_2}{2^n-1}\tag{12.4.3}
-\end{equation}
-</div>
-<p data-braille="continuation">should be much more accurate than the original approximation <a class="xref" data-knowl="./knowl/eq-rich-1.html" title="Equation 12.4.1">(12.4.1)</a>. The formula <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> expresses the method of Richardson extrapolation. This idea is not specific to numerical differentiation; it can be used any time a computed quantity has an error proportional to a known power of step size.</p>
-<span class="incontext"><a href="section-richardson-extrapolation.html#p-417">in-context</a></span>
+<p data-braille="continuation">One can use <a class="xref" data-knowl="./knowl/eq-taylor-expansion.html" title="Equation 12.3.3">(12.3.3)</a> with values like \(\delta=h\text{,}\)  \(\delta=-h\text{,}\) \(\delta=0\text{,}\) or maybe \(\delta=2h\text{,}\) and so on; and then take a linear combination of these expressions so that the derivatives of orders less than \(k\) cancel out, while the derivative of order \(k\) remains. The order of error of this formula will depends on what derivative of order greater than \(k\) remain in the linear combination. To have order of error \(n\text{,}\) one needs to make sure that the derivatives of orders between \(k\) and \(k+n\) also cancel out.</p>
+<span class="incontext"><a href="section-symmetric-difference.html#p-417">in-context</a></span>
 </body>
 </html>

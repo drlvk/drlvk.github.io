@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:50-05:00    *-->
+<!--*    on 2021-03-09T14:56:40-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,7 +12,7 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<p>We have the same vector functionto be equated to zero</p>
+<p>We have the same vector function to be equated to zero</p>
 <div class="displaymath">
 \begin{equation*}
 \mathbf F(\mathbf x) = \begin{pmatrix} x_1+x_2+x_3 +2  \\ 
@@ -43,8 +43,7 @@ end
 if k &lt; max_tries
     fprintf('Found a solution after %d steps:\n', k);
     disp(x)
-    disp('The value F(x)')
-    disp(F(x))
+    fprintf('The norm of F(x) is %g\n', norm(F(x)))
 else
     disp('Failed to converge')
 end

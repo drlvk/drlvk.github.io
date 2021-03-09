@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:54-05:00    *-->
+<!--*    on 2021-03-09T14:56:44-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,21 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The previous paragraph operates with an odd number \(n\) which is more natural in this context because trigonometric polynomials <a class="xref" data-knowl="./knowl/eq-trigonometric-polynomial-complex.html" title="Equation 25.1.3">(25.1.3)</a> normally contain an odd number of terms. But what if we are given an even number of points to interpolate through, such as 10? It is not clear whether to keep \(k=n/2\) as positive: <code class="code-inline tex2jax_ignore">k=[0:n/2 1-n/2:-1]</code> or to move it to negative: <code class="code-inline tex2jax_ignore">k=[0:n/2-1  -n/2:-1]</code>. Neither version works well. Their average does work; essentially, the term with \(k=n/2\) should be split into two. To avoid this complication, we stick to odd \(n\text{.}\)</p>
+<p>A key term here is <dfn class="terminology">aliasing</dfn>, which is the fact that different trigonometric (or complex exponential) functions may coincide when restricted to a discrete grid of points (<a class="external" href="https://en.wikipedia.org/wiki/Aliasing#/media/File:AliasingSines.svg" target="_blank">illustration</a>). Specifically,</p>
+<div class="displaymath">
+\begin{equation*}
+\exp(2\pi i k t)  = \exp(2\pi i (k-n) t), \quad t = 0, 1/n, 2/n, \dots, 1
+\end{equation*}
+</div>
+<p data-braille="continuation">In order to avoid extraneous oscillations we should subtract \(n\) from large elements of the vector <code class="code-inline tex2jax_ignore">k = 0:n-1</code> above, so that instead of</p>
+<pre class="code-block tex2jax_ignore">
+k = [0 1 2 3 4 5 6 7 8];
+</pre>
+<p data-braille="continuation">we have</p>
+<pre class="code-block tex2jax_ignore">
+k = [0 1 2 3 4 -4 -3 -2 -1];
+</pre>
+<p data-braille="continuation">Replacing <code class="code-inline tex2jax_ignore">k = 0:n-1</code> in the above code with <code class="code-inline tex2jax_ignore">k = [0:(n-1)/2 (1-n)/2:-1];</code> corrects the issue.</p>
 <span class="incontext"><a href="section-trigonometric-interpolation.html#p-740">in-context</a></span>
 </body>
 </html>

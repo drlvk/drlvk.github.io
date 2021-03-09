@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:49-05:00    *-->
+<!--*    on 2021-03-09T14:56:40-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -31,8 +31,7 @@ end
 if k &lt; max_tries
     fprintf('Found a solution after %d steps:\n', k);
     disp(x)
-    disp('The value F(x)')
-    disp(F(x))
+    fprintf('The norm of F(x) is %g\n', norm(F(x)))
 else
     disp('Failed to converge')
 end

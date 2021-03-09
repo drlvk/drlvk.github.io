@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:29-05:00    *-->
+<!--*    on 2021-03-09T14:56:20-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -192,7 +192,7 @@ MathJax.Hub.Config({
 </li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link">
-<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical differentiation</span></a><ul>
 <li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
 <li><a href="section-loss-significance.html" data-scroll="section-loss-significance" class="active">Loss of significance</a></li>
 <li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
@@ -435,7 +435,15 @@ ans = 0
 \frac{\sqrt{x+h} - \sqrt{x}}{h} = 	\frac{(\sqrt{x+h} - \sqrt{x})(\sqrt{x+h} + \sqrt{x})}{h(\sqrt{x+h} + \sqrt{x})} = \frac{x+h-x}{h(\sqrt{x+h} + \sqrt{x})} = \frac{1}{\sqrt{x+h} + \sqrt{x}} 
 \end{equation*}
 </div>
-<p data-braille="continuation">Algebraically these expressions are identical, but in Matlab, <code class="code-inline tex2jax_ignore">1/(sqrt(x+h) + sqrt(x))</code> produces accurate answer <code class="code-inline tex2jax_ignore">5.0000e-04</code> for any of the above values of \(h\text{.}\) Matlab also has some built-in logic for avoiding loss of significance in two frequently encountered situations: \(e^{x} - 1\) and \(\log (1+x)\) when \(x\approx 0\text{.}\) These are the functions <code class="code-inline tex2jax_ignore">expm1</code> and <code class="code-inline tex2jax_ignore">log1p</code>. To see the difference, compare the results of <code class="code-inline tex2jax_ignore">(exp(x)-1)/x</code> and <code class="code-inline tex2jax_ignore">expm1(x)/x</code> when <code class="code-inline tex2jax_ignore">x=1e-20</code>.</p></section></div></main>
+<p data-braille="continuation">Algebraically these expressions are identical, but in Matlab, <code class="code-inline tex2jax_ignore">1/(sqrt(x+h) + sqrt(x))</code> produces accurate answer <code class="code-inline tex2jax_ignore">5.0000e-04</code> for any of the above values of \(h\text{.}\)</p>
+<p id="p-411">An important case of such rearrangement in the quadratic formula: its familiar form</p>
+<div class="displaymath">
+\begin{equation*}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation*}
+</div>
+<p data-braille="continuation">leads to loss of significance when \(b\) is much larger than \(ac\text{.}\) (Why is this, and how can we avoid the issue?)</p>
+<p id="p-412">Matlab also has some built-in logic for avoiding loss of significance in two frequently encountered situations: \(e^{x} - 1\) and \(\log (1+x)\) when \(x\approx 0\text{.}\) These are the functions <code class="code-inline tex2jax_ignore">expm1</code> and <code class="code-inline tex2jax_ignore">log1p</code>. To see the difference, compare the results of <code class="code-inline tex2jax_ignore">(exp(x)-1)/x</code> and <code class="code-inline tex2jax_ignore">expm1(x)/x</code> when <code class="code-inline tex2jax_ignore">x=1e-20</code>.</p></section></div></main>
 </div>
 </body>
 </html>

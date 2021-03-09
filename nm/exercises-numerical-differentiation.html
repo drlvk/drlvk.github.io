@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-04T19:19:30-05:00    *-->
+<!--*    on 2021-03-09T14:56:21-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -192,7 +192,7 @@ MathJax.Hub.Config({
 </li>
 <li class="link part"><a href="part-calculus.html" data-scroll="part-calculus"><span class="codenumber">III</span> <span class="title">Numerical Calculus</span></a></li>
 <li class="link">
-<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical Differentiation</span></a><ul>
+<a href="chapter-numerical-differentiation.html" data-scroll="chapter-numerical-differentiation"><span class="codenumber">12</span> <span class="title">Numerical differentiation</span></a><ul>
 <li><a href="section-differentiation-intro.html" data-scroll="section-differentiation-intro">Definition of derivative and the order of error</a></li>
 <li><a href="section-loss-significance.html" data-scroll="section-loss-significance">Loss of significance</a></li>
 <li><a href="section-symmetric-difference.html" data-scroll="section-symmetric-difference">Symmetric difference formulas</a></li>
@@ -410,20 +410,20 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">12.6</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-29"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-429">Find the order of error of the formula <a class="xref" data-knowl="./knowl/eq-diff-f2.html" title="Equation 12.3.2">(12.3.2)</a> (theoretical exercise).</p></article><article class="exercise exercise-like" id="exercise-30"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-430">Rewrite the formula</p>
+<p id="p-430">Find the order of error of the formula <a class="xref" data-knowl="./knowl/eq-diff-f2.html" title="Equation 12.3.2">(12.3.2)</a> (theoretical exercise).</p></article><article class="exercise exercise-like" id="exercise-30"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-431">Rewrite the formula</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{\sqrt{9 + x^4} - 3}{\sin(x^4)}
 \end{equation*}
 </div>
 <p data-braille="continuation">to avoid the loss of significance when \(x\) is close to \(0\text{.}\) Evaluate both the original and rewritten formulas when \(x = 10^{-4}\text{.}\) How different are the results?</p></article><article class="exercise exercise-like" id="exercise-31"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-431">A function \(f\) has been evaluated at the points \(0, 0.1, 0.2, \dots, 1\) (in Matlab notation, <code class="code-inline tex2jax_ignore">x = 0:0.1:1</code>). Its values are</p>
+<p id="p-432">A function \(f\) has been evaluated at the points \(0, 0.1, 0.2, \dots, 1\) (in Matlab notation, <code class="code-inline tex2jax_ignore">x = 0:0.1:1</code>). Its values are</p>
 <pre class="code-block tex2jax_ignore">y = [1, 0.99, 0.96, 0.91, 0.85, 0.78, 0.7, 0.61, 0.53, 0.44, 0.37]
 </pre>
-<p id="p-432">Write a script which plots this function together with its first derivative \(f'\) and its second derivative \(f''\text{.}\) Use symmetric difference formulas with \(h=0.1\text{.}\)</p>
+<p id="p-433">Write a script which plots this function together with its first derivative \(f'\) and its second derivative \(f''\text{.}\) Use symmetric difference formulas with \(h=0.1\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-hint-5" id="hint-5"><span class="type">Hint</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-5"><div class="hint solution-like"><p id="p-433">Expressions like <code class="code-inline tex2jax_ignore">y(3:end) - y(1:end-2)</code> will be useful. Note that while the values of \(f\) can be plotted against the given vector <code class="code-inline tex2jax_ignore">x</code>, the derivatives need to be plotted against <code class="code-inline tex2jax_ignore">x(2:end-1)</code> because the symmetric formulas do not apply at the endpoints. Recall we can combine several functions in one plot command like <code class="code-inline tex2jax_ignore">plot(x, y, xx, yy)</code>.</p></div></div>
+<a data-knowl="" class="id-ref original" data-refid="hk-hint-5" id="hint-5"><span class="type">Hint</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-5"><div class="hint solution-like"><p id="p-434">Expressions like <code class="code-inline tex2jax_ignore">y(3:end) - y(1:end-2)</code> will be useful. Note that while the values of \(f\) can be plotted against the given vector <code class="code-inline tex2jax_ignore">x</code>, the derivatives need to be plotted against <code class="code-inline tex2jax_ignore">x(2:end-1)</code> because the symmetric formulas do not apply at the endpoints. Recall we can combine several functions in one plot command like <code class="code-inline tex2jax_ignore">plot(x, y, xx, yy)</code>.</p></div></div>
 </div></article></section></div></main>
 </div>
 </body>
