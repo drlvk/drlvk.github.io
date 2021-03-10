@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:43-05:00    *-->
+<!--*    on 2021-03-10T16:49:34-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We are looking for \(c_1, \dots, c_n\) such that the polynomial \(p = c_1\phi_1 + \cdots + c_n\phi_n\) has \(p(x_k)=y_k\text{.}\)</p>
-<ul class="disc">
-<li>At \(x=x_1\) only \(\phi_1\) is nonzero, so we must have \(c_1=y_1\)</li>
-<li>At \(x=x_2\) only \(\phi_1,\phi_2\) are nonzero, so \(c_1 + c_2 (x-x_1) = y_2\text{.}\) We can solve this for \(c_2\text{.}\)</li>
-<li>At \(x=x_3\) only \(\phi_1,\phi_2,\phi_3\) are nonzero, so \(c_1 + c_2 (x-x_1)+c_3 (x-x_1)(x-x_2) = y_3\text{.}\) We can solve this for \(c_3\text{.}\) And so on.</li>
-</ul>
-<p data-braille="continuation">The process of solving for \(c_k \) can be  described algorithmically, in terms of getting the vector \(c\) from the vector \(y\text{.}\) Indeed, we are trying to match two sides of</p>
-<div class="displaymath">
-\begin{equation}
-y(x) = c_1 + c_2(x-x_1) + c_3 (x-x_1)(x-x_2) + c_4 (x-x_1)(x-x_2)(x-x_3) + \cdots \tag{21.3.1}
-\end{equation}
-</div>
-<p data-braille="continuation">As noted above, \(c_1 = y_1\text{.}\) Next, subtract \(c_1\) from both sides of <a class="xref" data-knowl="./knowl/eq-newton-coeffs.html" title="Equation 21.3.1">(21.3.1)</a>and divide them by \(x-x_1\text{:}\)</p>
-<div class="displaymath">
-\begin{equation}
-\frac{y(x)-c_1}{x-x_1} =  c_2 + c_3  (x-x_2) + c_4  (x-x_2)(x-x_3) +\cdots\tag{21.3.2}
-\end{equation}
-</div>
-<p data-braille="continuation">The coefficient \(c_2\) is the value of the left hand side at \(x=x_2\text{.}\) In Matlab terms, it's the second entry of the array of y-values after we applied the subtract-and-divide process to it.</p>
-<span class="incontext"><a href="section-newton-polynomial.html#p-643">in-context</a></span>
+<p>How does <code class="code-inline tex2jax_ignore">p</code> accept a row vector as <code class="code-inline tex2jax_ignore">t</code>? The expression <code class="code-inline tex2jax_ignore">t - x'</code> is the difference of a row vector and a column vector; in Matlab this creates a matrix where \((i, j)\) entry is \(t_j - x_i\text{.}\) Subsequent operations proceed as above, and the result is a row vector of values \(p(t)\text{.}\)</p>
+<span class="incontext"><a href="section-lagrange-polynomial.html#p-643">in-context</a></span>
 </body>
 </html>

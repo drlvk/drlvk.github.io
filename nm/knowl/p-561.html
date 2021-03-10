@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:42-05:00    *-->
+<!--*    on 2021-03-10T16:49:34-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,18 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A rectangle \(R = [a, b]\times [c, d]\) is the easiest two-dimensional domain to integrate over: in Calculus we would compute</p>
-<div class="displaymath">
-\begin{equation*}
-\iint_R f(x, y)\,dA = \int_a^b \int_c^d f(x, y)\,dy\,dx
-\end{equation*}
-</div>
-<p data-braille="continuation">Suppose we pick two integration rules: one for the interval \([a, b]\text{,}\) say \(\int_a^b g(x)\,dx \approx \sum_i w_i g(x_i)\text{,}\) the other for interval \([c, d]\text{,}\) say \(\int_c^d g(y)\,dy \approx \sum_j v_j g(y_j)\text{.}\) The function \(g\) here is a placeholder; the rule consists of the choice of evaluation points and their weights. Note that the weights and points depend on the interval, so they will probably be different even if we use the same integration method for both variables. With this setup, the two-dimensional integration rule for this rectangle can be expressed as a double sum:</p>
-<div class="displaymath">
-\begin{equation}
-\iint_R f(x, y)\,dA =  \sum_i \sum_j w_i v_j f(x_i, y_j)\tag{18.1.1}
-\end{equation}
-</div>
-<span class="incontext"><a href="section-integration-rectangle.html#p-561">in-context</a></span>
+<p>Rewrite the adaptive integration script in <a class="xref" data-knowl="./knowl/example-implement-adaptive-gauss.html" title="Example 17.5.1: Adaptive Gauss integration">Example 17.5.1</a> so that it uses trapezoidal and Simpson's rules for \(I_1, I_2\text{,}\) and test it on the integral \(\int_0^4 x^{3/2}\,dx\) to make sure it returns a correct result.</p>
+<span class="incontext"><a href="exercises-adaptive-integration.html#p-561">in-context</a></span>
 </body>
 </html>

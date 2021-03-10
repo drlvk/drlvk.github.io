@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:42-05:00    *-->
+<!--*    on 2021-03-10T16:49:33-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Implement adaptive integration as in <a href="section-adaptive-integration-bisection.html" class="internal" title="Section 17.3: Recursive subdivision algorithm">Section 17.3</a> using the midpoint rule for \(I_1\) and Gauss rule with \(n=2\) for \(I_2\text{.}\) Test it on the integral \(\int_0^9 x^{-1/2}\,dx = 6\text{.}\)</p>
-<span class="incontext"><a href="examples-adaptive-integration.html#p-553">in-context</a></span>
+<p>Since the Gauss integration rule is the most accurate of those we discussed, one may decide to use it for both \(I_1\) and \(I_2\text{,}\) just with different number of evaluation points, perhaps \(n\) and \(2n\text{.}\) A downside is that Gauss evaluation points are not nested. In practice, the Gauss rule is used for \(I_1\) and the Kronrod rule (also based on orthogonal polynomials, but beyond our scope) is used for \(I_2\text{.}\) The Kronrod rule is designed to include all of the points used by the Gauss rule, and some additional ones. A popular choice, e.g., in TI graphing calculators, is (G7, K15), meaning 7-point Gauss rule combined with 15-point Kronrod rule. For an illustration of adaptive integration in Python module SciPy, see <a class="external" href="https://calculus7.org/2018/10/27/numerical-integration-visualized/" target="_blank">this blog post</a>: it shows that Scipy uses (G10, K21) combination.</p>
+<span class="incontext"><a href="section-adaptive-integration-rules.html#p-553">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:46-05:00    *-->
+<!--*    on 2021-03-10T16:49:38-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Minimize the function <a class="xref" data-knowl="./knowl/eq-objective-function-sine.html" title="Equation 33.1.2">(33.1.2)</a> using the reflection-contraction version of the Nelder-Mead method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code> as one vertex \(A\) of the initial triangle, and let other vertices be \(A + \mathbf e_1\text{,}\) \(A+\mathbf e_2\text{,}\) so that the initial triangle is not small anymore. Plot the path of the search.</p>
+<p>One issue with the reflection-only method of <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a> is the fixed size of the triangle. With a large triangle, we will only have a rough idea of where  the minimum is when the search ends. Also, a large triangle will not detect any fine features of the landscape such as the narrow valley of Rosenbrock's function. On the other hand, a small triangle necessarily moves in small steps and is therefore slow.</p>
 <span class="incontext"><a href="section-nelder-mead-contract.html#p-916">in-context</a></span>
 </body>
 </html>

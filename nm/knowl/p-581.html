@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:42-05:00    *-->
+<!--*    on 2021-03-10T16:49:34-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One of the distinguishing features of the normal distribution is the following: if one generates a random \(d\)-dimensional vector \(\mathbf x\) by taking each component \(x_1, \dots, x_d\) independently from the normal distribution, the vector \(\mathbf x\) is equally likely to point in any given direction. More precisely, the unit vectors \(\mathbf x / |\mathbf x|\) are uniformly distributed over the unit sphere. With Matlab, this process amounts to the computations</p>
-<pre class="code-block tex2jax_ignore">
-x = randn(1, d);
-x = x/norm(x);
-</pre>
-<p data-braille="continuation">Note that <code class="code-inline tex2jax_ignore">x = randn(1, d)/norm(randn(1, d))</code> would not do the job, because each use of <code class="code-inline tex2jax_ignore">randn</code> leads to a new random vector.</p>
+<p>The above code is not vectorized: it uses a loop to evaluate \(f\) at consecutive points. One could generate all these points at once with <code class="code-inline tex2jax_ignore">rand(N, d)</code> and try to get all values of  \(f\) at once. But this requires coding <code class="code-inline tex2jax_ignore">f</code> in such a way that it can consume a matrix and produce a vector of values, and this may be difficult.</p>
 <span class="incontext"><a href="section-integration-monte-carlo.html#p-581">in-context</a></span>
 </body>
 </html>

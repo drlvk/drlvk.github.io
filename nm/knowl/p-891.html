@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:46-05:00    *-->
+<!--*    on 2021-03-10T16:49:38-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Minimize  Rosenbrock's function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> using line search in the direction of steepest descent, \(-\nabla f\text{,}\) at each step. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code>. Plot the path of the search.</p>
+<p>One way to improve the situation is to run a one-variable minimization algorithm, <dfn class="terminology">line search</dfn> at each step, to find the minimum of \(f\) on the line of steepest descent. This means minimizing the function \(h(t) = f(\mathbf a + t \mathbf g)\) where \(\mathbf g = -\nabla f(\mathbf a)\text{.}\) If we find the exact minimum on the line each time, then the minimization process for function converges to the minimum quickly. But for slightly more complicated functions the difficulty emerges again. Consider <a class="external" href="https://en.wikipedia.org/wiki/Rosenbrock_function" target="_blank">Rosenbrock's function</a></p>
+<div class="displaymath">
+\begin{equation}
+f(\mathbf x) = (x_1 - 1)^2 + 100(x_1^2 - x_2)^2\tag{32.1.2}
+\end{equation}
+</div>
+<p data-braille="continuation">Its graph has a curved “valley” along the parabola \(x_2 = x_1^2\text{.}\) One-dimensional minimization along the line of steepest descent leads to each consecutive direction being perpendicular to the previous one (why?). So the algorithm ends up zig-zagging in tiny steps in the deep narrow valley, making very little progress toward minimum. And since each step is its own minimization problem (in one dimension), the entire process may take too long.</p>
 <span class="incontext"><a href="section-gradient-descent-nd.html#p-891">in-context</a></span>
 </body>
 </html>

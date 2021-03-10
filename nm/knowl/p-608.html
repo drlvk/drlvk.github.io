@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:42-05:00    *-->
+<!--*    on 2021-03-10T16:49:34-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The most visible difference is the notation <code class="code-inline tex2jax_ignore">y(:, k)</code> which takes the entire \(k\)th column of the matrix <code class="code-inline tex2jax_ignore">y</code>. Its mathematical meaning is the approximation to \(\mathbf y(t_k)\text{.}\) The initial condition <code class="code-inline tex2jax_ignore">y0</code> is a column vector, which makes the computation <code class="code-inline tex2jax_ignore">y = y0*ones(size(t));</code> an outer product: it creates a matrix in which every column is equal to <code class="code-inline tex2jax_ignore">y0</code>. This is convenient because we need the first column to be equal, and the other columns will be rewritten anyway.</p>
+<p>Conceptually, any of the above methods can be directly applied to systems of \(m\) differential equations, just by interpreting \(y\) as a vector function \(\mathbf y\text{.}\) The notation becomes awkward: now \(y_2\) refer to the second component of \(\mathbf y\text{,}\) while the value \(\mathbf y(t_2)\) might be denoted \(\mathbf y_2\text{.}\) There are also a few changes in Matlab notation regarding <code class="code-inline tex2jax_ignore">y</code>: it will now be a matrix, where rows correspond to components and columns correspond to points of evaluation. The right-hand side function <code class="code-inline tex2jax_ignore">f</code> should return a column vector of the same dimesion \(m\text{.}\)</p>
 <span class="incontext"><a href="section-ode-systems.html#p-608">in-context</a></span>
 </body>
 </html>

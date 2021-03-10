@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:43-05:00    *-->
+<!--*    on 2021-03-10T16:49:35-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Clamped splines refer to holding the ends of the metal strip with a <a class="external" href="https://en.wikipedia.org/wiki/Clamp_(tool)" target="_blank">clamp</a>, which restricts not only its position but also the angle. This spline is useful for for modeling a problem with boundary conditions on the derivative.</p>
+<p>Here are three different ways to add two more equations to the linear system for coefficients; they result in three different kinds of cubic splines:</p>
+<ul class="disc">
+<li>Require \(S''(a) = 0 = S''(b)\text{.}\) This is a “natural spline”.</li>
+<li>Require \(S'(a) = p\) and  \(S'(b)=q\) for some values \(p, q\text{.}\) This is a “clamped spline”.</li>
+<li>Require \(S'''\) to be continuous at \(x_2\) and at \(x_{n-1}\text{.}\) This is a “not-a-knot spline”.</li>
+</ul>
 <span class="incontext"><a href="section-cubic-splines.html#p-687">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:43-05:00    *-->
+<!--*    on 2021-03-10T16:49:35-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>(Theoretical) The <em class="emphasis">Chebyshev polynomials of the second kind</em> \(U_n\) can be defined as follows: \(U_0(x) = 1\text{,}\) \(U_1(x) = 2x\text{,}\) and after that,</p>
-<div class="displaymath">
-\begin{equation}
-U_{n+1}(x) = 2xU_n(x) -  U_{n-1}(x)\tag{22.4.1}
-\end{equation}
-</div>
-<p data-braille="continuation">(This is the same recursive formula as for \(T_n\text{,}\) but it produces different polynomials because \(U_1\) is different from \(T_1\text{.}\)) Prove that</p>
-<div class="displaymath">
-\begin{equation}
-U_{n}(\cos\theta)\sin \theta = \sin ((n+1)\theta)\tag{22.4.2}
-\end{equation}
-</div>
-<p data-braille="continuation">for all \(n\) and all \(\theta\text{.}\)</p>
-<span class="incontext"><a href="exercises-chebyshev.html#p-671">in-context</a></span>
+<p>Use the formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> to interpolate a few functions such as</p>
+<ul class="disc">
+<li>\(f(x) = 1/(x^2+1)\) on \([-5, 5]\)</li>
+<li>\(f(x) = \tan^{-1} x\) on \([-7, 11]\)</li>
+<li>\(f(x) = \cos(2x)\) on \([1, 15]\)</li>
+<li>\(f(x) = \sin(x^2)\) on \([0, 5]\)</li>
+<li>\(f(x) = \operatorname{sign} x\) on \([-1, 1]\)</li>
+</ul>
+<p data-braille="continuation">by a polynomial of degree \(n=20\) (or another degree if you prefer).</p>
+<span class="incontext"><a href="section-chebyshev-extreme-points.html#p-671">in-context</a></span>
 </body>
 </html>

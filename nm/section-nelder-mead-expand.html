@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:34-05:00    *-->
+<!--*    on 2021-03-10T16:49:26-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -409,21 +409,21 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-nelder-mead-expand"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">33.3</span> <span class="title">Reflection-contraction-expansion Nelder-Mead method</span>
 </h2>
-<p id="p-919">The reason for the lack of success with Rosenbrock's function is that the version of Nelder-Mead method described in <a href="section-nelder-mead-contract.html" class="internal" title="Section 33.2: Reflection-contraction combination">Section 33.2</a>  does not allow the triangle to change its <em class="emphasis">shape</em> to fit the geometry of the graph. A long narrow valley calls for a long narrow triangle.</p>
-<p id="p-920">The process of changing the shape of the triangle is <em class="emphasis">expansion</em>, which is introduced as an alternative to reflection from <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a>. Suppose that the current triangle qualifies for reflection: for example, \(C\) is the point with largest value, and \(f(R) \lt f(C)\text{.}\) Consider the possibility of replacing \(C\) with a point \(E\) that lies beyong \(R\text{,}\) thus making the triangle longer. The point \(E\) is determined by the following equation, which  shows that it is as far from \(R\) as \(R\) is from the center of reflection \((A+B)/2\text{:}\)</p>
+<p id="p-921">The reason for the lack of success with Rosenbrock's function is that the version of Nelder-Mead method described in <a href="section-nelder-mead-contract.html" class="internal" title="Section 33.2: Reflection-contraction combination">Section 33.2</a>  does not allow the triangle to change its <em class="emphasis">shape</em> to fit the geometry of the graph. A long narrow valley calls for a long narrow triangle.</p>
+<p id="p-922">The process of changing the shape of the triangle is <em class="emphasis">expansion</em>, which is introduced as an alternative to reflection from <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a>. Suppose that the current triangle qualifies for reflection: for example, \(C\) is the point with largest value, and \(f(R) \lt f(C)\text{.}\) Consider the possibility of replacing \(C\) with a point \(E\) that lies beyong \(R\text{,}\) thus making the triangle longer. The point \(E\) is determined by the following equation, which  shows that it is as far from \(R\) as \(R\) is from the center of reflection \((A+B)/2\text{:}\)</p>
 <div class="displaymath">
 \begin{equation*}
 E = \frac{3}{2}(A+B) - 2C =  1.5 (A+B+C) - 3.5 C
 \end{equation*}
 </div>
 <p data-braille="continuation">If \(f(E) \lt f(R)\text{,}\) then we replace \(C\) with \(E\) rather than \(R\text{.}\) In other words, the “highest” vertex of the triangle is replaced by whichever of \(E, R\) is lower.</p>
-<p id="p-921">Having both contraction and expansion in the process means the triangle can grow smaller and larger, moving faster when the path is clear, or becoming very narrow to fit into a difficult to reach valley.</p>
+<p id="p-923">Having both contraction and expansion in the process means the triangle can grow smaller and larger, moving faster when the path is clear, or becoming very narrow to fit into a difficult to reach valley.</p>
 <article class="example example-like" id="example-rce-nelder-mead"><a data-knowl="" class="id-ref original" data-refid="hk-example-rce-nelder-mead"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">33.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Reflection-contraction-expansion Nelder-Mead method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rce-nelder-mead"><article class="example example-like"><p id="p-922">Minimize Rosenbrock's function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> using the reflection-contraction-expansion version of the Nelder-Mead method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code> as one vertex \(A\) of the initial triangle, and let other vertices be \(A + \mathbf e_1\text{,}\) \(A+\mathbf e_2\text{.}\) Plot the path of the search.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rce-nelder-mead"><article class="example example-like"><p id="p-924">Minimize Rosenbrock's function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> using the reflection-contraction-expansion version of the Nelder-Mead method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code> as one vertex \(A\) of the initial triangle, and let other vertices be \(A + \mathbf e_1\text{,}\) \(A+\mathbf e_2\text{.}\) Plot the path of the search.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-57" id="solution-57"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-57"><div class="solution solution-like">
-<p id="p-923">The code is mostly the same as in <a class="xref" data-knowl="./knowl/example-reflection-contraction-nelder-mead.html" title="Example 33.2.1: Reflection-contraction Nelder-Mead method">Example 33.2.1</a>, with additional lines noted in comments.</p>
+<p id="p-925">The code is mostly the same as in <a class="xref" data-knowl="./knowl/example-reflection-contraction-nelder-mead.html" title="Example 33.2.1: Reflection-contraction Nelder-Mead method">Example 33.2.1</a>, with additional lines noted in comments.</p>
 <pre class="code-block tex2jax_ignore">f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
 
 A = randn(2, 1);
@@ -464,7 +464,7 @@ end
 </pre>
 </div></div>
 </div></article></div>
-<p id="p-924">The algorithm described above works quite well, considering we are minimizing a challenging function without using any derivative information. The version of the Nelder-Mead algorithm implemented in Matlab is a little different in that it chooses between three ways of contracting a simplex (called “contract inside”, “contract outside”, “shrink”) but the main ideas are the same. To observe the process of <code class="code-inline tex2jax_ignore">fminsearch</code> optimization, run</p>
+<p id="p-926">The algorithm described above works quite well, considering we are minimizing a challenging function without using any derivative information. The version of the Nelder-Mead algorithm implemented in Matlab is a little different in that it chooses between three ways of contracting a simplex (called “contract inside”, “contract outside”, “shrink”) but the main ideas are the same. To observe the process of <code class="code-inline tex2jax_ignore">fminsearch</code> optimization, run</p>
 <pre class="code-block tex2jax_ignore">
 f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
 options = optimset('Display', 'iter');

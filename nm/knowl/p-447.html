@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:41-05:00    *-->
+<!--*    on 2021-03-10T16:49:32-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The midpoint rule is exact for \(x^0\) and \(x^1\text{.}\) But for \(\int_0^h x^2\,dx\) it predicts \(\int_0^h x^2\,dx  = h^3/4\text{,}\) while the true value is \(h^3/3\text{.}\) So we stop at \(d=2\) with the error of \(h^3/12\text{,}\) which can be written as \(\dfrac{1}{24} \ 2! \ h^3\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/24\text{.}\) In conclusion, the error of the midpoint rule is at most</p>
-<div class="displaymath">
-\begin{equation*}
-|\text{error}| \le \frac{1}{24}\max_{[a,b]} |f''|  (b-a) h^2
-\end{equation*}
-</div>
+<p>There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
+<ol class="decimal">
+<li>Let \(d = 0\)</li>
+<li>Apply the integration rule to \(f(x) = x^d\) on the interval \([0, h]\text{,}\) with the smallest possible number of evaluation points. Find the error term.</li>
+<li>If the error term is zero, increase \(d\) by \(1\) and return to step 2.</li>
+<li>Express the error as \(C \,d! \,h^{d+1}\) with an explicit constant \(C\text{.}\) Note that the factorial \(d!\) is here because it is the derivative of \(f\) of order \(d\text{,}\) which is the source of the error.</li>
+<li>The error bound for a single subinterval is \(C \max |f^{(d)}|  h^{d+1}\text{.}\)</li>
+<li>When the estimate is applied on an interval \([a,b]\) with step size \(h=(b-a)/n\text{,}\) the error estimate is multiplied by \(n\text{;}\) thus the final result is \(C \max |f^{(d)}|  (b-a)  h^d \text{.}\)</li>
+</ol>
 <span class="incontext"><a href="section-lrtm-error-estimates.html#p-447">in-context</a></span>
 </body>
 </html>

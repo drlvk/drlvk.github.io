@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-03-10T16:49:32-05:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example example-like"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">12.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Two forms of the quadratic formula.</span>
+</h6>
+<p>An important case of such rearrangement in the quadratic formula: its familiar form</p>
+<div class="displaymath">
+\begin{equation}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\tag{12.2.2}
+\end{equation}
+</div>
+<p data-braille="continuation">leads to loss of significance when \(b\) is much larger than \(ac\text{.}\) The following code erroneously returns <code class="code-inline tex2jax_ignore">0</code> as a root of the quadratic equation \(x^2+10^9x+1=0\text{.}\)</p>
+<pre class="code-block tex2jax_ignore">&gt;&gt; a=1; b=1e9; c=1;
+&gt;&gt; (-b+sqrt(b^2-4*a*c))/(2*a)
+ans = 0
+</pre>
+<p>The alternative form of <a class="xref" data-knowl="./knowl/eq-quad-variant-1.html" title="Equation 12.2.2">(12.2.2)</a> is</p>
+<div class="displaymath">
+\begin{equation}
+x = \frac{2c}{-b \mp \sqrt{b^2 - 4ac}}\tag{12.2.3}
+\end{equation}
+</div>
+<p data-braille="continuation">where the signs \(\mp\) indicate that the root we would get with \(+\) in <a class="xref" data-knowl="./knowl/eq-quad-variant-1.html" title="Equation 12.2.2">(12.2.2)</a> is obtained with \(-\) in <a class="xref" data-knowl="./knowl/eq-quad-variant-2.html" title="Equation 12.2.3">(12.2.3)</a>. To compute both roots without loss of significance, one uses both formulas <a class="xref" data-knowl="./knowl/eq-quad-variant-1.html" title="Equation 12.2.2">(12.2.2)</a> and <a class="xref" data-knowl="./knowl/eq-quad-variant-2.html" title="Equation 12.2.3">(12.2.3)</a>  with the sign opposite to the sign of \(b\text{.}\)</p>
+<pre class="code-block tex2jax_ignore">&gt;&gt; (2*c)/(-b-sqrt(b^2-4*a*c))
+ans = -1.0000e-09
+&gt;&gt; r = roots([1 1e9 1]); r(2)
+ans = -1.0000e-09
+</pre>
+<p>As this sample shows, Matlab takes the numerically safe approach in its <code class="code-inline tex2jax_ignore">roots</code> function for finding roots of polynomials.</p></article><span class="incontext"><a href="section-loss-significance.html#example-quadratic-formula-variants">in-context</a></span>
+</body>
+</html>

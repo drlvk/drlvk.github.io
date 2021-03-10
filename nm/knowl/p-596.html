@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:42-05:00    *-->
+<!--*    on 2021-03-10T16:49:34-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Repeat the above for \(y'= ty\text{,}\) where the exact solution is \(y(t) = \exp(t^2)\text{.}\)</p>
+<p>To solve an ODE numerically, we “discretize” it: instead of variable \(t\) varying continuously over some interval, we choose step size \(h\) and work with \(t_0\text{,}\) \(t_1=t_0+h\text{,}\) \(t_2=t_1+h\text{,}\) and so on. (An adaptive method will change the step size \(h\) based on the outcome of computation; more on this later.) We try to find approximate  values of \(y\) at the points \(t_k\text{,}\) starting with \(y(t_0)= y_0\) which is known (initial condition). The idea of Euler's method is geometric: draw the line segment starting at \((t_0,y_0)\) with the slope \(f(t_0,y_0)\text{.}\) When it reaches the abscissa \(t_1\text{,}\) we have new point \((t_1,y_1)\text{.}\) Then process is repeated. In a formula, it is expressed as</p>
+<div class="displaymath">
+\begin{equation}
+y_{k+1} = y_k + h f(t_k, y_k)\tag{19.2.1}
+\end{equation}
+</div>
 <span class="incontext"><a href="section-euler-method.html#p-596">in-context</a></span>
 </body>
 </html>

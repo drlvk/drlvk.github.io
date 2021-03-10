@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:44-05:00    *-->
+<!--*    on 2021-03-10T16:49:36-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We briefly encountered least-squares fit in <a href="chapter-linear-systems.html" class="internal" title="Chapter 6: Systems of linear equations">Chapter 6</a> but this method deserves a closer look in regard to how we choose a model to fit a given data set. It is one thing to find a function that matches the data (interpolation), another to have a model that learns from the data and has predictive power. Interpolation uses about as many parameters (coefficients) as the number of data points; curve-fitting uses relatively few parameters, hence does not hit the points precisely. Using too many parameters results in overfitting: a model begins to memorize training data rather than learning to generalize from trend.</p>
-<span class="incontext"><a href="chapter-linear-least-squares.html#p-766">in-context</a></span>
+<p>Suggestions: sort the Fourier coefficients from smallest to largest using</p>
+<pre class="code-block tex2jax_ignore">
+sorted = sort(abs(fc(:)));    
+</pre>
+<p data-braille="continuation">The total energy is</p>
+<pre class="code-block tex2jax_ignore">
+total = sum(sorted.^2); 
+</pre>
+<p data-braille="continuation">The key point is to write a while loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until they reach the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
+<span class="incontext"><a href="exercises-dft-applications.html#p-766">in-context</a></span>
 </body>
 </html>

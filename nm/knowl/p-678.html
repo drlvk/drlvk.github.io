@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:43-05:00    *-->
+<!--*    on 2021-03-10T16:49:35-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Formally, piecewise linear interpolation means that given some points \(a=x_1 \lt x_2 \lt \cdots \lt x_n = b\) on an interval \([a, b]\) and corresponding y-values \(y_1, \dots, y_n\text{,}\) we define a function \(S\colon [a, b]\to \mathbb R\) by the piecewise formula</p>
-<div class="displaymath">
-\begin{equation}
-S(x) = y_k + \frac{y_{k+1}-y_k}{x_{k+1} - x_{k}} (x - x_k),\quad  x_{k}\le x\le x_{k+1}\tag{23.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">where the right hand side is a linear function through two points \((x_{k}, y_k)\) and \((x_{k+1}, y_{k+1})\text{.}\) So, instead of \(1\) interpolating polynomial of degree \(n-1\) we use \(n-1\) polynomials of degree \(1\text{.}\) The function \(S\) is a spline of degree 1 meaning it is a piecewise function where the pieces are polynomials of degree 1.</p>
-<span class="incontext"><a href="section-piecewise-linear-interpolation.html#p-678">in-context</a></span>
+<p>Splines are piecewise defined functions where the pieces are polynomials, usually of low degree (3 is most popular degree). Although it is sometimes possible to efficiently use high-degree polynomial for interpolation (with Chebyshev points and barycentric evaluation), spline interpolation is often simpler and preferable, especially as it does not require special choice of interpolation points and has simple evaluation.</p>
+<span class="incontext"><a href="chapter-spline-interpolation.html#p-678">in-context</a></span>
 </body>
 </html>

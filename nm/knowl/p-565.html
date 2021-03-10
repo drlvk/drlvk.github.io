@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:42-05:00    *-->
+<!--*    on 2021-03-10T16:49:34-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Having computed <code class="code-inline tex2jax_ignore">V = f(X, Y)</code>, we need to combine it with weights and to get a single number at the end. Recall in one dimension we would do this as <code class="code-inline tex2jax_ignore">f(x)*w</code> where <code class="code-inline tex2jax_ignore">w</code> is a column vector of x-weights. We should still do this, but to also multiply and sum over the y-weights, we need <code class="code-inline tex2jax_ignore">v*f(X, Y)*w</code> where <code class="code-inline tex2jax_ignore">v</code> is a row of vector of y-weights.</p>
+<p>In the \(y\) direction, the evaluation points are \(-1, 0, 1\) with the weights \(1/3, 4/3, 1/3\text{.}\) In the \(x\) direction, the evaluation points are \(-2, 0, 2\) with the weights \(2/3, 8/3, 2/3\text{.}\) So the sum has 9 terms:</p>
+<div class="displaymath">
+\begin{equation*}
+\iint_R f(x, y)\,dA \approx 
+\frac{2}{9} (f(-2,-1) + 4f(0,-1) + f(2,-1) + 4f(-2,0) + 16f(0,0) + 4f(2,0) + f(-2,1) + 4f(0,1) + f(2,1))
+\end{equation*}
+</div>
 <span class="incontext"><a href="section-integration-rectangle.html#p-565">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-09T14:56:42-05:00    *-->
+<!--*    on 2021-03-10T16:49:34-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Solve the system</p>
-<div class="displaymath">
-\begin{align*}
-y_1' \amp = t - 3y_2\\
-y_2' \amp = 2y_1
-\end{align*}
-</div>
-<p data-braille="continuation">with initial condition \(y(0) = \begin{pmatrix}1 \\ 0\end{pmatrix}\text{,}\) on the interval \([0, 10]\) using the trapezoidal method with the step \(h=0.01\text{.}\) Plot the solution.</p>
-<span class="incontext"><a href="section-ode-systems.html#p-607">in-context</a></span>
+<p>It is not so easy to improve accuracy further. There is a family of higher-order ODE solution methods (Runge-Kutta methods) of which the 4th order method is most popular; it involves several predictor-corrector steps. As with adaptive integration, one can compare the results of two methods of different orders in order to decide if the step size \(h\) should be reduced. This is what Matlab's ODE solvers do; for example, <code class="code-inline tex2jax_ignore">ode45</code> is a solver that combines a 4th order method with a 5th order method. We will use it later.</p>
+<span class="incontext"><a href="section-ode-euler-improved.html#p-607">in-context</a></span>
 </body>
 </html>
