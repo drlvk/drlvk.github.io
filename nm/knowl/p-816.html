@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:37-05:00    *-->
+<!--*    on 2021-03-14T15:18:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Since our models generally have more than one parameter, we need multivariable <code class="code-inline tex2jax_ignore">fminsearch</code>. For example,</p>
-<pre class="code-block tex2jax_ignore">
-fminsearch(@(b) b(1)^2 + b(2)^4 + 3*b(1) - b(2), [1; 2])
-</pre>
-<p data-braille="continuation">finds the minimum of \(b_1^2 + b_2^4 + 3b_1 - b_2\) (using letter b to shorten the formula, as usually our parameters are called \(\beta_1, \beta_2,\dots\text{.}\)) Note that the function being minimized still has only one  argument, but this argument is now a vector.</p>
-<span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-816">in-context</a></span>
+<p>Transforming data to make the Linear Least Squares work has limited applicability. Most nonlinear models cannot be transformed in this way, and even if the transformation is possible, it sometimes results in poorly fitting curves. We should consider the possibility of working directly with parameters that lead to nonlinear problems.</p>
+<span class="incontext"><a href="chapter-nonlinear-least-squares.html#p-816">in-context</a></span>
 </body>
 </html>

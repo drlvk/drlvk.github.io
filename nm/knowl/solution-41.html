@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:36-05:00    *-->
+<!--*    on 2021-03-14T15:18:57-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,19 +14,23 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">28.1.1.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">27.3.1.1</span><span class="period">.</span>
 </h6>
-<p>The vector <code class="code-inline tex2jax_ignore">y</code> is already defined above, but we need <code class="code-inline tex2jax_ignore">yt = log(y)</code> to get transformed y-values.</p>
-<pre class="code-block tex2jax_ignore">x = (1:8)';  
-yt = log(y);
-X = x.^(0:1); 
-beta = X\yt;
-f = @(x) exp((x.^(0:1))*beta);
+<p>Note that the vector of t-statistics, which is called <code class="code-inline tex2jax_ignore">ts</code> below, contains the statistics for the coefficients of \(x^0, \dots, x^d\) in this order. This means that \(ts(end)\) is really the value of most interest here.</p>
+<pre class="code-block tex2jax_ignore">x = (0:14)';  
+y = [9 8 5 5 3 1 2 5 4 7 8 8 7 7 8]'; 
+d = 2;            
+X = x.^(0:d);     
+beta = X\y;        
+f = @(x) (x.^(0:d))*beta; 
 
-t = linspace(1, 10, 1000)';
-plot(t, f(t), 'b', x, y, 'r*')
+[n, p] = size(X);
+s2 = norm(y-f(x))^2/(n-p);
+C = s2*inv(X'*X);         
+ts = beta./sqrt(diag(C));
+disp(ts)
 </pre>
 </div>
-<span class="incontext"><a href="section-example-exponential-fit.html#solution-41">in-context</a></span>
+<span class="incontext"><a href="section-standard-error.html#solution-41">in-context</a></span>
 </body>
 </html>

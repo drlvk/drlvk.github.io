@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:35-05:00    *-->
+<!--*    on 2021-03-14T15:18:56-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This terminology needs some explanation. The word <a class="external" href="https://en.wikipedia.org/wiki/Flat_spline" target="_blank">spline</a> used to refer to a long thin strip of flexible material (e.g., metal) which, if constrained at several points, assumes the shape of a smooth curve passing through these points. Unlike an elastic band which minimizes its length (creating a piecewise linear shape), the spline minimizes its <em class="emphasis">bending energy</em>. A mathematical idealization of the bending energy of a curve \(y=f(x)\) is the integral \(\int_a^b f''(x)^2\,dx\text{.}\) It can be shown that among <em class="emphasis">all functions</em> (of whatever form) that satisfy the constraints \(f(x_k)=y_k\text{,}\) the “natural spline” has the smallest value of \(\int_a^b f''(x)^2\,dx\text{.}\) This attractive mathematical property earned it the “natural” name… but upon further reflection, the boundary conditions \(S''(a) = 0 = S''(b)\) are actually not that natural. If we are interpolating some smooth function \(y=f(x)\text{,}\) there is no reason to assume that \(f''\) happens to be \(0\) at the endpoints.</p>
-<span class="incontext"><a href="section-cubic-splines.html#p-688">in-context</a></span>
+<p>There are infinitely many ways to connect given data points. The function <a class="xref" data-knowl="./knowl/eq-pl-interpolant.html" title="Equation 23.1.1">(23.1.1)</a> does so by a curve of minimal length, meaning that the graph of \(S\) is the shortest curve passing through the given data points. This is a reasonable way of connecting the points, but not necessarily the best or most natural way. The corners at the data points do not look natural. The piecewise linear graph does not give much insight into the rate of change of the function because it treats the rate as constant on each interval. For example, given the function values</p>
+<pre class="code-block tex2jax_ignore">
+x = 1:5;
+y = [8 5.5 5.3333 5.75 6.4];
+</pre>
+<p data-braille="continuation">what is the derivative of the function at \(x = 2\text{?}\) Differentiating the piecewise linear interpolant gives some information but not much. Another question one might ask is: where is the minimum of this function?  The minimum of piecewise linear interpolant is exactly at \(x=3\) but we understand the actual function probably has its minimum between \(2\) and \(3\text{.}\)</p>
+<span class="incontext"><a href="section-piecewise-linear-interpolation.html#p-688">in-context</a></span>
 </body>
 </html>

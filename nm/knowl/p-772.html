@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:36-05:00    *-->
+<!--*    on 2021-03-14T15:18:57-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Recall <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a> in which we find a best-fitting parabola to given data. The code is extended below to allow arbitrary degree \(d\) of the polynomial, and to add the computation of \(R^2\) according to <a class="xref" data-knowl="./knowl/eq-coeff-determination.html" title="Equation 27.1.5">(27.1.5)</a>. Note the use of column vectors below.</p>
-<span class="incontext"><a href="section-overfitting.html#p-772">in-context</a></span>
+<p>Suggestions: sort the Fourier coefficients from smallest to largest using</p>
+<pre class="code-block tex2jax_ignore">
+sorted = sort(abs(fc(:)));    
+</pre>
+<p data-braille="continuation">The total energy is</p>
+<pre class="code-block tex2jax_ignore">
+total = sum(sorted.^2); 
+</pre>
+<p data-braille="continuation">The key point is to write a while loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until they reach the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
+<span class="incontext"><a href="exercises-dft-applications.html#p-772">in-context</a></span>
 </body>
 </html>

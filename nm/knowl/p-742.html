@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:36-05:00    *-->
+<!--*    on 2021-03-14T15:18:57-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,21 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A key term here is <dfn class="terminology">aliasing</dfn>, which is the fact that different trigonometric (or complex exponential) functions may coincide when restricted to a discrete grid of points (<a class="external" href="https://en.wikipedia.org/wiki/Aliasing#/media/File:AliasingSines.svg" target="_blank">illustration</a>). Specifically,</p>
+<p>There is a discrete version of the Fourier series theory outlined in <a href="section-fourier-series.html" class="internal" title="Section 25.2: Fourier series">Section 25.2</a>. In it we fix an integer \(n\) and replace a function \(f\colon [0, 1]\to \mathbb C\) by its sampled values \(z_k = f(k/n)\text{,}\) \(k=0, 1, \dots, n-1\text{.}\) The discrete version of inner product <a class="xref" data-knowl="./knowl/eq-inner-product.html" title="Equation 25.2.1">(25.2.1)</a> is</p>
 <div class="displaymath">
-\begin{equation*}
-\exp(2\pi i k t)  = \exp(2\pi i (k-n) t), \quad t = 0, 1/n, 2/n, \dots, 1
-\end{equation*}
+\begin{equation}
+\langle f, g \rangle_d =  \sum_{\ell=0}^{n-1}f(\ell/n)\overline{g(\ell/n)}
+=  \sum_{k=0} z_\ell \overline{w_\ell}\tag{25.3.1}
+\end{equation}
 </div>
-<p data-braille="continuation">In order to avoid extraneous oscillations we should subtract \(n\) from large elements of the vector <code class="code-inline tex2jax_ignore">k = 0:n-1</code> above, so that instead of</p>
-<pre class="code-block tex2jax_ignore">
-k = [0 1 2 3 4 5 6 7 8];
-</pre>
-<p data-braille="continuation">we have</p>
-<pre class="code-block tex2jax_ignore">
-k = [0 1 2 3 4 -4 -3 -2 -1];
-</pre>
-<p data-braille="continuation">Replacing <code class="code-inline tex2jax_ignore">k = 0:n-1</code> in the above code with <code class="code-inline tex2jax_ignore">k = [0:(n-1)/2 (1-n)/2:-1];</code> corrects the issue.</p>
-<span class="incontext"><a href="section-trigonometric-interpolation.html#p-742">in-context</a></span>
+<p data-braille="continuation">The functions \(f_k = \exp(2\pi i k)\text{,}\) \(k=0, \dots, n-1\text{,}\) are orthogonal with respect to this inner product. (Not orthonormal, as \(\langle f_k, f_k\rangle = n\text{.}\)) Note we only need \(n\) of these functions (why?).</p>
+<span class="incontext"><a href="section-discrete-fourier-transform.html#p-742">in-context</a></span>
 </body>
 </html>

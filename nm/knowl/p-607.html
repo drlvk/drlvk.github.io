@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:34-05:00    *-->
+<!--*    on 2021-03-14T15:18:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>It is not so easy to improve accuracy further. There is a family of higher-order ODE solution methods (Runge-Kutta methods) of which the 4th order method is most popular; it involves several predictor-corrector steps. As with adaptive integration, one can compare the results of two methods of different orders in order to decide if the step size \(h\) should be reduced. This is what Matlab's ODE solvers do; for example, <code class="code-inline tex2jax_ignore">ode45</code> is a solver that combines a 4th order method with a 5th order method. We will use it later.</p>
-<span class="incontext"><a href="section-ode-euler-improved.html#p-607">in-context</a></span>
+<p>Euler's method has \(y_1 = 1 + h\text{,}\) hence \(|e^h - y_1| = h^2/2 + \dots\text{,}\) the local error is of second order. The cumulative error is of order \(1\text{.}\) This is consistent with what we know about left endpoint method of integration.</p>
+<span class="incontext"><a href="section-ode-order-accuracy.html#p-607">in-context</a></span>
 </body>
 </html>

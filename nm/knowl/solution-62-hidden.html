@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:39-05:00    *-->
+<!--*    on 2021-03-14T15:19:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,16 +12,10 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<p>We set up the log-likelihood function <code class="code-inline tex2jax_ignore">LogL</code>, maximize it, and use the optimal parameters <code class="code-inline tex2jax_ignore">cc</code> to predict the status of the 10 people who were not a part of the training set.</p>
-<pre class="code-block tex2jax_ignore">LogL = @(c) sum(log(1./(1+exp(-c(1)*age1-c(2)*sys1-c(3))))) + sum(log(1 - 1./(1+exp(-c(1)*age0-c(2)*sys0-c(3)))));
-cc = fminsearch(@(c) -LogL(c), [0; 0; 0]);
-
-age = [38 45 30 48 48 25 44 49 45 48];
-sys = [138 124 130 123 129 128 124 119 136 114];
-prediction = 1./(1+exp(-cc(1)*age-cc(2)*sys-cc(3)));
-actual = [1 0 0 0 0 1 1 0 1 0];
-disp([prediction' actual']);
+<p>Rephrasing this as the minimization of \(-x_1-x_2\text{,}\) we see that the coefficient vector should be <code class="code-inline tex2jax_ignore">[-1 -1]</code>. Executing</p>
+<pre class="code-block tex2jax_ignore">
+linprog([-1; -1], [1 2; 3 1], [4; 5])
 </pre>
-<p>Excluding the cases where prediction is a number close to \(0.5\) (which should be considered a “don't know” answer), the model got 6 out of 8 right.</p>
+<p data-braille="continuation">yields <code class="code-inline tex2jax_ignore">[1.2; 1.4]</code>. (Try to visualize this problem and its solution.)</p>
 </div></body>
 </html>

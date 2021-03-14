@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:34-05:00    *-->
+<!--*    on 2021-03-14T15:18:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,9 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Given the large number of terms in double sum <a class="xref" data-knowl="./knowl/eq-double-quad-gen.html" title="Equation 18.1.1">(18.1.1)</a>, we should try to organize such computations efficiently. The first thing to do is to evaluate the function on a rectangular grid formed by all \((x_i, y_j)\) points. A useful Matlab command is <code class="code-inline tex2jax_ignore">meshgrid</code>, which is used as</p>
-<pre class="code-block tex2jax_ignore">[X, Y] = meshgrid(x, y)</pre>
-<p data-braille="continuation">where <code class="code-inline tex2jax_ignore">x,y</code> are vectors with evaluation points. The output consists of two matrices <code class="code-inline tex2jax_ignore">X, Y</code> which represent the rectangular grid: <code class="code-inline tex2jax_ignore">X</code> has the x-coordinates of all the grid points, and <code class="code-inline tex2jax_ignore">Y</code> has their y-coordinates. The reason this is useful is that <code class="code-inline tex2jax_ignore">f(X, Y)</code> can now be used to evaluate the function on the entire grid at once (producing a matrix of its values), provided \(f\) is written so that it can handle matrix input.</p>
-<span class="incontext"><a href="section-integration-rectangle.html#p-566">in-context</a></span>
+<p>Calculate the actual error in <a class="xref" data-knowl="./knowl/ex-simpson-1.html" title="Exercise 17.6.1">Exercise 17.6.1</a>, that is, the difference between what Simpson's rule gives and the exact value of the integral. Is the actual error similar in size to the error estimate found in <a class="xref" data-knowl="./knowl/ex-simpson-1.html" title="Exercise 17.6.1">Exercise 17.6.1</a>?</p>
+<span class="incontext"><a href="exercises-adaptive-integration.html#p-566">in-context</a></span>
 </body>
 </html>

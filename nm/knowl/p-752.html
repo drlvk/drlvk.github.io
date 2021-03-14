@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:36-05:00    *-->
+<!--*    on 2021-03-14T15:18:57-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We can set all small Fourier coefficients (less than some threshold <code class="code-inline tex2jax_ignore">thr</code>) to zero using <code class="code-inline tex2jax_ignore">fc(abs(fc) &lt; thr) = 0;</code>. One way to determine the threshold reasonably is to use <dfn class="terminology">percentiles</dfn>: for example,</p>
-<pre class="code-block tex2jax_ignore">
-thr = prctile(abs(fc(:)), 75);
-</pre>
-<p data-braille="continuation">returns the number <code class="code-inline tex2jax_ignore">thr</code> such that 75 percent of Fourier coefficients are less than it, and the other are greater (in absolute value).</p>
-<span class="incontext"><a href="section-2d-dft.html#p-752">in-context</a></span>
+<p>Having computed the Fourier coefficients of a function (which may represent, for example, a sound recording or an image) we often discover that most of the coefficients are relatively small. One can try to discard small Fourier coefficients and reconstruct the function/sound/image from what remains, thus achieving some amount of data compression.</p>
+<span class="incontext"><a href="chapter-dft-applications.html#p-752">in-context</a></span>
 </body>
 </html>

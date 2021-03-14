@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:37-05:00    *-->
+<!--*    on 2021-03-14T15:18:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This is a very direct approach to minimization of \(f\colon [a, b]\to \mathbb R\text{:}\) choose some large number of points \(x_1, \dots, x_n\) on the interval, equally spaced, evaluate \(f\) at each point, take the minimum of \(f(x_k)\text{.}\) How close will this be to the actual global minimum? If \(f\) is differentiable and \(|f'|\le M\) on the interval, the mean value theorem implies</p>
-<div class="displaymath">
-\begin{equation}
-|f(x)-f(y)| \le M|x-y| \tag{30.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">for all \(x, y\text{.}\) Placing \(n\) points  on the interval, we have intervals of size \(h = (b-a)/(n-1)\) between them. Hence, each point of the interval is within distance \(h/2\) of some grid point \(x_k\text{.}\) Therefore,</p>
-<div class="displaymath">
-\begin{equation}
-\min_{k} f(x_k) - \frac{Mh}{2} \le \min_{a\le x\le b} f(x)  \le \min_{k} f(x_k)\tag{30.2.2}
-\end{equation}
-</div>
-<p data-braille="continuation">This may be good enough for a rough estimate of global minimum. One can also refine this estimate by applying a more advanced method on the interval \([x_{k-1}, x_{k+1}]\) around the point \(x_k\) where \(\min_{k} f(x_k)\) is attained.</p>
-<span class="incontext"><a href="section-brute-force.html#p-843">in-context</a></span>
+<p>The <dfn class="terminology">Extreme Value Theorem</dfn> states that if \(f\) is a continuous function and the set \(E\) is closed (includes all its boundary points) and bounded (is contained in some cube), then there is a point \(p\in E\) at which \(f\) attains its global minimum.</p>
+<span class="incontext"><a href="section-introduction-optimization.html#p-843">in-context</a></span>
 </body>
 </html>

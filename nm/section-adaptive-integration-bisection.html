@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:16-05:00    *-->
+<!--*    on 2021-03-14T15:18:35-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -214,7 +214,9 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="chapter-simpson-newton-cotes.html" data-scroll="chapter-simpson-newton-cotes"><span class="codenumber">14</span> <span class="title">Simpson's rule and other Newton-Cotes rules</span></a><ul>
 <li><a href="section-simpson-rule.html" data-scroll="section-simpson-rule">Simpson's rule</a></li>
+<li><a href="section-simpson-other-derivation.html" data-scroll="section-simpson-other-derivation">Other derivations of Simpson's rule</a></li>
 <li><a href="section-newton-cotes.html" data-scroll="section-newton-cotes">Newton-Cotes rules</a></li>
+<li><a href="examples-simpson-newton-cotes.html" data-scroll="examples-simpson-newton-cotes">Examples and questions</a></li>
 <li><a href="exercises-simpson-newton-cotes.html" data-scroll="exercises-simpson-newton-cotes">Homework</a></li>
 </ul>
 </li>
@@ -409,12 +411,12 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-adaptive-integration-bisection"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">17.3</span> <span class="title">Recursive subdivision algorithm</span>
 </h2>
-<p id="p-545">The previous section showed how the accuracy of integration can be automatically estimated. Next question is, what can be done when it is insufficient? Using more evaluation points is logical. But if the algorithm keeps the interval of integration \([a, b]\) the same and just increases the number of points on that interval (e.g., in Simpson's rule), this is not the best way to adapt. Typically, the accuracy is poor because of insufficient smoothness or large derivative at some parts of the interval, while other parts are fine.</p>
-<p id="p-546">A better way to adapt is <dfn class="terminology">recursive subdivision</dfn>.</p>
+<p id="p-551">The previous section showed how the accuracy of integration can be automatically estimated. Next question is, what can be done when it is insufficient? Using more evaluation points is logical. But if the algorithm keeps the interval of integration \([a, b]\) the same and just increases the number of points on that interval (e.g., in Simpson's rule), this is not the best way to adapt. Typically, the accuracy is poor because of insufficient smoothness or large derivative at some parts of the interval, while other parts are fine.</p>
+<p id="p-552">A better way to adapt is <dfn class="terminology">recursive subdivision</dfn>.</p>
 <ol class="decimal">
-<li id="li-133">Given an interval \([a, b]\text{,}\) compute the integral over it and estimate the error.</li>
-<li id="li-134">If the error is small enough, return the result of computation.</li>
-<li id="li-135">If the error is too large, divide the interval into two halves \([a, c]\) and \([c, b]\) where \(c = (a+b)/2\text{,}\) and restart the process from step 1, for each half separately.</li>
+<li id="li-136">Given an interval \([a, b]\text{,}\) compute the integral over it and estimate the error.</li>
+<li id="li-137">If the error is small enough, return the result of computation.</li>
+<li id="li-138">If the error is too large, divide the interval into two halves \([a, c]\) and \([c, b]\) where \(c = (a+b)/2\text{,}\) and restart the process from step 1, for each half separately.</li>
 </ol>
 <p data-braille="continuation">This process involves <dfn class="terminology">recursion</dfn>, because at step 3 the function evaluating the integral has to call itself. Schematically it looks like this.</p>
 <pre class="code-block tex2jax_ignore">function I = adaptive(f, a, b)
@@ -428,10 +430,10 @@ MathJax.Hub.Config({
     end
 end
 </pre>
-<p id="p-547">One has to carefully consider when the difference <code class="code-inline tex2jax_ignore">abs(I1 - I2)</code> is “small enough”. One approach is to ask for small relative error, like <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6 * abs(I2)</code>. However this risks infinite recursion for functions like \(f(x) = \sqrt{x}\) near \(0\text{,}\) which is both small and poorly behaved. No matter how small an interval \([0, \epsilon]\) we use, dividing it further will result in a change that is not very small in relative terms. The process terminates with Matlab reporting: “Out of memory. The likely cause is an infinite recursion within the program.”</p>
-<p id="p-548">If one uses an absolute error bound like <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6</code>, there is another issue. We do not know how many subintervals will be used in the process, so even if each of them contributes an error of less than \(10^{-6}\text{,}\) the total may be significantly higher.</p>
-<p id="p-549">A third approach is to enforce enforce error bound <em class="emphasis">relative to the size of interval</em>, for example <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6 * (b-a)</code>. This avoids the issue with functions that are problematic and small, such as \(f(x) = \sqrt{x}\) near \(0\text{.}\) But it runs into the same issue with functions that are problematic and large, such as  \(f(x) = 1/\sqrt{x}\) near \(0\text{.}\) Here the integral is</p>
-<p id="p-550">A combination approach, such as <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6 * (b-a) + 1e-9</code>, allows the process to stop if the difference became small relative to interval size or just very small in absolute terms. This allows the subdivision to end even for functions like \(f(x) = 1/\sqrt{x}\text{.}\)</p></section></div></main>
+<p id="p-553">One has to carefully consider when the difference <code class="code-inline tex2jax_ignore">abs(I1 - I2)</code> is “small enough”. One approach is to ask for small relative error, like <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6 * abs(I2)</code>. However this risks infinite recursion for functions like \(f(x) = \sqrt{x}\) near \(0\text{,}\) which is both small and poorly behaved. No matter how small an interval \([0, \epsilon]\) we use, dividing it further will result in a change that is not very small in relative terms. The process terminates with Matlab reporting: “Out of memory. The likely cause is an infinite recursion within the program.”</p>
+<p id="p-554">If one uses an absolute error bound like <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6</code>, there is another issue. We do not know how many subintervals will be used in the process, so even if each of them contributes an error of less than \(10^{-6}\text{,}\) the total may be significantly higher.</p>
+<p id="p-555">A third approach is to enforce enforce error bound <em class="emphasis">relative to the size of interval</em>, for example <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6 * (b-a)</code>. This avoids the issue with functions that are problematic and small, such as \(f(x) = \sqrt{x}\) near \(0\text{.}\) But it runs into the same issue with functions that are problematic and large, such as  \(f(x) = 1/\sqrt{x}\) near \(0\text{.}\) Here the integral is</p>
+<p id="p-556">A combination approach, such as <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6 * (b-a) + 1e-9</code>, allows the process to stop if the difference became small relative to interval size or just very small in absolute terms. This allows the subdivision to end even for functions like \(f(x) = 1/\sqrt{x}\text{.}\)</p></section></div></main>
 </div>
 </body>
 </html>

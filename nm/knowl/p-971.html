@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:39-05:00    *-->
+<!--*    on 2021-03-14T15:19:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Imagine applying force \(\mathbf c\) to the point \(\mathbf x^*\text{:}\) if it can be moved in this direction, the objective function will increase. Since such an increase is impossible, the force \(\mathbf c\) must be balanced by reaction forces of the “walls”, i.e., hyperplanes \((A\mathbf x)_k\le b_k\text{,}\) which represent constraints. Only the <em class="emphasis">active</em> constraints, those for which \((A\mathbf x^*)_k = b_k\text{,}\) are relevant here, since \(\mathbf x^*\) does not touch the hyperplanes of inactive constraints. The normal vectors of the constraint hyperplanes are given by the rows of \(A\text{.}\) Transposition makes \(\mathbf c\) a linear combination of the columns of \(A^T\) with nonnegative coefficients; moreover, the coefficients of inactive constraints are zero. This means that \(\mathbb c = A^T \mathbf y^*\) for some vector \(\mathbf y^*\ge 0\) such that if \((A\mathbf x^*)_k\lt b_k\) (inactive constraint) then \(y^*_k=0\text{.}\) Returning to <a class="xref" data-knowl="./knowl/eq-lp-duality-sketch.html" title="Equation 35.2.5">(35.2.5)</a> we see that with \(\mathbf y=\mathbf y^*\) it becomes an equality.</p>
+<p>The main differences between the standard forms of LP problems can be summarized as:</p>
+<ul class="disc">
+<li>Constraints: <em class="emphasis">I</em>nequalities or <em class="emphasis">E</em>quations</li>
+<li>Variables: <em class="emphasis">R</em>eal or <em class="emphasis">N</em>onnegative</li>
+</ul>
+<p data-braille="continuation">Other differences: minimization vs maximization, inequalities \(\le \) vs \(\ge \text{,}\) are relatively minor: changing the signs of \(A, \mathbf b\text{,}\) or \(\mathbf c\) takes care of those variations. So, one can imagine four major types of LP problems: IR, IN, ER, and EN. However, “ER” type problems are not really interesting, because a system of linear equations with real variables determines a hyperplane, and the restriction of a  linear function to a hyperplane is either unbounded or constant. This leaves us with three types: IR, IN, EN, the examples of which are given by <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a>, <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a>, and <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a>, respectively.</p>
 <span class="incontext"><a href="section-linear-programming-duality.html#p-971">in-context</a></span>
 </body>
 </html>

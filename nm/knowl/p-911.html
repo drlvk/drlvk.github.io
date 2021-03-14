@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:38-05:00    *-->
+<!--*    on 2021-03-14T15:18:59-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The intuitive picture of steepest descent (the gradient method) is a drop of water sliding down the graph of a function under the force of gravity: the water follows the steepest way down. The intuition of the Nelder-Mead method is a geometric shape like a triangle or a tetrahedron tumbling down a sloped surface. In two dimensions, the shape is a triangle, in three dimensions it is a tetrahedron; in \(n\) dimensions it is an \(n\)-dimensional <dfn class="terminology">simplex</dfn>, meaning \(n+1\) points that are not contained in any hyperplane. To keep the explanation simple, we focus on the case \(n=2\text{.}\)</p>
-<span class="incontext"><a href="section-nelder-mead-reflect.html#p-911">in-context</a></span>
+<p>Suppose we arrived to point \(\mathbf a\) from point \(\mathbf b\text{,}\) following the direction vector \(\mathbf v\text{.}\) With the conjugate gradient method, the direction of our next move will be\(\mathbf w = -\nabla f(a) + \gamma \mathbf v\) where \(\gamma &gt; 0\text{.}\) Large \(\gamma\) means we keep mostly the same direction as before, small \(\gamma\) means we go with the gradient. We should make \(\gamma\) smaller, giving more importance to the gradient, if \(\mathbf a\) is much closer to the minimum than \(\mathbf b\text{.}\) This progress can be measured by the ratio \(|\nabla f(\mathbf a)|^2/|\nabla f(\mathbf b)|^2\) (small if we arrived in the vicinity of minimum), so we use this quantity as \(\gamma\text{.}\)</p>
+<span class="incontext"><a href="section-conjugate-gradient.html#p-911">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:38-05:00    *-->
+<!--*    on 2021-03-14T15:18:59-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,32 +14,27 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">33.2.1.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">33.1.1.1</span><span class="period">.</span>
 </h6>
-<p>The code is mostly the same as in <a class="xref" data-knowl="./knowl/example-reflection-nelder-mead.html" title="Example 33.1.1: Reflection-only Nelder-Mead method">Example 33.1.1</a>, with additional lines noted in comments.</p>
+<p>It is convenient to arrange column vectors \(A, B, C\) into a matrix \(T\) representing a triangle. This makes it easy to replace the vertex with greatest value of \(f\) after identifying it with two-output <code class="code-inline tex2jax_ignore">max</code> command. The command <code class="code-inline tex2jax_ignore">mean(T, 2)</code> computes the mean \((A+B+C)/3\) while <code class="code-inline tex2jax_ignore">sum(T, 2)</code> is \(A+B+C\text{.}\)</p>
 <pre class="code-block tex2jax_ignore">f = @(x) x(1)^4 + x(2)^2 - sin(x(1)+x(2));
-% f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
 
 A = randn(2, 1);
-B = A + [1; 0];
-C = A + [0; 1];
+B = A + [0.01; 0];
+C = A + [0; 0.01];
 T = [A B C];
 max_tries = 10000;
 path = zeros(2, max_tries);
 
 for k = 1:max_tries
     path(:, k) = mean(T, 2);
-    if max(abs(T - path(:, k))) &lt; 1e-6
-        break     % stop, the triangle is small enough
-    end
     values = [f(T(:,1)) f(T(:,2)) f(T(:,3))];
     [fmax, ind] = max(values);
     R = sum(T, 2) - 2*T(:, ind);
     if f(R) &lt; fmax
         T(:, ind) = R;
     else 
-        [fmin, ind] = min(values);   % find the best vertex
-        T = (T + T(:, ind))/2;       % contract toward it
+        break
     end
 end
 
@@ -52,6 +47,6 @@ else
 end
 </pre>
 </div>
-<span class="incontext"><a href="section-nelder-mead-contract.html#solution-56">in-context</a></span>
+<span class="incontext"><a href="section-nelder-mead-reflect.html#solution-56">in-context</a></span>
 </body>
 </html>

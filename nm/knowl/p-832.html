@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:37-05:00    *-->
+<!--*    on 2021-03-14T15:18:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,18 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>High-dimensional optimization is difficult, and <code class="code-inline tex2jax_ignore">fminsearch</code> will need your help in the form of a good initial point (<code class="code-inline tex2jax_ignore">ones(9, 1)</code> is not good enough). The logistic equation <a class="xref" data-knowl="./knowl/eq-logistic-curve-shift.html" title="Equation 29.4.1">(29.4.1)</a> leads to the 9-parameter model</p>
+<p>This section takes another look at the logistic function <a class="xref" data-knowl="./knowl/eq-general-logistic-curve.html" title="Equation 29.1.2">(29.1.2)</a> in preparation for the homework assignment. The meaning of parameter \(A\) is not very intuitive, which motivates the following  <em class="emphasis">equivalent form</em> of the function:</p>
 <div class="displaymath">
 \begin{equation}
-y = \frac{M_1}{1 + e^{-r_1 (x-a_1)}} + \frac{M_2}{1 + e^{-r_2 (x-a_2)}} + \frac{M_3}{1 + e^{-r_3 (x-a_3)}}\tag{29.5.1}
+y = \frac{M}{1 + e^{-r(x-a)}}\tag{29.4.1}
 \end{equation}
 </div>
-<p data-braille="continuation">Reasonable initial guesses would be:</p>
+<p data-braille="continuation">(so, \(A = e^{ra}\text{.}\)) Note that this curve is obtained from the <dfn class="terminology">standard logistic function</dfn></p>
+<div class="displaymath">
+\begin{equation*}
+\sigma(x) = \frac{1}{1+e^{-x}}
+\end{equation*}
+</div>
+<p data-braille="continuation">with</p>
 <ul class="disc">
-<li>\(a_1, a_2, a_3\) are the x-values of places where the three “waves” are the steepest</li>
-<li>\(M_1, M_2, M_3\) are the sizes of the three waves</li>
-<li>\(r_1, r_2, r_3\) could be set to 1</li>
+<li>vertical stretching by factor \(M\text{;}\)</li>
+<li>shift to the right by \(a\) units;</li>
+<li>horizontal compression by factor \(r\text{.}\)</li>
 </ul>
-<span class="incontext"><a href="exercises-nonlinear-least-squares.html#p-832">in-context</a></span>
+<p data-braille="continuation">(<a class="external" href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank">Reference and plot</a>.)</p>
+<span class="incontext"><a href="section-logistic-curve.html#p-832">in-context</a></span>
 </body>
 </html>

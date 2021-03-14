@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:34-05:00    *-->
+<!--*    on 2021-03-14T15:18:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
-<span class="incontext"><a href="examples-ode-modeling.html#p-628">in-context</a></span>
+<p>In reality, \(\beta\) is not necessarily constant in time. Let us introduce seasonality into the model by making \(\beta\) a periodic function of \(t\text{,}\) for example</p>
+<pre class="code-block tex2jax_ignore">
+beta = @(t) 0.3 + 0.2*cos(0.2*t);
+</pre>
+<p data-braille="continuation">which is a periodic function that varies between \(0.1\) and \(0.5\text{.}\) Try this out (note that <code class="code-inline tex2jax_ignore">beta</code> should be replaced by <code class="code-inline tex2jax_ignore">beta(t)</code> in the formula for <code class="code-inline tex2jax_ignore">rhs</code>).</p>
+<span class="incontext"><a href="section-ode-epidemiology.html#p-628">in-context</a></span>
 </body>
 </html>

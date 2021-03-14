@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:36-05:00    *-->
+<!--*    on 2021-03-14T15:18:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,14 +12,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<pre class="code-block tex2jax_ignore">p = 75;
-im = imread('winter.png');
-fc = fft2(im);
-thr = prctile(abs(fc(:)), p);
-fc(abs(fc) &lt; thr) = 0;
-im2 = uint8(real(ifft2(fc)));
-imshow(im2)
+<pre class="code-block tex2jax_ignore">f = @(x) exp(x);  % or exp(sqrt(x))
+a = 0;
+b = 1;
+exact = exp(1)-1;  % or 2
+
+n = 10;
+h = (b-a)/n;
+x = a:h:b;
+y = f(x);   
+
+T = (h/2)*(y(1) + y(end) + 2*sum(y(2:end-1))); 
+S = (h/3)*(y(1) + y(end) + 4*sum(y(2:2:end-1)) + 2*sum(y(3:2:end-2))); 
+midpoints = (x(1:end-1) + x(2:end))/2;
+M = h*sum(f(midpoints));
+
+er = abs([T M S] - exact);
+fprintf('Errors: Trapezoidal %g, Midpoint %g, Simpson %g\n', er);
 </pre>
-<p>The inverse Fourier transform may have imaginary part due to the truncation of Fourier coefficients and rounding errors in computations. This imaginary part is removed with <code class="code-inline tex2jax_ignore">real</code>. The result is converted to unsigned 8-bit integers with <code class="code-inline tex2jax_ignore">uint8</code>.</p>
+<p>The function \(f(x) = e^{\sqrt{x}} \) is not differentiable at \(0\text{.}\) This behavior affects higher order methods more because they are based on comparing the function to a smooth one (such as a parabola). The midpoint method has an advantage in that it does not use the problematic point \(0\text{.}\)</p>
 </div></body>
 </html>

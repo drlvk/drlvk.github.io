@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:33-05:00    *-->
+<!--*    on 2021-03-14T15:18:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A better way to adapt is <dfn class="terminology">recursive subdivision</dfn>.</p>
-<ol class="decimal">
-<li>Given an interval \([a, b]\text{,}\) compute the integral over it and estimate the error.</li>
-<li>If the error is small enough, return the result of computation.</li>
-<li>If the error is too large, divide the interval into two halves \([a, c]\) and \([c, b]\) where \(c = (a+b)/2\text{,}\) and restart the process from step 1, for each half separately.</li>
-</ol>
-<p data-braille="continuation">This process involves <dfn class="terminology">recursion</dfn>, because at step 3 the function evaluating the integral has to call itself. Schematically it looks like this.</p>
-<span class="incontext"><a href="section-adaptive-integration-bisection.html#p-546">in-context</a></span>
+<p>Moreover, formulas like <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> are difficult to implement in an algorithm. We know how to differentiate numerically (<a href="chapter-numerical-differentiation.html" class="internal" title="Chapter 12: Numerical differentiation">Chapter 12</a>) but finding the absolute maximum of some function on an interval is not easy at all, as we will see later in the course.</p>
+<span class="incontext"><a href="section-motivation-adaptive-integration.html#p-546">in-context</a></span>
 </body>
 </html>

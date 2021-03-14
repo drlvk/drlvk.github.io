@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:34-05:00    *-->
+<!--*    on 2021-03-14T15:18:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Ordinary differential equations (the subject of MAT 414 and MAT 485) involve at least one unknown function of one variable, as well as its derivatives. Differential equations model a process evolving in time. While there are symbolic solutions for some kinds of linear differential equations, the nonlinear equations usually require a numerical solution.</p>
-<span class="incontext"><a href="chapter-ode-euler.html#p-589">in-context</a></span>
+<p>One of the distinguishing features of the normal distribution is the following: if one generates a random \(d\)-dimensional vector \(\mathbf x\) by taking each component \(x_1, \dots, x_d\) independently from the normal distribution, the vector \(\mathbf x\) is equally likely to point in any given direction. More precisely, the unit vectors \(\mathbf x / |\mathbf x|\) are uniformly distributed over the unit sphere. With Matlab, this process amounts to the computations</p>
+<pre class="code-block tex2jax_ignore">
+x = randn(1, d);
+x = x/norm(x);
+</pre>
+<p data-braille="continuation">Note that <code class="code-inline tex2jax_ignore">x = randn(1, d)/norm(randn(1, d))</code> would not do the job, because each use of <code class="code-inline tex2jax_ignore">randn</code> leads to a new random vector.</p>
+<span class="incontext"><a href="section-integration-monte-carlo.html#p-589">in-context</a></span>
 </body>
 </html>

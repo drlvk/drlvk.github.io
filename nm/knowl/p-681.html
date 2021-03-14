@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:35-05:00    *-->
+<!--*    on 2021-03-14T15:18:56-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A more abstract approach to the construction of degree 1 spline is as follows:</p>
-<ul class="disc">
-<li>We have \(n-1\) subintervals between \(n\) data points.</li>
-<li>On each subinterval we choose a degree 1 polynomial; this means we have \(2(n-1)\) coefficients to choose.</li>
-<li>But we want to spline to be continuous, so the values at each interior data point from the left and from the right must match. There are \(n-2\) interior data points, so the continuity imposes \(n-2\) equations.</li>
-<li>Finally, the spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
-<li>The total is \(n-2+n=2n-2\) equations with \(2(n-1) = 2n-2\) unknowns, so we expect (and get) a unique solution.</li>
-</ul>
-<span class="incontext"><a href="section-piecewise-linear-interpolation.html#p-681">in-context</a></span>
+<p>(Theoretical) Use <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine-U.html" title="Equation 22.4.2">(22.4.2)</a> to prove that the Chebyshev extreme points \(x_k = \cos(\pi k/n)\) with \(k=1, \dots, n-1\) are the roots of polynomial \(U_{n-1}\text{.}\)</p>
+<span class="incontext"><a href="exercises-chebyshev.html#p-681">in-context</a></span>
 </body>
 </html>

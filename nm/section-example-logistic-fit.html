@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:22-05:00    *-->
+<!--*    on 2021-03-14T15:18:42-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -214,7 +214,9 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="chapter-simpson-newton-cotes.html" data-scroll="chapter-simpson-newton-cotes"><span class="codenumber">14</span> <span class="title">Simpson's rule and other Newton-Cotes rules</span></a><ul>
 <li><a href="section-simpson-rule.html" data-scroll="section-simpson-rule">Simpson's rule</a></li>
+<li><a href="section-simpson-other-derivation.html" data-scroll="section-simpson-other-derivation">Other derivations of Simpson's rule</a></li>
 <li><a href="section-newton-cotes.html" data-scroll="section-newton-cotes">Newton-Cotes rules</a></li>
+<li><a href="examples-simpson-newton-cotes.html" data-scroll="examples-simpson-newton-cotes">Examples and questions</a></li>
 <li><a href="exercises-simpson-newton-cotes.html" data-scroll="exercises-simpson-newton-cotes">Homework</a></li>
 </ul>
 </li>
@@ -409,7 +411,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-example-logistic-fit"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">28.2</span> <span class="title">Logistic fit</span>
 </h2>
-<p id="p-795">If we simplify the SIR model (<a href="section-ode-epidemiology.html" class="internal" title="Section 20.1: Models of an epidemic">Section 20.1</a>) by removing the recovering process, the proportion of infected people in the population grows according to the ODE \(y' = c y(1-y)\) with some coefficient \(c\text{.}\) This ODE has an explicit solution</p>
+<p id="p-801">If we simplify the SIR model (<a href="section-ode-epidemiology.html" class="internal" title="Section 20.1: Models of an epidemic">Section 20.1</a>) by removing the recovering process, the proportion of infected people in the population grows according to the ODE \(y' = c y(1-y)\) with some coefficient \(c\text{.}\) This ODE has an explicit solution</p>
 <div class="displaymath">
 \begin{equation}
 y = \frac{1}{1 + a e^{-kt}}\label{eq-logistic-function}\tag{28.2.1}
@@ -422,17 +424,17 @@ y = \frac{1}{1 + a e^{-kt}}\label{eq-logistic-function}\tag{28.2.1}
 \end{equation}
 </div>
 <p data-braille="continuation">Thus, we can fit a linear function to the values \(\log(y_k/(1-y_k))\) and then apply the inverse of the transformation \(z = \log(y/(1-y))\text{,}\) which is \(y = 1 / (1+e^{-z})\text{.}\)</p>
-<p id="p-796">The logistic model can reasonable apply to other processes which are slow initially, speed up, and then slow down again. The following example, where “population” consists of Covid-positive students, models the process of their recovery.</p>
+<p id="p-802">The logistic model can reasonable apply to other processes which are slow initially, speed up, and then slow down again. The following example, where “population” consists of Covid-positive students, models the process of their recovery.</p>
 <article class="example example-like" id="example-best-fit-logistic"><a data-knowl="" class="id-ref original" data-refid="hk-example-best-fit-logistic"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">28.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Fit a logistic function to Covid data.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-logistic"><article class="example example-like"><p id="p-797">There were at least 121 reported Covid infections among SU students between October 8 and October 26. The following are the cumulative counts of people recovered, day by day, starting with October 9.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-logistic"><article class="example example-like"><p id="p-803">There were at least 121 reported Covid infections among SU students between October 8 and October 26. The following are the cumulative counts of people recovered, day by day, starting with October 9.</p>
 <pre class="code-block tex2jax_ignore">
 y = [1 1 1 5 8 10 27 44 62 93 101 110 112 115 116 117 118 120]';  
 </pre>
 <p data-braille="continuation">Consider these as proportions of the total “population” of 121 and fit a logistic function to these proportions.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-solution-42" id="solution-42"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-42"><div class="solution solution-like">
-<p id="p-798">The vector <code class="code-inline tex2jax_ignore">y</code> is already defined above, but we need to compute proportions <code class="code-inline tex2jax_ignore">p = y/121</code> and transform them by <code class="code-inline tex2jax_ignore">yt = log(p./(1-p))</code>. Then the usual linear regression is applied.</p>
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-43" id="solution-43"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-43"><div class="solution solution-like">
+<p id="p-804">The vector <code class="code-inline tex2jax_ignore">y</code> is already defined above, but we need to compute proportions <code class="code-inline tex2jax_ignore">p = y/121</code> and transform them by <code class="code-inline tex2jax_ignore">yt = log(p./(1-p))</code>. Then the usual linear regression is applied.</p>
 <pre class="code-block tex2jax_ignore">x = (1:numel(y))';  
 p = y/121;
 yt = log(p./(1-p));
@@ -445,7 +447,7 @@ plot(t, f(t), 'b', x, p, 'r*')
 </pre>
 </div></div>
 </div></article></div>
-<p id="p-799">The outcome of <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> is not entirely satisfactory. The logit transformation emphasizes the values near 0 and 1, and de-emphasizes those in between. We will revisit logistic fit later.</p></section></div></main>
+<p id="p-805">The outcome of <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> is not entirely satisfactory. The logit transformation emphasizes the values near 0 and 1, and de-emphasizes those in between. We will revisit logistic fit later.</p></section></div></main>
 </div>
 </body>
 </html>

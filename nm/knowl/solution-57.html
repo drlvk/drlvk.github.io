@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:38-05:00    *-->
+<!--*    on 2021-03-14T15:18:59-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,10 +14,11 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">33.3.1.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">33.2.1.1</span><span class="period">.</span>
 </h6>
-<p>The code is mostly the same as in <a class="xref" data-knowl="./knowl/example-reflection-contraction-nelder-mead.html" title="Example 33.2.1: Reflection-contraction Nelder-Mead method">Example 33.2.1</a>, with additional lines noted in comments.</p>
-<pre class="code-block tex2jax_ignore">f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
+<p>The code is mostly the same as in <a class="xref" data-knowl="./knowl/example-reflection-nelder-mead.html" title="Example 33.1.1: Reflection-only Nelder-Mead method">Example 33.1.1</a>, with additional lines noted in comments.</p>
+<pre class="code-block tex2jax_ignore">f = @(x) x(1)^4 + x(2)^2 - sin(x(1)+x(2));
+% f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
 
 A = randn(2, 1);
 B = A + [1; 0];
@@ -29,21 +30,16 @@ path = zeros(2, max_tries);
 for k = 1:max_tries
     path(:, k) = mean(T, 2);
     if max(abs(T - path(:, k))) &lt; 1e-6
-        break
+        break     % stop, the triangle is small enough
     end
     values = [f(T(:,1)) f(T(:,2)) f(T(:,3))];
     [fmax, ind] = max(values);
     R = sum(T, 2) - 2*T(:, ind);
     if f(R) &lt; fmax
-        E = 1.5*sum(T, 2) - 3.5*T(:, ind);  % consider expansion
-        if f(E) &lt; f(R)
-            T(:, ind) = E;                  % choose to expand
-        else
-            T(:, ind) = R;                  % choose to reflect
-        end
+        T(:, ind) = R;
     else 
-        [fmin, ind] = min(values);
-        T = (T + T(:, ind))/2;
+        [fmin, ind] = min(values);   % find the best vertex
+        T = (T + T(:, ind))/2;       % contract toward it
     end
 end
 
@@ -56,6 +52,6 @@ else
 end
 </pre>
 </div>
-<span class="incontext"><a href="section-nelder-mead-expand.html#solution-57">in-context</a></span>
+<span class="incontext"><a href="section-nelder-mead-contract.html#solution-57">in-context</a></span>
 </body>
 </html>

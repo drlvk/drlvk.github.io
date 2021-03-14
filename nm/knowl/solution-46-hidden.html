@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:37-05:00    *-->
+<!--*    on 2021-03-14T15:18:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,15 +12,10 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<pre class="code-block tex2jax_ignore">f = @(x) sin(x) + sin(sqrt(2)*x);
-a = 0;
-b = 100;
-n = 100000;   % number of points
-x = linspace(a, b, n);
-y = f(x);
-[fm, ind] = min(y);
-fprintf('Minimum %g attained near %g \n', fm, x(ind));
+<p>The problem is solved in three lines: model function, optimization, output. The components of vector <code class="code-inline tex2jax_ignore">b</code> below represent the parameters  \(A, C, u, v\) in this order.</p>
+<pre class="code-block tex2jax_ignore">f = @(x, y, b) b(1)*exp(-b(2)*((x-b(3)).^2 + (y-b(4)).^2));
+opt = fminsearch(@(b) sum((z - f(x, y, b)).^2), [1; 1; 1; 1]);
+fprintf('The source is located near (%g, %g) \n', opt(3:4))
 </pre>
-<p>The output is  “Minimum -1.99306 attained near 29.9413”. To estimate the accurac, note that \(|f'(x)|\le 1+\sqrt{2}\approx 2.4\) everywhere, and that \(h = (100-0)/(10^6 - 1)\approx 10^{-4}\text{.}\) So \(Mh/2 \approx 0.00012\) and therefore, the true global minimum of \(f\) lies between \(-1.99306 - Mh/2 = -1.99218\) and \(-1.99306\text{.}\)</p>
 </div></body>
 </html>

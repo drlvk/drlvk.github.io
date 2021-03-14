@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:38-05:00    *-->
+<!--*    on 2021-03-14T15:18:59-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Note there is a reason to have a less restrictive stopping conditions for step size <code class="code-inline tex2jax_ignore">norm(dx)</code> when the goal is minimization (compared to root-finding). A smooth function changes slowly near a point of minimum (like a parabola near its vertex), so an error of size \(10^{-6}\) in terms of location of the minimum could mean an error of about \(10^{-12}\) for the minimal value.</p>
+<p>The underlying issue is that the direction \(-\nabla f\) does not really point toward the minimum of \(f\) in this example. The steepest descent goes sideways due to very different rates of change in different variables. This is one of main reasons why optimization in several variables is hard, and why it is sensitive to <em class="emphasis">scaling</em> of the variables. We would not have such difficulties with \(x_1^2 + 3 x_2^2\text{.}\)</p>
 <span class="incontext"><a href="section-gradient-descent-nd.html#p-896">in-context</a></span>
 </body>
 </html>

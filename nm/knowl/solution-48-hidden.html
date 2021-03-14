@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:37-05:00    *-->
+<!--*    on 2021-03-14T15:18:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,21 +11,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="solution solution-like"><pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
-a = -2;
-b = 2;
-r = (3-sqrt(5))/2;
+<body><div class="solution solution-like">
+<p>First compute the derivatives \(f'(x) = 4x^3 - 6x+1\) and \(f''(x) = 12x^2 - 6\text{.}\) Then iterate the function \(g\) from <a class="xref" data-knowl="./knowl/eq-iterate-newton-min.html" title="Equation 30.3.1">(30.3.1)</a> as in <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>. Most of the code is copied from there.</p>
+<pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
+fp = @(x) 4*x.^3 - 6*x + 1;
+fpp = @(x) 12*x.^2 - 6;
 
-while b-a &gt;= 100*eps(a)
-    c = a + r*(b-a);
-    d = b - r*(b-a);
-    if f(c) &lt; f(d)
-        b = d;
-    else
-        a = c;
+g = @(x) x - fp(x)/fpp(x);
+x0 = 0;
+max_tries = 1000;
+for k = 1:max_tries
+    x1 = g(x0);
+    if abs(x1-x0) &lt; 100*eps(x0)
+        break
     end
+    x0 = x1;
 end
-
-fprintf('Found a minimum x = %g with f(x) = %g \n', c, f(c));
-</pre></div></body>
+if k &lt; max_tries
+    fprintf('Found x = %g with f(x) = %g after %d steps\n', x1, f(x1), k);
+else
+    disp('Failed to converge')
+end
+</pre>
+<p>The result is obtained quickly: “Found x = 0.169938 with f(x) = 1.08414 after 5 steps”. But is this a minimum? Try</p>
+<pre class="code-block tex2jax_ignore">
+t = linspace(-2, 2, 1000);
+plot(t, f(t))
+</pre>
+<p data-braille="continuation">to check. Also, note that looking at a graph like this is essentially a human-assisted brute-force search, since the function was evaluated on a uniform grid through the interval \([-2, 2]\text{.}\)</p>
+<p>Do we get a better result with a different starting point?</p>
+</div></body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:35-05:00    *-->
+<!--*    on 2021-03-14T15:18:56-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Here are three different ways to add two more equations to the linear system for coefficients; they result in three different kinds of cubic splines:</p>
+<p>A more abstract approach to the construction of degree 1 spline is as follows:</p>
 <ul class="disc">
-<li>Require \(S''(a) = 0 = S''(b)\text{.}\) This is a “natural spline”.</li>
-<li>Require \(S'(a) = p\) and  \(S'(b)=q\) for some values \(p, q\text{.}\) This is a “clamped spline”.</li>
-<li>Require \(S'''\) to be continuous at \(x_2\) and at \(x_{n-1}\text{.}\) This is a “not-a-knot spline”.</li>
+<li>We have \(n-1\) subintervals between \(n\) data points.</li>
+<li>On each subinterval we choose a degree 1 polynomial; this means we have \(2(n-1)\) coefficients to choose.</li>
+<li>But we want to spline to be continuous, so the values at each interior data point from the left and from the right must match. There are \(n-2\) interior data points, so the continuity imposes \(n-2\) equations.</li>
+<li>Finally, the spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
+<li>The total is \(n-2+n=2n-2\) equations with \(2(n-1) = 2n-2\) unknowns, so we expect (and get) a unique solution.</li>
 </ul>
-<span class="incontext"><a href="section-cubic-splines.html#p-687">in-context</a></span>
+<span class="incontext"><a href="section-piecewise-linear-interpolation.html#p-687">in-context</a></span>
 </body>
 </html>

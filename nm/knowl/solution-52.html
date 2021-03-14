@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:38-05:00    *-->
+<!--*    on 2021-03-14T15:18:59-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,41 +14,10 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">32.1.1.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">31.2.2.1</span><span class="period">.</span>
 </h6>
-<p>The gradient of Rosenbrock's function is</p>
-<div class="displaymath">
-\begin{equation}
-\begin{pmatrix} 2(x_1-1) + 400x_1(x_1^2-x_2) \\ -200(x_1^2 - x_2)\end{pmatrix}\tag{32.1.3}
-\end{equation}
+<p>Here \(f'(x) = 2Mx\text{,}\) hence \(a - \beta f'(a) = (1-2M\beta)a\text{.}\) This converges to \(0 \) if and only if \(|1-2M\beta| \lt 1\text{.}\) This means we need \(0 \lt \beta \lt 1/M\text{,}\) and the optimal value of \(\beta\) is \(1/(2M)\text{.}\) Note that \(f''(x) = 2M\text{.}\)</p>
 </div>
-<p data-braille="continuation">The code uses a matrix <code class="code-inline tex2jax_ignore">path</code> to record the path taken by the search.</p>
-<pre class="code-block tex2jax_ignore">f = @(x) (x(1)-1).^2 + 100*(x(1).^2 - x(2)).^2;
-fg = @(x) [2*(x(1)-1) + 400*x(1)*(x(1).^2 - x(2)); -200*(x(1).^2 - x(2))];
-x = randn(2, 1);
-max_tries = 10000;
-
-path = zeros(2, max_tries);
-for k = 1:max_tries
-    path(:, k) = x;
-    g = -fg(x);    % direction of descent
-    t_min = fminbnd(@(t) f(x + t*g), 0, 1);
-    dx = t_min*g;
-    x = x + dx;
-    if norm(dx) &lt; 1e-6
-        break
-    end
-end
-
-plot(path(1, 1:k), path(2, 1:k), '-+')
-if k &lt; max_tries
-    fprintf('Found x = (%g, %g) with f(x) = %g after %d steps\n', x, f(x), k);
-else
-    disp('Failed to converge')
-end
-</pre>
-<p>Whether the code converges or fails depends on the initial point. Often it fails despite being on the right track, because of too many tiny zigzagging steps.</p>
-</div>
-<span class="incontext"><a href="section-gradient-descent-nd.html#solution-52">in-context</a></span>
+<span class="incontext"><a href="section-gradient-descent-1d.html#solution-52">in-context</a></span>
 </body>
 </html>

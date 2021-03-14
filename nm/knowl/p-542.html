@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:33-05:00    *-->
+<!--*    on 2021-03-14T15:18:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>So we need an algorithm that estimates the error of numerical integration and adapts to any unusual features of the function.</p>
+<p>Here \(f(x) = x^{3/2}\) and \(h=(9-1)/2 = 4\text{,}\) so according to the formula <a class="xref" data-knowl="./knowl/eq-simps2.html" title="Equation 14.1.5">(14.1.5)</a></p>
+<div class="displaymath">
+\begin{equation*}
+\int_1^9 x^{3/2}\,dx \approx \frac{h}{3} (f(1) + 4f(5) + f(9)) \approx 96.9618
+\end{equation*}
+</div>
+<p data-braille="continuation">The exact value of this integral is \(\frac{2}{5}(9^{5/2} - 1) = 484/5 = 96.8\text{.}\) So, the error is \(0.1618\text{,}\) relatively small.</p>
 <span class="incontext"><a href="section-motivation-adaptive-integration.html#p-542">in-context</a></span>
 </body>
 </html>

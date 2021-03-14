@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:34-05:00    *-->
+<!--*    on 2021-03-14T15:18:56-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The double loop computes the weights <code class="code-inline tex2jax_ignore">w</code> which do not involve the argument of the interpolating polynomial <code class="code-inline tex2jax_ignore">p</code>. This argument is called <code class="code-inline tex2jax_ignore">t</code> because <code class="code-inline tex2jax_ignore">x</code> is already used for the data points. The interval for plotting is chosen to contain the given x-values with a small margin on both sides: this helps both visualization and evaluation, because we avoid plugging in \(t = x_1, x_n\text{.}\) The barycentric evaluation of the polynomial is vectorized. When <code class="code-inline tex2jax_ignore">t</code> is a scalar, <code class="code-inline tex2jax_ignore">t - x'</code> is a column vector. Taking reciprocals element-wise gives another column vector. Dot-product with <code class="code-inline tex2jax_ignore">w</code> or <code class="code-inline tex2jax_ignore">y.*w</code> implements the sums such as \(\sum_{k=1}^n w_k/(t-x_k)\text{.}\)</p>
-<span class="incontext"><a href="section-lagrange-polynomial.html#p-642">in-context</a></span>
+<p>Given \(n\) data points \((x_k, y_k)\) with \(k=1, \dots, n\text{,}\) where all \(x_k\) are different, we are looking for a polynomial \(p\) of degree \(\lt n\) such that \(p(x_k) = y_k\) for  \(k=1, \dots, n\text{.}\) A straightforward way is to do this is to write \(p(x) = \sum_{j=0}^{n-1} c_j x^j\) and solve a linear system for \(c_j\text{;}\) it has \(n\) equations with \(n\) unknowns. But this process is both slow and numerically fragile; the matrix of the linear system is likely to be ill-conditioned. And even if we could find the coefficients of monomials \(x_j\) easily, we do not necessarily want to, for the following reason.</p>
+<span class="incontext"><a href="section-monomial-basis.html#p-642">in-context</a></span>
 </body>
 </html>

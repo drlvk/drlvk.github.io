@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-10T16:49:36-05:00    *-->
+<!--*    on 2021-03-14T15:18:57-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,20 +12,14 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<p>Since <code class="code-inline tex2jax_ignore">ode45</code> returns <code class="code-inline tex2jax_ignore">y</code> as a column, it is transposed in the code below. Then we extend this vector to <code class="code-inline tex2jax_ignore">ye</code>, take its Fourier Transform <code class="code-inline tex2jax_ignore">c</code>, and fold it into cosine coefficients <code class="code-inline tex2jax_ignore">cf</code>. Then plot the resulting sum of cosines.</p>
-<pre class="code-block tex2jax_ignore">[t, y] = ode45(@(t, y) sin(y^2) + t, 0:0.1:3, 1);
-y = y';
-
-n = numel(y);
-ye = [y y(end-1:-1:2)];
-c = real(fft(ye))/numel(ye);
-cf = [c(1) 2*c(2:n-1) c(n)];
-
-L = 3;
-x = linspace(0, L, 1000);
-k = 0:n-1;
-g = cf*cos(k'*x*pi/L);
-plot(x, g, t, y, 'r*')
+<pre class="code-block tex2jax_ignore">p = 75;
+im = imread('winter.png');
+fc = fft2(im);
+thr = prctile(abs(fc(:)), p);
+fc(abs(fc) &lt; thr) = 0;
+im2 = uint8(real(ifft2(fc)));
+imshow(im2)
 </pre>
+<p>The inverse Fourier transform may have imaginary part due to the truncation of Fourier coefficients and rounding errors in computations. This imaginary part is removed with <code class="code-inline tex2jax_ignore">real</code>. The result is converted to unsigned 8-bit integers with <code class="code-inline tex2jax_ignore">uint8</code>.</p>
 </div></body>
 </html>
