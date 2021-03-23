@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-20T15:30:55-04:00    *-->
+<!--*    on 2021-03-22T21:47:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,10 +13,8 @@
 </head>
 <body><div class="answer solution-like">
 <p>When implementing Gauss rules on a general interval \([a, b]\text{,}\) it helps to introduce the midpoint \(c = (a+b)/2\) and half-length \(k = (b-a)/2\text{.}\) This is because the rule was originally designed for \([-1, 1]\) and the linear function from \([-1, 1]\) to \([a, b]\) is \(kx+c\text{.}\) The coefficient \(k\) will appear in the formulas due to the change of variable formula.</p>
-<pre class="code-block tex2jax_ignore">function adaptive_example()
-    f = @ (x) x.^(-1/2);
-    fprintf('The integral is %.6f\n', adaptive(f, 0, 9));
-end
+<pre class="code-block tex2jax_ignore">f = @ (x) x.^(-1/2);
+fprintf('The integral is %.6f\n', adaptive(f, 0, 9));
 
 function I = adaptive(f, a, b)
     c = (a+b)/2;
