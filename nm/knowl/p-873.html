@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-22T21:47:29-04:00    *-->
+<!--*    on 2021-03-24T22:25:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Recall that Newton's method for root-finding, namely \(x = a - f(a)/f'(a)\text{,}\) has a geometric interpretation: draw a tangent line to \(y = f(x)\) at \(x = a\text{,}\) and use the intersection of that line with the horizontal axis as the new \(x\)-value. This geometric construction naturally led to the secant method: just replace a tangent line by a secant line. Is there a geometric interpretation for minimization using Newton's method, that is \(x = a - f'(a)/f''(a)\text{?}\)</p>
+<p>Yes, there is. Let \(T_2\) be the Taylor polynomial at \(x = a\) of degree 2, namely</p>
+<div class="displaymath">
+\begin{equation*}
+T_2(x) = f(a) + f'(a) (x-a) + \frac{f''(a)}{2}(x-a)^2
+\end{equation*}
+</div>
+<p data-braille="continuation">The critical point of this polynomial is found by equating \(T_2'\) to zero: since</p>
+<div class="displaymath">
+\begin{equation*}
+T_2'(x) = f'(a) +  f''(a)(x-a)
+\end{equation*}
+</div>
+<p data-braille="continuation">we get \(x = a - f'(a)/f''(a)\text{.}\) Therefore, the logic of minimization by Newton's method is to draw a “tangent parabola” at \(x=a\) and use its critical point (hopefully a minimum) as the new \(x\)-value.</p>
 <span class="incontext"><a href="section-parabolic-interpolation.html#p-873">in-context</a></span>
 </body>
 </html>

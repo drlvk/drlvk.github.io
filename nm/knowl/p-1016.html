@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-22T21:47:32-04:00    *-->
+<!--*    on 2021-03-24T22:25:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Find and plot the best parabola separating  the points \((2,3)\text{,}\) \((4,6)\text{,}\) and \((7,4)\) (the “top” group) from \((3,4)\) and \((5,5)\) (the “bottom” group).</p>
+<p>We maximize \(w\) subject to constraints \(y_j\ge ax_j^2 + bx_j + c + w\) in the first group and \(y_j\le ax_j^2 + bx_j + c - w\) in the second. Rewrite the constraints as</p>
+<div class="displaymath">
+\begin{equation*}
+ax_j^2 + bx_j + c + w \le y_j
+\end{equation*}
+</div>
+<p data-braille="continuation">in the first group and</p>
+<div class="displaymath">
+\begin{equation*}
+-ax_j^2 - bx_j - c + w \le -y_j
+\end{equation*}
+</div>
+<p data-braille="continuation">in the second. Also, \(w\ge 0\) is required by the geometric meaning of \(w\) as the “width” of separation. Given the vectors <code class="code-inline tex2jax_ignore">xt, yt</code> describing the first group and <code class="code-inline tex2jax_ignore">xb, yb</code> for the second, we can form a system of linear inequalities \(A\mathbf x\le \mathbf b\) as below</p>
 <span class="incontext"><a href="section-classification-linear-programming.html#p-1016">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-22T21:47:26-04:00    *-->
+<!--*    on 2021-03-24T22:24:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,21 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>(Theoretical) Rewrite the second-order equation \(y'' + yy' - ty^3 = e^{-t}\) as a system of two first-order equations.</p>
+<p>Use the <em class="emphasis">midpoint method</em> <a class="xref" data-knowl="./knowl/eq-ode-corrector-midpoint.html" title="Equation 19.4.3">(19.4.3)</a> with step size \(h=0.01\) to solve the autonomous system</p>
+<div class="displaymath">
+\begin{align*}
+y_1' \amp = y_2\\
+y_2' \amp = -y_1 - y_2^3
+\end{align*}
+</div>
+<p data-braille="continuation">with initial condition \(y(0) = \begin{pmatrix}1 \\ 1\end{pmatrix}\) on the interval \([0, 50]\text{.}\) Display both time series plot and phase plot side by side, for example</p>
+<pre class="code-block tex2jax_ignore">
+subplot(1, 2, 1)
+plot(t, y)
+subplot(1, 2, 2)
+plot(y(1,:), y(2,:))
+</pre>
+<p data-braille="continuation">How would you describe the long-term behaviour of this solution?</p>
 <span class="incontext"><a href="exercises-ode-euler.html#p-619">in-context</a></span>
 </body>
 </html>

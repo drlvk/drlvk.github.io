@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-22T21:47:29-04:00    *-->
+<!--*    on 2021-03-24T22:25:01-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The two middle lines describe the logic of the method: set up a model as a function of explanatory variable(s) <code class="code-inline tex2jax_ignore">x</code> and parameter(s) <code class="code-inline tex2jax_ignore">b</code>, then minimize the sum of squares of the deviations <code class="code-inline tex2jax_ignore">y - f(x, b)</code>. Finally, the optimal (?) values of parameter <code class="code-inline tex2jax_ignore">b</code> are used to plot the best-fitting curve.</p>
+<p>The above code fails, as is often the case with multivariable optimization. We should think of a better way to choose the initial point than just <code class="code-inline tex2jax_ignore">[1; 1; 1]</code>. For example, the second parameter is the carrying capacity, and this is clearly at least as large as 120. An initial point like <code class="code-inline tex2jax_ignore">[1; 100; 1]</code> does the job. Note that the fit is much better than what we achieved in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a>.</p>
 <span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-825">in-context</a></span>
 </body>
 </html>

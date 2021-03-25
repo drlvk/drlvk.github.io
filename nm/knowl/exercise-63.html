@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-22T21:47:28-04:00    *-->
+<!--*    on 2021-03-24T22:25:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,8 +13,19 @@
 </head>
 <body>
 <article class="exercise exercise-like"><h6 class="heading">
-<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">2<span class="period">.</span></span>
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span>
 </h6>
-<p>Choose some complex numbers \(z_0, z_1, \dots, z_{n-1}\) (with odd \(n\)) so that connecting them in this order (and connecting \(z_{n-1}\) to \(z_0\)) one gets a closed curve similar to letter B. Then use Discrete Fourier Transform to plot a trigonometric polynomial interpolating these numbers. Does its plot look like letter B?</p></article><span class="incontext"><a href="exercises-discrete-fourier-transform.html#exercise-63">in-context</a></span>
+<p>Instead of deciding in advance how many coefficients to discard, it is usually preferable to maintain some degree of quality of the image. This is often measured in terms of “energy”, defined as the sum of squares of absolute values of Fourier coefficients. That, is to have 95% quality, we want to keep enough Fourier coefficients so that the sum of their squares is at least 95% of the total sum of squares. Equivalently, we discard the coefficients that contribute 5% of the energy.</p>
+<p>The goal of this exercise is to modify <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a> so that the input value is quality <code class="code-inline tex2jax_ignore">q</code> such as 95 or 98, and the image in <a class="xref" data-knowl="./knowl/winter-png.html" title="Figure 26.2.1">Figure 26.2.1</a> is compressed based on the energy consideration.</p>
+<p>Suggestions: sort the Fourier coefficients from smallest to largest using</p>
+<pre class="code-block tex2jax_ignore">
+sorted = sort(abs(fc(:)));    
+</pre>
+<p data-braille="continuation">The total energy is</p>
+<pre class="code-block tex2jax_ignore">
+total = sum(sorted.^2); 
+</pre>
+<p data-braille="continuation">The key point is to write a while loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until they reach the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
+<p>Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q = 98</code>, <code class="code-inline tex2jax_ignore">q = 95</code>, and <code class="code-inline tex2jax_ignore">q = 90</code>.</p></article><span class="incontext"><a href="exercises-dft-applications.html#exercise-63">in-context</a></span>
 </body>
 </html>
