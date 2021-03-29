@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:25:01-04:00    *-->
+<!--*    on 2021-03-28T20:39:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,18 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Exponential growth is modeled by a function of the form \(f(x) = ae^{bt}\text{.}\) Suppose we have some data \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) and think that it describes exponential growth (which naturally occurs in ecology and epidemiology). A direct attempt to minimize the sum of differences squared:</p>
-<div class="displaymath">
-\begin{equation}
-\sum_{k=1}^n \left(y_k - ae^{bx_k}\right)^2 \to \min \tag{28.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">is possible but requires optimization methods which we will consider later. There is an alternative approach:  instead of fitting \(ae^{bx}\) to the values \(y_k\text{,}\) fit its logarithm, \(bx + \log a\text{,}\) to the values \(\log y_k\text{.}\) This means we will minimize the sum of squares of differences of (natural) logarithms:</p>
-<div class="displaymath">
-\begin{equation}
-\sum_{k=1}^n \left(\log(y_k) - bx_k - \log a\right)^2 \to \min\tag{28.1.2}
-\end{equation}
-</div>
-<span class="incontext"><a href="section-example-exponential-fit.html#p-794">in-context</a></span>
+<p>The number of active Covid cases at SU during October 1 - October 23 is given below.</p>
+<pre class="code-block tex2jax_ignore">
+y = [5 5 4 5 9 25 45 65 77 87 87 89 97 101 90 74 57 26 20 13 12 12 13]'; 
+</pre>
+<p data-braille="continuation">(The x-values can be <code class="code-inline tex2jax_ignore">x = (1:23)'</code>.) Use the t-statistic for the leading coefficient as in <a class="xref" data-knowl="./knowl/example-t-statistics-parameters.html" title="Example 27.3.1: Computing the t-statistics of parameters">Example 27.3.1</a>, determing what degree of a polynomial should be used to model this data. Also plot both the optimal polynomial and the data points.</p>
+<span class="incontext"><a href="exercises-linear-least-squares.html#p-794">in-context</a></span>
 </body>
 </html>

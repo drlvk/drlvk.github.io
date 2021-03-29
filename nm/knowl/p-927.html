@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:25:03-04:00    *-->
+<!--*    on 2021-03-28T20:39:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,9 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The process of changing the shape of the triangle is <em class="emphasis">expansion</em>, which is introduced as an alternative to reflection from <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a>. Suppose that the current triangle qualifies for reflection: for example, \(C\) is the point with largest value, and \(f(R) \lt f(C)\text{.}\) Consider the possibility of replacing \(C\) with a point \(E\) that lies beyong \(R\text{,}\) thus making the triangle longer. The point \(E\) is determined by the following equation, which  shows that it is as far from \(R\) as \(R\) is from the center of reflection \((A+B)/2\text{:}\)</p>
-<div class="displaymath">
-\begin{equation*}
-E = \frac{3}{2}(A+B) - 2C =  1.5 (A+B+C) - 3.5 C
-\end{equation*}
-</div>
-<p data-braille="continuation">If \(f(E) \lt f(R)\text{,}\) then we replace \(C\) with \(E\) rather than \(R\text{.}\) In other words, the “highest” vertex of the triangle is replaced by whichever of \(E, R\) is lower.</p>
-<span class="incontext"><a href="section-nelder-mead-expand.html#p-927">in-context</a></span>
+<p><a class="xref" data-knowl="./knowl/example-reflection-contraction-nelder-mead.html" title="Example 33.2.1: Reflection-contraction Nelder-Mead method">Example 33.2.1</a> works fine in terms of speed and accuracy. However, replacing the relatively simple function \(f\) in <a class="xref" data-knowl="./knowl/example-reflection-nelder-mead.html" title="Example 33.1.1: Reflection-only Nelder-Mead method">Example 33.1.1</a> with Rosenbrock's function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a></p>
+<pre class="code-block tex2jax_ignore">f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2 </pre>
+<p data-braille="continuation">we find the search usually fails. The moving triangle has to become very small to fit into the “narrow valley” of this function, which makes subsequent movement along the valley floor very slow. As as the valley is long, it fails to reach the minimum within the allowed number of steps.</p>
+<span class="incontext"><a href="section-nelder-mead-contract.html#p-927">in-context</a></span>
 </body>
 </html>

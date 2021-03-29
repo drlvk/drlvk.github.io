@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:25:02-04:00    *-->
+<!--*    on 2021-03-28T20:39:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>First compute the derivatives \(f'(x) = 4x^3 - 6x+1\) and \(f''(x) = 12x^2 - 6\text{.}\) Then iterate the function \(g\) from <a class="xref" data-knowl="./knowl/eq-iterate-newton-min.html" title="Equation 30.3.1">(30.3.1)</a> as in <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>. Most of the code is copied from there.</p>
+<p>If we can find the derivative \(f'\) (or gradient \(\nabla f\) in higher dimensions), it may be possible to apply one of root-finding methods of <a href="part-equations.html" class="internal" title="Part II: Solving Equations">Part II</a> to it. For example, Newton's method was one of those. But since we are solving \(f'=0\text{,}\) the method will involve the second derivative of \(f\text{:}\) it amounts to iteration of the function</p>
+<div class="displaymath">
+\begin{equation}
+g(x) = x - \frac{f'(x)}{f''(x)}\tag{30.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">Let's try this out on a simple example.</p>
 <span class="incontext"><a href="section-newton-method-min.html#p-855">in-context</a></span>
 </body>
 </html>

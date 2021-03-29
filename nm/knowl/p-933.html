@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:25:03-04:00    *-->
+<!--*    on 2021-03-28T20:39:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Often the variables in an optimization problem cannot be chosen arbitrarily: there are constraints as as being nonnegative, or having some upper bound, or satisfying some equation or inequality (which could be linear or nonlinear). We consider some approaches to constrained optimization problems, including the possibility of converting them to unconstrained optimization by adding a penalty term.</p>
-<span class="incontext"><a href="chapter-constrained-optimization.html#p-933">in-context</a></span>
+<p>The algorithm described above works quite well, considering we are minimizing a challenging function without using any derivative information. The version of the Nelder-Mead algorithm implemented in Matlab is a little different in that it chooses between three ways of contracting a simplex (called “contract inside”, “contract outside”, “shrink”) but the main ideas are the same. To observe the process of <code class="code-inline tex2jax_ignore">fminsearch</code> optimization, run</p>
+<pre class="code-block tex2jax_ignore">
+f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
+options = optimset('Display', 'iter');
+fminsearch(f, randn(2, 1), options)   
+</pre>
+<span class="incontext"><a href="section-nelder-mead-expand.html#p-933">in-context</a></span>
 </body>
 </html>

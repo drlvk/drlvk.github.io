@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:24:41-04:00    *-->
+<!--*    on 2021-03-28T20:39:36-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -411,20 +411,20 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-drawbacks-spline-interpolation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">24.1</span> <span class="title">Weak points of spline interpolation</span>
 </h2>
-<p id="p-709">Looking closely at <a class="xref" data-knowl="./knowl/dashboard-spline-png.html" title="Figure 23.2.4">Figure 23.2.4</a> we can notice that the blue curve is not quite an increasing function: there is a small interval in which it decreases. This is not really logical since the curve follows the data (cumulative number of recovered cases) which cannot decrease. A smaller example is below.</p>
+<p id="p-711">Looking closely at <a class="xref" data-knowl="./knowl/dashboard-spline-png.html" title="Figure 23.2.4">Figure 23.2.4</a> we can notice that the blue curve is not quite an increasing function: there is a small interval in which it decreases. This is not really logical since the curve follows the data (cumulative number of recovered cases) which cannot decrease. A smaller example is below.</p>
 <pre class="code-block tex2jax_ignore">x = 1:6;
 y = [0 0 1 1 2 2];
 t = linspace(1, 6, 1000);
 plot(t, spline(x, y, t), x, y, 'r*')
 </pre>
-<p id="p-710">So, cubic splines <em class="emphasis">do not preserve monotonicity</em> (while piecewise linear interpolation does). Note that SU COVID dashboard later replaced splines with piecewise linear functions, which are monotone when the data values are monotone.</p>
-<p id="p-711">Another issue is that spline interpolation may produce <em class="emphasis">negative values from positive data</em>.</p>
+<p id="p-712">So, cubic splines <em class="emphasis">do not preserve monotonicity</em> (while piecewise linear interpolation does). Note that SU COVID dashboard later replaced splines with piecewise linear functions, which are monotone when the data values are monotone.</p>
+<p id="p-713">Another issue is that spline interpolation may produce <em class="emphasis">negative values from positive data</em>.</p>
 <pre class="code-block tex2jax_ignore">x = 1:6;
 y = [9 9 1 1 9 9];
 disp(spline(x, y, 3.5))
 </pre>
-<p id="p-712">The result is \(-0.4\text{.}\) This becomes a serious issue if the quantity being interpolated cannot in principle be negative (mass, density, number of people) and if the way in which the data is used relies on it not being negative (maybe one takes square root or plots the data on logarithmic scale).</p>
-<p id="p-713">Note again that this is something that piecewise linear interpolation would not do. A piecewise linear function through points with \(y_k &gt; 0\) stays positive.</p></section></div></main>
+<p id="p-714">The result is \(-0.4\text{.}\) This becomes a serious issue if the quantity being interpolated cannot in principle be negative (mass, density, number of people) and if the way in which the data is used relies on it not being negative (maybe one takes square root or plots the data on logarithmic scale).</p>
+<p id="p-715">Note again that this is something that piecewise linear interpolation would not do. A piecewise linear function through points with \(y_k &gt; 0\) stays positive.</p></section></div></main>
 </div>
 </body>
 </html>

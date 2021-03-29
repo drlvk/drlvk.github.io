@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:25:00-04:00    *-->
+<!--*    on 2021-03-28T20:39:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The computation of Fourier coefficients <a class="xref" data-knowl="./knowl/eq-fourier-coefficients-discrete.html" title="Equation 25.3.2">(25.3.2)</a> amounts to matrix-vector multiplication \(c = Wz\) where \(W\) is the <dfn class="terminology">Fourier matrix</dfn> defined as follows. Let \(\omega = \exp(-2\pi i /n)\text{.}\) The matrix \(W\) has size \(n\times n\text{,}\) with entries given by  \(W_{k\ell} = \omega^{(k-1)(\ell-1)}\text{.}\) Explicitly,</p>
+<p>There is a discrete version of the Fourier series theory outlined in <a href="section-fourier-series.html" class="internal" title="Section 25.2: Fourier series">Section 25.2</a>. In it we fix an integer \(n\) and replace a function \(f\colon [0, 1]\to \mathbb C\) by its sampled values \(z_k = f(k/n)\text{,}\) \(k=0, 1, \dots, n-1\text{.}\) The discrete version of inner product <a class="xref" data-knowl="./knowl/eq-inner-product.html" title="Equation 25.2.1">(25.2.1)</a> is</p>
 <div class="displaymath">
 \begin{equation}
-W = \begin{pmatrix} 1 &amp; 1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 \\
-1 &amp; \omega &amp; \omega^2 &amp; \omega^3 &amp; \dots &amp; \omega^{n-1} \\
-1 &amp; \omega^2 &amp; \omega^4 &amp; \omega^6 &amp; \dots &amp; \omega^{2(n-1)} \\
-1 &amp; \omega^3 &amp; \omega^6 &amp; \omega^9 &amp; \dots &amp; \omega^{3(n-1)} \\
-\cdots \\
-1 &amp; \omega^{n-1} &amp; \omega^{2(n-1)} &amp; \omega^{3(n-1)} &amp; \dots &amp; \omega^{(n-1)(n-1)} \\
-\end{pmatrix}\tag{25.3.4}
+\langle f, g \rangle_d =  \sum_{\ell=0}^{n-1}f(\ell/n)\overline{g(\ell/n)}
+=  \sum_{k=0} z_\ell \overline{w_\ell}\tag{25.3.1}
 \end{equation}
 </div>
-<p data-braille="continuation">Normally, matrix-vector multiplication takes on the order of \(n^2\) operations. The <dfn class="terminology">Fast Fourier Transform</dfn> (FFT) is an algorithm that uses the specific structure of \(W\) to reduce the number of computations to something of the order \(n\log n\text{.}\) The reconstruction of function values from coefficients <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a> is very similar. Besides the factor of \(1/n\text{,}\) the only other difference is replacing matrix \(W\) with matrix \(W^*\) of the same form <a class="xref" data-knowl="./knowl/eq-fourier-matrix.html" title="Equation 25.3.4">(25.3.4)</a> but with \(\omega = \exp(2\pi i /n)\text{.}\)</p>
+<p data-braille="continuation">The functions \(f_k = \exp(2\pi i k)\text{,}\) \(k=0, \dots, n-1\text{,}\) are orthogonal with respect to this inner product. (Not orthonormal, as \(\langle f_k, f_k\rangle = n\text{.}\)) Note we only need \(n\) of these functions (why?).</p>
 <span class="incontext"><a href="section-discrete-fourier-transform.html#p-743">in-context</a></span>
 </body>
 </html>

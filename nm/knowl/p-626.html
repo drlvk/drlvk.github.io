@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:24:58-04:00    *-->
+<!--*    on 2021-03-28T20:39:50-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In this scenario a part of the population (less then half) escapes the infection because the epidemic ends on its own after the transmission rate drops. Try varying the coefficients \(\beta, \gamma\) and observe the effect.</p>
+<p>Sometimes it is desirable to compute the solution at specific points of interval \([a, b]\text{,}\) for example at equally spaced points with step \(h\text{.}\) This is achieved by replacing the interval parameter with a vector of \(t\)-values, for example</p>
+<pre class="code-block tex2jax_ignore">
+h = 0.1;
+[t, y] = ode45(rhs, a:h:b, y0);  
+</pre>
 <span class="incontext"><a href="section-ode-epidemiology.html#p-626">in-context</a></span>
 </body>
 </html>

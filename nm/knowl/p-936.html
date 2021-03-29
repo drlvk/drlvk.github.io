@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:25:03-04:00    *-->
+<!--*    on 2021-03-28T20:39:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A way to correct both of the above issues is to add to \(f\) a continuous penalty function \(P\) that is equal to \(0\) inside \(D\) and is positive outside of \(D\text{.}\) Then minimize \(f+P\text{.}\) One way to construct \(P\) is to describe the region \(D\) by way of an inequality \(c\le 0\text{,}\) for example \(x^2 + y^2 - 1 \le 0\) describes a disk of radius \(1\text{.}\) There are multiple ways to use such an inequality  to form a penalty function. For example, the linear penalty</p>
+<p>A typical problem of constrained optimization is to find the minimum of a function \(f\) on some region \(D\) of \(\mathbb R^n\text{.}\) One approach is to add a penalty for being outside of \(D\text{,}\) for example let</p>
 <div class="displaymath">
 \begin{equation}
-P_1(x) = M\max(0, c)\tag{34.1.2}
+g(x) = \begin{cases} f(x)  &amp; x\in D \\ f(x) + M &amp; x\notin D \end{cases} \tag{34.1.1}
 \end{equation}
 </div>
-<p data-braille="continuation">(with a large constant \(M\)) and quadratic penalty</p>
-<div class="displaymath">
-\begin{equation}
-P_2(x) = M\max(0, c)^2\tag{34.1.3}
-\end{equation}
-</div>
-<p data-braille="continuation">The linear penalty is continuous but not differentiable on the boundary of \(D\text{.}\) The quadratic penalty is differentiable, which is preferable for the methods that rely on the gradient. Indeed, the gradient of <a class="xref" data-knowl="./knowl/eq-quadratic-penalty.html" title="Equation 34.1.3">(34.1.3)</a>  is</p>
-<div class="displaymath">
-\begin{equation}
-\nabla P_2(x) = 2 M \max(0, c) \nabla c\tag{34.1.4}
-\end{equation}
-</div>
-<p data-braille="continuation">On the other hand, the fact that \(P_2\) starts off with zero slope makes it more likely that the minimum of \(f + P_2\) will be slightly outside of the region \(D\text{.}\) So there is a tradeoff between reaching the minimum and enforcing the constraint.</p>
+<p data-braille="continuation">where \(M\) is a large number, say \(10^6\text{.}\) Then try to minimize \(g\text{,}\) with the expectation that the minimum will be in \(D\text{.}\) Since \(g=f\) within \(D\text{,}\) such a minimum will also be a minimum of \(f\text{.}\)</p>
 <span class="incontext"><a href="section-penalty-method.html#p-936">in-context</a></span>
 </body>
 </html>

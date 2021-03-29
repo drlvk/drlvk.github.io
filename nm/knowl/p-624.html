@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:24:58-04:00    *-->
+<!--*    on 2021-03-28T20:39:50-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -17,7 +17,7 @@
 <pre class="code-block tex2jax_ignore">
 [t, y] = ode45(rhs, [a, b], y0);  
 </pre>
-<p data-braille="continuation">where <code class="code-inline tex2jax_ignore">rhs</code> is the right hand side of the ODE system,  <code class="code-inline tex2jax_ignore">[a, b]</code> is the interval on which solution must be found, and <code class="code-inline tex2jax_ignore">y0</code> is the initial condition at the left endpoint of that interval (<code class="code-inline tex2jax_ignore">ode45</code> allows it to be either a column vector or a row vector.) Note that <code class="code-inline tex2jax_ignore">rhs</code> must take two variables in this order: <code class="code-inline tex2jax_ignore">rhs = @(t, y) ...</code> even if the system does not involve time (is autonomous). The solver returns a vectors of t-values and a vector or matrix of y-values. It is a matrix if we solve a system; in this case <code class="code-inline tex2jax_ignore">y(:,1)</code> approximates the first unknown function, <code class="code-inline tex2jax_ignore">y(:,2)</code> the second, and so on. The time series of the solution is obtained with <code class="code-inline tex2jax_ignore">plot(t, y)</code>.</p>
+<p data-braille="continuation">where <code class="code-inline tex2jax_ignore">rhs</code> is the right hand side of the ODE system,  <code class="code-inline tex2jax_ignore">[a, b]</code> is the interval on which solution must be found, and <code class="code-inline tex2jax_ignore">y0</code> is the initial condition at the left endpoint of that interval. The initial condition can be a single number (when solving a single equation) or a vector (when solving a system). It is preferable to use a row vector for <code class="code-inline tex2jax_ignore">y0</code> when solving a system, because of how the solution is presented by <code class="code-inline tex2jax_ignore">ode45</code>: see below. Note that <code class="code-inline tex2jax_ignore">rhs</code> must take two variables in this order: <code class="code-inline tex2jax_ignore">rhs = @(t, y) ...</code> even if the system does not involve time (is autonomous). The output of function <code class="code-inline tex2jax_ignore">rhs</code> must be a column vector (it can be a single number if we are solving one equation).</p>
 <span class="incontext"><a href="section-ode-epidemiology.html#p-624">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:25:00-04:00    *-->
+<!--*    on 2021-03-28T20:39:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,17 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The command <code class="code-inline tex2jax_ignore">imshow(im)</code> displays the image. An image (an array of numbers) can be transformed in multiple ways and then either saved as a file with <code class="code-inline tex2jax_ignore">imwrite</code> or just displayed with <code class="code-inline tex2jax_ignore">imshow</code>; we will do the latter, which is simpler. Try the following and observe the effects:</p>
-<ul class="disc">
-<li>Remove one of colors entirely, for example <code class="code-inline tex2jax_ignore">im(:, :, 3)  = 0;</code>
-</li>
-<li>Set all pixels darker than some level to black (0) with <code class="code-inline tex2jax_ignore">im(im &lt; 128) = 0;</code>
-</li>
-<li>Set the intensity of some color to some specific value, for example <code class="code-inline tex2jax_ignore">im(:, :, 2)  = 64;</code>
-</li>
-<li>…</li>
-</ul>
-<p data-braille="continuation">If you do something that causes the array to lose its class “uint8”, that can usually be fixed with the command <code class="code-inline tex2jax_ignore">uint8(...)</code>.</p>
-<span class="incontext"><a href="section-image-compression.html#p-753">in-context</a></span>
+<p>Having computed the Fourier coefficients of a function (which may represent, for example, a sound recording or an image) we often discover that most of the coefficients are relatively small. One can try to discard small Fourier coefficients and reconstruct the function/sound/image from what remains, thus achieving some amount of data compression.</p>
+<span class="incontext"><a href="chapter-dft-applications.html#p-753">in-context</a></span>
 </body>
 </html>

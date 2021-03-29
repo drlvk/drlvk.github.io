@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:25:04-04:00    *-->
+<!--*    on 2021-03-28T20:39:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Use Matlab to solve the dual problem in <a href="section-lp-duality-economic.html" class="internal" title="Section 35.3: Interpretation of duality in microeconomics">Section 35.3</a> with the same data as in <a class="xref" data-knowl="./knowl/exercise-linear-programming-1.html" title="Exercise 35.5.1">Exercise 35.5.1</a>.</p>
+<p>Use Matlab to solve the primal problem in <a href="section-lp-duality-economic.html" class="internal" title="Section 35.3: Interpretation of duality in microeconomics">Section 35.3</a> with the following data:</p>
+<ul class="disc">
+<li>Available amounts are \(L = 900\text{,}\) \(F = 600\text{,}\) \(P = 250\)</li>
+<li>Each unit of wheat requires \(F_1 = 0.7\) units of fertilizer and \(P_1 = 0.2\) units of pesticide</li>
+<li>Each unit of barley requires \(F_2 = 0.5\) units of fertilizer and \(P_2 = 0.3\) units of pesticide</li>
+<li>The sell prices are \(S_1 = 60\) for wheat and \(S_2 = 70\) for barley.</li>
+</ul>
+<p data-braille="continuation">One way is to convert this LP problem to the form <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a> (including the nonnegativity requirements in the system of linear inequalities) and apply <code class="code-inline tex2jax_ignore">linprog(c, A, b)</code>. Another is to follow the examples in <a href="section-lp-duality-transportation.html" class="internal" title="Section 35.4: Duality in optimal transportation">Section 35.4</a> (or read <code class="code-inline tex2jax_ignore">help linprog</code>) and directly impose the lower bound of \(0\) on the variables.</p>
 <span class="incontext"><a href="exercises-linear-programming.html#p-1000">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-24T22:24:43-04:00    *-->
+<!--*    on 2021-03-28T20:39:38-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -412,9 +412,9 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">26.4</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-63"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-769">Instead of deciding in advance how many coefficients to discard, it is usually preferable to maintain some degree of quality of the image. This is often measured in terms of “energy”, defined as the sum of squares of absolute values of Fourier coefficients. That, is to have 95% quality, we want to keep enough Fourier coefficients so that the sum of their squares is at least 95% of the total sum of squares. Equivalently, we discard the coefficients that contribute 5% of the energy.</p>
-<p id="p-770">The goal of this exercise is to modify <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a> so that the input value is quality <code class="code-inline tex2jax_ignore">q</code> such as 95 or 98, and the image in <a class="xref" data-knowl="./knowl/winter-png.html" title="Figure 26.2.1">Figure 26.2.1</a> is compressed based on the energy consideration.</p>
-<p id="p-771">Suggestions: sort the Fourier coefficients from smallest to largest using</p>
+<p id="p-771">Instead of deciding in advance how many coefficients to discard, it is usually preferable to maintain some degree of quality of the image. This is often measured in terms of “energy”, defined as the sum of squares of absolute values of Fourier coefficients. That, is to have 95% quality, we want to keep enough Fourier coefficients so that the sum of their squares is at least 95% of the total sum of squares. Equivalently, we discard the coefficients that contribute 5% of the energy.</p>
+<p id="p-772">The goal of this exercise is to modify <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a> so that the input value is quality <code class="code-inline tex2jax_ignore">q</code> such as 95 or 98, and the image in <a class="xref" data-knowl="./knowl/winter-png.html" title="Figure 26.2.1">Figure 26.2.1</a> is compressed based on the energy consideration.</p>
+<p id="p-773">Suggestions: sort the Fourier coefficients from smallest to largest using</p>
 <pre class="code-block tex2jax_ignore">
 sorted = sort(abs(fc(:)));    
 </pre>
@@ -423,7 +423,7 @@ sorted = sort(abs(fc(:)));
 total = sum(sorted.^2); 
 </pre>
 <p data-braille="continuation">The key point is to write a while loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until they reach the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
-<p id="p-772">Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q = 98</code>, <code class="code-inline tex2jax_ignore">q = 95</code>, and <code class="code-inline tex2jax_ignore">q = 90</code>.</p></article></section></div></main>
+<p id="p-774">Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q = 98</code>, <code class="code-inline tex2jax_ignore">q = 95</code>, and <code class="code-inline tex2jax_ignore">q = 90</code>.</p></article></section></div></main>
 </div>
 </body>
 </html>
