@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-28T20:39:53-04:00    *-->
+<!--*    on 2021-04-01T20:07:35-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An additional detail: when one reports the model performance (not in this class, but perhaps for a publication), the reported value of \(R^2\) or other estimate of goodness-of-fit should be computed on a separate <dfn class="terminology">validation set</dfn> which was not used for either training or testing. Using the testing set for reporting \(R^2\) introduces a subtle source of bias: if <em class="emphasis">many</em> models are tested, and one of them wins, it is more likely than not that the winning model “had better luck” with the specific data set used for testing, and that would lead us to overestimate its goodness-of-fit. (Here is an <a class="external" href="https://imgs.xkcd.com/comics/significant.png" target="_blank">example</a> of testing too many models and not validating.)</p>
+<p>A simple but effective way to combad overfitting is to split the data into two parts: one (training set) is used to compute the coefficients \(\beta_k\text{,}\) and then another part (testing set) is used to evaluate goodness of fit. The split may be done randomly, perhaps 50:50 or 60:40 proportion. Which of the following 50:50 splits looks better?</p>
+<pre class="code-block tex2jax_ignore">
+x_train = x(1:8); 
+x_test = x(9:end);
+</pre>
+<p data-braille="continuation">(and similarly for <code class="code-inline tex2jax_ignore">y</code>) or</p>
+<pre class="code-block tex2jax_ignore">
+x_train = x(1:2:end); 
+x_test = x(2:2:end);
+</pre>
 <span class="incontext"><a href="section-overfitting.html#p-784">in-context</a></span>
 </body>
 </html>

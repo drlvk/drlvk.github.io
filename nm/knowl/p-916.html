@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-28T20:39:54-04:00    *-->
+<!--*    on 2021-04-01T20:07:37-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Remark: the combination of ideas of Broyden's method and line search, with some modifications, is known as the <a class="external" href="https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm" target="_blank">BFGS algorithm</a>, which is widely used for gradient-based unconstrained optimization. It is implemented in Matlab (<code class="code-inline tex2jax_ignore">fminunc</code> command), Python scientific library SciPy, etc.</p>
-<span class="incontext"><a href="exercises-gradient-newton-conjugate.html#p-916">in-context</a></span>
+<p>Compare the search path to what we get without correction in <code class="code-inline tex2jax_ignore">w</code>: it is less zigzagging. However, if we use the original Rosenbrock function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> which is very far from quadratic or convex, the search diverges to infinity. Several other correction terms (different choices for \(\gamma\) coefficient) have been proposed for the nonlinear conjugate gradient method. But it appears that the “narrow valley” landscape of the Rosenbrock function is best navigated either by using both first and second order derivatives (the Newton method) or by using no derivatives at all (the Nelder-Mead method, to be considered later).</p>
+<span class="incontext"><a href="section-conjugate-gradient.html#p-916">in-context</a></span>
 </body>
 </html>

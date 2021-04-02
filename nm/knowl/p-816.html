@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-28T20:39:53-04:00    *-->
+<!--*    on 2021-04-01T20:07:35-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Then try the following fix to the issue encountered in the previous paragraph. Following the logic of <a class="xref" data-knowl="./knowl/example-best-fit-ellipse.html" title="Example 28.3.1: Fit an ellipse to given points">Example 28.3.1</a>, rewrite the equation \(y = 1/(Ax^2 + Bx+ C)\) as \(Ax^2 y + Bxy + Cy = 1\) and find the optimal \(A, B, C\) using least squares. Unlike <a class="xref" data-knowl="./knowl/example-best-fit-ellipse.html" title="Example 28.3.1: Fit an ellipse to given points">Example 28.3.1</a>, you do not need <code class="code-inline tex2jax_ignore">fimplicit</code> to plot this function since the function \(y = 1/(Ax^2 + Bx+ C)\) can be plotted directly (note that you will need <code class="code-inline tex2jax_ignore">1./(...)</code> rather than <code class="code-inline tex2jax_ignore">1/(...)</code> to compute the reciprocals in a vectorized way.) Plot the function together with the data points. Does it fit better or worse than the Gaussian function in <a class="xref" data-knowl="./knowl/exercise-transforming-data-2.html" title="Exercise 28.4.2">Exercise 28.4.2</a>?</p>
+<p>The number of active Covid cases at SU during October 1 - October 23 is given below.</p>
+<pre class="code-block tex2jax_ignore">
+y = [5 5 4 5 9 25 45 65 77 87 87 89 97 101 90 74 57 26 20 13 12 12 13]'; 
+</pre>
+<p data-braille="continuation">The x-values can be <code class="code-inline tex2jax_ignore">x = (1:23)'</code>. Try to fit a “bell-shaped” Gaussian function \(y = \exp(Ax^2+Bx+C)\) (where \(A\lt 0\)) to the data. This can be done by the logarithmic transform <code class="code-inline tex2jax_ignore">yt = log(y)</code> followed by fitting a quadratic function to transformed data in the usual way, via the matrix <code class="code-inline tex2jax_ignore">X = x.^(0:2)</code>. Having found the parameters <code class="code-inline tex2jax_ignore">beta</code>, we get a suitable function <code class="code-inline tex2jax_ignore">f = @(x) exp(x.^(0:2)*beta)</code> which should be plotted together with the data points.</p>
 <span class="incontext"><a href="exercises-transforming-data.html#p-816">in-context</a></span>
 </body>
 </html>

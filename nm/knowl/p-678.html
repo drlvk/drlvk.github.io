@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-28T20:39:51-04:00    *-->
+<!--*    on 2021-04-01T20:07:33-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Use the formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> to interpolate a few functions such as</p>
-<ul class="disc">
-<li>\(f(x) = 1/(x^2+1)\) on \([-5, 5]\)</li>
-<li>\(f(x) = \tan^{-1} x\) on \([-7, 11]\)</li>
-<li>\(f(x) = \cos(2x)\) on \([1, 15]\)</li>
-<li>\(f(x) = \sin(x^2)\) on \([0, 5]\)</li>
-<li>\(f(x) = \operatorname{sign} x\) on \([-1, 1]\)</li>
-</ul>
-<p data-braille="continuation">by a polynomial of degree \(n=20\) (or another degree if you prefer).</p>
+<p>These projections are called “Chebyshev extreme points” or “Chebyshev points of the second kind”. Explicitly, they are</p>
+<div class="displaymath">
+\begin{equation}
+x_k = \cos(\pi k/n) \quad \text{where } k=0, 1, \dots, n\tag{22.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">In Matlab one could write</p>
+<pre class="code-block tex2jax_ignore">
+x = cos(linspace(0, pi, n+1));
+</pre>
+<p data-braille="continuation">While the midpoint projections (Chebyshev points of the first kind) are the <em class="emphasis">roots</em> of polynomials \(T_n\text{,}\) the points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> are the <em class="emphasis">extreme points</em> of \(T_n\text{.}\) Indeed, the identity <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> says that \(T_n\) attains extreme values \(\pm 1\) when \(\cos (n\theta) = \pm 1\text{,}\) hence \(\theta = \pi k/n\text{,}\) hence \(x = \cos(\pi k/n)\text{.}\)</p>
 <span class="incontext"><a href="section-chebyshev-extreme-points.html#p-678">in-context</a></span>
 </body>
 </html>

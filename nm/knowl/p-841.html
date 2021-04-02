@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-28T20:39:53-04:00    *-->
+<!--*    on 2021-04-01T20:07:36-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,18 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The problem of optimization is to find, approximately, a minimum (preferably global) of a given function (on a certain set). There are some parallels with root-finding methods of <a href="part-equations.html" class="internal" title="Part II: Solving Equations">Part II</a> (related to the gradient being zero at the critical points) but the subjects turn out to be different. We begin the study of optimization with minimization of a given function on an interval.</p>
-<span class="incontext"><a href="chapter-single-variable-minimization.html#p-841">in-context</a></span>
+<p>High-dimensional optimization is difficult, and <code class="code-inline tex2jax_ignore">fminsearch</code> will need your help in the form of a good initial point (<code class="code-inline tex2jax_ignore">ones(9, 1)</code> is not good enough). The logistic equation <a class="xref" data-knowl="./knowl/eq-logistic-curve-shift.html" title="Equation 29.4.1">(29.4.1)</a> leads to the 9-parameter model</p>
+<div class="displaymath">
+\begin{equation}
+y = \frac{M_1}{1 + e^{-r_1 (x-a_1)}} + \frac{M_2}{1 + e^{-r_2 (x-a_2)}} + \frac{M_3}{1 + e^{-r_3 (x-a_3)}}\tag{29.5.1}
+\end{equation}
+</div>
+<p data-braille="continuation">Reasonable initial guesses would be:</p>
+<ul class="disc">
+<li>\(a_1, a_2, a_3\) are the x-values of places where the three “waves” are the steepest</li>
+<li>\(M_1, M_2, M_3\) are the sizes of the three waves</li>
+<li>\(r_1, r_2, r_3\) could be set to 1</li>
+</ul>
+<span class="incontext"><a href="exercises-nonlinear-least-squares.html#p-841">in-context</a></span>
 </body>
 </html>

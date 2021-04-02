@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-28T20:39:52-04:00    *-->
+<!--*    on 2021-04-01T20:07:34-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An image is loaded into Matlab with a command like <code class="code-inline tex2jax_ignore">im = imread('filename.jpg')</code>. Try this using, for example, <a class="external" href="https://twitter.com/SyracuseU/status/831617805673984000/photo/1" target="_blank">the winter scene</a> (first save the file in Matlab/Octave current directory). There are several things to learn about this <code class="code-inline tex2jax_ignore">im</code> object:</p>
-<ul class="disc">
-<li>
-<code class="code-inline tex2jax_ignore">size(im)</code> shows its size (dimensions) as 462<span class="times-sign">×</span>692<span class="times-sign">×</span>3. This is a three-dimensional array, where the last index means the <dfn class="terminology">color channel</dfn>: Red, Green, Blue. The first two indices are rows and columns. One can access individual channels with <code class="code-inline tex2jax_ignore">im(:, :, 1)</code> (for red). Matlab can also work with <dfn class="terminology">grayscale</dfn> images which have just one channel for brightness; such images are represented by matrices which makes them easier to work with.</li>
-<li>
-<code class="code-inline tex2jax_ignore">class(im)</code> says “uint8”. All other Matlab objects we worked have class <code class="code-inline tex2jax_ignore">double</code> meaning they are floating-point numbers with double-precision, able to store about 16 decimal digits. But <code class="code-inline tex2jax_ignore">uint8</code> is different: it is an <dfn class="terminology">unsigned 8-bit integer</dfn>, with possible values 0, 1, …, 255. This reflects the image format: in each channel, the brightness of each pixel ranges from 0 to 255. (How many possible colors does this create?) In other languages, one would say “type” instead of “class”.</li>
-</ul>
-<span class="incontext"><a href="section-image-compression.html#p-754">in-context</a></span>
+<p>Choose some complex numbers \(z_0, z_1, \dots, z_{n-1}\) (with odd \(n\)) so that connecting them in this order (and connecting \(z_{n-1}\) to \(z_0\)) one gets a closed curve similar to letter B. Then use Discrete Fourier Transform to plot a trigonometric polynomial interpolating these numbers. Does its plot look like letter B?</p>
+<span class="incontext"><a href="exercises-discrete-fourier-transform.html#p-754">in-context</a></span>
 </body>
 </html>

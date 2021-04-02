@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-28T20:39:55-04:00    *-->
+<!--*    on 2021-04-01T20:07:38-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,24 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>To each variable in the primal space corresponds an inequality to satisfy in the dual space, both indexed by output type. To each inequality to satisfy in the primal space corresponds a variable in the dual space, both indexed by input type.</p>
+<p>In matrix form this becomes: minimize</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} L &amp; F &amp; P \end{pmatrix} \begin{pmatrix} y_L \\ y_F \\ y_P \end{pmatrix} 
+\end{equation*}
+</div>
+<p data-braille="continuation">subject to:</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} 1 &amp; F_1 &amp; P_1 \\ 1 &amp; F_2 &amp; P_2 \end{pmatrix} \begin{pmatrix} y_L \\ y_F \\ y_P \end{pmatrix} \ge \begin{pmatrix} S_1 \\ S_2 \end{pmatrix}
+\end{equation*}
+</div>
+<p data-braille="continuation">and</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} y_L \\ y_F \\ y_P \end{pmatrix} \ge 0.
+\end{equation*}
+</div>
 <span class="incontext"><a href="section-lp-duality-economic.html#p-985">in-context</a></span>
 </body>
 </html>

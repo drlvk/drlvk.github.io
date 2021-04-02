@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-28T20:39:51-04:00    *-->
+<!--*    on 2021-04-01T20:07:33-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The plot includes the points of interpolation as red asterisks, the original function is a black curve, and the interpolating polynomial as a blue curve. Often the blue curve follows the black one so precisely that it covers it completely.</p>
+<p>An advantage of using Chebyshev extreme points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> as the points of interpolation is that one does not need to compute the weights like we did in <a class="xref" data-knowl="./knowl/example-lagrange-polynomial-chebyshev.html" title="Example 22.2.3: An interpolating polynomial using Chebyshev points">Example 22.2.3</a>. For this specific choice of points, the weights in the barycentric formula <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a> turn out to be</p>
+<div class="displaymath">
+\begin{equation}
+w_k = (-1)^k   \quad \text{except } w_0=1/2, w_n = (-1)^n/2\tag{22.3.2}
+\end{equation}
+</div>
+<p data-braille="continuation">This means that the barycentric formula for interpolation can be written as</p>
+<div class="displaymath">
+\begin{equation}
+p(x) = \frac{\sum'_{0\le k\le n} y_k (-1)^k (x-x_k)^{-1}}{ \sum'_{0\le k\le n} (-1)^k (x-x_k)^{-1} } \tag{22.3.3}
+\end{equation}
+</div>
+<p data-braille="continuation">where primes over summation signs mean that the terms with \(k=0, n\) should be divided by 2 (the “trapezoidal” adjustment). Formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> also works for an arbitrary interval \([a, b]\text{,}\) where the Chebyshev extreme points are</p>
+<div class="displaymath">
+\begin{equation*}
+x_k = \frac{b-a}{2}  \cos(\pi k/n) + \frac{a+b}{2}
+\end{equation*}
+</div>
+<p data-braille="continuation">Note that the function \(p\) is in fact a polynomial of degree \(n\text{,}\) even if the formula does not look like it. The straightforward way of expressing a polynomial of high degree, as a sum of powers with constant coefficients, is likely to cause numerical issues, while the barycentric formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> is numerically stable.</p>
 <span class="incontext"><a href="section-chebyshev-extreme-points.html#p-679">in-context</a></span>
 </body>
 </html>

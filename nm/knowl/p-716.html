@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-28T20:39:52-04:00    *-->
+<!--*    on 2021-04-01T20:07:34-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We look for a way to smoothly model the data while avoiding the issues in <a href="section-drawbacks-spline-interpolation.html" class="internal" title="Section 24.1: Weak points of spline interpolation">Section 24.1</a>. To simplify the computations, assume the x-values are equally spaced, which means that after shifting and scaling we can assume \(x_k=k\) for \(k=1, \dots, n\text{.}\) Then the linear interpolation can be expressed as the sum</p>
-<div class="displaymath">
-\begin{equation}
-L(x) = \sum_{k=1}^n y_k H(x-k)\tag{24.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">where \(H(x) = \max(0, 1-|x|)\) is a function whose graph is a triangle with base \([-1,1]\text{.}\) Functions like \(H\) are sometimes called the “hat functions” based on the appearance of the graph. An important feature of the functions \(H(x-k)\) is that they add up to \(1\) everywhere on the interval \([1, n]\) (why?). This ensures that interpolation of constant values \(y_1=\cdots =y_n\) produces a constant function, which is a necessary condition for the algorithm to preserve monotonicity of data.</p>
-<span class="incontext"><a href="section-b-splines.html#p-716">in-context</a></span>
+<p>The result is \(-0.4\text{.}\) This becomes a serious issue if the quantity being interpolated cannot in principle be negative (mass, density, number of people) and if the way in which the data is used relies on it not being negative (maybe one takes square root or plots the data on logarithmic scale).</p>
+<span class="incontext"><a href="section-drawbacks-spline-interpolation.html#p-716">in-context</a></span>
 </body>
 </html>

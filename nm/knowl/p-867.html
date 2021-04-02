@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-03-28T20:39:54-04:00    *-->
+<!--*    on 2021-04-01T20:07:36-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,20 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>What if the function is not unimodal? If we are lucky, the process may converge to the global minimum. But it's quite possible that the global minimum will be lost from the bracket at some step and then we'll converge to a local minimum instead.</p>
+<p>Golden section method improves on the above by choosing \(c,d\) as follows:</p>
+<div class="displaymath">
+\begin{equation*}
+c = a+r(b-a), \quad d=b-r(b-a), \quad \text{where } r=\frac{3-\sqrt{5}}{2}
+\end{equation*}
+</div>
+<p data-braille="continuation">The number \(r\) is related to golden ratio \(\varphi = (\sqrt{5}+1 )/2\approx 1.618\) by \(r=1/\varphi^2\text{.}\) The following intervals are all in the golden ratio to each other:</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{b-a}{d-a} = \frac{b-a}{b-c} = \frac{d-a}{c-a}  = \frac{b-c}{b-d} 
+= \frac{c-a}{d-c} = \frac{b-d}{d-c} = \varphi
+\end{equation*}
+</div>
+<p data-braille="continuation">The result of this invariance of the ratio is that when the bracket is reduced, the remaining interior point again divides it in the golden ratio.</p>
 <span class="incontext"><a href="section-golden-section.html#p-867">in-context</a></span>
 </body>
 </html>
