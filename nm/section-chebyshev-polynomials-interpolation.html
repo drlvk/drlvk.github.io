@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-01T20:07:15-04:00    *-->
+<!--*    on 2021-04-03T17:31:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -499,7 +499,7 @@ end
 
 p = @(t) (y.*w*(t - x').^(-1)) ./ (w*(t - x').^(-1));
 t = linspace(min(x)-0.01, max(x)+0.01, 1000);
-plot(x, y, 'r*', t, p(t))
+plot(t, p(t), x, y, 'r*')
 </pre>
 </div></div>
 </div></article></div>
