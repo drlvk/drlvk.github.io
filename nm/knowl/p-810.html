@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:28-04:00    *-->
+<!--*    on 2021-04-09T17:11:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,16 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Plot an ellipse that fits the given 7 data points:</p>
-<pre class="code-block tex2jax_ignore">  
-x = [1 2 4 5 4 3 1]'; 
-y = [2 0 -1 1 2 3 4]';
-</pre>
-<p data-braille="continuation">Then plot it together with the points, using <code class="code-inline tex2jax_ignore">fimplicit</code> command. Its syntax is</p>
-<pre class="code-block tex2jax_ignore">
-fimplicit(@(x, y) ..., [xmin xmax ymin ymax])  
-</pre>
-<p data-braille="continuation">where the first argument is the implicit equation (something equated to 0), and the second is the plot window.</p>
+<p>Not all data points represent a function of the form \(y = f(x)\text{.}\) They may happen to accumulate along some closed curve such as an ellipse. General implicit equation of an ellipse is</p>
+<div class="displaymath">
+\begin{equation}
+Ax^2 + Bxy + Cy^2 + Dx + Ey  = 1\tag{28.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">There are five unknown coefficients here. So, given a set of points \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) we get a linear system by plugging each point into <a class="xref" data-knowl="./knowl/eq-ellipse-implicit.html" title="Equation 28.3.1">(28.3.1)</a>. Its least squares solution describes an ellipse that fits the data best in the sense of having the smallest sum</p>
+<div class="displaymath">
+\begin{equation*}
+\sum_{k=1}^n (Ax_k^2 + Bx_ky_k + Cy_k^2 + Dx_k + Ey_k  - 1)^2
+\end{equation*}
+</div>
+<p data-braille="continuation">which should hopefully fit the ellipse.</p>
 <span class="incontext"><a href="section-example-implicit-equation.html#p-810">in-context</a></span>
 </body>
 </html>

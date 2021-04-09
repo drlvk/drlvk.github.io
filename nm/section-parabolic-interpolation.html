@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:15-04:00    *-->
+<!--*    on 2021-04-09T17:10:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -411,8 +411,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-parabolic-interpolation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">31.1</span> <span class="title">Successive parabolic interpolation</span>
 </h2>
-<p id="p-876">Recall that Newton's method for root-finding, namely \(x = a - f(a)/f'(a)\text{,}\) has a geometric interpretation: draw a tangent line to \(y = f(x)\) at \(x = a\text{,}\) and use the intersection of that line with the horizontal axis as the new \(x\)-value. This geometric construction naturally led to the secant method: just replace a tangent line by a secant line. Is there a geometric interpretation for minimization using Newton's method, that is \(x = a - f'(a)/f''(a)\text{?}\)</p>
-<p id="p-877">Yes, there is. Let \(T_2\) be the Taylor polynomial at \(x = a\) of degree 2, namely</p>
+<p id="p-877">Recall that Newton's method for root-finding, namely \(x = a - f(a)/f'(a)\text{,}\) has a geometric interpretation: draw a tangent line to \(y = f(x)\) at \(x = a\text{,}\) and use the intersection of that line with the horizontal axis as the new \(x\)-value. This geometric construction naturally led to the secant method: just replace a tangent line by a secant line. Is there a geometric interpretation for minimization using Newton's method, that is \(x = a - f'(a)/f''(a)\text{?}\)</p>
+<p id="p-878">Yes, there is. Let \(T_2\) be the Taylor polynomial at \(x = a\) of degree 2, namely</p>
 <div class="displaymath">
 \begin{equation*}
 T_2(x) = f(a) + f'(a) (x-a) + \frac{f''(a)}{2}(x-a)^2
@@ -425,8 +425,8 @@ T_2'(x) = f'(a) +  f''(a)(x-a)
 \end{equation*}
 </div>
 <p data-braille="continuation">we get \(x = a - f'(a)/f''(a)\text{.}\) Therefore, the logic of minimization by Newton's method is to draw a “tangent parabola” at \(x=a\) and use its critical point (hopefully a minimum) as the new \(x\)-value.</p>
-<p id="p-878">Having made this geometric observation, we can eliminate derivatives from the picture by constructing a “secant parabola” instead, which is a parabola passing through three points on the graph of a function. Following the logic of the secant method, we should replace the “oldest” of the three points used to construct the parabola by the critical point of this parabola. The process repeats until it (hopefully) converges to a point of minimum. This is the method of <dfn class="terminology">successive parabolic interpolation</dfn>.</p>
-<p id="p-879">How to find the critical point of parabola passing through points \((a, f(a))\text{,}\) \((b, f(b))\text{,}\) \((c, f(c))\text{?}\)  Newton interpolating polynomial is one way: it provides the interpolating  polynomial in the form</p>
+<p id="p-879">Having made this geometric observation, we can eliminate derivatives from the picture by constructing a “secant parabola” instead, which is a parabola passing through three points on the graph of a function. Following the logic of the secant method, we should replace the “oldest” of the three points used to construct the parabola by the critical point of this parabola. The process repeats until it (hopefully) converges to a point of minimum. This is the method of <dfn class="terminology">successive parabolic interpolation</dfn>.</p>
+<p id="p-880">How to find the critical point of parabola passing through points \((a, f(a))\text{,}\) \((b, f(b))\text{,}\) \((c, f(c))\text{?}\)  Newton interpolating polynomial is one way: it provides the interpolating  polynomial in the form</p>
 <div class="displaymath">
 \begin{equation}
 g(x) = f(a) + \alpha(x-a) + \beta(x-a)(x-b)\label{eq-newton-form-parabola}\tag{31.1.1}
@@ -447,7 +447,7 @@ x = \frac{a+b}{2} - \frac{\alpha}{2\beta}\label{eq-crit-point-interp}\tag{31.1.2
 </div>
 <article class="example example-like" id="example-successive-parabolic-interpolation"><a data-knowl="" class="id-ref original" data-refid="hk-example-successive-parabolic-interpolation"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">31.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Minimize by successive parabolic interpolation.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-successive-parabolic-interpolation"><article class="example example-like"><p id="p-880">Minimize \(f(x) = x^4 - 3 x^2 + x + 1\) using successive parabolic interpolation with initial triple of points \(a, b, c = -2, 0, 2\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-successive-parabolic-interpolation"><article class="example example-like"><p id="p-881">Minimize \(f(x) = x^4 - 3 x^2 + x + 1\) using successive parabolic interpolation with initial triple of points \(a, b, c = -2, 0, 2\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-50" id="solution-50"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-50"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
@@ -475,10 +475,10 @@ else
     disp('Failed to converge')
 end
 </pre>
-<p id="p-881">As the example shows, parabolic interpolation can converge to a local maximum. Indeed, a closer look shows it does not distinguish between \(f\) and \(-f\text{,}\) so it can minimize just as well as maximize. As with Newton's method, we can benefit from this method by using it in a small neighborhood of minimum.</p>
+<p id="p-882">As the example shows, parabolic interpolation can converge to a local maximum. Indeed, a closer look shows it does not distinguish between \(f\) and \(-f\text{,}\) so it can minimize just as well as maximize. As with Newton's method, we can benefit from this method by using it in a small neighborhood of minimum.</p>
 </div></div>
 </div></article></div>
-<p id="p-882">Would it help if instead of replacing the “oldest” of \(a, b, c\) we replaced the point with largest value of \(f\text{?}\) This would at least make the method prefer minimization to maximization. Try this out on the above example, using something like</p>
+<p id="p-883">Would it help if instead of replacing the “oldest” of \(a, b, c\) we replaced the point with largest value of \(f\text{?}\) This would at least make the method prefer minimization to maximization. Try this out on the above example, using something like</p>
 <pre class="code-block tex2jax_ignore">
 old = [a b c];
 [fm, ind] = max(f(old)); 

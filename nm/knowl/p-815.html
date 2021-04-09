@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:28-04:00    *-->
+<!--*    on 2021-04-09T17:11:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A <dfn class="terminology">power law</dfn> is a function of the form \(y = a x^p\text{.}\) By taking logarithm on both sides we get \(\log y = p \log x + \log a\text{,}\) which is a linear function of \(\log x\text{.}\) So, to fit a power law to given data \((x_k, y_k)\text{,}\) we apply the logarithm to both \(x_k\) and \(y_k\text{,}\) and follow the linear regression process.  Try this with France Covid data <a class="xref" data-knowl="./knowl/example-best-fit-exponential.html" title="Example 28.1.1: Fit an exponential to Covid data">Example 28.1.1</a>. Does the power law fit better or worse than exponential? (Compare visually, on the basis of plots.)</p>
-<span class="incontext"><a href="exercises-transforming-data.html#p-815">in-context</a></span>
+<p>It is tempting to write the anonymous function as <code class="code-inline tex2jax_ignore">fun = @(x, y) [x.^2 x.*y y.^2 x y]*b - 1</code> which is shorter and consistent with how we used parameters in the past. And this works but Matlab complains: “Warning: Function behaves unexpectedly on array inputs. To improve performance, properly vectorize your function to return an output with the same size and shape as the input arguments.” What is it complaining about?</p>
+<span class="incontext"><a href="section-example-implicit-equation.html#p-815">in-context</a></span>
 </body>
 </html>

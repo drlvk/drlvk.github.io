@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:27-04:00    *-->
+<!--*    on 2021-04-09T17:11:03-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -17,19 +17,18 @@
 <span class="type">Answer</span><span class="space"> </span><span class="codenumber">22.3.2.1</span><span class="period">.</span>
 </h6>
 <pre class="code-block tex2jax_ignore">f = @(x) 1./(x.^2+1);  % or another f 
-n = 20;   % or another n 
+n = 19;   % there will be n+1 = 20 points
 a = -5;   % or another a
 b = 5;    % or another b
 
-x = cos(linspace(0, pi, n+1)) * (b-a)/2 + (a+b)/2; 
+x = cos(linspace(0, pi, n+1)) * (b-a)/2 + (a+b)/2;  % Chebyshev extreme points
 y = f(x);
-w = (-1).^(0:n);
-w(1) = w(1)/2;
-w(end) = w(end)/2;
+w = (-1).^(0:n);             % simple formula for weights
+w([1 end]) = w([1 end])/2;   % trapezoidal adjustment 
 
 p = @(t) (y.*w*(t - x').^(-1)) ./ (w*(t - x').^(-1));
 t = linspace(a-0.01, b+0.01, 1000);
-plot(x, y, 'k*', t, f(t), 't', t, p(t), 'b')
+plot(x, y, 'k*', t, f(t), 'r', t, p(t), 'b')
 </pre>
 <p>The plot includes the points of interpolation as black asterisks, the original function is a red curve, and the interpolating polynomial as a blue curve. Often the blue curve follows the red one so precisely that it covers it completely.</p>
 </div>

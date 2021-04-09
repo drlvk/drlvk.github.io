@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:09-04:00    *-->
+<!--*    on 2021-04-09T17:10:46-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -424,7 +424,8 @@ x_k = \cos(\pi k/n) \quad \text{where } k=0, 1, \dots, n\label{eq-chebyshev-extr
 x = cos(linspace(0, pi, n+1));
 </pre>
 <p data-braille="continuation">While the midpoint projections (Chebyshev points of the first kind) are the <em class="emphasis">roots</em> of polynomials \(T_n\text{,}\) the points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> are the <em class="emphasis">extreme points</em> of \(T_n\text{.}\) Indeed, the identity <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> says that \(T_n\) attains extreme values \(\pm 1\) when \(\cos (n\theta) = \pm 1\text{,}\) hence \(\theta = \pi k/n\text{,}\) hence \(x = \cos(\pi k/n)\text{.}\)</p>
-<p id="p-679">An advantage of using Chebyshev extreme points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> as the points of interpolation is that one does not need to compute the weights like we did in <a class="xref" data-knowl="./knowl/example-lagrange-polynomial-chebyshev.html" title="Example 22.2.3: An interpolating polynomial using Chebyshev points">Example 22.2.3</a>. For this specific choice of points, the weights in the barycentric formula <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a> turn out to be</p>
+<p id="p-679">Note that in this section, unlike the previous ones, we have \(n+1\) points of interpolation, rather than \(n\text{.}\) This is more convenient notation-wise, similarly to how the Trapezoidal rule with \(n\) subintervals uses \(n+1\) points of evaluation, while the Midpoint rule with the same subintervals uses \(n\) points.</p>
+<p id="p-680">An advantage of using Chebyshev extreme points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> as the points of interpolation is that one does not need to compute the weights like we did in <a class="xref" data-knowl="./knowl/example-lagrange-polynomial-chebyshev.html" title="Example 22.2.3: An interpolating polynomial using Chebyshev points">Example 22.2.3</a>. For this specific choice of points, the weights in the barycentric formula <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a> turn out to be</p>
 <div class="displaymath">
 \begin{equation}
 w_k = (-1)^k   \quad \text{except } w_0=1/2, w_n = (-1)^n/2\label{eq-weights-chebyshev}\tag{22.3.2}
@@ -442,10 +443,10 @@ p(x) = \frac{\sum'_{0\le k\le n} y_k (-1)^k (x-x_k)^{-1}}{ \sum'_{0\le k\le n} (
 x_k = \frac{b-a}{2}  \cos(\pi k/n) + \frac{a+b}{2}
 \end{equation*}
 </div>
-<p data-braille="continuation">Note that the function \(p\) is in fact a polynomial of degree \(n\text{,}\) even if the formula does not look like it. The straightforward way of expressing a polynomial of high degree, as a sum of powers with constant coefficients, is likely to cause numerical issues, while the barycentric formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> is numerically stable.</p>
+<p data-braille="continuation">Note that the function \(p\) is in fact a polynomial of degree \(n\text{,}\) even if the formula does not look like it. The straightforward way of expressing a polynomial of high degree, as a sum of powers with constant coefficients, is likely to cause numerical issues (see <a href="section-monomial-basis.html" class="internal" title="Section 21.1: Interpolation in the monomial basis">Section 21.1</a>), while the barycentric formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> is numerically stable.</p>
 <article class="example example-like" id="example-chebyshev-extreme-interpolation"><a data-knowl="" class="id-ref original" data-refid="hk-example-chebyshev-extreme-interpolation"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">22.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Interpolate through Chebyshev extreme points.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-chebyshev-extreme-interpolation"><article class="example example-like"><p id="p-680">Use the formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> to interpolate a few functions such as</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-chebyshev-extreme-interpolation"><article class="example example-like"><p id="p-681">Use the formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> to interpolate a few functions such as</p>
 <ul class="disc">
 <li id="li-153">\(f(x) = 1/(x^2+1)\) on \([-5, 5]\)</li>
 <li id="li-154">\(f(x) = \tan^{-1} x\) on \([-7, 11]\)</li>
@@ -453,25 +454,24 @@ x_k = \frac{b-a}{2}  \cos(\pi k/n) + \frac{a+b}{2}
 <li id="li-156">\(f(x) = \sin(x^2)\) on \([0, 5]\)</li>
 <li id="li-157">\(f(x) = \operatorname{sign} x\) on \([-1, 1]\)</li>
 </ul>
-<p data-braille="continuation">by a polynomial of degree \(n=20\) (or another degree if you prefer).</p>
+<p data-braille="continuation">Use \(20\) Chebyshev extreme points (or more if you prefer).</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-60" id="answer-60"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-60"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) 1./(x.^2+1);  % or another f 
-n = 20;   % or another n 
+n = 19;   % there will be n+1 = 20 points
 a = -5;   % or another a
 b = 5;    % or another b
 
-x = cos(linspace(0, pi, n+1)) * (b-a)/2 + (a+b)/2; 
+x = cos(linspace(0, pi, n+1)) * (b-a)/2 + (a+b)/2;  % Chebyshev extreme points
 y = f(x);
-w = (-1).^(0:n);
-w(1) = w(1)/2;
-w(end) = w(end)/2;
+w = (-1).^(0:n);             % simple formula for weights
+w([1 end]) = w([1 end])/2;   % trapezoidal adjustment 
 
 p = @(t) (y.*w*(t - x').^(-1)) ./ (w*(t - x').^(-1));
 t = linspace(a-0.01, b+0.01, 1000);
-plot(x, y, 'k*', t, f(t), 't', t, p(t), 'b')
+plot(x, y, 'k*', t, f(t), 'r', t, p(t), 'b')
 </pre>
-<p id="p-681">The plot includes the points of interpolation as black asterisks, the original function is a red curve, and the interpolating polynomial as a blue curve. Often the blue curve follows the red one so precisely that it covers it completely.</p>
+<p id="p-682">The plot includes the points of interpolation as black asterisks, the original function is a red curve, and the interpolating polynomial as a blue curve. Often the blue curve follows the red one so precisely that it covers it completely.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

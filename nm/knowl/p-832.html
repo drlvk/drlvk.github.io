@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:28-04:00    *-->
+<!--*    on 2021-04-09T17:11:06-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One can visualize the above as surface-fitting: given the points \((x_k, y_k, z_k)\) we seek to fit a surface of type <a class="xref" data-knowl="./knowl/eq-2d-gaussian.html" title="Equation 29.3.1">(29.3.1)</a> to them, with the ultimate goal of locating the center of that Gaussian. Suppose the data is as follows.</p>
+<p>The theory of partial differential equations tells us that if a substance diffuses from a point source at \((u, v)\) under somewhat idealized conditions (ignoring currents, decay, etc) then its concentration after some time will be expressed by the two-dimensional Gaussian function</p>
+<div class="displaymath">
+\begin{equation}
+z = A\exp\left(-C((x-u)^2 + (y-v)^2)\right)\tag{29.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">Here \(A, C\) are the shape parameters of the Gaussian (describing how tall and wide it is) and \((u, v)\) are its location parameters (where it is centered). We are really interested in the latter, but all four will need to be determined by the nonlinear least squares process.</p>
 <span class="incontext"><a href="section-source-location.html#p-832">in-context</a></span>
 </body>
 </html>

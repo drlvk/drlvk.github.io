@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:28-04:00    *-->
+<!--*    on 2021-04-09T17:11:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The parameters with \(|t| \lt 2\) should be considered for removal. In the example of fitting polynomials of degree \(d\text{,}\) we have \(p = d+1\) parameters. The consideration should be focused on the leading coefficient, because if it appears to be inessential, we should remove it by decreasing the degree \(d\) by \(1\text{.}\) Note that the removal of one parameter causes all others to be recalculated, so the rest may become essential now.</p>
+<p>Solving for optimal parameters (theoretically) involves inverting the matrix \(X^TX\text{,}\) seen in <a class="xref" data-knowl="./knowl/eq-lsq-2.html" title="Equation 27.1.2">(27.1.2)</a>. The matrix \(s^2 (X^TX)^{-1}\) can be considered the <dfn class="terminology">covariance matrix</dfn> of estimated parameters. Specifically, its diagonal element in position \((k, k)\) is the variance of \(\beta_k\text{.}\) The square root of variance gives the <dfn class="terminology">standard error</dfn> of \(\beta_k\text{.}\) As a rule of thumb, if \(|\beta_k| \lt 2\operatorname{SE}(\beta_k)\) (a parameter is within two standard errors of 0), this parameter should be considered inessential and possibly removed from the model. The following computation implements this statistical analysis.</p>
 <span class="incontext"><a href="section-standard-error.html#p-790">in-context</a></span>
 </body>
 </html>

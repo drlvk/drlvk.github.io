@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:28-04:00    *-->
+<!--*    on 2021-04-09T17:11:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Since our models generally have more than one parameter, we need multivariable <code class="code-inline tex2jax_ignore">fminsearch</code>. For example,</p>
+<p>As most numerical methods, <code class="code-inline tex2jax_ignore">fminsearch</code> may fail at its task:</p>
 <pre class="code-block tex2jax_ignore">
-fminsearch(@(b) b(1)^2 + b(2)^4 + 3*b(1) - b(2), [1; 2])
+fminsearch(@(x) exp(x), 0)  
 </pre>
-<p data-braille="continuation">finds the minimum of \(b_1^2 + b_2^4 + 3b_1 - b_2\) (using letter b to shorten the formula, as usually our parameters are called \(\beta_1, \beta_2,\dots\text{.}\)) Note that the function being minimized still has only one  argument, but this argument is now a vector.</p>
+<p data-braille="continuation">returns “-786.4315” (there are no points of minimum, of course), while</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) x^3 - x, 4)
+</pre>
+<p data-braille="continuation">overlooks the local minimum at \(x = 1/\sqrt{3}\) and diverges to negative infinity. The success is much more likely if the initial point is chosen with some care. In case of fitting a curve to data, one should try to guess the signs and approximate sizes of the parameters.</p>
 <span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-825">in-context</a></span>
 </body>
 </html>

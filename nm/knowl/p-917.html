@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:30-04:00    *-->
+<!--*    on 2021-04-09T17:11:07-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Modify <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> to include the idea of Broyden's method from <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>: the script should not use the Hessian matrix <code class="code-inline tex2jax_ignore">fh</code>, instead relying on an approximation to its inverse obtained with Broyden's method. The following modification should help with convergence: start with small initial guess</p>
-<pre class="code-block tex2jax_ignore">
-B = 0.001*eye(2);
-</pre>
-<p data-braille="continuation">and make the stopping condition less restrictive:</p>
-<pre class="code-block tex2jax_ignore">
-norm(h) &lt; 1e-6
-</pre>
-<p data-braille="continuation">Re-run the script several times (about five): since it has a random initial point, the results may differ. Does the minimization process converge to the minimum \((1, 1)\) every time?</p>
-<span class="incontext"><a href="exercises-gradient-newton-conjugate.html#p-917">in-context</a></span>
+<p>Compare the search path to what we get without correction in <code class="code-inline tex2jax_ignore">w</code>: it is less zigzagging. However, if we use the original Rosenbrock function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> which is very far from quadratic or convex, the search diverges to infinity. Several other correction terms (different choices for \(\gamma\) coefficient) have been proposed for the nonlinear conjugate gradient method. But it appears that the “narrow valley” landscape of the Rosenbrock function is best navigated either by using both first and second order derivatives (the Newton method) or by using no derivatives at all (the Nelder-Mead method, to be considered later).</p>
+<span class="incontext"><a href="section-conjugate-gradient.html#p-917">in-context</a></span>
 </body>
 </html>

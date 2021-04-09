@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:28-04:00    *-->
+<!--*    on 2021-04-09T17:11:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The discrete version of even periodic extension is as follows: given function values \(y_1, \dots, y_n\text{,}\) we extend them to \(y_1, \dots, y_n, y_{n-1}, \dots, y_2\) (for the total of \(2n-2\) values).  In Matlab terms, the extended vector is</p>
-<pre class="code-block tex2jax_ignore">
-ye = [y y(end-1:-1:2)];
-</pre>
-<p data-braille="continuation">Why not simply <code class="code-inline tex2jax_ignore">[y y(end:-1:1)]</code>? Repeating the endpoint values \(y_1, y_n\) would distort the picture of this function. They should appear once while the rest appear twice; this can be viewed as yet another form of “trapezoidal adjustment”.</p>
+<p>Compare the behavior of cosines \(\cos kx\) and sines \(\sin kx\) on the interval \([0, \pi]\text{.}\) The cosines have different values at \(0, \pi\) while the sines are always 0 at both ends. This makes cosines,  specifically in the form \(\cos (\pi k x/L)\text{,}\) preferable for approximating a non-periodic function on \([0, L]\text{.}\) The <dfn class="terminology">Discrete Cosine Transform</dfn> is a tool used to find the coefficients of a given function in the cosine basis. It is somewhat technical (there are 4 different types of the transform), but the essence of the method can be stated simply: apply Fourier transform to the <dfn class="terminology">even periodic extension</dfn> of the given function.</p>
 <span class="incontext"><a href="section-cosine-interpolation.html#p-767">in-context</a></span>
 </body>
 </html>

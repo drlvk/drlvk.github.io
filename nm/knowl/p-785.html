@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-03T17:31:28-04:00    *-->
+<!--*    on 2021-04-09T17:11:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Use the training-testing split in <a class="xref" data-knowl="./knowl/example-best-fit-polynomial.html" title="Example 27.2.1: Fitting a polynomial of any degree">Example 27.2.1</a>.</p>
+<p>A simple but effective way to combad overfitting is to split the data into two parts: one (training set) is used to compute the coefficients \(\beta_k\text{,}\) and then another part (testing set) is used to evaluate goodness of fit. The split may be done randomly, perhaps 50:50 or 60:40 proportion. Which of the following 50:50 splits looks better?</p>
+<pre class="code-block tex2jax_ignore">
+x_train = x(1:8); 
+x_test = x(9:end);
+</pre>
+<p data-braille="continuation">(and similarly for <code class="code-inline tex2jax_ignore">y</code>) or</p>
+<pre class="code-block tex2jax_ignore">
+x_train = x(1:2:end); 
+x_test = x(2:2:end);
+</pre>
 <span class="incontext"><a href="section-overfitting.html#p-785">in-context</a></span>
 </body>
 </html>
