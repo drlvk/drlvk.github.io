@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-09T17:11:04-04:00    *-->
+<!--*    on 2021-04-10T23:25:03-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We can set all small Fourier coefficients (less than some threshold <code class="code-inline tex2jax_ignore">thr</code>) to zero using <code class="code-inline tex2jax_ignore">fc(abs(fc) &lt; thr) = 0;</code>. One way to determine the threshold reasonably is to use <dfn class="terminology">percentiles</dfn>: for example,</p>
-<pre class="code-block tex2jax_ignore">
-thr = prctile(abs(fc(:)), 75);
-</pre>
-<p data-braille="continuation">returns the number <code class="code-inline tex2jax_ignore">thr</code> such that 75 percent of Fourier coefficients are less than it, and the other are greater (in absolute value).</p>
-<span class="incontext"><a href="section-2d-dft.html#p-762">in-context</a></span>
+<p>The command <code class="code-inline tex2jax_ignore">imshow(im)</code> displays the image. An image (an array of numbers) can be transformed in multiple ways and then either saved as a file with <code class="code-inline tex2jax_ignore">imwrite</code> or just displayed with <code class="code-inline tex2jax_ignore">imshow</code>; we will do the latter, which is simpler. Try the following and observe the effects:</p>
+<ul class="disc">
+<li>Remove one of colors entirely, for example <code class="code-inline tex2jax_ignore">im(:, :, 3)  = 0;</code>
+</li>
+<li>Set all pixels darker than some level to black (0) with <code class="code-inline tex2jax_ignore">im(im &lt; 128) = 0;</code>
+</li>
+<li>Set the intensity of some color to some specific value, for example <code class="code-inline tex2jax_ignore">im(:, :, 2)  = 64;</code>
+</li>
+<li>…</li>
+</ul>
+<p data-braille="continuation">If you do something that causes the array to lose its class “uint8”, that can usually be fixed with the command <code class="code-inline tex2jax_ignore">uint8(...)</code>.</p>
+<span class="incontext"><a href="section-image-compression.html#p-762">in-context</a></span>
 </body>
 </html>

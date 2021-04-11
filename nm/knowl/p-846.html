@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-09T17:11:06-04:00    *-->
+<!--*    on 2021-04-10T23:25:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,18 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Suppose \(f\colon E\to \mathbb R\) is a real-valued function on some set \(E\subset \mathbb R^d\text{.}\) The function attains its <dfn class="terminology">global minimum</dfn> at \(p\in E\) if \(f(x)\ge f(p)\) for all \(x\in E\text{.}\) It is possible to have several points of global minimum, for example \(f(x)=\sin x\) on the interval \([0, 4\pi]\) attains global minimum of \(-1\) at the points \(x=3\pi/2\) and \(x = 7\pi/2\text{.}\)</p>
-<span class="incontext"><a href="section-introduction-optimization.html#p-846">in-context</a></span>
+<p>High-dimensional optimization is difficult, and <code class="code-inline tex2jax_ignore">fminsearch</code> will need your help in the form of a good initial point (<code class="code-inline tex2jax_ignore">ones(9, 1)</code> is not good enough). The logistic equation <a class="xref" data-knowl="./knowl/eq-logistic-curve-shift.html" title="Equation 29.4.1">(29.4.1)</a> leads to the 9-parameter model</p>
+<div class="displaymath">
+\begin{equation}
+y = \frac{M_1}{1 + e^{-r_1 (x-a_1)}} + \frac{M_2}{1 + e^{-r_2 (x-a_2)}} + \frac{M_3}{1 + e^{-r_3 (x-a_3)}}\tag{29.5.1}
+\end{equation}
+</div>
+<p data-braille="continuation">Reasonable initial guesses would be:</p>
+<ul class="disc">
+<li>\(a_1, a_2, a_3\) are the x-values of places where the three “waves” are the steepest</li>
+<li>\(M_1, M_2, M_3\) are the sizes of the three waves</li>
+<li>\(r_1, r_2, r_3\) could be set to 1</li>
+</ul>
+<span class="incontext"><a href="exercises-nonlinear-least-squares.html#p-846">in-context</a></span>
 </body>
 </html>

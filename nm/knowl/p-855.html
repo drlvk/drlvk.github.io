@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-09T17:11:06-04:00    *-->
+<!--*    on 2021-04-10T23:25:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Minimize \(f(x) = \sin (x) + \sin (\sqrt{2}x)\) on the interval \([0, 100]\) using \(n=100000\) points. Then use <a class="xref" data-knowl="./knowl/eq-mvi-estimate.html" title="Equation 30.2.2">(30.2.2)</a> to estimate the true global minimum of \(f\) on this interval.</p>
-<span class="incontext"><a href="section-brute-force.html#p-855">in-context</a></span>
+<p>A function is <dfn class="terminology">convex</dfn> (also called “concave up” in calculus) if its graph lies below its secant lines, meaning</p>
+<div class="displaymath">
+\begin{equation}
+f( (1-t) a + t b) \le t f(a) + (1-t) f(b), \quad 0 \lt  t \lt 1\tag{30.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">A function is <dfn class="terminology">strictly convex</dfn> if the inequality <a class="xref" data-knowl="./knowl/eq-def-convexity.html" title="Equation 30.1.1">(30.1.1)</a> is strict. Such a function is unimodal on any interval. (Can you find a unimodal function that is not convex?)</p>
+<span class="incontext"><a href="section-introduction-optimization.html#p-855">in-context</a></span>
 </body>
 </html>

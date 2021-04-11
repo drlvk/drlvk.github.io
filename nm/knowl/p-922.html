@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-09T17:11:07-04:00    *-->
+<!--*    on 2021-04-10T23:25:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Given a triangle \(ABC\) in \(xy\)-plane, we evaluate the function \(f\) at its vertices. The vertex with the largest value of \(f\) (for example, \(C\)) <em class="emphasis">might</em> get replaced by its reflection. One could imagine reflecting \(C\) about the opposite side \(AB\) by dropping a perpendicular line from \(C\) onto \(AB\) and following it. However, this kind of reflection is not invariant under linear transformations of \(xy\) plane, such as the scaling of coordinates. The Nelder-Mead method uses reflection about the midpoint of \(AB\) which can be expressed in vector form as</p>
-<div class="displaymath">
-\begin{equation}
-R = A + B - C = (A+B+C) - 2C\tag{33.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">The second version is slightly easier to code, see below.</p>
-<span class="incontext"><a href="section-nelder-mead-reflect.html#p-922">in-context</a></span>
+<p>Modify <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> to include the idea of Broyden's method from <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>: the script should not use the Hessian matrix <code class="code-inline tex2jax_ignore">fh</code>, instead relying on an approximation to its inverse obtained with Broyden's method. The following modification should help with convergence: start with small initial guess</p>
+<pre class="code-block tex2jax_ignore">
+B = 0.001*eye(2);
+</pre>
+<p data-braille="continuation">and make the stopping condition less restrictive:</p>
+<pre class="code-block tex2jax_ignore">
+norm(h) &lt; 1e-6
+</pre>
+<p data-braille="continuation">Re-run the script several times (about five): since it has a random initial point, the results may differ. Does the minimization process converge to the minimum \((1, 1)\) every time?</p>
+<span class="incontext"><a href="exercises-gradient-newton-conjugate.html#p-922">in-context</a></span>
 </body>
 </html>

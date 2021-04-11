@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-09T17:11:08-04:00    *-->
+<!--*    on 2021-04-10T23:25:06-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The primal problem would be the farmer deciding how much wheat (\(x_1\)) and barley (\(x_2\)) to grow if their sell prices are \(S_1\) and \(S_2\) per unit. The goal is to maximize the total revenue:</p>
+<p>Without going into the detailed proof of the Strong Duality Theorem, here is a sketch for asymmetric duality. Suppose \(\mathbf x^*\) is an optimal point for <a class="xref" data-knowl="./knowl/eq-standard-form-IR-1.html" title="Equation 35.2.3">(35.2.3)</a>. If \(\mathbf y\) is any feasible point of <a class="xref" data-knowl="./knowl/eq-standard-form-EN-1.html" title="Equation 35.2.4">(35.2.4)</a>, then</p>
 <div class="displaymath">
-\begin{equation*}
-S_1 x_1 + S_2 x_2 \to \max
-\end{equation*}
+\begin{equation}
+\mathbf c^T \mathbf x^* = (A^T \mathbf y)^T \mathbf x^* = \mathbf y^T (A\mathbf x^*) \le \mathbf y^T \mathbf b
+= \mathbf b^T \mathbf y\tag{35.2.5}
+\end{equation}
 </div>
-<p data-braille="continuation">subject to constraints:</p>
-<ul class="disc">
-<li>\(x_1 + x_2 \leq L\) (cannot use more land than available)</li>
-<li>\(F_1  x_1 + F_2  x_2 \leq F\)  (cannot use more fertilizer than available)</li>
-<li>\(P_1  x_1 + P_2  x_2 \leq P\) (cannot use more pesticide than available)</li>
-<li>\(x_1, x_2 \geq 0\) (cannot grow negative amounts)</li>
-</ul>
-<span class="incontext"><a href="section-lp-duality-economic.html#p-984">in-context</a></span>
+<p data-braille="continuation">which shows that each value of the objective function of the dual problem gives an upper bound for the primal problem  (this part is the “weak duality theorem”). It remains to show that there exists \(\mathbf y\) for which equality holds in <a class="xref" data-knowl="./knowl/eq-lp-duality-sketch.html" title="Equation 35.2.5">(35.2.5)</a>.</p>
+<span class="incontext"><a href="section-linear-programming-duality.html#p-984">in-context</a></span>
 </body>
 </html>

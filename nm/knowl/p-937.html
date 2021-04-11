@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-09T17:11:07-04:00    *-->
+<!--*    on 2021-04-10T23:25:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The stopping condition of the method in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> is that</p>
-<pre class="code-block tex2jax_ignore">
-max(abs(T - path(:, k))) &lt; 1e-6    
-</pre>
-<p data-braille="continuation">meaning that every coordinate of every vertex of triangle \(T\) with within \(10^{-6}\) of the corresponding coordinate of the center of \(T\text{.}\) This is just saying “the triangle is small”, and makes no use of the values of function \(f\text{.}\) Replacing this stopping condition with “the difference between the largest and smallest of the values of \(f\) at the vertices of \(T\) is less than \(10^{-6}\text{.}\)” Does the method still reliably find the minimum \((1, 1)\) of Rosenbrock's function? Does it take more or fewer steps with the new stopping condition, or about the same as before?</p>
-<span class="incontext"><a href="exercises-nelder-mead.html#p-937">in-context</a></span>
+<p>Having both contraction and expansion in the process means the triangle can grow smaller and larger, moving faster when the path is clear, or becoming very narrow to fit into a difficult to reach valley.</p>
+<span class="incontext"><a href="section-nelder-mead-expand.html#p-937">in-context</a></span>
 </body>
 </html>

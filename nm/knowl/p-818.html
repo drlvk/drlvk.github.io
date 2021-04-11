@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-09T17:11:05-04:00    *-->
+<!--*    on 2021-04-10T23:25:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>As an alternative to <a class="xref" data-knowl="./knowl/exercise-transforming-data-2.html" title="Exercise 28.4.2">Exercise 28.4.2</a>, one may try to model the same data by a rational function of the form \(y = 1/(Ax^2 + Bx+ C)\text{.}\) (Indeed, the graph of function \(y=1/(x^2+1)\) also looks bell-shaped.) Try following the process of  <a class="xref" data-knowl="./knowl/exercise-transforming-data-2.html" title="Exercise 28.4.2">Exercise 28.4.2</a> by transforming data <code class="code-inline tex2jax_ignore">yt = 1./y</code>, fitting a quadratic function, and plotting the reciprocal of that function. What goes wrong?</p>
-<span class="incontext"><a href="exercises-transforming-data.html#p-818">in-context</a></span>
+<p>Note that while it's safe to leave spaces around <code class="code-inline tex2jax_ignore">+</code> signs in the formula <code class="code-inline tex2jax_ignore">fun</code> (some find it improves readability), one has to be extra careful with such spaces within a vector. Indeed,</p>
+<pre class="code-block tex2jax_ignore">
+[min(x) -1 max(x) +1 min(y) -1 max(y) +1]  
+</pre>
+<p data-braille="continuation">would be a vector of 8 numbers, not 4. Matlab does understand</p>
+<pre class="code-block tex2jax_ignore">
+[min(x) - 1 max(x) + 1 min(y) - 1 max(y) + 1];
+</pre>
+<p data-braille="continuation">as a vector of 4 numbers, however.</p>
+<span class="incontext"><a href="section-example-implicit-equation.html#p-818">in-context</a></span>
 </body>
 </html>
