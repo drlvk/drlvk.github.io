@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-10T23:25:06-04:00    *-->
+<!--*    on 2021-04-13T20:06:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a> illustrates basic use of <code class="code-inline tex2jax_ignore">linprog</code>. This command allows more parameters which express equality constraints and additional lower and upper bounds on the variables: see <code class="code-inline tex2jax_ignore">help linprog</code>.</p>
+<p>Rephrasing this as the minimization of \(-x_1-x_2\text{,}\) we see that the coefficient vector should be <code class="code-inline tex2jax_ignore">[-1 -1]</code>. Executing</p>
+<pre class="code-block tex2jax_ignore">
+linprog([-1; -1], [1 2; 3 1], [4; 5])
+</pre>
+<p data-braille="continuation">yields <code class="code-inline tex2jax_ignore">[1.2; 1.4]</code>. (Try to visualize this problem and its solution.)</p>
 <span class="incontext"><a href="section-linear-programming-introduction.html#p-974">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-10T23:24:53-04:00    *-->
+<!--*    on 2021-04-13T20:05:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -411,20 +411,20 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-linear-programming-duality"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">35.2</span> <span class="title">Duality in linear programming</span>
 </h2>
-<p id="p-979">The main differences between the standard forms of LP problems can be summarized as:</p>
+<p id="p-980">The main differences between the standard forms of LP problems can be summarized as:</p>
 <ul class="disc">
 <li id="li-206">Constraints: <em class="emphasis">I</em>nequalities or <em class="emphasis">E</em>quations</li>
 <li id="li-207">Variables: <em class="emphasis">R</em>eal or <em class="emphasis">N</em>onnegative</li>
 </ul>
 <p data-braille="continuation">Other differences: minimization vs maximization, inequalities \(\le \) vs \(\ge \text{,}\) are relatively minor: changing the signs of \(A, \mathbf b\text{,}\) or \(\mathbf c\) takes care of those variations. So, one can imagine four major types of LP problems: IR, IN, ER, and EN. However, “ER” type problems are not really interesting, because a system of linear equations with real variables determines a hyperplane, and the restriction of a  linear function to a hyperplane is either unbounded or constant. This leaves us with three types: IR, IN, EN, the examples of which are given by <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a>, <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a>, and <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a>, respectively.</p>
-<p id="p-980">This section will describe how each LP problem has a <dfn class="terminology">dual</dfn> LP problem. Specifically:</p>
+<p id="p-981">This section will describe how each LP problem has a <dfn class="terminology">dual</dfn> LP problem. Specifically:</p>
 <ul class="disc">
 <li id="li-208">A problem of type IR has a dual of type EN</li>
 <li id="li-209">A problem of type EN has a dual of type IR</li>
 <li id="li-210">A problem of type IN has a dual of type IN</li>
 </ul>
 <p data-braille="continuation">In general, the dual of the dual problem is the original (<dfn class="terminology">primal</dfn>) problem. The IN-IN duality is symmetric while IR-EN duality is asymmetric.</p>
-<p id="p-981">Specifically, symmetric duality states that the dual of</p>
+<p id="p-982">Specifically, symmetric duality states that the dual of</p>
 <div class="displaymath">
 \begin{equation}
 \mathbf c^T \mathbf x\to \max  \quad \text{where } A\mathbf x \le \mathbf b, \quad \mathbf x \ge 0\label{eq-standard-form-IN-1}\tag{35.2.1}
@@ -449,9 +449,9 @@ MathJax.Hub.Config({
 \end{equation}
 </div>
 <p data-braille="continuation">Note that in both cases, the variables and constraints trade places; the dual has as many constraints as the original problem had variables (not counting the nonnegativity requirements). Also, the dual of a maximization problem is a minimization problem (and the other way around).</p>
-<p id="p-982"><dfn class="terminology">Strong Duality Theorem</dfn>: Suppose that the primal LP problem has an optimal solution \(\mathbf x^*\text{.}\) Then the dual problem has an optimal solution \(\mathbf y^*\) where \(\mathbf c^T\mathbf x^*=\mathbf b^T\mathbf y^*\text{.}\) Thus, although these problems have different objective functions, both objective functions have the same extreme (optimal) value.</p>
-<p id="p-983">Every feasible point \(\mathbf x\) of <a class="xref" data-knowl="./knowl/eq-standard-form-IN-1.html" title="Equation 35.2.1">(35.2.1)</a> gives a lower bound on its optimal value: that is, \(\mathbf c^T \mathbf x^*\ge \mathbf c^T \mathbf x\text{.}\) On the other hand, every   feasible point \(\mathbf y\) of <a class="xref" data-knowl="./knowl/eq-standard-form-IN-2.html" title="Equation 35.2.2">(35.2.2)</a> gives an <em class="emphasis">upper</em> bound on its optimal value: that is, \(\mathbf b^T\mathbf y^* \le \mathbf b^T\mathbf y\text{.}\) Since the optimal value (so far unknown) is the same for both problems, it is contained somewhere between known quantities \(\mathbf c^T \mathbf x\) and \(\mathbf b^T\mathbf y\text{.}\) This leads to the idea of moving the points \(\mathbf x, \mathbf y\) through the feasible sets so that the <em class="emphasis">duality gap</em> \(\mathbf b^T\mathbf y - \mathbf c^T \mathbf x\) is decreased. Once the gap reaches zero, we have the solution. Or, if the gap becomes extremely small, we have a point \(\mathbf x\) that is almost as good as the optimal one.</p>
-<p id="p-984">Without going into the detailed proof of the Strong Duality Theorem, here is a sketch for asymmetric duality. Suppose \(\mathbf x^*\) is an optimal point for <a class="xref" data-knowl="./knowl/eq-standard-form-IR-1.html" title="Equation 35.2.3">(35.2.3)</a>. If \(\mathbf y\) is any feasible point of <a class="xref" data-knowl="./knowl/eq-standard-form-EN-1.html" title="Equation 35.2.4">(35.2.4)</a>, then</p>
+<p id="p-983"><dfn class="terminology">Strong Duality Theorem</dfn>: Suppose that the primal LP problem has an optimal solution \(\mathbf x^*\text{.}\) Then the dual problem has an optimal solution \(\mathbf y^*\) where \(\mathbf c^T\mathbf x^*=\mathbf b^T\mathbf y^*\text{.}\) Thus, although these problems have different objective functions, both objective functions have the same extreme (optimal) value.</p>
+<p id="p-984">Every feasible point \(\mathbf x\) of <a class="xref" data-knowl="./knowl/eq-standard-form-IN-1.html" title="Equation 35.2.1">(35.2.1)</a> gives a lower bound on its optimal value: that is, \(\mathbf c^T \mathbf x^*\ge \mathbf c^T \mathbf x\text{.}\) On the other hand, every   feasible point \(\mathbf y\) of <a class="xref" data-knowl="./knowl/eq-standard-form-IN-2.html" title="Equation 35.2.2">(35.2.2)</a> gives an <em class="emphasis">upper</em> bound on its optimal value: that is, \(\mathbf b^T\mathbf y^* \le \mathbf b^T\mathbf y\text{.}\) Since the optimal value (so far unknown) is the same for both problems, it is contained somewhere between known quantities \(\mathbf c^T \mathbf x\) and \(\mathbf b^T\mathbf y\text{.}\) This leads to the idea of moving the points \(\mathbf x, \mathbf y\) through the feasible sets so that the <em class="emphasis">duality gap</em> \(\mathbf b^T\mathbf y - \mathbf c^T \mathbf x\) is decreased. Once the gap reaches zero, we have the solution. Or, if the gap becomes extremely small, we have a point \(\mathbf x\) that is almost as good as the optimal one.</p>
+<p id="p-985">Without going into the detailed proof of the Strong Duality Theorem, here is a sketch for asymmetric duality. Suppose \(\mathbf x^*\) is an optimal point for <a class="xref" data-knowl="./knowl/eq-standard-form-IR-1.html" title="Equation 35.2.3">(35.2.3)</a>. If \(\mathbf y\) is any feasible point of <a class="xref" data-knowl="./knowl/eq-standard-form-EN-1.html" title="Equation 35.2.4">(35.2.4)</a>, then</p>
 <div class="displaymath">
 \begin{equation}
 \mathbf c^T \mathbf x^* = (A^T \mathbf y)^T \mathbf x^* = \mathbf y^T (A\mathbf x^*) \le \mathbf y^T \mathbf b
@@ -459,7 +459,7 @@ MathJax.Hub.Config({
 \end{equation}
 </div>
 <p data-braille="continuation">which shows that each value of the objective function of the dual problem gives an upper bound for the primal problem  (this part is the “weak duality theorem”). It remains to show that there exists \(\mathbf y\) for which equality holds in <a class="xref" data-knowl="./knowl/eq-lp-duality-sketch.html" title="Equation 35.2.5">(35.2.5)</a>.</p>
-<p id="p-985">Imagine applying force \(\mathbf c\) to the point \(\mathbf x^*\text{:}\) if it can be moved in this direction, the objective function will increase. Since such an increase is impossible, the force \(\mathbf c\) must be balanced by reaction forces of the “walls”, i.e., hyperplanes \((A\mathbf x)_k\le b_k\text{,}\) which represent constraints. Only the <em class="emphasis">active</em> constraints, those for which \((A\mathbf x^*)_k = b_k\text{,}\) are relevant here, since \(\mathbf x^*\) does not touch the hyperplanes of inactive constraints. The normal vectors of the constraint hyperplanes are given by the rows of \(A\text{.}\) Transposition makes \(\mathbf c\) a linear combination of the columns of \(A^T\) with nonnegative coefficients; moreover, the coefficients of inactive constraints are zero. This means that \(\mathbb c = A^T \mathbf y^*\) for some vector \(\mathbf y^*\ge 0\) such that if \((A\mathbf x^*)_k\lt b_k\) (inactive constraint) then \(y^*_k=0\text{.}\) Returning to <a class="xref" data-knowl="./knowl/eq-lp-duality-sketch.html" title="Equation 35.2.5">(35.2.5)</a> we see that with \(\mathbf y=\mathbf y^*\) it becomes an equality.</p></section></div></main>
+<p id="p-986">Imagine applying force \(\mathbf c\) to the point \(\mathbf x^*\text{:}\) if it can be moved in this direction, the objective function will increase. Since such an increase is impossible, the force \(\mathbf c\) must be balanced by reaction forces of the “walls”, i.e., hyperplanes \((A\mathbf x)_k\le b_k\text{,}\) which represent constraints. Only the <em class="emphasis">active</em> constraints, those for which \((A\mathbf x^*)_k = b_k\text{,}\) are relevant here, since \(\mathbf x^*\) does not touch the hyperplanes of inactive constraints. The normal vectors of the constraint hyperplanes are given by the rows of \(A\text{.}\) Transposition makes \(\mathbf c\) a linear combination of the columns of \(A^T\) with nonnegative coefficients; moreover, the coefficients of inactive constraints are zero. This means that \(\mathbb c = A^T \mathbf y^*\) for some vector \(\mathbf y^*\ge 0\) such that if \((A\mathbf x^*)_k\lt b_k\) (inactive constraint) then \(y^*_k=0\text{.}\) Returning to <a class="xref" data-knowl="./knowl/eq-lp-duality-sketch.html" title="Equation 35.2.5">(35.2.5)</a> we see that with \(\mathbf y=\mathbf y^*\) it becomes an equality.</p></section></div></main>
 </div>
 </body>
 </html>

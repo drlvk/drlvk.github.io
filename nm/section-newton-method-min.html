@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-10T23:24:50-04:00    *-->
+<!--*    on 2021-04-13T20:05:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -411,7 +411,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-newton-method-min"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">30.3</span> <span class="title">Newton method for minimization</span>
 </h2>
-<p id="p-862">If we can find the derivative \(f'\) (or gradient \(\nabla f\) in higher dimensions), it may be possible to apply one of root-finding methods of <a href="part-equations.html" class="internal" title="Part II: Solving Equations">Part II</a> to it. For example, Newton's method was one of those. But since we are solving \(f'=0\text{,}\) the method will involve the second derivative of \(f\text{:}\) it amounts to iteration of the function</p>
+<p id="p-863">If we can find the derivative \(f'\) (or gradient \(\nabla f\) in higher dimensions), it may be possible to apply one of root-finding methods of <a href="part-equations.html" class="internal" title="Part II: Solving Equations">Part II</a> to it. For example, Newton's method was one of those. But since we are solving \(f'=0\text{,}\) the method will involve the second derivative of \(f\text{:}\) it amounts to iteration of the function</p>
 <div class="displaymath">
 \begin{equation}
 g(x) = x - \frac{f'(x)}{f''(x)}\label{eq-iterate-newton-min}\tag{30.3.1}
@@ -420,10 +420,10 @@ g(x) = x - \frac{f'(x)}{f''(x)}\label{eq-iterate-newton-min}\tag{30.3.1}
 <p data-braille="continuation">Let's try this out on a simple example.</p>
 <article class="example example-like" id="example-newton-method-min"><a data-knowl="" class="id-ref original" data-refid="hk-example-newton-method-min"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">30.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Using Newton method for minimization.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-newton-method-min"><article class="example example-like"><p id="p-863">Minimize \(f(x) = x^4 - 3 x^2 + x + 1\) using the Newton method with initial point \(x_0=0\text{.}\) How does the result depend on the initial point?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-newton-method-min"><article class="example example-like"><p id="p-864">Minimize \(f(x) = x^4 - 3 x^2 + x + 1\) using the Newton method with initial point \(x_0=0\text{.}\) How does the result depend on the initial point?</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-48" id="solution-48"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-48"><div class="solution solution-like">
-<p id="p-864">First compute the derivatives \(f'(x) = 4x^3 - 6x+1\) and \(f''(x) = 12x^2 - 6\text{.}\) Then iterate the function \(g\) from <a class="xref" data-knowl="./knowl/eq-iterate-newton-min.html" title="Equation 30.3.1">(30.3.1)</a> as in <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>. Most of the code is copied from there.</p>
+<p id="p-865">First compute the derivatives \(f'(x) = 4x^3 - 6x+1\) and \(f''(x) = 12x^2 - 6\text{.}\) Then iterate the function \(g\) from <a class="xref" data-knowl="./knowl/eq-iterate-newton-min.html" title="Equation 30.3.1">(30.3.1)</a> as in <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>. Most of the code is copied from there.</p>
 <pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
 fp = @(x) 4*x.^3 - 6*x + 1;
 fpp = @(x) 12*x.^2 - 6;
@@ -444,16 +444,16 @@ else
     disp('Failed to converge')
 end
 </pre>
-<p id="p-865">The result is obtained quickly: “Found x = 0.169938 with f(x) = 1.08414 after 5 steps”. But is this a minimum? Try</p>
+<p id="p-866">The result is obtained quickly: “Found x = 0.169938 with f(x) = 1.08414 after 5 steps”. But is this a minimum? Try</p>
 <pre class="code-block tex2jax_ignore">
 t = linspace(-2, 2, 1000);
 plot(t, f(t))
 </pre>
 <p data-braille="continuation">to check. Also, note that looking at a graph like this is essentially a human-assisted brute-force search, since the function was evaluated on a uniform grid through the interval \([-2, 2]\text{.}\)</p>
-<p id="p-866">Do we get a better result with a different starting point?</p>
+<p id="p-867">Do we get a better result with a different starting point?</p>
 </div></div>
 </div></article></div>
-<p id="p-867">The issue demonstrated by <a class="xref" data-knowl="./knowl/example-newton-method-min.html" title="Example 30.3.1: Using Newton method for minimization">Example 30.3.1</a>  is that applying Newton's method (or another root-finding method) to \(f'\) is equally likely to lead to a maximum as to a minimum. However, this can be useful when we know that a function has just one critical point and that point is a minimum.</p></section></div></main>
+<p id="p-868">The issue demonstrated by <a class="xref" data-knowl="./knowl/example-newton-method-min.html" title="Example 30.3.1: Using Newton method for minimization">Example 30.3.1</a>  is that applying Newton's method (or another root-finding method) to \(f'\) is equally likely to lead to a maximum as to a minimum. However, this can be useful when we know that a function has just one critical point and that point is a minimum.</p></section></div></main>
 </div>
 </body>
 </html>
