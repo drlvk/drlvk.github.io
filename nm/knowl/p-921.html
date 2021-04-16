@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-13T20:06:12-04:00    *-->
+<!--*    on 2021-04-15T20:06:57-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Modify <a class="xref" data-knowl="./knowl/example-gradient-descent-line-search.html" title="Example 32.1.1: Gradient descent with line search">Example 32.1.1</a> so that it minimizes the simplified Rosenbrock's function</p>
-<div class="displaymath">
-\begin{equation}
-f(\mathbf x) = (x_1 - 1)^2 + (x_1^2 - x_2)^2\tag{32.3.1}
-\end{equation}
-</div>
-<p data-braille="continuation">using conjugate gradient method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code>. Plot the path of the search.</p>
+<p>The methods considered so far in this chapter have one thing in common: lack of memory. Each step is taken as if it was the first. In contrast, <dfn class="terminology">conjugate gradient method</dfn> uses its previous step to determine the direction of next one. The primary benefit is avoiding “sharp turns” which create a zigzagging pattern we saw in <a class="xref" data-knowl="./knowl/example-gradient-descent-line-search.html" title="Example 32.1.1: Gradient descent with line search">Example 32.1.1</a>. The method described below is sometimes called <em class="emphasis">nonlinear</em> conjugate gradient method because “conjugate gradient method” often refers specifically to minimization of a quadratic function \(f(\mathbf x) = |A\mathbf x - \mathbf b|^2\) as a way of approximately solving the linear system  \(A\mathbf x = \mathbf b\text{.}\)</p>
 <span class="incontext"><a href="section-conjugate-gradient.html#p-921">in-context</a></span>
 </body>
 </html>

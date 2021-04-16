@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-13T20:05:48-04:00    *-->
+<!--*    on 2021-04-15T20:06:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -412,9 +412,9 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">26.4</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-63"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-778">Instead of deciding in advance how many coefficients to discard, it is usually preferable to maintain some degree of quality of the image. This is often measured in terms of “energy”, defined as the sum of squares of absolute values of Fourier coefficients (except the constant one). That, is to have 95% quality, we want to keep enough Fourier coefficients so that the sum of their squares is at least 95% of the total sum of squares. Equivalently, we discard the coefficients that contribute 5% of the energy.</p>
-<p id="p-779">The goal of this exercise is to modify <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a> so that the input value is quality <code class="code-inline tex2jax_ignore">q</code> such as 90 or 95, and the image in <a class="xref" data-knowl="./knowl/winter-png.html" title="Figure 26.2.1">Figure 26.2.1</a> is compressed based on the energy consideration.</p>
-<p id="p-780">Suggestions: sort the Fourier coefficients from largest to smallest using</p>
+<p id="p-780">Instead of deciding in advance how many coefficients to discard, it is usually preferable to maintain some degree of quality of the image. This is often measured in terms of “energy”, defined as the sum of squares of absolute values of Fourier coefficients (except the constant one). That, is to have 95% quality, we want to keep enough Fourier coefficients so that the sum of their squares is at least 95% of the total sum of squares. Equivalently, we discard the coefficients that contribute 5% of the energy.</p>
+<p id="p-781">The goal of this exercise is to modify <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a> so that the input value is quality <code class="code-inline tex2jax_ignore">q</code> such as 90 or 95, and the image in <a class="xref" data-knowl="./knowl/winter-png.html" title="Figure 26.2.1">Figure 26.2.1</a> is compressed based on the energy consideration.</p>
+<p id="p-782">Suggestions: sort the Fourier coefficients from largest to smallest using</p>
 <pre class="code-block tex2jax_ignore">
 sorted = sort(abs(fc(:)), 'descend');  
 </pre>
@@ -427,7 +427,7 @@ sorted = sorted(2:end);
 total = sum(sorted.^2); 
 </pre>
 <p data-braille="continuation">The key step is writing a loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until the sum reaches the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
-<p id="p-781">Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q = 90</code>, <code class="code-inline tex2jax_ignore">q = 80</code>, and <code class="code-inline tex2jax_ignore">q = 70</code>. In addition to showing the compressed image, the script should display the percentage of Fourier coefficients that were kept as non-zero values: for example, <code class="code-inline tex2jax_ignore">100*numel(nonzeros(fc))/numel(fc)</code>.</p></article></section></div></main>
+<p id="p-783">Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q = 90</code>, <code class="code-inline tex2jax_ignore">q = 80</code>, and <code class="code-inline tex2jax_ignore">q = 70</code>. In addition to showing the compressed image, the script should display the percentage of Fourier coefficients that were kept as non-zero values: for example, <code class="code-inline tex2jax_ignore">100*numel(nonzeros(fc))/numel(fc)</code>.</p></article></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-13T20:06:13-04:00    *-->
+<!--*    on 2021-04-15T20:06:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,31 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Every feasible point \(\mathbf x\) of <a class="xref" data-knowl="./knowl/eq-standard-form-IN-1.html" title="Equation 35.2.1">(35.2.1)</a> gives a lower bound on its optimal value: that is, \(\mathbf c^T \mathbf x^*\ge \mathbf c^T \mathbf x\text{.}\) On the other hand, every   feasible point \(\mathbf y\) of <a class="xref" data-knowl="./knowl/eq-standard-form-IN-2.html" title="Equation 35.2.2">(35.2.2)</a> gives an <em class="emphasis">upper</em> bound on its optimal value: that is, \(\mathbf b^T\mathbf y^* \le \mathbf b^T\mathbf y\text{.}\) Since the optimal value (so far unknown) is the same for both problems, it is contained somewhere between known quantities \(\mathbf c^T \mathbf x\) and \(\mathbf b^T\mathbf y\text{.}\) This leads to the idea of moving the points \(\mathbf x, \mathbf y\) through the feasible sets so that the <em class="emphasis">duality gap</em> \(\mathbf b^T\mathbf y - \mathbf c^T \mathbf x\) is decreased. Once the gap reaches zero, we have the solution. Or, if the gap becomes extremely small, we have a point \(\mathbf x\) that is almost as good as the optimal one.</p>
+<p>Specifically, symmetric duality states that the dual of</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf c^T \mathbf x\to \max  \quad \text{where } A\mathbf x \le \mathbf b, \quad \mathbf x \ge 0\tag{35.2.1}
+\end{equation}
+</div>
+<p data-braille="continuation">is</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf b^T \mathbf y\to \min  \quad \text{where } A^T\mathbf y \ge \mathbf c, \quad \mathbf y \ge 0\tag{35.2.2}
+\end{equation}
+</div>
+<p data-braille="continuation">Asymmetric duality states that the dual of</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf c^T \mathbf x\to \max \quad \text{where } A\mathbf x \le \mathbf b\tag{35.2.3}
+\end{equation}
+</div>
+<p data-braille="continuation">is</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf b^T \mathbf y\to \min  \quad \text{where } A^T\mathbf y = \mathbf c, \quad \mathbf y \ge 0\tag{35.2.4}
+\end{equation}
+</div>
+<p data-braille="continuation">Note that in both cases, the variables and constraints trade places; the dual has as many constraints as the original problem had variables (not counting the nonnegativity requirements). Also, the dual of a maximization problem is a minimization problem (and the other way around).</p>
 <span class="incontext"><a href="section-linear-programming-duality.html#p-984">in-context</a></span>
 </body>
 </html>

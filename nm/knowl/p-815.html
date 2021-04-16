@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-13T20:06:07-04:00    *-->
+<!--*    on 2021-04-15T20:06:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Not all data points represent a function of the form \(y = f(x)\text{.}\) They may happen to accumulate along some closed curve such as an ellipse. General implicit equation of an ellipse is</p>
-<div class="displaymath">
-\begin{equation}
-Ax^2 + Bxy + Cy^2 + Dx + Ey  = 1\tag{28.3.1}
-\end{equation}
-</div>
-<p data-braille="continuation">There are five unknown coefficients here. So, given a set of points \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) we get a linear system by plugging each point into <a class="xref" data-knowl="./knowl/eq-ellipse-implicit.html" title="Equation 28.3.1">(28.3.1)</a>. Its least squares solution describes an ellipse that fits the data best in the sense of having the smallest sum</p>
-<div class="displaymath">
-\begin{equation*}
-\sum_{k=1}^n (Ax_k^2 + Bx_ky_k + Cy_k^2 + Dx_k + Ey_k  - 1)^2
-\end{equation*}
-</div>
-<p data-braille="continuation">which should hopefully fit the ellipse.</p>
-<span class="incontext"><a href="section-example-implicit-equation.html#p-815">in-context</a></span>
+<p>The vector <code class="code-inline tex2jax_ignore">y</code> is already defined above, but we need to compute proportions <code class="code-inline tex2jax_ignore">p = y/121</code> and transform them by <code class="code-inline tex2jax_ignore">yt = log(p./(1-p))</code>. Then the usual linear regression is applied.</p>
+<span class="incontext"><a href="section-example-logistic-fit.html#p-815">in-context</a></span>
 </body>
 </html>

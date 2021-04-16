@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-13T20:06:06-04:00    *-->
+<!--*    on 2021-04-15T20:06:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Since <code class="code-inline tex2jax_ignore">ode45</code> returns <code class="code-inline tex2jax_ignore">y</code> as a column, it is transposed in the code below. Then we extend this vector to <code class="code-inline tex2jax_ignore">ye</code>, take its Fourier Transform <code class="code-inline tex2jax_ignore">c</code>, and fold it into cosine coefficients <code class="code-inline tex2jax_ignore">cf</code>. Then plot the resulting sum of cosines.</p>
+<p>Having found the Fourier coefficients <code class="code-inline tex2jax_ignore">c = fft(ye)/numel(ye)</code> we observe they are all real (any imaginary component is due to round-off errors). This makes it possible to “fold” the sum of complex exponentials into a cosine sum: for \(k=1, \dots, n-2\) the pair of terms</p>
+<div class="displaymath">
+\begin{equation*}
+c_k \exp(i k x ) +  c_{2n-k} \exp(i (2n-k) x )
+\end{equation*}
+</div>
+<p data-braille="continuation">is aliased to</p>
+<div class="displaymath">
+\begin{equation*}
+c_k \exp(i k x ) +  c_{2n-k} \exp(i (-k) x ) = 2c_k \cos (kx)
+\end{equation*}
+</div>
+<p data-braille="continuation">(here \(x\) is a multiple of \(\pi/n\text{.}\)) The terms \(c_0\) and \(c_{n-1}\) do not have a counterpart among the coefficients \(c_0, \dots, c_{2n-2}\text{,}\) so the cosine sum ends up being</p>
+<div class="displaymath">
+\begin{equation}
+c_0 + 2\sum_{k=1}^{n-2} c_k \cos (\pi kx/L) + c_{n-1} \cos (\pi (n-1) x/L)\tag{26.3.2}
+\end{equation}
+</div>
+<p data-braille="continuation">And of course, Matlab indexing of the coefficients begins with 1, forcing another adjustment: see the following example.</p>
 <span class="incontext"><a href="section-cosine-interpolation.html#p-775">in-context</a></span>
 </body>
 </html>

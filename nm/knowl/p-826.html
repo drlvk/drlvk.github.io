@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-13T20:06:07-04:00    *-->
+<!--*    on 2021-04-15T20:06:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Suppose we observe population growth over time, and expect that it should be governed by a differential equation of the form</p>
-<div class="displaymath">
-\begin{equation}
-y' = ry(1-y/M)\tag{29.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">which means the growth, initially exponential, is eventually constrained by the <dfn class="terminology">carrying capacity</dfn> \(K\text{.}\) The general solution of <a class="xref" data-knowl="./knowl/eq-logistic-ode-growth.html" title="Equation 29.1.1">(29.1.1)</a> is</p>
-<div class="displaymath">
-\begin{equation}
-y = \frac{M}{1 + Ae^{-rx}}\tag{29.1.2}
-\end{equation}
-</div>
-<p data-braille="continuation">where \(A\) depends on the initial condition. In practice, we do not know the values of \(A, M, r\) but we can try to estimate them by fitting a function of type <a class="xref" data-knowl="./knowl/eq-general-logistic-curve.html" title="Equation 29.1.2">(29.1.2)</a> to observations \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{.}\) It seems impossible to transform the data in a way that will make all three parameters linear (logit transformation works only if \(M\) is known).</p>
-<span class="incontext"><a href="section-nls-motivation.html#p-826">in-context</a></span>
+<p>Then try the following fix to the issue encountered in the previous paragraph. Following the logic of <a class="xref" data-knowl="./knowl/example-best-fit-ellipse.html" title="Example 28.3.1: Fit an ellipse to given points">Example 28.3.1</a>, rewrite the equation \(y = 1/(Ax^2 + Bx+ C)\) as \(Ax^2 y + Bxy + Cy = 1\) and find the optimal \(A, B, C\) using least squares. Unlike <a class="xref" data-knowl="./knowl/example-best-fit-ellipse.html" title="Example 28.3.1: Fit an ellipse to given points">Example 28.3.1</a>, you do not need <code class="code-inline tex2jax_ignore">fimplicit</code> to plot this function since the function \(y = 1/(Ax^2 + Bx+ C)\) can be plotted directly (note that you will need <code class="code-inline tex2jax_ignore">1./(...)</code> rather than <code class="code-inline tex2jax_ignore">1/(...)</code> to compute the reciprocals in a vectorized way.) Plot the function together with the data points. Does it fit better or worse than the Gaussian function in <a class="xref" data-knowl="./knowl/exercise-transforming-data-2.html" title="Exercise 28.4.2">Exercise 28.4.2</a>?</p>
+<span class="incontext"><a href="exercises-transforming-data.html#p-826">in-context</a></span>
 </body>
 </html>

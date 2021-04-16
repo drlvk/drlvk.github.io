@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-13T20:05:52-04:00    *-->
+<!--*    on 2021-04-15T20:06:43-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -412,7 +412,7 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">32.4</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-74"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-923">Modify <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> to include the idea of Broyden's method from <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>: the script should not use the Hessian matrix <code class="code-inline tex2jax_ignore">fh</code>, instead relying on an approximation to its inverse obtained with Broyden's method. The following modification should help with convergence: start with small initial guess</p>
+<p id="p-925">Modify <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> to include the idea of Broyden's method from <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>: the script should not use the Hessian matrix <code class="code-inline tex2jax_ignore">fh</code>, instead relying on an approximation to its inverse obtained with Broyden's method. The following modification should help with convergence: start with small initial guess</p>
 <pre class="code-block tex2jax_ignore">
 B = 0.001*eye(2);
 </pre>
@@ -420,7 +420,7 @@ B = 0.001*eye(2);
 <pre class="code-block tex2jax_ignore">
 norm(h) &lt; 1e-6
 </pre>
-<p data-braille="continuation">Re-run the script several times (about five): since it has a random initial point, the results may differ. Does the minimization process converge to the minimum \((1, 1)\) every time?</p></article><p id="p-924">Remark: the combination of ideas of Broyden's method and line search, with some modifications, is known as the <a class="external" href="https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm" target="_blank">BFGS algorithm</a>, which is widely used for gradient-based unconstrained optimization. It is implemented in Matlab (<code class="code-inline tex2jax_ignore">fminunc</code> command), Python scientific library SciPy, etc.</p></section></div></main>
+<p data-braille="continuation">Re-run the script several times (about five): since it has a random initial point, the results may differ. Does the minimization process converge to the minimum \((1, 1)\) every time?</p></article><p id="p-926">Remark: the combination of ideas of Broyden's method and line search, with some modifications, is known as the <a class="external" href="https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm" target="_blank">BFGS algorithm</a>, which is widely used for gradient-based unconstrained optimization. It is implemented in Matlab (<code class="code-inline tex2jax_ignore">fminunc</code> command), Python scientific library SciPy, etc.</p></section></div></main>
 </div>
 </body>
 </html>
