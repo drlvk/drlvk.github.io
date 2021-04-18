@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-15T20:06:58-04:00    *-->
+<!--*    on 2021-04-18T19:51:42-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Every feasible point \(\mathbf x\) of <a class="xref" data-knowl="./knowl/eq-standard-form-IN-1.html" title="Equation 35.2.1">(35.2.1)</a> gives a lower bound on its optimal value: that is, \(\mathbf c^T \mathbf x^*\ge \mathbf c^T \mathbf x\text{.}\) On the other hand, every   feasible point \(\mathbf y\) of <a class="xref" data-knowl="./knowl/eq-standard-form-IN-2.html" title="Equation 35.2.2">(35.2.2)</a> gives an <em class="emphasis">upper</em> bound on its optimal value: that is, \(\mathbf b^T\mathbf y^* \le \mathbf b^T\mathbf y\text{.}\) Since the optimal value (so far unknown) is the same for both problems, it is contained somewhere between known quantities \(\mathbf c^T \mathbf x\) and \(\mathbf b^T\mathbf y\text{.}\) This leads to the idea of moving the points \(\mathbf x, \mathbf y\) through the feasible sets so that the <em class="emphasis">duality gap</em> \(\mathbf b^T\mathbf y - \mathbf c^T \mathbf x\) is decreased. Once the gap reaches zero, we have the solution. Or, if the gap becomes extremely small, we have a point \(\mathbf x\) that is almost as good as the optimal one.</p>
-<span class="incontext"><a href="section-linear-programming-duality.html#p-986">in-context</a></span>
+<p>As an additional example, let us solve the problem at the beginning of this section. The objective function \(f(\mathbf x) = x_1+2x_2-5x_3\) was to be maximized, so we minimize \(-f\) which means <code class="code-inline tex2jax_ignore">c = [-1; -2; 5]</code>. The constraints \(0\le x_1\le x_2\le x_3\le 10\) become \(-x_1\le 0\text{,}\) \(x_1-x_2\le 0\text{,}\) \(x_2-x_3\le 0\text{,}\) and \(x_3\le 10\text{.}\) Finally, \(2x_3 - x_1\ge 3\) becomes \(x_1 - 2x_3 \le -3\text{.}\) We arrive at a system of five linear constraints, summarized in <code class="code-inline tex2jax_ignore">A, b</code> below:</p>
+<pre class="code-block tex2jax_ignore">
+c = [-1; -2; 5];
+A = [-1 0 0; 1 -1 0; 0 1 -1; 0 0 1; 1 0 -2];
+b = [0; 0; 0; 10; -3];
+x = linprog(c, A, b);
+fprintf('Found x = (%g, %g, %g) with c*x = %g \n', x, c'*x) ;
+</pre>
+<p data-braille="continuation">Note that <code class="code-inline tex2jax_ignore">A*x</code> is the vector <code class="code-inline tex2jax_ignore">[0; -1.5; 0; 1.5; -3]</code> where three of components are equal to the components of <code class="code-inline tex2jax_ignore">b</code> and the others are strictly less. The equality means that the corresponding constraints, such as \(-x_1 \le 0\text{,}\) are <dfn class="terminology">active</dfn> at the optimal point: the point pushes against them. The constraints \(x_1\le x_2\) and \(x_3\le 10\) are <dfn class="terminology">inactive</dfn> at this point: they hold as strict inequalities. The solution would stay the same if the inactive constraints were removed.</p>
+<span class="incontext"><a href="section-linear-programming-introduction.html#p-986">in-context</a></span>
 </body>
 </html>

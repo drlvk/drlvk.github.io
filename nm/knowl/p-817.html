@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-15T20:06:55-04:00    *-->
+<!--*    on 2021-04-18T19:51:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Not all data points represent a function of the form \(y = f(x)\text{.}\) They may happen to accumulate along some closed curve such as an ellipse. General implicit equation of an ellipse is</p>
-<div class="displaymath">
-\begin{equation}
-Ax^2 + Bxy + Cy^2 + Dx + Ey  = 1\tag{28.3.1}
-\end{equation}
-</div>
-<p data-braille="continuation">There are five unknown coefficients here. So, given a set of points \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) we get a linear system by plugging each point into <a class="xref" data-knowl="./knowl/eq-ellipse-implicit.html" title="Equation 28.3.1">(28.3.1)</a>. Its least squares solution describes an ellipse that fits the data best in the sense of having the smallest sum</p>
-<div class="displaymath">
-\begin{equation*}
-\sum_{k=1}^n (Ax_k^2 + Bx_ky_k + Cy_k^2 + Dx_k + Ey_k  - 1)^2
-\end{equation*}
-</div>
-<p data-braille="continuation">which should hopefully fit the ellipse.</p>
-<span class="incontext"><a href="section-example-implicit-equation.html#p-817">in-context</a></span>
+<p>The result in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> is not entirely satisfactory. The logit transformation over-emphasizes the values near 0 and 1, and de-emphasizes those in between. One way to address this issue is to introduce weights, which we do in next section.</p>
+<span class="incontext"><a href="section-example-logistic-fit.html#p-817">in-context</a></span>
 </body>
 </html>

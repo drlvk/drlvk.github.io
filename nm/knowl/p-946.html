@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-15T20:06:57-04:00    *-->
+<!--*    on 2021-04-18T19:51:41-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A typical problem of constrained optimization is to find the minimum of a function \(f\) on some region \(D\) of \(\mathbb R^n\text{.}\) One approach is to add a penalty for being outside of \(D\text{,}\) for example let</p>
+<p>The process of changing the shape of the triangle is <em class="emphasis">expansion</em>, which is introduced as an alternative to reflection from <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a>. Suppose that the current triangle qualifies for reflection: for example, \(C\) is the point with largest value, and \(f(R) \lt f(C)\text{.}\) Consider the possibility of replacing \(C\) with a point \(E\) that lies beyong \(R\text{,}\) thus making the triangle longer. The point \(E\) is determined by the following equation, which  shows that it is as far from \(R\) as \(R\) is from the center of reflection \((A+B)/2\text{:}\)</p>
 <div class="displaymath">
-\begin{equation}
-g(x) = \begin{cases} f(x)  &amp; x\in D \\ f(x) + M &amp; x\notin D \end{cases} \tag{34.1.1}
-\end{equation}
+\begin{equation*}
+E = \frac{3}{2}(A+B) - 2C =  1.5 (A+B+C) - 3.5 C
+\end{equation*}
 </div>
-<p data-braille="continuation">where \(M\) is a large number, say \(10^6\text{.}\) Then try to minimize \(g\text{,}\) with the expectation that the minimum will be in \(D\text{.}\) Since \(g=f\) within \(D\text{,}\) such a minimum will also be a minimum of \(f\text{.}\)</p>
-<span class="incontext"><a href="section-penalty-method.html#p-946">in-context</a></span>
+<p data-braille="continuation">If \(f(E) \lt f(R)\text{,}\) then we replace \(C\) with \(E\) rather than \(R\text{.}\) In other words, the “highest” vertex of the triangle is replaced by whichever of \(E, R\) is lower.</p>
+<span class="incontext"><a href="section-nelder-mead-expand.html#p-946">in-context</a></span>
 </body>
 </html>

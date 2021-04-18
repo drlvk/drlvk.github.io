@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-15T20:06:43-04:00    *-->
+<!--*    on 2021-04-18T19:51:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -337,7 +337,8 @@ MathJax.Hub.Config({
 <a href="chapter-transforming-data.html" data-scroll="chapter-transforming-data"><span class="codenumber">28</span> <span class="title">Transforming Data for LLS</span></a><ul>
 <li><a href="section-example-exponential-fit.html" data-scroll="section-example-exponential-fit">Exponential fit</a></li>
 <li><a href="section-example-logistic-fit.html" data-scroll="section-example-logistic-fit">Logistic fit</a></li>
-<li><a href="section-example-implicit-equation.html" data-scroll="section-example-implicit-equation">Fitting an ellipse to data points</a></li>
+<li><a href="section-weighted-least-squares.html" data-scroll="section-weighted-least-squares">Weighted least squares</a></li>
+<li><a href="section-example-implicit-equation.html" data-scroll="section-example-implicit-equation">Fitting an implicit equation</a></li>
 <li><a href="exercises-transforming-data.html" data-scroll="exercises-transforming-data">Homework</a></li>
 </ul>
 </li>
@@ -412,10 +413,10 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">31.3</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-72"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-900">(Theoretical) Show that no fixed value \(\beta &gt; 0\) can make the gradient descent converge for the function \(f(x) = |x|^{3/2}\text{.}\)</p>
-<p id="p-901">(Note that \(f\) is differentiable, with \(f'(x) = (3/2)\sqrt{x}\) for \(x\ge 0\) and \(f'(x) = -(3/2)\sqrt{-x}\) for \(x\le 0\text{.}\))</p></article><article class="exercise exercise-like" id="exercise-73"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-902">Parabolic interpolation is also useful when applied just once, without iteration. For example, after evaluating \(f\) on a grid \(x_1, \dots, x_n\) and choosing \(k\) with smallest \(f(x_k)\) (i.e., brute force minimization) we can get a more precise location of the minimum with parabolic interpolation through the points \((x_j, f(x_j))\text{,}\) \(j=k-1, k, k+1\text{.}\)</p>
-<p id="p-903">Write a script that applies the above idea to the function \(f(x) = \sin (x)\) on the interval \([0, 7]\text{.}\) Use \(n=100\) points for brute force minimization, locating a grid point \(x_k\) with the smallest function value \(f(x_k)\text{.}\) Then find a more precise point of minimum \(x^*\) using parabolic interpolation. Since the exact point of minimum is \(3\pi/2\text{,}\)  the script should display the differences \(|x_k - 3\pi/2|\) and \(|x^* - 3\pi/2|\) to illustrate the benefit of parabolic interpolation.</p></article></section></div></main>
+<p id="p-907">(Theoretical) Show that no fixed value \(\beta &gt; 0\) can make the gradient descent converge for the function \(f(x) = |x|^{3/2}\text{.}\)</p>
+<p id="p-908">(Note that \(f\) is differentiable, with \(f'(x) = (3/2)\sqrt{x}\) for \(x\ge 0\) and \(f'(x) = -(3/2)\sqrt{-x}\) for \(x\le 0\text{.}\))</p></article><article class="exercise exercise-like" id="exercise-73"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-909">Parabolic interpolation is also useful when applied just once, without iteration. For example, after evaluating \(f\) on a grid \(x_1, \dots, x_n\) and choosing \(k\) with smallest \(f(x_k)\) (i.e., brute force minimization) we can get a more precise location of the minimum with parabolic interpolation through the points \((x_j, f(x_j))\text{,}\) \(j=k-1, k, k+1\text{.}\)</p>
+<p id="p-910">Write a script that applies the above idea to the function \(f(x) = \sin (x)\) on the interval \([0, 7]\text{.}\) Use \(n=100\) points for brute force minimization, locating a grid point \(x_k\) with the smallest function value \(f(x_k)\text{.}\) Then find a more precise point of minimum \(x^*\) using parabolic interpolation. Since the exact point of minimum is \(3\pi/2\text{,}\)  the script should display the differences \(|x_k - 3\pi/2|\) and \(|x^* - 3\pi/2|\) to illustrate the benefit of parabolic interpolation.</p></article></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-15T20:06:56-04:00    *-->
+<!--*    on 2021-04-18T19:51:40-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Since the standard logistic function rises from 0 to 1 and has maximal slope when \(x=0\text{,}\) we can relate  parameters \(a, M, r\) directly to shape of the curve:</p>
-<ul class="disc">
-<li>\(a\) is the x-value at which the curve has the steepest slope;</li>
-<li>\(M\) is the amount by which the curve rises;</li>
-<li>\(r\) measures its steepness; the curve is essentially flat outside of the interval \([a-5/r, a+5/r]\text{.}\)</li>
-</ul>
-<span class="incontext"><a href="section-logistic-curve.html#p-844">in-context</a></span>
+<p>The above code fails, as is often the case with multivariable optimization. We should think of a better way to choose the initial point than just <code class="code-inline tex2jax_ignore">[1; 1; 1]</code>. For example, the second parameter is the carrying capacity, and this is clearly at least as large as 120. An initial point like <code class="code-inline tex2jax_ignore">[1; 100; 1]</code> does the job. Note that the fit is much better than what we achieved in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a>.</p>
+<span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-844">in-context</a></span>
 </body>
 </html>

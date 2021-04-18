@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-15T20:06:56-04:00    *-->
+<!--*    on 2021-04-18T19:51:40-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The bisection method was based on the idea that if \(f(a)f(b) \lt 0\) (and \(f\) is continuous), then there is a root of \(f\) on the interval \([a, b]\text{.}\) What do we need to be sure there is at least a local minimum on \([a, b]\text{?}\) Some point \(c\in [a, b]\) such that \(f(c) \lt f(a)\) and \(f(c) \lt f(b)\text{.}\) However, if we divide the interval into \([a, c]\) and \([c, b]\text{,}\) it is not clear what to do next: which part should we keep?</p>
-<span class="incontext"><a href="section-golden-section.html#p-872">in-context</a></span>
+<p>If we can find the derivative \(f'\) (or gradient \(\nabla f\) in higher dimensions), it may be possible to apply one of root-finding methods of <a href="part-equations.html" class="internal" title="Part II: Solving Equations">Part II</a> to it. For example, Newton's method was one of those. But since we are solving \(f'=0\text{,}\) the method will involve the second derivative of \(f\text{:}\) it amounts to iteration of the function</p>
+<div class="displaymath">
+\begin{equation}
+g(x) = x - \frac{f'(x)}{f''(x)}\tag{30.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">Let's try this out on a simple example.</p>
+<span class="incontext"><a href="section-newton-method-min.html#p-872">in-context</a></span>
 </body>
 </html>

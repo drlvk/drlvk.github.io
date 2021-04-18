@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-04-18T19:51:43-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">36.2.2.1</span><span class="period">.</span>
+</h6>
+<p>We minimize \(\sum p_j\) subject to constraints \(y_j\ge ax_j + b - p_j\) in the first group and \(y_j\le ax_j + b + p_j\) in the second. Rewrite the constraints as</p>
+<div class="displaymath">
+\begin{equation*}
+ax_j + b - p_j \le y_j
+\end{equation*}
+</div>
+<p data-braille="continuation">in the first group and</p>
+<div class="displaymath">
+\begin{equation*}
+-ax_j - b - p_j \le -y_j
+\end{equation*}
+</div>
+<p data-braille="continuation">in the second. We also require \(p_j \ge 0\text{.}\) Given the vectors <code class="code-inline tex2jax_ignore">xt, yt</code> describing the first group and <code class="code-inline tex2jax_ignore">xb, yb</code> for the second, we can form a system of linear inequalities \(A\mathbf x\le \mathbf b\) and separately impose the nonnegativity requirement on \(p_j\) (though not on the coefficients \(a, b\) of the line).</p>
+<pre class="code-block tex2jax_ignore">A = [xt xt.^0; -xb -xb.^0];
+n = numel(xt) + numel(xb);
+A = [A -eye(n)]; 
+b = [yt; -yb];
+opt = linprog([0; 0; ones(n, 1)], A, b, [], [], [-Inf; -Inf; zeros(n, 1)]);
+
+t = linspace(min([xt; xb]), max([xt; xb]), 1000);
+y = opt(1)*t + opt(2);
+plot(xt, yt, 'b*', xb, yb, 'r*', t, y, 'k')
+</pre>
+<p>The reason that the presence of penalties changes the matrix as <code class="code-inline tex2jax_ignore">A = [A -eye(n)];</code> is that we subtract \(p_1\) from the first inequality, \(p_2\) from the second, and so on. The penalties make it possible for all the constraints to be satisfied, but their sum \(p_1+\cdots+p_n\) needs to be minimized. In this example, the variables are \(a, b, p_1, \dots, p_n\) and accordingly, the coefficients of the objective function are \(0, 0, 1, \dots, 1\text{.}\)</p>
+</div>
+<span class="incontext"><a href="section-classification-linear-programming.html#solution-66">in-context</a></span>
+</body>
+</html>

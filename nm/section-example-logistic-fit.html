@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-15T20:06:40-04:00    *-->
+<!--*    on 2021-04-18T19:51:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -67,10 +67,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-example-exponential-fit.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-transforming-data.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-example-implicit-equation.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-example-exponential-fit.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-transforming-data.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-weighted-least-squares.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-example-exponential-fit.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-transforming-data.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-example-implicit-equation.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-example-exponential-fit.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-transforming-data.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-weighted-least-squares.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -337,7 +337,8 @@ MathJax.Hub.Config({
 <a href="chapter-transforming-data.html" data-scroll="chapter-transforming-data"><span class="codenumber">28</span> <span class="title">Transforming Data for LLS</span></a><ul>
 <li><a href="section-example-exponential-fit.html" data-scroll="section-example-exponential-fit">Exponential fit</a></li>
 <li><a href="section-example-logistic-fit.html" data-scroll="section-example-logistic-fit" class="active">Logistic fit</a></li>
-<li><a href="section-example-implicit-equation.html" data-scroll="section-example-implicit-equation">Fitting an ellipse to data points</a></li>
+<li><a href="section-weighted-least-squares.html" data-scroll="section-weighted-least-squares">Weighted least squares</a></li>
+<li><a href="section-example-implicit-equation.html" data-scroll="section-example-implicit-equation">Fitting an implicit equation</a></li>
 <li><a href="exercises-transforming-data.html" data-scroll="exercises-transforming-data">Homework</a></li>
 </ul>
 </li>
@@ -429,25 +430,26 @@ y = \frac{1}{1 + a e^{-kt}}\label{eq-logistic-function}\tag{28.2.1}
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">28.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Fit a logistic function to Covid data.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-logistic"><article class="example example-like"><p id="p-814">There were at least 121 reported Covid infections among SU students between October 8 and October 26. The following are the cumulative counts of people recovered, day by day, starting with October 9.</p>
 <pre class="code-block tex2jax_ignore">
-y = [1 1 1 5 8 10 27 44 62 93 101 110 112 115 116 117 118 120]';  
+R = [1 1 1 5 8 10 27 44 62 93 101 110 112 115 116 117 118 120]';  
 </pre>
-<p data-braille="continuation">Consider these as proportions of the total “population” of 121 and fit a logistic function to these proportions.</p>
+<p data-braille="continuation">Fit a logistic function to these <em class="emphasis">proportion</em> of the total “population” of 121 that recovered on each day.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-43" id="solution-43"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-43"><div class="solution solution-like">
-<p id="p-815">The vector <code class="code-inline tex2jax_ignore">y</code> is already defined above, but we need to compute proportions <code class="code-inline tex2jax_ignore">p = y/121</code> and transform them by <code class="code-inline tex2jax_ignore">yt = log(p./(1-p))</code>. Then the usual linear regression is applied.</p>
-<pre class="code-block tex2jax_ignore">x = (1:numel(y))';  
-p = y/121;
-yt = log(p./(1-p));
+<p id="p-815">We need to compute proportions <code class="code-inline tex2jax_ignore">y = R/121</code> and transform them by <code class="code-inline tex2jax_ignore">yt = log(y./(1-y))</code>. Then the usual linear regression is applied.</p>
+<pre class="code-block tex2jax_ignore">x = (1:numel(R))';  
+y = R/121;
+yt = log(y./(1-y));
 X = x.^(0:1); 
 beta = X\yt;
 f = @(x) 1 ./ (1 + exp(-(x.^(0:1))*beta));
 
 t = linspace(min(x), max(x), 1000)';
-plot(t, f(t), 'b', x, p, 'r*')
+plot(t, f(t), 'b', x, y, 'r*')
 </pre>
+<p id="p-816">Here the logistic function is written as \(1/(1+\exp(-\beta_1 - \beta_2 x))\) with parameters \(\beta_1, \beta_2\) contained in the vector <code class="code-inline tex2jax_ignore">beta</code>.</p>
 </div></div>
 </div></article></div>
-<p id="p-816">The outcome of <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> is not entirely satisfactory. The logit transformation emphasizes the values near 0 and 1, and de-emphasizes those in between. We will revisit logistic fit later.</p></section></div></main>
+<p id="p-817">The result in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> is not entirely satisfactory. The logit transformation over-emphasizes the values near 0 and 1, and de-emphasizes those in between. One way to address this issue is to introduce weights, which we do in next section.</p></section></div></main>
 </div>
 </body>
 </html>

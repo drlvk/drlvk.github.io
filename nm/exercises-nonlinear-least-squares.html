@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-15T20:06:41-04:00    *-->
+<!--*    on 2021-04-18T19:51:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -337,7 +337,8 @@ MathJax.Hub.Config({
 <a href="chapter-transforming-data.html" data-scroll="chapter-transforming-data"><span class="codenumber">28</span> <span class="title">Transforming Data for LLS</span></a><ul>
 <li><a href="section-example-exponential-fit.html" data-scroll="section-example-exponential-fit">Exponential fit</a></li>
 <li><a href="section-example-logistic-fit.html" data-scroll="section-example-logistic-fit">Logistic fit</a></li>
-<li><a href="section-example-implicit-equation.html" data-scroll="section-example-implicit-equation">Fitting an ellipse to data points</a></li>
+<li><a href="section-weighted-least-squares.html" data-scroll="section-weighted-least-squares">Weighted least squares</a></li>
+<li><a href="section-example-implicit-equation.html" data-scroll="section-example-implicit-equation">Fitting an implicit equation</a></li>
 <li><a href="exercises-transforming-data.html" data-scroll="exercises-transforming-data">Homework</a></li>
 </ul>
 </li>
@@ -412,14 +413,14 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">29.5</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-69"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-845">Consider the count of world-wide Covid cases (<a class="external" href="https://www.nytimes.com/interactive/2020/world/coronavirus-maps.html" target="_blank">source</a>):</p>
+<p id="p-852">Consider the count of world-wide Covid cases (<a class="external" href="https://www.nytimes.com/interactive/2020/world/coronavirus-maps.html" target="_blank">source</a>):</p>
 <figure class="figure figure-like" id="covid-world-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/covid_world.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">29.5.1<span class="period">.</span></span><span class="space"> </span>New reported cases</figcaption></figure><p id="p-846">The graph shows three stages of accelerated growth: March-April, June-July, and October; the third one is ongoing. Since the total reflects the spread of disease in different regions, it is natural that it looks like the sum of different logistic curves.</p>
-<p id="p-847">Accordingly, we should model this by the sum of three logistic curves. To reduce the amount of data, we use the 7-day averages reported on the 1st, 11th, and 21th of every month, from March 1 to October 21. These 24 data values (measured in thousands) are below.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">29.5.1<span class="period">.</span></span><span class="space"> </span>New reported cases</figcaption></figure><p id="p-853">The graph shows three stages of accelerated growth: March-April, June-July, and October; the third one is ongoing. Since the total reflects the spread of disease in different regions, it is natural that it looks like the sum of different logistic curves.</p>
+<p id="p-854">Accordingly, we should model this by the sum of three logistic curves. To reduce the amount of data, we use the 7-day averages reported on the 1st, 11th, and 21th of every month, from March 1 to October 21. These 24 data values (measured in thousands) are below.</p>
 <pre class="code-block tex2jax_ignore">y = [1 4 21 67 80 79 77 85 94 110 126 148 180 205 230 257 259 254 265 267 292 295 337 389];
 </pre>
-<p id="p-848">The corresponding x-values are simply <code class="code-inline tex2jax_ignore">x = 1:numel(y)</code>. Run <code class="code-inline tex2jax_ignore">plot(x, y, '*')</code> to visualize the data: this will help with choosing initial parameters, as described below.</p>
-<p id="p-849">High-dimensional optimization is difficult, and <code class="code-inline tex2jax_ignore">fminsearch</code> will need your help in the form of a good initial point (<code class="code-inline tex2jax_ignore">ones(9, 1)</code> is not good enough). The logistic equation <a class="xref" data-knowl="./knowl/eq-logistic-curve-shift.html" title="Equation 29.4.1">(29.4.1)</a> leads to the 9-parameter model</p>
+<p id="p-855">The corresponding x-values are simply <code class="code-inline tex2jax_ignore">x = 1:numel(y)</code>. Run <code class="code-inline tex2jax_ignore">plot(x, y, '*')</code> to visualize the data: this will help with choosing initial parameters, as described below.</p>
+<p id="p-856">High-dimensional optimization is difficult, and <code class="code-inline tex2jax_ignore">fminsearch</code> will need your help in the form of a good initial point (<code class="code-inline tex2jax_ignore">ones(9, 1)</code> is not good enough). The logistic equation <a class="xref" data-knowl="./knowl/eq-logistic-curve-shift.html" title="Equation 29.4.1">(29.4.1)</a> leads to the 9-parameter model</p>
 <div class="displaymath">
 \begin{equation}
 y = \frac{M_1}{1 + e^{-r_1 (x-a_1)}} + \frac{M_2}{1 + e^{-r_2 (x-a_2)}} + \frac{M_3}{1 + e^{-r_3 (x-a_3)}}\label{eq-sum-logistic-curves}\tag{29.5.1}
@@ -427,11 +428,11 @@ y = \frac{M_1}{1 + e^{-r_1 (x-a_1)}} + \frac{M_2}{1 + e^{-r_2 (x-a_2)}} + \frac{
 </div>
 <p data-braille="continuation">Reasonable initial guesses would be:</p>
 <ul class="disc">
-<li id="li-192">\(a_1, a_2, a_3\) are the x-values of places where the three “waves” are the steepest</li>
-<li id="li-193">\(M_1, M_2, M_3\) are the sizes of the three waves</li>
-<li id="li-194">\(r_1, r_2, r_3\) could be set to 1</li>
+<li id="li-195">\(a_1, a_2, a_3\) are the x-values of places where the three “waves” are the steepest</li>
+<li id="li-196">\(M_1, M_2, M_3\) are the sizes of the three waves</li>
+<li id="li-197">\(r_1, r_2, r_3\) could be set to 1</li>
 </ul>
-<p id="p-850">Follow the examples such as <a class="xref" data-knowl="./knowl/example-best-fit-logistic-nls.html" title="Example 29.2.1: Fit a logistic function to Covid data">Example 29.2.1</a> in plotting the best-fitting curve together with the data. Since the main interest in building a model like this is to predict future development, extend the curve by two months into the future (this means 6 units on x-axis). What does it predict for December 21?</p></article></section></div></main>
+<p id="p-857">Follow the examples such as <a class="xref" data-knowl="./knowl/example-best-fit-logistic-nls.html" title="Example 29.2.1: Fit a logistic function to Covid data">Example 29.2.1</a> in plotting the best-fitting curve together with the data. Since the main interest in building a model like this is to predict future development, extend the curve by two months into the future (this means 6 units on x-axis). What does it predict for December 21?</p></article></section></div></main>
 </div>
 </body>
 </html>

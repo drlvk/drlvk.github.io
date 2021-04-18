@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-15T20:06:43-04:00    *-->
+<!--*    on 2021-04-18T19:51:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -337,7 +337,8 @@ MathJax.Hub.Config({
 <a href="chapter-transforming-data.html" data-scroll="chapter-transforming-data"><span class="codenumber">28</span> <span class="title">Transforming Data for LLS</span></a><ul>
 <li><a href="section-example-exponential-fit.html" data-scroll="section-example-exponential-fit">Exponential fit</a></li>
 <li><a href="section-example-logistic-fit.html" data-scroll="section-example-logistic-fit">Logistic fit</a></li>
-<li><a href="section-example-implicit-equation.html" data-scroll="section-example-implicit-equation">Fitting an ellipse to data points</a></li>
+<li><a href="section-weighted-least-squares.html" data-scroll="section-weighted-least-squares">Weighted least squares</a></li>
+<li><a href="section-example-implicit-equation.html" data-scroll="section-example-implicit-equation">Fitting an implicit equation</a></li>
 <li><a href="exercises-transforming-data.html" data-scroll="exercises-transforming-data">Homework</a></li>
 </ul>
 </li>
@@ -411,13 +412,13 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-gradient-descent-1d"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">31.2</span> <span class="title">Gradient descent in one dimension</span>
 </h2>
-<p id="p-891">The method of gradient descent uses only the first derivative of function \(f\) to determine the direction in which to look for its minimum. As a motivating example, suppose we started Newton's method at \(a = 1\) and found \(f'(1) =  3\) and \(f''(1) = -2\text{.}\) According to Newton's method our next point should be \(1 - \frac{3}{-2} = 2.5\text{.}\) But since the function is increasing near \(1\text{,}\) should not the search move to the left instead of to the right?</p>
-<p id="p-892">In its simplest, one-dimensional form, gradient descent amounts to repeatedly computing \(x = a - \beta f'(a)\) where a parameter \(\beta &gt; 0\) may be a fixed number or be somehow adjusted in the process. The idea is to make a small step in the direction where the function \(f\) decreases.</p>
+<p id="p-898">The method of gradient descent uses only the first derivative of function \(f\) to determine the direction in which to look for its minimum. As a motivating example, suppose we started Newton's method at \(a = 1\) and found \(f'(1) =  3\) and \(f''(1) = -2\text{.}\) According to Newton's method our next point should be \(1 - \frac{3}{-2} = 2.5\text{.}\) But since the function is increasing near \(1\text{,}\) should not the search move to the left instead of to the right?</p>
+<p id="p-899">In its simplest, one-dimensional form, gradient descent amounts to repeatedly computing \(x = a - \beta f'(a)\) where a parameter \(\beta &gt; 0\) may be a fixed number or be somehow adjusted in the process. The idea is to make a small step in the direction where the function \(f\) decreases.</p>
 <article class="example example-like" id="example-simplest-form-gradient-descent"><a data-knowl="" class="id-ref original" data-refid="hk-example-simplest-form-gradient-descent"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">31.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">First attempt at gradient descent.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-simplest-form-gradient-descent"><article class="example example-like"><p id="p-893">Minimize the function \(f(x) = x^4 - 3 x^2 + x + 1\) from <a class="xref" data-knowl="./knowl/example-newton-method-min.html" title="Example 30.3.1: Using Newton method for minimization">Example 30.3.1</a> using gradient descent with \(\beta = 0.1\) and initial point \(0\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-simplest-form-gradient-descent"><article class="example example-like"><p id="p-900">Minimize the function \(f(x) = x^4 - 3 x^2 + x + 1\) from <a class="xref" data-knowl="./knowl/example-newton-method-min.html" title="Example 30.3.1: Using Newton method for minimization">Example 30.3.1</a> using gradient descent with \(\beta = 0.1\) and initial point \(0\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-solution-51" id="solution-51"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-51"><div class="solution solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-52" id="solution-52"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-52"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
 fp = @(x) 4*x.^3 - 6*x + 1;
 
@@ -438,18 +439,18 @@ else
     disp('Failed to converge')
 end
 </pre>
-<p id="p-894">The code takes more steps than Newton's method in <a class="xref" data-knowl="./knowl/example-newton-method-min.html" title="Example 30.3.1: Using Newton method for minimization">Example 30.3.1</a> but it actually  minimizes the function.</p>
+<p id="p-901">The code takes more steps than Newton's method in <a class="xref" data-knowl="./knowl/example-newton-method-min.html" title="Example 30.3.1: Using Newton method for minimization">Example 30.3.1</a> but it actually  minimizes the function.</p>
 </div></div>
 </div></article></div>
-<p id="p-895">If no formula for \(f'\) is available, the methods of numerical differentiation (<a href="chapter-numerical-differentiation.html" class="internal" title="Chapter 12: Numerical differentiation">Chapter 12</a>) can be used to implement gradient descent, for example with \(f'(a) \approx (f(a+h)-f(a-h))/(2h)\) with some small \(h\text{.}\)</p>
-<p id="p-896">Unfortunately, gradient descent with fixed \(\beta\) is not a reliable  method. Simply multiplying both <code class="code-inline tex2jax_ignore">f</code> and <code class="code-inline tex2jax_ignore">fp</code> by 2 in <a class="xref" data-knowl="./knowl/example-simplest-form-gradient-descent.html" title="Example 31.2.1: First attempt at gradient descent">Example 31.2.1</a> results in failure to converge (why? add <code class="code-inline tex2jax_ignore">disp(x)</code> to the loop to see). We could make \(\beta\) smaller and restore convergence, but this is manual fine-tuning. The underlying issue is <em class="emphasis">scaling</em>: multiplying \(f\) by a positive constant does not change the location of its minima, yet it affects the gradient descent if it uses the same \(\beta\) value. (Newton's method is invariant under scaling because  \(f'/f''\) is invariant.)</p>
+<p id="p-902">If no formula for \(f'\) is available, the methods of numerical differentiation (<a href="chapter-numerical-differentiation.html" class="internal" title="Chapter 12: Numerical differentiation">Chapter 12</a>) can be used to implement gradient descent, for example with \(f'(a) \approx (f(a+h)-f(a-h))/(2h)\) with some small \(h\text{.}\)</p>
+<p id="p-903">Unfortunately, gradient descent with fixed \(\beta\) is not a reliable  method. Simply multiplying both <code class="code-inline tex2jax_ignore">f</code> and <code class="code-inline tex2jax_ignore">fp</code> by 2 in <a class="xref" data-knowl="./knowl/example-simplest-form-gradient-descent.html" title="Example 31.2.1: First attempt at gradient descent">Example 31.2.1</a> results in failure to converge (why? add <code class="code-inline tex2jax_ignore">disp(x)</code> to the loop to see). We could make \(\beta\) smaller and restore convergence, but this is manual fine-tuning. The underlying issue is <em class="emphasis">scaling</em>: multiplying \(f\) by a positive constant does not change the location of its minima, yet it affects the gradient descent if it uses the same \(\beta\) value. (Newton's method is invariant under scaling because  \(f'/f''\) is invariant.)</p>
 <article class="example example-like" id="example-model-case-gradient-descent"><a data-knowl="" class="id-ref original" data-refid="hk-example-model-case-gradient-descent"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">31.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Model case of gradient descent.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-model-case-gradient-descent"><article class="example example-like"><p id="p-897">Determine for what values of \(\beta\) the gradient descent will converge for the function \(f(x) = Mx^2\) where \(M &gt; 0\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-model-case-gradient-descent"><article class="example example-like"><p id="p-904">Determine for what values of \(\beta\) the gradient descent will converge for the function \(f(x) = Mx^2\) where \(M &gt; 0\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-solution-52" id="solution-52"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-52"><div class="solution solution-like"><p id="p-898">Here \(f'(x) = 2Mx\text{,}\) hence \(a - \beta f'(a) = (1-2M\beta)a\text{.}\) This converges to \(0 \) if and only if \(|1-2M\beta| \lt 1\text{.}\) This means we need \(0 \lt \beta \lt 1/M\text{,}\) and the optimal value of \(\beta\) is \(1/(2M)\text{.}\) Note that \(f''(x) = 2M\text{.}\)</p></div></div>
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-53" id="solution-53"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-53"><div class="solution solution-like"><p id="p-905">Here \(f'(x) = 2Mx\text{,}\) hence \(a - \beta f'(a) = (1-2M\beta)a\text{.}\) This converges to \(0 \) if and only if \(|1-2M\beta| \lt 1\text{.}\) This means we need \(0 \lt \beta \lt 1/M\text{,}\) and the optimal value of \(\beta\) is \(1/(2M)\text{.}\) Note that \(f''(x) = 2M\text{.}\)</p></div></div>
 </div></article></div>
-<p id="p-899">The message of <a class="xref" data-knowl="./knowl/example-model-case-gradient-descent.html" title="Example 31.2.2: Model case of gradient descent">Example 31.2.2</a> is that we should try to adjust \(\beta\) to be of the size \(1/f''\text{,}\) even if we do not have a formula for \(f''\text{.}\) One way to do this is to start with a guess like \(\beta=0.1\) and then <em class="emphasis">update</em> \(\beta\) after every step using \(\beta = |x-a|/|f'(x)-f'(a)|\text{.}\) This makes \(\beta\) approximately the reciprocal of \(|f''|\text{.}\) (Similar idea was used in Broyden's method in <a href="chapter-broyden.html" class="internal" title="Chapter 11: Broyden's method">Chapter 11</a>.) To implement this idea, we insert the line</p>
+<p id="p-906">The message of <a class="xref" data-knowl="./knowl/example-model-case-gradient-descent.html" title="Example 31.2.2: Model case of gradient descent">Example 31.2.2</a> is that we should try to adjust \(\beta\) to be of the size \(1/f''\text{,}\) even if we do not have a formula for \(f''\text{.}\) One way to do this is to start with a guess like \(\beta=0.1\) and then <em class="emphasis">update</em> \(\beta\) after every step using \(\beta = |x-a|/|f'(x)-f'(a)|\text{.}\) This makes \(\beta\) approximately the reciprocal of \(|f''|\text{.}\) (Similar idea was used in Broyden's method in <a href="chapter-broyden.html" class="internal" title="Chapter 11: Broyden's method">Chapter 11</a>.) To implement this idea, we insert the line</p>
 <pre class="code-block tex2jax_ignore">
 beta = abs(x-a)/abs(fp(x)-fp(a));
 </pre>
