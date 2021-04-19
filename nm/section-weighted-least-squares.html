@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-18T19:51:25-04:00    *-->
+<!--*    on 2021-04-18T22:18:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -430,17 +430,17 @@ MathJax.Hub.Config({
 \sum_k ((Az)_k-b_k)^2 w_k^2\label{eq-penalty-lsq-weights}\tag{28.3.2}
 \end{equation}
 </div>
-<p data-braille="continuation">instead of <a class="xref" data-knowl="./knowl/eq-penalty-lsq.html" title="Equation 28.3.1">(28.3.1)</a>. Larger weights mean that we penalize the residuals (the differences between the model and the data) more. To solve this Weighted Least Squares problem in Matlab, we only need to multiply the first equation in \(Az=b\) by \(w_1\text{,}\) the second by \(w_2\text{,}\) and so on. To do this, arrange the weights into a column vector <code class="code-inline tex2jax_ignore">w</code> and let</p>
-<pre class="code-block tex2jax_ignore">z = (A.*w)\(b.*w);</pre>
-<p data-braille="continuation">where the array operations <code class="code-inline tex2jax_ignore">.*</code> take care of multiplying each equation by its weight.</p>
-<p id="p-819">Weights can be used to mitigate the distortion caused by data transformation of the form \(\hat y = T(y)\text{.}\) Indeed, the application of \(f\) magnifies the errors by the factor of \(|T'(y)|\text{.}\) If this is undesirable, we should use the weights \(w_k = 1/|T'(y_k)|\) to compensate.</p>
-<p id="p-820">In <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> we used the logic transformation \(T(y) = \log(y/(1-y)) = \log(y) - \log(1-y)\text{.}\) Its derivative is</p>
+<p data-braille="continuation">instead of <a class="xref" data-knowl="./knowl/eq-penalty-lsq.html" title="Equation 28.3.1">(28.3.1)</a>. Larger weights mean that we penalize the residuals (the differences between the model and the data) more. To solve this <em class="emphasis">weighted least squares</em> problem in Matlab, we need to multiply the first equation in \(Az=b\) by \(w_1\text{,}\) the second by \(w_2\text{,}\) and so on. To do this, arrange the weights into a column vector <code class="code-inline tex2jax_ignore">w</code> and let</p>
+<pre class="code-block tex2jax_ignore">z = (A.*w)\(b.*w)</pre>
+<p data-braille="continuation">. The array operations <code class="code-inline tex2jax_ignore">.*</code> take care of multiplying each equation by its weight.</p>
+<p id="p-819">Weights can be used to mitigate the distortion caused by data transformation of the form \(\hat y = T(y)\text{.}\) Indeed, the application of \(T\) magnifies the errors around \(y=y_k\) by the factor of \(|T'(y_k)|\text{.}\) If this is undesirable, we should use the weights \(w_k = 1/|T'(y_k)|\) to compensate.</p>
+<p id="p-820">In <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> we used the logit transformation \(T(y) = \log(y/(1-y)) = \log(y) - \log(1-y)\text{.}\) Its derivative is</p>
 <div class="displaymath">
 \begin{equation*}
 T'(y) = \frac{1}{y} + \frac{1}{1-y} = \frac{1}{y(1-y)}\text{.}
 \end{equation*}
 </div>
-<p data-braille="continuation">This is a positive quantity, so the weights should be \(w_k = y_k(1-y_k)\text{.}\)</p>
+<p data-braille="continuation">This is a positive quantity, so we do not need absolute value; the weights are simply \(w_k = y_k(1-y_k)\text{.}\)</p>
 <article class="example example-like" id="example-weighted-fit-logistic"><a data-knowl="" class="id-ref original" data-refid="hk-example-weighted-fit-logistic"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">28.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Use weighted least squares to fit a logistic function.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-weighted-fit-logistic"><article class="example example-like"><p id="p-821">Improve the solution of <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> by using weights to compensate for data transformation. Compare the results to the previous ones.</p>
