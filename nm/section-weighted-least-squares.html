@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-18T22:18:27-04:00    *-->
+<!--*    on 2021-04-18T22:22:33-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -431,8 +431,8 @@ MathJax.Hub.Config({
 \end{equation}
 </div>
 <p data-braille="continuation">instead of <a class="xref" data-knowl="./knowl/eq-penalty-lsq.html" title="Equation 28.3.1">(28.3.1)</a>. Larger weights mean that we penalize the residuals (the differences between the model and the data) more. To solve this <em class="emphasis">weighted least squares</em> problem in Matlab, we need to multiply the first equation in \(Az=b\) by \(w_1\text{,}\) the second by \(w_2\text{,}\) and so on. To do this, arrange the weights into a column vector <code class="code-inline tex2jax_ignore">w</code> and let</p>
-<pre class="code-block tex2jax_ignore">z = (A.*w)\(b.*w)</pre>
-<p data-braille="continuation">. The array operations <code class="code-inline tex2jax_ignore">.*</code> take care of multiplying each equation by its weight.</p>
+<pre class="code-block tex2jax_ignore">z = (A.*w)\(b.*w);</pre>
+<p data-braille="continuation">The array operations <code class="code-inline tex2jax_ignore">.*</code> take care of multiplying each equation by its weight.</p>
 <p id="p-819">Weights can be used to mitigate the distortion caused by data transformation of the form \(\hat y = T(y)\text{.}\) Indeed, the application of \(T\) magnifies the errors around \(y=y_k\) by the factor of \(|T'(y_k)|\text{.}\) If this is undesirable, we should use the weights \(w_k = 1/|T'(y_k)|\) to compensate.</p>
 <p id="p-820">In <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> we used the logit transformation \(T(y) = \log(y/(1-y)) = \log(y) - \log(1-y)\text{.}\) Its derivative is</p>
 <div class="displaymath">
