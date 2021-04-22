@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-18T22:22:48-04:00    *-->
+<!--*    on 2021-04-21T23:15:36-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,9 +13,9 @@
 </head>
 <body><div class="solution solution-like">
 <p>The problem is solved in three lines: model function, optimization, output. The components of vector <code class="code-inline tex2jax_ignore">b</code> below represent the parameters  \(A, C, u, v\) in this order.</p>
-<pre class="code-block tex2jax_ignore">f = @(x, y, b) b(1)*exp(-b(2)*((x-b(3)).^2 + (y-b(4)).^2));
+<pre class="code-block tex2jax_ignore">f = @(x, y, b) b(1)*exp(-((x-b(3)).^2 + (y-b(4)).^2)/b(2));
 opt = fminsearch(@(b) sum((z - f(x, y, b)).^2), [1; 1; 1; 1]);
-fprintf('The source is located near (%g, %g) \n', opt(3:4))
+fprintf('The source is located near (%g, %g) \n', opt(3:4));
 </pre>
 </div></body>
 </html>

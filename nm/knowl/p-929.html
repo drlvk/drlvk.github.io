@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-18T22:22:49-04:00    *-->
+<!--*    on 2021-04-21T23:15:37-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Suppose we arrived to point \(\mathbf a\) from point \(\mathbf b\text{,}\) following the direction vector \(\mathbf v\text{.}\) With the conjugate gradient method, the direction of our next move will be\(\mathbf w = -\nabla f(a) + \gamma \mathbf v\) where \(\gamma &gt; 0\text{.}\) Large \(\gamma\) means we keep mostly the same direction as before, small \(\gamma\) means we go with the gradient. We should make \(\gamma\) smaller, giving more importance to the gradient, if \(\mathbf a\) is much closer to the minimum than \(\mathbf b\text{.}\) This progress can be measured by the ratio \(|\nabla f(\mathbf a)|^2/|\nabla f(\mathbf b)|^2\) (small if we arrived in the vicinity of minimum), so we use this quantity as \(\gamma\text{.}\)</p>
+<p>The methods considered so far in this chapter have one thing in common: lack of memory. Each step is taken as if it was the first. In contrast, <dfn class="terminology">conjugate gradient method</dfn> uses its previous step to determine the direction of next one. The primary benefit is avoiding “sharp turns” which create a zigzagging pattern we saw in <a class="xref" data-knowl="./knowl/example-gradient-descent-line-search.html" title="Example 32.1.1: Gradient descent with line search">Example 32.1.1</a>. The method described below is sometimes called <em class="emphasis">nonlinear</em> conjugate gradient method because “conjugate gradient method” often refers specifically to minimization of a quadratic function \(f(\mathbf x) = |A\mathbf x - \mathbf b|^2\) as a way of approximately solving the linear system  \(A\mathbf x = \mathbf b\text{.}\)</p>
 <span class="incontext"><a href="section-conjugate-gradient.html#p-929">in-context</a></span>
 </body>
 </html>
