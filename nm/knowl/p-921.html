@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-21T23:15:37-04:00    *-->
+<!--*    on 2021-04-27T18:57:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,29 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Note there is a reason to have a less restrictive stopping conditions for step size <code class="code-inline tex2jax_ignore">norm(dx)</code> when the goal is minimization (compared to root-finding). A smooth function changes slowly near a point of minimum (like a parabola near its vertex), so an error of size \(10^{-6}\) in terms of location of the minimum could mean an error of about \(10^{-12}\) for the minimal value.</p>
-<span class="incontext"><a href="section-gradient-descent-nd.html#p-921">in-context</a></span>
+<p>Recall from <a href="chapter-multivariate-newton.html" class="internal" title="Chapter 10: Systems of several nonlinear equations: multivariate Newton's method">Chapter 10</a> that the Newton method for solving a vector equation \(\mathbf F(\mathbf x) = 0\) proceeds in iterative steps of the form \(\mathbf x = \mathbf a - J(\mathbf a)^{-1} \mathbf F(\mathbf a)\) where \(J\) is the Jacobian matrix of \(\mathbf F\text{.}\)  For the purpose of minimizing a scalar function \(f\text{,}\) we let \(\mathbf F = \nabla f\text{.}\) The Jacobian matrix \(J\) of \(\mathbf F\) then becomes the <dfn class="terminology">Hessian matrix</dfn> of \(f\text{,}\) which is the matrix of all second-order partial derivatives.</p>
+<div class="displaymath">
+\begin{equation*}
+H = \begin{pmatrix}
+\partial^2 f/\partial x_1^2 &amp; \partial^2 f/\partial x_1\partial x_2 \\
+\partial^2 f/\partial x_1\partial x_2  &amp; \partial^2 f/\partial x_2^2
+\end{pmatrix}
+\end{equation*}
+</div>
+<p data-braille="continuation">Thus, the Newton method for minimization proceeds in steps \(\mathbf x = \mathbf a - H^{-1} \nabla f(\mathbf a)\text{.}\) One can view the application of \(H^{-1}\) as the “course correction”: with rare exceptions, the method does <em class="emphasis">not</em> choose the direction of steepest descent. For the badly scaled quadratic function <a class="xref" data-knowl="./knowl/eq-quadratic-badly-scaled.html" title="Equation 32.1.1">(32.1.1)</a> the Newton direction is right on target: since</p>
+<div class="displaymath">
+\begin{equation*}
+H = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 2\cdot 10^{6} \end{pmatrix} 
+\end{equation*}
+</div>
+<p data-braille="continuation">the step taken from any point \(\mathbf a\) is</p>
+<div class="displaymath">
+\begin{equation*}
+-H^{-1} \nabla f(\mathbf a) = - \begin{pmatrix} 1/2 &amp; 0 \\ 0 &amp; (1/2)\cdot 10^{-6} \end{pmatrix} 
+\begin{pmatrix} 2a_1 \\ 2\cdot 10^6 a_2 \end{pmatrix} = -\mathbf a
+\end{equation*}
+</div>
+<p data-braille="continuation">so we arrive at the minimum \(\mathbf x = 0\) after one step. This works for any quadratic function.</p>
+<span class="incontext"><a href="section-newton-method-min-nd.html#p-921">in-context</a></span>
 </body>
 </html>

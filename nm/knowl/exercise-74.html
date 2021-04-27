@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-21T23:15:38-04:00    *-->
+<!--*    on 2021-04-27T18:57:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -15,14 +15,10 @@
 <article class="exercise exercise-like"><h6 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span>
 </h6>
-<p>Modify <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> to include the idea of Broyden's method from <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>: the script should not use the Hessian matrix <code class="code-inline tex2jax_ignore">fh</code>, instead relying on an approximation to its inverse obtained with Broyden's method. The following modification should help with convergence: start with small initial guess</p>
+<p>The stopping condition of the method in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> is that</p>
 <pre class="code-block tex2jax_ignore">
-B = 0.001*eye(2);
+max(abs(T - path(:, k))) &lt; 1e-6    
 </pre>
-<p data-braille="continuation">and make the stopping condition less restrictive:</p>
-<pre class="code-block tex2jax_ignore">
-norm(h) &lt; 1e-6
-</pre>
-<p data-braille="continuation">Re-run the script several times (about five): since it has a random initial point, the results may differ. Does the minimization process converge to the minimum \((1, 1)\) every time?</p></article><span class="incontext"><a href="exercises-gradient-newton-conjugate.html#exercise-74">in-context</a></span>
+<p data-braille="continuation">meaning that every coordinate of every vertex of triangle \(T\) with within \(10^{-6}\) of the corresponding coordinate of the center of \(T\text{.}\) This is just saying “the triangle is small”, and makes no use of the values of function \(f\text{.}\) Replacing this stopping condition with “the difference between the largest and smallest of the values of \(f\) at the vertices of \(T\) is less than \(10^{-6}\text{.}\)” Does the method still reliably find the minimum \((1, 1)\) of Rosenbrock's function? Does it take more or fewer steps with the new stopping condition, or about the same as before?</p></article><span class="incontext"><a href="exercises-nelder-mead.html#exercise-74">in-context</a></span>
 </body>
 </html>

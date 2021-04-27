@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-21T23:15:38-04:00    *-->
+<!--*    on 2021-04-27T18:57:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The stopping condition of the method in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> is that</p>
-<pre class="code-block tex2jax_ignore">
-max(abs(T - path(:, k))) &lt; 1e-6    
-</pre>
-<p data-braille="continuation">meaning that every coordinate of every vertex of triangle \(T\) with within \(10^{-6}\) of the corresponding coordinate of the center of \(T\text{.}\) This is just saying “the triangle is small”, and makes no use of the values of function \(f\text{.}\) Replacing this stopping condition with “the difference between the largest and smallest of the values of \(f\) at the vertices of \(T\) is less than \(10^{-6}\text{.}\)” Does the method still reliably find the minimum \((1, 1)\) of Rosenbrock's function? Does it take more or fewer steps with the new stopping condition, or about the same as before?</p>
-<span class="incontext"><a href="exercises-nelder-mead.html#p-952">in-context</a></span>
+<p>A typical problem of constrained optimization is to find the minimum of a function \(f\) on some region \(D\) of \(\mathbb R^n\text{.}\) One approach is to add a penalty for being outside of \(D\text{,}\) for example let</p>
+<div class="displaymath">
+\begin{equation}
+g(x) = \begin{cases} f(x)  &amp; x\in D \\ f(x) + M &amp; x\notin D \end{cases} \tag{34.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">where \(M\) is a large number, say \(10^6\text{.}\) Then try to minimize \(g\text{,}\) with the expectation that the minimum will be in \(D\text{.}\) Since \(g=f\) within \(D\text{,}\) such a minimum will also be a minimum of \(f\text{.}\)</p>
+<span class="incontext"><a href="section-penalty-method.html#p-952">in-context</a></span>
 </body>
 </html>

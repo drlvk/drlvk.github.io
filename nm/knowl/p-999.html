@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-21T23:15:39-04:00    *-->
+<!--*    on 2021-04-27T18:57:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,24 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The primal problem would be the farmer deciding how much wheat (\(x_1\)) and barley (\(x_2\)) to grow if their sell prices are \(S_1\) and \(S_2\) per unit. The goal is to maximize the total revenue:</p>
+<p>In matrix form this becomes: minimize</p>
 <div class="displaymath">
 \begin{equation*}
-S_1 x_1 + S_2 x_2 \to \max
+\begin{pmatrix} L &amp; F &amp; P \end{pmatrix} \begin{pmatrix} y_L \\ y_F \\ y_P \end{pmatrix} 
 \end{equation*}
 </div>
-<p data-braille="continuation">subject to constraints:</p>
-<ul class="disc">
-<li>\(x_1 + x_2 \leq L\) (cannot use more land than available)</li>
-<li>\(F_1  x_1 + F_2  x_2 \leq F\)  (cannot use more fertilizer than available)</li>
-<li>\(P_1  x_1 + P_2  x_2 \leq P\) (cannot use more pesticide than available)</li>
-<li>\(x_1, x_2 \geq 0\) (cannot grow negative amounts)</li>
-</ul>
+<p data-braille="continuation">subject to:</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} 1 &amp; F_1 &amp; P_1 \\ 1 &amp; F_2 &amp; P_2 \end{pmatrix} \begin{pmatrix} y_L \\ y_F \\ y_P \end{pmatrix} \ge \begin{pmatrix} S_1 \\ S_2 \end{pmatrix}
+\end{equation*}
+</div>
+<p data-braille="continuation">and</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} y_L \\ y_F \\ y_P \end{pmatrix} \ge 0.
+\end{equation*}
+</div>
 <span class="incontext"><a href="section-lp-duality-economic.html#p-999">in-context</a></span>
 </body>
 </html>

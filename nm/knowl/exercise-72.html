@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-21T23:15:37-04:00    *-->
+<!--*    on 2021-04-27T18:57:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -15,7 +15,7 @@
 <article class="exercise exercise-like"><h6 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span>
 </h6>
-<p>(Theoretical) Show that no fixed value \(\beta &gt; 0\) can make the gradient descent converge for the function \(f(x) = |x|^{3/2}\text{.}\)</p>
-<p>(Note that \(f\) is differentiable, with \(f'(x) = (3/2)\sqrt{x}\) for \(x\ge 0\) and \(f'(x) = -(3/2)\sqrt{-x}\) for \(x\le 0\text{.}\))</p></article><span class="incontext"><a href="exercises-parabolic-interpolation-descent.html#exercise-72">in-context</a></span>
+<p>Parabolic interpolation is also useful when applied just once, without iteration. For example, after evaluating \(f\) on a grid \(x_1, \dots, x_n\) and choosing \(k\) with smallest \(f(x_k)\) (i.e., brute force minimization) we can get a more precise location of the minimum with parabolic interpolation through the points \((x_j, f(x_j))\text{,}\) \(j=k-1, k, k+1\text{.}\)</p>
+<p>Write a script that applies the above idea to the function \(f(x) = \sin (x)\) on the interval \([0, 7]\text{.}\) Use \(n=100\) points for brute force minimization, locating a grid point \(x_k\) with the smallest function value \(f(x_k)\text{.}\) Then find a more precise point of minimum \(x^*\) using parabolic interpolation <em class="emphasis">once</em>. Since the exact point of minimum is \(3\pi/2\text{,}\)  the script should display the differences \(|x_k - 3\pi/2|\) and \(|x^* - 3\pi/2|\) to illustrate the improvement achieved with parabolic interpolation.</p></article><span class="incontext"><a href="exercises-parabolic-interpolation-descent.html#exercise-72">in-context</a></span>
 </body>
 </html>
