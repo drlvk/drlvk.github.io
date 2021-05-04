@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-27T18:56:55-04:00    *-->
+<!--*    on 2021-05-04T13:00:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -67,10 +67,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-nelder-mead-expand.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-nelder-mead.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-constrained-optimization.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-nelder-mead-ndim.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-nelder-mead.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-constrained-optimization.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-nelder-mead-expand.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-nelder-mead.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-constrained-optimization.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-nelder-mead-ndim.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-nelder-mead.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-constrained-optimization.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -380,6 +380,7 @@ MathJax.Hub.Config({
 <li><a href="section-nelder-mead-reflect.html" data-scroll="section-nelder-mead-reflect">First attempt at derivative-free minimization</a></li>
 <li><a href="section-nelder-mead-contract.html" data-scroll="section-nelder-mead-contract">Reflection-contraction combination</a></li>
 <li><a href="section-nelder-mead-expand.html" data-scroll="section-nelder-mead-expand">Reflection-contraction-expansion Nelder-Mead method</a></li>
+<li><a href="section-nelder-mead-ndim.html" data-scroll="section-nelder-mead-ndim">Nelder-Mead method in higher dimensions</a></li>
 <li><a href="exercises-nelder-mead.html" data-scroll="exercises-nelder-mead" class="active">Homework</a></li>
 </ul>
 </li>
@@ -409,14 +410,22 @@ MathJax.Hub.Config({
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="exercises" id="exercises-nelder-mead"><h2 class="heading hide-type">
-<span class="type">Exercises</span> <span class="codenumber">33.4</span> <span class="title">Homework</span>
+<span class="type">Exercises</span> <span class="codenumber">33.5</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-74"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-950">The stopping condition of the method in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> is that</p>
+<p id="p-954">Apply the code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> to <dfn class="terminology">Easom function</dfn></p>
+<div class="displaymath">
+\begin{equation*}
+f(x_1, x_2) = -\cos x_1 \cos x_2 \exp(-(x_1-\pi)^2-(x_2-\pi)^2)
+\end{equation*}
+</div>
+<p data-braille="continuation">The global minimum is \((\pi, \pi)\) with \(f(\pi, \pi)=-1\) but it is difficult to find because the function has many local minima and its landscape does not naturally lead to the global minimum. If you run <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> five times (simply pressing <kbd class="kbdkey">F5</kbd> repeatedly), how many times does it converge to the global minimum?</p>
+<p id="p-955">To improve the situation, add a <dfn class="terminology">stochastic</dfn> (random) step to the minimization process, as an alternative to contraction. That is, when the algorithm in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> wants to contract the triangle, try the following point first.</p>
 <pre class="code-block tex2jax_ignore">
-max(abs(T - path(:, k))) &lt; 1e-6    
+S = T(:, ind) + randn(2, 1);
 </pre>
-<p data-braille="continuation">meaning that every coordinate of every vertex of triangle \(T\) with within \(10^{-6}\) of the corresponding coordinate of the center of \(T\text{.}\) This is just saying “the triangle is small”, and makes no use of the values of function \(f\text{.}\) Replacing this stopping condition with “the difference between the largest and smallest of the values of \(f\) at the vertices of \(T\) is less than \(10^{-6}\text{.}\)” Does the method still reliably find the minimum \((1, 1)\) of Rosenbrock's function? Does it take more or fewer steps with the new stopping condition, or about the same as before?</p></article></section></div></main>
+<p data-braille="continuation">If the value of \(f\) at <code class="code-inline tex2jax_ignore">S</code> is smaller than the value at <code class="code-inline tex2jax_ignore">T(:, ind)</code>, then replace <code class="code-inline tex2jax_ignore">T(:, ind)</code> with <code class="code-inline tex2jax_ignore">S</code>. Otherwise, perform the contraction step.</p>
+<p id="p-956">If you run the stochastic Nelder-Mead method five times (pressing <kbd class="kbdkey">F5</kbd> repeatedly) how many times does it converge to the global minimum?</p></article></section></div></main>
 </div>
 </body>
 </html>

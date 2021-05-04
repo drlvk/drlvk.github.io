@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-04-27T18:57:08-04:00    *-->
+<!--*    on 2021-05-04T13:00:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -24,18 +24,19 @@ path = zeros(2, max_tries);
 
 for k = 1:max_tries
     path(:, k) = mean(T, 2);
-    if max(abs(T - path(:, k))) &lt; 1e-6
+    if max(abs(T - mean(T, 2))) &lt; 1e-6
         break
     end
     values = [f(T(:,1)) f(T(:,2)) f(T(:,3))];
     [fmax, ind] = max(values);
-    R = sum(T, 2) - 2*T(:, ind);
+    M = (sum(T, 2) - T(:, ind))/2;
+    R = 2*M - T(:, ind);
     if f(R) &lt; fmax
-        E = 1.5*sum(T, 2) - 3.5*T(:, ind);  % consider expansion
+        E = 2*R - M;                    % consider expansion
         if f(E) &lt; f(R)
-            T(:, ind) = E;                  % choose to expand
+            T(:, ind) = E;              % choose to expand
         else
-            T(:, ind) = R;                  % choose to reflect
+            T(:, ind) = R;              % choose to reflect
         end
     else 
         [fmin, ind] = min(values);
