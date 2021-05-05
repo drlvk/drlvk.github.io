@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-05-04T13:56:54-04:00    *-->
+<!--*    on 2021-05-04T21:01:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -29,7 +29,7 @@ for k = 1:max_tries
     if max(abs(T - mean(T, 2))) &lt; 1e-6
         break
     end
-    values = zeros(n+1, 1);
+    values = zeros(1, n+1);
     for j = 1:n+1
         values(j) = f(T(:, j));
     end

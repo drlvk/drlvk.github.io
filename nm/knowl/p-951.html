@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-05-04T13:56:54-04:00    *-->
+<!--*    on 2021-05-04T21:01:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -15,7 +15,7 @@
 <h6 class="heading"><span class="type">Paragraph</span></h6>
 <p>The line <code class="code-inline tex2jax_ignore">values = [f(T(:,1)) f(T(:,2)) f(T(:,3))]</code> resists vectorization unless we rewrite <code class="code-inline tex2jax_ignore">f</code> (which we probably should not do because in practice, the objective function is user-provided code). So it becomes a loop:</p>
 <pre class="code-block tex2jax_ignore">
-values = zeros(n+1, 1);
+values = zeros(1, n+1);
 for j = 1:n+1
     values(j) = f(T(:, j));
 end    

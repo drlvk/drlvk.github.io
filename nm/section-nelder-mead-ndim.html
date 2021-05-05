@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-05-04T13:56:41-04:00    *-->
+<!--*    on 2021-05-04T21:01:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -427,7 +427,7 @@ T = [A A+eye(n)];
 <p data-braille="continuation">The search path will be <code class="code-inline tex2jax_ignore">path = zeros(n, max_tries)</code> which we will only use for visualization when \(n=2, 3\text{.}\)</p>
 <p id="p-951">The line <code class="code-inline tex2jax_ignore">values = [f(T(:,1)) f(T(:,2)) f(T(:,3))]</code> resists vectorization unless we rewrite <code class="code-inline tex2jax_ignore">f</code> (which we probably should not do because in practice, the objective function is user-provided code). So it becomes a loop:</p>
 <pre class="code-block tex2jax_ignore">
-values = zeros(n+1, 1);
+values = zeros(1, n+1);
 for j = 1:n+1
     values(j) = f(T(:, j));
 end    
@@ -451,7 +451,7 @@ for k = 1:max_tries
     if max(abs(T - mean(T, 2))) &lt; 1e-6
         break
     end
-    values = zeros(n+1, 1);
+    values = zeros(1, n+1);
     for j = 1:n+1
         values(j) = f(T(:, j));
     end
