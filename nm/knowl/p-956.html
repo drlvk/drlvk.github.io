@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-05-04T21:01:27-04:00    *-->
+<!--*    on 2021-05-05T13:39:37-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>If you run the stochastic Nelder-Mead method five times (pressing <kbd class="kbdkey">F5</kbd> repeatedly) how many times does it converge to the global minimum?</p>
+<p>To improve the situation, add a <dfn class="terminology">stochastic</dfn> (random) step to the minimization process, as an alternative to contraction. That is, when the algorithm in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> wants to contract the triangle, try the following point first.</p>
+<pre class="code-block tex2jax_ignore">
+S = T(:, ind) + randn(2, 1);
+</pre>
+<p data-braille="continuation">If the value of \(f\) at <code class="code-inline tex2jax_ignore">S</code> is smaller than the value at <code class="code-inline tex2jax_ignore">T(:, ind)</code>, then replace <code class="code-inline tex2jax_ignore">T(:, ind)</code> with <code class="code-inline tex2jax_ignore">S</code>. Otherwise, perform the contraction step.</p>
 <span class="incontext"><a href="exercises-nelder-mead.html#p-956">in-context</a></span>
 </body>
 </html>

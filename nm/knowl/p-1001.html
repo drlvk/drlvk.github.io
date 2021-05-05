@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-05-04T21:01:27-04:00    *-->
+<!--*    on 2021-05-05T13:39:38-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The following example is adapted from Wikipedia article <a class="external" href="https://en.wikipedia.org/wiki/Dual_linear_program" target="_blank">Dual linear program</a>, available under the <a class="external" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License" target="_blank">Creative Commons Attribution-ShareAlike License</a>.</p>
-<span class="incontext"><a href="section-lp-duality-economic.html#p-1001">in-context</a></span>
+<p>Without going into the detailed proof of the Strong Duality Theorem, here is a sketch for asymmetric duality. Suppose \(\mathbf x^*\) is an optimal point for <a class="xref" data-knowl="./knowl/eq-standard-form-IR-1.html" title="Equation 35.2.3">(35.2.3)</a>. If \(\mathbf y\) is any feasible point of <a class="xref" data-knowl="./knowl/eq-standard-form-EN-1.html" title="Equation 35.2.4">(35.2.4)</a>, then</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf c^T \mathbf x^* = (A^T \mathbf y)^T \mathbf x^* = \mathbf y^T (A\mathbf x^*) \le \mathbf y^T \mathbf b
+= \mathbf b^T \mathbf y\tag{35.2.5}
+\end{equation}
+</div>
+<p data-braille="continuation">which shows that each value of the objective function of the dual problem gives an upper bound for the primal problem  (this part is the “weak duality theorem”). It remains to show that there exists \(\mathbf y\) for which equality holds in <a class="xref" data-knowl="./knowl/eq-lp-duality-sketch.html" title="Equation 35.2.5">(35.2.5)</a>.</p>
+<span class="incontext"><a href="section-linear-programming-duality.html#p-1001">in-context</a></span>
 </body>
 </html>

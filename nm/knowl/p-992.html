@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-05-04T21:01:27-04:00    *-->
+<!--*    on 2021-05-05T13:39:37-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The following terms may appear in error messages or warnings issued by <code class="code-inline tex2jax_ignore">linprog</code> or its analogues in other software.</p>
-<ul class="disc">
-<li>A <dfn class="terminology">feasible point</dfn> is a vector \(x\) that satisfies the constraints. The set of all such points is the feasible set.</li>
-<li>A problem is <dfn class="terminology">infeasible</dfn> if there are no feasible points. (Example: \(x_1\ge 2\text{,}\) \(x_2\ge 2\text{,}\) \(x_1+x_2\le 3\text{.}\)) Such a problem has no solution.</li>
-<li>A problem is <dfn class="terminology">unbounded</dfn> if the objective function takes arbitrarily small values on the feasible set (in case of minimization) or arbitrarily large values (in case of maximization). Such a problem has no solution.</li>
-<li>If the feasible set is nonempty and bounded, the problem surely has a solution. But it is possible to have an unbounded feasible set on which the objective function is bounded: recall <a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a>.</li>
-</ul>
+<p><em class="emphasis">Octave-specific remark</em>. The current version of Octave has a similar function <code class="code-inline tex2jax_ignore">glpk</code> instead of <code class="code-inline tex2jax_ignore">linprog</code>. The main difference is that <code class="code-inline tex2jax_ignore">glpk(c, A, b)</code> solves <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a> instead of <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a>. However, the fourth argument of <code class="code-inline tex2jax_ignore">glpk</code> can be used to set lower bounds to \(-\infty\) instead of \(0\text{,}\) the fifth argument (for upper bounds) can be left empty <code class="code-inline tex2jax_ignore">[]</code>, and the sixth argument is a string indicating the form of constraints, with letters 'U' for \(\le\text{.}\) So, <a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a> with Octave would be</p>
+<pre class="code-block tex2jax_ignore">
+glpk([-1; -1], [1 2; 3 1], [4; 5], [-Inf; -Inf], [], 'UU')
+</pre>
+<p data-braille="continuation">See <code class="code-inline tex2jax_ignore">help glpk</code> for more.</p>
 <span class="incontext"><a href="section-linear-programming-introduction.html#p-992">in-context</a></span>
 </body>
 </html>
