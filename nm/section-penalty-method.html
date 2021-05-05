@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-05-05T13:39:24-04:00    *-->
+<!--*    on 2021-05-05T14:50:31-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -464,8 +464,7 @@ fprintf('Quadratic penalty: found x = (%g, %g), |x| = %g, f(x) = %g \n', xm2, no
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">34.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Iterative minimization on the unit disk.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-iterative-constrained-minimization"><article class="example example-like"><p id="p-967">Minimize  \(f(x, y) = (x + 7y)^3 \) on the disk \(x^2 + y^2\le 1\) by iteratively using <code class="code-inline tex2jax_ignore">fminsearch</code> with a quadratic penalty term.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-solution-62" id="solution-62"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-62"><div class="solution solution-like">
-<pre class="code-block tex2jax_ignore">f = @(x) (x(1) + 7*x(2)).^3;
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-62" id="solution-62"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-62"><div class="solution solution-like"><pre class="code-block tex2jax_ignore">f = @(x) (x(1) + 7*x(2)).^3;
 c = @(x) x(1).^2 + x(2).^2 - 1;
 x0 = randn(2, 1);
 
@@ -474,11 +473,9 @@ for M = [1e3, 1e6, 1e9, 1e12]
 end
     
 fprintf('Found x = (%g, %g), |x| = %g, f(x) = %g \n', x0, norm(x0), f(x0));
-</pre>
-<p id="p-968">With the linear penalty, the minimization process sometimes fails to converge within the allowed attempts; but if it converges, it stays in the unit disk. With the quadratic penalty, the convergence is more reliable but the norm of the point of minimum is usually greater than \(1\text{.}\)</p>
-</div></div>
+</pre></div></div>
 </div></article></div>
-<p id="p-969">Note that the penalty method works just as well with <dfn class="terminology">equality constraints</dfn> of the form \(c = 0\text{.}\) In this case one adds \(Mc^2\) instead of \(M\max(c, 0)^2\) to the objective function. And if there are multiple constraints, they are all added.</p></section></div></main>
+<p id="p-968">Note that the penalty method works just as well with <dfn class="terminology">equality constraints</dfn> of the form \(c = 0\text{.}\) In this case one adds \(Mc^2\) instead of \(M\max(c, 0)^2\) to the objective function. And if there are multiple constraints, they are all added.</p></section></div></main>
 </div>
 </body>
 </html>
