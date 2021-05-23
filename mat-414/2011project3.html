@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>MAT 514 Project 3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<style type="text/css">
+div {
+padding: 0px 10px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>MAT 514 Project 3</h1>
+<div class="column">
+<div class="section" style="text-align:left; line-height: 150%;">
+<h3>Project Description</h3><br/><br/>
+
+The goal of this project is to compute the inverse Laplace transform of the function
+<br/>
+F(s) = 1/sqrt(s^3+m) 
+<br/> 
+where m is the first digit of your SUID. 
+The methods of MAT 514 do not work here, and WolframAlpha cannot help either. 
+Instead, we can use <a href="http://en.wikipedia.org/wiki/Post%27s_inversion_formula">Post's inversion formula</a>
+which gives f(t) as a limit of a certain expression with k<sup>th</sup> derivative of F, as k tends to infinity. In theory, choosing a larger
+value of k will produce a better approximation to the inverse transform. In practice, increasing k may lead to loss of precision.
+You should find the right balance (a suitable value of k) by trial and error. 
+<br/><br/>
+For this project I recommend using <strong>Sage</strong>,  powerful open-source mathematics software. 
+To run it in a browser, follow this link: <a href="http://www.sagenb.org/">Sage Notebook</a> and create an account. 
+Sage can be also downloaded from sagemath.org and installed locally, but this is not as easy.
+</div></div>
+
+<div class="column">
+<div class="section" style="text-align:left;  line-height: 150%;">
+<h3>Technical Details</h3><br/><br/>
+Here is a possible Sage input, with comments in italic: 
+<br/><br/>
+s,t = var('s t')  <br/> <em>declares variables s and t</em>
+<br/><br/>
+F(s) = 1/sqrt(s^3+1) <br/><em>use your value of m instead of 1</em>
+<br/><br/>
+k = 1 <br/><em>you will need a larger value of k to get a reasonable approximation</em>
+<br/><br/>
+dF = F.diff(k) <br/><em>computes the k<sup>th</sup> derivative of F</em>
+<br/><br/>
+f(t) = (-1)^k/factorial(k)*(k/t)^(k+1)*dF(k/t) <br/><em>Post's inversion formula</em>
+<br/><br/>
+plot(f,0,10) <br/><em>plots the approximate inverse on [0,10]</em>
+</div></div>
+
+<div class="column">
+<div class="section" style="text-align:left;  line-height: 150%;">
+The result of your investigation should be submitted as a screenshot via Blackboard. 
+You should also comment on your choice of k in the text area Comments. 
+<strong>The project is due at 10PM on Friday, November 18.</strong>
+<br/><br/>  
+Notes: <br/> (1) Press Shift-Enter to evaluate a Sage command or group of commands. 
+<br/> (2) You can Interrupt and/or Restart a notebook in case of technical difficulties.
+<br/> (3) Sage is written in Python, so you can use Python syntax such as "for k in range(a,b):" to jazz things up.
+<br/><br/>
+Optional reading: <a href="http://en.wikipedia.org/wiki/Emil_Leon_Post">Life and work of Emil Post</a>
+<a href="http://en.wikipedia.org/wiki/Sage_%28mathematics_software%29">Wikipedia article on Sage</a>
+</div></div> 
+
+</div>
+</body>
+</html>
