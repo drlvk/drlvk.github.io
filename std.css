@@ -17,7 +17,7 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, q, fie
 
 body { 
 	/* font-size: 12px; */
-	line-height: 1.5em;
+	/* line-height: 1.5em; */
 	/* font-family: Arial, Helvetica, sans-serif; */
 }
 
@@ -28,7 +28,6 @@ body {
  */
 
 h1 { 
-	line-height: 1em; /* 18px */
 	margin: 2em 0 1em 0; /* 18px */
 }
 
@@ -36,13 +35,11 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
 * html h1, * html h2 { margin-top: 0; } /* Don't we all love Bill? */
 	
 h2 {
-	line-height: 1.125em; /* 18px */
 	margin-top: 1.6875em; /* 27px */
 	margin-bottom: 0.5625em; /* 9px */
 }
 
 h3 {
-	line-height: 1.286em; /* 18px */
 	margin-top: 1.929em; /* 27 px */
 	margin-bottom: 0.643em; /* 9px */
 	}
@@ -66,7 +63,6 @@ h5 {
 	}
 
 p { 
-	line-height: 1.5em; /* 18px */
 	margin: 0 0 1.5em 0; 
 }
 
