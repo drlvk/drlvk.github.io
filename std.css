@@ -1,0 +1,85 @@
+/*	
+	===========
+	StandardCSS
+	===========
+*/
+
+/* HTML Elements */
+ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, q, fieldset, dl, dt, dd, iframe, table, tbody, thead, td, th, address, legend {
+	/* margin:0;
+	padding:0; 
+	font-size: 1.0em; */
+	font-style: inherit;
+	font-family: sans-serif;
+	vertical-align: baseline;
+}
+
+
+body { 
+	/* font-size: 12px; */
+	/* line-height: 1.5em; */
+	/* font-family: Arial, Helvetica, sans-serif; */
+}
+
+/**
+ * Headings and text
+ * Description:
+ * Note: :first-child on the right place over there?
+ */
+
+h1 { 
+	margin: 2em 0 1em 0; /* 18px */
+}
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child { margin-top: 0; } /* reset the first H{x} of the page */
+* html h1, * html h2 { margin-top: 0; } /* Don't we all love Bill? */
+	
+h2 {
+	margin-top: 1.6875em; /* 27px */
+	margin-bottom: 0.5625em; /* 9px */
+}
+
+h3 {
+	margin-top: 1.929em; /* 27 px */
+	margin-bottom: 0.643em; /* 9px */
+	}
+	h2 + h3 { 
+		margin-top: 1.2857em; /* 18 px */ 
+	}
+
+h4 {
+	margin-top: 1.5em; /* 18px */
+	}
+	h3 + h4 {
+		margin-top: 0.5em; /* 9 px */
+	}
+
+h5 {
+	margin-top: 1.5em; /* 18px */
+	font-weight: normal;
+}
+	h4 + h5 {
+		margin-top: 0em; /* 9 px */
+	}
+
+p { 
+	margin: 0 0 1.5em 0; 
+}
+
+
+/**
+ * Lists
+ * Description: List elements (<ul>, <ol>, <dl>)
+ */
+
+ul,
+ol { margin: 0 0 1.5em 2.5em; }
+	li ul,
+	li ol { margin: 0 0 0 2.5em; }
+
+dl { margin: 0 0 1.5em 0; }
+	dt {
+		font-weight: bold;
+		margin: 1.5em 0 0 0;
+	}
+	dd { margin: 0 0 0 2.5em; }

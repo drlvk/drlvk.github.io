@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>MAT 514 Project 2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<style type="text/css">
+div {
+padding: 0px 10px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>MAT 514 Project 2</h1>
+<div class="column" >
+<div class="section" style="text-align:left; ">
+<h3>Project Description</h3><br/><br/>
+
+The goal of this project is to compare the performance of three numerical methods of solving differential equations:
+<strong>Euler</strong> method, <strong>Modified Euler</strong>, and <strong>Runge-Kutta (RK4)</strong>.
+<br/></br>
+Consider the initial value problem 
+<br/><br/>
+<strong>y'=m*cos(m*x)*y, with y(0)=k</strong>
+<br/><br/>
+Here m is 10+(1st digit of your SUID), k=2+(2nd digit of your SUID). 
+<br/><br/>
+ <h3>Your goal</h3><br/> 
+is to find the exact solution of this IVP and, most importantly, compare it to the numerical approximations.
+The comparison should be made on the <strong>interval 0&le;x&le;5</strong>. 
+<br/><br/>
+For each of three methods find a <em>critical step size</em> h such that the numerical solution is an 
+acceptable approximation when step size is h, but is not acceptable if step size is 10*h. 
+Use your judgment to decide what is an acceptable approximation. 
+<br/><br/>
+
+The results of this investigation will consist of 6 screenshots: Euler with critical step size, 
+Euler with 10*(critical step size), and so on. These should be combined into one file using software 
+such as Microsoft Word (or its free alternative, OpenOffice Writer), and accompanied by a paragraph with 
+your comparison of three methods. The file should be submitted via 
+<a href="http://blackboard.syr.edu/" target="_blank">Blackboard</a> 
+by 10PM on Monday, October 3. 
+</div></div> 
+
+<div class="column">
+<div class="section" style="text-align:left; ">
+<h3>Technical Details</h3><br/><br/>
+
+For this project I recommend using the applet 
+<a href="http://alamos.math.arizona.edu/~rychlik/JOde/JOdeVerifier.html" target="_blank">Solution Verifier</a> 
+although you are free to use your favorite math software package instead. 
+<br/><br/>
+<h3>How to use the applet</h3> 
+
+<p>"eqn #1 dy/dx=" is m*cos(m*x)*y with m as above</p>
+<p>"Function #1: y=" is the solution you found yourself. This will be plotted in green color.
+The numerical approximation will appear in black.</p>
+<p>Choose the window Min&nbsp;x =0, Max&nbsp;x =5, Min&nbsp;y =0. For Max&nbsp;y enter the number 3*k where k is as above</p>
+<p>Ignore "Num of segs": this line refers to the slope field which we don't need here.</p>
+<p>In the line "Show", uncheck "Slopes" to get rid of the slope field. </p>
+<p>"Add init. cond.:" enter x=0, y=k. </p>
+<p>The applet has two Submit buttons: one for equation and one for initial value. </p>
+<p>Use Clear All to remove plots that are not needed.</p>
+<p>Avoid moving the mouse pointer over the graphing window, because this changes the initical 
+conditions.</p> 
+</div></div>
+
+
+</div>
+</body>
+</html>

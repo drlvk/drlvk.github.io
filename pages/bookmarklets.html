@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Bookmarklets</title>
+<style type="text/css">
+  body {
+    font-size: 13px;
+    font-family: Verdana;
+    line-height: 16px;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  #container {
+    width: 820px;
+	  margin: 20px auto;
+  }
+  .name {
+    width: 200px;
+    font-weight: bold;
+    color: #333;
+  }
+  table, th, td {
+    border: 1px solid #666;
+  }
+  table {
+  	width: 100%;
+  	border-collapse: collapse;
+  }
+  td, th {
+    padding: 10px;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+<h1>Bookmarklets</h1>
+<p>To use, drag the link in bold to your bookmark bar. </p>
+
+<table>
+<thead>
+<tr>
+<th scope="col">Link</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<thead>
+</thead>
+<tbody>
+<tr id="lib-proxy">
+  <td class="name"> <a href="javascript:(function()%7Bu%3Dwindow.location.href.split('%2F')%3Bu%5B2%5D%3Du%5B2%5D.replace(%2F%5C.%2Fg%2C'-')%2B'.libezproxy2.syr.edu'%3Bwindow.location.replace(u.join('%2F'))%7D)()">Library Proxy</a></td>
+  <td> Replaces current URL with library-proxy URL.</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
