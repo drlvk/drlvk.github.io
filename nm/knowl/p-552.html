@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:31-04:00    *-->
+<!--*    on 2021-08-16T20:40:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A better way to adapt is <dfn class="terminology">recursive subdivision</dfn>.</p>
-<ol class="decimal">
-<li>Given an interval \([a, b]\text{,}\) compute the integral over it and estimate the error.</li>
-<li>If the error is small enough, return the result of computation.</li>
-<li>If the error is too large, divide the interval into two halves \([a, c]\) and \([c, b]\) where \(c = (a+b)/2\text{,}\) and restart the process from step 1, for each half separately.</li>
-</ol>
-<p data-braille="continuation">This process involves <dfn class="terminology">recursion</dfn>, because at step 3 the function evaluating the integral has to call itself. Schematically it looks like this.</p>
-<span class="incontext"><a href="section-adaptive-integration-bisection.html#p-552">in-context</a></span>
+<p>The second weak point is that the function being integrated may have discontinuities or other special points, such as corners like \(f(x)=|x|\text{.}\) Numerical integration performs worse where the function is not smooth, and this requires using smaller step size around such features (but not elsewhere).</p>
+<span class="incontext"><a href="section-motivation-adaptive-integration.html#p-552">in-context</a></span>
 </body>
 </html>

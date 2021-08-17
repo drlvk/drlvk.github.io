@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:31-04:00    *-->
+<!--*    on 2021-08-16T20:40:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Use <a class="xref" data-knowl="./knowl/remark-normal-distribution.html" title="Remark 18.3.2: Averaging over a sphere">Remark 18.3.2</a> to find the averages of the following functions over the unit sphere in \(\mathbb R^{10}\text{:}\)</p>
-<ol class="lower-alpha">
-<li>\(f(\mathbf x) = x_1+\dots+x_{10}\text{,}\) the sum of coordinates.</li>
-<li>\(f(\mathbf x) = x_1^2\text{,}\) the first coordinate squared.</li>
-<li>\(f(\mathbf x) = (x_1+x_2+\dots+x_{10})^2\text{,}\) the square of the sum of all coordinates.</li>
-</ol>
-<p data-braille="continuation">The Matlab function <code class="code-inline tex2jax_ignore">sum</code> will be useful.</p>
-<span class="incontext"><a href="exercises-multivariable-integration.html#p-593">in-context</a></span>
+<p>Monte-Carlo method can also be used to average a function over a <em class="emphasis">sphere</em> with the help of <dfn class="terminology">normal distribution</dfn>.  Here is a brief summary of random number generators in Matlab:</p>
+<ul class="disc">
+<li>
+<code class="code-inline tex2jax_ignore">rand(m, n)</code> generates an \(m\times n\) matrix of random real numbers taken from the uniform distribution on the interval \([0, 1]\text{.}\)</li>
+<li>
+<code class="code-inline tex2jax_ignore">randi([A B], m, n)</code> generates an \(m\times n\) matrix of random <em class="emphasis">integer</em> numbers taken from the discrete uniform distribution on the finite set \(A, A+1, \dots, B\text{.}\)</li>
+<li>
+<code class="code-inline tex2jax_ignore">randn(m, n)</code> generates an \(m\times n\) matrix of random real numbers taken from the <a class="external" href="https://en.wikipedia.org/wiki/Normal_distribution" target="_blank">standard normal distribution</a> on the real line.</li>
+</ul>
+<p data-braille="continuation">Try them out with <code class="code-inline tex2jax_ignore">rand(1, 5)</code>, <code class="code-inline tex2jax_ignore">randi([2 7], 1, 5)</code>, and <code class="code-inline tex2jax_ignore">randn(1, 5)</code> to observe the differences in output.</p>
+<span class="incontext"><a href="section-integration-monte-carlo.html#p-593">in-context</a></span>
 </body>
 </html>

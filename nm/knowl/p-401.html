@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:29-04:00    *-->
+<!--*    on 2021-08-16T20:40:12-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The definition of derivative says:</p>
-<div class="displaymath">
-\begin{equation*}
-f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
-\end{equation*}
-</div>
-<p data-braille="continuation">This suggests a way to approximate \(f'(x)\text{:}\) take two consecutive values of \(f\text{,}\) subtract, divide by difference of x-values:</p>
-<div class="displaymath">
-\begin{equation}
-f'(x) \approx \frac{f(x+h)-f(x)}{h}\tag{12.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">Here the value of \(h\) is some concrete number, so the two sides are only approximately equal. One can express this more precisely as</p>
-<div class="displaymath">
-\begin{equation*}
-\frac{f(x+h)-f(x)}{h} = f'(x) + e(h) 
-\end{equation*}
-</div>
-<p data-braille="continuation">where the error term \(e\) is a function of \(h\text{.}\) The accuracy of approximation is measured by the <dfn class="terminology">order</dfn> of the error term, which is a number \(d\) such that \(|e(h)|\) is bounded by some multiple of \(|h|^d\text{.}\)</p>
-<span class="incontext"><a href="section-differentiation-intro.html#p-401">in-context</a></span>
+<p>If we keep the starting point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> in <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a> but change the initial guess for inverse Jacobian to the matrix</p>
+<pre class="code-block tex2jax_ignore">
+B = 0.1*eye(3);
+</pre>
+<p data-braille="continuation">the algorithm converges much faster: in 53 steps. Why could this be? In what way does the “smaller” matrix help? Is the factor of 0.1 an under-relaxation parameter here?</p>
+<span class="incontext"><a href="examples-broyden.html#p-401">in-context</a></span>
 </body>
 </html>

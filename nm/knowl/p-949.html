@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:36-04:00    *-->
+<!--*    on 2021-08-16T20:40:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The algorithm described above works quite well, considering we are minimizing a challenging function without using any derivative information. The version of the Nelder-Mead algorithm implemented in Matlab is a little different in that it chooses between three ways of contracting a simplex (called “contract inside”, “contract outside”, “shrink”) but the main ideas are the same. To observe the process of <code class="code-inline tex2jax_ignore">fminsearch</code> optimization, run</p>
-<pre class="code-block tex2jax_ignore">
-f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
-options = optimset('Display', 'iter');
-fminsearch(f, randn(2, 1), options)   
-</pre>
+<p>The reason for the lack of success with Rosenbrock's function is that the version of Nelder-Mead method described in <a href="section-nelder-mead-contract.html" class="internal" title="Section 33.2: Reflection-contraction combination">Section 33.2</a>  does not allow the triangle to change its <em class="emphasis">shape</em> to fit the geometry of the graph. A long narrow valley calls for a long narrow triangle.</p>
 <span class="incontext"><a href="section-nelder-mead-expand.html#p-949">in-context</a></span>
 </body>
 </html>

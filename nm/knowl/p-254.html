@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:27-04:00    *-->
+<!--*    on 2021-08-16T20:40:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><dfn class="terminology">Bisection method</dfn>: Divide the interval in two halves by the midpoint \(c = (a+b)/2\text{.}\) Since \(f(a)\) and \(f(b)\) have opposite signs, one of the following holds:</p>
-<ul class="disc">
-<li>If \(f(c)\) has the same sign as \(f(a)\text{,}\) then we replace \(a\) with \(c\text{,}\) making \([c, b]\) our new bracketing interval.</li>
-<li>If \(f(c)\) has the same sign as \(f(b)\text{,}\) then we replace \(b\) with \(c\text{,}\) making \([a, c]\) our new bracketing interval.</li>
-<li>If \(f(c) = 0\text{,}\) we already found a root so the process stops.</li>
-</ul>
-<p data-braille="continuation">The above process repeats until the bracketing interval is small enough, as discussed in <a href="section-meaning-numeric-solution.html" class="internal" title="Section 7.2: The meaning of a numeric solution">Section 7.2</a>.</p>
-<span class="incontext"><a href="section-bisection-method.html#p-254">in-context</a></span>
+<p>In what sense do we expect the equation \(f(x)=0\) to hold? Because of the round-off errors (<a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off errors">Section 6.4</a>), we wlll not necessarily get 0 when plugging in some number x. For example, if <code class="code-inline tex2jax_ignore">f = @(x) x^2-2;</code> then we would expect <code class="code-inline tex2jax_ignore">f(sqrt(2))</code> to be 0, but actually <code class="code-inline tex2jax_ignore">f(sqrt(2))</code> produces <code class="code-inline tex2jax_ignore">4.4409e-16</code>, a small but nonzero number. We could ask for <code class="code-inline tex2jax_ignore">abs(f(x))</code> to be small, for example <code class="code-inline tex2jax_ignore">abs(f(x)) &lt; eps</code> where the Matlab command <code class="code-inline tex2jax_ignore">eps</code> returns \(2^{-52}\text{,}\) the amount of round-off error one can expect for numbers of size about 1. But there are two issues with this approach:</p>
+<ol class="decimal">
+<li>The error in computing <code class="code-inline tex2jax_ignore">f(x)</code> may be much larger than <code class="code-inline tex2jax_ignore">eps</code>, as round-off errors may accumulate.</li>
+<li>Very small value of <code class="code-inline tex2jax_ignore">f(x)</code> do not mean that <code class="code-inline tex2jax_ignore">x</code> is near a root of function <code class="code-inline tex2jax_ignore">f</code>: for example, the function <code class="code-inline tex2jax_ignore">f = @(x) exp(-x^2);</code> has <code class="code-inline tex2jax_ignore">abs(f(7)) &lt; eps</code>, but the equation \(f(x)=0\) has  no solutions at all.</li>
+</ol>
+<span class="incontext"><a href="section-meaning-numeric-solution.html#p-254">in-context</a></span>
 </body>
 </html>

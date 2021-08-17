@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:36-04:00    *-->
+<!--*    on 2021-08-16T20:40:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>However, it would be pointless to replace \(C\) by \(R\) if this did not make the function smaller. So the replacement only happens if \(f(R)\lt f(C)\text{.}\) Otherwise the program stops and reports the center \((A+B+C)/3\) of the last computed triangle as an approximate point of minimum. This is a “reflection-only” version of the Nelder-Mead method.</p>
-<span class="incontext"><a href="section-nelder-mead-reflect.html#p-936">in-context</a></span>
+<p>Modify <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> to include the idea of Broyden's method from <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>: the script should not use the Hessian matrix <code class="code-inline tex2jax_ignore">fh</code>, instead relying on an approximation to its inverse obtained with Broyden's method. The following modification should help with convergence: start with small initial guess</p>
+<pre class="code-block tex2jax_ignore">
+B = 0.001*eye(2);
+</pre>
+<p data-braille="continuation">and make the stopping condition less restrictive:</p>
+<pre class="code-block tex2jax_ignore">
+norm(h) &lt; 1e-6
+</pre>
+<p data-braille="continuation">Re-run the script several times (about five): since it has a random initial point, the results may differ. Does the minimization process converge to the minimum \((1, 1)\) every time?</p>
+<span class="incontext"><a href="exercises-gradient-newton-conjugate.html#p-936">in-context</a></span>
 </body>
 </html>

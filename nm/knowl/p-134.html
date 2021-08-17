@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:26-04:00    *-->
+<!--*    on 2021-08-16T20:40:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A loop is necessary for <dfn class="terminology">iterative</dfn> computations, when every step of computation uses the result of the previous one. <a class="xref" data-knowl="./knowl/example-sum-cubes-for-loop.html" title="Example 4.1.1: Sum of cubes">Example 4.1.1</a> is not like this, since the cubes of 1, 2, 3,... can be computed independently of each other: we do not need the cube of 5 in order to compute the cube of 6. In contrast, the computation of arithmetic-geometric mean in <a class="xref" data-knowl="./knowl/example-agm.html" title="Example 1.2.1: Arithmetic and geometric means">Example 1.2.1</a> is iterative: we compute the arithmetic and geometric means, and then use them as an input for next computation.</p>
+<p>Syntax of <code class="code-inline tex2jax_ignore">for</code> loop:</p>
+<pre class="code-block tex2jax_ignore">
+for (variable) = (some vector, usually regularly spaced a:h:b) 
+    (some computation)
+end
+</pre>
+<p data-braille="continuation">This means that “some computation” will be repeated for each entry of the vector specified in the line with <code class="code-inline tex2jax_ignore">for</code>. Do not forget to <code class="code-inline tex2jax_ignore">end</code> the loop: Matlab needs it to know which part of the code should be repeated in the loop. Indenting the body of the loop is optional but it improves readability.</p>
 <span class="incontext"><a href="section-for-loop.html#p-134">in-context</a></span>
 </body>
 </html>

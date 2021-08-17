@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:25-04:00    *-->
+<!--*    on 2021-08-16T20:40:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A <dfn class="terminology">diagonal matrix</dfn> has zeros everywhere except on the main diagonal. The identity matrix \(I\) is a special case of a diagonal matrix. In Matlab, the command <code class="code-inline tex2jax_ignore">diag(v)</code> creates a diagonal matrix which has the elements of vector <code class="code-inline tex2jax_ignore">v</code> on its main diagonal. For example, <code class="code-inline tex2jax_ignore">diag([6 -4 7])</code> creates the matrix</p>
+<p>Write a Matlab script which solves the linear system</p>
 <div class="displaymath">
-\begin{equation*}
-\begin{pmatrix} 6 \amp 0\amp 0 \\ 0\amp -4\amp 0 \\ 0\amp 0\amp 7 \end{pmatrix}
-\end{equation*}
+\begin{align*}
+5x_1 + 3x_2 \amp = 2 \\
+-2x_1 + x_2  - 6x_3 \amp = 0 \\
+3x_2  +  x_3 \amp = 3 
+\end{align*}
 </div>
-<span class="incontext"><a href="section-large-matrices.html#p-65">in-context</a></span>
+<p data-braille="continuation">and then plug the solution into the left hand side to check that the solution is correct.</p>
+<span class="incontext"><a href="section-linear-systems.html#p-65">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:31-04:00    *-->
+<!--*    on 2021-08-16T20:40:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The above code is not vectorized: it uses a loop to evaluate \(f\) at consecutive points. One could generate all these points at once with <code class="code-inline tex2jax_ignore">rand(N, d)</code> and try to get all values of  \(f\) at once. But this requires coding <code class="code-inline tex2jax_ignore">f</code> in such a way that it can consume a matrix and produce a vector of values, and this may be difficult.</p>
+<p>Integration over a \(d\)-dimensional region with large \(d\) presents new challenges. One is setting up all the boundaries for multiple variables. Another is the number of evaluation points. If we use \(n\) evaluation points for each of \(d\) variables, the total number of evaluations is \(n^d\) which  grows exponentially with dimension. It becomes crucial to not have large \(n\text{,}\) which is why Gaussian integration is often used.</p>
 <span class="incontext"><a href="section-integration-monte-carlo.html#p-587">in-context</a></span>
 </body>
 </html>

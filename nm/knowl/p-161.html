@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:26-04:00    *-->
+<!--*    on 2021-08-16T20:40:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>What exactly would go wrong in <a class="xref" data-knowl="./knowl/example-collatz.html" title="Example 4.5.2: The Collatz conjecture">Example 4.5.2</a> if we did not introduce <code class="code-inline tex2jax_ignore">k</code> and simply wrote the same <code class="code-inline tex2jax_ignore">while</code> loop with <code class="code-inline tex2jax_ignore">n</code>, as below?</p>
+<p><em class="emphasis">Explanation</em>: The variable <code class="code-inline tex2jax_ignore">s</code> represents partial sums. We add <code class="code-inline tex2jax_ignore">1/n</code> to it, and then increase the value of <code class="code-inline tex2jax_ignore">n</code>. When <code class="code-inline tex2jax_ignore">s &gt; 10</code> the process stops. The output uses formatting code <code class="code-inline tex2jax_ignore">%d</code> for integers, since the answer is an integer. Why does the output have <code class="code-inline tex2jax_ignore">n-1</code> and not <code class="code-inline tex2jax_ignore">n</code>? Because of the way that the loop is written, the value of n is increased <em class="emphasis">after</em> each addition. So at the end of it, <code class="code-inline tex2jax_ignore">n</code> is the number that is 1 more than the number of terms we added.</p>
 <span class="incontext"><a href="examples-control-flow.html#p-161">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:32-04:00    *-->
+<!--*    on 2021-08-16T20:40:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This repeats: we start with <code class="code-inline tex2jax_ignore">c=y</code> and repeat the subtract-and-divide step to turn its term into the coefficients of the Newton polynomial.</p>
-<pre class="code-block tex2jax_ignore">
-c = y;
-for k=2:n
-    c(k:n) = (c(k:n)-c(k-1))./(x(k:n)-x(k-1))
-end
-</pre>
-<p data-braille="continuation">At the end of the loop, the vector <code class="code-inline tex2jax_ignore">c</code> contains the coefficients of Newton polynomial.</p>
-<span class="incontext"><a href="section-newton-polynomial.html#p-655">in-context</a></span>
+<p>Plot the Lagrange polynomial each of the following data sets:</p>
+<ol class="lower-alpha">
+<li>the points \((k, \sin k)\text{,}\) \(k=1, \dots, 10\text{;}\)</li>
+<li>the points with \(x_k\) as above, and \(y_k\) chosen randomly from the standard normal distribution.</li>
+</ol>
+<span class="incontext"><a href="section-lagrange-polynomial.html#p-655">in-context</a></span>
 </body>
 </html>

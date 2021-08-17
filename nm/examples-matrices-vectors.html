@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:00-04:00    *-->
+<!--*    on 2021-08-16T20:39:44-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -412,10 +412,10 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-matrices-vectors"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.7</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-45">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-47">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-scalar-product"><a data-knowl="" class="id-ref original" data-refid="hk-example-scalar-product"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.7.1</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar product of two vectors.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-scalar-product"><article class="example example-like"><p id="p-46">Write a script that calculates and displays the scalar product of two vectors: [1 2 ... n] and [n n-1 ... 1]. Use the first two digits of SUID as your value of n.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-scalar-product"><article class="example example-like"><p id="p-48">Write a script that calculates and displays the scalar product of two vectors: [1 2 ... n] and [n n-1 ... 1]. Use the first two digits of SUID as your value of n.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-6" id="answer-6"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-6"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">n = 28;
@@ -423,12 +423,12 @@ u = 1:n;
 v = n:-1:1;
 disp(u*v')
 </pre>
-<p id="p-47"><em class="emphasis">Explanation</em>. Recall from <a href="section-vectors-matrices.html" class="internal" title="Section 1.3: Creating vectors and matrices">Section 1.3</a> that <code class="code-inline tex2jax_ignore">a:h:b</code> means a regularly spaced vector whose entries start with <code class="code-inline tex2jax_ignore">a</code>, and then change by amount <code class="code-inline tex2jax_ignore">h</code> until reaching <code class="code-inline tex2jax_ignore">b</code>. When <code class="code-inline tex2jax_ignore">h</code> is omitted, it is understood to be 1. So, this code makes <code class="code-inline tex2jax_ignore">u</code> equal to [1 2 ... 28] and <code class="code-inline tex2jax_ignore">v</code> equal to [28 27 ... 1]. Both are row vectors. Transposing the second vector into a column is necessary for their product to make sense, as noted in <a href="section-operations-vectors-matrices.html" class="internal" title="Section 1.4: Operations on vectors and matrices">Section 1.4</a>. Note that each of these lines ends with a semicolon, which prevents the intermediate results from being displayed on screen. Then <code class="code-inline tex2jax_ignore">disp</code> displays the final result.</p>
+<p id="p-49"><em class="emphasis">Explanation</em>. Recall from <a href="section-vectors-matrices.html" class="internal" title="Section 1.3: Creating vectors and matrices">Section 1.3</a> that <code class="code-inline tex2jax_ignore">a:h:b</code> means a regularly spaced vector whose entries start with <code class="code-inline tex2jax_ignore">a</code>, and then change by amount <code class="code-inline tex2jax_ignore">h</code> until reaching <code class="code-inline tex2jax_ignore">b</code>. When <code class="code-inline tex2jax_ignore">h</code> is omitted, it is understood to be 1. So, this code makes <code class="code-inline tex2jax_ignore">u</code> equal to [1 2 ... 28] and <code class="code-inline tex2jax_ignore">v</code> equal to [28 27 ... 1]. Both are row vectors. Transposing the second vector into a column is necessary for their product to make sense, as noted in <a href="section-operations-vectors-matrices.html" class="internal" title="Section 1.4: Operations on vectors and matrices">Section 1.4</a>. Note that each of these lines ends with a semicolon, which prevents the intermediate results from being displayed on screen. Then <code class="code-inline tex2jax_ignore">disp</code> displays the final result.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-simpson-vector"><a data-knowl="" class="id-ref original" data-refid="hk-example-simpson-vector"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.7.2</span><span class="period">.</span><span class="space"> </span><span class="title">Create a vector for use in Simpson's method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-simpson-vector"><article class="example example-like"><p id="p-48">Write a script that creates and displays a row vector with 25 elements of the form [1 4 2 4 2 ... 2 4 1]. This particular sequence of numbers is used in “Simpson's Method” of numerical integration which we will encounter later.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-simpson-vector"><article class="example example-like"><p id="p-50">Write a script that creates and displays a row vector with 25 elements of the form [1 4 2 4 2 ... 2 4 1]. This particular sequence of numbers is used in “Simpson's Method” of numerical integration which we will encounter later.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-7" id="answer-7"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-7"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">v = ones(1, 25);
@@ -436,12 +436,12 @@ v(2:2:end) = 4;
 v(3:2:end-2) = 2;
 disp(v)
 </pre>
-<p id="p-49"><em class="emphasis">Explanation</em>. The first line creates a vector of 25 ones, the second changes its even-numbered entries to 4, the third changes odd-numbered entries (except the first and last) to 2. Re-read <a href="section-indexing-vectors-matrices.html" class="internal" title="Section 1.5: Accessing the entries of vectors and matrices">Section 1.5</a> if this is unclear.</p>
+<p id="p-51"><em class="emphasis">Explanation</em>. The first line creates a vector of 25 ones, the second changes its even-numbered entries to 4, the third changes odd-numbered entries (except the first and last) to 2. Re-read <a href="section-indexing-vectors-matrices.html" class="internal" title="Section 1.5: Accessing the entries of vectors and matrices">Section 1.5</a> if this is unclear.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-8"><a data-knowl="" class="id-ref original" data-refid="hk-example-8"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.7.3</span><span class="period">.</span><span class="space"> </span><span class="title">Checkerboard matrix.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like"><p id="p-50">Create and display a “checkerboard” matrix of size 8<span class="times-sign">×</span>8: it should look like</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like"><p id="p-52">Create and display a “checkerboard” matrix of size 8<span class="times-sign">×</span>8: it should look like</p>
 <pre class="code-block tex2jax_ignore">
 1 0 1 0 ...
 0 1 0 1 ...
@@ -455,15 +455,15 @@ A(1:2:end, 1:2:end) = 1;
 A(2:2:end, 2:2:end) = 1;
 disp(A)
 </pre>
-<p id="p-51"><em class="emphasis">Explanation</em>. The first line creates an 8<span class="times-sign">×</span>8 matrix of zeros. The second works with the entries where both the row number and column number are <em class="emphasis">odd</em>, changing them to 1. The third does the same when both row and column numbers are <em class="emphasis">even</em>. The result is a checkerboard.</p>
+<p id="p-53"><em class="emphasis">Explanation</em>. The first line creates an 8<span class="times-sign">×</span>8 matrix of zeros. The second works with the entries where both the row number and column number are <em class="emphasis">odd</em>, changing them to 1. The third does the same when both row and column numbers are <em class="emphasis">even</em>. The result is a checkerboard.</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-1"><a data-knowl="" class="id-ref original" data-refid="hk-question-1"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">1.7.4</span><span class="period">.</span><span class="space"> </span><span class="title">Different order of multiplication.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-1"><article class="question example-like"><p id="p-52">If in <a class="xref" data-knowl="./knowl/example-scalar-product.html" title="Example 1.7.1: Scalar product of two vectors">Example 1.7.1</a> we multiply the vectors in the different order, <code class="code-inline tex2jax_ignore">v'*u</code>, there is no error message and Matlab produces a result. What does this result mean?</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-1"><article class="question example-like"><p id="p-54">If in <a class="xref" data-knowl="./knowl/example-scalar-product.html" title="Example 1.7.1: Scalar product of two vectors">Example 1.7.1</a> we multiply the vectors in the different order, <code class="code-inline tex2jax_ignore">v'*u</code>, there is no error message and Matlab produces a result. What does this result mean?</p></article></div>
 <article class="question example-like" id="question-2"><a data-knowl="" class="id-ref original" data-refid="hk-question-2"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">1.7.5</span><span class="period">.</span><span class="space"> </span><span class="title">Even vs odd in Simpson's method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-2"><article class="question example-like"><p id="p-53">In <a class="xref" data-knowl="./knowl/example-simpson-vector.html" title="Example 1.7.2: Create a vector for use in Simpson's method">Example 1.7.2</a>, the pattern 14242....4241 requires an odd number of elements. We had 25 which is an odd number. If 25 is replaced by an even number, Matlab would not complain but the result would have a different pattern. What would it be? Try to answer without running Matlab.</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-2"><article class="question example-like"><p id="p-55">In <a class="xref" data-knowl="./knowl/example-simpson-vector.html" title="Example 1.7.2: Create a vector for use in Simpson's method">Example 1.7.2</a>, the pattern 14242....4241 requires an odd number of elements. We had 25 which is an odd number. If 25 is replaced by an even number, Matlab would not complain but the result would have a different pattern. What would it be? Try to answer without running Matlab.</p></article></div></section></div></main>
 </div>
 </body>
 </html>

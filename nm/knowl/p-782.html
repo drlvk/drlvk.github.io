@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:33-04:00    *-->
+<!--*    on 2021-08-16T20:40:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Suggestions: sort the Fourier coefficients from largest to smallest using</p>
-<pre class="code-block tex2jax_ignore">
-sorted = sort(abs(fc(:)), 'descend');  
-</pre>
-<p data-braille="continuation">and remove the largest of them (the constant term):</p>
-<pre class="code-block tex2jax_ignore">
-sorted = sorted(2:end);  
-</pre>
-<p data-braille="continuation">The total energy is</p>
-<pre class="code-block tex2jax_ignore">
-total = sum(sorted.^2); 
-</pre>
-<p data-braille="continuation">The key step is writing a loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until the sum reaches the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
-<span class="incontext"><a href="exercises-dft-applications.html#p-782">in-context</a></span>
+<p>Since <code class="code-inline tex2jax_ignore">ode45</code> returns <code class="code-inline tex2jax_ignore">y</code> as a column, it is transposed in the code below. Then we extend this vector to <code class="code-inline tex2jax_ignore">ye</code>, take its Fourier Transform <code class="code-inline tex2jax_ignore">c</code>, and fold it into cosine coefficients <code class="code-inline tex2jax_ignore">cf</code>. Then plot the resulting sum of cosines.</p>
+<span class="incontext"><a href="section-cosine-interpolation.html#p-782">in-context</a></span>
 </body>
 </html>

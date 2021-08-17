@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:27-04:00    *-->
+<!--*    on 2021-08-16T20:40:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>If the function has the same sign at both given endpoints, the bisection method cannot run, so the command <code class="code-inline tex2jax_ignore">error</code> is used to display a message and exit the program. This is a useful command to use when the computation has to be interrupted. The <code class="code-inline tex2jax_ignore">while</code> loop runs until either the interval becomes small enough (length less than <code class="code-inline tex2jax_ignore">100*eps(a)</code>) or we accidentally reach \(f(c)=0\) so the loop stops.</p>
-<span class="incontext"><a href="section-bisection-method.html#p-256">in-context</a></span>
+<p>For the reason mentioned in the previous paragraph, the Matlab command <code class="code-inline tex2jax_ignore">eps(x)</code> gives the smallest possible size of an interval including <code class="code-inline tex2jax_ignore">x</code> that can be expressed in its arithmetic. For example, <code class="code-inline tex2jax_ignore">eps(10^20)</code> returns 16384, indicating we cannot expect an interval around \(10^{20}\) to be smaller than 16384. When looking for a root, a reasonable approach is to consider an interval \([a, b]\) “small enough” when <code class="code-inline tex2jax_ignore">b - a &lt; 100*eps(a)</code> where the factor 100 allows for accumulation of round-off errors during the computation.</p>
+<span class="incontext"><a href="section-meaning-numeric-solution.html#p-256">in-context</a></span>
 </body>
 </html>

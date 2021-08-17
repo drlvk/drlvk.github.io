@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:31-04:00    *-->
+<!--*    on 2021-08-16T20:40:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,21 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Use the <em class="emphasis">midpoint method</em> <a class="xref" data-knowl="./knowl/eq-ode-corrector-midpoint.html" title="Equation 19.4.3">(19.4.3)</a> with step size \(h=0.01\) to solve the autonomous system</p>
-<div class="displaymath">
-\begin{align*}
-y_1' \amp = y_2\\
-y_2' \amp = -y_1 - y_2^3
-\end{align*}
-</div>
-<p data-braille="continuation">with initial condition \(y(0) = \begin{pmatrix}1 \\ 1\end{pmatrix}\) on the interval \([0, 50]\text{.}\) Display both time series plot and phase plot side by side, for example</p>
-<pre class="code-block tex2jax_ignore">
-subplot(1, 2, 1)
-plot(t, y)
-subplot(1, 2, 2)
-plot(y(1,:), y(2,:))
-</pre>
-<p data-braille="continuation">How would you describe the long-term behaviour of this solution?</p>
-<span class="incontext"><a href="exercises-ode-euler.html#p-619">in-context</a></span>
+<p>Conceptually, any of the above methods can be directly applied to systems of \(m\) differential equations, just by interpreting \(y\) as a vector function \(\mathbf y\text{.}\) The notation becomes awkward: now \(y_2\) refer to the second component of \(\mathbf y\text{,}\) while the value \(\mathbf y(t_2)\) might be denoted \(\mathbf y_2\text{.}\) There are also a few changes in Matlab notation regarding <code class="code-inline tex2jax_ignore">y</code>: it will now be a matrix, where rows correspond to components and columns correspond to points of evaluation. The right-hand side function <code class="code-inline tex2jax_ignore">f</code> should return a column vector of the same dimesion \(m\text{.}\)</p>
+<span class="incontext"><a href="section-ode-systems.html#p-619">in-context</a></span>
 </body>
 </html>

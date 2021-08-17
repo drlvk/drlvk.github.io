@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:31-04:00    *-->
+<!--*    on 2021-08-16T20:40:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Theoretical analysis of accuracy confirms the above observation that trapezoidal method is much more accurate. For the model equation \(y'=y\) it gives \(y_1 = 1+ h(1+1+h)/2 = 1+h+h^2/2\text{,}\) which matches exact solution \(e^h = 1+h+h^2/2+h^3/3\) up to \(h^3\) term. Therefore, the cumulative error is of order \(h^2\text{.}\)</p>
-<span class="incontext"><a href="section-ode-euler-improved.html#p-611">in-context</a></span>
+<p>Evaluating the accuracy of ODE solution methods is a more complex issue because they involve approximate computations based on the results of previous other approximate computations. A convenient model problem to use is \(y'=y\) with \(y(0)=1\text{.}\) Its exact solution at  \(x= h\) is</p>
+<div class="displaymath">
+\begin{equation*}
+e^h = \sum_{n=0}^\infty \frac{h^n}{n!} =  1+h+h^2/2+h^3/6+\cdots
+\end{equation*}
+</div>
+<p data-braille="continuation">The  approximate solution \(y_1\) at \(x= h\) will be some other expression. The difference \(|e^h - y_1|\) gives us the <dfn class="terminology">local error</dfn> of the method (for one step). The cumulative error can be estimated by multiplying the local error by the necessary number of steps to cover an interval \([a, b]\text{,}\) which is \((b-a)/h\text{.}\)</p>
+<span class="incontext"><a href="section-ode-order-accuracy.html#p-611">in-context</a></span>
 </body>
 </html>

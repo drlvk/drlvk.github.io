@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:25-04:00    *-->
+<!--*    on 2021-08-16T20:40:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,21 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Some problems in engineering and in differential equations lead to matrices where nonzero coefficients are <em class="emphasis">close</em> to the main diagonal but not exactly at it: for example,</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{pmatrix}
-2 \amp -1 \amp 0\amp 0 \amp 0 \\ 
--1 \amp 2 \amp -1\amp 0 \amp 0 \\ 
-0 \amp -1 \amp 2\amp -1 \amp 0 \\ 
-0 \amp 0 \amp -1\amp 2 \amp -1 \\ 
-0 \amp 0 \amp 0\amp -1 \amp 2 \\ 
-\end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">To construct such matrices we can use <code class="code-inline tex2jax_ignore">diag(v, k)</code> which places the elements of vector <code class="code-inline tex2jax_ignore">v</code> on the diagonal parallel to the main one but \(k\) positions above it. So, <code class="code-inline tex2jax_ignore">diag(v, 1)</code> is just above the main diagonal and <code class="code-inline tex2jax_ignore">diag(v, -1)</code> is just below. The matrix shown above could be formed as</p>
-<pre class="code-block tex2jax_ignore"> diag([2 2 2 2 2]) - diag([1 1 1 1], 1) - diag([1 1 1 1], -1)</pre>
-<p data-braille="continuation">This is an example of a <dfn class="terminology">tridiagonal matrix</dfn>: there are only three diagonals with nonzero entries. More generally, a matrix is called <dfn class="terminology">sparse</dfn> if most of its elements are 0. Large sparse matrices frequently arise in computations.</p>
+<p>The number of coefficients in a linear system grows rapidly with its size: a system with 20 equations and 20 variables has a matrix with 400 coefficients. Entering these by hand would be tedious. We already have two ways to construct large matrices: <code class="code-inline tex2jax_ignore">zeros(m, n)</code> and <code class="code-inline tex2jax_ignore">ones(m, n)</code> but these are not invertible matrices. This section presents two other useful constructions.</p>
 <span class="incontext"><a href="section-large-matrices.html#p-66">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:02-04:00    *-->
+<!--*    on 2021-08-16T20:39:45-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -412,25 +412,25 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-formatted-output"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.4</span> <span class="title">Formatted output</span>
 </h2>
-<p id="p-111">We have been using <code class="code-inline tex2jax_ignore">disp</code> command to display some number or text. But we may want to display a sentence with some numbers included in it. And we may want to show more (or fewer) digits than <code class="code-inline tex2jax_ignore">disp</code> does. For this, the command <code class="code-inline tex2jax_ignore">fprintf</code> is useful:  it produces an <dfn class="terminology">interpolated string</dfn> which combines text and numeric data according to some formatting codes. For example,</p>
+<p id="p-115">We have been using <code class="code-inline tex2jax_ignore">disp</code> command to display some number or text. But we may want to display a sentence with some numbers included in it. And we may want to show more (or fewer) digits than <code class="code-inline tex2jax_ignore">disp</code> does. For this, the command <code class="code-inline tex2jax_ignore">fprintf</code> is useful:  it produces an <dfn class="terminology">interpolated string</dfn> which combines text and numeric data according to some formatting codes. For example,</p>
 <pre class="code-block tex2jax_ignore">fprintf('The number pi is %.15f and its cube is %.3f\n', pi, pi^3)</pre>
 <p data-braille="continuation">displays “The number pi is 3.141592653589793 and its cube is 31.006”. Explanation:</p>
 <ul class="disc">
-<li id="li-36">The first argument of <code class="code-inline tex2jax_ignore">fprintf</code> is a string, the other arguments are numbers which will be inserted into the string. Here the numbers are pi and pi cubed.</li>
-<li id="li-37">The formatting code <code class="code-inline tex2jax_ignore">%.15f</code> says: insert a number with 15 digits after decimal point. This is the first formatting code, so it uses the first number provided after the string, which is pi.</li>
-<li id="li-38">The formatting code <code class="code-inline tex2jax_ignore">%.3f</code> says: insert a number with 3 digits after decimal point. Since this is the second formatting code in the string, it will use the second of the numbers after the string, which is pi cubed.</li>
-<li id="li-39">The string ends with new line character <code class="code-inline tex2jax_ignore">\n</code>, which is a good idea in general. Without it, subsequent output would appear on the same line, and would be hard to read.</li>
+<li id="li-44">The first argument of <code class="code-inline tex2jax_ignore">fprintf</code> is a string, the other arguments are numbers which will be inserted into the string. Here the numbers are pi and pi cubed.</li>
+<li id="li-45">The formatting code <code class="code-inline tex2jax_ignore">%.15f</code> says: insert a number with 15 digits after decimal point. This is the first formatting code, so it uses the first number provided after the string, which is pi.</li>
+<li id="li-46">The formatting code <code class="code-inline tex2jax_ignore">%.3f</code> says: insert a number with 3 digits after decimal point. Since this is the second formatting code in the string, it will use the second of the numbers after the string, which is pi cubed.</li>
+<li id="li-47">The string ends with new line character <code class="code-inline tex2jax_ignore">\n</code>, which is a good idea in general. Without it, subsequent output would appear on the same line, and would be hard to read.</li>
 </ul>
-<p id="p-112">Note that 15-16 decimal digits is about the limit of precision in Matlab computations. If we try <code class="code-inline tex2jax_ignore">fprintf('The number pi is %.20f\n', pi)</code> the output is “The number pi is 3.14159265358979310000” which looks suspicious, and for a good reason: the zeros at the end are not correct digits of pi.</p>
-<p id="p-113">For very large or very small numbers we need exponential notation. For example, if you ask Matlab to compute <code class="code-inline tex2jax_ignore">pi^100</code> it will display the answer as <code class="code-inline tex2jax_ignore">5.1878e+49</code>. This means \(5.1878 \cdot 10^{49}\text{.}\) The number after the letter e is the power of 10 by which we should multiply the number before “e”. The letter “e” stands for “exponential” not for the mathematical constant e. To use exponential notation in formatted strings, replace letter <code class="code-inline tex2jax_ignore">f</code> in formatting codes by <code class="code-inline tex2jax_ignore">e</code>. To remember these, note that <code class="code-inline tex2jax_ignore">f</code> means Fixed decimal point, and <code class="code-inline tex2jax_ignore">e</code> means Exponential notation.</p>
+<p id="p-116">Note that 15-16 decimal digits is about the limit of precision in Matlab computations. If we try <code class="code-inline tex2jax_ignore">fprintf('The number pi is %.20f\n', pi)</code> the output is “The number pi is 3.14159265358979310000” which looks suspicious, and for a good reason: the zeros at the end are not correct digits of pi.</p>
+<p id="p-117">For very large or very small numbers we need exponential notation. For example, if you ask Matlab to compute <code class="code-inline tex2jax_ignore">pi^100</code> it will display the answer as <code class="code-inline tex2jax_ignore">5.1878e+49</code>. This means \(5.1878 \cdot 10^{49}\text{.}\) The number after the letter e is the power of 10 by which we should multiply the number before “e”. The letter “e” stands for “exponential” not for the mathematical constant e. To use exponential notation in formatted strings, replace letter <code class="code-inline tex2jax_ignore">f</code> in formatting codes by <code class="code-inline tex2jax_ignore">e</code>. To remember these, note that <code class="code-inline tex2jax_ignore">f</code> means Fixed decimal point, and <code class="code-inline tex2jax_ignore">e</code> means Exponential notation.</p>
 <pre class="code-block tex2jax_ignore">fprintf('The 100th power of pi is %.6e\n', pi^100)</pre>
 <p data-braille="continuation">displays the result as “The 100th power of pi is 5.187848e+49”.</p>
-<p id="p-114">Often it is easiest to the formatting code <code class="code-inline tex2jax_ignore">g</code> which lets Matlab decide between fixed point and exponential notation on its own, based on the size of the number. Here is an example.</p>
+<p id="p-118">Often it is easiest to the formatting code <code class="code-inline tex2jax_ignore">g</code> which lets Matlab decide between fixed point and exponential notation on its own, based on the size of the number. Here is an example.</p>
 <pre class="code-block tex2jax_ignore">x = 111.111
 fprintf('The first four powers of %.6g are %.6g, %.6g, %.6g, %.6g\n', x, x, x^2, x^3, x^4)
 </pre>
-<p id="p-115">The output is “The first four powers of 111.111 are 111.111, 12345.7, 1.37174e+06, 1.52415e+08”</p>
-<p id="p-116">There is also a formatting code <code class="code-inline tex2jax_ignore">%d</code> to be used for integers, when you do not want a decimal dot at all.</p></section></div></main>
+<p id="p-119">The output is “The first four powers of 111.111 are 111.111, 12345.7, 1.37174e+06, 1.52415e+08”</p>
+<p id="p-120">There is also a formatting code <code class="code-inline tex2jax_ignore">%d</code> to be used for integers, when you do not want a decimal dot at all.</p></section></div></main>
 </div>
 </body>
 </html>

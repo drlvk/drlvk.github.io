@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:34-04:00    *-->
+<!--*    on 2021-08-16T20:40:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>As most numerical methods, <code class="code-inline tex2jax_ignore">fminsearch</code> may fail at its task:</p>
-<pre class="code-block tex2jax_ignore">
-fminsearch(@(x) exp(x), 0)  
-</pre>
-<p data-braille="continuation">returns “-786.4315” (there are no points of minimum, of course), while</p>
-<pre class="code-block tex2jax_ignore">
-fminsearch(@(x) x^3 - x, 4)
-</pre>
-<p data-braille="continuation">overlooks the local minimum at \(x = 1/\sqrt{3}\) and diverges to negative infinity. The success is much more likely if the initial point is chosen with some care. In case of fitting a curve to data, one should try to guess the signs and approximate sizes of the parameters.</p>
-<span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-839">in-context</a></span>
+<p>Transforming data to make the Linear Least Squares work has limited applicability. Most nonlinear models cannot be transformed in this way, and even if the transformation is possible, it sometimes results in poorly fitting curves. We should consider the possibility of working directly with parameters that lead to nonlinear problems.</p>
+<span class="incontext"><a href="chapter-nonlinear-least-squares.html#p-839">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:29-04:00    *-->
+<!--*    on 2021-08-16T20:40:12-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,31 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We want \(B_1\) to have some similarity to \(B_0\) in the hope that the process of improving guesses \(B_0, B_1, \dots\) will converge to something, rather than just jump around. We want to improve the previous guess, not replace it entirely. So, let \(B_1 = (I + M)B_0 = B_0 + MB_0\) where \(M\) can be constructed from an outer product as in <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. Namely, we want</p>
-<div class="displaymath">
-\begin{equation*}
-B_0 \mathbf w + M B_0 \mathbf w = \mathbf h
-\end{equation*}
-</div>
-<p data-braille="continuation">so</p>
-<div class="displaymath">
-\begin{equation*}
-M B_0 \mathbf w = \mathbf h - B_0 \mathbf w 
-\end{equation*}
-</div>
-<p data-braille="continuation">According to <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a> we can achieve this by letting</p>
-<div class="displaymath">
-\begin{equation*}
-M = \frac{1}{\mathbf h^T \mathbf B_0 \mathbf w} (\mathbf h - B_0 \mathbf w) \mathbf h^T 
-\end{equation*}
-</div>
-<p data-braille="continuation">where the chose the term \(\mathbf b\) to be \(\mathbf h\text{.}\) To summarize, the formula for updating our guess for inverse Jacobian is</p>
-<div class="displaymath">
-\begin{equation*}
-B_1 = B_0 + \frac{1}{\mathbf h^T \mathbf B_0 \mathbf w} (\mathbf h - B_0 \mathbf w) \mathbf h^T B_0 
-\end{equation*}
-</div>
-<p data-braille="continuation">It looks messy, but at least the derivation was logical.</p>
-<span class="incontext"><a href="section-broyden-method.html#p-388">in-context</a></span>
+<p>The result should be: rank is 1, and the determinant is some extremely small (but nonzero) number, for example <code class="code-inline tex2jax_ignore">3.2391e-69</code>. Mathematically this is impossible: a 5<span class="times-sign">×</span>5 matrix of rank less than 5 must have determinant equal to 0. But the reality of computer arithmetic is that floating point numbers rarely add up exactly to zero, as noted in <a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off errors">Section 6.4</a>. Matlab's <code class="code-inline tex2jax_ignore">rank</code> command takes this into account and reports the rank as 1 when the matrix is “close enough” to actually having rank 1.</p>
+<span class="incontext"><a href="section-broyden-linear-algebra.html#p-388">in-context</a></span>
 </body>
 </html>

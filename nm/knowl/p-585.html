@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:31-04:00    *-->
+<!--*    on 2021-08-16T20:40:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Integrate the function \(f(\mathbf x) = \sqrt{1+|\mathbf x|^2}\) over the 10-dimensional unit cube \([0, 1]^{10}\) using the Monte-Carlo method.</p>
-<span class="incontext"><a href="section-integration-monte-carlo.html#p-585">in-context</a></span>
+<p>We need functions for top and bottom boundaries, according to the integral structure</p>
+<div class="displaymath">
+\begin{equation*}
+\int_a^b \int_{\text{bottom}}^{\text{top}} f(x, y)\,dy\,dx
+\end{equation*}
+</div>
+<p data-braille="continuation">In the x-variable, the points and weights are set once. But in the y-direction they are calculated within a loop, because different x-values produce different limits of integration for y. The vector <code class="code-inline tex2jax_ignore">innerint</code> is used below to store the values of the inner integral.</p>
+<span class="incontext"><a href="section-integration-general-2d.html#p-585">in-context</a></span>
 </body>
 </html>

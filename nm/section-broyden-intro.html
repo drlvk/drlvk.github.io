@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:07-04:00    *-->
+<!--*    on 2021-08-16T20:39:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -412,9 +412,9 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-broyden-intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">11.1</span> <span class="title">Idea of Broyden's method</span>
 </h2>
-<p id="p-377">The basic idea is: since we do not know the derivative, we are going to guess its value and then improve our guess at every step of the algorithm.</p>
-<p id="p-378">Let us return to one-variable situation first. Newton's method proceeds in steps computed as \(h = -f(x_0)/f'(x_0)\) which requires the knowledge of \(f'(x_0)\text{.}\) Suppose we do not know the derivative but are willing to guess. For notational convenience, let us say we are guessing the value of \(1/f'(x_0)\text{.}\) We want some non-zero number. Knowing nothing whatsoever, we can guess "1". Let us call this guess \(b_0 = 1\text{.}\) Armed with this number, we proceed as usual in Newton's method: make the step \(h = -b_0 f(x_0)\) arriving at the point \(x_1 = x_0\text{.}\)</p>
-<p id="p-379">Our next guess, for the value of \(1/f'(x_1)\) can be better educated: we can think of the secant line through the two points \((x_0, f(x_0))\) and \((x_1, f(x_1))\text{,}\) and decide it would be logical for \(b_1\) to be the reciprocal of the slope of this secant line. This means we pick \(b_1\) so that</p>
+<p id="p-382">The basic idea is: since we do not know the derivative, we are going to guess its value and then improve our guess at every step of the algorithm.</p>
+<p id="p-383">Let us return to one-variable situation first. Newton's method proceeds in steps computed as \(h = -f(x_0)/f'(x_0)\) which requires the knowledge of \(f'(x_0)\text{.}\) Suppose we do not know the derivative but are willing to guess. For notational convenience, let us say we are guessing the value of \(1/f'(x_0)\text{.}\) We want some non-zero number. Knowing nothing whatsoever, we can guess "1". Let us call this guess \(b_0 = 1\text{.}\) Armed with this number, we proceed as usual in Newton's method: make the step \(h = -b_0 f(x_0)\) arriving at the point \(x_1 = x_0\text{.}\)</p>
+<p id="p-384">Our next guess, for the value of \(1/f'(x_1)\) can be better educated: we can think of the secant line through the two points \((x_0, f(x_0))\) and \((x_1, f(x_1))\text{,}\) and decide it would be logical for \(b_1\) to be the reciprocal of the slope of this secant line. This means we pick \(b_1\) so that</p>
 <div class="displaymath">
 \begin{equation}
 b_1(f(x_1)- f(x_0)) = x_1-x_0 \label{eq-broyden-1}\tag{11.1.1}
@@ -427,7 +427,7 @@ b_2(f(x_2)- f(x_1)) = x_2-x_1
 \end{equation*}
 </div>
 <p data-braille="continuation">Apart from the initial uneducated guess for \(b_0\) this is exactly the secant method, expressed in different notation.</p>
-<p id="p-380">In higher dimensions, we need a guess for the inverse of the Jacobian matrix, which is used in Newton's method \(\mathbf h = -J^{-1} \mathbf F(\mathbf x)\text{.}\) At first we take an uneducated guess for the value of \(J(x_0)^{-1}\text{,}\) namely \(B_0=I\text{,}\) the identity matrix. This enables us to make a step \(\mathbf h = -B_0 F(\mathbf x_0)\text{.}\) Now comes the important part we want our next guess to be better informed than the previous one. Looking back at <a class="xref" data-knowl="./knowl/eq-broyden-1.html" title="Equation 11.1.1">(11.1.1)</a>, it seems we should choose a matrix \(B_1\) so that</p>
+<p id="p-385">In higher dimensions, we need a guess for the inverse of the Jacobian matrix, which is used in Newton's method \(\mathbf h = -J^{-1} \mathbf F(\mathbf x)\text{.}\) At first we take an uneducated guess for the value of \(J(x_0)^{-1}\text{,}\) namely \(B_0=I\text{,}\) the identity matrix. This enables us to make a step \(\mathbf h = -B_0 F(\mathbf x_0)\text{.}\) Now comes the important part we want our next guess to be better informed than the previous one. Looking back at <a class="xref" data-knowl="./knowl/eq-broyden-1.html" title="Equation 11.1.1">(11.1.1)</a>, it seems we should choose a matrix \(B_1\) so that</p>
 <div class="displaymath">
 \begin{equation*}
 B_1(\mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)) = \mathbf x_1 - \mathbf x_0 

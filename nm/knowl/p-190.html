@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:27-04:00    *-->
+<!--*    on 2021-08-16T20:40:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,20 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
-<span class="incontext"><a href="examples-user-defined-functions.html#p-190">in-context</a></span>
+<p>Back in the days when Matlab was designed, the convention was to put every named function in a separate “M-file” named as that function: for example, <code class="code-inline tex2jax_ignore">goldenratio.m</code>. Modern versions allow multiple named functions appear in the same file, along with code using those functions. However, one arbitrary restriction remains: “Function definitions in a script must appear at the end of the file.” For example, the following is allowed:<pre class="code-block tex2jax_ignore">x = 0.3;
+y = 12;
+disp(agm(x, y, 1e-6))
+
+function z = agm(x, y, tol) 
+   while abs(x - y) &gt;= tol
+       a = (x + y)/2;
+       g = sqrt(x*y);
+       x = a;
+       y = g;
+   end
+   z = x;
+end
+</pre>but moving the first three lines (top-level code) after the named function would result in an error.</p>
+<span class="incontext"><a href="section-named-functions.html#p-190">in-context</a></span>
 </body>
 </html>

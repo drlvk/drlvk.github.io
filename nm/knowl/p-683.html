@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:32-04:00    *-->
+<!--*    on 2021-08-16T20:40:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>(Theoretical) The <em class="emphasis">Chebyshev polynomials of the second kind</em> \(U_n\) can be defined as follows: \(U_0(x) = 1\text{,}\) \(U_1(x) = 2x\text{,}\) and after that,</p>
+<p>These projections are called “Chebyshev extreme points” or “Chebyshev points of the second kind”. Explicitly, they are</p>
 <div class="displaymath">
 \begin{equation}
-U_{n+1}(x) = 2xU_n(x) -  U_{n-1}(x)\tag{22.4.1}
+x_k = \cos(\pi k/n) \quad \text{where } k=0, 1, \dots, n\tag{22.3.1}
 \end{equation}
 </div>
-<p data-braille="continuation">(This is the same recursive formula as for \(T_n\text{,}\) but it produces different polynomials because \(U_1\) is different from \(T_1\text{.}\)) Prove that</p>
-<div class="displaymath">
-\begin{equation}
-U_{n}(\cos\theta)\sin \theta = \sin ((n+1)\theta)\tag{22.4.2}
-\end{equation}
-</div>
-<p data-braille="continuation">for all \(n\) and all \(\theta\text{.}\)</p>
-<span class="incontext"><a href="exercises-chebyshev.html#p-683">in-context</a></span>
+<p data-braille="continuation">In Matlab one could write</p>
+<pre class="code-block tex2jax_ignore">
+x = cos(linspace(0, pi, n+1));
+</pre>
+<p data-braille="continuation">While the midpoint projections (Chebyshev points of the first kind) are the <em class="emphasis">roots</em> of polynomials \(T_n\text{,}\) the points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> are the <em class="emphasis">extreme points</em> of \(T_n\text{.}\) Indeed, the identity <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> says that \(T_n\) attains extreme values \(\pm 1\) when \(\cos (n\theta) = \pm 1\text{,}\) hence \(\theta = \pi k/n\text{,}\) hence \(x = \cos(\pi k/n)\text{.}\)</p>
+<span class="incontext"><a href="section-chebyshev-extreme-points.html#p-683">in-context</a></span>
 </body>
 </html>

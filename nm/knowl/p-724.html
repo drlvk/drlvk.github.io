@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:33-04:00    *-->
+<!--*    on 2021-08-16T20:40:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>As written, the formula <a class="xref" data-knowl="./knowl/eq-approximating-cubic-spline.html" title="Equation 24.2.3">(24.2.3)</a> has an issue at the boundary, where instead of averages <a class="xref" data-knowl="./knowl/eq-values-of-approx-spline.html" title="Equation 24.2.4">(24.2.4)</a> we get</p>
+<p>We look for a way to smoothly model the data while avoiding the issues in <a href="section-drawbacks-spline-interpolation.html" class="internal" title="Section 24.1: Weak points of spline interpolation">Section 24.1</a>. To simplify the computations, assume the x-values are equally spaced, which means that after shifting and scaling we can assume \(x_k=k\) for \(k=1, \dots, n\text{.}\) Then the linear interpolation can be expressed as the sum</p>
 <div class="displaymath">
 \begin{equation}
-S(x_1)= \frac{4y_1 + y_{2}}{6},\quad S(x_n) = \frac{y_{n-1} + 4y_n }{6}\tag{24.2.5}
+L(x) = \sum_{k=1}^n y_k H(x-k)\tag{24.2.1}
 \end{equation}
 </div>
-<p data-braille="continuation">because there is no \(y_0\) or \(y_{n+1}\text{.}\) This is an issue because, for example, with constant values \(y_k=1\) we get \(S(x_1)=5/6=S(x_n)\text{,}\) failing monotonicity. To fix the boundary behavior, we should extend the sum <a class="xref" data-knowl="./knowl/eq-approximating-cubic-spline.html" title="Equation 24.2.3">(24.2.3)</a> with two more terms:</p>
-<div class="displaymath">
-\begin{equation}
-S(x) = \sum_{k=0}^{n+1} y_k B(x-k),\quad y_0=y_1, \ y_{n+1} = y_n\tag{24.2.6}
-\end{equation}
-</div>
-<p data-braille="continuation">This is typical when computing with values on a grid: sometimes our formulas refer to out-of-grid points, and instead of just ignoring such terms we should somehow extrapolate the known values outside of the grid.</p>
+<p data-braille="continuation">where \(H(x) = \max(0, 1-|x|)\) is a function whose graph is a triangle with base \([-1,1]\text{.}\) Functions like \(H\) are sometimes called the “hat functions” based on the appearance of the graph. An important feature of the functions \(H(x-k)\) is that they add up to \(1\) everywhere on the interval \([1, n]\) (why?). This ensures that interpolation of constant values \(y_1=\cdots =y_n\) produces a constant function, which is a necessary condition for the algorithm to preserve monotonicity of data.</p>
 <span class="incontext"><a href="section-b-splines.html#p-724">in-context</a></span>
 </body>
 </html>

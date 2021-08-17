@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:08-04:00    *-->
+<!--*    on 2021-08-16T20:39:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -412,11 +412,11 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-riemann-sums"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">13.1</span> <span class="title">Riemann sums</span>
 </h2>
-<p id="p-438">Numerical integration problem amounts to the following: we have a function \(f\) on some interval \([a,b]\text{,}\) and we try to compute \(\int_a^b f(x)\,dx\) based on evaluating \(f\) at some points of this interval. To begin with, recall that by definition, \(\int_a^b f(x)\,dx\) is the limit of <dfn class="terminology">Riemann sums</dfn> of \(f\text{.}\) The process of computing a Riemann sum is as follows.</p>
+<p id="p-443">Numerical integration problem amounts to the following: we have a function \(f\) on some interval \([a,b]\text{,}\) and we try to compute \(\int_a^b f(x)\,dx\) based on evaluating \(f\) at some points of this interval. To begin with, recall that by definition, \(\int_a^b f(x)\,dx\) is the limit of <dfn class="terminology">Riemann sums</dfn> of \(f\text{.}\) The process of computing a Riemann sum is as follows.</p>
 <ol class="decimal">
-<li id="li-116">Divide \([a,b]\) into subintervals. It can be divided into \(n\) subintervals by choosing some points \(x_0 \lt x_1 \lt x_2 \lt \cdots \lt  x_n\) so that \(x_0=a\) and \(x_n=b\text{.}\) The subintervals are \(I_k = [x_{k-1},x_k]\) where \(k=1, 2, \dots, n\)</li>
-<li id="li-117">Evaluate \(f\) at some point \(s_k\) (a sample point) of each subinterval \(I_k\text{.}\)</li>
-<li id="li-118">Compute the sum of the products \(f(s_k)(x_k-x_{k-1})\) for \(k=1,\dots,n\text{.}\) This is the Riemann sum:<div class="displaymath">
+<li id="li-125">Divide \([a,b]\) into subintervals. It can be divided into \(n\) subintervals by choosing some points \(x_0 \lt x_1 \lt x_2 \lt \cdots \lt  x_n\) so that \(x_0=a\) and \(x_n=b\text{.}\) The subintervals are \(I_k = [x_{k-1},x_k]\) where \(k=1, 2, \dots, n\)</li>
+<li id="li-126">Evaluate \(f\) at some point \(s_k\) (a sample point) of each subinterval \(I_k\text{.}\)</li>
+<li id="li-127">Compute the sum of the products \(f(s_k)(x_k-x_{k-1})\) for \(k=1,\dots,n\text{.}\) This is the Riemann sum:<div class="displaymath">
 \begin{equation*}
 S = \sum_{k=1}^n f(s_k)(x_k-x_{k-1})
 \end{equation*}
@@ -424,7 +424,7 @@ S = \sum_{k=1}^n f(s_k)(x_k-x_{k-1})
 </li>
 </ol>
 <p data-braille="continuation">Therefore, a basic strategy of numeric integration consists of choosing subintervals and then choosing a point in each.</p>
-<p id="p-439">The simplest choice of subintervals is to have subintervals of equal length, meaning each has length \(h=(b-a)/n\text{,}\) which makes \(x_k = a + kh\text{.}\) We will eventually see that this choice is not as good as it seems, but it will do for now.</p></section></div></main>
+<p id="p-444">The simplest choice of subintervals is to have subintervals of equal length, meaning each has length \(h=(b-a)/n\text{,}\) which makes \(x_k = a + kh\text{.}\) We will eventually see that this choice is not as good as it seems, but it will do for now.</p></section></div></main>
 </div>
 </body>
 </html>

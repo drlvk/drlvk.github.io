@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:02-04:00    *-->
+<!--*    on 2021-08-16T20:39:46-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -412,7 +412,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-break-statement"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.4</span> <span class="title">Breaking out of a loop</span>
 </h2>
-<p id="p-152">In <a href="section-while-loop.html" class="internal" title="Section 4.2: while loop">Section 4.2</a> we noted an issue with <code class="code-inline tex2jax_ignore">while</code> loop: it can go on forever, or for such a long time that we simply have to give up on the computation and maybe try something else. The command <code class="code-inline tex2jax_ignore">break</code> exits the loop (it can be either <code class="code-inline tex2jax_ignore">for</code> or <code class="code-inline tex2jax_ignore">while</code> loop). This command is always contained in an <code class="code-inline tex2jax_ignore">if</code> statement because the idea is to break out of the loop when some condition is reached. Here is an example of such situation. Starting with <code class="code-inline tex2jax_ignore">x=1</code>, the code repeatedly replaces x with \(\frac{1}{2}(x + a/x)\) where the number <code class="code-inline tex2jax_ignore">a</code> is provided by the user.</p>
+<p id="p-157">In <a href="section-while-loop.html" class="internal" title="Section 4.2: while loop">Section 4.2</a> we noted an issue with <code class="code-inline tex2jax_ignore">while</code> loop: it can go on forever, or for such a long time that we simply have to give up on the computation and maybe try something else. The command <code class="code-inline tex2jax_ignore">break</code> exits the loop (it can be either <code class="code-inline tex2jax_ignore">for</code> or <code class="code-inline tex2jax_ignore">while</code> loop). This command is always contained in an <code class="code-inline tex2jax_ignore">if</code> statement because the idea is to break out of the loop when some condition is reached. Here is an example of such situation. Starting with <code class="code-inline tex2jax_ignore">x=1</code>, the code repeatedly replaces x with \(\frac{1}{2}(x + a/x)\) where the number <code class="code-inline tex2jax_ignore">a</code> is provided by the user.</p>
 <pre class="code-block tex2jax_ignore">a = input('a = ');
 tries = 1000;
 x = 1;
@@ -430,7 +430,7 @@ else
     disp('Failed to converge')
 end
 </pre>
-<p id="p-153">The loop has a limit of 1000 tries. It ends sooner if the required condition “new x is close to old one” is reached. After the loop there is another conditional statement which reports the result depending on whether the loop terminated early (success) or ran out of tries (failure). Try running this script with different inputs such as 2, -3, 4, -5, 6. What do you observe?</p></section></div></main>
+<p id="p-158">The loop has a limit of 1000 tries. It ends sooner if the required condition “new x is close to old one” is reached. After the loop there is another conditional statement which reports the result depending on whether the loop terminated early (success) or ran out of tries (failure). Try running this script with different inputs such as 2, -3, 4, -5, 6. What do you observe?</p></section></div></main>
 </div>
 </body>
 </html>

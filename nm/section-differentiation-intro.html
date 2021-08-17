@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:08-04:00    *-->
+<!--*    on 2021-08-16T20:39:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -412,7 +412,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-differentiation-intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">12.1</span> <span class="title">Definition of derivative and the order of error</span>
 </h2>
-<p id="p-401">The definition of derivative says:</p>
+<p id="p-406">The definition of derivative says:</p>
 <div class="displaymath">
 \begin{equation*}
 f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
@@ -431,32 +431,32 @@ f'(x) \approx \frac{f(x+h)-f(x)}{h}\label{eq-diff-f1}\tag{12.1.1}
 \end{equation*}
 </div>
 <p data-braille="continuation">where the error term \(e\) is a function of \(h\text{.}\) The accuracy of approximation is measured by the <dfn class="terminology">order</dfn> of the error term, which is a number \(d\) such that \(|e(h)|\) is bounded by some multiple of \(|h|^d\text{.}\)</p>
-<p id="p-402">There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
+<p id="p-407">There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
 <ol class="decimal">
-<li id="li-101">Let \(n= 0\)</li>
-<li id="li-102">Plug \(f(x) = x^n\) into the formula and find the error term.</li>
-<li id="li-103">If the error term is some nonzero multiple of a power of \(h\text{,}\) the exponent of \(h\) is the order of the error term.</li>
-<li id="li-104">If the error term is zero, increase \(n\) by \(1\) and return to step 2.</li>
+<li id="li-110">Let \(n= 0\)</li>
+<li id="li-111">Plug \(f(x) = x^n\) into the formula and find the error term.</li>
+<li id="li-112">If the error term is some nonzero multiple of a power of \(h\text{,}\) the exponent of \(h\) is the order of the error term.</li>
+<li id="li-113">If the error term is zero, increase \(n\) by \(1\) and return to step 2.</li>
 </ol>
 <article class="example example-like" id="example-error-diff-f1"><a data-knowl="" class="id-ref original" data-refid="hk-example-error-diff-f1"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Find the order of error of approximation to \(f'\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-diff-f1"><article class="example example-like"><p id="p-403">Find the order of error of the formula <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-diff-f1"><article class="example example-like"><p id="p-408">Find the order of error of the formula <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-25" id="solution-25"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-25"><div class="solution solution-like">
-<ul id="p-404" class="disc">
-<li id="li-105">With \(f(x) = x^0\) we get \(f'(x) = 0\) and \(\frac{f(x+h)-f(x)}{h}=0\text{,}\) so the error term is zero for this function.</li>
-<li id="li-106">With \(f(x) = x^1\) we get \(f'(x) = 1\) and \(\frac{f(x+h)-f(x)}{h}=\frac{h}{h}=1\text{,}\) so the error term is zero for this function.</li>
-<li id="li-107">With \(f(x) = x^2\) we get \(f'(x) = 2x\) and \(\frac{f(x+h)-f(x)}{h}=\frac{x^2+2xh+h^2-x^2}{h}=2x + h\text{,}\) so the error term for this function is \(h^1\text{.}\)</li>
+<ul id="p-409" class="disc">
+<li id="li-114">With \(f(x) = x^0\) we get \(f'(x) = 0\) and \(\frac{f(x+h)-f(x)}{h}=0\text{,}\) so the error term is zero for this function.</li>
+<li id="li-115">With \(f(x) = x^1\) we get \(f'(x) = 1\) and \(\frac{f(x+h)-f(x)}{h}=\frac{h}{h}=1\text{,}\) so the error term is zero for this function.</li>
+<li id="li-116">With \(f(x) = x^2\) we get \(f'(x) = 2x\) and \(\frac{f(x+h)-f(x)}{h}=\frac{x^2+2xh+h^2-x^2}{h}=2x + h\text{,}\) so the error term for this function is \(h^1\text{.}\)</li>
 </ul>
 <p data-braille="continuation">In conclusion, the formula has order of error 1.</p>
 </div></div>
 </div></article></div>
-<p id="p-405">The importance of the order of error can be illustrated by an example. Suppose we want to find \(f'(x)\) with absolute error at most \(10^{-12}\text{.}\)</p>
+<p id="p-410">The importance of the order of error can be illustrated by an example. Suppose we want to find \(f'(x)\) with absolute error at most \(10^{-12}\text{.}\)</p>
 <ul class="disc">
-<li id="li-108">If the error term of our formula is \(h^1\text{,}\) we need to use extremely small \(h\text{;}\) that is \(|h|\le 10^{-12}\text{.}\)</li>
-<li id="li-109">If the error term is \(h^2\text{,}\) we need \(|h|\le 10^{-6}\) which is still small but not as extreme.</li>
-<li id="li-110">If the error term is \(h^3\text{,}\) we need \(|h|\le 10^{-4}\text{.}\)</li>
-<li id="li-111">If the error term is \(h^4\text{,}\) we need \(|h|\le 10^{-3}\text{.}\)</li>
+<li id="li-117">If the error term of our formula is \(h^1\text{,}\) we need to use extremely small \(h\text{;}\) that is \(|h|\le 10^{-12}\text{.}\)</li>
+<li id="li-118">If the error term is \(h^2\text{,}\) we need \(|h|\le 10^{-6}\) which is still small but not as extreme.</li>
+<li id="li-119">If the error term is \(h^3\text{,}\) we need \(|h|\le 10^{-4}\text{.}\)</li>
+<li id="li-120">If the error term is \(h^4\text{,}\) we need \(|h|\le 10^{-3}\text{.}\)</li>
 </ul>
 <p data-braille="continuation">Thus, a higher-order formula should allow us to obtain an accurate result while avoidung extremely small values of \(h\text{.}\) But why do we want to avoid extremely small \(h\text{?}\) This is explained in next section.</p></section></div></main>
 </div>

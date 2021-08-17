@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:01-04:00    *-->
+<!--*    on 2021-08-16T20:39:44-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -412,8 +412,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-large-matrices"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">More tools for constructing matrices</span>
 </h2>
-<p id="p-63">The number of coefficients in a linear system grows rapidly with its size: a system with 20 equations and 20 variables has a matrix with 400 coefficients. Entering these by hand would be tedious. We already have two ways to construct large matrices: <code class="code-inline tex2jax_ignore">zeros(m, n)</code> and <code class="code-inline tex2jax_ignore">ones(m, n)</code> but these are not invertible matrices. This section presents two other useful constructions.</p>
-<p id="p-64">The <dfn class="terminology">identity matrix</dfn> is usually denoted \(I\) in mathematics, or \(I_n\) if it is necessary to emphasize its size. For example,</p>
+<p id="p-66">The number of coefficients in a linear system grows rapidly with its size: a system with 20 equations and 20 variables has a matrix with 400 coefficients. Entering these by hand would be tedious. We already have two ways to construct large matrices: <code class="code-inline tex2jax_ignore">zeros(m, n)</code> and <code class="code-inline tex2jax_ignore">ones(m, n)</code> but these are not invertible matrices. This section presents two other useful constructions.</p>
+<p id="p-67">The <dfn class="terminology">identity matrix</dfn> is usually denoted \(I\) in mathematics, or \(I_n\) if it is necessary to emphasize its size. For example,</p>
 <div class="displaymath">
 \begin{equation*}
 I_3 = \begin{pmatrix} 1 \amp 0\amp 0 \\ 0\amp 1\amp 0 \\ 0\amp 0\amp 1 \end{pmatrix}
@@ -425,13 +425,13 @@ I_3 = \begin{pmatrix} 1 \amp 0\amp 0 \\ 0\amp 1\amp 0 \\ 0\amp 0\amp 1 \end{pmat
 \begin{pmatrix} 5 \amp 0\amp 0 \\ 0\amp 5\amp 0 \\ 0\amp 0\amp 5 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-65">A <dfn class="terminology">diagonal matrix</dfn> has zeros everywhere except on the main diagonal. The identity matrix \(I\) is a special case of a diagonal matrix. In Matlab, the command <code class="code-inline tex2jax_ignore">diag(v)</code> creates a diagonal matrix which has the elements of vector <code class="code-inline tex2jax_ignore">v</code> on its main diagonal. For example, <code class="code-inline tex2jax_ignore">diag([6 -4 7])</code> creates the matrix</p>
+<p id="p-68">A <dfn class="terminology">diagonal matrix</dfn> has zeros everywhere except on the main diagonal. The identity matrix \(I\) is a special case of a diagonal matrix. In Matlab, the command <code class="code-inline tex2jax_ignore">diag(v)</code> creates a diagonal matrix which has the elements of vector <code class="code-inline tex2jax_ignore">v</code> on its main diagonal. For example, <code class="code-inline tex2jax_ignore">diag([6 -4 7])</code> creates the matrix</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{pmatrix} 6 \amp 0\amp 0 \\ 0\amp -4\amp 0 \\ 0\amp 0\amp 7 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-66">Some problems in engineering and in differential equations lead to matrices where nonzero coefficients are <em class="emphasis">close</em> to the main diagonal but not exactly at it: for example,</p>
+<p id="p-69">Some problems in engineering and in differential equations lead to matrices where nonzero coefficients are <em class="emphasis">close</em> to the main diagonal but not exactly at it: for example,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{pmatrix}
@@ -448,14 +448,14 @@ I_3 = \begin{pmatrix} 1 \amp 0\amp 0 \\ 0\amp 1\amp 0 \\ 0\amp 0\amp 1 \end{pmat
 <p data-braille="continuation">This is an example of a <dfn class="terminology">tridiagonal matrix</dfn>: there are only three diagonals with nonzero entries. More generally, a matrix is called <dfn class="terminology">sparse</dfn> if most of its elements are 0. Large sparse matrices frequently arise in computations.</p>
 <article class="example example-like" id="example-10"><a data-knowl="" class="id-ref original" data-refid="hk-example-10"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Product of sparse matrices.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like"><p id="p-67">Let \(A\) be the 9<span class="times-sign">×</span>9 matrix with -1 on the main diagonal and 1 above it. Find and display the products of \(A\) with its transpose: \(A^TA\) and \(AA^T\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like"><p id="p-70">Let \(A\) be the 9<span class="times-sign">×</span>9 matrix with -1 on the main diagonal and 1 above it. Find and display the products of \(A\) with its transpose: \(A^TA\) and \(AA^T\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-10" id="answer-10"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-10"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">A = diag(ones(1, 8), 1) - eye(9);
 disp(A'*A)
 disp(A*A')
 </pre>
-<p id="p-68">The two products are very similar but are not quite the same.</p>
+<p id="p-71">The two products are very similar but are not quite the same.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

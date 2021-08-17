@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:34-04:00    *-->
+<!--*    on 2021-08-16T20:40:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Solving for optimal parameters (theoretically) involves inverting the matrix \(X^TX\text{,}\) seen in <a class="xref" data-knowl="./knowl/eq-lsq-2.html" title="Equation 27.1.2">(27.1.2)</a>. The matrix \(s^2 (X^TX)^{-1}\) can be considered the <dfn class="terminology">covariance matrix</dfn> of estimated parameters. Specifically, its diagonal element in position \((k, k)\) is the variance of \(\beta_k\text{.}\) The square root of variance gives the <dfn class="terminology">standard error</dfn> of \(\beta_k\text{.}\) As a rule of thumb, if \(|\beta_k| \lt 2\operatorname{SE}(\beta_k)\) (a parameter is within two standard errors of 0), this parameter should be considered inessential and possibly removed from the model. The following computation implements this statistical analysis.</p>
-<span class="incontext"><a href="section-standard-error.html#p-796">in-context</a></span>
+<p>A simple but effective way to combad overfitting is to split the data into two parts: one (training set) is used to compute the coefficients \(\beta_k\text{,}\) and then another part (testing set) is used to evaluate goodness of fit. The split may be done randomly, perhaps 50:50 or 60:40 proportion. Which of the following 50:50 splits looks better?</p>
+<pre class="code-block tex2jax_ignore">
+x_train = x(1:8); 
+x_test = x(9:end);
+</pre>
+<p data-braille="continuation">(and similarly for <code class="code-inline tex2jax_ignore">y</code>) or</p>
+<pre class="code-block tex2jax_ignore">
+x_train = x(1:2:end); 
+x_test = x(2:2:end);
+</pre>
+<span class="incontext"><a href="section-overfitting.html#p-796">in-context</a></span>
 </body>
 </html>

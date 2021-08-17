@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:28-04:00    *-->
+<!--*    on 2021-08-16T20:40:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Similarly, a function shaped like \(f(x) = x^{1/3}\) may need under-relaxation, in this case the previous paragraph suggests \(\omega = 1/3\text{.}\) In general, under-relaxation is a less delicate issue than over-relaxation: seeing the failure to converge, one can simply try \(\omega = 0.1\text{,}\) and if that does not help, maybe \(\omega = 0.01\text{.}\) The convergence, if it is achieved, will usually be slow (linear).</p>
-<span class="incontext"><a href="section-relaxation-parameter.html#p-326">in-context</a></span>
+<p>The secant method is a close relative of Newton's method. The only difference is that instead of drawing a tangent line and finding where it crosses the line \(y=0\) we do the same for a secant line. The slope of a secant line is computed as \((f(x)-f(p))/(x-p)\) where \(x, p\) are two distinct points on the x-axis. The benefit is that we do not need the derivative of \(f\text{,}\) we only use the function itself. The drawback is that we have to keep track not of just one point, but of two. This makes the algorithm slightly more complicated: it is not just fixed-point iteration of some function \(g\) as in Newton's method. Also, the analysis of its speed of convergence is more complicated: generally, it is between linear and quadratic; faster than bisection but slower than Newton.</p>
+<span class="incontext"><a href="section-secant-method.html#p-326">in-context</a></span>
 </body>
 </html>

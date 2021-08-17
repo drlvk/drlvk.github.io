@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:30-04:00    *-->
+<!--*    on 2021-08-16T20:40:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,20 +13,18 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When a function is increasing, the leftpoint rule underestimates its integral, and rightpoint rule overestimates it. So, their average \(T_n=(L_n+R_n)/2\) should be a better approximation. This is the <dfn class="terminology">Trapezoidal Rule</dfn>:</p>
-<div class="displaymath">
+<p>Numerical integration problem amounts to the following: we have a function \(f\) on some interval \([a,b]\text{,}\) and we try to compute \(\int_a^b f(x)\,dx\) based on evaluating \(f\) at some points of this interval. To begin with, recall that by definition, \(\int_a^b f(x)\,dx\) is the limit of <dfn class="terminology">Riemann sums</dfn> of \(f\text{.}\) The process of computing a Riemann sum is as follows.</p>
+<ol class="decimal">
+<li>Divide \([a,b]\) into subintervals. It can be divided into \(n\) subintervals by choosing some points \(x_0 \lt x_1 \lt x_2 \lt \cdots \lt  x_n\) so that \(x_0=a\) and \(x_n=b\text{.}\) The subintervals are \(I_k = [x_{k-1},x_k]\) where \(k=1, 2, \dots, n\)</li>
+<li>Evaluate \(f\) at some point \(s_k\) (a sample point) of each subinterval \(I_k\text{.}\)</li>
+<li>Compute the sum of the products \(f(s_k)(x_k-x_{k-1})\) for \(k=1,\dots,n\text{.}\) This is the Riemann sum:<div class="displaymath">
 \begin{equation*}
-T_n = \frac{h}{2}(f(a)+f(b)) + h( f(x_1)+\dots+f(x_{n-1}))
+S = \sum_{k=1}^n f(s_k)(x_k-x_{k-1})
 \end{equation*}
 </div>
-<p data-braille="continuation">In Matlab, the computation is similar to <a class="xref" data-knowl="./knowl/example-lrm-rules.html" title="Example 13.2.1: Computing with left- right- and midpoint rules">Example 13.2.1</a></p>
-<pre class="code-block tex2jax_ignore">
-T = (f(x(1)) + f(x(end))) * h/2 + sum(f(x(2:end-1)))*h;	
-</pre>
-<p data-braille="continuation">It may be simpler to compute the vector <code class="code-inline tex2jax_ignore">y = f(x)</code> first, which reduces the number of calls to function <code class="code-inline tex2jax_ignore">f</code> and the number of parentheses:</p>
-<pre class="code-block tex2jax_ignore">
-T = (y(1) + y(end)) * h/2 + sum(y(2:end-1))*h;	
-</pre>
-<span class="incontext"><a href="section-trapezoidal-rulet.html#p-443">in-context</a></span>
+</li>
+</ol>
+<p data-braille="continuation">Therefore, a basic strategy of numeric integration consists of choosing subintervals and then choosing a point in each.</p>
+<span class="incontext"><a href="section-riemann-sums.html#p-443">in-context</a></span>
 </body>
 </html>

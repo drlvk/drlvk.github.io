@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:27-04:00    *-->
+<!--*    on 2021-08-16T20:40:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An interval  \([a, b]\) such that \(f(a)f(b) \lt 0\) is called a <dfn class="terminology">bracketing interval</dfn>. As <a class="xref" data-knowl="./knowl/bisection1-png.html" title="Figure 7.3.1">Figure 7.3.1</a> shows, there could be multiple roots inside of the bracketing interva. The bisection method will find <em class="emphasis">one</em> of them.</p>
-<span class="incontext"><a href="section-bisection-method.html#p-253">in-context</a></span>
+<p>For this reason, Matlab has a built-in root-finding function <code class="code-inline tex2jax_ignore">fzero</code>. Its first argument is the function which should be equated to zero, the second argument is our initial guess at where the solution may be (put 0 if you have no idea). For example,</p>
+<pre class="code-block tex2jax_ignore">fzero(@(x) 2*exp(x) + x^3 - 1, 0)</pre>
+<p data-braille="continuation">finds the solution <code class="code-inline tex2jax_ignore">-0.5439</code>. But even though we have <code class="code-inline tex2jax_ignore">fzero</code>, we still have to understand the methods used for finding roots, because</p>
+<ol class="lower-alpha">
+<li>
+<code class="code-inline tex2jax_ignore">fzero</code> only gives one solution, there may be others;</li>
+<li>the output of <code class="code-inline tex2jax_ignore">fzero</code>  may be wrong.</li>
+</ol>
+<p data-braille="continuation">An example of wrong answer:</p>
+<pre class="code-block tex2jax_ignore">fzero(@(x) exp(-x^2), 0)</pre>
+<p data-braille="continuation">returns <code class="code-inline tex2jax_ignore">x=-28.9631</code>. In reality, \(e^{-x^2} = 0\) has no solutions, and there is nothing special about the number produced by <code class="code-inline tex2jax_ignore">fzero</code>: this is just where its algorithm decided to stop, thinking “close enough”.</p>
+<span class="incontext"><a href="section-motivation-numeric-solution.html#p-253">in-context</a></span>
 </body>
 </html>

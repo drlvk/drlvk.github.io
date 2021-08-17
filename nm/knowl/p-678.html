@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:32-04:00    *-->
+<!--*    on 2021-08-16T20:40:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,17 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>These projections are called “Chebyshev extreme points” or “Chebyshev points of the second kind”. Explicitly, they are</p>
+<p>The recursive formula shows that the leading coefficient of \(T_n\) is \(2^{n-1}\text{.}\) Therefore,</p>
 <div class="displaymath">
-\begin{equation}
-x_k = \cos(\pi k/n) \quad \text{where } k=0, 1, \dots, n\tag{22.3.1}
-\end{equation}
+\begin{equation*}
+T_n(x) = 2^{n-1}\prod_{k=1}^n (x-x_k)
+\end{equation*}
 </div>
-<p data-braille="continuation">In Matlab one could write</p>
-<pre class="code-block tex2jax_ignore">
-x = cos(linspace(0, pi, n+1));
-</pre>
-<p data-braille="continuation">While the midpoint projections (Chebyshev points of the first kind) are the <em class="emphasis">roots</em> of polynomials \(T_n\text{,}\) the points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> are the <em class="emphasis">extreme points</em> of \(T_n\text{.}\) Indeed, the identity <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> says that \(T_n\) attains extreme values \(\pm 1\) when \(\cos (n\theta) = \pm 1\text{,}\) hence \(\theta = \pi k/n\text{,}\) hence \(x = \cos(\pi k/n)\text{.}\)</p>
-<span class="incontext"><a href="section-chebyshev-extreme-points.html#p-678">in-context</a></span>
+<p data-braille="continuation">where \(x_1, \dots, x_n\) are the roots <a class="xref" data-knowl="./knowl/eq-chebyshev-roots.html" title="Equation 22.2.3">(22.2.3)</a>. It follows that the absolute value of the product \(\prod_{k=1}^n (x-x_k)\) is bounded by \(2^{1-n}\text{.}\) It can be proved that \(2^{1-n}\) is as small as one can get for any choice of \(n\) points on the interval \([-1, 1]\text{.}\) This suggests that Chebyshev points should work well for polynomial interpolation, and they do. Let us re-do <a class="xref" data-knowl="./knowl/example-lagrange-polynomial.html" title="Example 21.2.2: Plot the Lagrange polynomial through 10 points">Example 21.2.2</a> with random data to illustrate this.</p>
+<span class="incontext"><a href="section-chebyshev-polynomials-interpolation.html#p-678">in-context</a></span>
 </body>
 </html>

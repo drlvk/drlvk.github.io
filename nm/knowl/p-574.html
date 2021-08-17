@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:31-04:00    *-->
+<!--*    on 2021-08-16T20:40:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,18 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Write a Matlab script to integrate the function \(f(x) = \sqrt{4+xy+y^3}\) over the rectangle in <a class="xref" data-knowl="./knowl/example-rectangle-simpson.html" title="Example 18.1.1: Set up Simpson's rule over a rectangle">Example 18.1.1</a>, using the integration points and weights from that example.</p>
+<p>A rectangle \(R = [a, b]\times [c, d]\) is the easiest two-dimensional domain to integrate over: in Calculus we would compute</p>
+<div class="displaymath">
+\begin{equation*}
+\iint_R f(x, y)\,dA = \int_a^b \int_c^d f(x, y)\,dy\,dx
+\end{equation*}
+</div>
+<p data-braille="continuation">Suppose we pick two integration rules: one for the interval \([a, b]\text{,}\) say \(\int_a^b g(x)\,dx \approx \sum_i w_i g(x_i)\text{,}\) the other for interval \([c, d]\text{,}\) say \(\int_c^d g(y)\,dy \approx \sum_j v_j g(y_j)\text{.}\) The function \(g\) here is a placeholder; the rule consists of the choice of evaluation points and their weights. Note that the weights and points depend on the interval, so they will probably be different even if we use the same integration method for both variables. With this setup, the two-dimensional integration rule for this rectangle can be expressed as a double sum:</p>
+<div class="displaymath">
+\begin{equation}
+\iint_R f(x, y)\,dA =  \sum_i \sum_j w_i v_j f(x_i, y_j)\tag{18.1.1}
+\end{equation}
+</div>
 <span class="incontext"><a href="section-integration-rectangle.html#p-574">in-context</a></span>
 </body>
 </html>

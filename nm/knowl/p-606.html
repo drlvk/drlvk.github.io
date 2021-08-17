@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:31-04:00    *-->
+<!--*    on 2021-08-16T20:40:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Evaluating the accuracy of ODE solution methods is a more complex issue because they involve approximate computations based on the results of previous other approximate computations. A convenient model problem to use is \(y'=y\) with \(y(0)=1\text{.}\) Its exact solution at  \(x= h\) is</p>
-<div class="displaymath">
-\begin{equation*}
-e^h = \sum_{n=0}^\infty \frac{h^n}{n!} =  1+h+h^2/2+h^3/6+\cdots
-\end{equation*}
-</div>
-<p data-braille="continuation">The  approximate solution \(y_1\) at \(x= h\) will be some other expression. The difference \(|e^h - y_1|\) gives us the <dfn class="terminology">local error</dfn> of the method (for one step). The cumulative error can be estimated by multiplying the local error by the necessary number of steps to cover an interval \([a, b]\text{,}\) which is \((b-a)/h\text{.}\)</p>
-<span class="incontext"><a href="section-ode-order-accuracy.html#p-606">in-context</a></span>
+<p>A terminological remark: all of the above are called <em class="emphasis">ordinary</em> differential equations (ODE) because there is only one independent variable, \(t\text{.}\) With more than one independent variable such equations involve partial derivatives and are called <em class="emphasis">partial</em> differential equations (PDE). We will not consider PDE in this course.</p>
+<span class="incontext"><a href="section-ode-intro.html#p-606">in-context</a></span>
 </body>
 </html>

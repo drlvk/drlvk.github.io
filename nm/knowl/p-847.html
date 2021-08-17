@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:34-04:00    *-->
+<!--*    on 2021-08-16T20:40:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The <code class="code-inline tex2jax_ignore">fminsearch</code> optimization includes limits on the number of function evaluations, and on the number of iterations that it can do before stopping. If you get a warning that the process stopped because of these limits, try increasing them. For example,</p>
-<pre class="code-block tex2jax_ignore">
-options = optimset('MaxFunEvals', 10000, 'MaxIter', 10000);
-opt = fminsearch(..., options);
-</pre>
-<p data-braille="continuation">The first line creates a “structure” (which would be called a “dictionary” in some languages) which records the options for the optimization algorithm.</p>
+<p>Since the standard logistic function rises from 0 to 1 and has maximal slope when \(x=0\text{,}\) we can relate  parameters \(a, M, s\) directly to shape of the curve:</p>
+<ul class="disc">
+<li>\(a\) is the x-value at which the curve has the steepest slope;</li>
+<li>\(M\) is the amount by which the curve rises;</li>
+<li>\(s\) measures its horizontal size; the curve is essentially flat outside of the interval \([a-5s, a+5s]\text{.}\)</li>
+</ul>
 <span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-847">in-context</a></span>
 </body>
 </html>

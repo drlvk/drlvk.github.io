@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:25-04:00    *-->
+<!--*    on 2021-08-16T20:40:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Display the 2<span class="times-sign">×</span>2 submatrix in the middle of a given 4<span class="times-sign">×</span>4 matrix such as</p>
-<div class="displaymath">
-\begin{equation*}
-A = \begin{pmatrix} 1 \amp 2\amp 3\amp 4 \\ 5\amp 6\amp 7\amp 8 \\ 9\amp 10\amp 11\amp 12 \\ 13\amp 14\amp 15\amp 16 \end{pmatrix}
-\end{equation*}
-</div>
+<p>We can use a <dfn class="terminology">vector of indexes</dfn> to extract several elements of a vector or a matrix. For example, <code class="code-inline tex2jax_ignore">v(3:end-1)</code> extracts all entries of <code class="code-inline tex2jax_ignore">v</code> starting with the 3rd one and ending with the one before the last. If <code class="code-inline tex2jax_ignore">v</code> was <code class="code-inline tex2jax_ignore">[8 6 4 3 2 1]</code>, the result would be <code class="code-inline tex2jax_ignore">[4 3 2]</code>. For another example, <code class="code-inline tex2jax_ignore">v(2:2:end)</code> extracts all even-numbered elements of v. In the above example this would be <code class="code-inline tex2jax_ignore">[6 3 1]</code>. For a matrix <code class="code-inline tex2jax_ignore">A</code>, we can select both rows and columns at the same time: <code class="code-inline tex2jax_ignore">A(2:3, 2:5)</code> means taking the elements of <code class="code-inline tex2jax_ignore">A</code> that appear in rows 2-3 and in columns 2-5. The result is a submatrix of size 2<span class="times-sign">×</span>4.</p>
 <span class="incontext"><a href="section-indexing-vectors-matrices.html#p-41">in-context</a></span>
 </body>
 </html>

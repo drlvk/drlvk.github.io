@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:29-04:00    *-->
+<!--*    on 2021-08-16T20:40:12-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Our next guess, for the value of \(1/f'(x_1)\) can be better educated: we can think of the secant line through the two points \((x_0, f(x_0))\) and \((x_1, f(x_1))\text{,}\) and decide it would be logical for \(b_1\) to be the reciprocal of the slope of this secant line. This means we pick \(b_1\) so that</p>
-<div class="displaymath">
-\begin{equation}
-b_1(f(x_1)- f(x_0)) = x_1-x_0 \tag{11.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">Then the process continues: we make the step \(h = -b_1 f(x_1)\text{,}\) arrive at \(x_2 = x_1+h\) and use the secant slope through the two newest points,</p>
+<p>At which of the following points \((x,y,z)\) is the Jacobian matrix from the previous exercise  invertible?</p>
 <div class="displaymath">
 \begin{equation*}
-b_2(f(x_2)- f(x_1)) = x_2-x_1 
+\begin{pmatrix} 1\\1\\1\end{pmatrix}, \begin{pmatrix} 3\\1\\5\end{pmatrix},  \begin{pmatrix} 2\\1\\2\end{pmatrix}
 \end{equation*}
 </div>
-<p data-braille="continuation">Apart from the initial uneducated guess for \(b_0\) this is exactly the secant method, expressed in different notation.</p>
-<span class="incontext"><a href="section-broyden-intro.html#p-379">in-context</a></span>
+<p data-braille="continuation">To save time,  use Matlab: define an anonymous function like <code class="code-inline tex2jax_ignore">J = @(x,y,z) [... ; ... ; ...]</code> so that you can then do <code class="code-inline tex2jax_ignore">rank(J(1,1,1))</code> and so on, without computing the matrices yourself. Note the difference between this approach to J and the approach of <a href="section-multivariate-newton.html" class="internal" title="Section 10.2: Multivariate Newton's method">Section 10.2</a>: here the function <code class="code-inline tex2jax_ignore">J</code> takes three scalar arguments, instead of one vector argument.</p>
+<span class="incontext"><a href="exercises-multivariate-newton.html#p-379">in-context</a></span>
 </body>
 </html>

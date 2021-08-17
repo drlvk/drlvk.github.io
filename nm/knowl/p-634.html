@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:32-04:00    *-->
+<!--*    on 2021-08-16T20:40:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The Lotka-Volterra model has two <dfn class="terminology">equilibrium points</dfn>: \((0,0)\) and \((c/d, a/b)\text{,}\) meaning that a solution with either of these initial conditions stays constant. The former is mutual extinction, the latter is stable coexistence. But since the solution is periodic, it does not converge to either equilibrium.</p>
-<span class="incontext"><a href="section-ode-predator-prey.html#p-634">in-context</a></span>
+<p>In reality, \(\beta\) is not necessarily constant in time. Let us introduce seasonality into the model by making \(\beta\) a periodic function of \(t\text{,}\) for example</p>
+<pre class="code-block tex2jax_ignore">
+beta = @(t) 0.3 + 0.2*cos(0.2*t);
+</pre>
+<p data-braille="continuation">which is a periodic function that varies between \(0.1\) and \(0.5\text{.}\) Try this out (note that <code class="code-inline tex2jax_ignore">beta</code> should be replaced by <code class="code-inline tex2jax_ignore">beta(t)</code> in the formula for <code class="code-inline tex2jax_ignore">rhs</code>).</p>
+<span class="incontext"><a href="section-ode-epidemiology.html#p-634">in-context</a></span>
 </body>
 </html>

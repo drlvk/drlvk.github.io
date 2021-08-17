@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:32-04:00    *-->
+<!--*    on 2021-08-16T20:40:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Complete the formula</p>
-<div class="displaymath">
-\begin{equation*}
-S(x)=\begin{cases} 1+x-x^3 &amp; 0\le x\le 1,\\  
-\dots &amp; 1\le x\le 2\end{cases}
-\end{equation*}
-</div>
-<p data-braille="continuation">given that it describes a natural spline on \([0, 2]\text{.}\)</p>
+<p>Here are three different ways to add two more equations to the linear system for coefficients; they result in three different kinds of cubic splines:</p>
+<ul class="disc">
+<li>Require \(S''(a) = 0 = S''(b)\text{.}\) This is a “natural spline”.</li>
+<li>Require \(S'(a) = p\) and  \(S'(b)=q\) for some values \(p, q\text{.}\) This is a “clamped spline”.</li>
+<li>Require \(S'''\) to be continuous at \(x_2\) and at \(x_{n-1}\text{.}\) This is a “not-a-knot spline”.</li>
+</ul>
 <span class="incontext"><a href="section-cubic-splines.html#p-702">in-context</a></span>
 </body>
 </html>

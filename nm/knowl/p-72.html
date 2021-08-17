@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:25-04:00    *-->
+<!--*    on 2021-08-16T20:40:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Use array operations to display the numbers \(n^{1/n}\) for \(n=1, \dots, 10\text{.}\) What value of \(n\) has the largest such root?</p>
+<p>Matlab supports <dfn class="terminology">array operations</dfn> in which the input data is placed into an array (usually a vector or a matrix) and some mathematical operation is carried out on all of the data at once. For example, to get the square roots of the first 25 positive integers we can execute</p>
+<pre class="code-block tex2jax_ignore">sqrt(1:25)</pre>
+<p data-braille="continuation">with the result</p>
+<pre class="code-block tex2jax_ignore">[1.0000 1.4142 1.7321 2.0000 2.2361 ... 4.8990 5.0000]</pre>
+<p data-braille="continuation">More generally, if <code class="code-inline tex2jax_ignore">v</code> is a vector of nonnegative numbers, then <code class="code-inline tex2jax_ignore">sqrt(v)</code> has the roots of those numbers. Other functions like <code class="code-inline tex2jax_ignore">sin</code> and <code class="code-inline tex2jax_ignore">exp</code> work the same way. The benefts of array operations are more compact code and faster execution.</p>
 <span class="incontext"><a href="section-vectorization.html#p-72">in-context</a></span>
 </body>
 </html>

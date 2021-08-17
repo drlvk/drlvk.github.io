@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:25-04:00    *-->
+<!--*    on 2021-08-16T20:40:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,18 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The <dfn class="terminology">identity matrix</dfn> is usually denoted \(I\) in mathematics, or \(I_n\) if it is necessary to emphasize its size. For example,</p>
-<div class="displaymath">
-\begin{equation*}
-I_3 = \begin{pmatrix} 1 \amp 0\amp 0 \\ 0\amp 1\amp 0 \\ 0\amp 0\amp 1 \end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">In Matlab this matrix would be created as <code class="code-inline tex2jax_ignore">eye(3)</code>. The name of the command was chosen because “eye” is pronounced the same as “I”. We also get scalars multiples of the identity matrix, for example <code class="code-inline tex2jax_ignore">5*eye(3)</code> is</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{pmatrix} 5 \amp 0\amp 0 \\ 0\amp 5\amp 0 \\ 0\amp 0\amp 5 \end{pmatrix}
-\end{equation*}
-</div>
-<span class="incontext"><a href="section-large-matrices.html#p-64">in-context</a></span>
+<p>Mathematically, \(x\) could be found as \(x = A^{-1}b\) where \(A^{-1}\) is the inverse matrix. However, this is not a computationally efficient way to solve a linear system. Matlab does not actually compute the inverse matrix when solving a linear system. It chooses one of several algorithms based on the nature of the matrix; usually it is a form of “LU factorization” which is discussed in MAT 532. But even though the formula \(x = A^{-1}b\) is not actually used, it suggests the notation used by Matlab. For two numbers \(a, b\) we can write \(ba^{-1}\) as <code class="code-inline tex2jax_ignore">b/a</code>, meaning \(b\) divided by \(a\text{.}\) If the order of multiplication was important (as it is for matrices), then perhaps \(a^{-1}b\) could be written as <code class="code-inline tex2jax_ignore">a\b</code>, meaning \(b\) divided by \(a\) <em class="emphasis">from the left</em>. We do not actually “divide a vector by a matrix” but the notation <code class="code-inline tex2jax_ignore">A\b</code> can remind us of \(A^{-1}b\text{.}\)</p>
+<span class="incontext"><a href="section-linear-systems.html#p-64">in-context</a></span>
 </body>
 </html>

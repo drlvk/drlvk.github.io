@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-15T21:17:31-04:00    *-->
+<!--*    on 2021-08-16T20:40:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A basic model of epidemic divides the population into three groups: susceptible \(S\) (able to be infected), infected \(I\text{,}\) and removed \(R\) (not able to be infected). Often group \(R\) is called “recovered” but it also contains deceased and vaccinated. One can modify the model in various ways: include a separate group for deceased, allow for a possibility of reinfection, etc. The sum \(S+I+R\) remains constant in time, because other demographic factors such as births do not substantially change the picture of an epidemic.</p>
-<span class="incontext"><a href="section-ode-epidemiology.html#p-621">in-context</a></span>
+<p>The most visible difference is the notation <code class="code-inline tex2jax_ignore">y(:, k)</code> which takes the entire \(k\)th column of the matrix <code class="code-inline tex2jax_ignore">y</code>. Its mathematical meaning is the approximation to \(\mathbf y(t_k)\text{.}\) The initial condition <code class="code-inline tex2jax_ignore">y0</code> is a column vector, which makes the computation <code class="code-inline tex2jax_ignore">y = y0*ones(size(t));</code> an outer product: it creates a matrix in which every column is equal to <code class="code-inline tex2jax_ignore">y0</code>. This is convenient because we need the first column to be equal, and the other columns will be rewritten anyway.</p>
+<span class="incontext"><a href="section-ode-systems.html#p-621">in-context</a></span>
 </body>
 </html>
