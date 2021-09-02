@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:37-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,17 +12,14 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<p>The command <code class="code-inline tex2jax_ignore">roots</code> can be used to find the roots. A convenient way to plot them so that one can tell the difference between different degrees is to use the y-coordinate for the degree.</p>
-<pre class="code-block tex2jax_ignore">p = [1];
-q = [1 0];
-hold on
-for n = 1:9
-    r = ((2*n+1)*[q 0] - n*[0 0 p])/(n+1);
-    p = q;
-    q = r;
-    plot(roots(r), n+1, 'b*');
-end
-hold off
+<pre class="code-block tex2jax_ignore">x = [-1, 0, 2, 3, 4, 7]'; 
+y = [9, 8, 5, 5, 3, 1]';
+A = [x.^2, x, x.^0];
+z = A\y;
+xx = linspace(min(x), max(x), 500)';
+yy = [xx.^2, xx, xx.^0]*z;
+plot(xx, yy, 'b', x, y, 'r*')
 </pre>
+<p><em class="emphasis">Explanation</em>: the only modification that we need is to add a column with the squares of x-values. In general, this process allows us to fit a function of the form \(c_1 f_1(x) + c_2 f_2(x) + \cdots + c_n f_n(x) \) where \(f_1, f_2, \dots, f_n\) are given functions and \(c_1, c_2, \dots, c_n\) are coefficients (parameters) to be determined.</p>
 </div></body>
 </html>

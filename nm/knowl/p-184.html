@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,10 +13,9 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Note that the result has to be assigned to whichever function variable was designated as output on th first line of the function: in this case, <code class="code-inline tex2jax_ignore">z</code>. If you are familiar with Python, the following comparison may help:<pre class="code-block tex2jax_ignore">def agm(x, y, tol): 
-    # some Python code computing z
-return z
-</pre>The difference is that Matlab specifies the variable(s) to be returned at the beginning of the function, instead of at the end.</p>
-<span class="incontext"><a href="section-named-functions.html#p-184">in-context</a></span>
+<p>A limitation of anonymous functions is that they consist of a single expression: there is no place for conditional statements or loops. But one can still construct piecewise defined functions using inequalities as a part of an arithmetic expression. When an inequality such as <code class="code-inline tex2jax_ignore">(x &lt; 3)</code> appears in an expression, it is treated as 1 when the inequality is true, and 0 when false. Therefore, the function defined by</p>
+<pre class="code-block tex2jax_ignore">f = @(x) (x&gt;=0).*sqrt(x) + (x &lt; 0).*exp(x)</pre>
+<p data-braille="continuation">evaluates to \(\sqrt{x}\) when \(x\ge 0\) and to \(e^x\) when \(x \lt 0\text{.}\)</p>
+<span class="incontext"><a href="section-anonymous-functions.html#p-184">in-context</a></span>
 </body>
 </html>

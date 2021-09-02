@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:43-04:00    *-->
+<!--*    on 2021-09-01T21:38:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><em class="emphasis">Remark</em>: The documentation of <a class="external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html" target="_blank">SciPy optimize</a> package provides an overview of many other optimization methods. There are a few bracket-based methods for functions of one variable (including golden section), several multivariate methods (such as Nelder-Mead), and in addition, some methods designed for finding the global minimum. Most of the latter group are stochastic methods: they intentionally make the search process subject to chance.</p>
-<span class="incontext"><a href="exercises-nelder-mead.html#p-963">in-context</a></span>
+<p>The code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> works only for functions of two variables but it can be adapted for \(n\)-dimensional optimization. Instead of the initial triangle</p>
+<pre class="code-block tex2jax_ignore">
+A = randn(2, 1);
+B = A + [1; 0];
+C = A + [0; 1];
+T = [A B C];
+</pre>
+<p data-braille="continuation">we create initial \(n\)-dimensional simplex using implicit array expansion:</p>
+<pre class="code-block tex2jax_ignore">
+A = randn(n, 1);
+T = [A A+eye(n)];
+</pre>
+<p data-braille="continuation">The search path will be <code class="code-inline tex2jax_ignore">path = zeros(n, max_tries)</code> which we will only use for visualization when \(n=2, 3\text{.}\)</p>
+<span class="incontext"><a href="section-nelder-mead-ndim.html#p-963">in-context</a></span>
 </body>
 </html>

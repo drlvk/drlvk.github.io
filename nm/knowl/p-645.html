@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Choose one of the two models you constructed in the previous exercises, and implement it in Matlab. Try to choose the coefficients and initial conditions so that the change of size of each group is visible on the plot (meaning the plot does not just show a horizontal line).</p>
-<span class="incontext"><a href="exercises-ode-modeling.html#p-645">in-context</a></span>
+<p>Observing the periodicity of the solution, one may want to summarize it with a phase plot in addition to time-series plot:</p>
+<pre class="code-block tex2jax_ignore">
+figure()
+plot(y(:,1), y(:,2), 'LineWidth', 3)
+xlabel('Rabbits')
+ylabel('Foxes')
+</pre>
+<span class="incontext"><a href="section-ode-predator-prey.html#p-645">in-context</a></span>
 </body>
 </html>

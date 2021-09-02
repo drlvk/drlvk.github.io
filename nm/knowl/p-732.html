@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:40-04:00    *-->
+<!--*    on 2021-09-01T21:38:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,36 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The formula <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a> deserves some explanation. The idea is to start with the linear interpolant (degree 1 spline) \(S_1=L\) defined by <a class="xref" data-knowl="./knowl/eq-hat-function.html" title="Equation 24.2.1">(24.2.1)</a> and repeatedly smoothen it using a <dfn class="terminology">moving average</dfn> with a window of size \(1\text{:}\)</p>
+<p>As we know, piecewise linear interpolation lacks smoothness, and this is seen in the angular shape of the hat function <a class="xref" data-knowl="./knowl/eq-hat-function.html" title="Equation 24.2.1">(24.2.1)</a>. We would like to replace it with something of similar shape but smooth. Here is a piecewise cubic function which does the job.</p>
 <div class="displaymath">
 \begin{equation}
-S_2(x) = \int_{x-1/2}^{x+1/2} S_1(t)\,dt\tag{24.3.1}
+B(t) = \frac16 \max(0,2-|t|)^3 - \frac23 \max(0,1-|t|)^3\tag{24.2.2}
 \end{equation}
 </div>
-<div class="displaymath">
-\begin{equation}
-S_3(x) = \int_{x-1/2}^{x+1/2} S_2(t)\,dt\tag{24.3.2}
-\end{equation}
-</div>
-<p data-braille="continuation">and so on. The fundamental theorem of calculus shows that</p>
-<div class="displaymath">
-\begin{equation*}
-S_2'(x) = S_1(x+1/2)-S_1(x-1/2)
-\end{equation*}
-</div>
-<p data-braille="continuation">in particular \(S_2\) has continuous first derivative. Similarly,</p>
-<div class="displaymath">
-\begin{equation*}
-S_3'(x) = S_2(x+1/2)-S_2(x-1/2)
-\end{equation*}
-</div>
-<p data-braille="continuation">so</p>
-<div class="displaymath">
-\begin{equation*}
-S_3''(x) = S_2'(x+1/2)-S_2'(x-1/2)
-\end{equation*}
-</div>
-<p data-braille="continuation">is continuous as well.</p>
-<span class="incontext"><a href="section-construct-cardinal-splines.html#p-732">in-context</a></span>
+<p data-braille="continuation">Its graph on \([-3, 3]\) is shown below, with the hat function \(H\) for comparison. In technical terms, both \(H\) and \(B\) are “cardinal B-splines” of degrees 1 and 3, respectively.</p>
+<span class="incontext"><a href="section-b-splines.html#p-732">in-context</a></span>
 </body>
 </html>

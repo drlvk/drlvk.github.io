@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,9 +11,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">sum((1:10).^3)
-</pre>
-<p>Note that the parentheses are important here: <code class="code-inline tex2jax_ignore">sum(1:10.^3)</code> would be the sum of all integers from 1 to 1000.</p>
-</div></body>
+<body><div class="answer solution-like"><p>The single line <code class="code-inline tex2jax_ignore">A = (1:9).^((1:3)')</code> does the job. The elementwise operation <code class="code-inline tex2jax_ignore">.^</code> can combine the arrays of sizes 1<span class="times-sign">×</span>9 and 3<span class="times-sign">×</span>1, as explained in <a href="section-array-expansion.html" class="internal" title="Section 2.4: Implicit expansion of arrays">Section 2.4</a>. The result is a 3<span class="times-sign">×</span>9 matrix with the expected property: the base (1 through 9) is the column number, the exponent (1 through 3) is the row number.</p></div></body>
 </html>

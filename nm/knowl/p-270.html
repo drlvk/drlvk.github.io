@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:35-04:00    *-->
+<!--*    on 2021-09-01T21:38:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>For the function \(f(x) = 30x e^{10x} + 1\text{,}\) use  the derivative \(f'\) determine the number of roots and find a bracketing interval for each of them. (No programming is needed.)</p>
-<span class="incontext"><a href="examples-roots-bisection.html#p-270">in-context</a></span>
+<p>Generally, if some numerical method has error \(\epsilon_n\) after \(n\) steps, we say that the method is</p>
+<ul class="disc">
+<li>
+<dfn class="terminology">linearly convergent</dfn> if \(\epsilon_{n+1} \le c\epsilon_b\) with some constant \(c \lt 1\)</li>
+<li>
+<dfn class="terminology">quadratically convergent</dfn> if \(\epsilon_{n+1} \le M\epsilon_n^2\) with some constant \(M\)</li>
+<li>
+<dfn class="terminology">convergent with order \(p\)</dfn> if \(\epsilon_{n+1} \le M\epsilon_n^p\) with some constants \(M\text{,}\) \(p &gt; 0\text{.}\)</li>
+</ul>
+<p data-braille="continuation">Since for the bisection method \(\epsilon_{n+1} = \frac{1}{2}\epsilon_n\text{,}\) the bisection method is linearly convergent.</p>
+<span class="incontext"><a href="section-bisection-method.html#p-270">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:41-04:00    *-->
+<!--*    on 2021-09-01T21:38:24-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A <dfn class="terminology">power law</dfn> is a function of the form \(y = a x^p\text{.}\) By taking logarithm on both sides we get \(\log y = p \log x + \log a\text{,}\) which is a linear function of \(\log x\text{.}\) So, to fit a power law to given data \((x_k, y_k)\text{,}\) we apply the logarithm to both \(x_k\) and \(y_k\text{,}\) and follow the linear regression process.  Try this with France Covid data <a class="xref" data-knowl="./knowl/example-best-fit-exponential.html" title="Example 28.1.1: Fit an exponential to Covid data">Example 28.1.1</a>. Does the power law fit better or worse than exponential? (Compare visually, on the basis of plots.)</p>
-<span class="incontext"><a href="exercises-transforming-data.html#p-836">in-context</a></span>
+<p>Note that we do not <em class="emphasis">always</em> want to compensate for data transformation by using weights \(w_k = 1/|T'(y_k)|\text{.}\) Linear regression works best if the standard deviation of different values \(y_k\) (assumed to include random errors) is about the same. When the values grow exponentially and are measured with the same relative accuracy, the standard deviation will grow with the values. In this case, the logarithmic transformation \(T(y)=\log y\) may help with non-linearity of the model <em class="emphasis">and</em> with the uniformity of standard deviations.</p>
+<span class="incontext"><a href="section-weighted-least-squares.html#p-836">in-context</a></span>
 </body>
 </html>

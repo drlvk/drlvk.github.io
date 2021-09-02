@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:19-04:00    *-->
+<!--*    on 2021-09-01T21:38:01-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -99,6 +99,7 @@ MathJax.Hub.Config({
 <li><a href="section-linear-systems.html" data-scroll="section-linear-systems">Systems of linear equations</a></li>
 <li><a href="section-large-matrices.html" data-scroll="section-large-matrices">More tools for constructing matrices</a></li>
 <li><a href="section-vectorization.html" data-scroll="section-vectorization">Array operations</a></li>
+<li><a href="section-array-expansion.html" data-scroll="section-array-expansion">Implicit expansion of arrays</a></li>
 <li><a href="section-plotting.html" data-scroll="section-plotting">Plotting</a></li>
 <li><a href="examples-systems-vectorization-plots.html" data-scroll="examples-systems-vectorization-plots">Examples and questions</a></li>
 <li><a href="exercises-systems-vectorization-plots.html" data-scroll="exercises-systems-vectorization-plots">Homework</a></li>
@@ -412,16 +413,16 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-gauss-laguerre"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">16.3</span> <span class="title">Gauss-Laguerre integration</span>
 </h2>
-<p id="p-523">The Gauss-Laguerre integration rule is stated for integrals of the form \(\int_0^\infty f(x)e^{-x}\,dx\text{.}\) This means that if we want to calculate, for example, \(\int_0^\infty 1/(x^3+4)\,dx\text{,}\) then the function to use is \(f(x) = e^x/(x^3+4)\text{.}\)</p>
-<p id="p-524">Apart from the presence of the weight function \(e^{-x}\text{,}\) the rest goes as in <a href="section-gauss-legendre.html" class="internal" title="Section 16.2: Gauss-Legendre integration">Section 16.2</a>. Let \(x_1,\dots, x_n\) be the roots of Laguerre polynomial \(L_n\text{.}\) Then solve a linear system for the weights \(w_1,\dots, w_n\) so that the rule</p>
+<p id="p-530">The Gauss-Laguerre integration rule is stated for integrals of the form \(\int_0^\infty f(x)e^{-x}\,dx\text{.}\) This means that if we want to calculate, for example, \(\int_0^\infty 1/(x^3+4)\,dx\text{,}\) then the function to use is \(f(x) = e^x/(x^3+4)\text{.}\)</p>
+<p id="p-531">Apart from the presence of the weight function \(e^{-x}\text{,}\) the rest goes as in <a href="section-gauss-legendre.html" class="internal" title="Section 16.2: Gauss-Legendre integration">Section 16.2</a>. Let \(x_1,\dots, x_n\) be the roots of Laguerre polynomial \(L_n\text{.}\) Then solve a linear system for the weights \(w_1,\dots, w_n\) so that the rule</p>
 <div class="displaymath">
 \begin{equation}
 \int_{0}^\infty f(x) e^{-x}\,dx \approx \sum_{k=1}^n w_k f(x_k)\label{eq-gauss-legendre-rule}\tag{16.3.1}
 \end{equation}
 </div>
 <p data-braille="continuation">is exact for \(f(x)=x^p\) with \(p=0,\dots,n-1\text{.}\)  This choice and the orthogonality property make the rule exact when \(f\) is a polynomial of degree less than \(2n\text{.}\)</p>
-<p id="p-525">It is important to recognize that although there is an exponential term \(e^{-x}\) on the left hand side of <a class="xref" data-knowl="./knowl/eq-gauss-legendre-rule.html" title="Equation 16.3.1">(16.3.1)</a>, it does not appear on the right hand side. Think of it as being subsumed by the weights \(w_1, \dots, w_n\text{.}\) Aside: in terms of measure theory, we are approximating the continuous measure  \(e^{-x}\,dx\) by the discrete measure which puts mass \(w_k\) at the point \(x_k\) for each \(k\text{.}\)</p>
-<p id="p-526">One difference is the right hand side of the system which we use to solve for the weights \(w_k\text{.}\) For Gauss-Legendre integration we have \(\int_{-1}^1 x^p\,dx = (1-(-1)^{p+1})/(p+1)\) there. For Gauss-Laguerre integration we have \(\int_{0}^\infty x^p e^{-x}\,dx\) which takes a but more work. Integration by parts helps:</p>
+<p id="p-532">It is important to recognize that although there is an exponential term \(e^{-x}\) on the left hand side of <a class="xref" data-knowl="./knowl/eq-gauss-legendre-rule.html" title="Equation 16.3.1">(16.3.1)</a>, it does not appear on the right hand side. Think of it as being subsumed by the weights \(w_1, \dots, w_n\text{.}\) Aside: in terms of measure theory, we are approximating the continuous measure  \(e^{-x}\,dx\) by the discrete measure which puts mass \(w_k\) at the point \(x_k\) for each \(k\text{.}\)</p>
+<p id="p-533">One difference is the right hand side of the system which we use to solve for the weights \(w_k\text{.}\) For Gauss-Legendre integration we have \(\int_{-1}^1 x^p\,dx = (1-(-1)^{p+1})/(p+1)\) there. For Gauss-Laguerre integration we have \(\int_{0}^\infty x^p e^{-x}\,dx\) which takes a but more work. Integration by parts helps:</p>
 <div class="displaymath">
 \begin{equation*}
 \int_{0}^\infty x^p e^{-x}\,dx = -x^pe^{-x}\bigg|_{x=0}^{x\to\infty} - \int_{0}^\infty p x^{p-1} (-e^{-x})\,dx 
@@ -429,15 +430,15 @@ MathJax.Hub.Config({
 \end{equation*}
 </div>
 <p data-braille="continuation">which shows, by induction, that \(\int_{0}^\infty x^p e^{-x}\,dx = p!\text{.}\)</p>
-<p id="p-527">For example, \(L_2(x) = (x^2-4x+2)/2\) has roots \(x_1= 2- \sqrt{2}\) and \(x_2=  2 + \sqrt{2}\text{.}\) The system for weights consists of \(w_1x_1^p + w_2x_2^p = p!\) for \(p=0, 1\text{.}\) This simplifies to \(w_1+w_2 = 1\) and \(w_1x_1 +w_2x_2 = 1\text{.}\) The solution can be found by hand: \(w_1 = (2+\sqrt{2})/4\) and \(w_2 = (2-\sqrt{2})/4\text{.}\)</p>
-<p id="p-528">Note that while for Gauss-Legendre integration the sum of weights is \(\int_{-1}^1 1\,dx = 2\text{,}\) for the Gauss-Laguerre integration the sum is \(\int_{0}^\infty 1\,e^{-x}\,dx = 1\text{.}\)</p>
-<p id="p-529">Let's apply two-point Gauss-Laguerre integration to \(\int_0^\infty 1/(x^3+4)\,dx\text{.}\)</p>
+<p id="p-534">For example, \(L_2(x) = (x^2-4x+2)/2\) has roots \(x_1= 2- \sqrt{2}\) and \(x_2=  2 + \sqrt{2}\text{.}\) The system for weights consists of \(w_1x_1^p + w_2x_2^p = p!\) for \(p=0, 1\text{.}\) This simplifies to \(w_1+w_2 = 1\) and \(w_1x_1 +w_2x_2 = 1\text{.}\) The solution can be found by hand: \(w_1 = (2+\sqrt{2})/4\) and \(w_2 = (2-\sqrt{2})/4\text{.}\)</p>
+<p id="p-535">Note that while for Gauss-Legendre integration the sum of weights is \(\int_{-1}^1 1\,dx = 2\text{,}\) for the Gauss-Laguerre integration the sum is \(\int_{0}^\infty 1\,e^{-x}\,dx = 1\text{.}\)</p>
+<p id="p-536">Let's apply two-point Gauss-Laguerre integration to \(\int_0^\infty 1/(x^3+4)\,dx\text{.}\)</p>
 <pre class="code-block tex2jax_ignore">x = [2-sqrt(2), 2+sqrt(2)];
 w = [(2+sqrt(2))/4, (2-sqrt(2))/4]';
 f = @(x) exp(x)./(x.^3+4);
 disp(f(x)*w);
 </pre>
-<p id="p-530">The result is \(0.4666\) while the true value of the integral is \(2^{-1/3}3^{-3/2}\pi \approx 0.4799\text{.}\) Not too bad a result after using just two evaluation points on an infinite interval. Even though this integral can be computed by hand, this is not an enjoyable task.</p></section></div></main>
+<p id="p-537">The result is \(0.4666\) while the true value of the integral is \(2^{-1/3}3^{-3/2}\pi \approx 0.4799\text{.}\) Not too bad a result after using just two evaluation points on an infinite interval. Even though this integral can be computed by hand, this is not an enjoyable task.</p></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>It is convenient to express \(S, I, R\) as a proportion of total population. This means these quantities are between \(0\) and \(1\) and their sum is \(1\text{.}\) An important assumption of the model is that the rate of infection is proportional to the product \(SI\text{.}\) This is based on the simplifying idea that any two people in the population are equally likely to meet and transmit the disease, and since \(SI\) is the number of all susceptible-infected pairings, the number of transmissions will be proportional to it. This is not too far from reality when “population” means, for example, student population on some campus. When modeling the population of a large country, one would have to consider the effects of geography.</p>
-<span class="incontext"><a href="section-ode-epidemiology.html#p-627">in-context</a></span>
+<p>Solve the system</p>
+<div class="displaymath">
+\begin{align*}
+y_1' \amp = t - 3y_2\\
+y_2' \amp = 2y_1
+\end{align*}
+</div>
+<p data-braille="continuation">with initial condition \(y(0) = \begin{pmatrix}1 \\ 0\end{pmatrix}\text{,}\) on the interval \([0, 10]\) using the trapezoidal method with the step \(h=0.01\text{.}\) Plot the solution.</p>
+<span class="incontext"><a href="section-ode-systems.html#p-627">in-context</a></span>
 </body>
 </html>

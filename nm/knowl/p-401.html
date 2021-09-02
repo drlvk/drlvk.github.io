@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:36-04:00    *-->
+<!--*    on 2021-09-01T21:38:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>If we keep the starting point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> in <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a> but change the initial guess for inverse Jacobian to the matrix</p>
-<pre class="code-block tex2jax_ignore">
-B = 0.1*eye(3);
-</pre>
-<p data-braille="continuation">the algorithm converges much faster: in 53 steps. Why could this be? In what way does the “smaller” matrix help? Is the factor of 0.1 an under-relaxation parameter here?</p>
-<span class="incontext"><a href="examples-broyden.html#p-401">in-context</a></span>
+<p>The matrix \(B_1\) is still a guess, it may be very different from the actual inverse of Jacobian matrix. But it is a more educated guess, and as this process repeats, these repeated corrections will produce more accurate guesses.</p>
+<span class="incontext"><a href="section-broyden-method.html#p-401">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Observing the periodicity of the solution, one may want to summarize it with a phase plot in addition to time-series plot:</p>
+<p>Sometimes it is desirable to compute the solution at specific points of interval \([a, b]\text{,}\) for example at equally spaced points with step \(h\text{.}\) This is achieved by replacing the interval parameter with a vector of \(t\)-values, for example</p>
 <pre class="code-block tex2jax_ignore">
-figure()
-plot(y(:,1), y(:,2), 'LineWidth', 3)
-xlabel('Rabbits')
-ylabel('Foxes')
+h = 0.1;
+[t, y] = ode45(rhs, a:h:b, y0);  
 </pre>
-<span class="incontext"><a href="section-ode-predator-prey.html#p-638">in-context</a></span>
+<span class="incontext"><a href="section-ode-epidemiology.html#p-638">in-context</a></span>
 </body>
 </html>

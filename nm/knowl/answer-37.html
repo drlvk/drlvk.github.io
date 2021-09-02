@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,21 +14,21 @@
 <body>
 <div class="answer solution-like">
 <h6 class="heading">
-<span class="type">Answer</span><span class="space"> </span><span class="codenumber">6.2.2.1</span><span class="period">.</span>
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">6.1.2.1</span><span class="period">.</span>
 </h6>
-<pre class="code-block tex2jax_ignore">x = [-1, 0, 2, 3, 4, 7]'; 
-y = [9, 8, 5, 5, 3, 1]';
-A = [x, x.^0];
-z = A\y;
-xx = linspace(min(x), max(x), 500)';
-yy = [xx, xx.^0]*z;
-hold on
-plot(xx, yy)
-plot(x, y, 'r*')
-hold off
+<pre class="code-block tex2jax_ignore">m = 3;
+n = 3;
+A = [1 2 3; 4 5 6; 7 8 9];
+b = [10 11 12]';
+if rank(A) &lt; rank([A b])
+    disp('Inconsistent')
+elseif rank(A) == n
+    disp('Consistent with a unique solution')
+else 
+    disp('Consistent with infinitely many solutions')
+end
 </pre>
-<p>Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'k*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx, xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later.</p>
 </div>
-<span class="incontext"><a href="section-systems-without-free-variables.html#answer-37">in-context</a></span>
+<span class="incontext"><a href="section-classification-linear-systems.html#answer-37">in-context</a></span>
 </body>
 </html>

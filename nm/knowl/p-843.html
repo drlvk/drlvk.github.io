@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:41-04:00    *-->
+<!--*    on 2021-09-01T21:38:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The syntax of <code class="code-inline tex2jax_ignore">fminsearch</code> is similar to <code class="code-inline tex2jax_ignore">fsolve</code> (which searchers for solutions \(f=0\)): the first argument is the function to be minimized, the second is initial point from which to start the search. For example,</p>
-<pre class="code-block tex2jax_ignore">
-fminsearch(@(x) x^2 + x, 0)
-</pre>
-<p data-braille="continuation">returns <code class="code-inline tex2jax_ignore">-0.5</code> which is where the function is minimal. The choice of initial point does not matter here, since the minimum is unique. But for the second example</p>
-<pre class="code-block tex2jax_ignore">
-fminsearch(@(x) x^4 - x^2, 0)
-</pre>
-<p data-braille="continuation">the initial point matters: the function may find the minimum 0.7071 or -0.7071. Note that <code class="code-inline tex2jax_ignore">fminsearch</code> is not misled by \(x=0\) which is also a critical point: it can tell a difference between minimum and maximum.</p>
-<span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-843">in-context</a></span>
+<p>A <dfn class="terminology">power law</dfn> is a function of the form \(y = a x^p\text{.}\) By taking logarithm on both sides we get \(\log y = p \log x + \log a\text{,}\) which is a linear function of \(\log x\text{.}\) So, to fit a power law to given data \((x_k, y_k)\text{,}\) we apply the logarithm to both \(x_k\) and \(y_k\text{,}\) and follow the linear regression process.  Try this with France Covid data <a class="xref" data-knowl="./knowl/example-best-fit-exponential.html" title="Example 28.1.1: Fit an exponential to Covid data">Example 28.1.1</a>. Does the power law fit better or worse than exponential? (Compare visually, on the basis of plots.)</p>
+<span class="incontext"><a href="exercises-transforming-data.html#p-843">in-context</a></span>
 </body>
 </html>

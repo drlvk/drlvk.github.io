@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>To determine whether some number <code class="code-inline tex2jax_ignore">k</code> is prime, use <code class="code-inline tex2jax_ignore">isprime(k)</code>. For example, <code class="code-inline tex2jax_ignore">while isprime(k)</code> is a loop that runs as long as <code class="code-inline tex2jax_ignore">k</code> stays prime. To have a loop that runs while <code class="code-inline tex2jax_ignore">k</code> is <em class="emphasis">not</em> prime, use <code class="code-inline tex2jax_ignore">while ~sprime(k)</code>. The character <code class="code-inline tex2jax_ignore">~</code> means logical NOT in Matlab (recall that <code class="code-inline tex2jax_ignore">~=</code> means “not equal”.)</p>
+<p>The third line will display the AGM which happens to be 3.7136. The fourth line will display the original value of x, which is <code class="code-inline tex2jax_ignore">0.3</code>. Why is it still 0.3, even though the function <code class="code-inline tex2jax_ignore">agm</code> changed the value of x in the loop? This is because a function operates like a separate program with its own variables. The variable x inside of the function is its own <em class="emphasis">local</em> variable x, and changing it does not change x in other places. For the same reason, the last command <code class="code-inline tex2jax_ignore">disp(a)</code> produces an error: the variable <code class="code-inline tex2jax_ignore">a</code> is undefined. A variable with that name was introduces inside of function <code class="code-inline tex2jax_ignore">agm</code> but it does not exist outside of it.</p>
 <span class="incontext"><a href="section-named-functions.html#p-193">in-context</a></span>
 </body>
 </html>

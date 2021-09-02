@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,24 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><a class="xref" data-knowl="./knowl/example-computation-chebyshev-coefficients.html" title="Example 22.2.1: Plot Chebyshev polynomials \(T_n\)">Example 22.2.1</a> indicates that Chebyshev polynomials oscillate between \(-1\) and \(1\) on the interval \([-1, 1]\text{.}\) The following remarkable identity confirms this observation:</p>
+<p>The above theorem is easier to prove than one might expect. If \(x\) is one of interpolation points, then both sides of <a class="xref" data-knowl="./knowl/eq-error-polynomial-interpolation.html" title="Equation 22.1.1">(22.1.1)</a> are equal to 0. Suppose \(x\) is not equal to any interpolation point. Then we can let</p>
+<div class="displaymath">
+\begin{equation*}
+A = \frac{f(x) - p(x)}{ \prod_{k=1}^n (x-x_k) }
+\end{equation*}
+</div>
+<p data-braille="continuation">so that \(f(x) -p(x) - A \prod_{k=1}^n (x-x_k) = 0\text{.}\)  Consider the function</p>
 <div class="displaymath">
 \begin{equation}
-T_n(\cos\theta) = \cos (n\theta)   \tag{22.2.2}
+g(t) = f(t) -p(t) - A \prod_{k=1}^n (t-x_k)\tag{22.1.2}
 \end{equation}
 </div>
-<p data-braille="continuation">for all \(\theta\in\mathbb R\text{.}\) The proof is by induction. Base of induction is \(n=0, 1\text{:}\) for \(T_0(x)=1\) and \(T_1(x)=x\) the validity of <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> is obvious. For the inductive step, assume <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> holds for \(T_0, \dots, T_n\) and use <a class="xref" data-knowl="./knowl/eq-chebyshev-recursion.html" title="Equation 22.2.1">(22.2.1)</a>:</p>
+<p data-braille="continuation">and notice that it has at least \(n+1\) roots on the interval \([a, b]\text{,}\) namely \(x, x_1, x_2, \dots, x_n\text{.}\) Between any two roots of \(g\) there is a root of \(g'\text{:}\) this is <a class="external" href="https://imgs.xkcd.com/comics/rolles_theorem.png" target="_blank">Rolle's theorem</a>. Therefore, \(g'\) has at least \(n\) roots on the interval \([a, b]\text{.}\) Repeat this argument: \(g''\) has at least \(n-1\) roots, … , \(g^{(n)}\) has at least 1 root. Call this root \(\xi\) and notice that according to <a class="xref" data-knowl="./knowl/eq-proof-poly-interp-error.html" title="Equation 22.1.2">(22.1.2)</a>,</p>
 <div class="displaymath">
 \begin{equation*}
-T_{n+1}(\cos \theta) = 2\cos \theta \cos (n\theta)  - \cos ((n-1)\theta) = \cos ((n+1)\theta)
+g^{(n)}(\xi) =  f^{(n)}(\xi) - 0 - A n!
 \end{equation*}
 </div>
-<p data-braille="continuation">where the second step involves the identity</p>
-<div class="displaymath">
-\begin{equation*}
-2\cos \alpha \cos\beta = \cos (\alpha-\beta) + \cos(\alpha+\beta)
-\end{equation*}
-</div>
-<span class="incontext"><a href="section-chebyshev-polynomials-interpolation.html#p-676">in-context</a></span>
+<p data-braille="continuation">hence  \(A = f^{(n)}(\xi) / n!\text{,}\) completing the proof of <a class="xref" data-knowl="./knowl/eq-error-polynomial-interpolation.html" title="Equation 22.1.1">(22.1.1)</a>.</p>
+<span class="incontext"><a href="section-error-polynomial-interpolation.html#p-676">in-context</a></span>
 </body>
 </html>

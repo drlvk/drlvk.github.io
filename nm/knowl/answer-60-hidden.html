@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,20 +12,20 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">f = @(x) 1./(x.^2+1);  % or another f 
-n = 19;   % there will be n+1 = 20 points
-a = -5;   % or another a
-b = 5;    % or another b
+<p>This is a straightforward modification of <a class="xref" data-knowl="./knowl/example-computation-legendre-coefficients.html" title="Example 15.4.1: Computing and plotting Legendre polynomials">Example 15.4.1</a>.</p>
+<pre class="code-block tex2jax_ignore">p = [1];
+q = [1 0];
+x = linspace(-1, 1, 1000);
+hold on
+plot(x, polyval(p, x), x, polyval(q, x));
 
-x = cos(linspace(0, pi, n+1)) * (b-a)/2 + (a+b)/2;  % Chebyshev extreme points
-y = f(x);
-w = (-1).^(0:n);             % simple formula for weights
-w([1 end]) = w([1 end])/2;   % trapezoidal adjustment 
-
-p = @(t) (y.*w*(t - x').^(-1)) ./ (w*(t - x').^(-1));
-t = linspace(a-0.01, b+0.01, 1000);
-plot(x, y, 'k*', t, f(t), 'r', t, p(t), 'b')
+for n = 1:5
+    r = 2*[q 0] - [0 0 p];
+    p = q;
+    q = r;
+    plot(x, polyval(r, x))
+end
+hold off
 </pre>
-<p>The plot includes the points of interpolation as black asterisks, the original function is a red curve, and the interpolating polynomial as a blue curve. Often the blue curve follows the red one so precisely that it covers it completely.</p>
 </div></body>
 </html>

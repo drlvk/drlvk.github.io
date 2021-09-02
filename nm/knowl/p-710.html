@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:40-04:00    *-->
+<!--*    on 2021-09-01T21:38:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>There is also an option to combine construction and evaluation of a spline into the same command <code class="code-inline tex2jax_ignore">spline</code>, by feeding <code class="code-inline tex2jax_ignore">t</code> as a third argument. That is, <code class="code-inline tex2jax_ignore">spline(x, y, t)</code> constructs a spline from <code class="code-inline tex2jax_ignore">x, y</code> and immediately evaluates it at <code class="code-inline tex2jax_ignore">t</code>. For example:</p>
-<pre class="code-block tex2jax_ignore">
-t = linspace(min(x), max(x), 1000);
-plot(t, spline(x, y, t))
-</pre>
-<p data-braille="continuation">We can also plot it with the original data points marked:</p>
-<pre class="code-block tex2jax_ignore">
-plot(t, spline(x, y, t), x, y, 'r*')
-</pre>
-<span class="incontext"><a href="section-using-cubic-splines.html#p-710">in-context</a></span>
+<p>This terminology needs some explanation. The word <a class="external" href="https://en.wikipedia.org/wiki/Flat_spline" target="_blank">spline</a> used to refer to a long thin strip of flexible material (e.g., metal) which, if constrained at several points, assumes the shape of a smooth curve passing through these points. Unlike an elastic band which minimizes its length (creating a piecewise linear shape), the spline minimizes its <em class="emphasis">bending energy</em>. A mathematical idealization of the bending energy of a curve \(y=f(x)\) is the integral \(\int_a^b f''(x)^2\,dx\text{.}\) It can be shown that among <em class="emphasis">all functions</em> (of whatever form) that satisfy the constraints \(f(x_k)=y_k\text{,}\) the “natural spline” has the smallest value of \(\int_a^b f''(x)^2\,dx\text{.}\) This attractive mathematical property earned it the “natural” name… but upon further reflection, the boundary conditions \(S''(a) = 0 = S''(b)\) are actually not that natural. If we are interpolating some smooth function \(y=f(x)\text{,}\) there is no reason to assume that \(f''\) happens to be \(0\) at the endpoints.</p>
+<span class="incontext"><a href="section-cubic-splines.html#p-710">in-context</a></span>
 </body>
 </html>

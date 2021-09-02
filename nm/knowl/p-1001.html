@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:44-04:00    *-->
+<!--*    on 2021-09-01T21:38:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This section will describe how each LP problem has a <dfn class="terminology">dual</dfn> LP problem. Specifically:</p>
-<ul class="disc">
-<li>A problem of type IR has a dual of type EN</li>
-<li>A problem of type EN has a dual of type IR</li>
-<li>A problem of type IN has a dual of type IN</li>
-</ul>
-<p data-braille="continuation">In general, the dual of the dual problem is the original (<dfn class="terminology">primal</dfn>) problem. The IN-IN duality is symmetric while IR-EN duality is asymmetric.</p>
-<span class="incontext"><a href="section-linear-programming-duality.html#p-1001">in-context</a></span>
+<p>Rephrasing this as the minimization of \(-x_1-x_2\text{,}\) we see that the coefficient vector should be <code class="code-inline tex2jax_ignore">[-1 -1]</code>. Executing</p>
+<pre class="code-block tex2jax_ignore">
+linprog([-1; -1], [1 2; 3 1], [4; 5])
+</pre>
+<p data-braille="continuation">yields <code class="code-inline tex2jax_ignore">[1.2; 1.4]</code>. (Try to visualize this problem and its solution.)</p>
+<span class="incontext"><a href="section-linear-programming-introduction.html#p-1001">in-context</a></span>
 </body>
 </html>

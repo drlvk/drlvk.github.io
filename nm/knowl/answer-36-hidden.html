@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,10 +11,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="answer solution-like"><pre class="code-block tex2jax_ignore">A = [1 2; 4 3; 5 6];
-b = [7 8 9]';
-x = A\b;
-disp(x)
-disp(norm(Ax-b))
+<body><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = linspace(-1, 1, 500);
+plot(x, p(x, -3/2, 6))
+
+function y = p(x, a, n)
+    y = ones(size(x));
+    for k = 1:n
+        y = y + x.^k/(a+k-1);
+    end
+end
 </pre></div></body>
 </html>

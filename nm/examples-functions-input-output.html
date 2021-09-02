@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:10-04:00    *-->
+<!--*    on 2021-09-01T21:37:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -99,6 +99,7 @@ MathJax.Hub.Config({
 <li><a href="section-linear-systems.html" data-scroll="section-linear-systems">Systems of linear equations</a></li>
 <li><a href="section-large-matrices.html" data-scroll="section-large-matrices">More tools for constructing matrices</a></li>
 <li><a href="section-vectorization.html" data-scroll="section-vectorization">Array operations</a></li>
+<li><a href="section-array-expansion.html" data-scroll="section-array-expansion">Implicit expansion of arrays</a></li>
 <li><a href="section-plotting.html" data-scroll="section-plotting">Plotting</a></li>
 <li><a href="examples-systems-vectorization-plots.html" data-scroll="examples-systems-vectorization-plots">Examples and questions</a></li>
 <li><a href="exercises-systems-vectorization-plots.html" data-scroll="exercises-systems-vectorization-plots">Homework</a></li>
@@ -412,48 +413,48 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-functions-input-output"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.5</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-121">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
-<article class="example example-like" id="example-20"><a data-knowl="" class="id-ref original" data-refid="hk-example-20"><h6 class="heading">
+<p id="p-128">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<article class="example example-like" id="example-22"><a data-knowl="" class="id-ref original" data-refid="hk-example-22"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Random matrix with entries between two given numbers.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-20"><article class="example example-like"><p id="p-122">Given numbers \(a, b\)  with \(a \lt b\text{,}\) construct a random 5<span class="times-sign">×</span>5 matrix in which the entries are uniformly distributed between \(a\) and \(b\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-22"><article class="example example-like"><p id="p-129">Given numbers \(a, b\)  with \(a \lt b\text{,}\) construct a random 5<span class="times-sign">×</span>5 matrix in which the entries are uniformly distributed between \(a\) and \(b\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-20" id="answer-20"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-20"><div class="answer solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-22" id="answer-22"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-22"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">A = (b-a)*rand(5, 5) + a;
 </pre>
-<p id="p-123"><em class="emphasis">Explanation</em>: we take random numbers between 0 and 1, and then apply a linear function which sends 0 to a, and 1 to b. This function is \(y = (b-a)x + a\text{.}\)</p>
+<p id="p-130"><em class="emphasis">Explanation</em>: we take random numbers between 0 and 1, and then apply a linear function which sends 0 to a, and 1 to b. This function is \(y = (b-a)x + a\text{.}\)</p>
 </div></div>
 </div></article></div>
-<article class="example example-like" id="example-21"><a data-knowl="" class="id-ref original" data-refid="hk-example-21"><h6 class="heading">
+<article class="example example-like" id="example-23"><a data-knowl="" class="id-ref original" data-refid="hk-example-23"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Mean and median.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-21"><article class="example example-like"><p id="p-124">The functions <code class="code-inline tex2jax_ignore">mean</code> and <code class="code-inline tex2jax_ignore">median</code> are aggregate functions which work similarly to <code class="code-inline tex2jax_ignore">sum</code>. For example, <code class="code-inline tex2jax_ignore">mean([1 9 8 3])</code> is 5.25 which is \((1+9+8+3)/4\text{.}\) And <code class="code-inline tex2jax_ignore">median([1 9 8 3])</code> is  5.5 because when these numbers are sorted as 1, 3, 8, 9 there are two in the middle, and their average is \((3+8)/2 = 5.5\text{.}\) (When the number of data values is odd, the median is the number in the middle.)</p>
-<p id="p-125">Plot a histogram of the mean of 10 random numbers, with 10000 such means computed.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-23"><article class="example example-like"><p id="p-131">The functions <code class="code-inline tex2jax_ignore">mean</code> and <code class="code-inline tex2jax_ignore">median</code> are aggregate functions which work similarly to <code class="code-inline tex2jax_ignore">sum</code>. For example, <code class="code-inline tex2jax_ignore">mean([1 9 8 3])</code> is 5.25 which is \((1+9+8+3)/4\text{.}\) And <code class="code-inline tex2jax_ignore">median([1 9 8 3])</code> is  5.5 because when these numbers are sorted as 1, 3, 8, 9 there are two in the middle, and their average is \((3+8)/2 = 5.5\text{.}\) (When the number of data values is odd, the median is the number in the middle.)</p>
+<p id="p-132">Plot a histogram of the mean of 10 random numbers, with 10000 such means computed.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-21" id="answer-21"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-21"><div class="answer solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-23" id="answer-23"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-23"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">A = rand(10, 10000); 
 m = mean(A, 1);
 hist(m, 30)
 </pre>
-<p id="p-126"><em class="emphasis">Explanation</em>. Having created a random matrix A, we take the mean of each column with <code class="code-inline tex2jax_ignore">mean(A, 1)</code>. If we used <code class="code-inline tex2jax_ignore">median(A, 1)</code> the result would be a similar histogram.</p>
+<p id="p-133"><em class="emphasis">Explanation</em>. Having created a random matrix A, we take the mean of each column with <code class="code-inline tex2jax_ignore">mean(A, 1)</code>. If we used <code class="code-inline tex2jax_ignore">median(A, 1)</code> the result would be a similar histogram.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-difference-mean-median"><a data-knowl="" class="id-ref original" data-refid="hk-example-difference-mean-median"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Difference between mean and median.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-difference-mean-median"><article class="example example-like">For 10 randomly chosen numbers (with <code class="code-inline tex2jax_ignore">rand</code>) we can compute both mean and median. How different can these be? That is, how large can the difference |mean-median| be? Try to approach this experimentally by computing this difference 10000 times and taking the maximum.<div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-22" id="answer-22"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-22"><div class="answer solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-24" id="answer-24"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-24"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">A = rand(10, 10000); 
 m = mean(A, 1);
 md = median(A, 1);
 disp(max(abs(m-md)))
 </pre>
-<p id="p-127">The result of computation depends on your luck. There is no guarantee that the maximum found after 10000 random tries is close to the actual maximum.</p>
+<p id="p-134">The result of computation depends on your luck. There is no guarantee that the maximum found after 10000 random tries is close to the actual maximum.</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-5"><a data-knowl="" class="id-ref original" data-refid="hk-question-5"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">3.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Mean and median for a 0-1 vector.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-5"><article class="question example-like"><p id="p-128">Suppose <code class="code-inline tex2jax_ignore">v</code> is a vector with 10 elements, in which 6 elements are 0 and the others are 1. What are the mean and the median of <code class="code-inline tex2jax_ignore">v</code>? (You should not need a computer for this.) Is the difference between the mean and the median in this example greater than what you found experimentally in <a class="xref" data-knowl="./knowl/example-difference-mean-median.html" title="Example 3.5.3: Difference between mean and median">Example 3.5.3</a>?</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-5"><article class="question example-like"><p id="p-135">Suppose <code class="code-inline tex2jax_ignore">v</code> is a vector with 10 elements, in which 6 elements are 0 and the others are 1. What are the mean and the median of <code class="code-inline tex2jax_ignore">v</code>? (You should not need a computer for this.) Is the difference between the mean and the median in this example greater than what you found experimentally in <a class="xref" data-knowl="./knowl/example-difference-mean-median.html" title="Example 3.5.3: Difference between mean and median">Example 3.5.3</a>?</p></article></div>
 <article class="question example-like" id="question-6"><a data-knowl="" class="id-ref original" data-refid="hk-question-6"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">3.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Squaring a random number.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-6"><article class="question example-like"><p id="p-129">We know that <code class="code-inline tex2jax_ignore">x = rand()</code> produces a random number between 0 and 1. The command <code class="code-inline tex2jax_ignore">x = rand()^2</code> also produces a random number between 0 and 1. Is there a significant difference between these two ways of creating random numbers?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-6"><article class="question example-like"><p id="p-136">We know that <code class="code-inline tex2jax_ignore">x = rand()</code> produces a random number between 0 and 1. The command <code class="code-inline tex2jax_ignore">x = rand()^2</code> also produces a random number between 0 and 1. Is there a significant difference between these two ways of creating random numbers?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

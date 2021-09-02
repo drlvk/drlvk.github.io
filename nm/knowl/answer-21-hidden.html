@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,11 +11,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">A = rand(10, 10000); 
-m = mean(A, 1);
-hist(m, 30)
-</pre>
-<p><em class="emphasis">Explanation</em>. Having created a random matrix A, we take the mean of each column with <code class="code-inline tex2jax_ignore">mean(A, 1)</code>. If we used <code class="code-inline tex2jax_ignore">median(A, 1)</code> the result would be a similar histogram.</p>
-</div></body>
+<body><div class="answer solution-like"><pre class="code-block tex2jax_ignore">m = input('How many numbers in a sum? ');
+n = input('How many sums to compute? ');
+A = rand(m, n);
+S = sum(A, 1);
+hist(S, 30)
+</pre></div></body>
 </html>

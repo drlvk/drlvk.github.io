@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,21 +11,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="answer solution-like">
-<p>This is a straightforward modification of <a class="xref" data-knowl="./knowl/example-computation-legendre-coefficients.html" title="Example 15.4.1: Computing and plotting Legendre polynomials">Example 15.4.1</a>.</p>
-<pre class="code-block tex2jax_ignore">p = [1];
-q = [1 0];
-x = linspace(-1, 1, 1000);
-hold on
-plot(x, polyval(p, x), x, polyval(q, x));
+<body><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = -5:5;
+n = numel(x);
+y = atan(x); 
 
-for n = 1:5
-    r = 2*[q 0] - [0 0 p];
-    p = q;
-    q = r;
-    plot(x, polyval(r, x))
+c = y;
+for k=2:n
+    c(k:n) = (c(k:n)-c(k-1))./(x(k:n)-x(k-1));
 end
-hold off
-</pre>
-</div></body>
+
+t = linspace(min(x)-0.01, max(x)+0.01, 1000);
+p = c(n)*ones(size(t));
+for k=n-1:-1:1
+    p = p.*(t-x(k)) + c(k);
+end
+plot(t, p, x, y, 'r*')
+</pre></div></body>
 </html>

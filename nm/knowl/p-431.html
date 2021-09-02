@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:36-04:00    *-->
+<!--*    on 2021-09-01T21:38:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The issue is that \(\cos x\) is close to \(1\) and we subtract it from \(1\text{.}\) The identity</p>
+<p>The <em class="emphasis">second order derivative</em> also has a convenient symmetric formula:</p>
 <div class="displaymath">
-\begin{equation*}
-(1-\cos x)(1+\cos x) = 1-\cos^2 x = \sin^2 x
-\end{equation*}
+\begin{equation}
+f''(x)\approx \frac{f(x+h)-2f(x)+f(x-h)}{h^2}\tag{12.3.2}
+\end{equation}
 </div>
-<p data-braille="continuation">can be used to avoid this issue. According to it,</p>
+<p data-braille="continuation">One can derive many other formulas for derivative of any order \(k\text{,}\) starting with Taylor series for \(f\text{:}\)</p>
 <div class="displaymath">
-\begin{equation*}
-\frac{1-\cos(x)}{x^2} = \frac{\sin^2(x)}{x^2(1+\cos x)}
-\end{equation*}
+\begin{equation}
+f(x + \delta) = f(x) + f'(x)\delta + \frac{f''(x)}{2} \delta^2 + \frac{f'''(x)}{6} \delta^3 + \cdots\tag{12.3.3}
+\end{equation}
 </div>
-<p data-braille="continuation">There is no loss of significance in the formula on the right. Compare in Matlab:</p>
-<span class="incontext"><a href="examples-numerical-differentiation.html#p-431">in-context</a></span>
+<p data-braille="continuation">One can use <a class="xref" data-knowl="./knowl/eq-taylor-expansion.html" title="Equation 12.3.3">(12.3.3)</a> with values like \(\delta=h\text{,}\)  \(\delta=-h\text{,}\) \(\delta=0\text{,}\) or maybe \(\delta=2h\text{,}\) and so on; and then take a linear combination of these expressions so that the derivatives of orders less than \(k\) cancel out, while the derivative of order \(k\) remains. The order of error of this formula will depends on what derivative of order greater than \(k\) remain in the linear combination. To have order of error \(n\text{,}\) one needs to make sure that the derivatives of orders between \(k\) and \(k+n\) also cancel out.</p>
+<span class="incontext"><a href="section-symmetric-difference.html#p-431">in-context</a></span>
 </body>
 </html>

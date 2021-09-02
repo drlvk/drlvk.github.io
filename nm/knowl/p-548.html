@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:38-04:00    *-->
+<!--*    on 2021-09-01T21:38:21-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>To use the estimate <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> we need the fourth derivative of \(f\text{,}\) which is \((9/16)x^{-5/2}\text{.}\) The absolute value of this function is maximal at \(x=1\text{,}\) so \(\max|f^{(4)}| = 9/16\text{.}\) Also, \(h = (b-a)/2 = 4\text{.}\) So <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> says</p>
-<div class="displaymath">
-\begin{equation*}
-|\text{error}|\le \frac{1}{180} \frac{9}{16} (9-1) 4^4  = 6.4 
-\end{equation*}
-</div>
-<p data-braille="continuation">Indeed, \(0.1618 \le 6.4\) but we see that the error estimate does not give the right idea of how large the error actually is.</p>
-<span class="incontext"><a href="section-motivation-adaptive-integration.html#p-548">in-context</a></span>
+<p>Write a script which, when given an integer \(n \ge 2\text{,}\) finds and displays the Gauss-Laguerre evaluation points and weights. This can be done by adapting the code in <a class="xref" data-knowl="./knowl/example-find-gauss-legendre-weights.html" title="Example 16.4.1: Compute the Gauss-Legendre points and weights">Example 16.4.1</a>, similarly to exercises in <a href="exercises-legendre-laguerre.html" class="internal" title="Exercises 15.5: Homework">Exercises 15.5</a>. Note that the right-hand side of a system for weights will involve factorials; in Matlab they can be computed with <code class="code-inline tex2jax_ignore">factorial</code> function, for example <code class="code-inline tex2jax_ignore">factorial(i-1)</code>.</p>
+<span class="incontext"><a href="exercises-gaussian-integration.html#p-548">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:36-04:00    *-->
+<!--*    on 2021-09-01T21:38:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In mathematical notation, the outer product would be written as \(\mathbf a\mathbf b^T\text{,}\) with T indicating the transposed vector (column turned into row). Since  \(\mathbf a\mathbf b^T\) is a matrix, we can apply it to some vector \(\mathbf c\text{.}\) The associative property of matrix multiplication shows that</p>
-<div class="displaymath">
-\begin{equation}
-(\mathbf a\mathbf b^T)\mathbf c = \mathbf a (\mathbf b^T \mathbf c) = \mathbf a (\mathbf b\cdot \mathbf c) \tag{11.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">that is, we get the vector \(\mathbf a\) multiplied by the dot product \(\mathbf b\cdot \mathbf c\text{.}\) Formula <a class="xref" data-knowl="./knowl/eq-outer-product.html" title="Equation 11.2.1">(11.2.1)</a> gives us an easy way to find a matrix \(M\) which satisfies the equation \(M\mathbf c = \mathbf d\) for given vectors \(\mathbf c, \mathbf d\text{.}\) Namely, we can let</p>
-<div class="displaymath">
-\begin{equation}
-M = \frac{1}{\mathbf b^T \mathbf c} \mathbf d \mathbf b^T \tag{11.2.2}
-\end{equation}
-</div>
-<p data-braille="continuation">which is an outer product of two vectors with a scalar factor in front. The associative property shows that</p>
-<div class="displaymath">
-\begin{equation*}
-M\mathbf c = \frac{1}{\mathbf b^T \mathbf c} \mathbf d (\mathbf b^T \mathbf c) = \mathbf d
-\end{equation*}
-</div>
-<p data-braille="continuation">Note that the choice of \(\mathbf b\) is up to us: any vector will work as \(\mathbf b\) as long as \(\mathbf b^T \mathbf c \ne 0\text{.}\)</p>
-<span class="incontext"><a href="section-broyden-linear-algebra.html#p-389">in-context</a></span>
+<p>The basic idea is: since we do not know the derivative, we are going to guess its value and then improve our guess at every step of the algorithm.</p>
+<span class="incontext"><a href="section-broyden-intro.html#p-389">in-context</a></span>
 </body>
 </html>

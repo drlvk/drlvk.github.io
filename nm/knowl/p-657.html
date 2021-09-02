@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>How does <code class="code-inline tex2jax_ignore">p</code> accept a row vector as <code class="code-inline tex2jax_ignore">t</code>? The expression <code class="code-inline tex2jax_ignore">t - x'</code> is the difference of a row vector and a column vector; in Matlab this creates a matrix where \((i, j)\) entry is \(t_j - x_i\text{.}\) Subsequent operations proceed as above, and the result is a row vector of values \(p(t)\text{.}\)</p>
-<span class="incontext"><a href="section-lagrange-polynomial.html#p-657">in-context</a></span>
+<p>We are used to seeing polynomials written in terms of the <dfn class="terminology">monomial basis</dfn> \(x^0, x^1, \dots, x^d\text{,}\) that is, as a linear combination of the monomials. But this basis is ill-suited for numerical computations away from the point \(x=0\text{.}\) For example, consider the simple polynomial \(p(x) = (x-7)^{15}\text{.}\) If we expand it in the monomial basis and then try to compute its values on the interval \([6, 8]\text{,}\) the result will be disappointing. In the code below, <code class="code-inline tex2jax_ignore">c</code> is a vector of coefficients; the ellipsis notation allows it to by split between lines for readability.</p>
+<span class="incontext"><a href="section-monomial-basis.html#p-657">in-context</a></span>
 </body>
 </html>

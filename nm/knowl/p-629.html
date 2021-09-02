@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We could solve the system <a class="xref" data-knowl="./knowl/eq-SIR-S.html" title="Equation 20.1.1">(20.1.1)</a>-<a class="xref" data-knowl="./knowl/eq-SIR-I.html" title="Equation 20.1.2">(20.1.2)</a>-<a class="xref" data-knowl="./knowl/eq-SIR-R.html" title="Equation 20.1.3">(20.1.3)</a> numerically using the methods of <a href="chapter-ode-euler.html" class="internal" title="Chapter 19: Differential equations: Euler's method and its relatives">Chapter 19</a> but to keep the focus on the modeling aspect, we use Matlab's solver <code class="code-inline tex2jax_ignore">ode45</code>. Its basic syntax is</p>
+<p>The plot displayed by <a class="xref" data-knowl="./knowl/example-implement-trapezoidal-ode-system.html" title="Example 19.5.1: Implement trapezoidal method for ODE system">Example 19.5.1</a>  is a <dfn class="terminology">time series plot</dfn> in which one axis represents the independent variable (usually time) and the other axis shows the components of \(\mathbf y\text{.}\) The other option we have is to make a <dfn class="terminology">phase plot</dfn> in which each component of \(\mathbf y\) gets its own axis, and there is no time axis. This is achieved with</p>
 <pre class="code-block tex2jax_ignore">
-[t, y] = ode45(rhs, [a, b], y0);  
+plot(y(1,:), y(2,:))
 </pre>
-<p data-braille="continuation">where <code class="code-inline tex2jax_ignore">rhs</code> is the right hand side of the ODE system,  <code class="code-inline tex2jax_ignore">[a, b]</code> is the interval on which solution must be found, and <code class="code-inline tex2jax_ignore">y0</code> is the initial condition at the left endpoint of that interval. The initial condition can be a single number (when solving a single equation) or a vector (when solving a system). It is preferable to use a row vector for <code class="code-inline tex2jax_ignore">y0</code> when solving a system, because of how the solution is presented by <code class="code-inline tex2jax_ignore">ode45</code>: see below. Note that <code class="code-inline tex2jax_ignore">rhs</code> must take two variables in this order: <code class="code-inline tex2jax_ignore">rhs = @(t, y) ...</code> even if the system does not involve time (is autonomous). The output of function <code class="code-inline tex2jax_ignore">rhs</code> must be a column vector (it can be a single number if we are solving one equation).</p>
-<span class="incontext"><a href="section-ode-epidemiology.html#p-629">in-context</a></span>
+<p data-braille="continuation">The phase plot  may be preferable when the system does not involve time directly (an <dfn class="terminology">autonomous system</dfn>). Try both kinds of plots for the autonomous system</p>
+<pre class="code-block tex2jax_ignore">
+  f = @(t, y) [y(2)-y(2)^3; 2*y(1)];
+</pre>
+<span class="incontext"><a href="section-ode-systems.html#p-629">in-context</a></span>
 </body>
 </html>

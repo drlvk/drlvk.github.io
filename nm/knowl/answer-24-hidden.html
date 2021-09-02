@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,23 +12,11 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">x = 11;
-y = 31;
-for k = 1:10
-    a = (x+y)/2;
-    g = sqrt(x*y);
-    x = a;
-    y = g;
-end
-disp(x)
+<pre class="code-block tex2jax_ignore">A = rand(10, 10000); 
+m = mean(A, 1);
+md = median(A, 1);
+disp(max(abs(m-md)))
 </pre>
-<p>It does not matter whether we display <code class="code-inline tex2jax_ignore">x</code> or <code class="code-inline tex2jax_ignore">y</code> at the end because they become nearly equal after 10 iterations. The output is the number 19.7127, which we can check for correctness using, for example, Wolfram Alpha: <a class="external" href="https://www.wolframalpha.com/input/?i=agm%2811%2C31%29" target="_blank">agm(11,31)</a>.</p>
-<p>The logic of the script: compute arithmetic and geometric means of x and y, then use them as our new values of x and y. One may be tempted to shorten the loop as follows</p>
-<pre class="code-block tex2jax_ignore">for k = 1:10
-    x = (x+y)/2;
-    y = sqrt(x*y);
-end
-</pre>
-<p>But this loop produces a wrong answer: 23.9912. The reason this script is wrong is that it changes x before the computation of geometric mean.  The definition of AGM requires both arithmetic and geometric means to be computed from the same pair x, y. Only after both means are computed, we can replace x and y with new values.</p>
+<p>The result of computation depends on your luck. There is no guarantee that the maximum found after 10000 random tries is close to the actual maximum.</p>
 </div></body>
 </html>

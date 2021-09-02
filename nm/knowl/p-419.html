@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:36-04:00    *-->
+<!--*    on 2021-09-01T21:38:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Matlab also has some built-in logic for avoiding loss of significance in two frequently encountered situations: \(e^{x} - 1\) and \(\log (1+x)\) when \(x\approx 0\text{.}\) These are the functions <code class="code-inline tex2jax_ignore">expm1</code> and <code class="code-inline tex2jax_ignore">log1p</code>. To see the difference, compare the results of <code class="code-inline tex2jax_ignore">(exp(x)-1)/x</code> and <code class="code-inline tex2jax_ignore">expm1(x)/x</code> when <code class="code-inline tex2jax_ignore">x=1e-20</code>.</p>
+<p>A simplified illustration of the loss of significance: suppose we can only have three decimal digits, any others have to be rounded. This can still be useful for approximate computations like \(9.23 + 3.45 = 12.7\) or \(3.45 + 100 = 103\) (note the rounding here). These approximate results are relatively close to what we would get with exact arithmetic. But when <em class="emphasis">subtraction</em> of nearly equal quantities are involved, the results can be less satisfactory:</p>
+<div class="displaymath">
+\begin{equation}
+(3.45 + 100) - 102 = 103 - 102 = 1\tag{12.2.1}
+\end{equation}
+</div>
+<p data-braille="continuation">while the exact arithmetic gives \(1.45\text{.}\) The error is nearly \(50\%\text{.}\)</p>
 <span class="incontext"><a href="section-loss-significance.html#p-419">in-context</a></span>
 </body>
 </html>

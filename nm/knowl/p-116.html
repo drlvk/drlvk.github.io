@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Note that 15-16 decimal digits is about the limit of precision in Matlab computations. If we try <code class="code-inline tex2jax_ignore">fprintf('The number pi is %.20f\n', pi)</code> the output is “The number pi is 3.14159265358979310000” which looks suspicious, and for a good reason: the zeros at the end are not correct digits of pi.</p>
-<span class="incontext"><a href="section-formatted-output.html#p-116">in-context</a></span>
+<p>The command <code class="code-inline tex2jax_ignore">hist(v, k)</code> displays a histograph of the data collected in vector <code class="code-inline tex2jax_ignore">v</code> using <code class="code-inline tex2jax_ignore">k</code> bins. This means that the interval from <code class="code-inline tex2jax_ignore">min(v)</code> to <code class="code-inline tex2jax_ignore">max(v)</code> is divided into <code class="code-inline tex2jax_ignore">k</code> equal subintervals, and the histogram counts how many data points fall in each subinterval. If the number of bins <code class="code-inline tex2jax_ignore">k</code> is not provided, Matlab will try to choose it itself. Usually we want 10-50 bins. For example,</p>
+<pre class="code-block tex2jax_ignore">
+v = rand(1, 10000);
+hist(v, 20);
+</pre>
+<p data-braille="continuation">produces a histogram from 10000 random numbers. This will not be an interesting histogram since the numbers are uniformly distributed between 0 and 1.</p>
+<span class="incontext"><a href="section-random-numbers-histograms.html#p-116">in-context</a></span>
 </body>
 </html>

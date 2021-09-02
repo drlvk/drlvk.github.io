@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:30-04:00    *-->
+<!--*    on 2021-09-01T21:38:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -99,6 +99,7 @@ MathJax.Hub.Config({
 <li><a href="section-linear-systems.html" data-scroll="section-linear-systems">Systems of linear equations</a></li>
 <li><a href="section-large-matrices.html" data-scroll="section-large-matrices">More tools for constructing matrices</a></li>
 <li><a href="section-vectorization.html" data-scroll="section-vectorization">Array operations</a></li>
+<li><a href="section-array-expansion.html" data-scroll="section-array-expansion">Implicit expansion of arrays</a></li>
 <li><a href="section-plotting.html" data-scroll="section-plotting">Plotting</a></li>
 <li><a href="examples-systems-vectorization-plots.html" data-scroll="examples-systems-vectorization-plots">Examples and questions</a></li>
 <li><a href="exercises-systems-vectorization-plots.html" data-scroll="exercises-systems-vectorization-plots">Homework</a></li>
@@ -412,8 +413,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-nelder-mead-ndim"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">33.4</span> <span class="title">Nelder-Mead method in higher dimensions</span>
 </h2>
-<p id="p-955">This is an optional section, feel free to skip it.</p>
-<p id="p-956">The code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> works only for functions of two variables but it can be adapted for \(n\)-dimensional optimization. Instead of the initial triangle</p>
+<p id="p-962">This is an optional section, feel free to skip it.</p>
+<p id="p-963">The code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> works only for functions of two variables but it can be adapted for \(n\)-dimensional optimization. Instead of the initial triangle</p>
 <pre class="code-block tex2jax_ignore">
 A = randn(2, 1);
 B = A + [1; 0];
@@ -426,7 +427,7 @@ A = randn(n, 1);
 T = [A A+eye(n)];
 </pre>
 <p data-braille="continuation">The search path will be <code class="code-inline tex2jax_ignore">path = zeros(n, max_tries)</code> which we will only use for visualization when \(n=2, 3\text{.}\)</p>
-<p id="p-957">The line <code class="code-inline tex2jax_ignore">values = [f(T(:,1)) f(T(:,2)) f(T(:,3))]</code> resists vectorization unless we rewrite <code class="code-inline tex2jax_ignore">f</code> (which we probably should not do because in practice, the objective function is user-provided code). So it becomes a loop:</p>
+<p id="p-964">The line <code class="code-inline tex2jax_ignore">values = [f(T(:,1)) f(T(:,2)) f(T(:,3))]</code> resists vectorization unless we rewrite <code class="code-inline tex2jax_ignore">f</code> (which we probably should not do because in practice, the objective function is user-provided code). So it becomes a loop:</p>
 <pre class="code-block tex2jax_ignore">
 values = zeros(1, n+1);
 for j = 1:n+1
@@ -436,10 +437,10 @@ end
 <p data-braille="continuation">The remaining adjustments are small: the midpoint of opposite side is now <code class="code-inline tex2jax_ignore">M = (sum(T, 2) - T(:, ind))/n</code> but the formulas for reflection \(R\text{,}\) expansion \(E\text{,}\) and contraction remain the same. The plot of search path and formatting of text output need cosmetic changes, as shown in the following example.</p>
 <article class="example example-like" id="example-rce-nelder-mead-ndim"><a data-knowl="" class="id-ref original" data-refid="hk-example-rce-nelder-mead-ndim"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">33.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Implementing the Nelder-Mead method in higher dimensions.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rce-nelder-mead-ndim"><article class="example example-like"><p id="p-958">Generalize <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> to higher dimensions. Use it to minimize the 3-variable Rosenbrock function \((x_1-1)^2 + 100(x_1^2-x_2)^2 + 100(x_2^2-x_3)^2\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rce-nelder-mead-ndim"><article class="example example-like"><p id="p-965">Generalize <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> to higher dimensions. Use it to minimize the 3-variable Rosenbrock function \((x_1-1)^2 + 100(x_1^2-x_2)^2 + 100(x_2^2-x_3)^2\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-60" id="solution-60"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-60"><div class="solution solution-like">
-<p id="p-959">The code collects the lines from the previous paragraphs.</p>
+<p id="p-966">The code collects the lines from the previous paragraphs.</p>
 <pre class="code-block tex2jax_ignore">f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2 + 100*(x(2)^2 - x(3))^2;
 n = 3;             % number of variables 
 A = randn(n, 1);

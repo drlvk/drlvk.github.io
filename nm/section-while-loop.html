@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:10-04:00    *-->
+<!--*    on 2021-09-01T21:37:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -100,6 +100,7 @@ MathJax.Hub.Config({
 <li><a href="section-linear-systems.html" data-scroll="section-linear-systems">Systems of linear equations</a></li>
 <li><a href="section-large-matrices.html" data-scroll="section-large-matrices">More tools for constructing matrices</a></li>
 <li><a href="section-vectorization.html" data-scroll="section-vectorization">Array operations</a></li>
+<li><a href="section-array-expansion.html" data-scroll="section-array-expansion">Implicit expansion of arrays</a></li>
 <li><a href="section-plotting.html" data-scroll="section-plotting">Plotting</a></li>
 <li><a href="examples-systems-vectorization-plots.html" data-scroll="examples-systems-vectorization-plots">Examples and questions</a></li>
 <li><a href="exercises-systems-vectorization-plots.html" data-scroll="exercises-systems-vectorization-plots">Homework</a></li>
@@ -413,8 +414,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-while-loop"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title"><code class="code-inline tex2jax_ignore">while</code> loop</span>
 </h2>
-<p id="p-144">In <a class="xref" data-knowl="./knowl/example-agm-for-loop.html" title="Example 4.1.2: Arithmetic-geometric mean using a for loop">Example 4.1.2</a> we used 10 iterations of arithmetic and geometric means computation. This was an arbitrary number. For some input values it may be enough or too many, for others not enough. A better approach is to stop the computation when the required precision is achieved. If we want the result to be accurate within \(10^{-9}\text{,}\) which is <code class="code-inline tex2jax_ignore">1e-9</code> in Matlab notation, then we can stop as soon as the difference between the two means has absolute value less than that number (called the <dfn class="terminology">tolerance</dfn>). This is what <code class="code-inline tex2jax_ignore">while</code> loop can be used for.</p>
-<p id="p-145">Syntax of <code class="code-inline tex2jax_ignore">while</code> loop:</p>
+<p id="p-151">In <a class="xref" data-knowl="./knowl/example-agm-for-loop.html" title="Example 4.1.2: Arithmetic-geometric mean using a for loop">Example 4.1.2</a> we used 10 iterations of arithmetic and geometric means computation. This was an arbitrary number. For some input values it may be enough or too many, for others not enough. A better approach is to stop the computation when the required precision is achieved. If we want the result to be accurate within \(10^{-9}\text{,}\) which is <code class="code-inline tex2jax_ignore">1e-9</code> in Matlab notation, then we can stop as soon as the difference between the two means has absolute value less than that number (called the <dfn class="terminology">tolerance</dfn>). This is what <code class="code-inline tex2jax_ignore">while</code> loop can be used for.</p>
+<p id="p-152">Syntax of <code class="code-inline tex2jax_ignore">while</code> loop:</p>
 <pre class="code-block tex2jax_ignore">
 while (some condition) 
     (some computation)
@@ -423,9 +424,9 @@ end
 <p data-braille="continuation">The loop will repeat while condition after <code class="code-inline tex2jax_ignore">while</code> is true. It ends when this condition becomes false. So, if we want to stop when <code class="code-inline tex2jax_ignore">abs(x-y) &lt; 1e-9</code>, the loop should be written as <code class="code-inline tex2jax_ignore">while abs(x-y) &gt;= 1e-9</code>.</p>
 <article class="example example-like" id="example-agm-while-loop"><a data-knowl="" class="id-ref original" data-refid="hk-example-agm-while-loop"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Arithmetic-geometric mean using a <code class="code-inline tex2jax_ignore">while</code> loop.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-agm-while-loop"><article class="example example-like"><p id="p-146">Find the arithmetic-geometric mean (AGM) of two numbers given by a user, with <code class="code-inline tex2jax_ignore">1e-9</code> accuracy.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-agm-while-loop"><article class="example example-like"><p id="p-153">Find the arithmetic-geometric mean (AGM) of two numbers given by a user, with <code class="code-inline tex2jax_ignore">1e-9</code> accuracy.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-25" id="answer-25"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-25"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = input('x = ');
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-27" id="answer-27"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-27"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = input('x = ');
 y = input('y = ');
 while abs(x-y) &gt;= 1e-9
     a = (x+y)/2;
@@ -436,8 +437,8 @@ end
 fprintf('AGM(x, y) = %.9f\n', x)
 </pre></div></div>
 </div></article></div>
-<p id="p-147">There are two common issues with using <code class="code-inline tex2jax_ignore">while</code> loops. One is that it can go on forever, if the algorithm fails to reach its goal (the difference never becomes smaller than the tolerance). It is better to admit that the algorithm failed than to be stuck in an infinite loop: we will deal with this in <a href="section-if-statement.html" class="internal" title="Section 4.3: if statement">Section 4.3</a>. For now, note that if your program gets stuck in an infinite loop, you can terminate it by clicking within the Command Window and pressing <kbd class="kbdkey">Ctrl</kbd>+<kbd class="kbdkey">C</kbd>.</p>
-<p id="p-148">Another issue is that the condition we want to test may not be defined at the beginning of the loop. This occurs when our condition for stopping is that the value of a variable essentially stopped changing. For example, one way to compute the <dfn class="terminology">golden ratio</dfn> numerically is to start with any \(x &gt; 0\) and keep replacing \(x\) with \(\sqrt{x+1}\text{.}\) If we write this as:</p>
+<p id="p-154">There are two common issues with using <code class="code-inline tex2jax_ignore">while</code> loops. One is that it can go on forever, if the algorithm fails to reach its goal (the difference never becomes smaller than the tolerance). It is better to admit that the algorithm failed than to be stuck in an infinite loop: we will deal with this in <a href="section-if-statement.html" class="internal" title="Section 4.3: if statement">Section 4.3</a>. For now, note that if your program gets stuck in an infinite loop, you can terminate it by clicking within the Command Window and pressing <kbd class="kbdkey">Ctrl</kbd>+<kbd class="kbdkey">C</kbd>.</p>
+<p id="p-155">Another issue is that the condition we want to test may not be defined at the beginning of the loop. This occurs when our condition for stopping is that the value of a variable essentially stopped changing. For example, one way to compute the <dfn class="terminology">golden ratio</dfn> numerically is to start with any \(x &gt; 0\) and keep replacing \(x\) with \(\sqrt{x+1}\text{.}\) If we write this as:</p>
 <pre class="code-block tex2jax_ignore">x = 1;
 while abs(newx - x) &gt;= 1e-9
     newx = sqrt(x+1);
@@ -445,7 +446,7 @@ while abs(newx - x) &gt;= 1e-9
 end
 fprintf('Golden ratio = %.9f\n', x)
 </pre>
-<p id="p-149">the result will be an error: “Undefined function or variable ‘newx’” because we attempt to compute an expression with <code class="code-inline tex2jax_ignore">newx</code> before it is defined. Here is one way to correct this.</p>
+<p id="p-156">the result will be an error: “Undefined function or variable ‘newx’” because we attempt to compute an expression with <code class="code-inline tex2jax_ignore">newx</code> before it is defined. Here is one way to correct this.</p>
 <pre class="code-block tex2jax_ignore">x = 1;
 dx = 1; 
 while abs(dx) &gt;= 1e-9
@@ -455,7 +456,7 @@ while abs(dx) &gt;= 1e-9
 end
 fprintf('Golden ratio = %.9f\n', x)
 </pre>
-<p id="p-150">Here we introduce a variable <code class="code-inline tex2jax_ignore">dx</code> that represents the difference between old and new values of <code class="code-inline tex2jax_ignore">x</code>. This variable can be initially assigned some arbitrary value that is greater than the tolerance, for example 1 or 100. This ensures that the condition <code class="code-inline tex2jax_ignore">abs(dx) &gt;= 1e-9</code> holds at the beginning of the loop. After that the loop changes the value of <code class="code-inline tex2jax_ignore">dx</code> and the process repeats until it becomes small enough.</p></section></div></main>
+<p id="p-157">Here we introduce a variable <code class="code-inline tex2jax_ignore">dx</code> that represents the difference between old and new values of <code class="code-inline tex2jax_ignore">x</code>. This variable can be initially assigned some arbitrary value that is greater than the tolerance, for example 1 or 100. This ensures that the condition <code class="code-inline tex2jax_ignore">abs(dx) &gt;= 1e-9</code> holds at the beginning of the loop. After that the loop changes the value of <code class="code-inline tex2jax_ignore">dx</code> and the process repeats until it becomes small enough.</p></section></div></main>
 </div>
 </body>
 </html>

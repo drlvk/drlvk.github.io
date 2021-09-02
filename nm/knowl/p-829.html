@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:41-04:00    *-->
+<!--*    on 2021-09-01T21:38:24-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Note that we do not <em class="emphasis">always</em> want to compensate for data transformation by using weights \(w_k = 1/|T'(y_k)|\text{.}\) Linear regression works best if the standard deviation of different values \(y_k\) (assumed to include random errors) is about the same. When the values grow exponentially and are measured with the same relative accuracy, the standard deviation will grow with the values. In this case, the logarithmic transformation \(T(y)=\log y\) may help with non-linearity of the model <em class="emphasis">and</em> with the uniformity of standard deviations.</p>
-<span class="incontext"><a href="section-weighted-least-squares.html#p-829">in-context</a></span>
+<p>The result in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> is not entirely satisfactory. The logit transformation over-emphasizes the values near 0 and 1, and de-emphasizes those in between. One way to address this issue is to introduce weights, which we do in next section.</p>
+<span class="incontext"><a href="section-example-logistic-fit.html#p-829">in-context</a></span>
 </body>
 </html>

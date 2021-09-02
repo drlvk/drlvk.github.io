@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:40-04:00    *-->
+<!--*    on 2021-09-01T21:38:24-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We can set all small Fourier coefficients (less than some threshold <code class="code-inline tex2jax_ignore">thr</code>) to zero using <code class="code-inline tex2jax_ignore">fc(abs(fc) &lt; thr) = 0;</code>. One way to determine the threshold reasonably is to use <dfn class="terminology">percentiles</dfn>: for example,</p>
-<pre class="code-block tex2jax_ignore">
-thr = prctile(abs(fc(:)), 75);
-</pre>
-<p data-braille="continuation">returns the number <code class="code-inline tex2jax_ignore">thr</code> such that 75 percent of Fourier coefficients are less than it, and the other are greater (in absolute value).</p>
-<span class="incontext"><a href="section-2d-dft.html#p-772">in-context</a></span>
+<p>Choose some complex numbers \(z_0, z_1, \dots, z_{n-1}\) (with odd \(n\)) so that connecting them in this order (and connecting \(z_{n-1}\) to \(z_0\)) one gets a closed curve similar to letter B. Then use Discrete Fourier Transform to plot a complex trigonometric polynomial interpolating these numbers. Does its plot look like letter B?</p>
+<span class="incontext"><a href="exercises-discrete-fourier-transform.html#p-772">in-context</a></span>
 </body>
 </html>

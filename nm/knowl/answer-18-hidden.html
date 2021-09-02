@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,10 +12,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">A = rand(10, 10000);
-S = sum(A, 1);
-hist(S, 30);
+<pre class="code-block tex2jax_ignore">sum((1:10).^3)
 </pre>
-<p>This histogram resembles a “bell curve” of normal distribution. The similarly grows stronger if we take sums of more numbers, and plot more random sums. This is the content of <dfn class="terminology">Central Limit Theorem</dfn> in probability.</p>
+<p>Note that the parentheses are important here: <code class="code-inline tex2jax_ignore">sum(1:10.^3)</code> would be the sum of all integers from 1 to 1000.</p>
 </div></body>
 </html>

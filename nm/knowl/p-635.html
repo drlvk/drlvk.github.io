@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A traditional example of predator-prey relation is foxes and rabbits (in SU neighborhood, it could be hawks and squirrels instead). The Lotka-Volterra model of this relationship involves four positive parameters \(a, b, c, d\text{:}\)</p>
+<p>Thus, the rate of new infections is \(\beta SI\) where \(\beta\) is the coefficient of proportionality that depends on how contagious the disease is and what preventive measures are taken by the population. At the same time, the rate of new recoveries can be reasonably assumed to be \(\gamma I\text{,}\) proportional to the number of currently infected. So we have the system</p>
 <div class="displaymath">
 \begin{align}
-R' \amp = a R - b RF \tag{20.2.1}\\
-F' \amp =-c F + d RF \tag{20.2.2}
+S' \amp = - \beta SI\tag{20.1.1}\\
+I' \amp = \beta SI - \gamma I\tag{20.1.2}\\
+R' \amp = \gamma I\tag{20.1.3}
 \end{align}
 </div>
-<p data-braille="continuation">The first equation indicates that without foxes, rabbit population would grow at a constant relative rate. As in SIR model, the number of interactions is proportional to the product \(RF\text{.}\) Each interaction has a chance of reducing the number of rabbits. These interactions also contribute to the growth of foxes but not necessarily at the same rate (an eaten rabbit does not mean there is now an extra fox; we are not modeling a zombie apocalipse). Finally, the minus sign in \(-cF\) ensures that without rabbits, foxes die out.</p>
-<span class="incontext"><a href="section-ode-predator-prey.html#p-635">in-context</a></span>
+<p data-braille="continuation">with some initial conditions \((S_0, I_0, R_0)\) where typically \(R_0=0\) and \(I_0\) is small. The constants \(\beta,\gamma\) are the <dfn class="terminology">parameters</dfn> of this system. Their values have a major impact on the long-term behavior of solutions; yet these values are very difficult to estimate in practice (especially \(\beta\)). One might try to estimate them by studying a small-scale outbreak closely and fitting a model to the observed counts of infected and recovered people.</p>
+<span class="incontext"><a href="section-ode-epidemiology.html#p-635">in-context</a></span>
 </body>
 </html>

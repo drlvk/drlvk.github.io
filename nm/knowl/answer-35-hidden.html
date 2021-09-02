@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,16 +11,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="answer solution-like"><pre class="code-block tex2jax_ignore">m = 3;
-n = 3;
-A = [1 2 3; 4 5 6; 7 8 9];
-b = [10 11 12]';
-if rank(A) &lt; rank([A b])
-    disp('Inconsistent')
-elseif rank(A) == n
-    disp('Consistent with a unique solution')
-else 
-    disp('Consistent with infinitely many solutions')
+<body><div class="answer solution-like">
+<pre class="code-block tex2jax_ignore">function y = p(x, a, n)
+    y = ones(size(x));
+    for k = 1:n
+        y = y + x.^k/(a+k-1);
+    end
 end
-</pre></div></body>
+</pre>
+<p>The command <code class="code-inline tex2jax_ignore">size(x)</code> returns the size of \(x\) as the number of rows and columns. Consequently, <code class="code-inline tex2jax_ignore">ones(size(x))</code> means creating a vector or matrix of the same size as <code class="code-inline tex2jax_ignore">x</code>, but with all entries 1. If we started with <code class="code-inline tex2jax_ignore">y = 1</code> instead, the computation would still work because adding 1 to a vector like <code class="code-inline tex2jax_ignore">x.^k</code> means adding 1 to each component of the vector. However, when <code class="code-inline tex2jax_ignore">n = 0</code> the loop does not run at all and the output would be a scalar <code class="code-inline tex2jax_ignore">1</code> instead of a vector, which is a bug.</p>
+<p>One could also start with <code class="code-inline tex2jax_ignore">y = zeros(size(x))</code> and run the loop <code class="code-inline tex2jax_ignore">for k=0:n</code>; the result is the same.</p>
+</div></body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:37-04:00    *-->
+<!--*    on 2021-09-01T21:38:20-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Using the formula <a class="xref" data-knowl="./knowl/eq-legendre-recursion.html" title="Equation 15.2.1">(15.2.1)</a>, find the polynomials \(P_n\) for \(n=2, 3, 4\text{.}\) What are their roots?</p>
-<span class="incontext"><a href="section-legendre-polynomials.html#p-496">in-context</a></span>
+<p>It turns out there is a much more accurate two-point integration rule:</p>
+<div class="displaymath">
+\begin{equation*}
+\int_{-1}^1 f(x)\,dx\approx f(-1/\sqrt{3}) + f(1/\sqrt{3}) 
+\end{equation*}
+</div>
+<p data-braille="continuation">For the exponential function it gives \(2.3427\text{,}\) the error of only 0.0077. This is about 100 times more accurate than the trapezoidal rule, with the same number of function evaluations.</p>
+<span class="incontext"><a href="section-legendre-motivation.html#p-496">in-context</a></span>
 </body>
 </html>

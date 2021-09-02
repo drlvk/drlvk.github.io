@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:44-04:00    *-->
+<!--*    on 2021-09-01T21:38:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>To solve the linear program in Matlab, we use expanded syntax of <code class="code-inline tex2jax_ignore">linprog</code>:</p>
-<pre class="code-block tex2jax_ignore">
-x = linprog(c, A, b, Aeq, beq, lb, ub);    
-</pre>
-<p data-braille="continuation">where the additional parameters <code class="code-inline tex2jax_ignore">Aeq</code>, <code class="code-inline tex2jax_ignore">beq</code> express a linear system of <em class="emphasis">equality</em> constraints, and the vectors <code class="code-inline tex2jax_ignore">lb</code>, <code class="code-inline tex2jax_ignore">ub</code> provide lower and upper bounds on the variables. In our case, we do not have any inequality constraints so the second and third arguments are empty. The last one is omitted since we do not have upper bounds.</p>
-<span class="incontext"><a href="section-lp-duality-transportation.html#p-1022">in-context</a></span>
+<p>Both the primal and the dual problems make use of the same matrix. In the primal space, this matrix expresses the consumption of physical quantities of inputs necessary to produce set quantities of outputs. In the dual space, it expresses the creation of the economic values associated with the outputs from set input unit prices.</p>
+<span class="incontext"><a href="section-lp-duality-economic.html#p-1022">in-context</a></span>
 </body>
 </html>

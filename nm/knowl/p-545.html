@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:38-04:00    *-->
+<!--*    on 2021-09-01T21:38:21-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One weak point is the error estimation. When an integration rule has order \(d\) of accuracy, its error can be estimated by some multiple of the derivative of order \(d\text{.}\) For example, Simpson's rule is of order \(4\) and has error estimate involving the fourth derivative of \(f\text{:}\)</p>
-<div class="displaymath">
-\begin{equation}
-|\text{error}|\le \frac{1}{180} \max|f^{(4)}| (b-a) h^4  \tag{17.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">where, as with all such estimates, the maximum of the absolute value of the derivative is taken over the interval of integration. But a high-order derivative may be difficult to find, and if found, difficult to estimate. And even if it is easy to find and estimate, the output of <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> may be too conservative or completely useless.</p>
-<span class="incontext"><a href="section-motivation-adaptive-integration.html#p-545">in-context</a></span>
+<p>Suppose that \(f\) is a function on \([-1, 1]\) and there exists a polynomial \(p\) of degree \(9\) such that \(|f(x)-p(x)| \le 10^{-7}\) for all \(x\in [-1, 1]\text{.}\) Estimate the error of the 5-point Gauss-Legendre rule applied to \(f\text{.}\)</p>
+<span class="incontext"><a href="examples-gaussian-integration.html#p-545">in-context</a></span>
 </body>
 </html>

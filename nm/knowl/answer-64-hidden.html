@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:40-04:00    *-->
+<!--*    on 2021-09-01T21:38:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,13 +12,20 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<p>This example uses \(T=2\pi\) (the choice of period does not change these plots). Note the vectorized evaluation <code class="code-inline tex2jax_ignore">c*exp(1i*k'*t)</code> and recognize the role of transpose <code class="code-inline tex2jax_ignore">k'</code> here.</p>
-<pre class="code-block tex2jax_ignore">n = 3;
-c = randn(1, 2*n+1)  + 1i*randn(1, 2*n+1);
-t = linspace(0, 2*pi, 1000);
-k = -n:n;
-z = c*exp(1i*k'*t);
-plot(z)
+<p>Since the number of critical points is not known in advance, we can gather them by appending each new critical point to the vector <code class="code-inline tex2jax_ignore">critpts</code>. To qualify for inclusion, a root of derivative of the cubic polynomial used on \([x_k, x_{k+1}]\) must be real and must lie within this interval.</p>
+<pre class="code-block tex2jax_ignore">s = spline(x, y);
+critpts = [];
+for k=1:numel(x)-1
+    r = roots([3 2 1].*s.coefs(k, 1:3));
+    for j = 1:numel(r)
+        if isreal(r(j)) &amp;&amp; r(j) &gt;= 0 &amp;&amp; r(j) &lt;= x(k+1)-x(k)
+            critpts = [critpts, x(k)+r(j)];
+        end
+    end
+end
+t = linspace(min(x), max(x), 1000);
+plot(t, ppval(s, t), x, y, 'r+', critpts, ppval(s, critpts), 'k*')
 </pre>
+<p>The script uses <code class="code-inline tex2jax_ignore">ppval</code> since the spline <code class="code-inline tex2jax_ignore">s</code> is already constructed; calling <code class="code-inline tex2jax_ignore">spline(x, y, ...)</code> repeatedly with the same <code class="code-inline tex2jax_ignore">x, y</code> seems wasteful.</p>
 </div></body>
 </html>

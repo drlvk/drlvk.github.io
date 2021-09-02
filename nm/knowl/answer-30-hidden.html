@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,19 +12,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">function z = agm(x, y, tol) 
-   while abs(x - y) &gt;= tol
-       a = (x + y)/2;
-       g = sqrt(x*y);
-       x = a;
-       y = g;
-   end
-   z = x;
+<pre class="code-block tex2jax_ignore">N = 500;
+steps = zeros(1, N);
+for n = 1:N
+    count = 0;
+    k = n;
+    while k &gt; 1
+        if mod(k, 2) == 0
+            k = k/2;
+        else 
+            k = 3*k+1;
+        end
+        count = count + 1;
+    end 
+    steps(n) = count;
 end
+plot(1:N, steps, '.')
 </pre>
-<p>Note that the result has to be assigned to whichever function variable was designated as output on th first line of the function: in this case, <code class="code-inline tex2jax_ignore">z</code>. If you are familiar with Python, the following comparison may help:<pre class="code-block tex2jax_ignore">def agm(x, y, tol): 
-    # some Python code computing z
-return z
-</pre>The difference is that Matlab specifies the variable(s) to be returned at the beginning of the function, instead of at the end.</p>
+<p><em class="emphasis">Explanation</em>. The array <code class="code-inline tex2jax_ignore">steps</code> is created as a bunch of zeros, to be replaced with actual counts of steps. The initial value of Collatz process is called <code class="code-inline tex2jax_ignore">n</code> and it runs through the numbers from 1 to 500. So the variable <code class="code-inline tex2jax_ignore">k</code> is initially assigned the value <code class="code-inline tex2jax_ignore">n</code> and then modified according to the rules stated above. Every time it is modified, the <code class="code-inline tex2jax_ignore">count</code> of steps is increased by 1. The plot at the end shows each data point as an individual dot, not connecting them by lines.</p>
+<p>This example demonstrates the use of both kinds of loops. Note that the variable involved in <code class="code-inline tex2jax_ignore">while</code> loop condition, <code class="code-inline tex2jax_ignore">while k &gt; 1</code>, should be modified within the loop, otherwise it will never end. In contrast, the variable involved in <code class="code-inline tex2jax_ignore">for</code> loop condition <code class="code-inline tex2jax_ignore">for n = 1:N</code> should <em class="emphasis">not</em> be modified since it is automatically incremented with each run of the loop.</p>
 </div></body>
 </html>

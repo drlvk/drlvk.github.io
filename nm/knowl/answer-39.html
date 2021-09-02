@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:37-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,26 +14,21 @@
 <body>
 <div class="answer solution-like">
 <h6 class="heading">
-<span class="type">Answer</span><span class="space"> </span><span class="codenumber">15.4.1.1</span><span class="period">.</span>
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">6.2.2.1</span><span class="period">.</span>
 </h6>
-<p>We have to start with <code class="code-inline tex2jax_ignore">[1]</code> and <code class="code-inline tex2jax_ignore">[1 0]</code> which represent \(1\) and \(x\text{.}\) Once a vector of coefficients <code class="code-inline tex2jax_ignore">q</code> exists, one can use concatenation <code class="code-inline tex2jax_ignore">[q 0]</code> to shift the coefficients to the left, representing multiplication by \(x\text{.}\)</p>
-<pre class="code-block tex2jax_ignore">p = [1];
-q = [1 0];
-x = linspace(-1, 1, 1000);
+<pre class="code-block tex2jax_ignore">x = [-1, 0, 2, 3, 4, 7]'; 
+y = [9, 8, 5, 5, 3, 1]';
+A = [x, x.^0];
+z = A\y;
+xx = linspace(min(x), max(x), 500)';
+yy = [xx, xx.^0]*z;
 hold on
-plot(x, polyval(p, x), x, polyval(q, x));
-
-for n = 1:9
-    r = ((2*n+1)*[q 0] - n*[0 0 p])/(n+1);
-    p = q;
-    q = r;
-    disp(r);
-    plot(x, polyval(r, x))
-end
+plot(xx, yy)
+plot(x, y, 'r*')
 hold off
 </pre>
-<p>The loop runs up to \(n=9\) because the polynomial being computed has degree \(m+1\text{.}\) In the loop, <code class="code-inline tex2jax_ignore">q</code> is a polynomial of degree \(n\) and <code class="code-inline tex2jax_ignore">p</code> is a polynomial of degree \(n - 1\text{.}\) Concatenation <code class="code-inline tex2jax_ignore">[0 0 p]</code> adds zero terms to the latter polynomial; this does not change it mathematically but makes it possible to do vector addition of coefficients.</p>
+<p>Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'k*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx, xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later.</p>
 </div>
-<span class="incontext"><a href="examples-legendre-laguerre.html#answer-39">in-context</a></span>
+<span class="incontext"><a href="section-systems-without-free-variables.html#answer-39">in-context</a></span>
 </body>
 </html>

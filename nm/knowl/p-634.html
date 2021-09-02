@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In reality, \(\beta\) is not necessarily constant in time. Let us introduce seasonality into the model by making \(\beta\) a periodic function of \(t\text{,}\) for example</p>
-<pre class="code-block tex2jax_ignore">
-beta = @(t) 0.3 + 0.2*cos(0.2*t);
-</pre>
-<p data-braille="continuation">which is a periodic function that varies between \(0.1\) and \(0.5\text{.}\) Try this out (note that <code class="code-inline tex2jax_ignore">beta</code> should be replaced by <code class="code-inline tex2jax_ignore">beta(t)</code> in the formula for <code class="code-inline tex2jax_ignore">rhs</code>).</p>
+<p>It is convenient to express \(S, I, R\) as a proportion of total population. This means these quantities are between \(0\) and \(1\) and their sum is \(1\text{.}\) An important assumption of the model is that the rate of infection is proportional to the product \(SI\text{.}\) This is based on the simplifying idea that any two people in the population are equally likely to meet and transmit the disease, and since \(SI\) is the number of all susceptible-infected pairings, the number of transmissions will be proportional to it. This is not too far from reality when “population” means, for example, student population on some campus. When modeling the population of a large country, one would have to consider the effects of geography.</p>
 <span class="incontext"><a href="section-ode-epidemiology.html#p-634">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:40-04:00    *-->
+<!--*    on 2021-09-01T21:38:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The computation of Fourier coefficients <a class="xref" data-knowl="./knowl/eq-fourier-coefficients-discrete.html" title="Equation 25.3.2">(25.3.2)</a> amounts to matrix-vector multiplication \(c = Wz\) where \(W\) is the <dfn class="terminology">Fourier matrix</dfn> defined as follows. Let \(\omega = \exp(-2\pi i /n)\text{.}\) The matrix \(W\) has size \(n\times n\text{,}\) with entries given by  \(W_{k\ell} = \omega^{(k-1)(\ell-1)}\text{.}\) Explicitly,</p>
+<p>Using the period \(T=1\text{,}\) we find that the functions \(f_k(x) = \exp (2\pi i k x)\) are <em class="emphasis">orthonormal</em> with respect to the inner product</p>
 <div class="displaymath">
 \begin{equation}
-W = \begin{pmatrix} 1 &amp; 1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 \\
-1 &amp; \omega &amp; \omega^2 &amp; \omega^3 &amp; \dots &amp; \omega^{n-1} \\
-1 &amp; \omega^2 &amp; \omega^4 &amp; \omega^6 &amp; \dots &amp; \omega^{2(n-1)} \\
-1 &amp; \omega^3 &amp; \omega^6 &amp; \omega^9 &amp; \dots &amp; \omega^{3(n-1)} \\
-\cdots \\
-1 &amp; \omega^{n-1} &amp; \omega^{2(n-1)} &amp; \omega^{3(n-1)} &amp; \dots &amp; \omega^{(n-1)(n-1)} \\
-\end{pmatrix}\tag{25.3.4}
+\langle f, g \rangle = \int_0^1 f(x)\overline{g(x)}\,dx\tag{25.2.1}
 \end{equation}
 </div>
-<p data-braille="continuation">Normally, matrix-vector multiplication takes on the order of \(n^2\) operations. The <dfn class="terminology">Fast Fourier Transform</dfn> (FFT) is an algorithm that uses the specific structure of \(W\) to reduce the number of computations to something of the order \(n\log n\text{.}\) The reconstruction of function values from coefficients <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a> is very similar. Besides the factor of \(1/n\text{,}\) the only other difference is replacing matrix \(W\) with matrix \(W^*\) of the same form <a class="xref" data-knowl="./knowl/eq-fourier-matrix.html" title="Equation 25.3.4">(25.3.4)</a> but with \(\omega = \exp(2\pi i /n)\text{.}\)</p>
-<span class="incontext"><a href="section-discrete-fourier-transform.html#p-753">in-context</a></span>
+<p data-braille="continuation">(For other periods they are orthogonal but not orthonormal.) This makes it easy to compute the <dfn class="terminology">Fourier coefficients</dfn> of a given function \(f\) in the basis \(\{f_k\colon k\in \mathbb Z\}\text{:}\)</p>
+<div class="displaymath">
+\begin{equation}
+c_k = \langle f, f_k\rangle = \int_0^1 f(x) e^{-2\pi i k x}\,dx\tag{25.2.2}
+\end{equation}
+</div>
+<p data-braille="continuation">For sufficiently nice periodic functions (having a continuous derivative is enough), the <dfn class="terminology">Fourier series</dfn> \(\sum c_k f_k\) converges to function \(f\text{.}\)</p>
+<span class="incontext"><a href="section-fourier-series.html#p-753">in-context</a></span>
 </body>
 </html>

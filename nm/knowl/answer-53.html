@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,18 +14,24 @@
 <body>
 <div class="answer solution-like">
 <h6 class="heading">
-<span class="type">Answer</span><span class="space"> </span><span class="codenumber">20.1.1.1</span><span class="period">.</span>
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">19.4.1.1</span><span class="period">.</span>
 </h6>
-<pre class="code-block tex2jax_ignore">beta = 0.3;
-gamma = 0.2;
-y0 = [0.99, 0.01, 0];
-rhs = @(t, y) [-beta*y(1)*y(2); beta*y(1)*y(2) - gamma*y(2); gamma*y(2)];
-[t, y] = ode45(rhs, [0, 100], y0);
-plot(t, y, 'LineWidth', 3)
-legend('Susceptible', 'Infected', 'Recovered')
+<pre class="code-block tex2jax_ignore">f = @(t, y) -t*y;   % or without -
+h = 0.3;   %  or 0.1, 0.01 
+t = 0:h:3;
+y0 = 1;
+y = y0*ones(size(t));
+
+for k = 1:numel(t)-1
+    pred = y(k) + h*f(t(k), y(k));
+    y(k+1) = y(k) + h/2*(f(t(k), y(k)) + f(t(k+1), pred));
+end
+
+exact = exp(-t.^2 /2);   % or without -
+plot(t, y, t, exact)
+legend('trapezoid', 'exact')
 </pre>
-<p>In this scenario a part of the population (less then half) escapes the infection because the epidemic ends on its own after the transmission rate drops. Try varying the coefficients \(\beta, \gamma\) and observe the effect.</p>
 </div>
-<span class="incontext"><a href="section-ode-epidemiology.html#answer-53">in-context</a></span>
+<span class="incontext"><a href="section-ode-euler-improved.html#answer-53">in-context</a></span>
 </body>
 </html>

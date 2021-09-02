@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:44-04:00    *-->
+<!--*    on 2021-09-01T21:38:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Applied LP problems tend to have many variables and constraints, and a lot of work went into developing refining its solution methods such as the simplex method (walking along the edges of the feasible set) and interior point methods (moving through the interior of the feasible set toward its boundary).</p>
+<p>In Matlab, the problem <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a> is solved with</p>
+<pre class="code-block tex2jax_ignore">
+x = linprog(c, A, b)
+</pre>
+<p data-braille="continuation">which returns the optimal \(\mathbf x\text{.}\) One can get the optimal value of objective function with <code class="code-inline tex2jax_ignore">c'*x</code>.</p>
 <span class="incontext"><a href="section-linear-programming-introduction.html#p-999">in-context</a></span>
 </body>
 </html>

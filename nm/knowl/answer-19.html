@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,15 +14,12 @@
 <body>
 <div class="answer solution-like">
 <h6 class="heading">
-<span class="type">Answer</span><span class="space"> </span><span class="codenumber">3.3.1.1</span><span class="period">.</span>
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">3.1.2.1</span><span class="period">.</span>
 </h6>
-<pre class="code-block tex2jax_ignore">m = input('How many numbers in a sum? ');
-n = input('How many sums to compute? ');
-A = rand(m, n);
-S = sum(A, 1);
-hist(S, 30)
+<pre class="code-block tex2jax_ignore">max(sum(abs(A), 2))
 </pre>
+<p>The result is 12, coming from the second row. The maximal absolute row sum is important in applied linear algebra. It is one of several <dfn class="terminology">norms</dfn> that can be defined for a matrix.</p>
 </div>
-<span class="incontext"><a href="section-user-input.html#answer-19">in-context</a></span>
+<span class="incontext"><a href="section-builtin-functions.html#answer-19">in-context</a></span>
 </body>
 </html>

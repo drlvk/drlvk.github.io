@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:40-04:00    *-->
+<!--*    on 2021-09-01T21:38:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This terminology needs some explanation. The word <a class="external" href="https://en.wikipedia.org/wiki/Flat_spline" target="_blank">spline</a> used to refer to a long thin strip of flexible material (e.g., metal) which, if constrained at several points, assumes the shape of a smooth curve passing through these points. Unlike an elastic band which minimizes its length (creating a piecewise linear shape), the spline minimizes its <em class="emphasis">bending energy</em>. A mathematical idealization of the bending energy of a curve \(y=f(x)\) is the integral \(\int_a^b f''(x)^2\,dx\text{.}\) It can be shown that among <em class="emphasis">all functions</em> (of whatever form) that satisfy the constraints \(f(x_k)=y_k\text{,}\) the “natural spline” has the smallest value of \(\int_a^b f''(x)^2\,dx\text{.}\) This attractive mathematical property earned it the “natural” name… but upon further reflection, the boundary conditions \(S''(a) = 0 = S''(b)\) are actually not that natural. If we are interpolating some smooth function \(y=f(x)\text{,}\) there is no reason to assume that \(f''\) happens to be \(0\) at the endpoints.</p>
-<span class="incontext"><a href="section-cubic-splines.html#p-703">in-context</a></span>
+<p>A more abstract approach to the construction of degree 1 spline is as follows:</p>
+<ul class="disc">
+<li>We have \(n-1\) subintervals between \(n\) data points.</li>
+<li>On each subinterval we choose a degree 1 polynomial; this means we have \(2(n-1)\) coefficients to choose.</li>
+<li>But we want to spline to be continuous, so the values at each interior data point from the left and from the right must match. There are \(n-2\) interior data points, so the continuity imposes \(n-2\) equations.</li>
+<li>Finally, the spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
+<li>The total is \(n-2+n=2n-2\) equations with \(2(n-1) = 2n-2\) unknowns, so we expect (and get) a unique solution.</li>
+</ul>
+<span class="incontext"><a href="section-piecewise-linear-interpolation.html#p-703">in-context</a></span>
 </body>
 </html>

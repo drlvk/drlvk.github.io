@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,11 +12,14 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">x = linspace(-1, 5, 500);	
-y = (x - 1)./(x.^2 + 1);
-plot(x, y)
+<pre class="code-block tex2jax_ignore">n = 28;
+A = 3*eye(n) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1);
+b = zeros(n, 1);
+b(1) = 1;
+b(end) = 2;
+x = A\b;
+disp(x)
 </pre>
-<figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/plotting4.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.4<span class="period">.</span></span><span class="space"> </span>Plot of \(y = (x - 1)/(x^2 + 1)\) on \([-1, 5]\)</figcaption></figure><p>Note the use of semicolons to prevent Matlab from displaying hundreds of numbers that we do not need to see.</p>
+<p><em class="emphasis">Explanation</em>. The coefficient matrix has 3 on the main diagonal, and -1 above and below it. This matrix is created with the help of <code class="code-inline tex2jax_ignore">diag</code> as explained in <a href="section-large-matrices.html" class="internal" title="Section 2.2: More tools for constructing matrices">Section 2.2</a>. The right-hand size column vector begins with all-zeros: note that <code class="code-inline tex2jax_ignore">zeros(n, 1)</code> is a column of zeros, while <code class="code-inline tex2jax_ignore">zeros(1, n)</code> is a row of zeros. The first and last entries of <code class="code-inline tex2jax_ignore">b</code> are changed as described in the system.</p>
 </div></body>
 </html>

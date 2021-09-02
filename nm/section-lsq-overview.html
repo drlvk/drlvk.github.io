@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:26-04:00    *-->
+<!--*    on 2021-09-01T21:38:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -99,6 +99,7 @@ MathJax.Hub.Config({
 <li><a href="section-linear-systems.html" data-scroll="section-linear-systems">Systems of linear equations</a></li>
 <li><a href="section-large-matrices.html" data-scroll="section-large-matrices">More tools for constructing matrices</a></li>
 <li><a href="section-vectorization.html" data-scroll="section-vectorization">Array operations</a></li>
+<li><a href="section-array-expansion.html" data-scroll="section-array-expansion">Implicit expansion of arrays</a></li>
 <li><a href="section-plotting.html" data-scroll="section-plotting">Plotting</a></li>
 <li><a href="examples-systems-vectorization-plots.html" data-scroll="examples-systems-vectorization-plots">Examples and questions</a></li>
 <li><a href="exercises-systems-vectorization-plots.html" data-scroll="exercises-systems-vectorization-plots">Homework</a></li>
@@ -412,8 +413,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-lsq-overview"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">27.1</span> <span class="title">Overview of least squares</span>
 </h2>
-<p id="p-790">Least squares fit is about more than just fitting a curve to some points like <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a>. In its general form we have a vector \(\mathbf y\) of \(n\) observations and \(p\) vectors of <dfn class="terminology">explanatory variables</dfn>, say \(\mathbf v_1, \dots, \mathbf v_p\text{.}\) Our goal is to approximate \(\mathbf y\) by a linear combination of \(\mathbf v_k\text{,}\) say \(\sum_{k=1}^p \beta_k \mathbf v_k\text{.}\) What are these vectors in the polynomial model?</p>
-<p id="p-791">If \(\mathbf z = \sum_{k=1}^p \beta_k \mathbf v_k\) is the best prediction, then the difference \(\mathbf z - \mathbf y\) is orthogonal to each \(\mathbf v_k\text{.}\) That is,</p>
+<p id="p-797">Least squares fit is about more than just fitting a curve to some points like <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a>. In its general form we have a vector \(\mathbf y\) of \(n\) observations and \(p\) vectors of <dfn class="terminology">explanatory variables</dfn>, say \(\mathbf v_1, \dots, \mathbf v_p\text{.}\) Our goal is to approximate \(\mathbf y\) by a linear combination of \(\mathbf v_k\text{,}\) say \(\sum_{k=1}^p \beta_k \mathbf v_k\text{.}\) What are these vectors in the polynomial model?</p>
+<p id="p-798">If \(\mathbf z = \sum_{k=1}^p \beta_k \mathbf v_k\) is the best prediction, then the difference \(\mathbf z - \mathbf y\) is orthogonal to each \(\mathbf v_k\text{.}\) That is,</p>
 <div class="displaymath">
 \begin{equation}
 \mathbf z\cdot \mathbf v_k = \mathbf y\cdot \mathbf v_k\label{eq-lsq-1}\tag{27.1.1}
@@ -426,7 +427,7 @@ X^TX  \beta = X^T \mathbf y \label{eq-lsq-2}\tag{27.1.2}
 \end{equation}
 </div>
 <p data-braille="continuation">which is known as the <dfn class="terminology">normal equations</dfn> associated to the overdetermined system \(X\beta = \mathbf y\text{.}\) Note that \(X^TX\) is invertible if and only if the explanatory vectors are linearly independent (which they should be; otherwise we have redundant ones).</p>
-<p id="p-792">The goodness of fit could be measured in several ways. One indicator is the norm of the residual vector \(\mathbf y-\mathbf z\text{,}\) or better yet, the squared norm</p>
+<p id="p-799">The goodness of fit could be measured in several ways. One indicator is the norm of the residual vector \(\mathbf y-\mathbf z\text{,}\) or better yet, the squared norm</p>
 <div class="displaymath">
 \begin{equation}
 | \mathbf y-\mathbf z| = \sum_{k=1}^n |y_k-z_k|^2\label{eq-residual-squares}\tag{27.1.3}

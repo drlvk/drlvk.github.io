@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,20 +11,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = -5:5;
-n = numel(x);
-y = atan(x); 
-
-c = y;
-for k=2:n
-    c(k:n) = (c(k:n)-c(k-1))./(x(k:n)-x(k-1));
-end
-
-t = linspace(min(x)-0.01, max(x)+0.01, 1000);
-p = c(n)*ones(size(t));
-for k=n-1:-1:1
-    p = p.*(t-x(k)) + c(k);
-end
-plot(t, p, x, y, 'r*')
-</pre></div></body>
+<body><div class="answer solution-like">
+<p>To the code lines written above, we only have to add</p>
+<pre class="code-block tex2jax_ignore">rhs = @(t, y) [a*y(1) - b*y(1)*y(2); -c*y(2) + d*y(1)*y(2)];
+[t, y] = ode45(rhs, [0, 100], y0);
+plot(t, y, 'LineWidth', 3)
+legend('Rabbits', 'Foxes')
+</pre>
+<p>Observing the periodicity of the solution, one may want to summarize it with a phase plot in addition to time-series plot:</p>
+<pre class="code-block tex2jax_ignore">
+figure()
+plot(y(:,1), y(:,2), 'LineWidth', 3)
+xlabel('Rabbits')
+ylabel('Foxes')
+</pre>
+</div></body>
 </html>

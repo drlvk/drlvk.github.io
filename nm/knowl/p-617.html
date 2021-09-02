@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:38-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A close relative is <dfn class="terminology">midpoint method</dfn>. In it the trapezoidal corrector <a class="xref" data-knowl="./knowl/eq-ode-corrector.html" title="Equation 19.4.2">(19.4.2)</a> is replaced by</p>
-<div class="displaymath">
-\begin{equation}
-y_{k+1} = y_k + hf((t_k+t_{k+1})/2, (y_k + \tilde y_{k+1})/2)\tag{19.4.3}
-\end{equation}
-</div>
-<p data-braille="continuation">where \(\tilde y_{k+1}\) is computed as in <a class="xref" data-knowl="./knowl/eq-ode-predictor.html" title="Equation 19.4.1">(19.4.1)</a>.</p>
-<span class="incontext"><a href="section-ode-euler-improved.html#p-617">in-context</a></span>
+<p>As <a class="xref" data-knowl="./knowl/example-implement-euler.html" title="Example 19.2.1: Implement Euler's method">Example 19.2.1</a> shows, a weakness of Euler's method is its tendency to fall behind the solution when the solution is increasing and concave up, or decreasing and concave down. The reason is that it uses the rate of change from point \(t_k\) for the entire interval \([t_k, t_{k+1}]\text{.}\) When applied to an ODE of the form \(y'=f(t)\text{,}\) Euler's method becomes the left endpoint method of integration. So it is not very accurate.</p>
+<span class="incontext"><a href="section-euler-method.html#p-617">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:36-04:00    *-->
+<!--*    on 2021-09-01T21:38:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Try at least two different starting points (or more, if needed to find a solution). Report the outcome of running the method for each starting point. Was the root you found always the same?</p>
-<span class="incontext"><a href="exercises-broyden.html#p-404">in-context</a></span>
+<p>We have the same vector function to be equated to zero</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf F(\mathbf x) = \begin{pmatrix} x_1+x_2+x_3 +2  \\ 
+x_1x_2 + x_1x_3 + x_2x_3 + 7 \\
+x_1x_2x_3 + 1
+\end{pmatrix} 
+\end{equation*}
+</div>
+<p data-braille="continuation">but no longer use its Jacobian matrix. The code is modified by computing the steps as <code class="code-inline tex2jax_ignore">h = -B*F(x)</code> and updating the matrix <code class="code-inline tex2jax_ignore">B</code> according to Broyden's method.</p>
+<span class="incontext"><a href="examples-broyden.html#p-404">in-context</a></span>
 </body>
 </html>

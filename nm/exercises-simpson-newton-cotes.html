@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:18-04:00    *-->
+<!--*    on 2021-09-01T21:38:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -99,6 +99,7 @@ MathJax.Hub.Config({
 <li><a href="section-linear-systems.html" data-scroll="section-linear-systems">Systems of linear equations</a></li>
 <li><a href="section-large-matrices.html" data-scroll="section-large-matrices">More tools for constructing matrices</a></li>
 <li><a href="section-vectorization.html" data-scroll="section-vectorization">Array operations</a></li>
+<li><a href="section-array-expansion.html" data-scroll="section-array-expansion">Implicit expansion of arrays</a></li>
 <li><a href="section-plotting.html" data-scroll="section-plotting">Plotting</a></li>
 <li><a href="examples-systems-vectorization-plots.html" data-scroll="examples-systems-vectorization-plots">Examples and questions</a></li>
 <li><a href="exercises-systems-vectorization-plots.html" data-scroll="exercises-systems-vectorization-plots">Homework</a></li>
@@ -413,15 +414,15 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">14.5</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-34"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-484">Sometimes one needs an “open-ended” version of Newton-Cotes rules, which does not use the values of the function at the endpoints (because the function may not be defined at the endpoints). Find the coefficients in the integration rule</p>
+<p id="p-491">Sometimes one needs an “open-ended” version of Newton-Cotes rules, which does not use the values of the function at the endpoints (because the function may not be defined at the endpoints). Find the coefficients in the integration rule</p>
 <div class="displaymath">
 \begin{equation*}
 \int_{-1}^1 f(x)\,dx \approx w_1 f(-1/2) + w_2 f(0) + w_3 f(1/2)
 \end{equation*}
 </div>
 <p data-braille="continuation">so that the rule is precise for \(x^0\text{,}\) \(x^1\text{,}\) and \(x^2\text{.}\) (You can use Matlab for solving the system of equations for the weights.)</p></article><article class="exercise exercise-like" id="exercise-35"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-485">Apply the integration rule derived in the previous exercise to \(\int_{-1}^1 (1-x^2)^{-1/4}\,dx\text{.}\) How close is the result to the actual value of the integral (you can find it, for example, with WolframAlpha)?</p></article><article class="exercise exercise-like" id="exercise-36"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-486">In a loop over <code class="code-inline tex2jax_ignore">n=2:10</code>, do the following. First, compute the weights for \(n\)-point Newton-Cotes rule (of the standard type, as in <a class="xref" data-knowl="./knowl/example-find-cotes-weights.html" title="Example 14.3.1: Find the weights for a 5-point Newton-Cotes formula">Example 14.3.1</a>). Then use this rule to approximate \(\int_{-1}^1 e^x\,dx\text{.}\) After the loop ends you should have 9 approximations to this integral. Show how their accuracy changes with \(n\) by plotting the absolute value of the difference between the integral and approximation, as a function of \(n\text{.}\) Use <code class="code-inline tex2jax_ignore">semilogy</code> instead of <code class="code-inline tex2jax_ignore">plot</code> to show the plot on logarithmic scale.</p></article></section></div></main>
+<p id="p-492">Apply the integration rule derived in the previous exercise to \(\int_{-1}^1 (1-x^2)^{-1/4}\,dx\text{.}\) How close is the result to the actual value of the integral (you can find it, for example, with WolframAlpha)?</p></article><article class="exercise exercise-like" id="exercise-36"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
+<p id="p-493">In a loop over <code class="code-inline tex2jax_ignore">n=2:10</code>, do the following. First, compute the weights for \(n\)-point Newton-Cotes rule (of the standard type, as in <a class="xref" data-knowl="./knowl/example-find-cotes-weights.html" title="Example 14.3.1: Find the weights for a 5-point Newton-Cotes formula">Example 14.3.1</a>). Then use this rule to approximate \(\int_{-1}^1 e^x\,dx\text{.}\) After the loop ends you should have 9 approximations to this integral. Show how their accuracy changes with \(n\) by plotting the absolute value of the difference between the integral and approximation, as a function of \(n\text{.}\) Use <code class="code-inline tex2jax_ignore">semilogy</code> instead of <code class="code-inline tex2jax_ignore">plot</code> to show the plot on logarithmic scale.</p></article></section></div></main>
 </div>
 </body>
 </html>

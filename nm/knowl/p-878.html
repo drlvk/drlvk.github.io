@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:42-04:00    *-->
+<!--*    on 2021-09-01T21:38:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>If we can find the derivative \(f'\) (or gradient \(\nabla f\) in higher dimensions), it may be possible to apply one of root-finding methods of <a href="part-equations.html" class="internal" title="Part II: Solving Equations">Part II</a> to it. For example, Newton's method was one of those. But since we are solving \(f'=0\text{,}\) the method will involve the second derivative of \(f\text{:}\) it amounts to iteration of the function</p>
+<p>A function is <dfn class="terminology">convex</dfn> (also called “concave up” in calculus) if its graph lies below its secant lines, meaning</p>
 <div class="displaymath">
 \begin{equation}
-g(x) = x - \frac{f'(x)}{f''(x)}\tag{30.3.1}
+f( (1-t) a + t b) \le t f(a) + (1-t) f(b), \quad 0 \lt  t \lt 1\tag{30.1.1}
 \end{equation}
 </div>
-<p data-braille="continuation">Let's try this out on a simple example.</p>
-<span class="incontext"><a href="section-newton-method-min.html#p-878">in-context</a></span>
+<p data-braille="continuation">A function is <dfn class="terminology">strictly convex</dfn> if the inequality <a class="xref" data-knowl="./knowl/eq-def-convexity.html" title="Equation 30.1.1">(30.1.1)</a> is strict. Such a function is unimodal on any interval. (Can you find a unimodal function that is not convex?)</p>
+<span class="incontext"><a href="section-introduction-optimization.html#p-878">in-context</a></span>
 </body>
 </html>

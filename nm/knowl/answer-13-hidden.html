@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,14 +12,9 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">diag(2*ones(1, n)) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
+<pre class="code-block tex2jax_ignore">t = linspace(0, 20, 500);
+plot(t.*cos(t), t.*sin(t))
 </pre>
-<p>or</p>
-<pre class="code-block tex2jax_ignore">2*diag(ones(1, n)) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
-</pre>
-<p>or</p>
-<pre class="code-block tex2jax_ignore">2*eye(n) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
-</pre>
-<p>It is important to recognize why <code class="code-inline tex2jax_ignore">n-1</code> appears above. The main diagonal has length <code class="code-inline tex2jax_ignore">n</code> but the diagonals next to it are shorter by 1 element, so their length is <code class="code-inline tex2jax_ignore">n-1</code>.</p>
+<p>This curve is called the <dfn class="terminology">Archimedean spiral</dfn>.</p>
 </div></body>
 </html>

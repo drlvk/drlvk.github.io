@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:38-04:00    *-->
+<!--*    on 2021-09-01T21:38:21-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,22 +12,22 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<p>Combine the code from <a class="xref" data-knowl="./knowl/example-computation-legendre-roots.html" title="Example 15.4.2: The roots of Legendre polynomials">Example 15.4.2</a> (computation of Legendre roots) and <a class="xref" data-knowl="./knowl/example-find-cotes-weights.html" title="Example 14.3.1: Find the weights for a 5-point Newton-Cotes formula">Example 14.3.1</a> (computing the weights). This only requires some changes in variable names and in the orientation of vectors (row/column).</p>
-<pre class="code-block tex2jax_ignore">n = input('n = ');
-p = [1];
+<p>We have to start with <code class="code-inline tex2jax_ignore">[1]</code> and <code class="code-inline tex2jax_ignore">[1 0]</code> which represent \(1\) and \(x\text{.}\) Once a vector of coefficients <code class="code-inline tex2jax_ignore">q</code> exists, one can use concatenation <code class="code-inline tex2jax_ignore">[q 0]</code> to shift the coefficients to the left, representing multiplication by \(x\text{.}\)</p>
+<pre class="code-block tex2jax_ignore">p = [1];
 q = [1 0];
-for m = 1:n-1
-    r = ((2*m+1)*[q 0] - m*[0 0 p])/(m+1);
+x = linspace(-1, 1, 1000);
+hold on
+plot(x, polyval(p, x), x, polyval(q, x));
+
+for n = 1:9
+    r = ((2*n+1)*[q 0] - n*[0 0 p])/(n+1);
     p = q;
     q = r;
+    disp(r);
+    plot(x, polyval(r, x))
 end
-x = roots(r)';
-disp(x);    %  the evaluation points
-i = (1:n)'; 
-A = x.^(i-1);
-b = (1-(-1).^i)./i;
-w = A\b;
-disp(w');   %  the weights
+hold off
 </pre>
+<p>The loop runs up to \(n=9\) because the polynomial being computed has degree \(m+1\text{.}\) In the loop, <code class="code-inline tex2jax_ignore">q</code> is a polynomial of degree \(n\) and <code class="code-inline tex2jax_ignore">p</code> is a polynomial of degree \(n - 1\text{.}\) Concatenation <code class="code-inline tex2jax_ignore">[0 0 p]</code> adds zero terms to the latter polynomial; this does not change it mathematically but makes it possible to do vector addition of coefficients.</p>
 </div></body>
 </html>

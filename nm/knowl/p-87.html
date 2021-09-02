@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>or</p>
-<span class="incontext"><a href="examples-systems-vectorization-plots.html#p-87">in-context</a></span>
+<p>In the first line, I chose 0.1 as the step size for the x-interval. It would be a mistake to use <code class="code-inline tex2jax_ignore">x = 0:3</code> because the step size of 1 unit would make a very rough (low-resolution) plot with only four points used. The step size could be 0.01 instead: we may get smoother graph at the expense of more computations. The second line compute the y-values. Consider the following:</p>
+<ul class="disc">
+<li>The period in <code class="code-inline tex2jax_ignore">x.^3</code> is required to have elementwise power operation</li>
+<li>We do not need a period in <code class="code-inline tex2jax_ignore">-2*x</code> because multiplying a vector by a scalar already works elementwise. There is no difference between <code class="code-inline tex2jax_ignore">-2*x</code> and <code class="code-inline tex2jax_ignore">-2.*x</code>
+</li>
+<li>We need <code class="code-inline tex2jax_ignore">.*</code> to multiply two vectors elementwise.</li>
+<li>Whitespace around <code class="code-inline tex2jax_ignore">.*</code> is not necessary but some people find <code class="code-inline tex2jax_ignore">x.^3.*exp(-2*x)</code> harder to read because <code class="code-inline tex2jax_ignore">3.</code> looks like a decimal dot after 3.</li>
+</ul>
+<span class="incontext"><a href="section-plotting.html#p-87">in-context</a></span>
 </body>
 </html>

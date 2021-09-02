@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:40-04:00    *-->
+<!--*    on 2021-09-01T21:38:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,20 +14,17 @@
 <body>
 <div class="answer solution-like">
 <h6 class="heading">
-<span class="type">Answer</span><span class="space"> </span><span class="codenumber">25.4.1.1</span><span class="period">.</span>
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">25.1.1.1</span><span class="period">.</span>
 </h6>
-<p>Here \(n=5\) (the number of interpolation points), and <code class="code-inline tex2jax_ignore">z = rand(1, n)</code> (real numbers). Theoretically, the interpolating polynomial will be real-valued but due to limited precision, some small imaginary component may appear. So we should take the real part <code class="code-inline tex2jax_ignore">real(p(t))</code>.</p>
-<pre class="code-block tex2jax_ignore">n = 5;
-z = rand(1, n);
-c = fft(z);
-k = [0:(n-1)/2 (1-n)/2:-1];
-p = @(t) c/n*exp(2*pi*1i*k'*t);
-
-t = linspace(0, 1, 1000);
-plot(t, real(p(t)), (0:n-1)/n, z, 'r*')
+<p>This example uses \(T=2\pi\) (the choice of period does not change these plots). Note the vectorized evaluation <code class="code-inline tex2jax_ignore">c*exp(1i*k'*t)</code> and recognize the role of transpose <code class="code-inline tex2jax_ignore">k'</code> here.</p>
+<pre class="code-block tex2jax_ignore">n = 3;
+c = randn(1, 2*n+1)  + 1i*randn(1, 2*n+1);
+t = linspace(0, 2*pi, 1000);
+k = -n:n;
+z = c*exp(1i*k'*t);
+plot(z)
 </pre>
-<p>Note that \(p(1)=p(0)\) by construction.</p>
 </div>
-<span class="incontext"><a href="section-trigonometric-interpolation.html#answer-66">in-context</a></span>
+<span class="incontext"><a href="section-periodic-functions.html#answer-66">in-context</a></span>
 </body>
 </html>

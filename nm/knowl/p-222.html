@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'k*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx, xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later.</p>
-<span class="incontext"><a href="section-systems-without-free-variables.html#p-222">in-context</a></span>
+<p>The consistency can be analyzed in terms of the <dfn class="terminology">rank</dfn> of a matrix. By definition, a matrix has rank \(r\) if it has \(r\) linearly independent columns, and all other columns are their linear combinations. One can replace “columns” by “rows” in the previous sentence. One can compute the rank with <code class="code-inline tex2jax_ignore">rank</code> in Matlab. Also, the Matlab formula <code class="code-inline tex2jax_ignore">[A b]</code> forms the <dfn class="terminology">augmented matrix</dfn> of the system  \(Ax=b\text{,}\) which has an extra column with the entries of \(b\text{.}\)</p>
+<span class="incontext"><a href="section-classification-linear-systems.html#p-222">in-context</a></span>
 </body>
 </html>

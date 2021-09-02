@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>To find approximations, multiply each of the numbers by 32 and round the result to the nearest integer. Thus, \(0.1\approx 3/32\text{,}\) \(0.2\approx 6/32\text{,}\) and \(0.3 \approx 10/32\) (because \(0.3\cdot 32 = 9.6\) rounds to 10). Hence</p>
-<div class="displaymath">
-\begin{equation*}
-0.1 + 0.2 - 0.3 \approx \frac{3}{32} + \frac{6}{32} - \frac{10}{32} = -\frac{1}{32}
-\end{equation*}
-</div>
-<p data-braille="continuation">The result is not zero due to round-off errors. This is exactly what happens in Matlab computations, except that they involve a much larger power of 2.</p>
-<span class="incontext"><a href="section-round-off.html#p-235">in-context</a></span>
+<p>There is another logical choice of solution in a problem like this: one could pick the point on the line that is closest to the origin \((0, 0, 0)\text{,}\) that is the solution of smallest norm. This is the approach that Octave uses: when given <a class="xref" data-knowl="./knowl/example-system-free-variable.html" title="Example 6.3.1: System with a free variable">Example 6.3.1</a> it would produce <code class="code-inline tex2jax_ignore">[-4.5556; 0.1111; 4.7778]</code>. One can get this solution with Matlab by using  <code class="code-inline tex2jax_ignore">pinv(A)*b</code>, which results in <code class="code-inline tex2jax_ignore">[-4.5556; 0.1111; 4.7778]</code>. This approach takes longer because it involves computing the <dfn class="terminology">pseudoinverse</dfn> of \(A\) which is a subject of MAT 532.</p>
+<span class="incontext"><a href="section-systems-with-free-variables.html#p-235">in-context</a></span>
 </body>
 </html>

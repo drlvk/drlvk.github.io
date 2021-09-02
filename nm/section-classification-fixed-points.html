@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:13-04:00    *-->
+<!--*    on 2021-09-01T21:37:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -99,6 +99,7 @@ MathJax.Hub.Config({
 <li><a href="section-linear-systems.html" data-scroll="section-linear-systems">Systems of linear equations</a></li>
 <li><a href="section-large-matrices.html" data-scroll="section-large-matrices">More tools for constructing matrices</a></li>
 <li><a href="section-vectorization.html" data-scroll="section-vectorization">Array operations</a></li>
+<li><a href="section-array-expansion.html" data-scroll="section-array-expansion">Implicit expansion of arrays</a></li>
 <li><a href="section-plotting.html" data-scroll="section-plotting">Plotting</a></li>
 <li><a href="examples-systems-vectorization-plots.html" data-scroll="examples-systems-vectorization-plots">Examples and questions</a></li>
 <li><a href="exercises-systems-vectorization-plots.html" data-scroll="exercises-systems-vectorization-plots">Homework</a></li>
@@ -412,40 +413,40 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-classification-fixed-points"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">8.1</span> <span class="title">Classification of fixed points</span>
 </h2>
-<p id="p-285">A <dfn class="terminology">fixed point</dfn> of a function \(g\) is a number \(x^*\) such that \(g(x^*)=x^*\text{.}\) This is the same as a root of \(g(x)-x=0\) but we will see that writing an equation with \(x\) on the right provides a new approach to solving it.</p>
-<article class="example example-like" id="example-47"><a data-knowl="" class="id-ref original" data-refid="hk-example-47"><h6 class="heading">
+<p id="p-292">A <dfn class="terminology">fixed point</dfn> of a function \(g\) is a number \(x^*\) such that \(g(x^*)=x^*\text{.}\) This is the same as a root of \(g(x)-x=0\) but we will see that writing an equation with \(x\) on the right provides a new approach to solving it.</p>
+<article class="example example-like" id="example-49"><a data-knowl="" class="id-ref original" data-refid="hk-example-49"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Find all fixed points of a function.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-47"><article class="example example-like"><p id="p-286">Find all fixed points of the function \(g(x) = \sqrt{1+x}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-49"><article class="example example-like"><p id="p-293">Find all fixed points of the function \(g(x) = \sqrt{1+x}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like">
-<p id="p-287">Squaring both sides of \(\sqrt{1+x} = x\) yields \(x^2 - x - 1\) which is a quadratic equation with roots \((1\pm \sqrt{5})/2 \text{.}\) However, the negative root does not satisfy the original equation  \(\sqrt{1+x} = x\text{.}\)</p>
-<p id="p-288">Answer: one fixed point   \(x^* = (1+\sqrt{5})/2\text{.}\)</p>
+<p id="p-294">Squaring both sides of \(\sqrt{1+x} = x\) yields \(x^2 - x - 1\) which is a quadratic equation with roots \((1\pm \sqrt{5})/2 \text{.}\) However, the negative root does not satisfy the original equation  \(\sqrt{1+x} = x\text{.}\)</p>
+<p id="p-295">Answer: one fixed point   \(x^* = (1+\sqrt{5})/2\text{.}\)</p>
 </div></div>
 </div></article></div>
-<p id="p-289">The process of <dfn class="terminology">iterating</dfn> some function \(g\) consists of the following: start from some initial value \(x_0\text{,}\) let \(x_1=g(x_0)\text{,}\) \(x_2 = g(x_1)\text{,}\) and generally \(x_{n+1} = g(x_n)\text{.}\) If the sequence \(x_n\) has a limit  \(x^* \text{,}\) and \(g\) is a continuous function, it follows that \(g(x^*)=x^*\text{.}\)</p>
-<p id="p-290">However, can we expect the iteration to converge to a fixed point \(x^* \text{?}\) The answer depends on the value of \(g'(x^*)\text{.}\) Indeed, when \(x\approx x^*\text{,}\) the difference \(g(x)-x^*\) is approximately \(g'(x^*)(x-x^*)\) because the graph of a differential function is close to its tangent line. When \(|g'(x^*)|\lt 1\text{,}\) the distance to fixed point is decreasing but if  \(|g'(x^*)| &gt; 1\) it is increasing. This leads us to introduce the following concept.</p>
-<p id="p-291"><em class="emphasis">Classification of fixed points</em>. A fixed point \(x^*\) is called</p>
+<p id="p-296">The process of <dfn class="terminology">iterating</dfn> some function \(g\) consists of the following: start from some initial value \(x_0\text{,}\) let \(x_1=g(x_0)\text{,}\) \(x_2 = g(x_1)\text{,}\) and generally \(x_{n+1} = g(x_n)\text{.}\) If the sequence \(x_n\) has a limit  \(x^* \text{,}\) and \(g\) is a continuous function, it follows that \(g(x^*)=x^*\text{.}\)</p>
+<p id="p-297">However, can we expect the iteration to converge to a fixed point \(x^* \text{?}\) The answer depends on the value of \(g'(x^*)\text{.}\) Indeed, when \(x\approx x^*\text{,}\) the difference \(g(x)-x^*\) is approximately \(g'(x^*)(x-x^*)\) because the graph of a differential function is close to its tangent line. When \(|g'(x^*)|\lt 1\text{,}\) the distance to fixed point is decreasing but if  \(|g'(x^*)| &gt; 1\) it is increasing. This leads us to introduce the following concept.</p>
+<p id="p-298"><em class="emphasis">Classification of fixed points</em>. A fixed point \(x^*\) is called</p>
 <ul class="disc">
-<li id="li-93">
-<dfn class="terminology">repelling</dfn> if \(|g'(x^*)| &gt; 1\)</li>
-<li id="li-94">
-<dfn class="terminology">attracting</dfn> if \(|g'(x^*)| \lt 1\)</li>
-<li id="li-95">
-<dfn class="terminology">super-attracting</dfn> if \(g'(x^*) = 0 \) (a special case of attracting fixed points)</li>
 <li id="li-96">
+<dfn class="terminology">repelling</dfn> if \(|g'(x^*)| &gt; 1\)</li>
+<li id="li-97">
+<dfn class="terminology">attracting</dfn> if \(|g'(x^*)| \lt 1\)</li>
+<li id="li-98">
+<dfn class="terminology">super-attracting</dfn> if \(g'(x^*) = 0 \) (a special case of attracting fixed points)</li>
+<li id="li-99">
 <dfn class="terminology">neutral</dfn> if \(|g'(x^*)| = 1 \)</li>
 </ul>
 <p data-braille="continuation">According to the above, iteration of \(g\) may converge to an attracting point but will not converge to a repelling one. The neutral points are a borderline case: some of them are limits of iterative process, some are not.</p>
-<article class="example example-like" id="example-48"><a data-knowl="" class="id-ref original" data-refid="hk-example-48"><h6 class="heading">
+<article class="example example-like" id="example-50"><a data-knowl="" class="id-ref original" data-refid="hk-example-50"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Find and classify the fixed points.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-48"><article class="example example-like"><p id="p-292">Find and classify all fixed points of the function \(g(x) = x^3 + x^2 - x\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-50"><article class="example example-like"><p id="p-299">Find and classify all fixed points of the function \(g(x) = x^3 + x^2 - x\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-10" id="solution-10"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-10"><div class="solution solution-like">
-<p id="p-293">The equation \(x^3 + x^2 - x = x\) simplifies to \(x(x^2 + x - 2) =0\) which has roots \(0, 1, -2\text{.}\) These are the three fixed points. Plug each into the derivative \(g'(x) = 3x^2 + 2x - 1\) to find that</p>
+<p id="p-300">The equation \(x^3 + x^2 - x = x\) simplifies to \(x(x^2 + x - 2) =0\) which has roots \(0, 1, -2\text{.}\) These are the three fixed points. Plug each into the derivative \(g'(x) = 3x^2 + 2x - 1\) to find that</p>
 <ul class="disc">
-<li id="li-97">\(|g'(0)| = |-1| = 1\text{,}\) a neutral fixed point</li>
-<li id="li-98">\(|g'(1)| = |4| = 4\text{,}\) a repelling fixed point</li>
-<li id="li-99">\(|g'(-2)| = |7| = 7\text{,}\) a repelling fixed point</li>
+<li id="li-100">\(|g'(0)| = |-1| = 1\text{,}\) a neutral fixed point</li>
+<li id="li-101">\(|g'(1)| = |4| = 4\text{,}\) a repelling fixed point</li>
+<li id="li-102">\(|g'(-2)| = |7| = 7\text{,}\) a repelling fixed point</li>
 </ul>
 </div></div>
 </div></article></div></section></div></main>

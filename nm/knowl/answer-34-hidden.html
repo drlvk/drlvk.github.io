@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,14 +11,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="answer solution-like"><pre class="code-block tex2jax_ignore">x = linspace(-1, 1, 500);
-plot(x, p(x, -3/2, 6))
+<body><div class="answer solution-like">
+<pre class="code-block tex2jax_ignore">meansin = @(n) mean(sin(1:n));
 
-function y = p(x, a, n)
-    y = ones(size(x));
-    for k = 1:n
-        y = y + x.^k/(a+k-1);
-    end
+for n = [10 50 250 1870 5000]
+    disp(meansin(n))
 end
-</pre></div></body>
+</pre>
+<p><em class="emphasis">Explanation</em>: this is a reminder that the vector in <code class="code-inline tex2jax_ignore">for</code> loop does not have to be of the form <code class="code-inline tex2jax_ignore">a:b</code> even though this form is most common. Here the use of a loop avoids having to write</p>
+<pre class="code-block tex2jax_ignore">
+disp(meansin(10))
+disp(meansin(50)) 
+disp(meansin(250)) 
+</pre>
+<p data-braille="continuation">and so on.</p>
+<p>It appears that the mean values approach 0 as <code class="code-inline tex2jax_ignore">n</code> grows. This can be proved mathematically: see the homework section.</p>
+</div></body>
 </html>

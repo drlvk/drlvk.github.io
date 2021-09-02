@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:41-04:00    *-->
+<!--*    on 2021-09-01T21:38:24-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An additional detail: when one reports the model performance (not in this class, but perhaps for a publication), the reported value of \(R^2\) or other estimate of goodness-of-fit should be computed on a separate <dfn class="terminology">validation set</dfn> which was not used for either training or testing. Using the testing set for reporting \(R^2\) introduces a subtle source of bias: if <em class="emphasis">many</em> models are tested, and one of them wins, it is more likely than not that the winning model “had better luck” with the specific data set used for testing, and that would lead us to overestimate its goodness-of-fit. (Here is an <a class="external" href="https://imgs.xkcd.com/comics/significant.png" target="_blank">example</a> of testing too many models and not validating.)</p>
-<span class="incontext"><a href="section-overfitting.html#p-798">in-context</a></span>
+<p>If \(\mathbf z = \sum_{k=1}^p \beta_k \mathbf v_k\) is the best prediction, then the difference \(\mathbf z - \mathbf y\) is orthogonal to each \(\mathbf v_k\text{.}\) That is,</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf z\cdot \mathbf v_k = \mathbf y\cdot \mathbf v_k\tag{27.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">for each \(k\text{.}\) These are \(p\) linear equations for \(p\) parameters.  Let us express them in matrix form. Let \(X\) be the \(n\times p\) matrix formed by vectors  \(\mathbf v_1, \dots, \mathbf v_p\) as columns. Then \(X^T\mathbf y\) is the column vector with entries \(\mathbf y\cdot \mathbf v_k\text{,}\) matching the right hand side of <a class="xref" data-knowl="./knowl/eq-lsq-1.html" title="Equation 27.1.1">(27.1.1)</a>. The left hand side of <a class="xref" data-knowl="./knowl/eq-lsq-1.html" title="Equation 27.1.1">(27.1.1)</a> involves \(z = X\beta\)  where \(\beta\) is the vector of coefficients that we are looking for. With this, we recognize that \(X^TX \beta \) is the vector whose entries match the left hand side. In conclusion, the matrix form of <a class="xref" data-knowl="./knowl/eq-lsq-1.html" title="Equation 27.1.1">(27.1.1)</a> is</p>
+<div class="displaymath">
+\begin{equation}
+X^TX  \beta = X^T \mathbf y \tag{27.1.2}
+\end{equation}
+</div>
+<p data-braille="continuation">which is known as the <dfn class="terminology">normal equations</dfn> associated to the overdetermined system \(X\beta = \mathbf y\text{.}\) Note that \(X^TX\) is invertible if and only if the explanatory vectors are linearly independent (which they should be; otherwise we have redundant ones).</p>
+<span class="incontext"><a href="section-lsq-overview.html#p-798">in-context</a></span>
 </body>
 </html>

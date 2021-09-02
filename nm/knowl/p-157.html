@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In <a href="section-while-loop.html" class="internal" title="Section 4.2: while loop">Section 4.2</a> we noted an issue with <code class="code-inline tex2jax_ignore">while</code> loop: it can go on forever, or for such a long time that we simply have to give up on the computation and maybe try something else. The command <code class="code-inline tex2jax_ignore">break</code> exits the loop (it can be either <code class="code-inline tex2jax_ignore">for</code> or <code class="code-inline tex2jax_ignore">while</code> loop). This command is always contained in an <code class="code-inline tex2jax_ignore">if</code> statement because the idea is to break out of the loop when some condition is reached. Here is an example of such situation. Starting with <code class="code-inline tex2jax_ignore">x=1</code>, the code repeatedly replaces x with \(\frac{1}{2}(x + a/x)\) where the number <code class="code-inline tex2jax_ignore">a</code> is provided by the user.</p>
-<span class="incontext"><a href="section-break-statement.html#p-157">in-context</a></span>
+<p>Here we introduce a variable <code class="code-inline tex2jax_ignore">dx</code> that represents the difference between old and new values of <code class="code-inline tex2jax_ignore">x</code>. This variable can be initially assigned some arbitrary value that is greater than the tolerance, for example 1 or 100. This ensures that the condition <code class="code-inline tex2jax_ignore">abs(dx) &gt;= 1e-9</code> holds at the beginning of the loop. After that the loop changes the value of <code class="code-inline tex2jax_ignore">dx</code> and the process repeats until it becomes small enough.</p>
+<span class="incontext"><a href="section-while-loop.html#p-157">in-context</a></span>
 </body>
 </html>

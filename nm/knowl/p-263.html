@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,16 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Generally, if some numerical method has error \(\epsilon_n\) after \(n\) steps, we say that the method is</p>
-<ul class="disc">
-<li>
-<dfn class="terminology">linearly convergent</dfn> if \(\epsilon_{n+1} \le c\epsilon_b\) with some constant \(c \lt 1\)</li>
-<li>
-<dfn class="terminology">quadratically convergent</dfn> if \(\epsilon_{n+1} \le M\epsilon_n^2\) with some constant \(M\)</li>
-<li>
-<dfn class="terminology">convergent with order \(p\)</dfn> if \(\epsilon_{n+1} \le M\epsilon_n^p\) with some constants \(M\text{,}\) \(p &gt; 0\text{.}\)</li>
-</ul>
-<p data-braille="continuation">Since for the bisection method \(\epsilon_{n+1} = \frac{1}{2}\epsilon_n\text{,}\) the bisection method is linearly convergent.</p>
-<span class="incontext"><a href="section-bisection-method.html#p-263">in-context</a></span>
+<p>For the reason mentioned in the previous paragraph, the Matlab command <code class="code-inline tex2jax_ignore">eps(x)</code> gives the smallest possible size of an interval including <code class="code-inline tex2jax_ignore">x</code> that can be expressed in its arithmetic. For example, <code class="code-inline tex2jax_ignore">eps(10^20)</code> returns 16384, indicating we cannot expect an interval around \(10^{20}\) to be smaller than 16384. When looking for a root, a reasonable approach is to consider an interval \([a, b]\) “small enough” when <code class="code-inline tex2jax_ignore">b - a &lt; 100*eps(a)</code> where the factor 100 allows for accumulation of round-off errors during the computation.</p>
+<span class="incontext"><a href="section-meaning-numeric-solution.html#p-263">in-context</a></span>
 </body>
 </html>

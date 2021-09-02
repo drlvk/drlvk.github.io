@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,8 +12,10 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">A = (b-a)*rand(5, 5) + a;
+<pre class="code-block tex2jax_ignore">A = rand(10, 10000);
+S = sum(A, 1);
+hist(S, 30);
 </pre>
-<p><em class="emphasis">Explanation</em>: we take random numbers between 0 and 1, and then apply a linear function which sends 0 to a, and 1 to b. This function is \(y = (b-a)x + a\text{.}\)</p>
+<p>This histogram resembles a “bell curve” of normal distribution. The similarly grows stronger if we take sums of more numbers, and plot more random sums. This is the content of <dfn class="terminology">Central Limit Theorem</dfn> in probability.</p>
 </div></body>
 </html>

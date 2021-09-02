@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:37-04:00    *-->
+<!--*    on 2021-09-01T21:38:20-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The substitution \(u = e^{-x}\) works well here. Since \(du = -e^{-x}\,dx\) and \(x = -\log u\text{,}\) it follows that</p>
-<div class="displaymath">
-\begin{equation*}
-\int_1^\infty \dfrac{e^{-x}}{x} \,dx 
-= -\int_0^{1/e} \dfrac{1}{\log u} \,du 
-\end{equation*}
-</div>
-<p data-braille="continuation">The integral on the right is proper. As \(u\to 0+\text{,}\) the logarithm tends to negative infinity, but this only makes the integrand zero; so it is a continuous function on the interval of integration.</p>
-<span class="incontext"><a href="examples-trapezoid-midpoint.html#p-459">in-context</a></span>
+<p>There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
+<ol class="decimal">
+<li>Let \(d = 0\)</li>
+<li>Apply the integration rule to \(f(x) = x^d\) on the interval \([0, h]\text{,}\) with the smallest possible number of evaluation points. Find the error term.</li>
+<li>If the error term is zero, increase \(d\) by \(1\) and return to step 2.</li>
+<li>Express the error as \(C \,d! \,h^{d+1}\) with an explicit constant \(C\text{.}\) Note that the factorial \(d!\) is here because it is the derivative of \(f\) of order \(d\text{,}\) which is the source of the error.</li>
+<li>The error bound for a single subinterval is \(C \max |f^{(d)}|  h^{d+1}\text{.}\)</li>
+<li>When the estimate is applied on an interval \([a,b]\) with step size \(h=(b-a)/n\text{,}\) the error estimate is multiplied by \(n\text{;}\) thus the final result is \(C \max |f^{(d)}|  (b-a)  h^d \text{.}\)</li>
+</ol>
+<span class="incontext"><a href="section-lrtm-error-estimates.html#p-459">in-context</a></span>
 </body>
 </html>

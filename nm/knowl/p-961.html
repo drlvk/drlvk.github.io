@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:43-04:00    *-->
+<!--*    on 2021-09-01T21:38:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>To improve the situation, add a <dfn class="terminology">stochastic</dfn> (random) step to the minimization process, as an alternative to contraction. That is, when the algorithm in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> wants to contract the triangle, try the following point first.</p>
+<p>The algorithm described above works quite well, considering we are minimizing a challenging function without using any derivative information. The version of the Nelder-Mead algorithm implemented in Matlab is a little different in that it chooses between three ways of contracting a simplex (called “contract inside”, “contract outside”, “shrink”) but the main ideas are the same. To observe the process of <code class="code-inline tex2jax_ignore">fminsearch</code> optimization, run</p>
 <pre class="code-block tex2jax_ignore">
-S = T(:, ind) + randn(2, 1);
+f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
+options = optimset('Display', 'iter');
+fminsearch(f, randn(2, 1), options)   
 </pre>
-<p data-braille="continuation">If the value of \(f\) at <code class="code-inline tex2jax_ignore">S</code> is smaller than the value at <code class="code-inline tex2jax_ignore">T(:, ind)</code>, then replace <code class="code-inline tex2jax_ignore">T(:, ind)</code> with <code class="code-inline tex2jax_ignore">S</code>. Otherwise, perform the contraction step.</p>
-<span class="incontext"><a href="exercises-nelder-mead.html#p-961">in-context</a></span>
+<span class="incontext"><a href="section-nelder-mead-expand.html#p-961">in-context</a></span>
 </body>
 </html>

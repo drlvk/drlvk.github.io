@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:35-04:00    *-->
+<!--*    on 2021-09-01T21:38:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This script follows the structure of <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a> except that we compute "new x", called x1, on the basis of two previous values (called <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code>). After the computation, <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code> are replaced by <code class="code-inline tex2jax_ignore">x1</code> and <code class="code-inline tex2jax_ignore">x</code>: the newly computed point becomes one of the two points through which we draw next secant line.</p>
-<span class="incontext"><a href="section-secant-method.html#p-328">in-context</a></span>
+<p>The points where \(f'(x)=0\) are problematic for Newton's method, for two reasons. One is that \(g\) is not defined at such a point because of division by zero. So, if we happen to arrive at such a point in the process of iteration, the process has to be stopped and restarted again with a different initial value. Even if the derivative is not exactly zero but is very close to it, the value of \(g\) can be huge, sending the search to a location far from the actual solutions.</p>
+<span class="incontext"><a href="section-newton-method-issues.html#p-328">in-context</a></span>
 </body>
 </html>

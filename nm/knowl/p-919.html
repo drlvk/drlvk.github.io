@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:42-04:00    *-->
+<!--*    on 2021-09-01T21:38:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One way to improve the situation is to run a one-variable minimization algorithm, <dfn class="terminology">line search</dfn> at each step, to find the minimum of \(f\) on the line of steepest descent. This means minimizing the function \(h(t) = f(\mathbf a + t \mathbf g)\) where \(\mathbf g = -\nabla f(\mathbf a)\text{.}\) If we find the exact minimum on the line each time, then the minimization process for function converges to the minimum quickly. But for slightly more complicated functions the difficulty emerges again. Consider <a class="external" href="https://en.wikipedia.org/wiki/Rosenbrock_function" target="_blank">Rosenbrock's function</a></p>
-<div class="displaymath">
-\begin{equation}
-f(\mathbf x) = (x_1 - 1)^2 + 100(x_1^2 - x_2)^2\tag{32.1.2}
-\end{equation}
-</div>
-<p data-braille="continuation">Its graph has a curved “valley” along the parabola \(x_2 = x_1^2\text{.}\) One-dimensional minimization along the line of steepest descent leads to each consecutive direction being perpendicular to the previous one (why?). So the algorithm ends up zig-zagging in tiny steps in the deep narrow valley, making very little progress toward minimum. And since each step is its own minimization problem (in one dimension), the entire process may take too long.</p>
-<span class="incontext"><a href="section-gradient-descent-nd.html#p-919">in-context</a></span>
+<p>The message of <a class="xref" data-knowl="./knowl/example-model-case-gradient-descent.html" title="Example 31.2.2: Model case of gradient descent">Example 31.2.2</a> is that we should try to adjust \(\beta\) to be of the size \(1/f''\text{,}\) even if we do not have a formula for \(f''\text{.}\) One way to do this is to start with a guess like \(\beta=0.1\) and then <em class="emphasis">update</em> \(\beta\) after every step using \(\beta = |x-a|/|f'(x)-f'(a)|\text{.}\) This makes \(\beta\) approximately the reciprocal of \(|f''|\text{.}\) (Similar idea was used in Broyden's method in <a href="chapter-broyden.html" class="internal" title="Chapter 11: Broyden's method">Chapter 11</a>.) To implement this idea, we insert the line</p>
+<pre class="code-block tex2jax_ignore">
+beta = abs(x-a)/abs(fp(x)-fp(a));
+</pre>
+<p data-braille="continuation">into the loop in <a class="xref" data-knowl="./knowl/example-simplest-form-gradient-descent.html" title="Example 31.2.1: First attempt at gradient descent">Example 31.2.1</a> (where?). Now if the function is multiplied by 2 or even 2000, the method continues to converge.</p>
+<span class="incontext"><a href="section-gradient-descent-1d.html#p-919">in-context</a></span>
 </body>
 </html>

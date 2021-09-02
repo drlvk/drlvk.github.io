@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:36-04:00    *-->
+<!--*    on 2021-09-01T21:38:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We have the vector function</p>
-<div class="displaymath">
-\begin{equation*}
-\mathbf F(\mathbf x) = \begin{pmatrix} x_1+x_2+x_3 +2  \\ 
-x_1x_2 + x_1x_3 + x_2x_3 + 7 \\
-x_1x_2x_3 + 1
-\end{pmatrix} 
-\end{equation*}
-</div>
-<p data-braille="continuation">and its Jacobian matrix is</p>
-<div class="displaymath">
-\begin{equation*}
-J(\mathbf x) = \begin{pmatrix} 1 \amp 1 \amp 1 \\
-x_2 + x_3 \amp x_1 + x_3 \amp x_1+x_2  \\
-x_2 x_3 \amp x_1 x_3 \amp x_1 x_2 
-\end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">Use the code from <a class="xref" data-knowl="./knowl/example-multivariate-newton-solve.html" title="Example 10.2.3: Solve a system using Newton's method">Example 10.2.3</a> with these functions:</p>
-<span class="incontext"><a href="examples-multivariate-newton.html#p-371">in-context</a></span>
+<p>It is reasonable to increase the “max tries” number in Newton's method when several variables are involved, as convergence may take longer. In the above example, with initial point <code class="code-inline tex2jax_ignore">[2; 1]</code>, a solution <code class="code-inline tex2jax_ignore">[-0.0019; 5.3185]</code> is found in 15 steps. With initial point <code class="code-inline tex2jax_ignore">[1; 2]</code> the method fails to converge. With initial point <code class="code-inline tex2jax_ignore">[2; 2]</code> it converges in 10 steps to a different solution, <code class="code-inline tex2jax_ignore">[-0.2734; 1.9982]</code>.</p>
+<span class="incontext"><a href="section-multivariate-newton.html#p-371">in-context</a></span>
 </body>
 </html>

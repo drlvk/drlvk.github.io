@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:38-04:00    *-->
+<!--*    on 2021-09-01T21:38:21-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,26 +14,29 @@
 <body>
 <div class="answer solution-like">
 <h6 class="heading">
-<span class="type">Answer</span><span class="space"> </span><span class="codenumber">17.5.1.1</span><span class="period">.</span>
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">16.4.3.1</span><span class="period">.</span>
 </h6>
-<p>When implementing Gauss rules on a general interval \([a, b]\text{,}\) it helps to introduce the midpoint \(c = (a+b)/2\) and half-length \(k = (b-a)/2\text{.}\) This is because the rule was originally designed for \([-1, 1]\) and the linear function from \([-1, 1]\) to \([a, b]\) is \(kx+c\text{.}\) The coefficient \(k\) will appear in the formulas due to the change of variable formula.</p>
-<pre class="code-block tex2jax_ignore">f = @ (x) x.^(-1/2);
-fprintf('The integral is %.6f\n', adaptive(f, 0, 9));
-
-function I = adaptive(f, a, b)
-    c = (a+b)/2;
-    k = (b-a)/2;
-    I1 = k*2*f(c);    % midpoint, same as Gauss n=1
-    I2 = k*(f(c - k/sqrt(3)) + f(c + k/sqrt(3)));  % Gauss n=2
-    if abs(I1 - I2) &lt; 1e-6 * (b-a) + 1e-9 
-        I = I2;
-    else
-        I = adaptive(f, a, c) + adaptive(f, c, b);
-    end
-end
-</pre>
-<p>Note that the function is not defined at 0 which is an endpoints of the interval of integration. This would be a problem if we used, for example, trapezoidal or Simpson's rules. Not a problem for midpoint or Gauss rules. By the way, the midpoint rule can be viewed as the Gauss rule with 1 point, because the degree 1 Legendre polynomial is \(P_1(x)=x\text{,}\) with the zero at the middle of interval \([-1,1]\)</p>
+<p>The integral triangle inequality yields</p>
+<div class="displaymath">
+\begin{equation*}
+\left|\int_{-1}^1 f - \int_{-1}^1 p\right| \le \int_{-1}^1 |f-p| \le  2\cdot 10^{-7}
+\end{equation*}
 </div>
-<span class="incontext"><a href="examples-adaptive-integration.html#answer-45">in-context</a></span>
+<p data-braille="continuation">Also by the triangle inequality,</p>
+<div class="displaymath">
+\begin{equation*}
+\left|\sum_k w_k f(x_k) - \sum_k w_k p(x_k)\right| \le \sum_k w_k |f(x_k)-p(x_k)| 
+\le  10^{-7} \sum_k w_k = 2\cdot 10^{-7}
+\end{equation*}
+</div>
+<p data-braille="continuation">where the last step uses a remark at the end of <a href="section-gauss-legendre.html" class="internal" title="Section 16.2: Gauss-Legendre integration">Section 16.2</a>. Finally, since the degree of \(p\) is \(9 &lt; 2\cdot 5\text{,}\) we have \(\int_{-1}^1 p = \sum_k w_k p(x_k)\text{.}\) Combining the above, we conclude that</p>
+<div class="displaymath">
+\begin{equation*}
+\left|\int_{-1}^1 f -\sum_k w_k f(x_k)\right| \le 4\cdot 10^{-7}
+\end{equation*}
+</div>
+<p>In general, the estimates above show that if \(f\) can be approximated within \(\varepsilon\) by some polynomial of degree \(2n-1\text{,}\) then the error of \(n\)-point Gauss-Legendre rule is at most \(4\varepsilon\text{.}\)</p>
+</div>
+<span class="incontext"><a href="examples-gaussian-integration.html#answer-45">in-context</a></span>
 </body>
 </html>

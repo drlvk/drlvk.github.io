@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:09-04:00    *-->
+<!--*    on 2021-09-01T21:37:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -99,6 +99,7 @@ MathJax.Hub.Config({
 <li><a href="section-linear-systems.html" data-scroll="section-linear-systems">Systems of linear equations</a></li>
 <li><a href="section-large-matrices.html" data-scroll="section-large-matrices">More tools for constructing matrices</a></li>
 <li><a href="section-vectorization.html" data-scroll="section-vectorization">Array operations</a></li>
+<li><a href="section-array-expansion.html" data-scroll="section-array-expansion">Implicit expansion of arrays</a></li>
 <li><a href="section-plotting.html" data-scroll="section-plotting">Plotting</a></li>
 <li><a href="examples-systems-vectorization-plots.html" data-scroll="examples-systems-vectorization-plots" class="active">Examples and questions</a></li>
 <li><a href="exercises-systems-vectorization-plots.html" data-scroll="exercises-systems-vectorization-plots">Homework</a></li>
@@ -410,27 +411,27 @@ MathJax.Hub.Config({
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-systems-vectorization-plots"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">Examples and questions</span>
+<span class="type">Section</span> <span class="codenumber">2.6</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-85">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
-<article class="example example-like" id="example-13"><a data-knowl="" class="id-ref original" data-refid="hk-example-13"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Tridiagonal matrix of arbitrary size.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-13"><article class="example example-like">Given a positive integer \(n\text{,}\) construct a tridiagonal matrix which has entries -1, 2, -1 (as in <a href="section-large-matrices.html" class="internal" title="Section 2.2: More tools for constructing matrices">Section 2.2</a>) and size \(n\times n\text{.}\)<div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-13" id="answer-13"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-13"><div class="answer solution-like">
+<p id="p-91">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<article class="example example-like" id="example-14"><a data-knowl="" class="id-ref original" data-refid="hk-example-14"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.6.1</span><span class="period">.</span><span class="space"> </span><span class="title">Tridiagonal matrix of arbitrary size.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-14"><article class="example example-like">Given a positive integer \(n\text{,}\) construct a tridiagonal matrix which has entries -1, 2, -1 (as in <a href="section-large-matrices.html" class="internal" title="Section 2.2: More tools for constructing matrices">Section 2.2</a>) and size \(n\times n\text{.}\)<div class="solutions">
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-14" id="answer-14"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-14"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">diag(2*ones(1, n)) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
 </pre>
-<p id="p-86">or</p>
+<p id="p-92">or</p>
 <pre class="code-block tex2jax_ignore">2*diag(ones(1, n)) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
 </pre>
-<p id="p-87">or</p>
+<p id="p-93">or</p>
 <pre class="code-block tex2jax_ignore">2*eye(n) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
 </pre>
-<p id="p-88">It is important to recognize why <code class="code-inline tex2jax_ignore">n-1</code> appears above. The main diagonal has length <code class="code-inline tex2jax_ignore">n</code> but the diagonals next to it are shorter by 1 element, so their length is <code class="code-inline tex2jax_ignore">n-1</code>.</p>
+<p id="p-94">It is important to recognize why <code class="code-inline tex2jax_ignore">n-1</code> appears above. The main diagonal has length <code class="code-inline tex2jax_ignore">n</code> but the diagonals next to it are shorter by 1 element, so their length is <code class="code-inline tex2jax_ignore">n-1</code>.</p>
 </div></div>
 </div></article></div>
-<article class="example example-like" id="example-14"><a data-knowl="" class="id-ref original" data-refid="hk-example-14"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a tridiagonal system.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-14"><article class="example example-like">Solve the system of linear equations<div class="displaymath">
+<article class="example example-like" id="example-15"><a data-knowl="" class="id-ref original" data-refid="hk-example-15"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.6.2</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a tridiagonal system.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-15"><article class="example example-like">Solve the system of linear equations<div class="displaymath">
 \begin{align*}
 3x_1 - x_2 \amp = 1 \\
 - x_1 + 3x_2 - x_3 \amp = 0 \\
@@ -440,7 +441,7 @@ MathJax.Hub.Config({
 - x_{n-1} + 3x_{n} \amp = 2 
 \end{align*}
 </div>Use the first two digits of your SUID as the value of \(n\text{.}\)<div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-14" id="answer-14"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-14"><div class="answer solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-15" id="answer-15"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-15"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">n = 28;
 A = 3*eye(n) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1);
 b = zeros(n, 1);
@@ -449,28 +450,33 @@ b(end) = 2;
 x = A\b;
 disp(x)
 </pre>
-<p id="p-89"><em class="emphasis">Explanation</em>. The coefficient matrix has 3 on the main diagonal, and -1 above and below it. This matrix is created with the help of <code class="code-inline tex2jax_ignore">diag</code> as explained in <a href="section-large-matrices.html" class="internal" title="Section 2.2: More tools for constructing matrices">Section 2.2</a>. The right-hand size column vector begins with all-zeros: note that <code class="code-inline tex2jax_ignore">zeros(n, 1)</code> is a column of zeros, while <code class="code-inline tex2jax_ignore">zeros(1, n)</code> is a row of zeros. The first and last entries of <code class="code-inline tex2jax_ignore">b</code> are changed as described in the system.</p>
+<p id="p-95"><em class="emphasis">Explanation</em>. The coefficient matrix has 3 on the main diagonal, and -1 above and below it. This matrix is created with the help of <code class="code-inline tex2jax_ignore">diag</code> as explained in <a href="section-large-matrices.html" class="internal" title="Section 2.2: More tools for constructing matrices">Section 2.2</a>. The right-hand size column vector begins with all-zeros: note that <code class="code-inline tex2jax_ignore">zeros(n, 1)</code> is a column of zeros, while <code class="code-inline tex2jax_ignore">zeros(1, n)</code> is a row of zeros. The first and last entries of <code class="code-inline tex2jax_ignore">b</code> are changed as described in the system.</p>
 </div></div>
 </div></article></div>
-<article class="example example-like" id="example-15"><a data-knowl="" class="id-ref original" data-refid="hk-example-15"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Plot of a function.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-15"><article class="example example-like">Plot the function \(y = (x - 1)/(x^2 + 1)\) on the interval \([-1, 5]\)<div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-15" id="answer-15"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-15"><div class="answer solution-like">
+<article class="example example-like" id="example-16"><a data-knowl="" class="id-ref original" data-refid="hk-example-16"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.6.3</span><span class="period">.</span><span class="space"> </span><span class="title">Table of squares and cubes of small integers.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like">Create a 3<span class="times-sign">×</span>9 matrix which has the integers 1 through 9 in the first row, their squares in the second row, and their cubes in the third row.<div class="solutions">
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-16" id="answer-16"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-16"><div class="answer solution-like"><p id="p-96">The single line <code class="code-inline tex2jax_ignore">A = (1:9).^((1:3)')</code> does the job. The elementwise operation <code class="code-inline tex2jax_ignore">.^</code> can combine the arrays of sizes 1<span class="times-sign">×</span>9 and 3<span class="times-sign">×</span>1, as explained in <a href="section-array-expansion.html" class="internal" title="Section 2.4: Implicit expansion of arrays">Section 2.4</a>. The result is a 3<span class="times-sign">×</span>9 matrix with the expected property: the base (1 through 9) is the column number, the exponent (1 through 3) is the row number.</p></div></div>
+</div></article></div>
+<article class="example example-like" id="example-17"><a data-knowl="" class="id-ref original" data-refid="hk-example-17"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.6.4</span><span class="period">.</span><span class="space"> </span><span class="title">Plot of a function.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like">Plot the function \(y = (x - 1)/(x^2 + 1)\) on the interval \([-1, 5]\)<div class="solutions">
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-17" id="answer-17"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-17"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">x = linspace(-1, 5, 500);	
 y = (x - 1)./(x.^2 + 1);
 plot(x, y)
 </pre>
 <figure class="figure figure-like" id="figure-4"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/plotting4.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.4<span class="period">.</span></span><span class="space"> </span>Plot of \(y = (x - 1)/(x^2 + 1)\) on \([-1, 5]\)</figcaption></figure><p id="p-90">Note the use of semicolons to prevent Matlab from displaying hundreds of numbers that we do not need to see.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.5<span class="period">.</span></span><span class="space"> </span>Plot of \(y = (x - 1)/(x^2 + 1)\) on \([-1, 5]\)</figcaption></figure><p id="p-97">Note the use of semicolons to prevent Matlab from displaying hundreds of numbers that we do not need to see.</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-3"><a data-knowl="" class="id-ref original" data-refid="hk-question-3"><h6 class="heading">
-<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">x as a function of y.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-3"><article class="question example-like"><p id="p-91">How would you plot a function where \(x\) is given as a function of \(y\text{,}\) for example \(x = y + \cos y\) with \(-5\le y\le 5\text{?}\)</p></article></div>
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.6.6</span><span class="period">.</span><span class="space"> </span><span class="title">x as a function of y.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-3"><article class="question example-like"><p id="p-98">How would you plot a function where \(x\) is given as a function of \(y\text{,}\) for example \(x = y + \cos y\) with \(-5\le y\le 5\text{?}\)</p></article></div>
 <article class="question example-like" id="question-4"><a data-knowl="" class="id-ref original" data-refid="hk-question-4"><h6 class="heading">
-<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.5.6</span><span class="period">.</span><span class="space"> </span><span class="title">A “wrong” way to multiply matrices.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-4"><article class="question example-like"><p id="p-92">Can you imagine a situation where you would want to compute <code class="code-inline tex2jax_ignore">A.*B</code> where both <code class="code-inline tex2jax_ignore">A</code> and <code class="code-inline tex2jax_ignore">B</code> are square matrices of the same size?</p>
-<p id="p-93">An idea: a matrix can be used to store a greyscale image, so that each entry is the brightness of the corresponding pixel. What would elementwise  multiplication <code class="code-inline tex2jax_ignore">A.*B</code> mean in this context?</p></article></div></section></div></main>
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.6.7</span><span class="period">.</span><span class="space"> </span><span class="title">A “wrong” way to multiply matrices.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-4"><article class="question example-like"><p id="p-99">Can you imagine a situation where you would want to compute <code class="code-inline tex2jax_ignore">A.*B</code> where both <code class="code-inline tex2jax_ignore">A</code> and <code class="code-inline tex2jax_ignore">B</code> are square matrices of the same size?</p>
+<p id="p-100">An idea: a matrix can be used to store a greyscale image, so that each entry is the brightness of the corresponding pixel. What would elementwise  multiplication <code class="code-inline tex2jax_ignore">A.*B</code> mean in this context?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

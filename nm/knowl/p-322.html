@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:35-04:00    *-->
+<!--*    on 2021-09-01T21:38:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The second reason the zeros of derivative are problematic is that a point where \(f(x) = f'(x) = 0\) is not a superattracting fixed point of \(g\text{,}\) even if we manage to extend the definition of \(g\) to such a point by canceling out the zero in the denominator. For example, let \(f(x) = x^p\) where \(p \gt 1\text{.}\) Clearly, \(f(0)=f'(0)=0\text{.}\) Computing</p>
-<div class="displaymath">
-\begin{equation*}
-g(x) = \frac{xf'(x) -f(x)}{f'(x)} = \frac{px^p - x^p}{px^{p-1}} = \frac{p-1}{p}x 
-\end{equation*}
-</div>
-<p data-braille="continuation">we see that \(g\) can be extended to \(g(0)=0\text{.}\) Since \(|g'(0)| = (p-1)/p \lt 1\text{,}\) this is an attracting point. But it is not a super-attracting one, which means the speed of convergence of Newton's method to such <dfn class="terminology">multiple roots</dfn> is slow: linear instead of quadratic. Here is an example of what happens with \(f(x) = x^3\text{:}\) the points approach the root \(x=0\) quite slowly, with each step being \(1/3\) of the distance to the root. This is even slower than bisection.</p>
-<span class="incontext"><a href="section-newton-method-issues.html#p-322">in-context</a></span>
+<p>The idea of Newton's method is geometrically natural. We want to solve \(f(x) = 0\) but since \(f\) may be complicated, we replace it by its linear approximation (tangent line at a certain point). The resulting linear equation is easy to solve. Of course, its solution is probably not a solution of the original equation, but perhaps it is close to it. The process repeats, using the previously found solution as a new point at which to draw a tangent line. A static image of this process is below. <a class="external" href="https://www.intmath.com/applications-differentiation/newtons-method-interactive.php" target="_blank">Interactive visualization</a> is also available.</p>
+<span class="incontext"><a href="section-newton-method-intro.html#p-322">in-context</a></span>
 </body>
 </html>

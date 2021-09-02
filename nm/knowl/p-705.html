@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:40-04:00    *-->
+<!--*    on 2021-09-01T21:38:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The <em class="emphasis">knots</em> of a spline are the transition points where it turns from one polynomial to another. These are often, but not always, the points \(x_k\) from the given data. Requiring \(S'''\) to be continuous at \(x_2\) implies we have the same polynomial on both intervals \([x_1, x_2]\) and \([x_2, x_3]\) (why?), and therefore \(x_2\) is <em class="emphasis">not a knot</em> for this spline. Same for \(x_{n-1}\text{.}\) The not-a-knot condition is the standard choice when we do not have any reason to impose other conditions.</p>
+<p>A cubic spline is a function \(S\) that is piecewise a degree 3 polynomial, and such that \(S, S', S''\) are continuous (have the same value from both sides at the points where pieces meet). In our context of fitting to data points \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) it is natural to have each cubic polynomial defined on \([x_{k}, x_{k+1}]\text{.}\) The continuity of first and second derivatives means that the graph of a cubic spline has no corners of sudden changes of curvature, it flows quite naturally. Compare the plots below, for the same data set.</p>
 <span class="incontext"><a href="section-cubic-splines.html#p-705">in-context</a></span>
 </body>
 </html>

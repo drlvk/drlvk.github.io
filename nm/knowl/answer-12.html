@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,13 +14,24 @@
 <body>
 <div class="answer solution-like">
 <h6 class="heading">
-<span class="type">Answer</span><span class="space"> </span><span class="codenumber">2.4.4.1</span><span class="period">.</span>
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">2.4.1.1</span><span class="period">.</span>
 </h6>
-<pre class="code-block tex2jax_ignore">t = linspace(0, 20, 500);
-plot(t.*cos(t), t.*sin(t))
+<pre class="code-block tex2jax_ignore">A = (1:9).*(1:9)';
+disp(A)
 </pre>
-<p>This curve is called the <dfn class="terminology">Archimedian spiral</dfn>.</p>
+<p>The output is shown below.</p>
+<pre class="code-block tex2jax_ignore">1     2     3     4     5     6     7     8     9
+2     4     6     8    10    12    14    16    18
+3     6     9    12    15    18    21    24    27
+4     8    12    16    20    24    28    32    36
+5    10    15    20    25    30    35    40    45
+6    12    18    24    30    36    42    48    54
+7    14    21    28    35    42    49    56    63
+8    16    24    32    40    48    56    64    72
+9    18    27    36    45    54    63    72    81
+</pre>
+<p>Note that without the period we would get the single number 285 instead. (Why this number?)</p>
 </div>
-<span class="incontext"><a href="section-plotting.html#answer-12">in-context</a></span>
+<span class="incontext"><a href="section-array-expansion.html#answer-12">in-context</a></span>
 </body>
 </html>

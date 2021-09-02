@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:35-04:00    *-->
+<!--*    on 2021-09-01T21:38:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When faced with an iterative method which moves either too slowly, undershooting the target (<a class="xref" data-knowl="./knowl/newton3-png.html" title="Figure 9.2.1">Figure 9.2.1</a>) or too quickly, overshooting it (<a class="xref" data-knowl="./knowl/newton2-png.html" title="Figure 9.2.2">Figure 9.2.2</a>), we can try and fix the issue by introducing a <dfn class="terminology">relaxation parameter</dfn>. This is a fixed positive number \(\omega \gt 0\) by which we multiply the step size \(h\) obtained from Newton's method (or secant method, etc). That is, instead of iterating the function</p>
+<p>The second reason the zeros of derivative are problematic is that a point where \(f(x) = f'(x) = 0\) is not a superattracting fixed point of \(g\text{,}\) even if we manage to extend the definition of \(g\) to such a point by canceling out the zero in the denominator. For example, let \(f(x) = x^p\) where \(p \gt 1\text{.}\) Clearly, \(f(0)=f'(0)=0\text{.}\) Computing</p>
 <div class="displaymath">
 \begin{equation*}
-g(x) = x - \frac{f(x)}{f'(x)}
+g(x) = \frac{xf'(x) -f(x)}{f'(x)} = \frac{px^p - x^p}{px^{p-1}} = \frac{p-1}{p}x 
 \end{equation*}
 </div>
-<p data-braille="continuation">we iterate the function</p>
-<div class="displaymath">
-\begin{equation*}
-g(x) = x - \omega \frac{f(x)}{f'(x)}
-\end{equation*}
-</div>
-<p data-braille="continuation">If \(\omega &gt; 1\text{,}\) this is <dfn class="terminology">over-relaxation</dfn>, meant to make the process move faster. If \(\omega \lt 1\text{,}\) this is <dfn class="terminology">under-relaxation</dfn>, meant to slow down the process so it does not overshoot and run off in a wrong direction.</p>
-<span class="incontext"><a href="section-relaxation-parameter.html#p-329">in-context</a></span>
+<p data-braille="continuation">we see that \(g\) can be extended to \(g(0)=0\text{.}\) Since \(|g'(0)| = (p-1)/p \lt 1\text{,}\) this is an attracting point. But it is not a super-attracting one, which means the speed of convergence of Newton's method to such <dfn class="terminology">multiple roots</dfn> is slow: linear instead of quadratic. Here is an example of what happens with \(f(x) = x^3\text{:}\) the points approach the root \(x=0\) quite slowly, with each step being \(1/3\) of the distance to the root. This is even slower than bisection.</p>
+<span class="incontext"><a href="section-newton-method-issues.html#p-329">in-context</a></span>
 </body>
 </html>

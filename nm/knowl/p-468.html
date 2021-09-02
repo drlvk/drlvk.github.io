@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:37-04:00    *-->
+<!--*    on 2021-09-01T21:38:20-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Simpson's rule can be used with more subintervals, but their number \(n\) has to be even, since we are combining trapezoidal rule with \(n\) and \(n/2\) subintervals. With \(h=(b-a)/n\) we get</p>
+<p>The integral</p>
 <div class="displaymath">
-\begin{equation}
-\int_a^b f(x)\,dx \approx \frac{h}{3}(1,4,2,4,\dots,2,4,1) \cdot (\text{vector of y-values})  \tag{14.1.5}
-\end{equation}
+\begin{equation*}
+\int_0^{1/e} \dfrac{1}{\log u} \,du
+\end{equation*}
 </div>
-<p data-braille="continuation">A better way to think of this formula is that we first divide the interval into some number of equal parts and then use Simpson's rule on each part. The result is called “composite Simpson's rule” in contrast to the “simple Simpson's rule” that we started with.</p>
-<span class="incontext"><a href="section-simpson-rule.html#p-468">in-context</a></span>
+<p data-braille="continuation">could be approximated using any of the  rules in this chapter. The endpoint 0 is not a problem, because Matlab is okay with <code class="code-inline tex2jax_ignore">1/log(0)</code>: it simply evaluates it as 0. But it is still a good idea to avoid this endpoint, so the midpoint rule is preferable. Try it with \(n=5\text{,}\) for example. Then try to estimate the error of this rule using the formula in <a class="xref" data-knowl="./knowl/example-error-midpoint-rule.html" title="Example 13.4.1: The error of midpoint rule">Example 13.4.1</a>. What goes wrong, and what does this mean for the approximation?</p>
+<span class="incontext"><a href="examples-trapezoid-midpoint.html#p-468">in-context</a></span>
 </body>
 </html>

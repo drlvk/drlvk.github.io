@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:35-04:00    *-->
+<!--*    on 2021-09-01T21:38:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>For the function \(f(x) = \log(x^2 + 1/2)  + 9x^4 \text{,}\) use  the derivative \(f'\) determine the number of roots and find a bracketing interval for each of them. (No programming is needed. Here, as in Matlab and in most mathematical texts, \(\log\) means the natural logarithm, base \(e\text{.}\))</p>
-<span class="incontext"><a href="exercises-roots-bisection.html#p-282">in-context</a></span>
+<p>Run the code in <a class="xref" data-knowl="./knowl/example-bisection.html" title="Example 7.3.3: Finding a root by bisection">Example 7.3.3</a> with the following modification:</p>
+<pre class="code-block tex2jax_ignore">
+f = @(x) tan(x);
+a = 1;
+b = 2;
+</pre>
+<p data-braille="continuation">Note that \(\tan(1) \approx 1.5574 &gt; 0\) and \(\tan(2) \approx -2.1850 \lt 0\text{,}\) so the bisection algorithm can run. What is its output, and what is wrong with it? How could this error be avoided?</p>
+<span class="incontext"><a href="examples-roots-bisection.html#p-282">in-context</a></span>
 </body>
 </html>

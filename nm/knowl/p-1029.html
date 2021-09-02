@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:44-04:00    *-->
+<!--*    on 2021-09-01T21:38:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In a comment, answer the questions: how should the land be used? What will the total revenue be? Will there be any leftover land, fertilizer, or pesticide, and if so, how much?</p>
-<span class="incontext"><a href="exercises-linear-programming.html#p-1029">in-context</a></span>
+<p>To solve the linear program in Matlab, we use expanded syntax of <code class="code-inline tex2jax_ignore">linprog</code>:</p>
+<pre class="code-block tex2jax_ignore">
+x = linprog(c, A, b, Aeq, beq, lb, ub);    
+</pre>
+<p data-braille="continuation">where the additional parameters <code class="code-inline tex2jax_ignore">Aeq</code>, <code class="code-inline tex2jax_ignore">beq</code> express a linear system of <em class="emphasis">equality</em> constraints, and the vectors <code class="code-inline tex2jax_ignore">lb</code>, <code class="code-inline tex2jax_ignore">ub</code> provide lower and upper bounds on the variables. In our case, we do not have any inequality constraints so the second and third arguments are empty. The last one is omitted since we do not have upper bounds.</p>
+<span class="incontext"><a href="section-lp-duality-transportation.html#p-1029">in-context</a></span>
 </body>
 </html>

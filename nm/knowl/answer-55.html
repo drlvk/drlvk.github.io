@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:39-04:00    *-->
+<!--*    on 2021-09-01T21:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,27 +14,18 @@
 <body>
 <div class="answer solution-like">
 <h6 class="heading">
-<span class="type">Answer</span><span class="space"> </span><span class="codenumber">21.2.2.1</span><span class="period">.</span>
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">20.1.1.1</span><span class="period">.</span>
 </h6>
-<pre class="code-block tex2jax_ignore">n = 10;
-x = 1:n;
-y = sin(x);  % or y = randn(1, n);
-w = ones(1, n);
-for k = 1:n
-    for j = 1:n
-        if j ~= k
-            w(k) = w(k)/(x(k)-x(j));
-        end
-    end
-end
-
-p = @(t) (y.*w*(t - x').^(-1)) ./ (w*(t - x').^(-1));
-t = linspace(min(x)-0.01, max(x)+0.01, 1000);
-plot(t, p(t), x, y, 'r*')
+<pre class="code-block tex2jax_ignore">beta = 0.3;
+gamma = 0.2;
+y0 = [0.99, 0.01, 0];
+rhs = @(t, y) [-beta*y(1)*y(2); beta*y(1)*y(2) - gamma*y(2); gamma*y(2)];
+[t, y] = ode45(rhs, [0, 100], y0);
+plot(t, y, 'LineWidth', 3)
+legend('Susceptible', 'Infected', 'Recovered')
 </pre>
-<p>The double loop computes the weights <code class="code-inline tex2jax_ignore">w</code> which do not involve the argument of the interpolating polynomial <code class="code-inline tex2jax_ignore">p</code>. This argument is called <code class="code-inline tex2jax_ignore">t</code> because <code class="code-inline tex2jax_ignore">x</code> is already used for the data points. The interval for plotting is chosen to contain the given x-values with a small margin on both sides: this helps both visualization and evaluation, because we avoid plugging in \(t = x_1, x_n\text{.}\) The barycentric evaluation of the polynomial is vectorized. When <code class="code-inline tex2jax_ignore">t</code> is a scalar, <code class="code-inline tex2jax_ignore">t - x'</code> is a column vector. Taking reciprocals element-wise gives another column vector. Dot-product with <code class="code-inline tex2jax_ignore">w</code> or <code class="code-inline tex2jax_ignore">y.*w</code> implements the sums such as \(\sum_{k=1}^n w_k/(t-x_k)\text{.}\)</p>
-<p>How does <code class="code-inline tex2jax_ignore">p</code> accept a row vector as <code class="code-inline tex2jax_ignore">t</code>? The expression <code class="code-inline tex2jax_ignore">t - x'</code> is the difference of a row vector and a column vector; in Matlab this creates a matrix where \((i, j)\) entry is \(t_j - x_i\text{.}\) Subsequent operations proceed as above, and the result is a row vector of values \(p(t)\text{.}\)</p>
+<p>In this scenario a part of the population (less then half) escapes the infection because the epidemic ends on its own after the transmission rate drops. Try varying the coefficients \(\beta, \gamma\) and observe the effect.</p>
 </div>
-<span class="incontext"><a href="section-lagrange-polynomial.html#answer-55">in-context</a></span>
+<span class="incontext"><a href="section-ode-epidemiology.html#answer-55">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:33-04:00    *-->
+<!--*    on 2021-09-01T21:38:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,14 +12,14 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">n = 28;
-A = 3*eye(n) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1);
-b = zeros(n, 1);
-b(1) = 1;
-b(end) = 2;
-x = A\b;
-disp(x)
+<pre class="code-block tex2jax_ignore">diag(2*ones(1, n)) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
 </pre>
-<p><em class="emphasis">Explanation</em>. The coefficient matrix has 3 on the main diagonal, and -1 above and below it. This matrix is created with the help of <code class="code-inline tex2jax_ignore">diag</code> as explained in <a href="section-large-matrices.html" class="internal" title="Section 2.2: More tools for constructing matrices">Section 2.2</a>. The right-hand size column vector begins with all-zeros: note that <code class="code-inline tex2jax_ignore">zeros(n, 1)</code> is a column of zeros, while <code class="code-inline tex2jax_ignore">zeros(1, n)</code> is a row of zeros. The first and last entries of <code class="code-inline tex2jax_ignore">b</code> are changed as described in the system.</p>
+<p>or</p>
+<pre class="code-block tex2jax_ignore">2*diag(ones(1, n)) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
+</pre>
+<p>or</p>
+<pre class="code-block tex2jax_ignore">2*eye(n) - diag(ones(1, n-1), 1) - diag(ones(1, n-1), -1)
+</pre>
+<p>It is important to recognize why <code class="code-inline tex2jax_ignore">n-1</code> appears above. The main diagonal has length <code class="code-inline tex2jax_ignore">n</code> but the diagonals next to it are shorter by 1 element, so their length is <code class="code-inline tex2jax_ignore">n-1</code>.</p>
 </div></body>
 </html>

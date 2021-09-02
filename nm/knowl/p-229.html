@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-08-19T20:40:34-04:00    *-->
+<!--*    on 2021-09-01T21:38:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Compare the system</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{pmatrix}1\amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \\ 7 \amp 8 \amp 9 \end{pmatrix}x= \begin{pmatrix} 10 \\ 11 \\ 12 \end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">to <a class="xref" data-knowl="./knowl/example-system-free-variable.html" title="Example 6.3.1: System with a free variable">Example 6.3.1</a>. Does it have the same solution?</p>
-<span class="incontext"><a href="section-systems-with-free-variables.html#p-229">in-context</a></span>
+<p>Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'k*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx, xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later.</p>
+<span class="incontext"><a href="section-systems-without-free-variables.html#p-229">in-context</a></span>
 </body>
 </html>
