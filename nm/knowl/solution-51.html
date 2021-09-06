@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:25-04:00    *-->
+<!--*    on 2021-09-06T19:21:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,35 +14,37 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">31.1.1.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">30.4.3.1</span><span class="period">.</span>
 </h6>
+<p>We use the variables <code class="code-inline tex2jax_ignore">fc</code> and <code class="code-inline tex2jax_ignore">fd</code> to store the values of \(f\) at the points <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>. When the algorithm replaces of these points with the other, the previously computed value is reused without executing the function \(f\) again. This approach requires more work to be done before the main loop, in order to initialize <code class="code-inline tex2jax_ignore">fc</code> and <code class="code-inline tex2jax_ignore">fd</code>.</p>
 <pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
 a = -2;
-b = 0;
-c = 2;
+b = 2;
+r = (3-sqrt(5))/2;
 
-max_tries = 10000;
+c = a + r*(b-a);        % preparation
+fc = f(c);
+d = b - r*(b-a);
+fd = f(d);
 
-for k = 1:max_tries
-    alpha = (f(b)-f(a))/(b-a);
-    beta = (f(c)-f(a)-alpha*(c-a))/((c-a)*(c-b));
-    x = (a+b)/2 - alpha/(2*beta);
-    a = b;
-    b = c;
-    c = x;
-    if max([a b c]) - min([a b c]) &lt; 1e-6
-        break
+while b-a &gt;= 100*eps(a)
+    if fc &lt; fd
+        b = d;
+        d = c;
+        fd = fc;         % reused value
+        c = a + r*(b-a);
+        fc = f(c);       % newly computed value
+    else
+        a = c;
+        c = d;
+        fc = fd;         % reused value
+        d = b - r*(b-a);
+        fd = f(d);       % newly computed value
     end
 end
-
-if k &lt; max_tries
-    fprintf('Found x = %g with f(x) = %g after %d steps\n', c, f(c), k);
-else
-    disp('Failed to converge')
-end
 </pre>
-<p>As the example shows, parabolic interpolation can converge to a local maximum. Indeed, a closer look shows it does not distinguish between \(f\) and \(-f\text{,}\) so it can minimize just as well as maximize. As with Newton's method, we can benefit from this method by using it in a small neighborhood of minimum.</p>
+<p>The code is longer than <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a>  but it runs faster because at every execution of the loop there is only one call to function \(f\) instead of two.</p>
 </div>
-<span class="incontext"><a href="section-parabolic-interpolation.html#solution-51">in-context</a></span>
+<span class="incontext"><a href="section-golden-section.html#solution-51">in-context</a></span>
 </body>
 </html>

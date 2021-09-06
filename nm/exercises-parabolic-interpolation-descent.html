@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:11-04:00    *-->
+<!--*    on 2021-09-06T19:21:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -414,8 +415,8 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">31.3</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-72"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-920">Parabolic interpolation is also useful when applied just once, without iteration. For example, after evaluating \(f\) on a grid \(x_1, \dots, x_n\) and choosing \(k\) with smallest \(f(x_k)\) (i.e., brute force minimization) we can get a more precise location of the minimum with parabolic interpolation through the points \((x_j, f(x_j))\text{,}\) \(j=k-1, k, k+1\text{.}\)</p>
-<p id="p-921">Write a script that applies the above idea to the function \(f(x) = \sin (x)\) on the interval \([0, 7]\text{.}\) Use \(n=100\) points for brute force minimization, locating a grid point \(x_k\) with the smallest function value \(f(x_k)\text{.}\) Then find a more precise point of minimum \(x^*\) using parabolic interpolation <em class="emphasis">once</em>. Since the exact point of minimum is \(3\pi/2\text{,}\)  the script should display the differences \(|x_k - 3\pi/2|\) and \(|x^* - 3\pi/2|\) to illustrate the improvement achieved with parabolic interpolation.</p></article></section></div></main>
+<p id="p-927">Parabolic interpolation is also useful when applied just once, without iteration. For example, after evaluating \(f\) on a grid \(x_1, \dots, x_n\) and choosing \(k\) with smallest \(f(x_k)\) (i.e., brute force minimization) we can get a more precise location of the minimum with parabolic interpolation through the points \((x_j, f(x_j))\text{,}\) \(j=k-1, k, k+1\text{.}\)</p>
+<p id="p-928">Write a script that applies the above idea to the function \(f(x) = \sin (x)\) on the interval \([0, 7]\text{.}\) Use \(n=100\) points for brute force minimization, locating a grid point \(x_k\) with the smallest function value \(f(x_k)\text{.}\) Then find a more precise point of minimum \(x^*\) using parabolic interpolation <em class="emphasis">once</em>. Since the exact point of minimum is \(3\pi/2\text{,}\)  the script should display the differences \(|x_k - 3\pi/2|\) and \(|x^* - 3\pi/2|\) to illustrate the improvement achieved with parabolic interpolation.</p></article></section></div></main>
 </div>
 </body>
 </html>

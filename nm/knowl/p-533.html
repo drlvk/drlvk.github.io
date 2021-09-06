@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:21-04:00    *-->
+<!--*    on 2021-09-06T19:21:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One difference is the right hand side of the system which we use to solve for the weights \(w_k\text{.}\) For Gauss-Legendre integration we have \(\int_{-1}^1 x^p\,dx = (1-(-1)^{p+1})/(p+1)\) there. For Gauss-Laguerre integration we have \(\int_{0}^\infty x^p e^{-x}\,dx\) which takes a but more work. Integration by parts helps:</p>
-<div class="displaymath">
-\begin{equation*}
-\int_{0}^\infty x^p e^{-x}\,dx = -x^pe^{-x}\bigg|_{x=0}^{x\to\infty} - \int_{0}^\infty p x^{p-1} (-e^{-x})\,dx 
-= p \int_{0}^\infty x^{p-1} e^{-x}\,dx
-\end{equation*}
-</div>
-<p data-braille="continuation">which shows, by induction, that \(\int_{0}^\infty x^p e^{-x}\,dx = p!\text{.}\)</p>
+<p>The Gauss-Laguerre integration rule is stated for integrals of the form \(\int_0^\infty f(x)e^{-x}\,dx\text{.}\) This means that if we want to calculate, for example, \(\int_0^\infty 1/(x^3+4)\,dx\text{,}\) then the function to use is \(f(x) = e^x/(x^3+4)\text{.}\)</p>
 <span class="incontext"><a href="section-gauss-laguerre.html#p-533">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:06-04:00    *-->
+<!--*    on 2021-09-06T19:21:07-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -413,20 +414,20 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-drawbacks-spline-interpolation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">24.1</span> <span class="title">Weak points of spline interpolation</span>
 </h2>
-<p id="p-726">Looking closely at <a class="xref" data-knowl="./knowl/dashboard-spline-png.html" title="Figure 23.2.4">Figure 23.2.4</a> we can notice that the blue curve is not quite an increasing function: there is a small interval in which it decreases. This is not really logical since the curve follows the data (cumulative number of recovered cases) which cannot decrease. A smaller example is below.</p>
+<p id="p-729">Looking closely at <a class="xref" data-knowl="./knowl/dashboard-spline-png.html" title="Figure 23.2.4">Figure 23.2.4</a> we can notice that the blue curve is not quite an increasing function: there is a small interval in which it decreases. This is not really logical since the curve follows the data (cumulative number of recovered cases) which cannot decrease. A smaller example is below.</p>
 <pre class="code-block tex2jax_ignore">x = 1:6;
 y = [0 0 1 1 2 2];
 t = linspace(1, 6, 1000);
 plot(t, spline(x, y, t), x, y, 'r*')
 </pre>
-<p id="p-727">So, cubic splines <em class="emphasis">do not preserve monotonicity</em> (while piecewise linear interpolation does). Note that SU COVID dashboard later replaced splines with piecewise linear functions, which are monotone when the data values are monotone.</p>
-<p id="p-728">Another issue is that spline interpolation may produce <em class="emphasis">negative values from positive data</em>.</p>
+<p id="p-730">So, cubic splines <em class="emphasis">do not preserve monotonicity</em> (while piecewise linear interpolation does). Note that SU COVID dashboard later replaced splines with piecewise linear functions, which are monotone when the data values are monotone.</p>
+<p id="p-731">Another issue is that spline interpolation may produce <em class="emphasis">negative values from positive data</em>.</p>
 <pre class="code-block tex2jax_ignore">x = 1:6;
 y = [9 9 1 1 9 9];
 disp(spline(x, y, 3.5))
 </pre>
-<p id="p-729">The result is \(-0.4\text{.}\) This becomes a serious issue if the quantity being interpolated cannot in principle be negative (mass, density, number of people) and if the way in which the data is used relies on it not being negative (maybe one takes square root or plots the data on logarithmic scale).</p>
-<p id="p-730">Note again that this is something that piecewise linear interpolation would not do. A piecewise linear function through points with \(y_k &gt; 0\) stays positive.</p></section></div></main>
+<p id="p-732">The result is \(-0.4\text{.}\) This becomes a serious issue if the quantity being interpolated cannot in principle be negative (mass, density, number of people) and if the way in which the data is used relies on it not being negative (maybe one takes square root or plots the data on logarithmic scale).</p>
+<p id="p-733">Note again that this is something that piecewise linear interpolation would not do. A piecewise linear function through points with \(y_k &gt; 0\) stays positive.</p></section></div></main>
 </div>
 </body>
 </html>

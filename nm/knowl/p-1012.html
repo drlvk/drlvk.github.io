@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:27-04:00    *-->
+<!--*    on 2021-09-06T19:21:28-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Without going into the detailed proof of the Strong Duality Theorem, here is a sketch for asymmetric duality. Suppose \(\mathbf x^*\) is an optimal point for <a class="xref" data-knowl="./knowl/eq-standard-form-IR-1.html" title="Equation 35.2.3">(35.2.3)</a>. If \(\mathbf y\) is any feasible point of <a class="xref" data-knowl="./knowl/eq-standard-form-EN-1.html" title="Equation 35.2.4">(35.2.4)</a>, then</p>
-<div class="displaymath">
-\begin{equation}
-\mathbf c^T \mathbf x^* = (A^T \mathbf y)^T \mathbf x^* = \mathbf y^T (A\mathbf x^*) \le \mathbf y^T \mathbf b
-= \mathbf b^T \mathbf y\tag{35.2.5}
-\end{equation}
-</div>
-<p data-braille="continuation">which shows that each value of the objective function of the dual problem gives an upper bound for the primal problem  (this part is the “weak duality theorem”). It remains to show that there exists \(\mathbf y\) for which equality holds in <a class="xref" data-knowl="./knowl/eq-lp-duality-sketch.html" title="Equation 35.2.5">(35.2.5)</a>.</p>
-<span class="incontext"><a href="section-linear-programming-duality.html#p-1012">in-context</a></span>
+<p>The following terms may appear in error messages or warnings issued by <code class="code-inline tex2jax_ignore">linprog</code> or its analogues in other software.</p>
+<ul class="disc">
+<li>A <dfn class="terminology">feasible point</dfn> is a vector \(x\) that satisfies the constraints. The set of all such points is the feasible set.</li>
+<li>A problem is <dfn class="terminology">infeasible</dfn> if there are no feasible points. (Example: \(x_1\ge 2\text{,}\) \(x_2\ge 2\text{,}\) \(x_1+x_2\le 3\text{.}\)) Such a problem has no solution.</li>
+<li>A problem is <dfn class="terminology">unbounded</dfn> if the objective function takes arbitrarily small values on the feasible set (in case of minimization) or arbitrarily large values (in case of maximization). Such a problem has no solution.</li>
+<li>If the feasible set is nonempty and bounded, the problem surely has a solution. But it is possible to have an unbounded feasible set on which the objective function is bounded: recall <a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a>.</li>
+</ul>
+<span class="incontext"><a href="section-linear-programming-introduction.html#p-1012">in-context</a></span>
 </body>
 </html>

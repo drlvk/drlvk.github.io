@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:27-04:00    *-->
+<!--*    on 2021-09-06T19:21:28-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Remark: such maximization problem makes sense for any number of points, and on any bounded set. The points that maximize the product of distances are known as <dfn class="terminology">Fekete points</dfn> and are used in approximation theory, specifically for polynomial interpolation.</p>
-<span class="incontext"><a href="exercises-constrained-optimization.html#p-988">in-context</a></span>
+<p>Suppose we want to minimize \(f\) subject to equality constraint \(c = 0\) in \(n\)-dimensional space. A point \(x^*\) of such constrained minimum must have \(\nabla f\) perpendicular to the surface \(c = 0\text{.}\) Therefore, \(\nabla f \) is parallel to \(\nabla c\text{.}\) We can express this as \(\nabla f = \lambda \nabla c\) where \(\lambda\) is the <dfn class="terminology">Lagrange multiplier</dfn> (so far unknown). We have the system</p>
+<div class="displaymath">
+\begin{equation*}
+\nabla f(\mathbf x) - \lambda \nabla c(\mathbf x) = 0, \quad c(\mathbf x) = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">of \(n+1\) equations with \(n+1\) unknowns. The Jacobian of this system is the block matrix</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} Hf &amp; -\nabla c \\ (\nabla c)^T &amp; 0  \end{pmatrix}
+\end{equation*}
+</div>
+<p data-braille="continuation">where \(Hf\)  is the Hessian of \(f\text{.}\) It is feasible to solve the system using multivarible Newton's method, for example.</p>
+<span class="incontext"><a href="section-lagrange-multiplier.html#p-988">in-context</a></span>
 </body>
 </html>

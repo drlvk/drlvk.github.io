@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:17-04:00    *-->
+<!--*    on 2021-09-06T19:21:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,23 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Find the line of best fit (in the sense of least squares) to the six points with x-values (-1, 0, 2, 3, 4, 7) and y-values (9, 8, 5, 5, 3, -2).  Plot both the line and the points.</p>
+<p>What do we get when solving a system with <code class="code-inline tex2jax_ignore">A\b</code> in Matlab? Let us first consider the case when <code class="code-inline tex2jax_ignore">rank(A)</code> is <code class="code-inline tex2jax_ignore">n</code>, so every column of A is a basic column, which means there are no free variables. When such a system is consistent, it has a unique solution and <code class="code-inline tex2jax_ignore">A\b</code> finds this unique solution. When the system is inconsistent, we get the <dfn class="terminology">least-squares solution</dfn>: the vector \(x\) for which the norm of the <dfn class="terminology">residual vector</dfn> \(Ax-b\) is as small as possible. Recall that the norm of a vector \(v = (v_1, \dots, v_m)\) is</p>
+<div class="displaymath">
+\begin{equation*}
+\|v\| = \sqrt{v_1^2+\cdots +v_m^2}
+\end{equation*}
+</div>
+<p data-braille="continuation">In Matlab this norm can be computed in several ways:</p>
+<ul class="disc">
+<li><code class="code-inline tex2jax_ignore">sqrt(sum(v.^2))</code></li>
+<li>
+<code class="code-inline tex2jax_ignore">sqrt(v'*v)</code> when <code class="code-inline tex2jax_ignore">v</code> is a column vector</li>
+<li>
+<code class="code-inline tex2jax_ignore">sqrt(v*v')</code> when <code class="code-inline tex2jax_ignore">v</code> is a row vector</li>
+<li><code class="code-inline tex2jax_ignore">sqrt(dot(v, v))</code></li>
+<li><code class="code-inline tex2jax_ignore">norm(v)</code></li>
+</ul>
+<p data-braille="continuation">The last way is easiest.</p>
 <span class="incontext"><a href="section-systems-without-free-variables.html#p-228">in-context</a></span>
 </body>
 </html>

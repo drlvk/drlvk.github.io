@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:24-04:00    *-->
+<!--*    on 2021-09-06T19:21:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The inverse Fourier transform may have imaginary part due to the truncation of Fourier coefficients and rounding errors in computations. This imaginary part is removed with <code class="code-inline tex2jax_ignore">real</code>. The result is converted to unsigned 8-bit integers with <code class="code-inline tex2jax_ignore">uint8</code>.</p>
+<p>After loading the image with <code class="code-inline tex2jax_ignore">im = imread('winter.png')</code>, check this is a matrix (no separate channels for colors). Try <code class="code-inline tex2jax_ignore">fc = fft2(im);</code> which produces a matrix of the same size but with complex entries. It is not easy to understand all of it. Small pieces can be inspected with <code class="code-inline tex2jax_ignore">fc(1:5, 1:5)</code> for example: when doing this, notice the special role of <code class="code-inline tex2jax_ignore">fc(1, 1)</code>, the upper left number. A histogram can help visualize the distribution of the magnitudes of Fourier coefficients: <code class="code-inline tex2jax_ignore">hist(abs(fc(:)), 50)</code>. (Recall that <code class="code-inline tex2jax_ignore">fc(:)</code> means flattening a matrix to a vector.) Looks like nearly all coefficients are much smaller than the largest ones.</p>
 <span class="incontext"><a href="section-2d-dft.html#p-781">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:26-04:00    *-->
+<!--*    on 2021-09-06T19:21:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Minimize Rosenbrock's function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> using the reflection-contraction-expansion version of the Nelder-Mead method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code> as one vertex \(A\) of the initial triangle, and let other vertices be \(A + \mathbf e_1\text{,}\) \(A+\mathbf e_2\text{.}\) Plot the path of the search.</p>
-<span class="incontext"><a href="section-nelder-mead-expand.html#p-959">in-context</a></span>
+<p>There is a way to improve the situation: instead of stopping when reflection does not work, reduce the size of triangle in half, contracting it toward the “best” vertex (the one is the with lowest value). The contraction map is \(f(x) = (x+b)/2\) where \(b\) is the vertex toward which we contract. This reflection-contraction method needs a stopping criterion, so it does not run forever. We can stop when the triangle becomes very small, with vertices getting close to one another.</p>
+<span class="incontext"><a href="section-nelder-mead-contract.html#p-959">in-context</a></span>
 </body>
 </html>

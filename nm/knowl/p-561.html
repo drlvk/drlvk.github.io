@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:21-04:00    *-->
+<!--*    on 2021-09-06T19:21:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A practical way to estimate the error of some method of integration is to use it twice with two different step sizes, and compare the results. Typically, one compares the computations with steps \(h\) and \(h/2\text{.}\) Say, the first computation resulted in \(A_1\) and the second, more accurate, in \(A_2\text{.}\) If the exact value is \(E\text{,}\) then we expect \(|A_1-E|\approx 2^d|A_2-E|\) where \(d\) is the order of accuracy of the method. By the triangle inequality,</p>
-<div class="displaymath">
-\begin{equation*}
-|A_1-A_2| \ge |A_1-E| - |A_2-E| \approx (2^d-1) |A_2-E| 
-\end{equation*}
-</div>
-<p data-braille="continuation">which gives us an idea of the error involved in \(A_2\) (the more accurate approximation):</p>
-<div class="displaymath">
-\begin{equation}
-|A_2-E| \lessapprox \frac{|A_1-A_2|}{2^d-1}  \tag{17.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">where the symbol \(\lessapprox\) means the error is bounded by something like the right hand side. We do not assert this is an exact inequality, because the relation involving \(2^d\) is only approximate.</p>
-<span class="incontext"><a href="section-adaptive-integration-error-estimate.html#p-561">in-context</a></span>
+<p>Moreover, formulas like <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> are difficult to implement in an algorithm. We know how to differentiate numerically (<a href="chapter-numerical-differentiation.html" class="internal" title="Chapter 12: Numerical differentiation">Chapter 12</a>) but finding the absolute maximum of some function on an interval is not easy at all, as we will see later in the course.</p>
+<span class="incontext"><a href="section-motivation-adaptive-integration.html#p-561">in-context</a></span>
 </body>
 </html>

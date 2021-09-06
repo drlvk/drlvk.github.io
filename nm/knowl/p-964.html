@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:26-04:00    *-->
+<!--*    on 2021-09-06T19:21:28-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The line <code class="code-inline tex2jax_ignore">values = [f(T(:,1)) f(T(:,2)) f(T(:,3))]</code> resists vectorization unless we rewrite <code class="code-inline tex2jax_ignore">f</code> (which we probably should not do because in practice, the objective function is user-provided code). So it becomes a loop:</p>
-<pre class="code-block tex2jax_ignore">
-values = zeros(1, n+1);
-for j = 1:n+1
-    values(j) = f(T(:, j));
-end    
-</pre>
-<p data-braille="continuation">The remaining adjustments are small: the midpoint of opposite side is now <code class="code-inline tex2jax_ignore">M = (sum(T, 2) - T(:, ind))/n</code> but the formulas for reflection \(R\text{,}\) expansion \(E\text{,}\) and contraction remain the same. The plot of search path and formatting of text output need cosmetic changes, as shown in the following example.</p>
-<span class="incontext"><a href="section-nelder-mead-ndim.html#p-964">in-context</a></span>
+<p>The process of changing the shape of the triangle is <em class="emphasis">expansion</em>, which is introduced as an alternative to reflection from <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a>. Suppose that the current triangle qualifies for reflection: for example, \(C\) is the point with largest value, and \(f(R) \lt f(C)\text{.}\) Consider the possibility of replacing \(C\) with a point \(E\) that lies beyond \(R\text{,}\) thus making the triangle longer. The point \(E\) is determined by the following equation, which shows that it is as far from \(R\) as \(R\) is from the center of reflection \(M\text{:}\)</p>
+<div class="displaymath">
+\begin{equation*}
+E = R + (R-M) = 2R - M
+\end{equation*}
+</div>
+<p data-braille="continuation">If \(f(E) \lt f(R)\text{,}\) then we replace \(C\) with \(E\) rather than \(R\text{.}\) In other words, the “highest” vertex of the triangle is replaced by whichever of \(E, R\) is lower.</p>
+<span class="incontext"><a href="section-nelder-mead-expand.html#p-964">in-context</a></span>
 </body>
 </html>

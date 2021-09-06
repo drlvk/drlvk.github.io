@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:25-04:00    *-->
+<!--*    on 2021-09-06T19:21:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Since the choice of initial point is an important step, we need a way to choose reasonable values of the parameters. To do this, let us take a closer look at the logistic curve <a class="xref" data-knowl="./knowl/eq-general-logistic-curve.html" title="Equation 29.1.2">(29.1.2)</a>. The meaning of parameter \(A\) is not very intuitive, which motivates the following  <em class="emphasis">equivalent form</em> of the function:</p>
-<div class="displaymath">
-\begin{equation}
-y = \frac{M}{1 + e^{-(x-a)/s}}\tag{29.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">Note that this curve is obtained from the <dfn class="terminology">standard logistic function</dfn></p>
-<div class="displaymath">
-\begin{equation*}
-\sigma(x) = \frac{1}{1+e^{-x}}
-\end{equation*}
-</div>
-<p data-braille="continuation">with</p>
-<ul class="disc">
-<li>vertical stretching by factor \(M\text{;}\)</li>
-<li>shift to the right by \(a\) units;</li>
-<li>horizontal stretching by factor \(s\text{.}\)</li>
-</ul>
-<p data-braille="continuation">(<a class="external" href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank">Reference and plot</a>.)</p>
+<p>The syntax of <code class="code-inline tex2jax_ignore">fminsearch</code> is similar to <code class="code-inline tex2jax_ignore">fsolve</code> (which searchers for solutions \(f=0\)): the first argument is the function to be minimized, the second is initial point from which to start the search. For example,</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) x^2 + x, 0)
+</pre>
+<p data-braille="continuation">returns <code class="code-inline tex2jax_ignore">-0.5</code> which is where the function is minimal. The choice of initial point does not matter here, since the minimum is unique. But for the second example</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) x^4 - x^2, 0)
+</pre>
+<p data-braille="continuation">the initial point matters: the function may find the minimum 0.7071 or -0.7071. Note that <code class="code-inline tex2jax_ignore">fminsearch</code> is not misled by \(x=0\) which is also a critical point: it can tell a difference between minimum and maximum.</p>
 <span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-853">in-context</a></span>
 </body>
 </html>

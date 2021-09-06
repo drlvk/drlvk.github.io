@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:24-04:00    *-->
+<!--*    on 2021-09-06T19:21:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>After loading the image with <code class="code-inline tex2jax_ignore">im = imread('winter.png')</code>, check this is a matrix (no separate channels for colors). Try <code class="code-inline tex2jax_ignore">fc = fft2(im);</code> which produces a matrix of the same size but with complex entries. It is not easy to understand all of it. Small pieces can be inspected with <code class="code-inline tex2jax_ignore">fc(1:5, 1:5)</code> for example: when doing this, notice the special role of <code class="code-inline tex2jax_ignore">fc(1, 1)</code>, the upper left number. A histogram can help visualize the distribution of the magnitudes of Fourier coefficients: <code class="code-inline tex2jax_ignore">hist(abs(fc(:)), 50)</code>. (Recall that <code class="code-inline tex2jax_ignore">fc(:)</code> means flattening a matrix to a vector.) Looks like nearly all coefficients are much smaller than the largest ones.</p>
-<span class="incontext"><a href="section-2d-dft.html#p-778">in-context</a></span>
+<p>The command <code class="code-inline tex2jax_ignore">imshow(im)</code> displays the image. An image (an array of numbers) can be transformed in multiple ways and then either saved as a file with <code class="code-inline tex2jax_ignore">imwrite</code> or just displayed with <code class="code-inline tex2jax_ignore">imshow</code>; we will do the latter, which is simpler. Try the following and observe the effects:</p>
+<ul class="disc">
+<li>Remove one of colors entirely, for example <code class="code-inline tex2jax_ignore">im(:, :, 3)  = 0;</code>
+</li>
+<li>Set all pixels darker than some level to black (0) with <code class="code-inline tex2jax_ignore">im(im &lt; 128) = 0;</code>
+</li>
+<li>Set the intensity of some color to some specific value, for example <code class="code-inline tex2jax_ignore">im(:, :, 2)  = 64;</code>
+</li>
+<li>…</li>
+</ul>
+<p data-braille="continuation">If you do something that causes the array to lose its class “uint8”, that can usually be fixed with the command <code class="code-inline tex2jax_ignore">uint8(...)</code>.</p>
+<span class="incontext"><a href="section-image-compression.html#p-778">in-context</a></span>
 </body>
 </html>

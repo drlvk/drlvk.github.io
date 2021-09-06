@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:27-04:00    *-->
+<!--*    on 2021-09-06T19:21:28-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,31 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The primal problem would be the farmer deciding how much wheat (\(x_1\)) and barley (\(x_2\)) to grow if their sell prices are \(S_1\) and \(S_2\) per unit. The goal is to maximize the total revenue:</p>
+<p>Specifically, symmetric duality states that the dual of</p>
 <div class="displaymath">
-\begin{equation*}
-S_1 x_1 + S_2 x_2 \to \max
-\end{equation*}
+\begin{equation}
+\mathbf c^T \mathbf x\to \max  \quad \text{where } A\mathbf x \le \mathbf b, \quad \mathbf x \ge 0\tag{35.2.1}
+\end{equation}
 </div>
-<p data-braille="continuation">subject to constraints:</p>
-<ul class="disc">
-<li>\(x_1 + x_2 \leq L\) (cannot use more land than available)</li>
-<li>\(F_1  x_1 + F_2  x_2 \leq F\)  (cannot use more fertilizer than available)</li>
-<li>\(P_1  x_1 + P_2  x_2 \leq P\) (cannot use more pesticide than available)</li>
-<li>\(x_1, x_2 \geq 0\) (cannot grow negative amounts)</li>
-</ul>
-<span class="incontext"><a href="section-lp-duality-economic.html#p-1016">in-context</a></span>
+<p data-braille="continuation">is</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf b^T \mathbf y\to \min  \quad \text{where } A^T\mathbf y \ge \mathbf c, \quad \mathbf y \ge 0\tag{35.2.2}
+\end{equation}
+</div>
+<p data-braille="continuation">Asymmetric duality states that the dual of</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf c^T \mathbf x\to \max \quad \text{where } A\mathbf x \le \mathbf b\tag{35.2.3}
+\end{equation}
+</div>
+<p data-braille="continuation">is</p>
+<div class="displaymath">
+\begin{equation}
+\mathbf b^T \mathbf y\to \min  \quad \text{where } A^T\mathbf y = \mathbf c, \quad \mathbf y \ge 0\tag{35.2.4}
+\end{equation}
+</div>
+<p data-braille="continuation">Note that in both cases, the variables and constraints trade places; the dual has as many constraints as the original problem had variables (not counting the nonnegativity requirements). Also, the dual of a maximization problem is a minimization problem (and the other way around).</p>
+<span class="incontext"><a href="section-linear-programming-duality.html#p-1016">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:22-04:00    *-->
+<!--*    on 2021-09-06T19:21:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Conceptually, any of the above methods can be directly applied to systems of \(m\) differential equations, just by interpreting \(y\) as a vector function \(\mathbf y\text{.}\) The notation becomes awkward: now \(y_2\) refer to the second component of \(\mathbf y\text{,}\) while the value \(\mathbf y(t_2)\) might be denoted \(\mathbf y_2\text{.}\) There are also a few changes in Matlab notation regarding <code class="code-inline tex2jax_ignore">y</code>: it will now be a matrix, where rows correspond to components and columns correspond to points of evaluation. The right-hand side function <code class="code-inline tex2jax_ignore">f</code> should return a column vector of the same dimesion \(m\text{.}\)</p>
-<span class="incontext"><a href="section-ode-systems.html#p-626">in-context</a></span>
+<p>Theoretical analysis of accuracy confirms the above observation that trapezoidal method is much more accurate. For the model equation \(y'=y\) it gives \(y_1 = 1+ h(1+1+h)/2 = 1+h+h^2/2\text{,}\) which matches exact solution \(e^h = 1+h+h^2/2+h^3/3\) up to \(h^3\) term. Therefore, the cumulative error is of order \(h^2\text{.}\)</p>
+<span class="incontext"><a href="section-ode-euler-improved.html#p-626">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:08-04:00    *-->
+<!--*    on 2021-09-06T19:21:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -413,7 +414,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-trigonometric-interpolation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">25.4</span> <span class="title">Trigonometric Interpolation</span>
 </h2>
-<p id="p-762">Discrete Fourier Transform allows us to interpolate any periodic function by a trigonometric polynomial by first discretizing it  as \(z_k=f(k/n)\text{,}\) \(k=0, \dots, n-1\text{,}\) applying FFT to compute Fourier coefficients \(c_k\text{,}\) and then constructing a trigonometric polynomial with these coefficients. By literally following the formula <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a> we arrive at the trigonometric polynomial</p>
+<p id="p-765">Discrete Fourier Transform allows us to interpolate any periodic function by a trigonometric polynomial by first discretizing it  as \(z_k=f(k/n)\text{,}\) \(k=0, \dots, n-1\text{,}\) applying FFT to compute Fourier coefficients \(c_k\text{,}\) and then constructing a trigonometric polynomial with these coefficients. By literally following the formula <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a> we arrive at the trigonometric polynomial</p>
 <div class="displaymath">
 \begin{equation}
 p(x) = \frac{1}{n}\sum_{k=0}^{n-1} c_k \exp(2\pi i k x)\label{eq-bad-trig-interpolation}\tag{25.4.1}
@@ -434,8 +435,8 @@ plot(p(t), 'r')
 plot(z, 'k*')
 hold off
 </pre>
-<p id="p-763">The problem is that our formula for <code class="code-inline tex2jax_ignore">p</code> involves complex exponential functions with “frequencies” \(k=0, 1, \dots, 9\) which is not how trigonometric polynomials <a class="xref" data-knowl="./knowl/eq-trigonometric-polynomial-complex.html" title="Equation 25.1.3">(25.1.3)</a> normally look. The high frequencies create the oscillatory behavior which, while matching the data, does not create a reasonable interpolant.</p>
-<p id="p-764">A key term here is <dfn class="terminology">aliasing</dfn>, which is the fact that different trigonometric (or complex exponential) functions may coincide when restricted to a discrete grid of points (<a class="external" href="https://commons.wikimedia.org/wiki/File:AliasingSines.svg" target="_blank">illustration</a>). Specifically,</p>
+<p id="p-766">The problem is that our formula for <code class="code-inline tex2jax_ignore">p</code> involves complex exponential functions with “frequencies” \(k=0, 1, \dots, 9\) which is not how trigonometric polynomials <a class="xref" data-knowl="./knowl/eq-trigonometric-polynomial-complex.html" title="Equation 25.1.3">(25.1.3)</a> normally look. The high frequencies create the oscillatory behavior which, while matching the data, does not create a reasonable interpolant.</p>
+<p id="p-767">A key term here is <dfn class="terminology">aliasing</dfn>, which is the fact that different trigonometric (or complex exponential) functions may coincide when restricted to a discrete grid of points (<a class="external" href="https://commons.wikimedia.org/wiki/File:AliasingSines.svg" target="_blank">illustration</a>). Specifically,</p>
 <div class="displaymath">
 \begin{equation*}
 \exp(2\pi i k t)  = \exp(2\pi i (k-n) t), \quad t = 0, 1/n, 2/n, \dots, 1
@@ -450,19 +451,19 @@ k = [0 1 2 3 4 5 6 7 8];
 k = [0 1 2 3 4 -4 -3 -2 -1];
 </pre>
 <p data-braille="continuation">Replacing <code class="code-inline tex2jax_ignore">k = 0:n-1</code> in the above code with <code class="code-inline tex2jax_ignore">k = [0:(n-1)/2 (1-n)/2:-1];</code> corrects the issue.</p>
-<p id="p-765">The previous paragraph operates with an odd number \(n\) which is more natural in this context because trigonometric polynomials <a class="xref" data-knowl="./knowl/eq-trigonometric-polynomial-complex.html" title="Equation 25.1.3">(25.1.3)</a> normally contain an odd number of terms. But what if we are given an even number of points to interpolate through, such as 10? It is not clear whether to keep \(k=n/2\) as positive: <code class="code-inline tex2jax_ignore">k=[0:n/2 1-n/2:-1]</code> or to move it to negative: <code class="code-inline tex2jax_ignore">k=[0:n/2-1  -n/2:-1]</code>. The symmetric approach is to split the term with \(k=n/2\) in two, like this:</p>
+<p id="p-768">The previous paragraph operates with an odd number \(n\) which is more natural in this context because trigonometric polynomials <a class="xref" data-knowl="./knowl/eq-trigonometric-polynomial-complex.html" title="Equation 25.1.3">(25.1.3)</a> normally contain an odd number of terms. But what if we are given an even number of points to interpolate through, such as 10? It is not clear whether to keep \(k=n/2\) as positive: <code class="code-inline tex2jax_ignore">k=[0:n/2 1-n/2:-1]</code> or to move it to negative: <code class="code-inline tex2jax_ignore">k=[0:n/2-1  -n/2:-1]</code>. The symmetric approach is to split the term with \(k=n/2\) in two, like this:</p>
 <pre class="code-block tex2jax_ignore">
 c = [c(1:n/2-1) c(n/2)/2 c(n/2)/2 c(n/2+1:end)];
 k = [0:n/2 -n/2:-1];
 </pre>
 <p data-braille="continuation">To avoid this complication, we stick to odd \(n\) (number of interpolation points) in this section.</p>
-<p id="p-766">The same approach works for interpolating real-valued data with a trigonometric function. The main difference is in plotting the real-valued periodic function: we want the horizontal axis to represent \(t\) while the vertical axis shows the values of the function.</p>
+<p id="p-769">The same approach works for interpolating real-valued data with a trigonometric function. The main difference is in plotting the real-valued periodic function: we want the horizontal axis to represent \(t\) while the vertical axis shows the values of the function.</p>
 <article class="example example-like" id="example-real-trigonometric-interpolation"><a data-knowl="" class="id-ref original" data-refid="hk-example-real-trigonometric-interpolation"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">25.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Interpolation by a real trigonometric polynomial.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-real-trigonometric-interpolation"><article class="example example-like"><p id="p-767">Plot a trigonometric polynomial with period \(1\) which attains prescribed (random) real values at the points \(0, 0.2, 0.4, 0.6, 0.8\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-real-trigonometric-interpolation"><article class="example example-like"><p id="p-770">Plot a trigonometric polynomial with period \(1\) which attains prescribed (random) real values at the points \(0, 0.2, 0.4, 0.6, 0.8\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-68" id="answer-68"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-68"><div class="answer solution-like">
-<p id="p-768">Here \(n=5\) (the number of interpolation points), and <code class="code-inline tex2jax_ignore">z = rand(1, n)</code> (real numbers). Theoretically, the interpolating polynomial will be real-valued but due to limited precision, some small imaginary component may appear. So we should take the real part <code class="code-inline tex2jax_ignore">real(p(t))</code>.</p>
+<p id="p-771">Here \(n=5\) (the number of interpolation points), and <code class="code-inline tex2jax_ignore">z = rand(1, n)</code> (real numbers). Theoretically, the interpolating polynomial will be real-valued but due to limited precision, some small imaginary component may appear. So we should take the real part <code class="code-inline tex2jax_ignore">real(p(t))</code>.</p>
 <pre class="code-block tex2jax_ignore">n = 5;
 z = rand(1, n);
 c = fft(z);
@@ -472,7 +473,7 @@ p = @(t) c/n*exp(2*pi*1i*k'*t);
 t = linspace(0, 1, 1000);
 plot(t, real(p(t)), (0:n-1)/n, z, 'r*')
 </pre>
-<p id="p-769">Note that \(p(1)=p(0)\) by construction.</p>
+<p id="p-772">Note that \(p(1)=p(0)\) by construction.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

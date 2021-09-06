@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:37:54-04:00    *-->
+<!--*    on 2021-09-06T19:20:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -414,7 +415,7 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">5.4</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-11"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-211">(No programming involved.) Prove that the following inequality holds for every positive integer \(n\text{:}\)</p>
+<p id="p-214">(No programming involved.) Prove that the following inequality holds for every positive integer \(n\text{:}\)</p>
 <div class="displaymath">
 \begin{equation*}
 |\sin(1) + \sin(2) + \cdots + \sin(n)| \le 2
@@ -423,7 +424,7 @@ MathJax.Hub.Config({
 <p data-braille="continuation">How does this explain the observation in <a class="xref" data-knowl="./knowl/example-mean-sine.html" title="Example 5.3.1: Mean value of sine function">Example 5.3.1</a>?</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-hint-2" id="hint-2"><span class="type">Hint</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-2"><div class="hint solution-like">
-<p id="p-212">Multiply the sum of sines by \(\sin(1/2)\) and use the formula</p>
+<p id="p-215">Multiply the sum of sines by \(\sin(1/2)\) and use the formula</p>
 <div class="displaymath">
 \begin{equation*}
 \sin(x)\sin(y) =\frac12 (\cos(x-y) - \cos(x+y))
@@ -432,7 +433,7 @@ MathJax.Hub.Config({
 <p data-braille="continuation">to make the sum “telescope”.</p>
 </div></div>
 </div></article><article class="exercise exercise-like" id="exercise-12"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-213">Write an anonymous function <code class="code-inline tex2jax_ignore">f = @(x, y) ...</code> which implements the mathematical function</p>
+<p id="p-216">Write an anonymous function <code class="code-inline tex2jax_ignore">f = @(x, y) ...</code> which implements the mathematical function</p>
 <div class="displaymath">
 \begin{equation*}
 f(x, y) = \frac{xy^2}{x^2 + y^4}
@@ -449,8 +450,8 @@ y \amp = \sin t
 <pre class="code-block tex2jax_ignore">t = linspace(-1, 1, 500); 
 plot(t, f(t.^2, sin(t)))
 </pre>
-<p id="p-214">As \(t\) approaches 0, what value does \(f\) appear to approach?</p></article><article class="exercise exercise-like" id="exercise-13"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-215">Write a named function <code class="code-inline tex2jax_ignore">function y = cositer(x, n)</code> that takes two arguments x and n and returns the n-th iteration of the mathematical function \(x\mapsto 2\cos x\text{.}\) For example, if <code class="code-inline tex2jax_ignore">n = 4</code>, the result should be</p>
+<p id="p-217">As \(t\) approaches 0, what value does \(f\) appear to approach?</p></article><article class="exercise exercise-like" id="exercise-13"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
+<p id="p-218">Write a named function <code class="code-inline tex2jax_ignore">function y = cositer(x, n)</code> that takes two arguments x and n and returns the n-th iteration of the mathematical function \(x\mapsto 2\cos x\text{.}\) For example, if <code class="code-inline tex2jax_ignore">n = 4</code>, the result should be</p>
 <div class="displaymath">
 \begin{equation*}
 2\cos(2\cos (2\cos (2\cos x))))
@@ -468,7 +469,7 @@ function y = cositer(x, n)
    (your function goes here)
 end
 </pre>
-<p id="p-216">Remark: the command <code class="code-inline tex2jax_ignore">hold on</code> refers to displaying several functions on the same plot. Normally, Matlab replaces each plot with next one. With <code class="code-inline tex2jax_ignore">hold on</code>, it keeps the previous plot and draws next one over it, using a different color (unless you specify a color). At the end, <code class="code-inline tex2jax_ignore">hold off</code> is used to restore the normal behavior.</p></article></section></div></main>
+<p id="p-219">Remark: the command <code class="code-inline tex2jax_ignore">hold on</code> refers to displaying several functions on the same plot. Normally, Matlab replaces each plot with next one. With <code class="code-inline tex2jax_ignore">hold on</code>, it keeps the previous plot and draws next one over it, using a different color (unless you specify a color). At the end, <code class="code-inline tex2jax_ignore">hold off</code> is used to restore the normal behavior.</p></article></section></div></main>
 </div>
 </body>
 </html>

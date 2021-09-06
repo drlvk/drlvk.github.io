@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:18-04:00    *-->
+<!--*    on 2021-09-06T19:21:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>How to determine an appropriate value of \(\omega\text{?}\) Consider the case of a multiple root: \(f(x) = x^p\) with \(p &gt; 1\text{.}\)  Here</p>
+<p>Write a script that starts with the definition of a function \(f\) and two initial points, for example</p>
+<pre class="code-block tex2jax_ignore">
+f = @(x) x^3 - x;
+x = 5;
+p = 7;
+</pre>
+<p data-braille="continuation">and proceeds to find a root of \(f\) using the secant method: the next point to be computed will be</p>
 <div class="displaymath">
 \begin{equation*}
-g(x) = x - \omega \frac{f(x)}{f'(x)} = x - \omega \frac{x^p}{px^{p-1}} = (1- \omega/p)x
+x - f(x) \frac{x-p}{f(x)-f(p)}
 \end{equation*}
 </div>
-<p data-braille="continuation">so the best value to use \(\omega = p\text{,}\) which makes \(g(x)=0\text{,}\) the solution is found in one step. So, for a double root, when the graph of \(f\) looks like a parabola near the root, we should use over-relaxation with \(\omega = 2\text{;}\) for triple roots, \(\omega = 3\text{,}\) and so on. Over-relaxation needs to be done very carefully: in these examples, any value of \(\omega\) other than the correct one will fail to achieve the desired speed up of convergence.</p>
-<span class="incontext"><a href="section-relaxation-parameter.html#p-337">in-context</a></span>
+<p data-braille="continuation">where the fraction represents division by the slope of secant line.</p>
+<span class="incontext"><a href="section-secant-method.html#p-337">in-context</a></span>
 </body>
 </html>

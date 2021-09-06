@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:26-04:00    *-->
+<!--*    on 2021-09-06T19:21:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The gradient of Rosenbrock's function is <a class="xref" data-knowl="./knowl/eq-rosenbrock-grad.html" title="Equation 32.1.3">(32.1.3)</a> and its Hessian matrix is</p>
+<p>The gradient of Rosenbrock's function is</p>
 <div class="displaymath">
 \begin{equation}
-\begin{pmatrix} 2 + 400 (x_1^2-x_2) + 800 x_1^2 &amp; -400x_1 \\
--400 x_1 &amp; 200 \end{pmatrix}\tag{32.2.1}
+\begin{pmatrix} 2(x_1-1) + 400x_1(x_1^2-x_2) \\ -200(x_1^2 - x_2)\end{pmatrix}\tag{32.1.3}
 \end{equation}
 </div>
-<span class="incontext"><a href="section-newton-method-min-nd.html#p-936">in-context</a></span>
+<p data-braille="continuation">The code uses a matrix <code class="code-inline tex2jax_ignore">path</code> to record the path taken by the search.</p>
+<span class="incontext"><a href="section-gradient-descent-nd.html#p-936">in-context</a></span>
 </body>
 </html>

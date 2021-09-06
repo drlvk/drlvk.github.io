@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:37:54-04:00    *-->
+<!--*    on 2021-09-06T19:20:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -413,7 +414,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-systems-without-free-variables"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.2</span> <span class="title">Systems without free variables</span>
 </h2>
-<p id="p-225">What do we get when solving a system with <code class="code-inline tex2jax_ignore">A\b</code> in Matlab? Let us first consider the case when <code class="code-inline tex2jax_ignore">rank(A)</code> is <code class="code-inline tex2jax_ignore">n</code>, so every column of A is a basic column, which means there are no free variables. When such a system is consistent, it has a unique solution and <code class="code-inline tex2jax_ignore">A\b</code> finds this unique solution. When the system is inconsistent, we get the <dfn class="terminology">least-squares solution</dfn>: the vector \(x\) for which the norm of the <dfn class="terminology">residual vector</dfn> \(Ax-b\) is as small as possible. Recall that the norm of a vector \(v = (v_1, \dots, v_m)\) is</p>
+<p id="p-228">What do we get when solving a system with <code class="code-inline tex2jax_ignore">A\b</code> in Matlab? Let us first consider the case when <code class="code-inline tex2jax_ignore">rank(A)</code> is <code class="code-inline tex2jax_ignore">n</code>, so every column of A is a basic column, which means there are no free variables. When such a system is consistent, it has a unique solution and <code class="code-inline tex2jax_ignore">A\b</code> finds this unique solution. When the system is inconsistent, we get the <dfn class="terminology">least-squares solution</dfn>: the vector \(x\) for which the norm of the <dfn class="terminology">residual vector</dfn> \(Ax-b\) is as small as possible. Recall that the norm of a vector \(v = (v_1, \dots, v_m)\) is</p>
 <div class="displaymath">
 \begin{equation*}
 \|v\| = \sqrt{v_1^2+\cdots +v_m^2}
@@ -432,7 +433,7 @@ MathJax.Hub.Config({
 <p data-braille="continuation">The last way is easiest.</p>
 <article class="example example-like" id="example-least-squares-norm-residual"><a data-knowl="" class="id-ref original" data-refid="hk-example-least-squares-norm-residual"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">The least-squares solution and the norm of residual vector.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-least-squares-norm-residual"><article class="example example-like"><p id="p-226">Find the least-squares solution \(x\) and the norm of residual vector \(Ax-b\) for the system with the matrix</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-least-squares-norm-residual"><article class="example example-like"><p id="p-229">Find the least-squares solution \(x\) and the norm of residual vector \(Ax-b\) for the system with the matrix</p>
 <div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 2 \\ 4 \amp 3  \\ 5\amp  6 \end{pmatrix} 
@@ -452,7 +453,7 @@ disp(x)
 disp(norm(Ax-b))
 </pre></div></div>
 </div></article></div>
-<p id="p-227">A practical use of least squares solutions is linear regression. Suppose we are given some data points \((x_k, y_k)\) and want to find the line \(y = cx+d\) that fits these points the best. The idea is to imagine we could have perfect fit:</p>
+<p id="p-230">A practical use of least squares solutions is linear regression. Suppose we are given some data points \((x_k, y_k)\) and want to find the line \(y = cx+d\) that fits these points the best. The idea is to imagine we could have perfect fit:</p>
 <div class="displaymath">
 \begin{align*}
 c x_1 + d \amp = y_1 \\
@@ -473,7 +474,7 @@ b = \begin{pmatrix} y_1 \\ y_2 \\ \vdots \\ y_m \end{pmatrix},
 <p data-braille="continuation">This is an overdetermined system when we have more than 2 data points. Unless all \(x\)-values are the same (which should not happen), the rank of A is 2 and so the system has no free variables. This means that <code class="code-inline tex2jax_ignore">A\b</code> will find its least squares solution: a vector with components \((c, d)\) for which the sum of squares of the residuals \(cx_k+d - y_k\) is as small as possible. This is the line of best least-squares fit, and this process is known as linear regression in statistics.</p>
 <article class="example example-like" id="example-line-best-fit"><a data-knowl="" class="id-ref original" data-refid="hk-example-line-best-fit"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Line of best fit.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-line-best-fit"><article class="example example-like"><p id="p-228">Find the line of best fit (in the sense of least squares) to the six points with x-values (-1, 0, 2, 3, 4, 7) and y-values (9, 8, 5, 5, 3, -2).  Plot both the line and the points.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-line-best-fit"><article class="example example-like"><p id="p-231">Find the line of best fit (in the sense of least squares) to the six points with x-values (-1, 0, 2, 3, 4, 7) and y-values (9, 8, 5, 5, 3, -2).  Plot both the line and the points.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-39" id="answer-39"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-39"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">x = [-1, 0, 2, 3, 4, 7]'; 
@@ -487,7 +488,7 @@ plot(xx, yy)
 plot(x, y, 'r*')
 hold off
 </pre>
-<p id="p-229">Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'k*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx, xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later.</p>
+<p id="p-232">Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'k*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx, xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

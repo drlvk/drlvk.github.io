@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:37:53-04:00    *-->
+<!--*    on 2021-09-06T19:20:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -413,34 +414,34 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-anonymous-functions"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Anonymous functions</span>
 </h2>
-<p id="p-179">The concept of an <dfn class="terminology">anonymous function</dfn> in Matlab closely corresponds to mathematical notion of a function: it consists of a formula that transforms input into output. For example, to have mathematical function \(f(x) = \exp(-x^2)\) in your code, you would write</p>
+<p id="p-182">The concept of an <dfn class="terminology">anonymous function</dfn> in Matlab closely corresponds to mathematical notion of a function: it consists of a formula that transforms input into output. For example, to have mathematical function \(f(x) = \exp(-x^2)\) in your code, you would write</p>
 <pre class="code-block tex2jax_ignore">f = @(x) exp(-x^2);</pre>
 <p data-braille="continuation">and then use <code class="code-inline tex2jax_ignore">f</code> in expressions such as <code class="code-inline tex2jax_ignore">f(0)</code> or <code class="code-inline tex2jax_ignore">3*f(x-2)</code>.</p>
-<p id="p-180">When writing a function, one should consider whether it should accept input in the form of a vector or a matrix. The function in the previous paragraph works fine with scalar input, such as <code class="code-inline tex2jax_ignore">f(2)</code> but throws an error if the input is a vector, for example <code class="code-inline tex2jax_ignore">f([0 1 2 3])</code>. The reason is that with this input, <code class="code-inline tex2jax_ignore">x^2</code> becomes <code class="code-inline tex2jax_ignore">[0 1 2 3]^2</code> which is an error in Matlab where <code class="code-inline tex2jax_ignore">^2</code> means matrix multiplication. We want an array operation, not a matrix product. Thus, the function should be written as</p>
+<p id="p-183">When writing a function, one should consider whether it should accept input in the form of a vector or a matrix. The function in the previous paragraph works fine with scalar input, such as <code class="code-inline tex2jax_ignore">f(2)</code> but throws an error if the input is a vector, for example <code class="code-inline tex2jax_ignore">f([0 1 2 3])</code>. The reason is that with this input, <code class="code-inline tex2jax_ignore">x^2</code> becomes <code class="code-inline tex2jax_ignore">[0 1 2 3]^2</code> which is an error in Matlab where <code class="code-inline tex2jax_ignore">^2</code> means matrix multiplication. We want an array operation, not a matrix product. Thus, the function should be written as</p>
 <pre class="code-block tex2jax_ignore">f = @(x) exp(-x.^2);</pre>
 <p data-braille="continuation">Then we can apply this function to a vector, for example to plot it.</p>
 <pre class="code-block tex2jax_ignore">x = linspace(-3, 3, 500);
 plot(x, f(x))
 </pre>
-<p id="p-181">An anonymous function can have multiple variables, for example the mathematical formula \(f(x, y, z) = (xy+1)/z\) could be defined as <code class="code-inline tex2jax_ignore">f = @(x,y,z) (x.*y + 1)./z</code>. The inclusion of periods allows this function to vectors for its inputs, provided the vectors are of the same size.</p>
-<p id="p-182">The names of the parameters (variables inside of anonymous function) do not matter outside of that function. For example, there is no problem with the following code</p>
+<p id="p-184">An anonymous function can have multiple variables, for example the mathematical formula \(f(x, y, z) = (xy+1)/z\) could be defined as <code class="code-inline tex2jax_ignore">f = @(x,y,z) (x.*y + 1)./z</code>. The inclusion of periods allows this function to vectors for its inputs, provided the vectors are of the same size.</p>
+<p id="p-185">The names of the parameters (variables inside of anonymous function) do not matter outside of that function. For example, there is no problem with the following code</p>
 <pre class="code-block tex2jax_ignore">f = @(x) x + 4;
 x = 1;
 y = 3;
 disp(f(y))
 </pre>
-<p id="p-183">The result is 7, because this is the output that <code class="code-inline tex2jax_ignore">f</code> produces when its input is 3. The variable <code class="code-inline tex2jax_ignore">x</code> outside of the function (which was given the value of 1) has no relation to the variable <code class="code-inline tex2jax_ignore">x</code> inside of the function.</p>
-<p id="p-184">A limitation of anonymous functions is that they consist of a single expression: there is no place for conditional statements or loops. But one can still construct piecewise defined functions using inequalities as a part of an arithmetic expression. When an inequality such as <code class="code-inline tex2jax_ignore">(x &lt; 3)</code> appears in an expression, it is treated as 1 when the inequality is true, and 0 when false. Therefore, the function defined by</p>
+<p id="p-186">The result is 7, because this is the output that <code class="code-inline tex2jax_ignore">f</code> produces when its input is 3. The variable <code class="code-inline tex2jax_ignore">x</code> outside of the function (which was given the value of 1) has no relation to the variable <code class="code-inline tex2jax_ignore">x</code> inside of the function.</p>
+<p id="p-187">A limitation of anonymous functions is that they consist of a single expression: there is no place for conditional statements or loops. But one can still construct piecewise defined functions using inequalities as a part of an arithmetic expression. When an inequality such as <code class="code-inline tex2jax_ignore">(x &lt; 3)</code> appears in an expression, it is treated as 1 when the inequality is true, and 0 when false. Therefore, the function defined by</p>
 <pre class="code-block tex2jax_ignore">f = @(x) (x&gt;=0).*sqrt(x) + (x &lt; 0).*exp(x)</pre>
 <p data-braille="continuation">evaluates to \(\sqrt{x}\) when \(x\ge 0\) and to \(e^x\) when \(x \lt 0\text{.}\)</p>
 <article class="example example-like" id="example-31"><a data-knowl="" class="id-ref original" data-refid="hk-example-31"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Sum of reciprocals.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><p id="p-185">Write an anonymous function which, when given a number \(n\text{,}\) returns the sum of the reciprocals of all positive integers between \(1\) and \(n\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><p id="p-188">Write an anonymous function which, when given a number \(n\text{,}\) returns the sum of the reciprocals of all positive integers between \(1\) and \(n\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-31" id="answer-31"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-31"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">H = @(n) sum((1:n).^(-1));
 </pre>
-<p id="p-186">These sums are called <dfn class="terminology">harmonic numbers</dfn> (hence the letter H for this function). What happens if it is given a negative or fractional input? The regular vector <code class="code-inline tex2jax_ignore">1:n</code> contains all positive integers that are not greater than n. So, <code class="code-inline tex2jax_ignore">1:3.7</code> is <code class="code-inline tex2jax_ignore">[1 2 3]</code>, same as <code class="code-inline tex2jax_ignore">1:3</code>. This means <code class="code-inline tex2jax_ignore">H(3.7)</code> is <code class="code-inline tex2jax_ignore">1/1 + 1/2 + 1/3</code>, same as <code class="code-inline tex2jax_ignore">H(3)</code>. And if a number less than 1 is given, the regular vector <code class="code-inline tex2jax_ignore">1:n</code> is empty, and the sum of an empty set of numbers is 0. For example, <code class="code-inline tex2jax_ignore">H(-2)</code> is 0.</p>
+<p id="p-189">These sums are called <dfn class="terminology">harmonic numbers</dfn> (hence the letter H for this function). What happens if it is given a negative or fractional input? The regular vector <code class="code-inline tex2jax_ignore">1:n</code> contains all positive integers that are not greater than n. So, <code class="code-inline tex2jax_ignore">1:3.7</code> is <code class="code-inline tex2jax_ignore">[1 2 3]</code>, same as <code class="code-inline tex2jax_ignore">1:3</code>. This means <code class="code-inline tex2jax_ignore">H(3.7)</code> is <code class="code-inline tex2jax_ignore">1/1 + 1/2 + 1/3</code>, same as <code class="code-inline tex2jax_ignore">H(3)</code>. And if a number less than 1 is given, the regular vector <code class="code-inline tex2jax_ignore">1:n</code> is empty, and the sum of an empty set of numbers is 0. For example, <code class="code-inline tex2jax_ignore">H(-2)</code> is 0.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

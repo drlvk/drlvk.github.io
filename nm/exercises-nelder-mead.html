@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:13-04:00    *-->
+<!--*    on 2021-09-06T19:21:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -414,19 +415,19 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">33.5</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-74"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-967">Apply the code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> to <dfn class="terminology">Easom function</dfn></p>
+<p id="p-974">Apply the code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> to <dfn class="terminology">Easom function</dfn></p>
 <div class="displaymath">
 \begin{equation*}
 f(x_1, x_2) = -\cos x_1 \cos x_2 \exp(-(x_1-\pi)^2-(x_2-\pi)^2)
 \end{equation*}
 </div>
 <p data-braille="continuation">The global minimum is \((\pi, \pi)\) with \(f(\pi, \pi)=-1\) but it is difficult to find because the function has many local minima and its landscape does not naturally lead to the global minimum. If you run the code based on <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> five times (simply pressing <kbd class="kbdkey">F5</kbd> repeatedly), how many times does it converge to the global minimum \((\pi, \pi)\text{?}\)</p>
-<p id="p-968">To improve the situation, add a <dfn class="terminology">stochastic</dfn> (random) step to the minimization process, as an alternative to contraction. That is, when the algorithm in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> wants to contract the triangle, try the following point first.</p>
+<p id="p-975">To improve the situation, add a <dfn class="terminology">stochastic</dfn> (random) step to the minimization process, as an alternative to contraction. That is, when the algorithm in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> wants to contract the triangle, try the following point first.</p>
 <pre class="code-block tex2jax_ignore">
 S = T(:, ind) + randn(2, 1);
 </pre>
 <p data-braille="continuation">If the value of \(f\) at <code class="code-inline tex2jax_ignore">S</code> is smaller than the value at <code class="code-inline tex2jax_ignore">T(:, ind)</code>, then replace <code class="code-inline tex2jax_ignore">T(:, ind)</code> with <code class="code-inline tex2jax_ignore">S</code>. Otherwise, perform the contraction step.</p>
-<p id="p-969">If you run the stochastic Nelder-Mead method five times (pressing <kbd class="kbdkey">F5</kbd> repeatedly) how many times does it converge to the global minimum?</p></article><p id="p-970"><em class="emphasis">Remark</em>: The documentation of <a class="external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html" target="_blank">SciPy optimize</a> package provides an overview of many other optimization methods. There are a few bracket-based methods for functions of one variable (including golden section), several multivariate methods (such as Nelder-Mead), and in addition, some methods designed for finding the global minimum. Most of the latter group are stochastic methods: they intentionally make the search process subject to chance.</p></section></div></main>
+<p id="p-976">If you run the stochastic Nelder-Mead method five times (pressing <kbd class="kbdkey">F5</kbd> repeatedly) how many times does it converge to the global minimum?</p></article><p id="p-977"><em class="emphasis">Remark</em>: The documentation of <a class="external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html" target="_blank">SciPy optimize</a> package provides an overview of many other optimization methods. There are a few bracket-based methods for functions of one variable (including golden section), several multivariate methods (such as Nelder-Mead), and in addition, some methods designed for finding the global minimum. Most of the latter group are stochastic methods: they intentionally make the search process subject to chance.</p></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:28-04:00    *-->
+<!--*    on 2021-09-06T19:21:29-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,36 +12,16 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<p>We maximize \(w\) subject to constraints \(y_j\ge ax_j^2 + bx_j + c + w\) in the first group and \(y_j\le ax_j^2 + bx_j + c - w\) in the second. Rewrite the constraints as</p>
-<div class="displaymath">
-\begin{equation*}
-ax_j^2 + bx_j + c + w \le y_j
-\end{equation*}
-</div>
-<p data-braille="continuation">in the first group and</p>
-<div class="displaymath">
-\begin{equation*}
--ax_j^2 - bx_j - c + w \le -y_j
-\end{equation*}
-</div>
-<p data-braille="continuation">in the second. Also, \(w\ge 0\) is required by the geometric meaning of \(w\) as the “width” of separation. Given the vectors <code class="code-inline tex2jax_ignore">xt, yt</code> describing the first group and <code class="code-inline tex2jax_ignore">xb, yb</code> for the second, we can form a system of linear inequalities \(A\mathbf x\le \mathbf b\) as below</p>
-<pre class="code-block tex2jax_ignore">xt = [2; 4; 7];
-yt = [3; 6; 4];
-xb = [3; 5];
-yb = [4; 5];
-A = [xt.^2 xt xt.^0 xt.^0; -xb.^2 -xb -xb.^0 xb.^0; 0 0 0 -1];
-b = [yt; -yb; 0];
-opt = linprog([0; 0; 0; -1], A, b);
+<p>We set up the log-likelihood function <code class="code-inline tex2jax_ignore">LogL</code>, maximize it, and use the optimal parameters <code class="code-inline tex2jax_ignore">cc</code> to predict the status of the 10 people who were not a part of the training set.</p>
+<pre class="code-block tex2jax_ignore">LogL = @(c) sum(log(1./(1+exp(-c(1)*age1-c(2)*sys1-c(3))))) + sum(log(1 - 1./(1+exp(-c(1)*age0-c(2)*sys0-c(3)))));
+cc = fminsearch(@(c) -LogL(c), [0; 0; 0]);
 
-t = linspace(min([xt; xb]), max([xt; xb]), 1000);
-y = opt(1)*t.^2 + opt(2)*t + opt(3);
-plot(xt, yt, 'b*', xb, yb, 'r*', t, y, 'k')
+age = [38 45 30 48 48 25 44 49 45 48];
+sys = [138 124 130 123 129 128 124 119 136 114];
+prediction = 1./(1+exp(-cc(1)*age-cc(2)*sys-cc(3)));
+actual = [1 0 0 0 0 1 1 0 1 0];
+disp([prediction' actual']);
 </pre>
-<p>Instead of including \(-w \le 0\) as one of the inequalities in the system \(A\mathbf x\le b\text{,}\) we can impose this constraint separately as a lower bound in <code class="code-inline tex2jax_ignore">linprog</code>.</p>
-<pre class="code-block tex2jax_ignore">A = [xt.^2 xt xt.^0 xt.^0; -xb.^2 -xb -xb.^0 xb.^0];
-b = [yt; -yb];
-opt = linprog([0; 0; 0; -1], A, b, [], [], [-Inf; -Inf; -Inf; 0]);
-</pre>
-<p>The result is the same. With either version of the code, if the data points are changed so that there is no parabola that separates them completely, we get the message “No feasible solution found. Linprog stopped because no point satisfies the constraints.”</p>
+<p>Excluding the cases where prediction is a number close to \(0.5\) (which should be considered a “don't know” answer), the model got 6 out of 8 right.</p>
 </div></body>
 </html>

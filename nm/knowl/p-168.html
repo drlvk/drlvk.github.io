@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:16-04:00    *-->
+<!--*    on 2021-09-06T19:21:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><em class="emphasis">Explanation</em>: The variable <code class="code-inline tex2jax_ignore">s</code> represents partial sums. We add <code class="code-inline tex2jax_ignore">1/n</code> to it, and then increase the value of <code class="code-inline tex2jax_ignore">n</code>. When <code class="code-inline tex2jax_ignore">s &gt; 10</code> the process stops. The output uses formatting code <code class="code-inline tex2jax_ignore">%d</code> for integers, since the answer is an integer. Why does the output have <code class="code-inline tex2jax_ignore">n-1</code> and not <code class="code-inline tex2jax_ignore">n</code>? Because of the way that the loop is written, the value of n is increased <em class="emphasis">after</em> each addition. So at the end of it, <code class="code-inline tex2jax_ignore">n</code> is the number that is 1 more than the number of terms we added.</p>
-<span class="incontext"><a href="examples-control-flow.html#p-168">in-context</a></span>
+<p>An array operation is not always faster than a loop. Operating with large arrays requires more memory to store intermediate results. Other internal implementation details may cause a loop with a scalar operation to be faster than an array operation. Thus, we usually cannot tell which approach is faster without measuring the computation time. For more examples, try different ways of computing the sums \(\sum_{j=1}^n \frac{1}{j}\) and \(\sum_{j=1}^n j^3\) where \(n=10^7\) as before. Also note that \(j^3\) could be computed as <code class="code-inline tex2jax_ignore">j*j*j</code>: does this speed up the computation?</p>
+<span class="incontext"><a href="section-timing-code.html#p-168">in-context</a></span>
 </body>
 </html>

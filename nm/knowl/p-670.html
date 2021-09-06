@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:22-04:00    *-->
+<!--*    on 2021-09-06T19:21:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>(Theoretical) Write down explicitly the Newton polynomial that interpolates the points \((-1, u)\text{,}\) \((0, v)\text{,}\) \((1, w)\text{.}\) Its coefficients \(c_1, c_2, c_3\) will depend on \(u, v, w\text{.}\)</p>
-<span class="incontext"><a href="exercises-polynomial-interpolation.html#p-670">in-context</a></span>
+<p>This repeats: we start with <code class="code-inline tex2jax_ignore">c=y</code> and repeat the subtract-and-divide step to turn its term into the coefficients of the Newton polynomial.</p>
+<pre class="code-block tex2jax_ignore">
+c = y;
+for k=2:n
+    c(k:n) = (c(k:n)-c(k-1))./(x(k:n)-x(k-1))
+end
+</pre>
+<p data-braille="continuation">At the end of the loop, the vector <code class="code-inline tex2jax_ignore">c</code> contains the coefficients of Newton polynomial.</p>
+<span class="incontext"><a href="section-newton-polynomial.html#p-670">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:23-04:00    *-->
+<!--*    on 2021-09-06T19:21:24-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A cubic spline is a function \(S\) that is piecewise a degree 3 polynomial, and such that \(S, S', S''\) are continuous (have the same value from both sides at the points where pieces meet). In our context of fitting to data points \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) it is natural to have each cubic polynomial defined on \([x_{k}, x_{k+1}]\text{.}\) The continuity of first and second derivatives means that the graph of a cubic spline has no corners of sudden changes of curvature, it flows quite naturally. Compare the plots below, for the same data set.</p>
-<span class="incontext"><a href="section-cubic-splines.html#p-705">in-context</a></span>
+<p>Formally, piecewise linear interpolation means that given some points \(a=x_1 \lt x_2 \lt \cdots \lt x_n = b\) on an interval \([a, b]\) and corresponding y-values \(y_1, \dots, y_n\text{,}\) we define a function \(S\colon [a, b]\to \mathbb R\) by the piecewise formula</p>
+<div class="displaymath">
+\begin{equation}
+S(x) = y_k + \frac{y_{k+1}-y_k}{x_{k+1} - x_{k}} (x - x_k),\quad  x_{k}\le x\le x_{k+1}\tag{23.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">where the right hand side is a linear function through two points \((x_{k}, y_k)\) and \((x_{k+1}, y_{k+1})\text{.}\) So, instead of \(1\) interpolating polynomial of degree \(n-1\) we use \(n-1\) polynomials of degree \(1\text{.}\) The function \(S\) is a spline of degree 1 meaning it is a piecewise function where the pieces are polynomials of degree 1.</p>
+<span class="incontext"><a href="section-piecewise-linear-interpolation.html#p-705">in-context</a></span>
 </body>
 </html>

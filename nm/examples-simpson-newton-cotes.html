@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:00-04:00    *-->
+<!--*    on 2021-09-06T19:21:01-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -415,8 +416,8 @@ MathJax.Hub.Config({
 </h2>
 <article class="example example-like" id="example-simpson-rule-compare"><a data-knowl="" class="id-ref original" data-refid="hk-example-simpson-rule-compare"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">14.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Comparing the accuracy of Simpson's, trapezoidal, and midpoint rules.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-simpson-rule-compare"><article class="example example-like"><p id="p-487">For the function \(f(x) = e^x \) on the interval \([0, 1]\text{,}\) use Matlab to compute the left-, right, and midpoint approximations with \(n=10\) and find the error of each approximation (that is, its difference with the actual integral).</p>
-<p id="p-488">Then repeat the same with \(f(x) = e^{\sqrt{x}} \text{.}\) What could explain the lackluster performance of Simpson's rule here?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-simpson-rule-compare"><article class="example example-like"><p id="p-490">For the function \(f(x) = e^x \) on the interval \([0, 1]\text{,}\) use Matlab to compute the left-, right, and midpoint approximations with \(n=10\) and find the error of each approximation (that is, its difference with the actual integral).</p>
+<p id="p-491">Then repeat the same with \(f(x) = e^{\sqrt{x}} \text{.}\) What could explain the lackluster performance of Simpson's rule here?</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-36" id="solution-36"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-36"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) exp(x);  % or exp(sqrt(x))
@@ -437,12 +438,12 @@ M = h*sum(f(midpoints));
 er = abs([T M S] - exact);
 fprintf('Errors: Trapezoidal %g, Midpoint %g, Simpson %g\n', er);
 </pre>
-<p id="p-489">The function \(f(x) = e^{\sqrt{x}} \) is not differentiable at \(0\text{.}\) This behavior affects higher order methods more because they are based on comparing the function to a smooth one (such as a parabola). The midpoint method has an advantage in that it does not use the problematic point \(0\text{.}\)</p>
+<p id="p-492">The function \(f(x) = e^{\sqrt{x}} \) is not differentiable at \(0\text{.}\) This behavior affects higher order methods more because they are based on comparing the function to a smooth one (such as a parabola). The midpoint method has an advantage in that it does not use the problematic point \(0\text{.}\)</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-28"><a data-knowl="" class="id-ref original" data-refid="hk-question-28"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">14.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Richardson extrapolation of the midpoint rule.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-28"><article class="question example-like"><p id="p-490">We derived Simpson's rule from trapezoidal rule using the Richardson extrapolation. Why not do the same starting from the midpoint rule instead of trapezoidal?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-28"><article class="question example-like"><p id="p-493">We derived Simpson's rule from trapezoidal rule using the Richardson extrapolation. Why not do the same starting from the midpoint rule instead of trapezoidal?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

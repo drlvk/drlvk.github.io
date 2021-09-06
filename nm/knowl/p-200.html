@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:17-04:00    *-->
+<!--*    on 2021-09-06T19:21:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,20 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>To determine whether some number <code class="code-inline tex2jax_ignore">k</code> is prime, use <code class="code-inline tex2jax_ignore">isprime(k)</code>. For example, <code class="code-inline tex2jax_ignore">while isprime(k)</code> is a loop that runs as long as <code class="code-inline tex2jax_ignore">k</code> stays prime. To have a loop that runs while <code class="code-inline tex2jax_ignore">k</code> is <em class="emphasis">not</em> prime, use <code class="code-inline tex2jax_ignore">while ~sprime(k)</code>. The character <code class="code-inline tex2jax_ignore">~</code> means logical NOT in Matlab (recall that <code class="code-inline tex2jax_ignore">~=</code> means “not equal”.)</p>
+<p>Back in the days when Matlab was designed, the convention was to put every named function in a separate “M-file” named as that function: for example, <code class="code-inline tex2jax_ignore">goldenratio.m</code>. Modern versions allow multiple named functions appear in the same file, along with code using those functions. However, one arbitrary restriction remains: “Function definitions in a script must appear at the end of the file.” For example, the following is allowed:<pre class="code-block tex2jax_ignore">x = 0.3;
+y = 12;
+disp(agm(x, y, 1e-6))
+
+function z = agm(x, y, tol) 
+   while abs(x - y) &gt;= tol
+       a = (x + y)/2;
+       g = sqrt(x*y);
+       x = a;
+       y = g;
+   end
+   z = x;
+end
+</pre>but moving the first three lines (top-level code) after the named function would result in an error.</p>
 <span class="incontext"><a href="section-named-functions.html#p-200">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:22-04:00    *-->
+<!--*    on 2021-09-06T19:21:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The above does not capture the entire picture. Although errors might accumulate, they do not always do that. When solving an equation like \(y' = -ry\) (exponential decay) we get \(y_k = (1-rh)^k y_0\text{.}\) As long as \(h \lt 2/r\text{,}\) we have \(|1-rh| \lt 1\) and so the approximate solution decays exponentially as it should. But if \(h \gt 2/r\text{,}\)  the solution grows in magnitude instead of decreasing. This leads to the subject of <em class="emphasis">stability</em> of numerical ODE methods, which is beyond our scope.</p>
-<span class="incontext"><a href="section-ode-order-accuracy.html#p-620">in-context</a></span>
+<p>As <a class="xref" data-knowl="./knowl/example-implement-euler.html" title="Example 19.2.1: Implement Euler's method">Example 19.2.1</a> shows, a weakness of Euler's method is its tendency to fall behind the solution when the solution is increasing and concave up, or decreasing and concave down. The reason is that it uses the rate of change from point \(t_k\) for the entire interval \([t_k, t_{k+1}]\text{.}\) When applied to an ODE of the form \(y'=f(t)\text{,}\) Euler's method becomes the left endpoint method of integration. So it is not very accurate.</p>
+<span class="incontext"><a href="section-euler-method.html#p-620">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:06-04:00    *-->
+<!--*    on 2021-09-06T19:21:07-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -413,7 +414,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-using-cubic-splines"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">23.3</span> <span class="title">Using cubic splines</span>
 </h2>
-<p id="p-716">We do not go into the process of finding the coefficients of a cubic spline: it involves solving a linear system with only a few nonzero diagonals. In Matlab, the command <code class="code-inline tex2jax_ignore">spline</code> computes a knot-a-knot spline from given data, for example</p>
+<p id="p-719">We do not go into the process of finding the coefficients of a cubic spline: it involves solving a linear system with only a few nonzero diagonals. In Matlab, the command <code class="code-inline tex2jax_ignore">spline</code> computes a knot-a-knot spline from given data, for example</p>
 <pre class="code-block tex2jax_ignore">
 x = 1:7;
 y = [1 3 2 4 4 1 5];
@@ -426,7 +427,7 @@ t = linspace(min(x), max(x), 1000);
 plot(t, ppval(s, t))
 </pre>
 <p data-braille="continuation">plots the spline computed above.</p>
-<p id="p-717">There is also an option to combine construction and evaluation of a spline into the same command <code class="code-inline tex2jax_ignore">spline</code>, by feeding <code class="code-inline tex2jax_ignore">t</code> as a third argument. That is, <code class="code-inline tex2jax_ignore">spline(x, y, t)</code> constructs a spline from <code class="code-inline tex2jax_ignore">x, y</code> and immediately evaluates it at <code class="code-inline tex2jax_ignore">t</code>. For example:</p>
+<p id="p-720">There is also an option to combine construction and evaluation of a spline into the same command <code class="code-inline tex2jax_ignore">spline</code>, by feeding <code class="code-inline tex2jax_ignore">t</code> as a third argument. That is, <code class="code-inline tex2jax_ignore">spline(x, y, t)</code> constructs a spline from <code class="code-inline tex2jax_ignore">x, y</code> and immediately evaluates it at <code class="code-inline tex2jax_ignore">t</code>. For example:</p>
 <pre class="code-block tex2jax_ignore">
 t = linspace(min(x), max(x), 1000);
 plot(t, spline(x, y, t))
@@ -435,17 +436,17 @@ plot(t, spline(x, y, t))
 <pre class="code-block tex2jax_ignore">
 plot(t, spline(x, y, t), x, y, 'r*')
 </pre>
-<p id="p-718">How else could we use the spline data? The formula <a class="xref" data-knowl="./knowl/eq-piece-spline.html" title="Equation 23.2.1">(23.2.1)</a> shows that \(S'(x_k) = C_k\text{,}\) which is the entry of the 3rd column of matrix <code class="code-inline tex2jax_ignore">s.coefs</code>. Try <code class="code-inline tex2jax_ignore">s.coefs(:, 3)'</code> and compare the values with the slope of the spline at the data points. This is another approach to <em class="emphasis">numerical differentiation</em>, different from what we did in <a href="chapter-numerical-differentiation.html" class="internal" title="Chapter 12: Numerical differentiation">Chapter 12</a>: given discrete data, fit a spline to it and differentiate the spline.</p>
-<p id="p-719">Looking at the coefficients, we can also find the critical points of a spline, answering the question raised at the end of <a href="section-piecewise-linear-interpolation.html" class="internal" title="Section 23.1: Piecewise linear interpolation">Section 23.1</a>. Indeed, we have \(A, B, C, D\) coefficients of a cubic polynomial, so its derivative is a quadratic polynomial with coefficients \(3A, 2B, C\text{.}\) We can find its roots with <code class="code-inline tex2jax_ignore">roots</code> but one must be careful to check if a root indeed falls into the subinterval on which this polynomial is used.</p>
+<p id="p-721">How else could we use the spline data? The formula <a class="xref" data-knowl="./knowl/eq-piece-spline.html" title="Equation 23.2.1">(23.2.1)</a> shows that \(S'(x_k) = C_k\text{,}\) which is the entry of the 3rd column of matrix <code class="code-inline tex2jax_ignore">s.coefs</code>. Try <code class="code-inline tex2jax_ignore">s.coefs(:, 3)'</code> and compare the values with the slope of the spline at the data points. This is another approach to <em class="emphasis">numerical differentiation</em>, different from what we did in <a href="chapter-numerical-differentiation.html" class="internal" title="Chapter 12: Numerical differentiation">Chapter 12</a>: given discrete data, fit a spline to it and differentiate the spline.</p>
+<p id="p-722">Looking at the coefficients, we can also find the critical points of a spline, answering the question raised at the end of <a href="section-piecewise-linear-interpolation.html" class="internal" title="Section 23.1: Piecewise linear interpolation">Section 23.1</a>. Indeed, we have \(A, B, C, D\) coefficients of a cubic polynomial, so its derivative is a quadratic polynomial with coefficients \(3A, 2B, C\text{.}\) We can find its roots with <code class="code-inline tex2jax_ignore">roots</code> but one must be careful to check if a root indeed falls into the subinterval on which this polynomial is used.</p>
 <article class="example example-like" id="example-critical-points-spline"><a data-knowl="" class="id-ref original" data-refid="hk-example-critical-points-spline"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">23.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Critical points of a cubic spline.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-critical-points-spline"><article class="example example-like"><p id="p-720">Find and plot the critical points of the spline constructed from the data</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-critical-points-spline"><article class="example example-like"><p id="p-723">Find and plot the critical points of the spline constructed from the data</p>
 <pre class="code-block tex2jax_ignore">x = 1:7;
 y = [1 3 2 4 4 1 5];
 </pre>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-64" id="answer-64"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-64"><div class="answer solution-like">
-<p id="p-721">Since the number of critical points is not known in advance, we can gather them by appending each new critical point to the vector <code class="code-inline tex2jax_ignore">critpts</code>. To qualify for inclusion, a root of derivative of the cubic polynomial used on \([x_k, x_{k+1}]\) must be real and must lie within this interval.</p>
+<p id="p-724">Since the number of critical points is not known in advance, we can gather them by appending each new critical point to the vector <code class="code-inline tex2jax_ignore">critpts</code>. To qualify for inclusion, a root of derivative of the cubic polynomial used on \([x_k, x_{k+1}]\) must be real and must lie within this interval.</p>
 <pre class="code-block tex2jax_ignore">s = spline(x, y);
 critpts = [];
 for k=1:numel(x)-1
@@ -459,7 +460,7 @@ end
 t = linspace(min(x), max(x), 1000);
 plot(t, ppval(s, t), x, y, 'r+', critpts, ppval(s, critpts), 'k*')
 </pre>
-<p id="p-722">The script uses <code class="code-inline tex2jax_ignore">ppval</code> since the spline <code class="code-inline tex2jax_ignore">s</code> is already constructed; calling <code class="code-inline tex2jax_ignore">spline(x, y, ...)</code> repeatedly with the same <code class="code-inline tex2jax_ignore">x, y</code> seems wasteful.</p>
+<p id="p-725">The script uses <code class="code-inline tex2jax_ignore">ppval</code> since the spline <code class="code-inline tex2jax_ignore">s</code> is already constructed; calling <code class="code-inline tex2jax_ignore">spline(x, y, ...)</code> repeatedly with the same <code class="code-inline tex2jax_ignore">x, y</code> seems wasteful.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:21-04:00    *-->
+<!--*    on 2021-09-06T19:21:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>There is an alternative: the Monte-Carlo integration method consists of picking evaluation points at random, from the uniform distribution over the region \(D\text{.}\) Averaging the computed values of \(f\text{,}\) we obtain an approximation to the average of \(f\) over \(D\text{.}\) To find the integral, multiply the average by the volume of \(D\text{.}\)</p>
-<span class="incontext"><a href="section-integration-monte-carlo.html#p-595">in-context</a></span>
+<p>We need functions for top and bottom boundaries, according to the integral structure</p>
+<div class="displaymath">
+\begin{equation*}
+\int_a^b \int_{\text{bottom}}^{\text{top}} f(x, y)\,dy\,dx
+\end{equation*}
+</div>
+<p data-braille="continuation">In the x-variable, the points and weights are set once. But in the y-direction they are calculated within a loop, because different x-values produce different limits of integration for y. The vector <code class="code-inline tex2jax_ignore">innerint</code> is used below to store the values of the inner integral.</p>
+<span class="incontext"><a href="section-integration-general-2d.html#p-595">in-context</a></span>
 </body>
 </html>

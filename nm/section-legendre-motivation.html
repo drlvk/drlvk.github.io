@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:01-04:00    *-->
+<!--*    on 2021-09-06T19:21:01-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -413,22 +414,22 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-legendre-motivation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">15.1</span> <span class="title">Motivation: search for better evaluation points</span>
 </h2>
-<p id="p-495">What is the most accurate approximation to \(\int_{-1}^1 f(x)\,dx\) using two points of evaluations? So far we saw the trapezoidal rule, which is \(\int_{-1}^1 f(x)\,dx\approx f(-1)+f(1)\text{.}\) For example, if \(f(x)=e^x\) we have \(\int_{-1}^1 f(x)\,dx = 2.3504\) while \(f(-1)+f(1) = 3.0862\text{,}\) so the rule makes a significant error, overestimating the integral by \(0.7358\text{.}\) The concavity of the function is responsible for this error.</p>
-<p id="p-496">It turns out there is a much more accurate two-point integration rule:</p>
+<p id="p-498">What is the most accurate approximation to \(\int_{-1}^1 f(x)\,dx\) using two points of evaluations? So far we saw the trapezoidal rule, which is \(\int_{-1}^1 f(x)\,dx\approx f(-1)+f(1)\text{.}\) For example, if \(f(x)=e^x\) we have \(\int_{-1}^1 f(x)\,dx = 2.3504\) while \(f(-1)+f(1) = 3.0862\text{,}\) so the rule makes a significant error, overestimating the integral by \(0.7358\text{.}\) The concavity of the function is responsible for this error.</p>
+<p id="p-499">It turns out there is a much more accurate two-point integration rule:</p>
 <div class="displaymath">
 \begin{equation*}
 \int_{-1}^1 f(x)\,dx\approx f(-1/\sqrt{3}) + f(1/\sqrt{3}) 
 \end{equation*}
 </div>
 <p data-braille="continuation">For the exponential function it gives \(2.3427\text{,}\) the error of only 0.0077. This is about 100 times more accurate than the trapezoidal rule, with the same number of function evaluations.</p>
-<p id="p-497">Where does \(1/\sqrt{3}\) come from? It will take some time to develop a general theory leading to this choice, but a quick way to justify it is to consider small powers of \(x\text{:}\)</p>
+<p id="p-500">Where does \(1/\sqrt{3}\) come from? It will take some time to develop a general theory leading to this choice, but a quick way to justify it is to consider small powers of \(x\text{:}\)</p>
 <ul class="disc">
 <li id="li-143">If \(f(x)=x^0\text{,}\) then \(\int_{-1}^1 x^0\,dx = 2 = f(x_1)+f(x_2)\) holds for any choice of points \(x_1, x_2\)</li>
 <li id="li-144">If \(f(x)=x^1\text{,}\) then \(\int_{-1}^1 x^1\,dx = 0 = f(x_1)+f(x_2)\) holds whenever the points are symmetric about 0, meaning that \(x_2=-x_1\text{.}\)</li>
 <li id="li-145">If \(f(x)=x^2\text{,}\) then \(\int_{-1}^1 x^2\,dx = 2/3\) and \(f(x_1)+f(x_2) = 2x_1^2\text{.}\) The two things are equal when \(x_1=1/\sqrt{3}\text{.}\)</li>
 </ul>
 <p data-braille="continuation">As a bonus, the rule is also accurate for \(f(x)=x^3\text{,}\) by virtue of symmetry, so its order of accuracy is 4.</p>
-<p id="p-498">There is a general method of choosing evaluation points \(x_1,\dots,x_n\) in an optimal way: they will be the roots of some special \(n\)-th degree polynomial. This method is called Gaussian integration and it is built into TI-83 calculators and many software packages, including Matlab (<code class="code-inline tex2jax_ignore">quadgk</code> command). But before we get to actual integration, we have to study the orthogonal polynomials themselves.  The process of using them for integration will be covered in next chapter.</p></section></div></main>
+<p id="p-501">There is a general method of choosing evaluation points \(x_1,\dots,x_n\) in an optimal way: they will be the roots of some special \(n\)-th degree polynomial. This method is called Gaussian integration and it is built into TI-83 calculators and many software packages, including Matlab (<code class="code-inline tex2jax_ignore">quadgk</code> command). But before we get to actual integration, we have to study the orthogonal polynomials themselves.  The process of using them for integration will be covered in next chapter.</p></section></div></main>
 </div>
 </body>
 </html>

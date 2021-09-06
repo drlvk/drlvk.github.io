@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:23-04:00    *-->
+<!--*    on 2021-09-06T19:21:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Then we combine both complex plots using different colors.</p>
+<p>Using the period \(T=1\text{,}\) we find that the functions \(f_k(x) = \exp (2\pi i k x)\) are <em class="emphasis">orthonormal</em> with respect to the inner product</p>
+<div class="displaymath">
+\begin{equation}
+\langle f, g \rangle = \int_0^1 f(x)\overline{g(x)}\,dx\tag{25.2.1}
+\end{equation}
+</div>
+<p data-braille="continuation">(For other periods they are orthogonal but not orthonormal.) This makes it easy to compute the <dfn class="terminology">Fourier coefficients</dfn> of a given function \(f\) in the basis \(\{f_k\colon k\in \mathbb Z\}\text{:}\)</p>
+<div class="displaymath">
+\begin{equation}
+c_k = \langle f, f_k\rangle = \int_0^1 f(x) e^{-2\pi i k x}\,dx\tag{25.2.2}
+\end{equation}
+</div>
+<p data-braille="continuation">For sufficiently nice periodic functions (having a continuous derivative is enough), the <dfn class="terminology">Fourier series</dfn> \(\sum c_k f_k\) converges to function \(f\text{.}\)</p>
 <span class="incontext"><a href="section-fourier-series.html#p-756">in-context</a></span>
 </body>
 </html>

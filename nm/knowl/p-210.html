@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:17-04:00    *-->
+<!--*    on 2021-09-06T19:21:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>What does the function <code class="code-inline tex2jax_ignore">f</code> defined by <code class="code-inline tex2jax_ignore">f = @(x, y) [x y]</code> do? Can one give it vector inputs <code class="code-inline tex2jax_ignore">x, y</code>. If so, does it matter if they are row vectors or column vectors? Do they need to be of the same size?</p>
+<p>The command <code class="code-inline tex2jax_ignore">size(x)</code> returns the size of \(x\) as the number of rows and columns. Consequently, <code class="code-inline tex2jax_ignore">ones(size(x))</code> means creating a vector or matrix of the same size as <code class="code-inline tex2jax_ignore">x</code>, but with all entries 1. If we started with <code class="code-inline tex2jax_ignore">y = 1</code> instead, the computation would still work because adding 1 to a vector like <code class="code-inline tex2jax_ignore">x.^k</code> means adding 1 to each component of the vector. However, when <code class="code-inline tex2jax_ignore">n = 0</code> the loop does not run at all and the output would be a scalar <code class="code-inline tex2jax_ignore">1</code> instead of a vector, which is a bug.</p>
 <span class="incontext"><a href="examples-user-defined-functions.html#p-210">in-context</a></span>
 </body>
 </html>

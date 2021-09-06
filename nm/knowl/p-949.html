@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:26-04:00    *-->
+<!--*    on 2021-09-06T19:21:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Minimize the function</p>
-<div class="displaymath">
-\begin{equation}
-f(\mathbf x) = x_1^4 + x_2^2 - \sin(x_1+x_2)\tag{33.1.2}
-\end{equation}
-</div>
-<p data-braille="continuation">using the reflection-only version of the Nelder-Mead method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code> as one vertex \(A\) of the initial triangle, and let other vertices be \(A+h\mathbf e_1\text{,}\) \(A+h\mathbf e_2\) with small \(h = 0.01\) (this makes a small right isosceles triangle). Plot the path of the search.</p>
-<span class="incontext"><a href="section-nelder-mead-reflect.html#p-949">in-context</a></span>
+<p>Compare the search path to what we get without correction in <code class="code-inline tex2jax_ignore">w</code>: it is less zigzagging. However, if we use the original Rosenbrock function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> which is very far from quadratic or convex, the search diverges to infinity. Several other correction terms (different choices for \(\gamma\) coefficient) have been proposed for the nonlinear conjugate gradient method. But it appears that the “narrow valley” landscape of the Rosenbrock function is best navigated either by using both first and second order derivatives (the Newton method) or by using no derivatives at all (the Nelder-Mead method, to be considered later).</p>
+<span class="incontext"><a href="section-conjugate-gradient.html#p-949">in-context</a></span>
 </body>
 </html>

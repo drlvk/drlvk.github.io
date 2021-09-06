@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:20-04:00    *-->
+<!--*    on 2021-09-06T19:21:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In an earlier homework we found that finding integrals of the form \(\int_0^\infty f(x)\,dx\) is hard: we had to pick some large upper limit \(b\) (mostly by guessing) to replace the infinite upper limit. Otherwise, there was no way to choose evaluation points by placing them at equal distances throughout the interval.</p>
-<span class="incontext"><a href="section-laguerre-polynomials.html#p-505">in-context</a></span>
+<p>The polynomials \(P_n\) are called <dfn class="terminology">Legendre polynomials</dfn>, and they come up in a number of contexts. They originated in physics: in a 1782 paper by Legendre, he used them to expand the electrostatic potential into a power series. A practical way to compute Legendre polynomials is the recursive formula</p>
+<div class="displaymath">
+\begin{equation}
+P_{n+1}(x) = \frac{(2n+1) xP_n(x) -  nP_{n-1}(x)}{n+1}\tag{15.2.1}
+\end{equation}
+</div>
+<p data-braille="continuation">which can be used to compute all these polynomials starting with \(P_0(x)=1\) and \(P_1(x)=x\text{.}\)</p>
+<span class="incontext"><a href="section-legendre-polynomials.html#p-505">in-context</a></span>
 </body>
 </html>

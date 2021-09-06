@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:07-04:00    *-->
+<!--*    on 2021-09-06T19:21:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -413,7 +414,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-periodic-functions"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">25.1</span> <span class="title">Periodic functions and trigonometric polynomials</span>
 </h2>
-<p id="p-748">A function \(f\) is <dfn class="terminology">periodic</dfn> if there exists a constant \(T\) such that \(f(x+T)=f(x)\) for all \(x\in \mathbb R\text{.}\) Examples include \(\sin x\text{,}\) \(\cos x\text{,}\) and their combinations called <em class="emphasis">trigonometric polynomials</em>:</p>
+<p id="p-751">A function \(f\) is <dfn class="terminology">periodic</dfn> if there exists a constant \(T\) such that \(f(x+T)=f(x)\) for all \(x\in \mathbb R\text{.}\) Examples include \(\sin x\text{,}\) \(\cos x\text{,}\) and their combinations called <em class="emphasis">trigonometric polynomials</em>:</p>
 <div class="displaymath">
 \begin{equation}
 p(x)= \sum_{k=0}^n a_k \cos (2\pi kx/T) + \sum_{k=1}^n b_k \sin (2\pi kx/T) \label{eq-trigonometric-polynomial}\tag{25.1.1}
@@ -432,14 +433,14 @@ p(x) = \sum_{k=-n}^n c_k \exp (2\pi i k x/T)\label{eq-trigonometric-polynomial-c
 \end{equation}
 </div>
 <p data-braille="continuation">Indeed, the identity <a class="xref" data-knowl="./knowl/eq-euler-identity.html" title="Equation 25.1.2">(25.1.2)</a> implies \(\cos x = (e^{ix}+e^{-ix})/2\) and \(\sin x = (e^{ix}-e^{-ix})/(2i)\text{,}\) so the expression <a class="xref" data-knowl="./knowl/eq-trigonometric-polynomial.html" title="Equation 25.1.1">(25.1.1)</a> can be rewritten as a linear combination of complex exponentials as in <a class="xref" data-knowl="./knowl/eq-trigonometric-polynomial-complex.html" title="Equation 25.1.3">(25.1.3)</a>. Conversely, expression <a class="xref" data-knowl="./knowl/eq-trigonometric-polynomial-complex.html" title="Equation 25.1.3">(25.1.3)</a> can be rewritten in terms of trigonometric functions using <a class="xref" data-knowl="./knowl/eq-euler-identity.html" title="Equation 25.1.2">(25.1.2)</a>.</p>
-<p id="p-749">It is important to recognize that even if the coefficients \(a_k, b_k\) were real, the corresponding coefficients \(c_k\) will in general be complex. Complex numbers in Matlab can be entered directly like <code class="code-inline tex2jax_ignore">3 + 4i</code> (note there is no <code class="code-inline tex2jax_ignore">*</code> between 4 and i). If you have variables <code class="code-inline tex2jax_ignore">a, b</code> and want to construct \(a + ib\text{,}\) then <code class="code-inline tex2jax_ignore">a + 1i*b</code> works. Also, the letter <code class="code-inline tex2jax_ignore">j</code> can be used in place of <code class="code-inline tex2jax_ignore">i</code>.</p>
-<p id="p-750">The most common values of \(T\) are \(T=2\pi\) and \(T=1\text{.}\) Each choice makes some formulas simpler at the cost of making other formulas more complicated. This is why the theory of Fourier transform is presented in different sources with different notational conventions.</p>
+<p id="p-752">It is important to recognize that even if the coefficients \(a_k, b_k\) were real, the corresponding coefficients \(c_k\) will in general be complex. Complex numbers in Matlab can be entered directly like <code class="code-inline tex2jax_ignore">3 + 4i</code> (note there is no <code class="code-inline tex2jax_ignore">*</code> between 4 and i). If you have variables <code class="code-inline tex2jax_ignore">a, b</code> and want to construct \(a + ib\text{,}\) then <code class="code-inline tex2jax_ignore">a + 1i*b</code> works. Also, the letter <code class="code-inline tex2jax_ignore">j</code> can be used in place of <code class="code-inline tex2jax_ignore">i</code>.</p>
+<p id="p-753">The most common values of \(T\) are \(T=2\pi\) and \(T=1\text{.}\) Each choice makes some formulas simpler at the cost of making other formulas more complicated. This is why the theory of Fourier transform is presented in different sources with different notational conventions.</p>
 <article class="example example-like" id="example-plot-trig-polynomial"><a data-knowl="" class="id-ref original" data-refid="hk-example-plot-trig-polynomial"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">25.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Plot a random trigonometric polynomial.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-plot-trig-polynomial"><article class="example example-like"><p id="p-751">Plot a random trigonometric polynomial of degree 3, using complex exponential form with complex coefficients taken from the normal distribution. Note that Matlab command <code class="code-inline tex2jax_ignore">plot(z)</code> when given a single vector <code class="code-inline tex2jax_ignore">z</code> with complex values, interprets it as <code class="code-inline tex2jax_ignore">plot(real(z), imag(z))</code>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-plot-trig-polynomial"><article class="example example-like"><p id="p-754">Plot a random trigonometric polynomial of degree 3, using complex exponential form with complex coefficients taken from the normal distribution. Note that Matlab command <code class="code-inline tex2jax_ignore">plot(z)</code> when given a single vector <code class="code-inline tex2jax_ignore">z</code> with complex values, interprets it as <code class="code-inline tex2jax_ignore">plot(real(z), imag(z))</code>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-66" id="answer-66"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-66"><div class="answer solution-like">
-<p id="p-752">This example uses \(T=2\pi\) (the choice of period does not change these plots). Note the vectorized evaluation <code class="code-inline tex2jax_ignore">c*exp(1i*k'*t)</code> and recognize the role of transpose <code class="code-inline tex2jax_ignore">k'</code> here.</p>
+<p id="p-755">This example uses \(T=2\pi\) (the choice of period does not change these plots). Note the vectorized evaluation <code class="code-inline tex2jax_ignore">c*exp(1i*k'*t)</code> and recognize the role of transpose <code class="code-inline tex2jax_ignore">k'</code> here.</p>
 <pre class="code-block tex2jax_ignore">n = 3;
 c = randn(1, 2*n+1)  + 1i*randn(1, 2*n+1);
 t = linspace(0, 2*pi, 1000);

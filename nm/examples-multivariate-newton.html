@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:37:57-04:00    *-->
+<!--*    on 2021-09-06T19:20:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -413,13 +414,13 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="examples-multivariate-newton"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">10.4</span> <span class="title">Examples and questions</span>
 </h2>
-<p id="p-374">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
+<p id="p-377">These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
 <article class="example example-like" id="example-durand-kerner-setup"><a data-knowl="" class="id-ref original" data-refid="hk-example-durand-kerner-setup"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">10.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Rewriting a polynomial equation in multivariate form.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-durand-kerner-setup"><article class="example example-like"><p id="p-375">Consider a polynomial equation, for example \(x^3 + 2x^2 - 7x + 1 = 0\text{.}\) This is a scalar equation with one scalar variable, so it could be solved by the methods of previous chapters, including Newton's method in one variable. But then we would get only one root (depending on initial position), not all three. Rewrite this equation as a system of three equations for three roots \(x_1, x_2, x_3\text{,}\) using the fact that the polynomial factors as \((x-x_1)(x-x_2)(x-x_3)\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-durand-kerner-setup"><article class="example example-like"><p id="p-378">Consider a polynomial equation, for example \(x^3 + 2x^2 - 7x + 1 = 0\text{.}\) This is a scalar equation with one scalar variable, so it could be solved by the methods of previous chapters, including Newton's method in one variable. But then we would get only one root (depending on initial position), not all three. Rewrite this equation as a system of three equations for three roots \(x_1, x_2, x_3\text{,}\) using the fact that the polynomial factors as \((x-x_1)(x-x_2)(x-x_3)\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-21" id="solution-21"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-21"><div class="solution solution-like">
-<p id="p-376">Expanding the product, we find</p>
+<p id="p-379">Expanding the product, we find</p>
 <div class="displaymath">
 \begin{equation*}
 x^3 + 2x^2 - 7x + 1 = (x-x_1)(x-x_2)(x-x_3) = x^3 + Ax^2 + Bx + C
@@ -439,10 +440,10 @@ x_1x_2x_3 \amp = -1
 </div></article></div>
 <article class="example example-like" id="example-durand-kerner-solve"><a data-knowl="" class="id-ref original" data-refid="hk-example-durand-kerner-solve"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">10.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Find all roots of a polynomial simultaneously.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-durand-kerner-solve"><article class="example example-like"><p id="p-377">Use the multivariate Newton method to solve the system from <a class="xref" data-knowl="./knowl/example-durand-kerner-setup.html" title="Example 10.4.1: Rewriting a polynomial equation in multivariate form">Example 10.4.1</a>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-durand-kerner-solve"><article class="example example-like"><p id="p-380">Use the multivariate Newton method to solve the system from <a class="xref" data-knowl="./knowl/example-durand-kerner-setup.html" title="Example 10.4.1: Rewriting a polynomial equation in multivariate form">Example 10.4.1</a>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-22" id="solution-22"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-22"><div class="solution solution-like">
-<p id="p-378">We have the vector function</p>
+<p id="p-381">We have the vector function</p>
 <div class="displaymath">
 \begin{equation*}
 \mathbf F(\mathbf x) = \begin{pmatrix} x_1+x_2+x_3 +2  \\ 
@@ -468,20 +469,20 @@ J = @(x) [1, 1, 1;
           x(2) + x(3), x(1) + x(3), x(1) + x(2);
           x(2)*x(3), x(1)*x(3), x(1)*x(2)];
 </pre>
-<p id="p-379">The initial point should be a point with distinct coordinates, because at points with equal coordinates like <code class="code-inline tex2jax_ignore">[0; 0; 0]</code> or <code class="code-inline tex2jax_ignore">[1; 1; 1]</code> the Jacobian matrix is singular (it has equal columns). For example, <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> works just fine.</p>
+<p id="p-382">The initial point should be a point with distinct coordinates, because at points with equal coordinates like <code class="code-inline tex2jax_ignore">[0; 0; 0]</code> or <code class="code-inline tex2jax_ignore">[1; 1; 1]</code> the Jacobian matrix is singular (it has equal columns). For example, <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> works just fine.</p>
 <pre class="code-block tex2jax_ignore">Found a solution after 9 steps:
     1.7240    0.1497   -3.8737
 </pre>
-<p id="p-380">Although an algebraic formula for the roots of a cubic (degree 3) equation exists, the symbolic form of the roots is often too complicated to be of any use. See what <a class="external" href="https://www.wolframalpha.com/input/?i=solve+x%5E3%2B2x%5E2-7x%2B1%3D0" target="_blank">Wolfram Alpha</a> shows as a solution of this equation.</p>
-<p id="p-381">The above process, in a polished and simplified form, is known as the <a class="external" href="https://en.wikipedia.org/wiki/Durand%E2%80%93Kerner_method" target="_blank">Durand-Kerner method</a> for finding all polynomial roots at once.</p>
+<p id="p-383">Although an algebraic formula for the roots of a cubic (degree 3) equation exists, the symbolic form of the roots is often too complicated to be of any use. See what <a class="external" href="https://www.wolframalpha.com/input/?i=solve+x%5E3%2B2x%5E2-7x%2B1%3D0" target="_blank">Wolfram Alpha</a> shows as a solution of this equation.</p>
+<p id="p-384">The above process, in a polished and simplified form, is known as the <a class="external" href="https://en.wikipedia.org/wiki/Durand%E2%80%93Kerner_method" target="_blank">Durand-Kerner method</a> for finding all polynomial roots at once.</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-19"><a data-knowl="" class="id-ref original" data-refid="hk-question-19"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">10.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Another cubic equation.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-19"><article class="question example-like"><p id="p-382">If we apply the logic of <a class="xref" data-knowl="./knowl/example-durand-kerner-solve.html" title="Example 10.4.2: Find all roots of a polynomial simultaneously">Example 10.4.2</a> to the equation \(x^3 + 2x^2 - 7x + 5 = 0\) (so, just replace 1 by 5 in the formula for <code class="code-inline tex2jax_ignore">F</code>), the method fails to converge. Why?</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-19"><article class="question example-like"><p id="p-385">If we apply the logic of <a class="xref" data-knowl="./knowl/example-durand-kerner-solve.html" title="Example 10.4.2: Find all roots of a polynomial simultaneously">Example 10.4.2</a> to the equation \(x^3 + 2x^2 - 7x + 5 = 0\) (so, just replace 1 by 5 in the formula for <code class="code-inline tex2jax_ignore">F</code>), the method fails to converge. Why?</p></article></div>
 <article class="question example-like" id="question-20"><a data-knowl="" class="id-ref original" data-refid="hk-question-20"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">10.4.4</span><span class="period">.</span><span class="space"> </span><span class="title">A trigonometric system.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-20"><article class="question example-like"><p id="p-383">What goes wrong if we try to use Newton's method to solve the system</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-20"><article class="question example-like"><p id="p-386">What goes wrong if we try to use Newton's method to solve the system</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{cases} \sin x \amp = a  \\ \cos y \amp = b \\ \tan z \amp = c\end{cases} 
@@ -490,7 +491,7 @@ J = @(x) [1, 1, 1;
 <p data-braille="continuation">for some given values of \(a, b, c\text{?}\)</p></article></div>
 <article class="question example-like" id="question-21"><a data-knowl="" class="id-ref original" data-refid="hk-question-21"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">10.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Number of variables different from the number of equations.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-21"><article class="question example-like"><p id="p-384">What prevents us from using Newton's method for systems where the number of equations is not equal to the number of unknowns? For example, the equation \((x-2)^2 + (y+1)^2 = 0\) has a unique solution: can we find it with Newton's method?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-21"><article class="question example-like"><p id="p-387">What prevents us from using Newton's method for systems where the number of equations is not equal to the number of unknowns? For example, the equation \((x-2)^2 + (y+1)^2 = 0\) has a unique solution: can we find it with Newton's method?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

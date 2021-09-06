@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:24-04:00    *-->
+<!--*    on 2021-09-06T19:21:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Compare the behavior of cosines \(\cos kx\) and sines \(\sin kx\) on the interval \([0, \pi]\text{.}\) The cosines have different values at \(0, \pi\) while the sines are always 0 at both ends. This makes cosines,  specifically in the form \(\cos (\pi k x/L)\text{,}\) preferable for approximating a non-periodic function on \([0, L]\text{.}\) The <dfn class="terminology">Discrete Cosine Transform</dfn> is a tool used to find the coefficients of a given function in the cosine basis. It is somewhat technical (there are 4 different types of the transform), but the essence of the method can be stated simply: apply Fourier transform to the <dfn class="terminology">even periodic extension</dfn> of the given function.</p>
-<span class="incontext"><a href="section-cosine-interpolation.html#p-785">in-context</a></span>
+<p>The <a class="external" href="https://en.wikipedia.org/wiki/JPEG#Encoding" target="_blank">JPEG compression algorithm</a> is based on the Fourier Transform but differs from the above example in several ways:</p>
+<ul class="disc">
+<li>It divides the image into 8<span class="times-sign">×</span>8 pixel blocks and operates on each block separately.</li>
+<li>It uses Discrete Cosine Transform in which the role of complex exponentials \(\exp(2\pi i k/m)\) is played by cosine functions \(\cos(2\pi k/m)\text{.}\) This improves the efficiency and eliminates the appearance of complex numbers.</li>
+<li>In addition to setting small Fourier coefficients to 0, it quantizes the other ones: rounds to the nearest integer, or nearest multiple of 5, etc.</li>
+<li>Since setting many elements to 0 does not by itself make a matrix smaller, the final step of the process is running a lossless compression algorithm which exploits the existence of many equal entries in the matrix.</li>
+</ul>
+<span class="incontext"><a href="section-2d-dft.html#p-785">in-context</a></span>
 </body>
 </html>

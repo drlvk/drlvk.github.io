@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:18-04:00    *-->
+<!--*    on 2021-09-06T19:21:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>These are additional examples for reviewing the topic we have covered. When reading each example, try to find your own solution before clicking “Answer”. There are also questions for reviewing the concepts of this section.</p>
-<span class="incontext"><a href="examples-newton-secant.html#p-339">in-context</a></span>
+<p>When faced with an iterative method which moves either too slowly, undershooting the target (<a class="xref" data-knowl="./knowl/newton3-png.html" title="Figure 9.2.1">Figure 9.2.1</a>) or too quickly, overshooting it (<a class="xref" data-knowl="./knowl/newton2-png.html" title="Figure 9.2.2">Figure 9.2.2</a>), we can try and fix the issue by introducing a <dfn class="terminology">relaxation parameter</dfn>. This is a fixed positive number \(\omega \gt 0\) by which we multiply the step size \(h\) obtained from Newton's method (or secant method, etc). That is, instead of iterating the function</p>
+<div class="displaymath">
+\begin{equation*}
+g(x) = x - \frac{f(x)}{f'(x)}
+\end{equation*}
+</div>
+<p data-braille="continuation">we iterate the function</p>
+<div class="displaymath">
+\begin{equation*}
+g(x) = x - \omega \frac{f(x)}{f'(x)}
+\end{equation*}
+</div>
+<p data-braille="continuation">If \(\omega &gt; 1\text{,}\) this is <dfn class="terminology">over-relaxation</dfn>, meant to make the process move faster. If \(\omega \lt 1\text{,}\) this is <dfn class="terminology">under-relaxation</dfn>, meant to slow down the process so it does not overshoot and run off in a wrong direction.</p>
+<span class="incontext"><a href="section-relaxation-parameter.html#p-339">in-context</a></span>
 </body>
 </html>

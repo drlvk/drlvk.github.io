@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:18-04:00    *-->
+<!--*    on 2021-09-06T19:21:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Write a script that starts with the definition of a function \(f\) and two initial points, for example</p>
-<pre class="code-block tex2jax_ignore">
-f = @(x) x^3 - x;
-x = 5;
-p = 7;
-</pre>
-<p data-braille="continuation">and proceeds to find a root of \(f\) using the secant method: the next point to be computed will be</p>
-<div class="displaymath">
-\begin{equation*}
-x - f(x) \frac{x-p}{f(x)-f(p)}
-\end{equation*}
-</div>
-<p data-braille="continuation">where the fraction represents division by the slope of secant line.</p>
-<span class="incontext"><a href="section-secant-method.html#p-334">in-context</a></span>
+<p>But the most serious issue is that the method may fail to converge at all, either because the iteration of \(g\) gets stuck in a loop or because it tends to infinity. A typical example is \(f(x) = \tan^{-1}x\) (note that Matlab notation for arctangent function is <code class="code-inline tex2jax_ignore">atan</code>). Here \(g(x) = x - (x^2+1)\tan^{-1}(x)\text{,}\) which is <code class="code-inline tex2jax_ignore">g = @(x) x - (x^2+1)*atan(x);</code> in Matlab notation. With the initial value <code class="code-inline tex2jax_ignore">x0 = 1</code> the process quickly converges to 0. With the initial value <code class="code-inline tex2jax_ignore">x0 = 2</code> (or even 1.5) it fails to converge. The problem can be seen numerically by computing a few iterations in Matlab console.</p>
+<span class="incontext"><a href="section-newton-method-issues.html#p-334">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:26-04:00    *-->
+<!--*    on 2021-09-06T19:21:27-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>There are several “weak line search” methods designed to determine a step size that makes the function noticeably smaller without finding its exact minimum. They can speed up the process but do not completely resolve the zigzagging issue which is the root of the difficulty in <a class="xref" data-knowl="./knowl/example-gradient-descent-line-search.html" title="Example 32.1.1: Gradient descent with line search">Example 32.1.1</a>. The <em class="emphasis">directions</em> seem to be a problem, not just the step sizes.</p>
+<p>The underlying issue is that the direction \(-\nabla f\) does not really point toward the minimum of \(f\) in this example. The steepest descent goes sideways due to very different rates of change in different variables. This is one of main reasons why optimization in several variables is hard, and why it is sensitive to <em class="emphasis">scaling</em> of the variables. We would not have such difficulties with \(x_1^2 + 3 x_2^2\text{.}\)</p>
 <span class="incontext"><a href="section-gradient-descent-nd.html#p-932">in-context</a></span>
 </body>
 </html>

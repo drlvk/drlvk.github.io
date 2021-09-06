@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:25-04:00    *-->
+<!--*    on 2021-09-06T19:21:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Suppose we observe population growth over time, and expect that it should be governed by a differential equation of the form</p>
-<div class="displaymath">
-\begin{equation}
-y' = ry(1-y/M)\tag{29.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">which means the growth, initially exponential, is eventually constrained by the <dfn class="terminology">carrying capacity</dfn> \(M\text{.}\) The general solution of <a class="xref" data-knowl="./knowl/eq-logistic-ode-growth.html" title="Equation 29.1.1">(29.1.1)</a> is</p>
-<div class="displaymath">
-\begin{equation}
-y = \frac{M}{1 + Ae^{-rx}}\tag{29.1.2}
-\end{equation}
-</div>
-<p data-braille="continuation">where \(A\) depends on the initial condition. In practice, we do not know the values of \(A, M, r\) but we can try to estimate them by fitting a function of type <a class="xref" data-knowl="./knowl/eq-general-logistic-curve.html" title="Equation 29.1.2">(29.1.2)</a> to observations \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{.}\) It seems impossible to transform the data in a way that will make all three parameters linear (logit transformation works only if \(M\) is known).</p>
-<span class="incontext"><a href="section-nls-motivation.html#p-847">in-context</a></span>
+<p>The number of active Covid cases at SU during October 1-23, 2020, is given below.</p>
+<pre class="code-block tex2jax_ignore">
+y = [5 5 4 5 9 25 45 65 77 87 87 89 97 101 90 74 57 26 20 13 12 12 13]'; 
+</pre>
+<p data-braille="continuation">The x-values can be <code class="code-inline tex2jax_ignore">x = (1:23)'</code>. Try to fit a “bell-shaped” Gaussian function \(y = \exp(Ax^2+Bx+C)\) (where \(A\lt 0\)) to the data. This can be done by the logarithmic transformation <code class="code-inline tex2jax_ignore">yt = log(y)</code> followed by fitting a quadratic function to <code class="code-inline tex2jax_ignore">yt</code>. Fit a quadratic function by solving a system with the matrix <code class="code-inline tex2jax_ignore">X = x.^(0:2)</code>, without weights. Having found the parameters <code class="code-inline tex2jax_ignore">beta</code>, we get a suitable function <code class="code-inline tex2jax_ignore">f = @(x) exp(x.^(0:2)*beta)</code> which should be plotted together with the data points.</p>
+<span class="incontext"><a href="exercises-transforming-data.html#p-847">in-context</a></span>
 </body>
 </html>

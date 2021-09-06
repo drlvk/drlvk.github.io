@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:38:23-04:00    *-->
+<!--*    on 2021-09-06T19:21:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,21 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A key term here is <dfn class="terminology">aliasing</dfn>, which is the fact that different trigonometric (or complex exponential) functions may coincide when restricted to a discrete grid of points (<a class="external" href="https://commons.wikimedia.org/wiki/File:AliasingSines.svg" target="_blank">illustration</a>). Specifically,</p>
-<div class="displaymath">
-\begin{equation*}
-\exp(2\pi i k t)  = \exp(2\pi i (k-n) t), \quad t = 0, 1/n, 2/n, \dots, 1
-\end{equation*}
-</div>
-<p data-braille="continuation">In order to avoid extraneous oscillations we should subtract \(n\) from large elements of the vector <code class="code-inline tex2jax_ignore">k = 0:n-1</code> above, so that instead of</p>
-<pre class="code-block tex2jax_ignore">
-k = [0 1 2 3 4 5 6 7 8];
-</pre>
-<p data-braille="continuation">we have</p>
-<pre class="code-block tex2jax_ignore">
-k = [0 1 2 3 4 -4 -3 -2 -1];
-</pre>
-<p data-braille="continuation">Replacing <code class="code-inline tex2jax_ignore">k = 0:n-1</code> in the above code with <code class="code-inline tex2jax_ignore">k = [0:(n-1)/2 (1-n)/2:-1];</code> corrects the issue.</p>
-<span class="incontext"><a href="section-trigonometric-interpolation.html#p-764">in-context</a></span>
+<p>In Matlab, the computation <a class="xref" data-knowl="./knowl/eq-fourier-coefficients-discrete.html" title="Equation 25.3.2">(25.3.2)</a> is implemented by command <code class="code-inline tex2jax_ignore">fft</code> while <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a> is implemented by <code class="code-inline tex2jax_ignore">ifft</code> (“i” for “inverse”). Try applying them to standard basis vectors and compare the output to the columns of \(W\) or \(\frac{1}{n} W^*\text{.}\) (The commands also allow matrix input: <code class="code-inline tex2jax_ignore">fft(eye(n))</code> and <code class="code-inline tex2jax_ignore">ifft(eye(n))</code> return the matrices \(W\) and \(\frac{1}{n} W^*\text{.}\))</p>
+<span class="incontext"><a href="section-discrete-fourier-transform.html#p-764">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-01T21:37:52-04:00    *-->
+<!--*    on 2021-09-06T19:20:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -121,6 +121,7 @@ MathJax.Hub.Config({
 <li><a href="section-while-loop.html" data-scroll="section-while-loop"><code class="code-inline tex2jax_ignore">while</code> loop</a></li>
 <li><a href="section-if-statement.html" data-scroll="section-if-statement"><code class="code-inline tex2jax_ignore">if</code> statement</a></li>
 <li><a href="section-break-statement.html" data-scroll="section-break-statement">Breaking out of a loop</a></li>
+<li><a href="section-timing-code.html" data-scroll="section-timing-code">Measuring the computation time</a></li>
 <li><a href="examples-control-flow.html" data-scroll="examples-control-flow">Examples and questions</a></li>
 <li><a href="exercises-control-flow.html" data-scroll="exercises-control-flow">Homework</a></li>
 </ul>
@@ -417,7 +418,7 @@ MathJax.Hub.Config({
 <p id="p-101">The Fibonacci numbers \(F_n\) are defined by the following relations: \(F_1=1\text{,}\) \(F_2=1\text{,}\) then \(F_3 = F_1+F_2\text{,}\) \(F_4 = F_2 + F_3\text{,}\) and so on: every number is the sum of two previous ones, \(F_n = F_{n-2}+F_{n-1}\text{.}\) We can consider these relations as a system of linear equations with unknowns \(F_1, \dots, F_n\) (to see this, move all the unknowns to the left, leaving constant terms on the right).</p>
 <ol id="p-102" class="lower-alpha">
 <li id="li-38">Find the first 30 Fibonacci numbers using Matlab's linear solver <code class="code-inline tex2jax_ignore">A\b</code>. To achieve this, you will first need to create a \(30\times 30\) matrix of the linear system and then create a column vector <code class="code-inline tex2jax_ignore">b</code> where the first two coordinates are \(1\) and the rest are \(0\text{.}\) The commands <code class="code-inline tex2jax_ignore">eye</code>, <code class="code-inline tex2jax_ignore">diag</code>, <code class="code-inline tex2jax_ignore">ones</code>, and <code class="code-inline tex2jax_ignore">zeros</code> will help.</li>
-<li id="li-39">Using the same method, find the first 30 “generalized Fibonacci numbers” that begin with \(a, b\) instead of \(1, 1\text{.}\) Use the first two digits of your SUID number as the starting values \(a, b\text{.}\) (For example, if your SUID begins with 2067… then \(a=2\text{,}\) \(b=0\text{.}\))</li>
+<li id="li-39">Using the same method, find the first 30 “generalized Fibonacci numbers” that begin with numbers \(p, q\) instead of \(1, 1\text{.}\) Use the first two digits of your SUID number as the starting values \(p, q\text{.}\) (For example, if your SUID begins with 2067… then \(p=2\text{,}\) \(q=0\text{.}\))</li>
 </ol></article><article class="exercise exercise-like" id="exercise-5"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
 <p id="p-103">Write a script to do the following:</p>
 <ol id="p-104" class="lower-alpha">
