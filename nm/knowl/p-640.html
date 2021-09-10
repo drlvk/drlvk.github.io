@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:23-04:00    *-->
+<!--*    on 2021-09-10T19:10:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The solver returns a vector of \(t\)-values and a vector or matrix of corresponding \(y\)-values. It is a matrix if we solve a system; in this case <code class="code-inline tex2jax_ignore">y(:,1)</code> approximates the first unknown function, <code class="code-inline tex2jax_ignore">y(:,2)</code> the second, and so on. The \(t\)-values are not uniformly spaced in general; they are chosen based on the behavior of the system. One can plot the solution with <code class="code-inline tex2jax_ignore">plot(t, y)</code>.</p>
+<p>Sometimes it is desirable to compute the solution at specific points of interval \([a, b]\text{,}\) for example at equally spaced points with step \(h\text{.}\) This is achieved by replacing the interval parameter with a vector of \(t\)-values, for example</p>
+<pre class="code-block tex2jax_ignore">
+h = 0.1;
+[t, y] = ode45(rhs, a:h:b, y0);  
+</pre>
 <span class="incontext"><a href="section-ode-epidemiology.html#p-640">in-context</a></span>
 </body>
 </html>

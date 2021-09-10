@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:18-04:00    *-->
+<!--*    on 2021-09-10T19:10:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,18 +13,23 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Use an if-elseif-else statement with <code class="code-inline tex2jax_ignore">rank</code> to determine the consistency and the number of solutions of the system with matrix</p>
+<p>What do we get when solving a system with <code class="code-inline tex2jax_ignore">A\b</code> in Matlab? Let us first consider the case when <code class="code-inline tex2jax_ignore">rank(A)</code> is <code class="code-inline tex2jax_ignore">n</code>, so every column of A is a basic column, which means there are no free variables. When such a system is consistent, it has a unique solution and <code class="code-inline tex2jax_ignore">A\b</code> finds this unique solution. When the system is inconsistent, we get the <dfn class="terminology">least-squares solution</dfn>: the vector \(x\) for which the norm of the <dfn class="terminology">residual vector</dfn> \(Ax-b\) is as small as possible. Recall that the norm of a vector \(v = (v_1, \dots, v_m)\) is</p>
 <div class="displaymath">
 \begin{equation*}
-A = \begin{pmatrix} 1 \amp 2\amp  3 \\ 4 \amp 5 \amp 6\\ 7\amp  8 \amp 9 \end{pmatrix} 
+\|v\| = \sqrt{v_1^2+\cdots +v_m^2}
 \end{equation*}
 </div>
-<p data-braille="continuation">and with</p>
-<div class="displaymath">
-\begin{equation*}
-b = \begin{pmatrix} 10 \\ 11 \\ 12\end{pmatrix} 
-\end{equation*}
-</div>
-<span class="incontext"><a href="section-classification-linear-systems.html#p-227">in-context</a></span>
+<p data-braille="continuation">In Matlab this norm can be computed in several ways:</p>
+<ul class="disc">
+<li><code class="code-inline tex2jax_ignore">sqrt(sum(v.^2))</code></li>
+<li>
+<code class="code-inline tex2jax_ignore">sqrt(v'*v)</code> when <code class="code-inline tex2jax_ignore">v</code> is a column vector</li>
+<li>
+<code class="code-inline tex2jax_ignore">sqrt(v*v')</code> when <code class="code-inline tex2jax_ignore">v</code> is a row vector</li>
+<li><code class="code-inline tex2jax_ignore">sqrt(dot(v, v))</code></li>
+<li><code class="code-inline tex2jax_ignore">norm(v)</code></li>
+</ul>
+<p data-braille="continuation">The last way is easiest.</p>
+<span class="incontext"><a href="section-systems-without-free-variables.html#p-227">in-context</a></span>
 </body>
 </html>

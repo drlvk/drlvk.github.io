@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:26-04:00    *-->
+<!--*    on 2021-09-10T19:10:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In practice, trying to minimize a function by solving <a class="xref" data-knowl="./knowl/eq-critical-points-eq.html" title="Equation 29.1.4">(29.1.4)</a> is not the most productive approach: there are probably many critical points, some of them saddle points, and some of them may be points of local maximum rather than minimum. It is better to search for a minimum directly, which is a problem of <dfn class="terminology">multivariable optimization</dfn>. We will study optimization in the last part of this course. For now, we'll use the built-in Matlab tool <code class="code-inline tex2jax_ignore">fminsearch</code>, the underlying principle of which (the Nelder-Mead method) will be considered later.</p>
-<span class="incontext"><a href="section-nls-motivation.html#p-852">in-context</a></span>
+<p>The syntax of <code class="code-inline tex2jax_ignore">fminsearch</code> is similar to <code class="code-inline tex2jax_ignore">fsolve</code> (which searchers for solutions \(f=0\)): the first argument is the function to be minimized, the second is initial point from which to start the search. For example,</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) x^2 + x, 0)
+</pre>
+<p data-braille="continuation">returns <code class="code-inline tex2jax_ignore">-0.5</code> which is where the function is minimal. The choice of initial point does not matter here, since the minimum is unique. But for the second example</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) x^4 - x^2, 0)
+</pre>
+<p data-braille="continuation">the initial point matters: the function may find the minimum 0.7071 or -0.7071. Note that <code class="code-inline tex2jax_ignore">fminsearch</code> is not misled by \(x=0\) which is also a critical point: it can tell a difference between minimum and maximum.</p>
+<span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-852">in-context</a></span>
 </body>
 </html>

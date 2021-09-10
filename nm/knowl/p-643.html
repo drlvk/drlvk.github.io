@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:23-04:00    *-->
+<!--*    on 2021-09-10T19:10:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In this scenario a part of the population (less then half) escapes the infection because the epidemic ends on its own after the transmission rate drops. Try varying the coefficients \(\beta, \gamma\) and observe the effect.</p>
+<p>In reality, \(\beta\) is not necessarily constant in time. Let us introduce seasonality into the model by making \(\beta\) a periodic function of \(t\text{,}\) for example</p>
+<pre class="code-block tex2jax_ignore">
+beta = @(t) 0.3 + 0.2*cos(0.2*t);
+</pre>
+<p data-braille="continuation">which is a periodic function that varies between \(0.1\) and \(0.5\text{.}\) Try this out (note that <code class="code-inline tex2jax_ignore">beta</code> should be replaced by <code class="code-inline tex2jax_ignore">beta(t)</code> in the formula for <code class="code-inline tex2jax_ignore">rhs</code>).</p>
 <span class="incontext"><a href="section-ode-epidemiology.html#p-643">in-context</a></span>
 </body>
 </html>

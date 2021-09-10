@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:03-04:00    *-->
+<!--*    on 2021-09-10T19:10:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,8 +414,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-motivation-adaptive-integration"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">17.1</span> <span class="title">Why we need adaptive methods</span>
 </h2>
-<p id="p-554">We have developed several methods of numerical integration: a family of Newton-Cotes methods, including Simpson's rule, and Gaussian integration methods. But the theory built so far has some weak points.</p>
-<p id="p-555">One weak point is the error estimation. When an integration rule has order \(d\) of accuracy, its error can be estimated by some multiple of the derivative of order \(d\text{.}\) For example, Simpson's rule is of order \(4\) and has error estimate involving the fourth derivative of \(f\text{:}\)</p>
+<p id="p-553">We have developed several methods of numerical integration: a family of Newton-Cotes methods, including Simpson's rule, and Gaussian integration methods. But the theory built so far has some weak points.</p>
+<p id="p-554">One weak point is the error estimation. When an integration rule has order \(d\) of accuracy, its error can be estimated by some multiple of the derivative of order \(d\text{.}\) For example, Simpson's rule is of order \(4\) and has error estimate involving the fourth derivative of \(f\text{:}\)</p>
 <div class="displaymath">
 \begin{equation}
 |\text{error}|\le \frac{1}{180} \max|f^{(4)}| (b-a) h^4  \label{eq-simpson-error}\tag{17.1.1}
@@ -424,17 +424,17 @@ MathJax.Hub.Config({
 <p data-braille="continuation">where, as with all such estimates, the maximum of the absolute value of the derivative is taken over the interval of integration. But a high-order derivative may be difficult to find, and if found, difficult to estimate. And even if it is easy to find and estimate, the output of <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> may be too conservative or completely useless.</p>
 <article class="example example-like" id="example-simpson-error-estimate-poor"><a data-knowl="" class="id-ref original" data-refid="hk-example-simpson-error-estimate-poor"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">17.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Error of Simpson's method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-simpson-error-estimate-poor"><article class="example example-like"><p id="p-556">Apply Simpson's method with \(n=2\) to the integral \(\int_1^{9} x^{3/2}\,dx\text{.}\) Find the actual error of the method and compare it to the estimate <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-simpson-error-estimate-poor"><article class="example example-like"><p id="p-555">Apply Simpson's method with \(n=2\) to the integral \(\int_1^{9} x^{3/2}\,dx\text{.}\) Find the actual error of the method and compare it to the estimate <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-46" id="answer-46"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-46"><div class="answer solution-like">
-<p id="p-557">Here \(f(x) = x^{3/2}\) and \(h=(9-1)/2 = 4\text{,}\) so according to the formula <a class="xref" data-knowl="./knowl/eq-simps2.html" title="Equation 14.1.5">(14.1.5)</a></p>
+<p id="p-556">Here \(f(x) = x^{3/2}\) and \(h=(9-1)/2 = 4\text{,}\) so according to the formula <a class="xref" data-knowl="./knowl/eq-simps2.html" title="Equation 14.1.5">(14.1.5)</a></p>
 <div class="displaymath">
 \begin{equation*}
 \int_1^9 x^{3/2}\,dx \approx \frac{h}{3} (f(1) + 4f(5) + f(9)) \approx 96.9618
 \end{equation*}
 </div>
 <p data-braille="continuation">The exact value of this integral is \(\frac{2}{5}(9^{5/2} - 1) = 484/5 = 96.8\text{.}\) So, the error is \(0.1618\text{,}\) relatively small.</p>
-<p id="p-558">To use the estimate <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> we need the fourth derivative of \(f\text{,}\) which is \((9/16)x^{-5/2}\text{.}\) The absolute value of this function is maximal at \(x=1\text{,}\) so \(\max|f^{(4)}| = 9/16\text{.}\) Also, \(h = (b-a)/2 = 4\text{.}\) So <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> says</p>
+<p id="p-557">To use the estimate <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> we need the fourth derivative of \(f\text{,}\) which is \((9/16)x^{-5/2}\text{.}\) The absolute value of this function is maximal at \(x=1\text{,}\) so \(\max|f^{(4)}| = 9/16\text{.}\) Also, \(h = (b-a)/2 = 4\text{.}\) So <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> says</p>
 <div class="displaymath">
 \begin{equation*}
 |\text{error}|\le \frac{1}{180} \frac{9}{16} (9-1) 4^4  = 6.4 
@@ -443,11 +443,11 @@ MathJax.Hub.Config({
 <p data-braille="continuation">Indeed, \(0.1618 \le 6.4\) but we see that the error estimate does not give the right idea of how large the error actually is.</p>
 </div></div>
 </div></article></div>
-<p id="p-559">It gets worse for the integral \(\int_0^{9} x^{3/2}\,dx\text{.}\) The exact value is \(97.2\) and Simpson's rule gives \(97.7756\) so the error is \(0.5756\text{.}\) But since the fourth derivative is \((9/16)x^{-5/2}\text{,}\) it is unbounded on the interval \([0, 9]\text{.}\) So the right hand side of <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a>  is infinite. It is a true statement that \(0.5756 \le \infty\) but it is not a useful statement.</p>
-<p id="p-560">The above situation is not uncommon. When one derives an error bound for some numerical method, one has to consider “the worst-case scenario”, with all possible errors accumulating in the worse possible way. In practice this rarely happens.</p>
-<p id="p-561">Moreover, formulas like <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> are difficult to implement in an algorithm. We know how to differentiate numerically (<a href="chapter-numerical-differentiation.html" class="internal" title="Chapter 12: Numerical differentiation">Chapter 12</a>) but finding the absolute maximum of some function on an interval is not easy at all, as we will see later in the course.</p>
-<p id="p-562">The second weak point is that the function being integrated may have discontinuities or other special points, such as corners like \(f(x)=|x|\text{.}\) Numerical integration performs worse where the function is not smooth, and this requires using smaller step size around such features (but not elsewhere).</p>
-<p id="p-563">So we need an algorithm that estimates the error of numerical integration and adapts to any unusual features of the function.</p></section></div></main>
+<p id="p-558">It gets worse for the integral \(\int_0^{9} x^{3/2}\,dx\text{.}\) The exact value is \(97.2\) and Simpson's rule gives \(97.7756\) so the error is \(0.5756\text{.}\) But since the fourth derivative is \((9/16)x^{-5/2}\text{,}\) it is unbounded on the interval \([0, 9]\text{.}\) So the right hand side of <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a>  is infinite. It is a true statement that \(0.5756 \le \infty\) but it is not a useful statement.</p>
+<p id="p-559">The above situation is not uncommon. When one derives an error bound for some numerical method, one has to consider “the worst-case scenario”, with all possible errors accumulating in the worse possible way. In practice this rarely happens.</p>
+<p id="p-560">Moreover, formulas like <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> are difficult to implement in an algorithm. We know how to differentiate numerically (<a href="chapter-numerical-differentiation.html" class="internal" title="Chapter 12: Numerical differentiation">Chapter 12</a>) but finding the absolute maximum of some function on an interval is not easy at all, as we will see later in the course.</p>
+<p id="p-561">The second weak point is that the function being integrated may have discontinuities or other special points, such as corners like \(f(x)=|x|\text{.}\) Numerical integration performs worse where the function is not smooth, and this requires using smaller step size around such features (but not elsewhere).</p>
+<p id="p-562">So we need an algorithm that estimates the error of numerical integration and adapts to any unusual features of the function.</p></section></div></main>
 </div>
 </body>
 </html>

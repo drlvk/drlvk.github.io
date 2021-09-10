@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:18-04:00    *-->
+<!--*    on 2021-09-10T19:10:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -19,7 +19,6 @@
     end
 end
 </pre>
-<p>The command <code class="code-inline tex2jax_ignore">size(x)</code> returns the size of \(x\) as the number of rows and columns. Consequently, <code class="code-inline tex2jax_ignore">ones(size(x))</code> means creating a vector or matrix of the same size as <code class="code-inline tex2jax_ignore">x</code>, but with all entries 1. If we started with <code class="code-inline tex2jax_ignore">y = 1</code> instead, the computation would still work because adding 1 to a vector like <code class="code-inline tex2jax_ignore">x.^k</code> means adding 1 to each component of the vector. However, when <code class="code-inline tex2jax_ignore">n = 0</code> the loop does not run at all and the output would be a scalar <code class="code-inline tex2jax_ignore">1</code> instead of a vector, which is a bug.</p>
-<p>One could also start with <code class="code-inline tex2jax_ignore">y = zeros(size(x))</code> and run the loop <code class="code-inline tex2jax_ignore">for k=0:n</code>; the result is the same.</p>
+<p>The command <code class="code-inline tex2jax_ignore">size(x)</code> returns the size of \(x\) as the number of rows and columns. Consequently, <code class="code-inline tex2jax_ignore">ones(size(x))</code> means creating a vector or matrix of the same size as <code class="code-inline tex2jax_ignore">x</code>, but with all entries 1. If we started with <code class="code-inline tex2jax_ignore">y = 1</code> instead, the computation would still work because adding 1 to a vector like <code class="code-inline tex2jax_ignore">x.^k</code> means adding 1 to each component of the vector (ex. However, when <code class="code-inline tex2jax_ignore">n = 0</code> the loop does not run at all and the output would be a scalar <code class="code-inline tex2jax_ignore">1</code> instead of a vector, which is a bug.</p>
 </div></body>
 </html>

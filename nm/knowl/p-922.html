@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:27-04:00    *-->
+<!--*    on 2021-09-10T19:10:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>If no formula for \(f'\) is available, the methods of numerical differentiation (<a href="chapter-numerical-differentiation.html" class="internal" title="Chapter 12: Numerical differentiation">Chapter 12</a>) can be used to implement gradient descent, for example with \(f'(a) \approx (f(a+h)-f(a-h))/(2h)\) with some small \(h\text{.}\)</p>
+<p>Unfortunately, gradient descent with fixed \(\beta\) is not a reliable  method. Simply multiplying both <code class="code-inline tex2jax_ignore">f</code> and <code class="code-inline tex2jax_ignore">fp</code> by 2 in <a class="xref" data-knowl="./knowl/example-simplest-form-gradient-descent.html" title="Example 31.2.1: First attempt at gradient descent">Example 31.2.1</a> results in failure to converge (why? add <code class="code-inline tex2jax_ignore">disp(x)</code> to the loop to see). We could make \(\beta\) smaller and restore convergence, but this is manual fine-tuning. The underlying issue is <em class="emphasis">scaling</em>: multiplying \(f\) by a positive constant does not change the location of its minima, yet it affects the gradient descent if it uses the same \(\beta\) value. (Newton's method is invariant under scaling because  \(f'/f''\) is invariant.)</p>
 <span class="incontext"><a href="section-gradient-descent-1d.html#p-922">in-context</a></span>
 </body>
 </html>

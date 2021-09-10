@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:21-04:00    *-->
+<!--*    on 2021-09-10T19:10:21-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We derived Simpson's rule from trapezoidal rule using the Richardson extrapolation. Why not do the same starting from the midpoint rule instead of trapezoidal?</p>
-<span class="incontext"><a href="examples-simpson-newton-cotes.html#p-493">in-context</a></span>
+<p>Sometimes one needs an “open-ended” version of Newton-Cotes rules, which does not use the values of the function at the endpoints (because the function may not be defined at the endpoints). Find the coefficients in the integration rule</p>
+<div class="displaymath">
+\begin{equation*}
+\int_{-1}^1 f(x)\,dx \approx w_1 f(-1/2) + w_2 f(0) + w_3 f(1/2)
+\end{equation*}
+</div>
+<p data-braille="continuation">so that the rule is precise for \(x^0\text{,}\) \(x^1\text{,}\) and \(x^2\text{.}\) (You can use Matlab for solving the system of equations for the weights.)</p>
+<span class="incontext"><a href="exercises-simpson-newton-cotes.html#p-493">in-context</a></span>
 </body>
 </html>

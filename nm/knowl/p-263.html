@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:19-04:00    *-->
+<!--*    on 2021-09-10T19:10:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,17 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>For this reason, Matlab has a built-in root-finding function <code class="code-inline tex2jax_ignore">fzero</code>. Its first argument is the function which should be equated to zero, the second argument is our initial guess at where the solution may be (put 0 if you have no idea). For example,</p>
-<pre class="code-block tex2jax_ignore">fzero(@(x) 2*exp(x) + x^3 - 1, 0)</pre>
-<p data-braille="continuation">finds the solution <code class="code-inline tex2jax_ignore">-0.5439</code>. But even though we have <code class="code-inline tex2jax_ignore">fzero</code>, we still have to understand the methods used for finding roots, because</p>
-<ol class="lower-alpha">
-<li>
-<code class="code-inline tex2jax_ignore">fzero</code> only gives one solution, there may be others;</li>
-<li>the output of <code class="code-inline tex2jax_ignore">fzero</code>  may be wrong.</li>
+<p>In what sense do we expect the equation \(f(x)=0\) to hold? Because of the round-off errors (<a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off errors">Section 6.4</a>), we wlll not necessarily get 0 when plugging in some number x. For example, if <code class="code-inline tex2jax_ignore">f = @(x) x^2-2;</code> then we would expect <code class="code-inline tex2jax_ignore">f(sqrt(2))</code> to be 0, but actually <code class="code-inline tex2jax_ignore">f(sqrt(2))</code> produces <code class="code-inline tex2jax_ignore">4.4409e-16</code>, a small but nonzero number. We could ask for <code class="code-inline tex2jax_ignore">abs(f(x))</code> to be small, for example <code class="code-inline tex2jax_ignore">abs(f(x)) &lt; eps</code> where the Matlab command <code class="code-inline tex2jax_ignore">eps</code> returns \(2^{-52}\text{,}\) the amount of round-off error one can expect for numbers of size about 1. But there are two issues with this approach:</p>
+<ol class="decimal">
+<li>The error in computing <code class="code-inline tex2jax_ignore">f(x)</code> may be much larger than <code class="code-inline tex2jax_ignore">eps</code>, as round-off errors may accumulate.</li>
+<li>Very small value of <code class="code-inline tex2jax_ignore">f(x)</code> do not mean that <code class="code-inline tex2jax_ignore">x</code> is near a root of function <code class="code-inline tex2jax_ignore">f</code>: for example, the function <code class="code-inline tex2jax_ignore">f = @(x) exp(-x^2);</code> has <code class="code-inline tex2jax_ignore">abs(f(7)) &lt; eps</code>, but the equation \(f(x)=0\) has  no solutions at all.</li>
 </ol>
-<p data-braille="continuation">An example of wrong answer:</p>
-<pre class="code-block tex2jax_ignore">fzero(@(x) exp(-x^2), 0)</pre>
-<p data-braille="continuation">returns <code class="code-inline tex2jax_ignore">x=-28.9631</code>. In reality, \(e^{-x^2} = 0\) has no solutions, and there is nothing special about the number produced by <code class="code-inline tex2jax_ignore">fzero</code>: this is just where its algorithm decided to stop, thinking “close enough”.</p>
-<span class="incontext"><a href="section-motivation-numeric-solution.html#p-263">in-context</a></span>
+<span class="incontext"><a href="section-meaning-numeric-solution.html#p-263">in-context</a></span>
 </body>
 </html>

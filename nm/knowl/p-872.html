@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:26-04:00    *-->
+<!--*    on 2021-09-10T19:10:26-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,18 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>High-dimensional optimization is difficult, and <code class="code-inline tex2jax_ignore">fminsearch</code> will need your help in the form of a good initial point (<code class="code-inline tex2jax_ignore">ones(9, 1)</code> is not good enough). The logistic equation <a class="xref" data-knowl="./knowl/eq-logistic-curve-shift.html" title="Equation 29.2.1">(29.2.1)</a> leads to the 9-parameter model</p>
-<div class="displaymath">
-\begin{equation}
-y = \frac{M_1}{1 + e^{-(x-a_1)/s_1}} + \frac{M_2}{1 + e^{-(x-a_2)/s_2}} + \frac{M_3}{1 + e^{-(x-a_3)/s_3}}\tag{29.4.1}
-\end{equation}
-</div>
-<p data-braille="continuation">Reasonable initial guesses would be:</p>
-<ul class="disc">
-<li>\(a_1, a_2, a_3\) are the x-values of places where the three “waves” are the steepest</li>
-<li>\(M_1, M_2, M_3\) are the sizes of the three waves (how much each of them adds to the total)</li>
-<li>\(s_1, s_2, s_3\) are about a tenth of the non-flat span of the wave.</li>
-</ul>
+<p>Follow the examples such as <a class="xref" data-knowl="./knowl/example-best-fit-logistic-nls.html" title="Example 29.2.1: Fit a logistic function to Covid data">Example 29.2.1</a> in plotting the best-fitting curve together with the data. Since the main interest in building a model like this is to predict future development, extend the curve by a month into the future (this means 3 units on x-axis). What does it predict for December 21?</p>
 <span class="incontext"><a href="exercises-nonlinear-least-squares.html#p-872">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:26-04:00    *-->
+<!--*    on 2021-09-10T19:10:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A <dfn class="terminology">power law</dfn> is a function of the form \(y = a x^p\text{.}\) By taking logarithm on both sides we get \(\log y = p \log x + \log a\text{,}\) which is a linear function of \(\log x\text{.}\) So, to fit a power law to given data \((x_k, y_k)\text{,}\) we apply the logarithm to both \(x_k\) and \(y_k\text{,}\) and follow the linear regression process.  Try this with France Covid data <a class="xref" data-knowl="./knowl/example-best-fit-exponential.html" title="Example 28.1.1: Fit an exponential to Covid data">Example 28.1.1</a>. Does the power law fit better or worse than exponential? (Compare visually, on the basis of plots.)</p>
+<p>The number of active Covid cases at SU during October 1-23, 2020, is given below.</p>
+<pre class="code-block tex2jax_ignore">
+y = [5 5 4 5 9 25 45 65 77 87 87 89 97 101 90 74 57 26 20 13 12 12 13]'; 
+</pre>
+<p data-braille="continuation">The x-values can be <code class="code-inline tex2jax_ignore">x = (1:23)'</code>. Try to fit a “bell-shaped” Gaussian function \(y = \exp(Ax^2+Bx+C)\) (where \(A\lt 0\)) to the data. This can be done by the logarithmic transformation <code class="code-inline tex2jax_ignore">yt = log(y)</code> followed by fitting a quadratic function to <code class="code-inline tex2jax_ignore">yt</code>. Fit a quadratic function by solving a system with the matrix <code class="code-inline tex2jax_ignore">X = x.^(0:2)</code>, without weights. Having found the parameters <code class="code-inline tex2jax_ignore">beta</code>, we get a suitable function <code class="code-inline tex2jax_ignore">f = @(x) exp(x.^(0:2)*beta)</code> which should be plotted together with the data points.</p>
 <span class="incontext"><a href="exercises-transforming-data.html#p-846">in-context</a></span>
 </body>
 </html>

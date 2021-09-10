@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:03-04:00    *-->
+<!--*    on 2021-09-10T19:10:03-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,7 +414,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-integration-rectangle"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">18.1</span> <span class="title">Double integrals over rectangles</span>
 </h2>
-<p id="p-584">A rectangle \(R = [a, b]\times [c, d]\) is the easiest two-dimensional domain to integrate over: in Calculus we would compute</p>
+<p id="p-583">A rectangle \(R = [a, b]\times [c, d]\) is the easiest two-dimensional domain to integrate over: in Calculus we would compute</p>
 <div class="displaymath">
 \begin{equation*}
 \iint_R f(x, y)\,dA = \int_a^b \int_c^d f(x, y)\,dy\,dx
@@ -428,10 +428,10 @@ MathJax.Hub.Config({
 </div>
 <article class="example example-like" id="example-rectangle-simpson"><a data-knowl="" class="id-ref original" data-refid="hk-example-rectangle-simpson"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Set up Simpson's rule over a rectangle.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rectangle-simpson"><article class="example example-like"><p id="p-585">Write out explicitly the sum <a class="xref" data-knowl="./knowl/eq-double-quad-gen.html" title="Equation 18.1.1">(18.1.1)</a> for the integral of function \(f\) over the rectangle \(R = [-2,2]\times [-1,1]\) using the simple Simpson's rule in both variables.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rectangle-simpson"><article class="example example-like"><p id="p-584">Write out explicitly the sum <a class="xref" data-knowl="./knowl/eq-double-quad-gen.html" title="Equation 18.1.1">(18.1.1)</a> for the integral of function \(f\) over the rectangle \(R = [-2,2]\times [-1,1]\) using the simple Simpson's rule in both variables.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-48" id="answer-48"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-48"><div class="answer solution-like">
-<p id="p-586">In the \(y\) direction, the evaluation points are \(-1, 0, 1\) with the weights \(1/3, 4/3, 1/3\text{.}\) In the \(x\) direction, the evaluation points are \(-2, 0, 2\) with the weights \(2/3, 8/3, 2/3\text{.}\) So the sum has 9 terms:</p>
+<p id="p-585">In the \(y\) direction, the evaluation points are \(-1, 0, 1\) with the weights \(1/3, 4/3, 1/3\text{.}\) In the \(x\) direction, the evaluation points are \(-2, 0, 2\) with the weights \(2/3, 8/3, 2/3\text{.}\) So the sum has 9 terms:</p>
 <div class="displaymath">
 \begin{equation*}
 \iint_R f(x, y)\,dA \approx 
@@ -440,13 +440,13 @@ MathJax.Hub.Config({
 </div>
 </div></div>
 </div></article></div>
-<p id="p-587">Given the large number of terms in double sum <a class="xref" data-knowl="./knowl/eq-double-quad-gen.html" title="Equation 18.1.1">(18.1.1)</a>, we should try to organize such computations efficiently. The first thing to do is to evaluate the function on a rectangular grid formed by all \((x_i, y_j)\) points. A useful Matlab command is <code class="code-inline tex2jax_ignore">meshgrid</code>, which is used as</p>
+<p id="p-586">Given the large number of terms in double sum <a class="xref" data-knowl="./knowl/eq-double-quad-gen.html" title="Equation 18.1.1">(18.1.1)</a>, we should try to organize such computations efficiently. The first thing to do is to evaluate the function on a rectangular grid formed by all \((x_i, y_j)\) points. A useful Matlab command is <code class="code-inline tex2jax_ignore">meshgrid</code>, which is used as</p>
 <pre class="code-block tex2jax_ignore">[X, Y] = meshgrid(x, y)</pre>
 <p data-braille="continuation">where <code class="code-inline tex2jax_ignore">x,y</code> are vectors with evaluation points. The output consists of two matrices <code class="code-inline tex2jax_ignore">X, Y</code> which represent the rectangular grid: <code class="code-inline tex2jax_ignore">X</code> has the x-coordinates of all the grid points, and <code class="code-inline tex2jax_ignore">Y</code> has their y-coordinates. The reason this is useful is that <code class="code-inline tex2jax_ignore">f(X, Y)</code> can now be used to evaluate the function on the entire grid at once (producing a matrix of its values), provided \(f\) is written so that it can handle matrix input.</p>
-<p id="p-588">Having computed <code class="code-inline tex2jax_ignore">V = f(X, Y)</code>, we need to combine it with weights and to get a single number at the end. Recall in one dimension we would do this as <code class="code-inline tex2jax_ignore">f(x)*w</code> where <code class="code-inline tex2jax_ignore">w</code> is a column vector of x-weights. We should still do this, but to also multiply and sum over the y-weights, we need <code class="code-inline tex2jax_ignore">v*f(X, Y)*w</code> where <code class="code-inline tex2jax_ignore">v</code> is a row of vector of y-weights.</p>
+<p id="p-587">Having computed <code class="code-inline tex2jax_ignore">V = f(X, Y)</code>, we need to combine it with weights and to get a single number at the end. Recall in one dimension we would do this as <code class="code-inline tex2jax_ignore">f(x)*w</code> where <code class="code-inline tex2jax_ignore">w</code> is a column vector of x-weights. We should still do this, but to also multiply and sum over the y-weights, we need <code class="code-inline tex2jax_ignore">v*f(X, Y)*w</code> where <code class="code-inline tex2jax_ignore">v</code> is a row of vector of y-weights.</p>
 <article class="example example-like" id="example-rectangle-simpson-eval"><a data-knowl="" class="id-ref original" data-refid="hk-example-rectangle-simpson-eval"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Implement Simpson's rule over a rectangle.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rectangle-simpson-eval"><article class="example example-like"><p id="p-589">Write a Matlab script to integrate the function \(f(x) = \sqrt{4+xy+y^3}\) over the rectangle in <a class="xref" data-knowl="./knowl/example-rectangle-simpson.html" title="Example 18.1.1: Set up Simpson's rule over a rectangle">Example 18.1.1</a>, using the integration points and weights from that example.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rectangle-simpson-eval"><article class="example example-like"><p id="p-588">Write a Matlab script to integrate the function \(f(x) = \sqrt{4+xy+y^3}\) over the rectangle in <a class="xref" data-knowl="./knowl/example-rectangle-simpson.html" title="Example 18.1.1: Set up Simpson's rule over a rectangle">Example 18.1.1</a>, using the integration points and weights from that example.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-49" id="answer-49"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-49"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">x = [-2 0 2];
@@ -458,10 +458,10 @@ f = @(x, y) sqrt(x.*y + y.^3 + 4);
 [X, Y] = meshgrid(x, y);
 disp(v*f(X, Y)*w')
 </pre>
-<p id="p-590">The first four lines do not involve the function; they are setting the stage. The function is evaluated on the rectangular grid and its values are conveniently aggregated using matrix-vector multiplication. The result is 15.8859.  <a class="external" href="https://www.wolframalpha.com/input/?i=integrate+sqrt%28x*y+%2B+y%5E3+%2B4%29+from+x%3D-2+to+x%3D2+from+y%3D-1+to+y%3D1" target="_blank">WolframAlpha</a> gives 15.9219.</p>
+<p id="p-589">The first four lines do not involve the function; they are setting the stage. The function is evaluated on the rectangular grid and its values are conveniently aggregated using matrix-vector multiplication. The result is 15.8859.  <a class="external" href="https://www.wolframalpha.com/input/?i=integrate+sqrt%28x*y+%2B+y%5E3+%2B4%29+from+x%3D-2+to+x%3D2+from+y%3D-1+to+y%3D1" target="_blank">WolframAlpha</a> gives 15.9219.</p>
 </div></div>
 </div></article></div>
-<p id="p-591">The rectangular grid computation can also be used to quickly plot the function: <code class="code-inline tex2jax_ignore">surf(X, Y, f(X, Y))</code> does this.</p></section></div></main>
+<p id="p-590">The rectangular grid computation can also be used to quickly plot the function: <code class="code-inline tex2jax_ignore">surf(X, Y, f(X, Y))</code> does this.</p></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:23-04:00    *-->
+<!--*    on 2021-09-10T19:10:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,26 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>What is the sum of all Lagrange basis polynomials, that is, \(\ell_1+\ell_2+\cdots+\ell_n\text{?}\)</p>
+<p>For the sake of efficiency and numerical stability, the evaluation of \(p\) can be arranged as follows. Since the denominators in <a class="xref" data-knowl="./knowl/eq-lagrange-basis.html" title="Equation 21.2.1">(21.2.1)</a> do not involve \(x\text{,}\) they can be computed in advance. Introduce “barycentric weights”</p>
+<div class="displaymath">
+\begin{equation}
+w_k = \prod_{j\ne k} (x_k-x_j)^{-1} \tag{21.2.3}
+\end{equation}
+</div>
+<p data-braille="continuation">which are related to Lagrange basis polynomials as \(\ell_k(x) = w_k  \prod_{j\ne k} (x-x_j)\text{.}\) Rewrite <a class="xref" data-knowl="./knowl/eq-lagrange-poly.html" title="Equation 21.2.2">(21.2.2)</a> as a quotient</p>
+<div class="displaymath">
+\begin{equation}
+p(x) = \frac{\sum_{k=1}^n y_k\ell_k(x)}{\sum_{k=1}^n \ell_k(x)}
+= \frac{\sum_{k=1}^n y_k w_k \prod_{j\ne k} (x-x_j) }{\sum_{k=1}^n w_k \prod_{j\ne k} (x-x_j)}\tag{21.2.4}
+\end{equation}
+</div>
+<p data-braille="continuation">Finally, divide the numerator and denominator by the product of all \((x-x_j)\) to conclude that the Lagrange interpolating polynomial \(p\) can be computed as:</p>
+<div class="displaymath">
+\begin{equation}
+p(x) = \frac{\sum_{k=1}^n y_k w_k(x-x_k)^{-1}}{ \sum_{k=1}^n w_k (x-x_k)^{-1} } \tag{21.2.5}
+\end{equation}
+</div>
+<p data-braille="continuation">The idea of computing a polynomial as the quotient of two rational functions is counterintuitive. But the formula <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a> wins over the original formula <a class="xref" data-knowl="./knowl/eq-lagrange-poly.html" title="Equation 21.2.2">(21.2.2)</a> in terms of numerical stability and computational speed, because it avoids a large number of multiplications involving \((x-x_j)\) for every point \(x\text{.}\) A slight disadvantage of <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a> is that one cannot plug in \(x=x_k\) into <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a>, but we know that \(p(x_k)=y_k\) anyway.</p>
 <span class="incontext"><a href="section-lagrange-polynomial.html#p-663">in-context</a></span>
 </body>
 </html>

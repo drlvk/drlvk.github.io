@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:20-04:00    *-->
+<!--*    on 2021-09-10T19:10:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>It is reasonable to increase the “max tries” number in Newton's method when several variables are involved, as convergence may take longer. In the above example, with initial point <code class="code-inline tex2jax_ignore">[2; 1]</code>, a solution <code class="code-inline tex2jax_ignore">[-0.0019; 5.3185]</code> is found in 15 steps. With initial point <code class="code-inline tex2jax_ignore">[1; 2]</code> the method fails to converge. With initial point <code class="code-inline tex2jax_ignore">[2; 2]</code> it converges in 10 steps to a different solution, <code class="code-inline tex2jax_ignore">[-0.2734; 1.9982]</code>.</p>
-<span class="incontext"><a href="section-multivariate-newton.html#p-374">in-context</a></span>
+<p>All of the issues of single-variable method in <a href="section-newton-method-issues.html" class="internal" title="Section 9.2: Potential issues with Newton's method">Section 9.2</a> are present here as well. In particular, the problem with derivative \(f'(x)\) being zero (or close to it) now becomes the problem with the Jacobian matrix \(J\) being singular (not invertible) or close to being such. This is when Matlab displays the warning “Matrix is close to singular or badly scaled. Results may be inaccurate.” Note that despite this warning, the final outcome may be an accurate solution.  Indeed, the issue with solving the linear system for \(\mathbf h\) may result in a wrong value of \(\mathbf h\) at some step. But this only means that at that particular step, the algorithm jumps where it should not have. It may still converge to a solution afterwards if at the new value of \(\mathbf x\) the Jacobian matrix behaves better. The script in <a class="xref" data-knowl="./knowl/example-multivariate-newton-solve.html" title="Example 10.2.3: Solve a system using Newton's method">Example 10.2.3</a> displays the norm of \(\mathbf F(\mathbf x)\) at the end as a reassurance that the method indeed found a solution, despite the possible problems at intermediate steps.</p>
+<span class="incontext"><a href="section-multivariate-newton-method-issues.html#p-374">in-context</a></span>
 </body>
 </html>

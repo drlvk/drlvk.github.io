@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:22-04:00    *-->
+<!--*    on 2021-09-10T19:10:21-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,24 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><em class="emphasis">Proof</em>. Given a polynomial \(F\) of degree \(\le 2n-1\text{,}\) use long division of polynomials to write it as \(F = Q P_n +R\) with \(Q\) and \(R\) having degree \(\le n-1\) (why is this possible?). Plug this into the integral:</p>
-<div class="displaymath">
-\begin{equation*}
-\int_{-1}^1 F(x)\,dx = \int_{-1}^1 (Q(x) P_n(x) +R(x))\,dx = \int_{-1}^1 R(x)\,dx 
-\end{equation*}
-</div>
-<p data-braille="continuation">where the term \(QP_n\) integrates to zero because of orthogonality. Since \(\deg R\le n-1\text{,}\) the Gauss-Legendre integration rule is exact for \(R\text{.}\) Therefore,</p>
-<div class="displaymath">
-\begin{equation*}
-\int_{-1}^1 R(x)\,dx = \sum_{k=1}^n w_k R(x_k) = \sum_{k=1}^n w_k F(x_k)
-\end{equation*}
-</div>
-<p data-braille="continuation">where the last step uses the fact that \(F(x_k) =R(x_k)\) by virtue of \(P_n(x_k)=0\text{.}\) This completes the proof that</p>
-<div class="displaymath">
-\begin{equation*}
-\int_{-1}^1 F(x)\,dx = \sum_{k=1}^n w_k F(x_k)
-\end{equation*}
-</div>
+<p>It turns out the Gauss-Legendre integration rule has the best possible order of accuracy. That is, there is no integration rule with \(n\) evaluation points that is exact for all polynomials of degrees \(\le 2n\text{.}\) Indeed, suppose such a rule exists, with some evaluation points \(x_1, \dots, x_n\text{.}\) Let \(F(x) = (x-x_1)^2 \cdots (x-x_n)^2\) which is a polynomial of degree \(2n\text{.}\) Since \(F(x_k)=0\) for every \(k\text{,}\) the evaluation rule will produce \(0\text{,}\) no matter what the weights. But \(\int_{-1}^1 F(x)\,dx &gt; 0\) because \(F &gt; 0\) in between the evaluation points.</p>
 <span class="incontext"><a href="section-gauss-legendre.html#p-529">in-context</a></span>
 </body>
 </html>

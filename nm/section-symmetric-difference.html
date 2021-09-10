@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:20:59-04:00    *-->
+<!--*    on 2021-09-10T19:09:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,7 +414,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-symmetric-difference"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">12.3</span> <span class="title">Symmetric difference formulas</span>
 </h2>
-<p id="p-430">Although the formula <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a> looks natural, it is not the best way to find the approximate value of \(f'(x)\text{.}\) The following <dfn class="terminology">symmetric difference</dfn> formula works better:</p>
+<p id="p-429">Although the formula <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a> looks natural, it is not the best way to find the approximate value of \(f'(x)\text{.}\) The following <dfn class="terminology">symmetric difference</dfn> formula works better:</p>
 <div class="displaymath">
 \begin{equation}
 f'(x) \approx \frac{f(x+h)-f(x-h)}{2h}\label{eq-diff-f1-symm}\tag{12.3.1}
@@ -423,10 +423,10 @@ f'(x) \approx \frac{f(x+h)-f(x-h)}{2h}\label{eq-diff-f1-symm}\tag{12.3.1}
 <p data-braille="continuation">The following computation explains why.</p>
 <article class="example example-like" id="example-error-diff-f1-symm"><a data-knowl="" class="id-ref original" data-refid="hk-example-error-diff-f1-symm"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Order of error of symmmetric difference approximation to \(f'\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-diff-f1-symm"><article class="example example-like"><p id="p-431">Find the order of error of the formula <a class="xref" data-knowl="./knowl/eq-diff-f1-symm.html" title="Equation 12.3.1">(12.3.1)</a>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-diff-f1-symm"><article class="example example-like"><p id="p-430">Find the order of error of the formula <a class="xref" data-knowl="./knowl/eq-diff-f1-symm.html" title="Equation 12.3.1">(12.3.1)</a>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-26" id="solution-26"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-26"><div class="solution solution-like">
-<ul id="p-432" class="disc">
+<ul id="p-431" class="disc">
 <li id="li-124">With \(f(x) = x^0\) we get \(f'(x) = 0\) and \(\frac{f(x+h)-f(x-h)}{2h}=0\text{,}\) so the error term is zero for this function.</li>
 <li id="li-125">With \(f(x) = x^1\) we get \(f'(x) = 1\) and \(\frac{f(x+h)-f(x-h)}{2h}=\frac{2h}{2h}=1\text{,}\) so the error term is zero for this function.</li>
 <li id="li-126">With \(f(x) = x^2\) we get \(f'(x) = 2x\) and \(\frac{f(x+h)-f(x-h)}{2h}=\frac{4xh}{2h}=2x\text{,}\) so the error term is zero for this function.</li>
@@ -435,14 +435,14 @@ f'(x) \approx \frac{f(x+h)-f(x-h)}{2h}\label{eq-diff-f1-symm}\tag{12.3.1}
 <p data-braille="continuation">In conclusion, the formula has order of error equal to 2.</p>
 </div></div>
 </div></article></div>
-<p id="p-433">Here is a quick computation in Matlab console which compares the performance of both formulas on the function \(f(x) = e^x\) at \(x = 0\) with \(h = 0.1\text{.}\) The error of symmetric difference formula is about 30 times smaller in this example, despite the same value of \(h\) and the same amount of computations involved.</p>
+<p id="p-432">Here is a quick computation in Matlab console which compares the performance of both formulas on the function \(f(x) = e^x\) at \(x = 0\) with \(h = 0.1\text{.}\) The error of symmetric difference formula is about 30 times smaller in this example, despite the same value of \(h\) and the same amount of computations involved.</p>
 <pre class="code-block tex2jax_ignore">&gt;&gt; x = 0; h = 0.1;
 &gt;&gt; (exp(x+h)-exp(x))/h
 ans = 1.0517
 &gt;&gt; (exp(x+h)-exp(x-h))/(2*h)
 ans = 1.0017
 </pre>
-<p id="p-434">The <em class="emphasis">second order derivative</em> also has a convenient symmetric formula:</p>
+<p id="p-433">The <em class="emphasis">second order derivative</em> also has a convenient symmetric formula:</p>
 <div class="displaymath">
 \begin{equation}
 f''(x)\approx \frac{f(x+h)-2f(x)+f(x-h)}{h^2}\label{eq-diff-f2}\tag{12.3.2}

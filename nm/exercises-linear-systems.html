@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:20:55-04:00    *-->
+<!--*    on 2021-09-10T19:09:54-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,7 +415,7 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">6.6</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-14"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-257">For each of the following systems, decide if it is: (i) overdetermined, under-determined, or square; (ii) has a unique solution, has infinitely many solutions, or is inconsistent. Briefly explain how you reached these conclusions. To save time, you may use Matlab's <code class="code-inline tex2jax_ignore">rank</code> command to compute the ranks of matrices.</p>
+<p id="p-256">For each of the following systems, decide if it is: (i) overdetermined, under-determined, or square; (ii) has a unique solution, has infinitely many solutions, or is inconsistent. Briefly explain how you reached these conclusions. To save time, you may use Matlab's <code class="code-inline tex2jax_ignore">rank</code> command to compute the ranks of matrices.</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{cases}
@@ -442,7 +442,7 @@ x_1 -2 x_2 + 3x_3 - x_4 \amp =  -3  \\
 \end{cases}
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-15"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-258">Write a function <code class="code-inline tex2jax_ignore">linearfit</code> that takes arguments <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">y</code> (vectors of the same size) and returns two numbers <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>, coefficients of the best-fitting line \(y=cx+d\text{.}\) Then apply it to the population of your hometown during years 1980, 1985, ..., 2010, 2015. (The data should be easy to find online; if not, use a larger nearby town). The code could look like this.</p>
+<p id="p-257">Write a function <code class="code-inline tex2jax_ignore">linearfit</code> that takes arguments <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">y</code> (vectors of the same size) and returns two numbers <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>, coefficients of the best-fitting line \(y=cx+d\text{.}\) Then apply it to the population of your hometown during years 1980, 1985, ..., 2010, 2015. (The data should be easy to find online; if not, use a larger nearby town). The code could look like this.</p>
 <pre class="code-block tex2jax_ignore">x =  1980:5:2015;  % years  
 y =                % population of your hometown in these years 
 [c, d] = linearfit(x, y);            % find the coefficient of linear fit
@@ -454,13 +454,13 @@ function [k, c] = linearfit(x,y)
   ... then assign c and d based on its solution
 end
 </pre></article><article class="exercise exercise-like" id="exercise-16"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-259">Write a script that:</p>
+<p id="p-258">Write a script that:</p>
 <ol class="lower-alpha">
 <li id="li-79">Creates a matrix \(A\) of size \(20\times 20\) according to the formula \(A_{ij} = 1/(i+j-1)\text{.}\) (This will require a double loop)</li>
 <li id="li-80">Creates a column vector \(b\) with \(20\) elements which alternate like \((c, 0, c, 0, c, 0, \dots)\text{.}\) Here \(c\) is the first digit of your SUID.</li>
 <li id="li-81">Computes the solution of \(Ax=b\) and displays the norm of the difference between \(Ax\) and \(b\text{.}\)</li>
 </ol>
-<p id="p-260"><em class="emphasis">Remark</em>. The matrix \(A\) is invertible, is not very large, and does not have any extremely large or extremely small entries: they are all between \(0.025\) and \(1\text{.}\) Yet, it is so close to being singular that the solution of this linear system is likely to be pure noise due to round-off errors.</p></article></section></div></main>
+<p id="p-259"><em class="emphasis">Remark</em>. The matrix \(A\) is invertible, is not very large, and does not have any extremely large or extremely small entries: they are all between \(0.025\) and \(1\text{.}\) Yet, it is so close to being singular that the solution of this linear system is likely to be pure noise due to round-off errors.</p></article></section></div></main>
 </div>
 </body>
 </html>

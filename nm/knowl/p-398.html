@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:20-04:00    *-->
+<!--*    on 2021-09-10T19:10:20-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The result should be: rank is 1, and the determinant is some extremely small (but nonzero) number, for example <code class="code-inline tex2jax_ignore">3.2391e-69</code>. Mathematically this is impossible: a 5<span class="times-sign">×</span>5 matrix of rank less than 5 must have determinant equal to 0. But the reality of computer arithmetic is that floating point numbers rarely add up exactly to zero, as noted in <a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off errors">Section 6.4</a>. Matlab's <code class="code-inline tex2jax_ignore">rank</code> command takes this into account and reports the rank as 1 when the matrix is “close enough” to actually having rank 1.</p>
+<p>In mathematical notation, the outer product would be written as \(\mathbf a\mathbf b^T\text{,}\) with T indicating the transposed vector (column turned into row). Since  \(\mathbf a\mathbf b^T\) is a matrix, we can apply it to some vector \(\mathbf c\text{.}\) The associative property of matrix multiplication shows that</p>
+<div class="displaymath">
+\begin{equation}
+(\mathbf a\mathbf b^T)\mathbf c = \mathbf a (\mathbf b^T \mathbf c) = \mathbf a (\mathbf b\cdot \mathbf c) \tag{11.2.1}
+\end{equation}
+</div>
+<p data-braille="continuation">that is, we get the vector \(\mathbf a\) multiplied by the dot product \(\mathbf b\cdot \mathbf c\text{.}\) Formula <a class="xref" data-knowl="./knowl/eq-outer-product.html" title="Equation 11.2.1">(11.2.1)</a> gives us an easy way to find a matrix \(M\) which satisfies the equation \(M\mathbf c = \mathbf d\) for given vectors \(\mathbf c, \mathbf d\text{.}\) Namely, we can let</p>
+<div class="displaymath">
+\begin{equation}
+M = \frac{1}{\mathbf b^T \mathbf c} \mathbf d \mathbf b^T \tag{11.2.2}
+\end{equation}
+</div>
+<p data-braille="continuation">which is an outer product of two vectors with a scalar factor in front. The associative property shows that</p>
+<div class="displaymath">
+\begin{equation*}
+M\mathbf c = \frac{1}{\mathbf b^T \mathbf c} \mathbf d (\mathbf b^T \mathbf c) = \mathbf d
+\end{equation*}
+</div>
+<p data-braille="continuation">Note that the choice of \(\mathbf b\) is up to us: any vector will work as \(\mathbf b\) as long as \(\mathbf b^T \mathbf c \ne 0\text{.}\)</p>
 <span class="incontext"><a href="section-broyden-linear-algebra.html#p-398">in-context</a></span>
 </body>
 </html>

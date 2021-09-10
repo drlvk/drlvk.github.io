@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:20-04:00    *-->
+<!--*    on 2021-09-10T19:10:19-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In higher dimensions, we need a guess for the inverse of the Jacobian matrix, which is used in Newton's method \(\mathbf h = -J^{-1} \mathbf F(\mathbf x)\text{.}\) At first we take an uneducated guess for the value of \(J(x_0)^{-1}\text{,}\) namely \(B_0=I\text{,}\) the identity matrix. This enables us to make a step \(\mathbf h = -B_0 F(\mathbf x_0)\text{.}\) Now comes the important part we want our next guess to be better informed than the previous one. Looking back at <a class="xref" data-knowl="./knowl/eq-broyden-1.html" title="Equation 11.1.1">(11.1.1)</a>, it seems we should choose a matrix \(B_1\) so that</p>
+<p>If <code class="code-inline tex2jax_ignore">a</code> and <code class="code-inline tex2jax_ignore">b</code> are column vectors with \(n\) entries, then <code class="code-inline tex2jax_ignore">a'*b</code> in Matlab is their scalar product (also called the inner product or the dot product):</p>
 <div class="displaymath">
 \begin{equation*}
-B_1(\mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)) = \mathbf x_1 - \mathbf x_0 
+\begin{pmatrix}a_1 \amp a_2 \amp \cdots \amp a_n \end{pmatrix} \begin{pmatrix}b_1 \\ b_2 \\ \cdots \\ b_n \end{pmatrix} = a_1b_1 + a_2b_2 + \dots +a_n b_n 
 \end{equation*}
 </div>
-<p data-braille="continuation">How to do that? We cannot “divide a vector by another”, the formula</p>
+<p data-braille="continuation">where multiplication is carried out by the rules of matrix products: 1<span class="times-sign">×</span>n matrix times n<span class="times-sign">×</span>1 matrix gives a 1<span class="times-sign">×</span>1 matrix, a single number. The rules of matrix multiplication also allow us to compute <code class="code-inline tex2jax_ignore">a*b'</code>:</p>
 <div class="displaymath">
 \begin{equation*}
-B_1 \overset{?}{=} \frac {\mathbf x_1 - \mathbf x_0}{\mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)} 
+\begin{pmatrix}a_1 \\ a_2 \\ \cdots \\ a_n \end{pmatrix} \begin{pmatrix}b_1 \amp b_2 \amp \cdots \amp b_n \end{pmatrix} = 
+\begin{pmatrix}
+a_1b_1 \amp a_1b_2 \amp \dots \amp  a_1 b_n \\  
+a_2b_1 \amp a_2b_2 \amp \dots \amp  a_2 b_n \\  
+\vdots \amp \vdots \amp \ddots \amp  \vdots \\  
+a_nb_1 \amp a_nb_2 \amp \dots \amp  a_n b_n \\  
+\end{pmatrix}
 \end{equation*}
 </div>
-<p data-braille="continuation">makes no sense (this is the difference between one variable and several variables.) We need to use linear algebra.</p>
-<span class="incontext"><a href="section-broyden-intro.html#p-395">in-context</a></span>
+<p data-braille="continuation">This matrix is the <dfn class="terminology">outer product</dfn> of vectors \(\mathbf a\) and \(\mathbf b\text{.}\) Since all of its rows are proportional to one another, its rank is at most 1. The rank is 0 if one of two vectors is the zero vector; otherwise it is equal to 1.</p>
+<span class="incontext"><a href="section-broyden-linear-algebra.html#p-395">in-context</a></span>
 </body>
 </html>

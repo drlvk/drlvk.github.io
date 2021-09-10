@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:18-04:00    *-->
+<!--*    on 2021-09-10T19:10:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>For each of the numbers 0.1, 0.2, 0.3, find a fraction with denominator 32 which is the best approximation to it. Use these approximations, instead of the actual numbers, in the formula \(0.1 + 0.2 - 0.3\text{.}\) What is the result?</p>
+<p>To find approximations, multiply each of the numbers by 32 and round the result to the nearest integer. Thus, \(0.1\approx 3/32\text{,}\) \(0.2\approx 6/32\text{,}\) and \(0.3 \approx 10/32\) (because \(0.3\cdot 32 = 9.6\) rounds to 10). Hence</p>
+<div class="displaymath">
+\begin{equation*}
+0.1 + 0.2 - 0.3 \approx \frac{3}{32} + \frac{6}{32} - \frac{10}{32} = -\frac{1}{32}
+\end{equation*}
+</div>
+<p data-braille="continuation">The result is not zero due to round-off errors. This is exactly what happens in Matlab computations, except that they involve a much larger power of 2.</p>
 <span class="incontext"><a href="section-round-off.html#p-244">in-context</a></span>
 </body>
 </html>

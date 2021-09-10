@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:18-04:00    *-->
+<!--*    on 2021-09-10T19:10:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,9 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>What explains the result of <a class="xref" data-knowl="./knowl/example-square-rank-deficient.html" title="Example 6.3.2: Square rank-deficient system">Example 6.3.2</a>? When solving it, we get a warning message: “Matrix is close to singular or badly scaled. Results may be inaccurate.” This means the result of this computation are likely to be influenced by inevitable <dfn class="terminology">round-off errors</dfn> in computer arithmetics, which is the subject of next section.</p>
-<span class="incontext"><a href="section-systems-with-free-variables.html#p-242">in-context</a></span>
+<p>The round-off errors made by a computer are usually very small: for example,</p>
+<pre class="code-block tex2jax_ignore">0.1 + 0.2 - 0.3</pre>
+<p data-braille="continuation">produces <code class="code-inline tex2jax_ignore">5.5511e-17</code> instead of the expected <code class="code-inline tex2jax_ignore">0</code>. The underlying reason is that, for example, the number \(0.1\) is internally represented not as \(1/10\) but as a fraction \(p/q\) where \(q\) must be a power of 2 (because the computer arithmetic is binary in nature. Both \(p\) and \(q\) are chosen very large which makes the approximation \(p/q \approx  1/10\) very good for most purposes. But it cannot be perfect, because if \(p/q = 1/10\text{,}\) then \(10p = q\) which is a contradiction: the left hand side is divisible by 5, so the right hand side cannot be a power of 2.</p>
+<span class="incontext"><a href="section-round-off.html#p-242">in-context</a></span>
 </body>
 </html>

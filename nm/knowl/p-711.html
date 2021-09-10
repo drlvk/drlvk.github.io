@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:21:24-04:00    *-->
+<!--*    on 2021-09-10T19:10:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When discussing spline coefficients, it should be noted they are not necessarily the coefficients of powers of \(x\text{.}\) It is more natural and numerically safer to represent the spline on each subinterval \([x_k, x_{k+1}]\) in terms of the powers of \((x-x_k)\text{.}\) That is,</p>
-<div class="displaymath">
-\begin{equation}
-S(x) = A_k(x-x_k)^3 + B_k(x-x_k)^2 + C_k(x-x_k) + D_k\tag{23.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">where the coefficients \(a_k, b_k, c_k, d_k\) are to be determined. Of course, \(D_k=y_k\) but to find the rest one needs to solve a linear system.</p>
+<p>Here are three different ways to add two more equations to the linear system for coefficients; they result in three different kinds of cubic splines:</p>
+<ul class="disc">
+<li>Require \(S''(a) = 0 = S''(b)\text{.}\) This is a “natural spline”.</li>
+<li>Require \(S'(a) = p\) and  \(S'(b)=q\) for some values \(p, q\text{.}\) This is a “clamped spline”.</li>
+<li>Require \(S'''\) to be continuous at \(x_2\) and at \(x_{n-1}\text{.}\) This is a “not-a-knot spline”.</li>
+</ul>
 <span class="incontext"><a href="section-cubic-splines.html#p-711">in-context</a></span>
 </body>
 </html>

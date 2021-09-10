@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-06T19:20:59-04:00    *-->
+<!--*    on 2021-09-10T19:09:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,15 +414,15 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-loss-significance"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">12.2</span> <span class="title">Loss of significance</span>
 </h2>
-<p id="p-421"><dfn class="terminology">Loss of significance</dfn> may occur when we subtract two numbers that are very close to each other. This can occur in any context, not just numeric differentiation. But since differentiation involves expressions like \(f(x+h)-f(x)\) with small \(h\text{,}\) it is particularly vulnerable to the loss of significance.</p>
-<p id="p-422">A simplified illustration of the loss of significance: suppose we can only have three decimal digits, any others have to be rounded. This can still be useful for approximate computations like \(9.23 + 3.45 = 12.7\) or \(3.45 + 100 = 103\) (note the rounding here). These approximate results are relatively close to what we would get with exact arithmetic. But when <em class="emphasis">subtraction</em> of nearly equal quantities are involved, the results can be less satisfactory:</p>
+<p id="p-420"><dfn class="terminology">Loss of significance</dfn> may occur when we subtract two numbers that are very close to each other. This can occur in any context, not just numeric differentiation. But since differentiation involves expressions like \(f(x+h)-f(x)\) with small \(h\text{,}\) it is particularly vulnerable to the loss of significance.</p>
+<p id="p-421">A simplified illustration of the loss of significance: suppose we can only have three decimal digits, any others have to be rounded. This can still be useful for approximate computations like \(9.23 + 3.45 = 12.7\) or \(3.45 + 100 = 103\) (note the rounding here). These approximate results are relatively close to what we would get with exact arithmetic. But when <em class="emphasis">subtraction</em> of nearly equal quantities are involved, the results can be less satisfactory:</p>
 <div class="displaymath">
 \begin{equation}
 (3.45 + 100) - 102 = 103 - 102 = 1\label{eq-loss-sig1}\tag{12.2.1}
 \end{equation}
 </div>
 <p data-braille="continuation">while the exact arithmetic gives \(1.45\text{.}\) The error is nearly \(50\%\text{.}\)</p>
-<p id="p-423">An actual illustration is the following attempt to compute the derivative of \(f(x) = \sqrt{x}\) at the point \(x = 10^6\text{.}\) Note that \(f(10^6) = 1000\) and \(f'(10^6) = 1/2000 = 5\cdot 10^{-4}\text{.}\) Both looks like reasonable numbers. Let us try to use the approximation <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a> with the values \(h = 10^{-9}, 10^{-10}, 10^{-11}\text{,}\) in Matlab console:</p>
+<p id="p-422">An actual illustration is the following attempt to compute the derivative of \(f(x) = \sqrt{x}\) at the point \(x = 10^6\text{.}\) Note that \(f(10^6) = 1000\) and \(f'(10^6) = 1/2000 = 5\cdot 10^{-4}\text{.}\) Both looks like reasonable numbers. Let us try to use the approximation <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a> with the values \(h = 10^{-9}, 10^{-10}, 10^{-11}\text{,}\) in Matlab console:</p>
 <pre class="code-block tex2jax_ignore">&gt;&gt; x = 1e6;
 &gt;&gt; h = 1e-9; (sqrt(x+h) - sqrt(x))/h
 ans = 5.6843e-04
@@ -433,8 +433,8 @@ ans = 0.0011
 &gt;&gt; h = 1e-11; (sqrt(x+h) - sqrt(x))/h
 ans = 0
 </pre>
-<p id="p-424">The first result is off by about \(10\%\text{,}\) the second is more than twice the real answer, the third is even worse. All this is due to the loss of significant digits similar to what we see in <a class="xref" data-knowl="./knowl/eq-loss-sig1.html" title="Equation 12.2.1">(12.2.1)</a>.</p>
-<p id="p-425">Sometimes one can avoid the loss of significance by rearranging the expression algebraically. For example,</p>
+<p id="p-423">The first result is off by about \(10\%\text{,}\) the second is more than twice the real answer, the third is even worse. All this is due to the loss of significant digits similar to what we see in <a class="xref" data-knowl="./knowl/eq-loss-sig1.html" title="Equation 12.2.1">(12.2.1)</a>.</p>
+<p id="p-424">Sometimes one can avoid the loss of significance by rearranging the expression algebraically. For example,</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{\sqrt{x+h} - \sqrt{x}}{h} = 	\frac{(\sqrt{x+h} - \sqrt{x})(\sqrt{x+h} + \sqrt{x})}{h(\sqrt{x+h} + \sqrt{x})} = \frac{x+h-x}{h(\sqrt{x+h} + \sqrt{x})} = \frac{1}{\sqrt{x+h} + \sqrt{x}} 
@@ -443,7 +443,7 @@ ans = 0
 <p data-braille="continuation">Algebraically these expressions are identical, but in Matlab, <code class="code-inline tex2jax_ignore">1/(sqrt(x+h) + sqrt(x))</code> produces accurate answer <code class="code-inline tex2jax_ignore">5.0000e-04</code> for any of the above values of \(h\text{.}\)</p>
 <article class="example example-like" id="example-quadratic-formula-variants"><a data-knowl="" class="id-ref original" data-refid="hk-example-quadratic-formula-variants"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Two forms of the quadratic formula.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-quadratic-formula-variants"><article class="example example-like"><p id="p-426">An important case of such rearrangement in the quadratic formula: its familiar form</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-quadratic-formula-variants"><article class="example example-like"><p id="p-425">An important case of such rearrangement in the quadratic formula: its familiar form</p>
 <div class="displaymath">
 \begin{equation}
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\label{eq-quad-variant-1}\tag{12.2.2}
@@ -454,7 +454,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\label{eq-quad-variant-1}\tag{12.2.2}
 &gt;&gt; (-b+sqrt(b^2-4*a*c))/(2*a)
 ans = 0
 </pre>
-<p id="p-427">The alternative form of <a class="xref" data-knowl="./knowl/eq-quad-variant-1.html" title="Equation 12.2.2">(12.2.2)</a> is</p>
+<p id="p-426">The alternative form of <a class="xref" data-knowl="./knowl/eq-quad-variant-1.html" title="Equation 12.2.2">(12.2.2)</a> is</p>
 <div class="displaymath">
 \begin{equation}
 x = \frac{2c}{-b \mp \sqrt{b^2 - 4ac}}\label{eq-quad-variant-2}\tag{12.2.3}
@@ -466,8 +466,8 @@ ans = -1.0000e-09
 &gt;&gt; r = roots([1 1e9 1]); r(2)
 ans = -1.0000e-09
 </pre>
-<p id="p-428">As this sample shows, Matlab takes the numerically safe approach in its <code class="code-inline tex2jax_ignore">roots</code> function for finding roots of polynomials.</p></article></div>
-<p id="p-429">Matlab also has some built-in logic for avoiding loss of significance in two frequently encountered situations: \(e^{x} - 1\) and \(\log (1+x)\) when \(x\approx 0\text{.}\) These are the functions <code class="code-inline tex2jax_ignore">expm1</code> and <code class="code-inline tex2jax_ignore">log1p</code>. To see the difference, compare the results of <code class="code-inline tex2jax_ignore">(exp(x)-1)/x</code> and <code class="code-inline tex2jax_ignore">expm1(x)/x</code> when <code class="code-inline tex2jax_ignore">x=1e-20</code>.</p></section></div></main>
+<p id="p-427">As this sample shows, Matlab takes the numerically safe approach in its <code class="code-inline tex2jax_ignore">roots</code> function for finding roots of polynomials.</p></article></div>
+<p id="p-428">Matlab also has some built-in logic for avoiding loss of significance in two frequently encountered situations: \(e^{x} - 1\) and \(\log (1+x)\) when \(x\approx 0\text{.}\) These are the functions <code class="code-inline tex2jax_ignore">expm1</code> and <code class="code-inline tex2jax_ignore">log1p</code>. To see the difference, compare the results of <code class="code-inline tex2jax_ignore">(exp(x)-1)/x</code> and <code class="code-inline tex2jax_ignore">expm1(x)/x</code> when <code class="code-inline tex2jax_ignore">x=1e-20</code>.</p></section></div></main>
 </div>
 </body>
 </html>
