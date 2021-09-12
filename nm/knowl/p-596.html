@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:22-04:00    *-->
+<!--*    on 2021-09-12T16:07:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Integration over a \(d\)-dimensional region with large \(d\) presents new challenges. One is setting up all the boundaries for multiple variables. Another is the number of evaluation points. If we use \(n\) evaluation points for each of \(d\) variables, the total number of evaluations is \(n^d\) which  grows exponentially with dimension. It becomes crucial to not have large \(n\text{,}\) which is why Gaussian integration is often used.</p>
-<span class="incontext"><a href="section-integration-monte-carlo.html#p-596">in-context</a></span>
+<p>We need functions for top and bottom boundaries, according to the integral structure</p>
+<div class="displaymath">
+\begin{equation*}
+\int_a^b \int_{\text{bottom}}^{\text{top}} f(x, y)\,dy\,dx
+\end{equation*}
+</div>
+<p data-braille="continuation">In the x-variable, the points and weights are set once. But in the y-direction they are calculated within a loop, because different x-values produce different limits of integration for y. The vector <code class="code-inline tex2jax_ignore">innerint</code> is used below to store the values of the inner integral.</p>
+<span class="incontext"><a href="section-integration-general-2d.html#p-596">in-context</a></span>
 </body>
 </html>

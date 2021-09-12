@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:24-04:00    *-->
+<!--*    on 2021-09-12T16:07:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Having found the Fourier coefficients <code class="code-inline tex2jax_ignore">c = fft(ye)/numel(ye)</code> we observe they are all real (any imaginary component is due to round-off errors). This makes it possible to “fold” the sum of complex exponentials into a cosine sum: for \(k=1, \dots, n-2\) the pair of terms</p>
-<div class="displaymath">
-\begin{equation*}
-c_k \exp(i k x ) +  c_{2n-k} \exp(i (2n-k) x )
-\end{equation*}
-</div>
-<p data-braille="continuation">is aliased to</p>
-<div class="displaymath">
-\begin{equation*}
-c_k \exp(i k x ) +  c_{2n-k} \exp(i (-k) x ) = 2c_k \cos (kx)
-\end{equation*}
-</div>
-<p data-braille="continuation">(here \(x\) is a multiple of \(\pi/n\text{.}\)) The terms \(c_0\) and \(c_{n-1}\) do not have a counterpart among the coefficients \(c_0, \dots, c_{2n-2}\text{,}\) so the cosine sum ends up being</p>
-<div class="displaymath">
-\begin{equation}
-c_0 + 2\sum_{k=1}^{n-2} c_k \cos (\pi kx/L) + c_{n-1} \cos (\pi (n-1) x/L)\tag{26.3.2}
-\end{equation}
-</div>
-<p data-braille="continuation">And of course, Matlab indexing of the coefficients begins with 1, forcing another adjustment: see the following example.</p>
+<p>Compare the behavior of cosines \(\cos kx\) and sines \(\sin kx\) on the interval \([0, \pi]\text{.}\) The cosines have different values at \(0, \pi\) while the sines are always 0 at both ends. This makes cosines,  specifically in the form \(\cos (\pi k x/L)\text{,}\) preferable for approximating a non-periodic function on \([0, L]\text{.}\) The <dfn class="terminology">Discrete Cosine Transform</dfn> is a tool used to find the coefficients of a given function in the cosine basis. It is somewhat technical (there are 4 different types of the transform), but the essence of the method can be stated simply: apply Fourier transform to the <dfn class="terminology">even periodic extension</dfn> of the given function.</p>
 <span class="incontext"><a href="section-cosine-interpolation.html#p-789">in-context</a></span>
 </body>
 </html>

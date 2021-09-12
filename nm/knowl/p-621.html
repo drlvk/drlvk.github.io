@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:22-04:00    *-->
+<!--*    on 2021-09-12T16:07:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Euler's method has \(y_1 = 1 + h\text{,}\) hence \(|e^h - y_1| = h^2/2 + \dots\text{,}\) the local error is of second order. The cumulative error is of order \(1\text{.}\) This is consistent with what we know about left endpoint method of integration.</p>
-<span class="incontext"><a href="section-ode-order-accuracy.html#p-621">in-context</a></span>
+<p>As <a class="xref" data-knowl="./knowl/example-implement-euler.html" title="Example 19.2.1: Implement Euler's method">Example 19.2.1</a> shows, a weakness of Euler's method is its tendency to fall behind the solution when the solution is increasing and concave up, or decreasing and concave down. The reason is that it uses the rate of change from point \(t_k\) for the entire interval \([t_k, t_{k+1}]\text{.}\) When applied to an ODE of the form \(y'=f(t)\text{,}\) Euler's method becomes the left endpoint method of integration. So it is not very accurate.</p>
+<span class="incontext"><a href="section-euler-method.html#p-621">in-context</a></span>
 </body>
 </html>

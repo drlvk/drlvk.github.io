@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:25-04:00    *-->
+<!--*    on 2021-09-12T16:07:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Modify <a class="xref" data-knowl="./knowl/example-best-fit-polynomial.html" title="Example 27.2.1: Fitting a polynomial of any degree">Example 27.2.1</a> to include the computation of t-statistics for each coefficient of the polynomial.</p>
+<p>Solving for optimal parameters (theoretically) involves inverting the matrix \(X^TX\text{,}\) seen in <a class="xref" data-knowl="./knowl/eq-lsq-2.html" title="Equation 27.1.2">(27.1.2)</a>. The matrix \(s^2 (X^TX)^{-1}\) can be considered the <dfn class="terminology">covariance matrix</dfn> of estimated parameters. Specifically, its diagonal element in position \((k, k)\) is the variance of \(\beta_k\text{.}\) The square root of variance gives the <dfn class="terminology">standard error</dfn> of \(\beta_k\text{.}\) As a rule of thumb, if \(|\beta_k| \lt 2\operatorname{SE}(\beta_k)\) (a parameter is within two standard errors of 0), this parameter should be considered inessential and possibly removed from the model. The following computation implements this statistical analysis.</p>
 <span class="incontext"><a href="section-standard-error.html#p-812">in-context</a></span>
 </body>
 </html>

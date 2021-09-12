@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:20-04:00    *-->
+<!--*    on 2021-09-12T16:07:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Matlab also has some built-in logic for avoiding loss of significance in two frequently encountered situations: \(e^{x} - 1\) and \(\log (1+x)\) when \(x\approx 0\text{.}\) These are the functions <code class="code-inline tex2jax_ignore">expm1</code> and <code class="code-inline tex2jax_ignore">log1p</code>. To see the difference, compare the results of <code class="code-inline tex2jax_ignore">(exp(x)-1)/x</code> and <code class="code-inline tex2jax_ignore">expm1(x)/x</code> when <code class="code-inline tex2jax_ignore">x=1e-20</code>.</p>
+<p>The alternative form of <a class="xref" data-knowl="./knowl/eq-quad-variant-1.html" title="Equation 12.2.2">(12.2.2)</a> is</p>
+<div class="displaymath">
+\begin{equation}
+x = \frac{2c}{-b \mp \sqrt{b^2 - 4ac}}\tag{12.2.3}
+\end{equation}
+</div>
+<p data-braille="continuation">where the signs \(\mp\) indicate that the root we would get with \(+\) in <a class="xref" data-knowl="./knowl/eq-quad-variant-1.html" title="Equation 12.2.2">(12.2.2)</a> is obtained with \(-\) in <a class="xref" data-knowl="./knowl/eq-quad-variant-2.html" title="Equation 12.2.3">(12.2.3)</a>. To compute both roots without loss of significance, one uses both formulas <a class="xref" data-knowl="./knowl/eq-quad-variant-1.html" title="Equation 12.2.2">(12.2.2)</a> and <a class="xref" data-knowl="./knowl/eq-quad-variant-2.html" title="Equation 12.2.3">(12.2.3)</a>  with the sign opposite to the sign of \(b\text{.}\)</p>
 <span class="incontext"><a href="section-loss-significance.html#p-428">in-context</a></span>
 </body>
 </html>

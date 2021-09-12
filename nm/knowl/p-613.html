@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:22-04:00    *-->
+<!--*    on 2021-09-12T16:07:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,33 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A <dfn class="terminology">system</dfn> of differential equations involves \(n\) equations with \(n\) unknown functions, for example</p>
-<div class="displaymath">
-\begin{align*}
-y_1' \amp = 3y_1 + y_2 + t\\
-y_2' \amp = t \sin(y_1)\cos(y_2) 
-\end{align*}
-</div>
-<p data-braille="continuation">This is usually considered as a single equation with an unknown vector-valued function \(\mathbf y\text{:}\)</p>
-<div class="displaymath">
-\begin{equation*}
-\mathbf y' = \mathbf f(t, \mathbf y) \quad \text{where } 
-\mathbf f(t, \mathbf y) = \begin{pmatrix} 3y_1 + y_2 + t \\ t \sin(y_1)\cos(y_2) \end{pmatrix}
-\end{equation*}
-</div>
-<p data-braille="continuation">An equation (or system of equations) involving higher derivatives can be rewritten as a system that involves only the first derivatives. The trick is to consider \(y'\) as another unknown function, say \(z\text{,}\) and add the relation \(y' = z\) to the system. For example, \(y'' + 6y' - t^2 y = \cos t\) becomes the system</p>
-<div class="displaymath">
-\begin{align*}
-y' \amp = z\\
-z' \amp =  - 6z + t^2 y + \cos t 
-\end{align*}
-</div>
-<p data-braille="continuation">Or in vector form, letting \(\mathbf y = \begin{pmatrix} y \\ z \end{pmatrix}\text{:}\)</p>
-<div class="displaymath">
-\begin{equation}
-\mathbf y' = \begin{pmatrix} y_2 \\ -6 y_2 + t^2 y_1 + \cos t \end{pmatrix}\tag{19.1.1}
-\end{equation}
-</div>
+<p>Suppose that \(y\) satisfies \(y'(t) = 6y(t)\) for all \(t\text{.}\) This is a more typical example of a differential equation. We cannot find \(y\) by integrating the right hand side because it is unknown. The solutions of this equation are \(y(t) = C e^{6t}\) where \(C\) is again an undetermined constant.</p>
 <span class="incontext"><a href="section-ode-intro.html#p-613">in-context</a></span>
 </body>
 </html>

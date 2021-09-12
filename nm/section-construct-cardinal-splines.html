@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:07-04:00    *-->
+<!--*    on 2021-09-12T16:07:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,7 +414,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-construct-cardinal-splines"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">24.3</span> <span class="title">Construction of cardinal B-splines</span>
 </h2>
-<p id="p-741">The formula <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a> deserves some explanation. The idea is to start with the linear interpolant (degree 1 spline) \(S_1=L\) defined by <a class="xref" data-knowl="./knowl/eq-hat-function.html" title="Equation 24.2.1">(24.2.1)</a> and repeatedly smoothen it using a <dfn class="terminology">moving average</dfn> with a window of size \(1\text{:}\)</p>
+<p id="p-743">The formula <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a> deserves some explanation. The idea is to start with the linear interpolant (degree 1 spline) \(S_1=L\) defined by <a class="xref" data-knowl="./knowl/eq-hat-function.html" title="Equation 24.2.1">(24.2.1)</a> and repeatedly smoothen it using a <dfn class="terminology">moving average</dfn> with a window of size \(1\text{:}\)</p>
 <div class="displaymath">
 \begin{equation}
 S_2(x) = \int_{x-1/2}^{x+1/2} S_1(t)\,dt\label{eq-integral-B2}\tag{24.3.1}
@@ -444,7 +444,7 @@ S_3''(x) = S_2'(x+1/2)-S_2'(x-1/2)
 \end{equation*}
 </div>
 <p data-braille="continuation">is continuous as well.</p>
-<p id="p-742">The function \(S_3\) defined by <a class="xref" data-knowl="./knowl/eq-integral-B3.html" title="Equation 24.3.2">(24.3.2)</a> is the approximating cubic spline discussed above, while \(S_2\) is a quadratic spline. But these integral formulas should be simplified for practical use. By linearity of integrals,</p>
+<p id="p-744">The function \(S_3\) defined by <a class="xref" data-knowl="./knowl/eq-integral-B3.html" title="Equation 24.3.2">(24.3.2)</a> is the approximating cubic spline discussed above, while \(S_2\) is a quadratic spline. But these integral formulas should be simplified for practical use. By linearity of integrals,</p>
 <div class="displaymath">
 \begin{equation*}
 S_2(x) = \sum_{k=1}^n y_k  \int_{x-1/2}^{x+1/2} H(t)\,dt

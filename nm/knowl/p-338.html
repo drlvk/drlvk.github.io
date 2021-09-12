@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:19-04:00    *-->
+<!--*    on 2021-09-12T16:07:12-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When faced with an iterative method which moves either too slowly, undershooting the target (<a class="xref" data-knowl="./knowl/newton3-png.html" title="Figure 9.2.1">Figure 9.2.1</a>) or too quickly, overshooting it (<a class="xref" data-knowl="./knowl/newton2-png.html" title="Figure 9.2.2">Figure 9.2.2</a>), we can try and fix the issue by introducing a <dfn class="terminology">relaxation parameter</dfn>. This is a fixed positive number \(\omega \gt 0\) by which we multiply the step size \(h\) obtained from Newton's method (or secant method, etc). That is, instead of iterating the function</p>
+<p>Write a script that starts with the definition of a function \(f\) and two initial points, for example</p>
+<pre class="code-block tex2jax_ignore">
+f = @(x) x^3 - x;
+x = 5;
+p = 7;
+</pre>
+<p data-braille="continuation">and proceeds to find a root of \(f\) using the secant method: the next point to be computed will be</p>
 <div class="displaymath">
 \begin{equation*}
-g(x) = x - \frac{f(x)}{f'(x)}
+x - f(x) \frac{x-p}{f(x)-f(p)}
 \end{equation*}
 </div>
-<p data-braille="continuation">we iterate the function</p>
-<div class="displaymath">
-\begin{equation*}
-g(x) = x - \omega \frac{f(x)}{f'(x)}
-\end{equation*}
-</div>
-<p data-braille="continuation">If \(\omega &gt; 1\text{,}\) this is <dfn class="terminology">over-relaxation</dfn>, meant to make the process move faster. If \(\omega \lt 1\text{,}\) this is <dfn class="terminology">under-relaxation</dfn>, meant to slow down the process so it does not overshoot and run off in a wrong direction.</p>
-<span class="incontext"><a href="section-relaxation-parameter.html#p-338">in-context</a></span>
+<p data-braille="continuation">where the fraction represents division by the slope of secant line.</p>
+<span class="incontext"><a href="section-secant-method.html#p-338">in-context</a></span>
 </body>
 </html>

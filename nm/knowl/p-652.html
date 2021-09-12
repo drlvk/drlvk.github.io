@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:23-04:00    *-->
+<!--*    on 2021-09-12T16:07:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>(Theoretical) Expand the Lotka-Volterra model <a class="xref" data-knowl="./knowl/eq-LV-R.html" title="Equation 20.2.1">(20.2.1)</a>-<a class="xref" data-knowl="./knowl/eq-LV-F.html" title="Equation 20.2.2">(20.2.2)</a> to include a second kind of predator, wolves \(W\text{,}\) which eats both rabbits and foxes. Note that the rate at which wolves eat rabbits would be different from the rate at which they eat foxes.</p>
-<span class="incontext"><a href="exercises-ode-modeling.html#p-652">in-context</a></span>
+<p>The original Lotka-Volterra model assumes that on their own, rabbit population would grow exponentially: \(R'  = a R\) leads to \(R(t) = R_0e^{at}\text{.}\) But in reality, population is constrained by available resources (food and habitat). Modify the equation <a class="xref" data-knowl="./knowl/eq-LV-R.html" title="Equation 20.2.1">(20.2.1)</a> by replacing \(aR\) with \(aR(1-R/K)\) where \(K\) is the <dfn class="terminology">carrying capacity</dfn> of the population. Adjust the parameters to</p>
+<pre class="code-block tex2jax_ignore">
+d = 0.003;
+K = 200;  
+</pre>
+<p data-braille="continuation">and solve the system on the interval \([0, 500]\text{.}\)</p>
+<span class="incontext"><a href="examples-ode-modeling.html#p-652">in-context</a></span>
 </body>
 </html>

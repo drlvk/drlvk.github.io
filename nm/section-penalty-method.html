@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:13-04:00    *-->
+<!--*    on 2021-09-12T16:07:07-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,15 +414,15 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-penalty-method"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">34.1</span> <span class="title">Penalty method</span>
 </h2>
-<p id="p-978">A typical problem of constrained optimization is to find the minimum of a function \(f\) on some region \(D\) of \(\mathbb R^n\text{.}\) One approach is to add a penalty for being outside of \(D\text{,}\) for example let</p>
+<p id="p-980">A typical problem of constrained optimization is to find the minimum of a function \(f\) on some region \(D\) of \(\mathbb R^n\text{.}\) One approach is to add a penalty for being outside of \(D\text{,}\) for example let</p>
 <div class="displaymath">
 \begin{equation}
 g(x) = \begin{cases} f(x)  &amp; x\in D \\ f(x) + M &amp; x\notin D \end{cases} \label{eq-constant-penalty}\tag{34.1.1}
 \end{equation}
 </div>
 <p data-braille="continuation">where \(M\) is a large number, say \(10^6\text{.}\) Then try to minimize \(g\text{,}\) with the expectation that the minimum will be in \(D\text{.}\) Since \(g=f\) within \(D\text{,}\) such a minimum will also be a minimum of \(f\text{.}\)</p>
-<p id="p-979">The <em class="emphasis">constant penalty</em> <a class="xref" data-knowl="./knowl/eq-constant-penalty.html" title="Equation 34.1.1">(34.1.1)</a> has several disadvantages. It makes \(g\) discontinuous, and it does not eliminate <em class="emphasis">local</em> minima outside of \(D\text{.}\) Since minimization methods often converge to a local minimum, we may end up outside of \(D\) even though there are much smaller values within \(D\text{.}\)</p>
-<p id="p-980">A way to correct both of the above issues is to add to \(f\) a continuous penalty function \(P\) that is equal to \(0\) inside \(D\) and is positive outside of \(D\text{.}\) Then minimize \(f+P\text{.}\) One way to construct \(P\) is to describe the region \(D\) by way of an inequality \(c\le 0\text{,}\) for example \(x^2 + y^2 - 1 \le 0\) describes a disk of radius \(1\text{.}\) There are multiple ways to use such an inequality  to form a penalty function. For example, the linear penalty</p>
+<p id="p-981">The <em class="emphasis">constant penalty</em> <a class="xref" data-knowl="./knowl/eq-constant-penalty.html" title="Equation 34.1.1">(34.1.1)</a> has several disadvantages. It makes \(g\) discontinuous, and it does not eliminate <em class="emphasis">local</em> minima outside of \(D\text{.}\) Since minimization methods often converge to a local minimum, we may end up outside of \(D\) even though there are much smaller values within \(D\text{.}\)</p>
+<p id="p-982">A way to correct both of the above issues is to add to \(f\) a continuous penalty function \(P\) that is equal to \(0\) inside \(D\) and is positive outside of \(D\text{.}\) Then minimize \(f+P\text{.}\) One way to construct \(P\) is to describe the region \(D\) by way of an inequality \(c\le 0\text{,}\) for example \(x^2 + y^2 - 1 \le 0\) describes a disk of radius \(1\text{.}\) There are multiple ways to use such an inequality  to form a penalty function. For example, the linear penalty</p>
 <div class="displaymath">
 \begin{equation}
 P_1(x) = M\max(0, c)\label{eq-linear-penalty}\tag{34.1.2}
@@ -441,10 +441,10 @@ P_2(x) = M\max(0, c)^2\label{eq-quadratic-penalty}\tag{34.1.3}
 \end{equation}
 </div>
 <p data-braille="continuation">On the other hand, the fact that \(P_2\) starts off with zero slope makes it more likely that the minimum of \(f + P_2\) will be slightly outside of the region \(D\text{.}\) So there is a tradeoff between reaching the minimum and enforcing the constraint.</p>
-<p id="p-981">Let us try both methods with a simple function: minimize \(f(x, y) = (x + 7y)^3\) on the disk \(x^2 + y^2\le 1\text{.}\) We could use our own implementation of Nelder-Mead method from <a href="chapter-nelder-mead.html" class="internal" title="Chapter 33: The Nelder-Mead method">Chapter 33</a> but <code class="code-inline tex2jax_ignore">fminsearch</code> already does that, so it is used below.</p>
+<p id="p-983">Let us try both methods with a simple function: minimize \(f(x, y) = (x + 7y)^3\) on the disk \(x^2 + y^2\le 1\text{.}\) We could use our own implementation of Nelder-Mead method from <a href="chapter-nelder-mead.html" class="internal" title="Chapter 33: The Nelder-Mead method">Chapter 33</a> but <code class="code-inline tex2jax_ignore">fminsearch</code> already does that, so it is used below.</p>
 <article class="example example-like" id="example-comparing-penalty-functions"><a data-knowl="" class="id-ref original" data-refid="hk-example-comparing-penalty-functions"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">34.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Comparing two penalty functions.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-comparing-penalty-functions"><article class="example example-like"><p id="p-982">Minimize  \(f(x, y) = (x + 7y)^3 \) on the disk \(x^2 + y^2\le 1\) by using <code class="code-inline tex2jax_ignore">fminsearch</code> with a penalty term.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-comparing-penalty-functions"><article class="example example-like"><p id="p-984">Minimize  \(f(x, y) = (x + 7y)^3 \) on the disk \(x^2 + y^2\le 1\) by using <code class="code-inline tex2jax_ignore">fminsearch</code> with a penalty term.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-62" id="solution-62"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-62"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) (x(1) + 7*x(2)).^3;
@@ -458,13 +458,13 @@ xm2 = fminsearch(@(x) f(x) + M*max(c(x), 0).^2, x0);
 fprintf('Linear penalty: found x = (%g, %g), |x| = %g, f(x) = %g \n', xm1, norm(xm1), f(xm1));
 fprintf('Quadratic penalty: found x = (%g, %g), |x| = %g, f(x) = %g \n', xm2, norm(xm2), f(xm2));
 </pre>
-<p id="p-983">With the linear penalty, the minimization process sometimes fails to converge within the allowed attempts; but if it converges, it stays in the unit disk. With the quadratic penalty, the convergence is more reliable but the norm of the point of minimum is usually greater than \(1\text{.}\)</p>
+<p id="p-985">With the linear penalty, the minimization process sometimes fails to converge within the allowed attempts; but if it converges, it stays in the unit disk. With the quadratic penalty, the convergence is more reliable but the norm of the point of minimum is usually greater than \(1\text{.}\)</p>
 </div></div>
 </div></article></div>
-<p id="p-984">In practice, quadratic penalty is usually preferable and the issue of the minimum being slightly out of bounds is dealt with by increasing \(M\) and using the previously found point of minimum as a new starting point. This is done below.</p>
+<p id="p-986">In practice, quadratic penalty is usually preferable and the issue of the minimum being slightly out of bounds is dealt with by increasing \(M\) and using the previously found point of minimum as a new starting point. This is done below.</p>
 <article class="example example-like" id="example-iterative-constrained-minimization"><a data-knowl="" class="id-ref original" data-refid="hk-example-iterative-constrained-minimization"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">34.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Iterative minimization on the unit disk.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-iterative-constrained-minimization"><article class="example example-like"><p id="p-985">Minimize  \(f(x, y) = (x + 7y)^3 \) on the disk \(x^2 + y^2\le 1\) by iteratively using <code class="code-inline tex2jax_ignore">fminsearch</code> with a quadratic penalty term.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-iterative-constrained-minimization"><article class="example example-like"><p id="p-987">Minimize  \(f(x, y) = (x + 7y)^3 \) on the disk \(x^2 + y^2\le 1\) by iteratively using <code class="code-inline tex2jax_ignore">fminsearch</code> with a quadratic penalty term.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-63" id="solution-63"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-63"><div class="solution solution-like"><pre class="code-block tex2jax_ignore">f = @(x) (x(1) + 7*x(2)).^3;
 c = @(x) x(1).^2 + x(2).^2 - 1;
@@ -477,7 +477,7 @@ end
 fprintf('Found x = (%g, %g), |x| = %g, f(x) = %g \n', x0, norm(x0), f(x0));
 </pre></div></div>
 </div></article></div>
-<p id="p-986">Note that the penalty method works just as well with <dfn class="terminology">equality constraints</dfn> of the form \(c = 0\text{.}\) In this case one adds \(Mc^2\) instead of \(M\max(c, 0)^2\) to the objective function. And if there are multiple constraints, they are all added.</p></section></div></main>
+<p id="p-988">Note that the penalty method works just as well with <dfn class="terminology">equality constraints</dfn> of the form \(c = 0\text{.}\) In this case one adds \(Mc^2\) instead of \(M\max(c, 0)^2\) to the objective function. And if there are multiple constraints, they are all added.</p></section></div></main>
 </div>
 </body>
 </html>

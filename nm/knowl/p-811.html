@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:25-04:00    *-->
+<!--*    on 2021-09-12T16:07:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The parameters with \(|t| \lt 2\) should be considered for removal. In the example of fitting polynomials of degree \(d\text{,}\) we have \(p = d+1\) parameters. The consideration should be focused on the leading coefficient, because if it appears to be inessential, we should remove it by decreasing the degree \(d\) by \(1\text{.}\) Note that the removal of one parameter causes all others to be recalculated, so the rest may become essential now.</p>
+<p>With this approach, we think of \(\mathbf y - \mathbf z\) as a vector of \(n\) observations of a random variables with  \(n-p\) degrees of freedom (where \(p\) is the number of parameters). The variance of such a random variable is estimated as</p>
+<div class="displaymath">
+\begin{equation}
+s^2 = \frac{1}{n-p} \sum_{k=1}^n (y_k-z_k)^2\tag{27.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">You may have seen this formula with \(p=1\) which corresponds to the constant model \(z_k\equiv \bar y\text{.}\)</p>
 <span class="incontext"><a href="section-standard-error.html#p-811">in-context</a></span>
 </body>
 </html>

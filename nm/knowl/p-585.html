@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:22-04:00    *-->
+<!--*    on 2021-09-12T16:07:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In the \(y\) direction, the evaluation points are \(-1, 0, 1\) with the weights \(1/3, 4/3, 1/3\text{.}\) In the \(x\) direction, the evaluation points are \(-2, 0, 2\) with the weights \(2/3, 8/3, 2/3\text{.}\) So the sum has 9 terms:</p>
+<p>A rectangle \(R = [a, b]\times [c, d]\) is the easiest two-dimensional domain to integrate over: in Calculus we would compute</p>
 <div class="displaymath">
 \begin{equation*}
-\iint_R f(x, y)\,dA \approx 
-\frac{2}{9} (f(-2,-1) + 4f(0,-1) + f(2,-1) + 4f(-2,0) + 16f(0,0) + 4f(2,0) + f(-2,1) + 4f(0,1) + f(2,1))
+\iint_R f(x, y)\,dA = \int_a^b \int_c^d f(x, y)\,dy\,dx
 \end{equation*}
+</div>
+<p data-braille="continuation">Suppose we pick two integration rules: one for the interval \([a, b]\text{,}\) say \(\int_a^b g(x)\,dx \approx \sum_i w_i g(x_i)\text{,}\) the other for interval \([c, d]\text{,}\) say \(\int_c^d g(y)\,dy \approx \sum_j v_j g(y_j)\text{.}\) The function \(g\) here is a placeholder; the rule consists of the choice of evaluation points and their weights. Note that the weights and points depend on the interval, so they will probably be different even if we use the same integration method for both variables. With this setup, the two-dimensional integration rule for this rectangle can be expressed as a double sum:</p>
+<div class="displaymath">
+\begin{equation}
+\iint_R f(x, y)\,dA =  \sum_i \sum_j w_i v_j f(x_i, y_j)\tag{18.1.1}
+\end{equation}
 </div>
 <span class="incontext"><a href="section-integration-rectangle.html#p-585">in-context</a></span>
 </body>

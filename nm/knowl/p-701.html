@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:23-04:00    *-->
+<!--*    on 2021-09-12T16:07:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Suppose we want to draw a smooth <em class="emphasis">parametric curve</em> through 10 given points on xy-plane. The points are represented by vectors of their x- and y-coordinates:</p>
-<pre class="code-block tex2jax_ignore">
-X = [1 3 5 6 4 1 0 1 3 5];
-Y = [1 0 0 2 4 4 6 9 9 7];
-</pre>
-<p data-braille="continuation">The command <code class="code-inline tex2jax_ignore">plot(X, Y)</code> can join these points by line segments, but that does not make a smooth curve. To obtain a smooth curve, adapt <a class="xref" data-knowl="./knowl/example-chebyshev-extreme-interpolation.html" title="Example 22.3.2: Interpolate through Chebyshev extreme points">Example 22.3.2</a> as follows:</p>
-<ul class="disc">
-<li>Your script should create two interpolating polynomials (<code class="code-inline tex2jax_ignore">px</code> and <code class="code-inline tex2jax_ignore">py</code>) on the interval \([-1, 1]\text{.}\) One is computed from the values <code class="code-inline tex2jax_ignore">X</code> and the other from the values <code class="code-inline tex2jax_ignore">Y</code>.</li>
-<li>At the end of the script, the curve through the given points can be displayed with<pre class="code-block tex2jax_ignore">t = linspace(-1, 1, 1000);
-plot(X, Y, 'r*',  px(t), py(t), 'b')</pre>
-</li>
-</ul>
-<p data-braille="continuation">The plot should show a smooth S-shaped curve passing through the points marked by asterisks.</p>
+<p>(Theoretical) Use <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine-U.html" title="Equation 22.4.2">(22.4.2)</a> to prove that the Chebyshev extreme points \(x_k = \cos(\pi k/n)\) with \(k=1, \dots, n-1\) are the roots of polynomial \(U_{n-1}\text{.}\)</p>
 <span class="incontext"><a href="exercises-chebyshev.html#p-701">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:19-04:00    *-->
+<!--*    on 2021-09-12T16:07:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Let \(M\) be the outer product of two random vectors with 5 entries, generated with <code class="code-inline tex2jax_ignore">rand</code>. Display the rank and determinant of \(M\text{.}\)</p>
-<span class="incontext"><a href="section-broyden-linear-algebra.html#p-396">in-context</a></span>
+<p>In higher dimensions, we need a guess for the inverse of the Jacobian matrix, which is used in Newton's method \(\mathbf h = -J^{-1} \mathbf F(\mathbf x)\text{.}\) At first we take an uneducated guess for the value of \(J(x_0)^{-1}\text{,}\) namely \(B_0=I\text{,}\) the identity matrix. This enables us to make a step \(\mathbf h = -B_0 F(\mathbf x_0)\text{.}\) Now comes the important part we want our next guess to be better informed than the previous one. Looking back at <a class="xref" data-knowl="./knowl/eq-broyden-1.html" title="Equation 11.1.1">(11.1.1)</a>, it seems we should choose a matrix \(B_1\) so that</p>
+<div class="displaymath">
+\begin{equation*}
+B_1(\mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)) = \mathbf x_1 - \mathbf x_0 
+\end{equation*}
+</div>
+<p data-braille="continuation">How to do that? We cannot “divide a vector by another”, the formula</p>
+<div class="displaymath">
+\begin{equation*}
+B_1 \overset{?}{=} \frac {\mathbf x_1 - \mathbf x_0}{\mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)} 
+\end{equation*}
+</div>
+<p data-braille="continuation">makes no sense (this is the difference between one variable and several variables.) We need to use linear algebra.</p>
+<span class="incontext"><a href="section-broyden-intro.html#p-396">in-context</a></span>
 </body>
 </html>

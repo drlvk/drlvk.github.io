@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:20-04:00    *-->
+<!--*    on 2021-09-12T16:07:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The first result is off by about \(10\%\text{,}\) the second is more than twice the real answer, the third is even worse. All this is due to the loss of significant digits similar to what we see in <a class="xref" data-knowl="./knowl/eq-loss-sig1.html" title="Equation 12.2.1">(12.2.1)</a>.</p>
+<p>A simplified illustration of the loss of significance: suppose we can only have three decimal digits, any others have to be rounded. This can still be useful for approximate computations like \(9.23 + 3.45 = 12.7\) or \(3.45 + 100 = 103\) (note the rounding here). These approximate results are relatively close to what we would get with exact arithmetic. But when <em class="emphasis">subtraction</em> of nearly equal quantities are involved, the results can be less satisfactory:</p>
+<div class="displaymath">
+\begin{equation}
+(3.45 + 100) - 102 = 103 - 102 = 1\tag{12.2.1}
+\end{equation}
+</div>
+<p data-braille="continuation">while the exact arithmetic gives \(1.45\text{.}\) The error is nearly \(50\%\text{.}\)</p>
 <span class="incontext"><a href="section-loss-significance.html#p-423">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:09-04:00    *-->
+<!--*    on 2021-09-12T16:07:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,26 +414,26 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-standard-error"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">27.3</span> <span class="title">The standard error of parameters</span>
 </h2>
-<p id="p-808">A more statistics-oriented approach to model selection is to examine the randomness of the parameters \(\beta_k\) we found: we study the hypothesis that the “true value” of a particular parameter \(\beta_k\) is zero, meaning that the value we found for it is nonzero only due to chance. This approach does not really say whether a model is good for describing the data, but whether a particular parameter actually helps in it.</p>
-<p id="p-809">With this approach, we think of \(\mathbf y - \mathbf z\) as a vector of \(n\) observations of a random variables with  \(n-p\) degrees of freedom (where \(p\) is the number of parameters). The variance of such a random variable is estimated as</p>
+<p id="p-810">A more statistics-oriented approach to model selection is to examine the randomness of the parameters \(\beta_k\) we found: we study the hypothesis that the “true value” of a particular parameter \(\beta_k\) is zero, meaning that the value we found for it is nonzero only due to chance. This approach does not really say whether a model is good for describing the data, but whether a particular parameter actually helps in it.</p>
+<p id="p-811">With this approach, we think of \(\mathbf y - \mathbf z\) as a vector of \(n\) observations of a random variables with  \(n-p\) degrees of freedom (where \(p\) is the number of parameters). The variance of such a random variable is estimated as</p>
 <div class="displaymath">
 \begin{equation}
 s^2 = \frac{1}{n-p} \sum_{k=1}^n (y_k-z_k)^2\label{eq-sample-variance}\tag{27.3.1}
 \end{equation}
 </div>
 <p data-braille="continuation">You may have seen this formula with \(p=1\) which corresponds to the constant model \(z_k\equiv \bar y\text{.}\)</p>
-<p id="p-810">Solving for optimal parameters (theoretically) involves inverting the matrix \(X^TX\text{,}\) seen in <a class="xref" data-knowl="./knowl/eq-lsq-2.html" title="Equation 27.1.2">(27.1.2)</a>. The matrix \(s^2 (X^TX)^{-1}\) can be considered the <dfn class="terminology">covariance matrix</dfn> of estimated parameters. Specifically, its diagonal element in position \((k, k)\) is the variance of \(\beta_k\text{.}\) The square root of variance gives the <dfn class="terminology">standard error</dfn> of \(\beta_k\text{.}\) As a rule of thumb, if \(|\beta_k| \lt 2\operatorname{SE}(\beta_k)\) (a parameter is within two standard errors of 0), this parameter should be considered inessential and possibly removed from the model. The following computation implements this statistical analysis.</p>
+<p id="p-812">Solving for optimal parameters (theoretically) involves inverting the matrix \(X^TX\text{,}\) seen in <a class="xref" data-knowl="./knowl/eq-lsq-2.html" title="Equation 27.1.2">(27.1.2)</a>. The matrix \(s^2 (X^TX)^{-1}\) can be considered the <dfn class="terminology">covariance matrix</dfn> of estimated parameters. Specifically, its diagonal element in position \((k, k)\) is the variance of \(\beta_k\text{.}\) The square root of variance gives the <dfn class="terminology">standard error</dfn> of \(\beta_k\text{.}\) As a rule of thumb, if \(|\beta_k| \lt 2\operatorname{SE}(\beta_k)\) (a parameter is within two standard errors of 0), this parameter should be considered inessential and possibly removed from the model. The following computation implements this statistical analysis.</p>
 <pre class="code-block tex2jax_ignore">s2 = norm(y-z)^2/(n-p);      % variance of error
 C = s2*inv(X'*X);            % covariance matrix for parameters
 ts = beta./sqrt(diag(C));    % the t-statistics of the parameters
 </pre>
-<p id="p-811">The parameters with \(|t| \lt 2\) should be considered for removal. In the example of fitting polynomials of degree \(d\text{,}\) we have \(p = d+1\) parameters. The consideration should be focused on the leading coefficient, because if it appears to be inessential, we should remove it by decreasing the degree \(d\) by \(1\text{.}\) Note that the removal of one parameter causes all others to be recalculated, so the rest may become essential now.</p>
+<p id="p-813">The parameters with \(|t| \lt 2\) should be considered for removal. In the example of fitting polynomials of degree \(d\text{,}\) we have \(p = d+1\) parameters. The consideration should be focused on the leading coefficient, because if it appears to be inessential, we should remove it by decreasing the degree \(d\) by \(1\text{.}\) Note that the removal of one parameter causes all others to be recalculated, so the rest may become essential now.</p>
 <article class="example example-like" id="example-t-statistics-parameters"><a data-knowl="" class="id-ref original" data-refid="hk-example-t-statistics-parameters"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">27.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Computing the t-statistics of parameters.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-t-statistics-parameters"><article class="example example-like"><p id="p-812">Modify <a class="xref" data-knowl="./knowl/example-best-fit-polynomial.html" title="Example 27.2.1: Fitting a polynomial of any degree">Example 27.2.1</a> to include the computation of t-statistics for each coefficient of the polynomial.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-t-statistics-parameters"><article class="example example-like"><p id="p-814">Modify <a class="xref" data-knowl="./knowl/example-best-fit-polynomial.html" title="Example 27.2.1: Fitting a polynomial of any degree">Example 27.2.1</a> to include the computation of t-statistics for each coefficient of the polynomial.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-41" id="solution-41"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-41"><div class="solution solution-like">
-<p id="p-813">Note that the vector of t-statistics, which is called <code class="code-inline tex2jax_ignore">ts</code> below, contains the statistics for the coefficients of \(x^0, \dots, x^d\) in this order. This means that \(ts(end)\) is really the value of most interest here.</p>
+<p id="p-815">Note that the vector of t-statistics, which is called <code class="code-inline tex2jax_ignore">ts</code> below, contains the statistics for the coefficients of \(x^0, \dots, x^d\) in this order. This means that \(ts(end)\) is really the value of most interest here.</p>
 <pre class="code-block tex2jax_ignore">x = (0:14)';  
 y = [9 8 5 5 3 1 2 5 4 7 8 8 7 7 8]'; 
 d = 2;            

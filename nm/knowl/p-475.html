@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:21-04:00    *-->
+<!--*    on 2021-09-12T16:07:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>This chapter introduces more sophisticated integration rules which attach different weights to different points of evaluation. However, the evaluation points are still chosen in a simple way, by putting them at equal distance from one another. This will eventually become a problem.</p>
-<span class="incontext"><a href="chapter-simpson-newton-cotes.html#p-475">in-context</a></span>
+<p>Calculate an approximate value of \(\pi\) using from the formula</p>
+<div class="displaymath">
+\begin{equation*}
+\int_0^\infty \sin(x^2)\,dx = \sqrt{\frac{\pi}{8}}
+\end{equation*}
+</div>
+<p data-braille="continuation">Two approximations must be made here: replacing \(\infty\) in the integral with a large number \(b\text{,}\) and using the <em class="emphasis">trapezoidal</em> rule with a large number of subintervals \(n\text{.}\) While avoiding extremely large \(b\) and \(n\) that might freeze your computer, calculate the value of integral \(I\) with enough precision so that <code class="code-inline tex2jax_ignore">round(8*I^2, 2)</code> (rounding to 2 places) produces 3.14, a reasonable approximation to \(\pi\text{.}\)</p>
+<span class="incontext"><a href="exercises-trapezoid-midpoint.html#p-475">in-context</a></span>
 </body>
 </html>

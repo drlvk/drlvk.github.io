@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:22-04:00    *-->
+<!--*    on 2021-09-12T16:07:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>What combination of two rules should we use for approximations \(I_1\) and \(I_2\text{?}\) These rules should be of different accuracy; for example, it would be a bad idea to use the left endpoint and right endpoint rules. Both of these are about equally imprecise, so they may give the same answer which is still wrong by some large amount.</p>
-<span class="incontext"><a href="section-adaptive-integration-rules.html#p-571">in-context</a></span>
+<p>A third approach is to enforce enforce error bound <em class="emphasis">relative to the size of interval</em>, for example <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6 * (b-a)</code>. This avoids the issue with functions that are problematic and small, such as \(f(x) = \sqrt{x}\) near \(0\text{.}\) But it runs into the same issue with functions that are problematic and large, such as  \(f(x) = 1/\sqrt{x}\) near \(0\text{.}\)</p>
+<span class="incontext"><a href="section-adaptive-integration-bisection.html#p-571">in-context</a></span>
 </body>
 </html>

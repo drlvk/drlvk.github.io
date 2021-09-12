@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:21-04:00    *-->
+<!--*    on 2021-09-12T16:07:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,49 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>To summarize: Simpson's rule is the result of Richardson extrapolation of the Trapezoidal rule. Following the process in <a href="section-lrtm-error-estimates.html" class="internal" title="Section 13.4: Error estimates">Section 13.4</a> one can find that its order of accuracy is 4, meaning the error is proportional to \(h^4\text{.}\)</p>
+<p>Consider the trapezoidal rule on the interval \([-1,1]\) with \(n=2\text{.}\) It has \(h=1\text{,}\) so</p>
+<div class="displaymath">
+\begin{equation}
+\int_{-1}^{1} f(x)\,dx \approx  f(0) +  \frac{1}{2}(f(-1)+f(1))\tag{14.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">Surprisingly, the approximation <a class="xref" data-knowl="./knowl/eq-trap1.html" title="Equation 14.1.1">(14.1.1)</a> can be made much more precise without doing more computations. As in <a href="section-richardson-extrapolation.html" class="internal" title="Section 12.4: Richardson extrapolation">Section 12.4</a>, we use the Richardson extrapolation to improve the accuracy. The same trapezoidal rule with doubled step size \(h=2\) yields</p>
+<div class="displaymath">
+\begin{equation}
+\int_{-1}^{1} f(x)\,dx \approx \frac{2}{2} (f(-1)+f(1)) \tag{14.1.2}
+\end{equation}
+</div>
+<p data-braille="continuation">Since the error of trapezoidal rule is proportional to \(h^2\) (the rule has second order of accuracy), we expect the second approximation <a class="xref" data-knowl="./knowl/eq-trap2.html" title="Equation 14.1.2">(14.1.2)</a> to have error 4 times greater than the first approximation <a class="xref" data-knowl="./knowl/eq-trap1.html" title="Equation 14.1.1">(14.1.1)</a>. To cancel out most of the error, we divide <a class="xref" data-knowl="./knowl/eq-trap2.html" title="Equation 14.1.2">(14.1.2)</a> by 4 and subtract it from <a class="xref" data-knowl="./knowl/eq-trap1.html" title="Equation 14.1.1">(14.1.1)</a>. The result is</p>
+<div class="displaymath">
+\begin{equation*}
+\frac34 \int_{-1}^{1} f(x)\,dx \approx f(0) +  \frac{1}{2}(f(-1)+f(1)) - \frac14 (f(-1)+f(1)) 
+\end{equation*}
+</div>
+<p data-braille="continuation">Hence</p>
+<div class="displaymath">
+\begin{equation}
+\int_{-1}^{1} f(x)\,dx \approx \frac43 f(0) + \frac{1}{3}(f(-1)+f(1))\tag{14.1.3}
+\end{equation}
+</div>
+<p data-braille="continuation">The approximation <a class="xref" data-knowl="./knowl/eq-simps1.html" title="Equation 14.1.3">(14.1.3)</a> uses the same information about function \(f\) as the trapezoidal rule <a class="xref" data-knowl="./knowl/eq-trap1.html" title="Equation 14.1.1">(14.1.1)</a>: the values at -1, 0, 1. But the result is much more accurate. Consider, for example, the integral \(\int_{-1}^1 e^x\,dx = e - 1/e \approx 2.3504\text{.}\) The trapezoidal rule <a class="xref" data-knowl="./knowl/eq-trap1.html" title="Equation 14.1.1">(14.1.1)</a> approximates it by</p>
+<div class="displaymath">
+\begin{equation*}
+e^0 +  \frac{1}{2}(e^{-1} + e^1) \approx 2.5431     
+\end{equation*}
+</div>
+<p data-braille="continuation">with the error of 0.1927.  The formula <a class="xref" data-knowl="./knowl/eq-simps1.html" title="Equation 14.1.3">(14.1.3)</a> produces</p>
+<div class="displaymath">
+\begin{equation*}
+\frac43 e^0 + \frac{1}{3}(e^{-1}+ e^1) \approx 2.3621
+\end{equation*}
+</div>
+<p data-braille="continuation">with the error of 0.0117. This is 16 times more accurate. This improvement was achieved by changing the <dfn class="terminology">weights</dfn> (coefficients) attached to the values \(f(-1), f(0), f(1)\text{:}\) for trapezoidal rule they are \(1/2, 1, 1/2\text{,}\) but the formula <a class="xref" data-knowl="./knowl/eq-simps1.html" title="Equation 14.1.3">(14.1.3)</a> uses the weights \(1/3, 4/3, 1/3\text{.}\) The formula <a class="xref" data-knowl="./knowl/eq-simps1.html" title="Equation 14.1.3">(14.1.3)</a> is Simpson's rule (with \(n=2\) subintervals) on the interval \([-1, 1]\text{.}\) On a general interval \([a, b]\) it becomes, via a change of variable,</p>
+<div class="displaymath">
+\begin{equation}
+\int_{a}^{b} f(x)\,dx \approx \frac{b-a}{6} (f(a) + 4f((a+b)/2) + f(b))\tag{14.1.4}
+\end{equation}
+</div>
+<p data-braille="continuation">Check that <a class="xref" data-knowl="./knowl/eq-simps1a.html" title="Equation 14.1.4">(14.1.4)</a> is consistent with <a class="xref" data-knowl="./knowl/eq-simps1.html" title="Equation 14.1.3">(14.1.3)</a>: the midpoint gets greater weight than the endpoints by the factor of 4, and the sum of weights is \(b-a\text{.}\)</p>
 <span class="incontext"><a href="section-simpson-rule.html#p-478">in-context</a></span>
 </body>
 </html>

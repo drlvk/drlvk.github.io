@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-10T19:10:18-04:00    *-->
+<!--*    on 2021-09-12T16:07:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A fundamental numerical problem is to solve an equation (in general, not linear). What does it mean to find a numeric solution of \(f(x)=0\text{?}\) We consider the simplest of several methods of root-finding: the bisection method.</p>
-<span class="incontext"><a href="chapter-roots-bisection.html#p-260">in-context</a></span>
+<p>Write a script that:</p>
+<ol class="lower-alpha">
+<li>Creates a matrix \(A\) of size \(20\times 20\) according to the formula \(A_{ij} = 1/(i+j-1)\text{.}\) This can be done either with a double loop or by using array expansion as explained in <a href="section-array-expansion.html" class="internal" title="Section 2.4: Implicit expansion of arrays">Section 2.4</a>.</li>
+<li>Creates a column vector \(b\) with \(20\) elements which alternate like \((c, 0, c, 0, c, 0, \dots)\text{.}\) Here \(c\) is the first digit of your SUID.</li>
+<li>Computes the solution of \(Ax=b\) and displays the norm of the difference between \(Ax\) and \(b\text{.}\)</li>
+</ol>
+<span class="incontext"><a href="exercises-linear-systems.html#p-260">in-context</a></span>
 </body>
 </html>
