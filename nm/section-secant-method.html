@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:06:48-04:00    *-->
+<!--*    on 2021-09-13T19:17:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,10 +414,10 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-secant-method"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">9.3</span> <span class="title">The secant method</span>
 </h2>
-<p id="p-337">The secant method is a close relative of Newton's method. The only difference is that instead of drawing a tangent line and finding where it crosses the line \(y=0\) we do the same for a secant line. The slope of a secant line is computed as \((f(x)-f(p))/(x-p)\) where \(x, p\) are two distinct points on the x-axis. The benefit is that we do not need the derivative of \(f\text{,}\) we only use the function itself. The drawback is that we have to keep track not of just one point, but of two. This makes the algorithm slightly more complicated: it is not just fixed-point iteration of some function \(g\) as in Newton's method. Also, the analysis of its speed of convergence is more complicated: generally, it is between linear and quadratic; faster than bisection but slower than Newton.</p>
+<p id="p-339">The secant method is a close relative of Newton's method. The only difference is that instead of drawing a tangent line and finding where it crosses the line \(y=0\) we do the same for a secant line. The slope of a secant line is computed as \((f(x)-f(p))/(x-p)\) where \(x, p\) are two distinct points on the x-axis. The benefit is that we do not need the derivative of \(f\text{,}\) we only use the function itself. The drawback is that we have to keep track not of just one point, but of two. This makes the algorithm slightly more complicated: it is not just fixed-point iteration of some function \(g\) as in Newton's method. Also, the analysis of its speed of convergence is more complicated: generally, it is between linear and quadratic; faster than bisection but slower than Newton.</p>
 <article class="example example-like" id="example-secant-method"><a data-knowl="" class="id-ref original" data-refid="hk-example-secant-method"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Implement the secant method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-secant-method"><article class="example example-like"><p id="p-338">Write a script that starts with the definition of a function \(f\) and two initial points, for example</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-secant-method"><article class="example example-like"><p id="p-340">Write a script that starts with the definition of a function \(f\) and two initial points, for example</p>
 <pre class="code-block tex2jax_ignore">
 f = @(x) x^3 - x;
 x = 5;
@@ -452,7 +452,7 @@ else
     disp('Failed to converge')
 end
 </pre>
-<p id="p-339">This script follows the structure of <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a> except that we compute "new x", called x1, on the basis of two previous values (called <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code>). After the computation, <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code> are replaced by <code class="code-inline tex2jax_ignore">x1</code> and <code class="code-inline tex2jax_ignore">x</code>: the newly computed point becomes one of the two points through which we draw next secant line.</p>
+<p id="p-341">This script follows the structure of <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a> except that we compute "new x", called x1, on the basis of two previous values (called <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code>). After the computation, <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">p</code> are replaced by <code class="code-inline tex2jax_ignore">x1</code> and <code class="code-inline tex2jax_ignore">x</code>: the newly computed point becomes one of the two points through which we draw next secant line.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

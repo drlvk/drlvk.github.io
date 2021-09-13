@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:17-04:00    *-->
+<!--*    on 2021-09-13T19:17:40-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A cubic spline is a function \(S\) that is piecewise a degree 3 polynomial, and such that \(S, S', S''\) are continuous (have the same value from both sides at the points where pieces meet). In our context of fitting to data points \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) it is natural to have each cubic polynomial defined on \([x_{k}, x_{k+1}]\text{.}\) The continuity of first and second derivatives means that the graph of a cubic spline has no corners of sudden changes of curvature, it flows quite naturally. Compare the plots below, for the same data set.</p>
-<span class="incontext"><a href="section-cubic-splines.html#p-709">in-context</a></span>
+<p>A more abstract approach to the construction of degree 1 spline is as follows:</p>
+<ul class="disc">
+<li>We have \(n-1\) subintervals between \(n\) data points.</li>
+<li>On each subinterval we choose a degree 1 polynomial; this means we have \(2(n-1)\) coefficients to choose.</li>
+<li>But we want to spline to be continuous, so the values at each interior data point from the left and from the right must match. There are \(n-2\) interior data points, so the continuity imposes \(n-2\) equations.</li>
+<li>Finally, the spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
+<li>The total is \(n-2+n=2n-2\) equations with \(2(n-1) = 2n-2\) unknowns, so we expect (and get) a unique solution.</li>
+</ul>
+<span class="incontext"><a href="section-piecewise-linear-interpolation.html#p-709">in-context</a></span>
 </body>
 </html>

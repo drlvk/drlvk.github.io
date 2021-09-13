@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:16-04:00    *-->
+<!--*    on 2021-09-13T19:17:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,16 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Monte-Carlo method can also be used to average a function over a <em class="emphasis">sphere</em> with the help of <dfn class="terminology">normal distribution</dfn>.  Here is a brief summary of random number generators in Matlab:</p>
-<ul class="disc">
-<li>
-<code class="code-inline tex2jax_ignore">rand(m, n)</code> generates an \(m\times n\) matrix of random real numbers taken from the uniform distribution on the interval \([0, 1]\text{.}\)</li>
-<li>
-<code class="code-inline tex2jax_ignore">randi([A B], m, n)</code> generates an \(m\times n\) matrix of random <em class="emphasis">integer</em> numbers taken from the discrete uniform distribution on the finite set \(A, A+1, \dots, B\text{.}\)</li>
-<li>
-<code class="code-inline tex2jax_ignore">randn(m, n)</code> generates an \(m\times n\) matrix of random real numbers taken from the <a class="external" href="https://en.wikipedia.org/wiki/Normal_distribution" target="_blank">standard normal distribution</a> on the real line.</li>
-</ul>
-<p data-braille="continuation">Try them out with <code class="code-inline tex2jax_ignore">rand(1, 5)</code>, <code class="code-inline tex2jax_ignore">randi([2 7], 1, 5)</code>, and <code class="code-inline tex2jax_ignore">randn(1, 5)</code> to observe the differences in output.</p>
+<p>The output is, of course, random, but usually it is about 2.069. If your computer handles a million samples (<code class="code-inline tex2jax_ignore">N = 1e6</code>) easily, you may want to try <code class="code-inline tex2jax_ignore">1e7</code>. It would be tedious to compute this integral  with WolframAlpha; just entering the limits would take long.</p>
 <span class="incontext"><a href="section-integration-monte-carlo.html#p-604">in-context</a></span>
 </body>
 </html>

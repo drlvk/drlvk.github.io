@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:12-04:00    *-->
+<!--*    on 2021-09-13T19:17:36-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The secant method is a close relative of Newton's method. The only difference is that instead of drawing a tangent line and finding where it crosses the line \(y=0\) we do the same for a secant line. The slope of a secant line is computed as \((f(x)-f(p))/(x-p)\) where \(x, p\) are two distinct points on the x-axis. The benefit is that we do not need the derivative of \(f\text{,}\) we only use the function itself. The drawback is that we have to keep track not of just one point, but of two. This makes the algorithm slightly more complicated: it is not just fixed-point iteration of some function \(g\) as in Newton's method. Also, the analysis of its speed of convergence is more complicated: generally, it is between linear and quadratic; faster than bisection but slower than Newton.</p>
-<span class="incontext"><a href="section-secant-method.html#p-337">in-context</a></span>
+<p>But the most serious issue is that the method may fail to converge at all, either because the iteration of \(g\) gets stuck in a loop or because it tends to infinity. A typical example is \(f(x) = \tan^{-1}x\) (note that Matlab notation for arctangent function is <code class="code-inline tex2jax_ignore">atan</code>). Here \(g(x) = x - (x^2+1)\tan^{-1}(x)\text{,}\) which is <code class="code-inline tex2jax_ignore">g = @(x) x - (x^2+1)*atan(x);</code> in Matlab notation. With the initial value <code class="code-inline tex2jax_ignore">x0 = 1</code> the process quickly converges to 0. With the initial value <code class="code-inline tex2jax_ignore">x0 = 2</code> (or even 1.5) it fails to converge. The problem can be seen numerically by computing a few iterations in Matlab console.</p>
+<span class="incontext"><a href="section-newton-method-issues.html#p-337">in-context</a></span>
 </body>
 </html>

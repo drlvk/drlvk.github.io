@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:19-04:00    *-->
+<!--*    on 2021-09-13T19:17:42-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The syntax of <code class="code-inline tex2jax_ignore">fminsearch</code> is similar to <code class="code-inline tex2jax_ignore">fsolve</code> (which searchers for solutions \(f=0\)): the first argument is the function to be minimized, the second is initial point from which to start the search. For example,</p>
-<pre class="code-block tex2jax_ignore">
-fminsearch(@(x) x^2 + x, 0)
-</pre>
-<p data-braille="continuation">returns <code class="code-inline tex2jax_ignore">-0.5</code> which is where the function is minimal. The choice of initial point does not matter here, since the minimum is unique. But for the second example</p>
-<pre class="code-block tex2jax_ignore">
-fminsearch(@(x) x^4 - x^2, 0)
-</pre>
-<p data-braille="continuation">the initial point matters: the function may find the minimum 0.7071 or -0.7071. Note that <code class="code-inline tex2jax_ignore">fminsearch</code> is not misled by \(x=0\) which is also a critical point: it can tell a difference between minimum and maximum.</p>
-<span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-854">in-context</a></span>
+<p>Recall that <em class="emphasis">least squares</em> method means minimizing the sum of squares of residuals, which is a function of parameters \(A, M, r\text{:}\)</p>
+<div class="displaymath">
+\begin{equation}
+S(A, M, r) = \sum_{k=1}^n \left(y_k - \frac{M}{1 + Ae^{-rx_k}}\right)^2\tag{29.1.3}
+\end{equation}
+</div>
+<p data-braille="continuation">Since \(S\) is a smooth function, we could theoretically try the multivariable calculus approach: finds its partial derivatives of first order, equate them to zero, and solve the resulting system of equations:</p>
+<div class="displaymath">
+\begin{equation}
+\frac{\partial S}{\partial A} = 0, \quad \frac{\partial S}{\partial M} = 0, \quad \frac{\partial S}{\partial r} = 0\tag{29.1.4}
+\end{equation}
+</div>
+<p data-braille="continuation">But this system will be <em class="emphasis">nonlinear</em> and is unlikely to have a symbolic solution. Should we try some  multivariable root-finding method such as Newton's method?</p>
+<span class="incontext"><a href="section-nls-motivation.html#p-854">in-context</a></span>
 </body>
 </html>

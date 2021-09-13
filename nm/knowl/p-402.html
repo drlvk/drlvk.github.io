@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:13-04:00    *-->
+<!--*    on 2021-09-13T19:17:37-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,18 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Recall from <a href="section-broyden-intro.html" class="internal" title="Section 11.1: Idea of Broyden's method">Section 11.1</a> that we seek to improve our guess for the inverse of Jacobian by finding a matrix \(B_1\) such that</p>
-<div class="displaymath">
-\begin{equation*}
-B_1(\mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)) = \mathbf x_1 - \mathbf x_0 
-\end{equation*}
-</div>
-<p data-braille="continuation">To simplify notation, let \(\mathbf h = \mathbf x_1 - \mathbf x_0\) and \(\mathbf w = \mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)\text{;}\) both these vectors are known. We need</p>
+<p>In mathematical notation, the outer product would be written as \(\mathbf a\mathbf b^T\text{,}\) with T indicating the transposed vector (column turned into row). Since  \(\mathbf a\mathbf b^T\) is a matrix, we can apply it to some vector \(\mathbf c\text{.}\) The associative property of matrix multiplication shows that</p>
 <div class="displaymath">
 \begin{equation}
-B_1 \mathbf w = \mathbf h\tag{11.3.1}
+(\mathbf a\mathbf b^T)\mathbf c = \mathbf a (\mathbf b^T \mathbf c) = \mathbf a (\mathbf b\cdot \mathbf c) \tag{11.2.1}
 \end{equation}
 </div>
-<span class="incontext"><a href="section-broyden-method.html#p-402">in-context</a></span>
+<p data-braille="continuation">that is, we get the vector \(\mathbf a\) multiplied by the dot product \(\mathbf b\cdot \mathbf c\text{.}\) Formula <a class="xref" data-knowl="./knowl/eq-outer-product.html" title="Equation 11.2.1">(11.2.1)</a> gives us an easy way to find a matrix \(M\) which satisfies the equation \(M\mathbf c = \mathbf d\) for given vectors \(\mathbf c, \mathbf d\text{.}\) Namely, we can let</p>
+<div class="displaymath">
+\begin{equation}
+M = \frac{1}{\mathbf b^T \mathbf c} \mathbf d \mathbf b^T \tag{11.2.2}
+\end{equation}
+</div>
+<p data-braille="continuation">which is an outer product of two vectors with a scalar factor in front. The associative property shows that</p>
+<div class="displaymath">
+\begin{equation*}
+M\mathbf c = \frac{1}{\mathbf b^T \mathbf c} \mathbf d (\mathbf b^T \mathbf c) = \mathbf d
+\end{equation*}
+</div>
+<p data-braille="continuation">Note that the choice of \(\mathbf b\) is up to us: any vector will work as \(\mathbf b\) as long as \(\mathbf b^T \mathbf c \ne 0\text{.}\)</p>
+<span class="incontext"><a href="section-broyden-linear-algebra.html#p-402">in-context</a></span>
 </body>
 </html>

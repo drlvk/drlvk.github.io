@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:06:49-04:00    *-->
+<!--*    on 2021-09-13T19:17:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,7 +414,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-nonlinear-systems"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">10.1</span> <span class="title">Systems of nonlinear equations</span>
 </h2>
-<p id="p-358">Consider a non-linear system of more than one equation, such as</p>
+<p id="p-360">Consider a non-linear system of more than one equation, such as</p>
 <div class="displaymath">
 \begin{equation}
 \begin{cases} x^2e^{3y}-30 \amp = 0 \\
@@ -434,20 +434,20 @@ xy-\sin(x+y^2) \amp =0
 <li id="li-111">Newton's method, which is essentially a systematic approach to fixed-point iteration, still works. This is the method we will use in this section.</li>
 <li id="li-112">It is not clear whether secant method makes sense, but its general idea - modifying Newton's method to avoid the use of derivatives - can be carried out. This will be considered later.</li>
 </ul>
-<p id="p-359">For notational convenience, we express a nonlinear system of \(n\) equations with \(n\) unknowns as a <dfn class="terminology">vector equation</dfn> \(\mathbf F(\mathbf x)=0\) where \(\mathbf x\) is an unknown vector with \(n\) components. For example, to express <a class="xref" data-knowl="./knowl/eq-nonlinear-system.html" title="Equation 10.1.1">(10.1.1)</a> in vector form we write</p>
+<p id="p-361">For notational convenience, we express a nonlinear system of \(n\) equations with \(n\) unknowns as a <dfn class="terminology">vector equation</dfn> \(\mathbf F(\mathbf x)=0\) where \(\mathbf x\) is an unknown vector with \(n\) components. For example, to express <a class="xref" data-knowl="./knowl/eq-nonlinear-system.html" title="Equation 10.1.1">(10.1.1)</a> in vector form we write</p>
 <div class="displaymath">
 \begin{equation}
 \mathbf x = \begin{pmatrix} x \\ y \end{pmatrix},\quad 
 \mathbf F(\mathbf x) = \begin{pmatrix}  x_1^2e^{3x_2}-30 \\ x_1 x_2 - \sin(x_1 + x_2^2) \end{pmatrix}\label{eq-function-F}\tag{10.1.2}
 \end{equation}
 </div>
-<p id="p-360">How should we write a vector function \(\mathbf F\) in Matlab? It can be an anonymous function.</p>
+<p id="p-362">How should we write a vector function \(\mathbf F\) in Matlab? It can be an anonymous function.</p>
 <pre class="code-block tex2jax_ignore">F = @(x) [x(1)^2*exp(3*x(2)) - 30; x(1)*x(2) - sin(x(1) + x(2)^2)];
 x = [3; -2];
 disp(F(x))
 </pre>
-<p id="p-361">In this example, the argument of F is a vector and the value it returns is also a vector. Note that <code class="code-inline tex2jax_ignore">F(3, -2)</code> would result in an error “too many input arguments” because F takes only one argument (which is a vector). It needs to be <code class="code-inline tex2jax_ignore">F([3; -2])</code>. Writing the input as a row vector, <code class="code-inline tex2jax_ignore">F([3, -2])</code> would have the same effect but for consistency with the formulas below it is better to use column vectors.</p>
-<p id="p-362">When the notation <code class="code-inline tex2jax_ignore">x(1), x(2)</code> becomes too cumbersome, one can consider writing F as a named function, where the input vector is first unpacked into separate variables such as <code class="code-inline tex2jax_ignore">x, y</code>. This makes the formula more readable. The downside is the restriction on named functions in Matlab, noted in <a href="section-named-functions.html" class="internal" title="Section 5.2: Named functions">Section 5.2</a>.</p>
+<p id="p-363">In this example, the argument of F is a vector and the value it returns is also a vector. Note that <code class="code-inline tex2jax_ignore">F(3, -2)</code> would result in an error “too many input arguments” because F takes only one argument (which is a vector). It needs to be <code class="code-inline tex2jax_ignore">F([3; -2])</code>. Writing the input as a row vector, <code class="code-inline tex2jax_ignore">F([3, -2])</code> would have the same effect but for consistency with the formulas below it is better to use column vectors.</p>
+<p id="p-364">When the notation <code class="code-inline tex2jax_ignore">x(1), x(2)</code> becomes too cumbersome, one can consider writing F as a named function, where the input vector is first unpacked into separate variables such as <code class="code-inline tex2jax_ignore">x, y</code>. This makes the formula more readable. The downside is the restriction on named functions in Matlab, noted in <a href="section-named-functions.html" class="internal" title="Section 5.2: Named functions">Section 5.2</a>.</p>
 <pre class="code-block tex2jax_ignore">function v = F(u)
     x = u(1);
     y = u(2);

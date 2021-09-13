@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:06:45-04:00    *-->
+<!--*    on 2021-09-13T19:17:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -446,14 +446,17 @@ b = \begin{pmatrix} 7 \\ 8 \\ 9\end{pmatrix}
 \end{equation*}
 </div>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-38" id="answer-38"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-38"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">A = [1 2; 4 3; 5 6];
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-38" id="answer-38"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-38"><div class="answer solution-like">
+<pre class="code-block tex2jax_ignore">A = [1 2; 4 3; 5 6];
 b = [7 8 9]';
 x = A\b;
 disp(x)
-disp(norm(Ax-b))
-</pre></div></div>
+disp(norm(A*x-b))
+</pre>
+<p id="p-230">It may be informative to add the line <code class="code-inline tex2jax_ignore">disp(A*x)</code> and compare this vector to <code class="code-inline tex2jax_ignore">b</code>.</p>
+</div></div>
 </div></article></div>
-<p id="p-230">A practical use of least squares solutions is linear regression. Suppose we are given some data points \((x_k, y_k)\) and want to find the line \(y = cx+d\) that fits these points the best. The idea is to imagine we could have perfect fit:</p>
+<p id="p-231">A practical use of least squares solutions is linear regression. Suppose we are given some data points \((x_k, y_k)\) and want to find the line \(y = cx+d\) that fits these points the best. The idea is to imagine we could have perfect fit:</p>
 <div class="displaymath">
 \begin{align*}
 c x_1 + d \amp = y_1 \\
@@ -474,21 +477,18 @@ b = \begin{pmatrix} y_1 \\ y_2 \\ \vdots \\ y_m \end{pmatrix},
 <p data-braille="continuation">This is an overdetermined system when we have more than 2 data points. Unless all \(x\)-values are the same (which should not happen), the rank of A is 2 and so the system has no free variables. This means that <code class="code-inline tex2jax_ignore">A\b</code> will find its least squares solution: a vector with components \((c, d)\) for which the sum of squares of the residuals \(cx_k+d - y_k\) is as small as possible. This is the line of best least-squares fit, and this process is known as linear regression in statistics.</p>
 <article class="example example-like" id="example-line-best-fit"><a data-knowl="" class="id-ref original" data-refid="hk-example-line-best-fit"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Line of best fit.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-line-best-fit"><article class="example example-like"><p id="p-231">Find the line of best fit (in the sense of least squares) to the six points with x-values (-1, 0, 2, 3, 4, 7) and y-values (9, 8, 5, 5, 3, -2).  Plot both the line and the points.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-line-best-fit"><article class="example example-like"><p id="p-232">Find the line of best fit (in the sense of least squares) to the six points with x-values (-1, 0, 2, 3, 4, 7) and y-values (9, 8, 5, 5, 3, -2).  Plot both the line and the points.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-39" id="answer-39"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-39"><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">x = [-1, 0, 2, 3, 4, 7]'; 
-y = [9, 8, 5, 5, 3, 1]';
-A = [x, x.^0];
+<pre class="code-block tex2jax_ignore">x = [-1 0 2 3 4 7]'; 
+y = [9 8 5 5 3 1]';
+A = [x x.^0];
 z = A\y;
 xx = linspace(min(x), max(x), 500)';
-yy = [xx, xx.^0]*z;
-hold on
-plot(xx, yy)
-plot(x, y, 'r*')
-hold off
+yy = [xx xx.^0]*z;
+plot(xx, yy, 'b', x, y, 'r*')
 </pre>
-<p id="p-232">Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'k*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx, xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later.</p>
+<p id="p-233">Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'r*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later. Note that the line <code class="code-inline tex2jax_ignore">yy = [xx xx.^0]*z</code>, which uses the solution of a linear system, is consistent with <code class="code-inline tex2jax_ignore">A = [x x.^0]</code> which created that system.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

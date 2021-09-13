@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:06:49-04:00    *-->
+<!--*    on 2021-09-13T19:17:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,7 +414,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-broyden-linear-algebra"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">11.2</span> <span class="title">Outer products</span>
 </h2>
-<p id="p-397">If <code class="code-inline tex2jax_ignore">a</code> and <code class="code-inline tex2jax_ignore">b</code> are column vectors with \(n\) entries, then <code class="code-inline tex2jax_ignore">a'*b</code> in Matlab is their scalar product (also called the inner product or the dot product):</p>
+<p id="p-399">If <code class="code-inline tex2jax_ignore">a</code> and <code class="code-inline tex2jax_ignore">b</code> are column vectors with \(n\) entries, then <code class="code-inline tex2jax_ignore">a'*b</code> in Matlab is their scalar product (also called the inner product or the dot product):</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{pmatrix}a_1 \amp a_2 \amp \cdots \amp a_n \end{pmatrix} \begin{pmatrix}b_1 \\ b_2 \\ \cdots \\ b_n \end{pmatrix} = a_1b_1 + a_2b_2 + \dots +a_n b_n 
@@ -435,7 +435,7 @@ a_nb_1 \amp a_nb_2 \amp \dots \amp  a_n b_n \\
 <p data-braille="continuation">This matrix is the <dfn class="terminology">outer product</dfn> of vectors \(\mathbf a\) and \(\mathbf b\text{.}\) Since all of its rows are proportional to one another, its rank is at most 1. The rank is 0 if one of two vectors is the zero vector; otherwise it is equal to 1.</p>
 <article class="example example-like" id="example-random-outer-product"><a data-knowl="" class="id-ref original" data-refid="hk-example-random-outer-product"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Random outer product.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-random-outer-product"><article class="example example-like"><p id="p-398">Let \(M\) be the outer product of two random vectors with 5 entries, generated with <code class="code-inline tex2jax_ignore">rand</code>. Display the rank and determinant of \(M\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-random-outer-product"><article class="example example-like"><p id="p-400">Let \(M\) be the outer product of two random vectors with 5 entries, generated with <code class="code-inline tex2jax_ignore">rand</code>. Display the rank and determinant of \(M\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-23" id="solution-23"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-23"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">a = rand(5, 1);
@@ -444,10 +444,10 @@ M = a*b';
 disp(rank(M))
 disp(det(M))
 </pre>
-<p id="p-399">The result should be: rank is 1, and the determinant is some extremely small (but nonzero) number, for example <code class="code-inline tex2jax_ignore">3.2391e-69</code>. Mathematically this is impossible: a 5<span class="times-sign">×</span>5 matrix of rank less than 5 must have determinant equal to 0. But the reality of computer arithmetic is that floating point numbers rarely add up exactly to zero, as noted in <a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off errors">Section 6.4</a>. Matlab's <code class="code-inline tex2jax_ignore">rank</code> command takes this into account and reports the rank as 1 when the matrix is “close enough” to actually having rank 1.</p>
+<p id="p-401">The result should be: rank is 1, and the determinant is some extremely small (but nonzero) number, for example <code class="code-inline tex2jax_ignore">3.2391e-69</code>. Mathematically this is impossible: a 5<span class="times-sign">×</span>5 matrix of rank less than 5 must have determinant equal to 0. But the reality of computer arithmetic is that floating point numbers rarely add up exactly to zero, as noted in <a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off errors">Section 6.4</a>. Matlab's <code class="code-inline tex2jax_ignore">rank</code> command takes this into account and reports the rank as 1 when the matrix is “close enough” to actually having rank 1.</p>
 </div></div>
 </div></article></div>
-<p id="p-400">In mathematical notation, the outer product would be written as \(\mathbf a\mathbf b^T\text{,}\) with T indicating the transposed vector (column turned into row). Since  \(\mathbf a\mathbf b^T\) is a matrix, we can apply it to some vector \(\mathbf c\text{.}\) The associative property of matrix multiplication shows that</p>
+<p id="p-402">In mathematical notation, the outer product would be written as \(\mathbf a\mathbf b^T\text{,}\) with T indicating the transposed vector (column turned into row). Since  \(\mathbf a\mathbf b^T\) is a matrix, we can apply it to some vector \(\mathbf c\text{.}\) The associative property of matrix multiplication shows that</p>
 <div class="displaymath">
 \begin{equation}
 (\mathbf a\mathbf b^T)\mathbf c = \mathbf a (\mathbf b^T \mathbf c) = \mathbf a (\mathbf b\cdot \mathbf c) \label{eq-outer-product}\tag{11.2.1}
@@ -466,7 +466,7 @@ M\mathbf c = \frac{1}{\mathbf b^T \mathbf c} \mathbf d (\mathbf b^T \mathbf c) =
 \end{equation*}
 </div>
 <p data-braille="continuation">Note that the choice of \(\mathbf b\) is up to us: any vector will work as \(\mathbf b\) as long as \(\mathbf b^T \mathbf c \ne 0\text{.}\)</p>
-<p id="p-401">Once more, to make this point clear: one cannot “solve” \(M\mathbf c = \mathbf d\) for \(M\) by “dividing” vector \(\mathbf d\) by \(\mathbf c\text{.}\) But the process outlined above produces some matrix \(M\) that satisfies this equation.</p></section></div></main>
+<p id="p-403">Once more, to make this point clear: one cannot “solve” \(M\mathbf c = \mathbf d\) for \(M\) by “dividing” vector \(\mathbf d\) by \(\mathbf c\text{.}\) But the process outlined above produces some matrix \(M\) that satisfies this equation.</p></section></div></main>
 </div>
 </body>
 </html>

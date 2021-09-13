@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:16-04:00    *-->
+<!--*    on 2021-09-13T19:17:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The plot displayed by <a class="xref" data-knowl="./knowl/example-implement-trapezoidal-ode-system.html" title="Example 19.5.1: Implement trapezoidal method for ODE system">Example 19.5.1</a>  is a <dfn class="terminology">time series plot</dfn> in which one axis represents the independent variable (usually time) and the other axis shows the components of \(\mathbf y\text{.}\) The other option we have is to make a <dfn class="terminology">phase plot</dfn> in which each component of \(\mathbf y\) gets its own axis, and there is no time axis. This is achieved with</p>
-<pre class="code-block tex2jax_ignore">
-plot(y(1,:), y(2,:))
-</pre>
-<p data-braille="continuation">The phase plot  may be preferable when the system does not involve time directly (an <dfn class="terminology">autonomous system</dfn>). Try both kinds of plots for the autonomous system</p>
-<pre class="code-block tex2jax_ignore">
-  f = @(t, y) [y(2)-y(2)^3; 2*y(1)];
-</pre>
+<p>Solve the system</p>
+<div class="displaymath">
+\begin{align*}
+y_1' \amp = t - 3y_2\\
+y_2' \amp = 2y_1
+\end{align*}
+</div>
+<p data-braille="continuation">with initial condition \(y(0) = \begin{pmatrix}1 \\ 0\end{pmatrix}\text{,}\) on the interval \([0, 10]\) using the trapezoidal method with the step \(h=0.01\text{.}\) Plot the solution.</p>
 <span class="incontext"><a href="section-ode-systems.html#p-633">in-context</a></span>
 </body>
 </html>

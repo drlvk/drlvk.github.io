@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:18-04:00    *-->
+<!--*    on 2021-09-13T19:17:42-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Suggestions: sort the Fourier coefficients from largest to smallest using</p>
-<pre class="code-block tex2jax_ignore">
-sorted = sort(abs(fc(:)), 'descend');  
-</pre>
-<p data-braille="continuation">and remove the largest of them (the constant term):</p>
-<pre class="code-block tex2jax_ignore">
-sorted = sorted(2:end);  
-</pre>
-<p data-braille="continuation">The total energy is</p>
-<pre class="code-block tex2jax_ignore">
-total = sum(sorted.^2); 
-</pre>
-<p data-braille="continuation">The key step is writing a loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until the sum reaches the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
+<p>Instead of deciding in advance how many coefficients to discard, it is usually preferable to maintain some degree of quality of the image. This is often measured in terms of “energy”, defined as the sum of squares of absolute values of Fourier coefficients (except the constant one). That, is to have 95% quality, we want to keep enough Fourier coefficients so that the sum of their squares is at least 95% of the total sum of squares. Equivalently, we discard the coefficients that contribute 5% of the energy.</p>
 <span class="incontext"><a href="exercises-dft-applications.html#p-798">in-context</a></span>
 </body>
 </html>

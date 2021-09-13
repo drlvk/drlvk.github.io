@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:20-04:00    *-->
+<!--*    on 2021-09-13T19:17:44-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Compare the search path to what we get without correction in <code class="code-inline tex2jax_ignore">w</code>: it is less zigzagging. However, if we use the original Rosenbrock function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> which is very far from quadratic or convex, the search diverges to infinity. Several other correction terms (different choices for \(\gamma\) coefficient) have been proposed for the nonlinear conjugate gradient method. But it appears that the “narrow valley” landscape of the Rosenbrock function is best navigated either by using both first and second order derivatives (the Newton method) or by using no derivatives at all (the Nelder-Mead method, to be considered later).</p>
+<p>Suppose we arrived to point \(\mathbf a\) from point \(\mathbf b\text{,}\) following the direction vector \(\mathbf v\text{.}\) With the conjugate gradient method, the direction of our next move will be\(\mathbf w = -\nabla f(a) + \gamma \mathbf v\) where \(\gamma &gt; 0\text{.}\) Large \(\gamma\) means we keep mostly the same direction as before, small \(\gamma\) means we go with the gradient. We should make \(\gamma\) smaller, giving more importance to the gradient, if \(\mathbf a\) is much closer to the minimum than \(\mathbf b\text{.}\) This progress can be measured by the ratio \(|\nabla f(\mathbf a)|^2/|\nabla f(\mathbf b)|^2\) (small if we arrived in the vicinity of minimum), so we use this quantity as \(\gamma\text{.}\)</p>
 <span class="incontext"><a href="section-conjugate-gradient.html#p-950">in-context</a></span>
 </body>
 </html>

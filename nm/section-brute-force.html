@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:04-04:00    *-->
+<!--*    on 2021-09-13T19:17:28-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,7 +414,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-brute-force"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">30.2</span> <span class="title">Brute force search</span>
 </h2>
-<p id="p-884">This is a very direct approach to minimization of \(f\colon [a, b]\to \mathbb R\text{:}\) choose some large number of points \(x_1, \dots, x_n\) on the interval, equally spaced, evaluate \(f\) at each point, take the minimum of \(f(x_k)\text{.}\) How close will this be to the actual global minimum? If \(f\) is differentiable and \(|f'|\le M\) on the interval, the mean value theorem implies</p>
+<p id="p-886">This is a very direct approach to minimization of \(f\colon [a, b]\to \mathbb R\text{:}\) choose some large number of points \(x_1, \dots, x_n\) on the interval, equally spaced, evaluate \(f\) at each point, take the minimum of \(f(x_k)\text{.}\) How close will this be to the actual global minimum? If \(f\) is differentiable and \(|f'|\le M\) on the interval, the mean value theorem implies</p>
 <div class="displaymath">
 \begin{equation}
 |f(x)-f(y)| \le M|x-y| \label{eq-mean-value-inequality}\tag{30.2.1}
@@ -427,7 +427,7 @@ MathJax.Hub.Config({
 \end{equation}
 </div>
 <p data-braille="continuation">This may be good enough for a rough estimate of global minimum. One can also refine this estimate by applying a more advanced method on the interval \([x_{k-1}, x_{k+1}]\) around the point \(x_k\) where \(\min_{k} f(x_k)\) is attained.</p>
-<p id="p-885">In Matlab, the code for brute force search may look like</p>
+<p id="p-887">In Matlab, the code for brute force search may look like</p>
 <pre class="code-block tex2jax_ignore">
 x = linspace(a, b, n);
 y = f(x);
@@ -436,7 +436,7 @@ y = f(x);
 <p data-braille="continuation">Note the two-outputs form of <code class="code-inline tex2jax_ignore">min</code> command: when used in this way, the first output is the value of minimum, and the second is the index at which it was found. So, <code class="code-inline tex2jax_ignore">y(ind)</code> is the same as <code class="code-inline tex2jax_ignore">fm</code> but more importantly, <code class="code-inline tex2jax_ignore">x(ind)</code> is the corresponding \(x\)-value.</p>
 <article class="example example-like" id="example-brute-force"><a data-knowl="" class="id-ref original" data-refid="hk-example-brute-force"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">30.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Using brute force search on an interval.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-brute-force"><article class="example example-like"><p id="p-886">Minimize \(f(x) = \sin (x) + \sin (\sqrt{2}x)\) on the interval \([0, 100]\) using \(n=100000\) points. Then use <a class="xref" data-knowl="./knowl/eq-mvi-estimate.html" title="Equation 30.2.2">(30.2.2)</a> to estimate the true global minimum of \(f\) on this interval.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-brute-force"><article class="example example-like"><p id="p-888">Minimize \(f(x) = \sin (x) + \sin (\sqrt{2}x)\) on the interval \([0, 100]\) using \(n=100000\) points. Then use <a class="xref" data-knowl="./knowl/eq-mvi-estimate.html" title="Equation 30.2.2">(30.2.2)</a> to estimate the true global minimum of \(f\) on this interval.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-48" id="solution-48"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-48"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) sin(x) + sin(sqrt(2)*x);
@@ -448,10 +448,10 @@ y = f(x);
 [fm, ind] = min(y);
 fprintf('Minimum %g attained near %g \n', fm, x(ind));
 </pre>
-<p id="p-887">The output is  “Minimum -1.99306 attained near 29.9413”. To estimate the accurac, note that \(|f'(x)|\le 1+\sqrt{2}\approx 2.4\) everywhere, and that \(h = (100-0)/(10^6 - 1)\approx 10^{-4}\text{.}\) So \(Mh/2 \approx 0.00012\) and therefore, the true global minimum of \(f\) lies between \(-1.99306 - Mh/2 = -1.99218\) and \(-1.99306\text{.}\)</p>
+<p id="p-889">The output is  “Minimum -1.99306 attained near 29.9413”. To estimate the accurac, note that \(|f'(x)|\le 1+\sqrt{2}\approx 2.4\) everywhere, and that \(h = (100-0)/(10^6 - 1)\approx 10^{-4}\text{.}\) So \(Mh/2 \approx 0.00012\) and therefore, the true global minimum of \(f\) lies between \(-1.99306 - Mh/2 = -1.99218\) and \(-1.99306\text{.}\)</p>
 </div></div>
 </div></article></div>
-<p id="p-888">Brute force search requires many function evaluations, especially with several parameters. It is not practical as the primary search method, but may be useful in combination with other methods.</p></section></div></main>
+<p id="p-890">Brute force search requires many function evaluations, especially with several parameters. It is not practical as the primary search method, but may be useful in combination with other methods.</p></section></div></main>
 </div>
 </body>
 </html>

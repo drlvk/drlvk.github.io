@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:11-04:00    *-->
+<!--*    on 2021-09-13T19:17:35-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A practical use of least squares solutions is linear regression. Suppose we are given some data points \((x_k, y_k)\) and want to find the line \(y = cx+d\) that fits these points the best. The idea is to imagine we could have perfect fit:</p>
-<div class="displaymath">
-\begin{align*}
-c x_1 + d \amp = y_1 \\
-c x_2 + d \amp = y_2 \\
-\cdots \amp = \cdots \\
-c x_m + d \amp = y_m 
-\end{align*}
-</div>
-<p data-braille="continuation">This system can be written as \(Az=b\) where</p>
-<div class="displaymath">
-\begin{equation*}
-A = \begin{pmatrix} x_1 \amp 1 \\ x_2 \amp 1 \\ \vdots \amp \vdots \\ x_m \amp 1 \end{pmatrix},
-\quad 
-b = \begin{pmatrix} y_1 \\ y_2 \\ \vdots \\ y_m \end{pmatrix}, 
-\quad z = \begin{pmatrix} c \\ d \end{pmatrix} 
-\end{equation*}
-</div>
-<p data-braille="continuation">This is an overdetermined system when we have more than 2 data points. Unless all \(x\)-values are the same (which should not happen), the rank of A is 2 and so the system has no free variables. This means that <code class="code-inline tex2jax_ignore">A\b</code> will find its least squares solution: a vector with components \((c, d)\) for which the sum of squares of the residuals \(cx_k+d - y_k\) is as small as possible. This is the line of best least-squares fit, and this process is known as linear regression in statistics.</p>
+<p>It may be informative to add the line <code class="code-inline tex2jax_ignore">disp(A*x)</code> and compare this vector to <code class="code-inline tex2jax_ignore">b</code>.</p>
 <span class="incontext"><a href="section-systems-without-free-variables.html#p-230">in-context</a></span>
 </body>
 </html>

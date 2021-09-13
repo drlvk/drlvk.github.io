@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:13-04:00    *-->
+<!--*    on 2021-09-13T19:17:37-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Sometimes one can avoid the loss of significance by rearranging the expression algebraically. For example,</p>
-<div class="displaymath">
-\begin{equation*}
-\frac{\sqrt{x+h} - \sqrt{x}}{h} = 	\frac{(\sqrt{x+h} - \sqrt{x})(\sqrt{x+h} + \sqrt{x})}{h(\sqrt{x+h} + \sqrt{x})} = \frac{x+h-x}{h(\sqrt{x+h} + \sqrt{x})} = \frac{1}{\sqrt{x+h} + \sqrt{x}} 
-\end{equation*}
-</div>
-<p data-braille="continuation">Algebraically these expressions are identical, but in Matlab, <code class="code-inline tex2jax_ignore">1/(sqrt(x+h) + sqrt(x))</code> produces accurate answer <code class="code-inline tex2jax_ignore">5.0000e-04</code> for any of the above values of \(h\text{.}\)</p>
+<p>An actual illustration is the following attempt to compute the derivative of \(f(x) = \sqrt{x}\) at the point \(x = 10^6\text{.}\) Note that \(f(10^6) = 1000\) and \(f'(10^6) = 1/2000 = 5\cdot 10^{-4}\text{.}\) Both looks like reasonable numbers. Let us try to use the approximation <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a> with the values \(h = 10^{-9}, 10^{-10}, 10^{-11}\text{,}\) in Matlab console:</p>
 <span class="incontext"><a href="section-loss-significance.html#p-426">in-context</a></span>
 </body>
 </html>

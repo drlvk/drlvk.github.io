@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:11-04:00    *-->
+<!--*    on 2021-09-13T19:17:35-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,16 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Generally, if some numerical method has error \(\epsilon_n\) after \(n\) steps, we say that the method is</p>
-<ul class="disc">
-<li>
-<dfn class="terminology">linearly convergent</dfn> if \(\epsilon_{n+1} \le c\epsilon_b\) with some constant \(c \lt 1\)</li>
-<li>
-<dfn class="terminology">quadratically convergent</dfn> if \(\epsilon_{n+1} \le M\epsilon_n^2\) with some constant \(M\)</li>
-<li>
-<dfn class="terminology">convergent with order \(p\)</dfn> if \(\epsilon_{n+1} \le M\epsilon_n^p\) with some constants \(M\text{,}\) \(p &gt; 0\text{.}\)</li>
-</ul>
-<p data-braille="continuation">Since for the bisection method \(\epsilon_{n+1} = \frac{1}{2}\epsilon_n\text{,}\) the bisection method is linearly convergent.</p>
+<p>The bisection method is not very fast, but is very reliable. If the initial bracketing interval had length \(L\text{,}\) after \(n\) iterations we get an interval of length \(2^{-n}L\text{.}\) So, it takes about 50 iterations to reduce the bracketing interval from length \(100\) to length \(10^{-13}\text{.}\) The speed of convergence of a numerical method is often visualized by plotting the logarithm of the error as a function of the number of steps. For the bisection method, the error after \(n\) steps is \(2^{-n}|a-b|\) so the logarithm is \(\log|a-b| - n \log 2\text{.}\)</p>
 <span class="incontext"><a href="section-bisection-method.html#p-274">in-context</a></span>
 </body>
 </html>

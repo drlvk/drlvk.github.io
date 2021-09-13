@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:19-04:00    *-->
+<!--*    on 2021-09-13T19:17:42-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Since the standard logistic function rises from 0 to 1 and has maximal slope when \(x=0\text{,}\) we can relate  parameters \(a, M, s\) directly to shape of the curve:</p>
-<ul class="disc">
-<li>\(a\) is the x-value at which the curve has the steepest slope;</li>
-<li>\(M\) is the amount by which the curve rises;</li>
-<li>\(s\) measures its horizontal size; the curve is essentially flat outside of the interval \([a-5s, a+5s]\text{.}\)</li>
-</ul>
+<p>Since our models generally have more than one parameter, we need multivariable <code class="code-inline tex2jax_ignore">fminsearch</code>. For example,</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(b) b(1)^2 + b(2)^4 + 3*b(1) - b(2), [1; 2])
+</pre>
+<p data-braille="continuation">finds the minimum of \(b_1^2 + b_2^4 + 3b_1 - b_2\) (using letter b to shorten the formula, as usually our parameters are called \(\beta_1, \beta_2,\dots\text{.}\)) Note that the function being minimized still has only one  argument, but this argument is now a vector.</p>
 <span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-858">in-context</a></span>
 </body>
 </html>

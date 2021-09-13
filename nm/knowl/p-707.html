@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:17-04:00    *-->
+<!--*    on 2021-09-13T19:17:40-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A more abstract approach to the construction of degree 1 spline is as follows:</p>
-<ul class="disc">
-<li>We have \(n-1\) subintervals between \(n\) data points.</li>
-<li>On each subinterval we choose a degree 1 polynomial; this means we have \(2(n-1)\) coefficients to choose.</li>
-<li>But we want to spline to be continuous, so the values at each interior data point from the left and from the right must match. There are \(n-2\) interior data points, so the continuity imposes \(n-2\) equations.</li>
-<li>Finally, the spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
-<li>The total is \(n-2+n=2n-2\) equations with \(2(n-1) = 2n-2\) unknowns, so we expect (and get) a unique solution.</li>
-</ul>
+<p>The current version of <a class="external" href="https://www.syracuse.edu/covid-dashboard/" target="_blank">SU COVID dashboard</a> uses <em class="emphasis">piecewise linear interpolation</em>. Geometrically this concept is clear: connect the points by straight lines, which is also what Matlab's <code class="code-inline tex2jax_ignore">plot</code> does.</p>
 <span class="incontext"><a href="section-piecewise-linear-interpolation.html#p-707">in-context</a></span>
 </body>
 </html>

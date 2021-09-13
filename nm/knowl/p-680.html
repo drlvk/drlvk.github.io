@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:16-04:00    *-->
+<!--*    on 2021-09-13T19:17:40-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The above theorem is easier to prove than one might expect. If \(x\) is one of interpolation points, then both sides of <a class="xref" data-knowl="./knowl/eq-error-polynomial-interpolation.html" title="Equation 22.1.1">(22.1.1)</a> are equal to 0. Suppose \(x\) is not equal to any interpolation point. Then we can let</p>
-<div class="displaymath">
-\begin{equation*}
-A = \frac{f(x) - p(x)}{ \prod_{k=1}^n (x-x_k) }
-\end{equation*}
-</div>
-<p data-braille="continuation">so that \(f(x) -p(x) - A \prod_{k=1}^n (x-x_k) = 0\text{.}\)  Consider the function</p>
-<div class="displaymath">
-\begin{equation}
-g(t) = f(t) -p(t) - A \prod_{k=1}^n (t-x_k)\tag{22.1.2}
-\end{equation}
-</div>
-<p data-braille="continuation">and notice that it has at least \(n+1\) roots on the interval \([a, b]\text{,}\) namely \(x, x_1, x_2, \dots, x_n\text{.}\) Between any two roots of \(g\) there is a root of \(g'\text{:}\) this is <a class="external" href="https://imgs.xkcd.com/comics/rolles_theorem.png" target="_blank">Rolle's theorem</a>. Therefore, \(g'\) has at least \(n\) roots on the interval \([a, b]\text{.}\) Repeat this argument: \(g''\) has at least \(n-1\) roots, … , \(g^{(n)}\) has at least 1 root. Call this root \(\xi\) and notice that according to <a class="xref" data-knowl="./knowl/eq-proof-poly-interp-error.html" title="Equation 22.1.2">(22.1.2)</a>,</p>
-<div class="displaymath">
-\begin{equation*}
-g^{(n)}(\xi) =  f^{(n)}(\xi) - 0 - A n!
-\end{equation*}
-</div>
-<p data-braille="continuation">hence  \(A = f^{(n)}(\xi) / n!\text{,}\) completing the proof of <a class="xref" data-knowl="./knowl/eq-error-polynomial-interpolation.html" title="Equation 22.1.1">(22.1.1)</a>.</p>
+<p>One of the uses of polynomial interpolation (<a href="chapter-polynomial-interpolation.html" class="internal" title="Chapter 21: Polynomial Interpolation">Chapter 21</a>) is to approximate a possible complicated function \(y = f(x)\) by a polynomial, interpolating the values of the function at some points \(x_1, \dots, x_n\text{.}\) Indeed, this is what we tried in <a class="xref" data-knowl="./knowl/exercises-polynomial-interpolation-3.html" title="Exercise 21.4.3">Exercise 21.4.3</a> for the functions \(f(x)=\cos x\) and \(f(x)=\cos 2x\text{,}\) with mixed success. The following theorem is a first step toward understanding what is going on.</p>
 <span class="incontext"><a href="section-error-polynomial-interpolation.html#p-680">in-context</a></span>
 </body>
 </html>

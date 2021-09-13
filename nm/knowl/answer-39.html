@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:11-04:00    *-->
+<!--*    on 2021-09-13T19:17:35-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -16,18 +16,15 @@
 <h6 class="heading">
 <span class="type">Answer</span><span class="space"> </span><span class="codenumber">6.2.2.1</span><span class="period">.</span>
 </h6>
-<pre class="code-block tex2jax_ignore">x = [-1, 0, 2, 3, 4, 7]'; 
-y = [9, 8, 5, 5, 3, 1]';
-A = [x, x.^0];
+<pre class="code-block tex2jax_ignore">x = [-1 0 2 3 4 7]'; 
+y = [9 8 5 5 3 1]';
+A = [x x.^0];
 z = A\y;
 xx = linspace(min(x), max(x), 500)';
-yy = [xx, xx.^0]*z;
-hold on
-plot(xx, yy)
-plot(x, y, 'r*')
-hold off
+yy = [xx xx.^0]*z;
+plot(xx, yy, 'b', x, y, 'r*')
 </pre>
-<p>Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'k*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx, xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later.</p>
+<p>Explanation: think of \(cx+d\) as \(cx + dx^0\) because this naturally leads to the matrix of this linear system: its columns are <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">x.^0</code>. The plot of given data points created by <code class="code-inline tex2jax_ignore">plot(x, y, 'r*')</code> consists of red asterisks, not joined by a line. But to plot the line of best fit (or a curve of best fit, in general) we use more points on the x-axis. These points are in the vector <code class="code-inline tex2jax_ignore">xx</code>: they are evenly distributed over the same interval where the given data points lie. The way in which y-coordinates of this line are computed may look strange. The matrix product <code class="code-inline tex2jax_ignore">[xx xx.^0]*z</code> is logically the same as <code class="code-inline tex2jax_ignore">z(1)*xx + z(2)</code>: multiply x-values by the coefficient \(c\) and add the constant term \(d\text{.}\) Writing it in matrix form allows for easier generalization later. Note that the line <code class="code-inline tex2jax_ignore">yy = [xx xx.^0]*z</code>, which uses the solution of a linear system, is consistent with <code class="code-inline tex2jax_ignore">A = [x x.^0]</code> which created that system.</p>
 </div>
 <span class="incontext"><a href="section-systems-without-free-variables.html#answer-39">in-context</a></span>
 </body>

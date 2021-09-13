@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:01-04:00    *-->
+<!--*    on 2021-09-13T19:17:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,14 +414,14 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-image-compression"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">26.1</span> <span class="title">Working with images in Matlab</span>
 </h2>
-<p id="p-778">An image is loaded into Matlab with a command like <code class="code-inline tex2jax_ignore">im = imread('filename.jpg')</code>. Try this using, for example, <a class="external" href="https://twitter.com/SyracuseU/status/831617805673984000/photo/1" target="_blank">the winter scene</a> (first save the file in Matlab/Octave current directory). There are several things to learn about this <code class="code-inline tex2jax_ignore">im</code> object:</p>
+<p id="p-780">An image is loaded into Matlab with a command like <code class="code-inline tex2jax_ignore">im = imread('filename.jpg')</code>. Try this using, for example, <a class="external" href="https://twitter.com/SyracuseU/status/831617805673984000/photo/1" target="_blank">the winter scene</a> (first save the file in Matlab/Octave current directory). There are several things to learn about this <code class="code-inline tex2jax_ignore">im</code> object:</p>
 <ul class="disc">
 <li id="li-185">
 <code class="code-inline tex2jax_ignore">size(im)</code> shows its size (dimensions) as 462<span class="times-sign">×</span>692<span class="times-sign">×</span>3. This is a three-dimensional array, where the last index means the <dfn class="terminology">color channel</dfn>: Red, Green, Blue. The first two indices are rows and columns. One can access individual channels with <code class="code-inline tex2jax_ignore">im(:, :, 1)</code> (for red). Matlab can also work with <dfn class="terminology">grayscale</dfn> images which have just one channel for brightness; such images are represented by matrices which makes them easier to work with.</li>
 <li id="li-186">
 <code class="code-inline tex2jax_ignore">class(im)</code> says “uint8”. All other Matlab objects we worked have class <code class="code-inline tex2jax_ignore">double</code> meaning they are floating-point numbers with double-precision, able to store about 16 decimal digits. But <code class="code-inline tex2jax_ignore">uint8</code> is different: it is an <dfn class="terminology">unsigned 8-bit integer</dfn>, with possible values 0, 1, …, 255. This reflects the image format: in each channel, the brightness of each pixel ranges from 0 to 255. (How many possible colors does this create?) In other languages, one would say “type” instead of “class”.</li>
 </ul>
-<p id="p-779">The command <code class="code-inline tex2jax_ignore">imshow(im)</code> displays the image. An image (an array of numbers) can be transformed in multiple ways and then either saved as a file with <code class="code-inline tex2jax_ignore">imwrite</code> or just displayed with <code class="code-inline tex2jax_ignore">imshow</code>; we will do the latter, which is simpler. Try the following and observe the effects:</p>
+<p id="p-781">The command <code class="code-inline tex2jax_ignore">imshow(im)</code> displays the image. An image (an array of numbers) can be transformed in multiple ways and then either saved as a file with <code class="code-inline tex2jax_ignore">imwrite</code> or just displayed with <code class="code-inline tex2jax_ignore">imshow</code>; we will do the latter, which is simpler. Try the following and observe the effects:</p>
 <ul class="disc">
 <li id="li-187">Remove one of colors entirely, for example <code class="code-inline tex2jax_ignore">im(:, :, 3)  = 0;</code>
 </li>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:17-04:00    *-->
+<!--*    on 2021-09-13T19:17:41-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>(Recall that arctangent is <code class="code-inline tex2jax_ignore">atan</code> in Matlab.)</p>
-<span class="incontext"><a href="exercises-spline-approximation.html#p-746">in-context</a></span>
+<p>The function \(S_3\) defined by <a class="xref" data-knowl="./knowl/eq-integral-B3.html" title="Equation 24.3.2">(24.3.2)</a> is the approximating cubic spline discussed above, while \(S_2\) is a quadratic spline. But these integral formulas should be simplified for practical use. By linearity of integrals,</p>
+<div class="displaymath">
+\begin{equation*}
+S_2(x) = \sum_{k=1}^n y_k  \int_{x-1/2}^{x+1/2} H(t)\,dt
+\end{equation*}
+</div>
+<p data-braille="continuation">where the integral can be evaluated explicitly: it is a cardinal B-spline of degree 2, which can be written out</p>
+<div class="displaymath">
+\begin{equation*}
+\int_{x-1/2}^{x+1/2} H(t)\,dt = \begin{cases} 
+0 &amp; x \le -3/2 \\
+(x+3/2)^2 /2 &amp; -3/2 \le x \le -1/2 \\
+3/4 - x^2 &amp; -1/2 \le x \le 1/2 \\
+(x-3/2)^2 /2 &amp; 1/2 \le x \le 3/2 \\
+0 &amp; x \ge 3/2 
+\end{cases} 
+\end{equation*}
+</div>
+<p data-braille="continuation">Quadratic B-splines are awkward to use because of the fractional transition points above, which do not align with grid points. Averaging again by <a class="xref" data-knowl="./knowl/eq-integral-B3.html" title="Equation 24.3.2">(24.3.2)</a> improves the situation and leads, after tedious case-by-case computations, to the formula <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a>.</p>
+<span class="incontext"><a href="section-construct-cardinal-splines.html#p-746">in-context</a></span>
 </body>
 </html>

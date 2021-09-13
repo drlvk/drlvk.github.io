@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:15-04:00    *-->
+<!--*    on 2021-09-13T19:17:38-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,24 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Another nice feature of the integration rules based on orthogonal polynomials is that all weights \(w_k\) are positive (unlike in the Newton-Cotes rules, which may give negative weights to some points). To see why, consider the polynomial \(G(x) = F(x)/(x-x_k)^2\) where \(F\) is as in the previous paragraph. Since \((x-x_k)^2\) cancels out, \(G\) is a polynomial of degree \(2n-2\text{.}\) Therefore, the integration rule is exact for it:</p>
+<p><em class="emphasis">Proof</em>. Given a polynomial \(F\) of degree \(\le 2n-1\text{,}\) use long division of polynomials to write it as \(F = Q P_n +R\) with \(Q\) and \(R\) having degree \(\le n-1\) (why is this possible?). Plug this into the integral:</p>
 <div class="displaymath">
 \begin{equation*}
-\int_{-1}^1 G(x)\,dx = w_k G(x_k)
+\int_{-1}^1 F(x)\,dx = \int_{-1}^1 (Q(x) P_n(x) +R(x))\,dx = \int_{-1}^1 R(x)\,dx 
 \end{equation*}
 </div>
-<p data-braille="continuation">where the right hand side has just one term because \(G(x_j)=0\) for all indices \(j\ne k\text{.}\) Since \(G\) is a square, the left hand side is positive and \(G(x_k)\) is also positive. Hence \(w_k &gt; 0\text{.}\)</p>
+<p data-braille="continuation">where the term \(QP_n\) integrates to zero because of orthogonality. Since \(\deg R\le n-1\text{,}\) the Gauss-Legendre integration rule is exact for \(R\text{.}\) Therefore,</p>
+<div class="displaymath">
+\begin{equation*}
+\int_{-1}^1 R(x)\,dx = \sum_{k=1}^n w_k R(x_k) = \sum_{k=1}^n w_k F(x_k)
+\end{equation*}
+</div>
+<p data-braille="continuation">where the last step uses the fact that \(F(x_k) =R(x_k)\) by virtue of \(P_n(x_k)=0\text{.}\) This completes the proof that</p>
+<div class="displaymath">
+\begin{equation*}
+\int_{-1}^1 F(x)\,dx = \sum_{k=1}^n w_k F(x_k)
+\end{equation*}
+</div>
 <span class="incontext"><a href="section-gauss-legendre.html#p-532">in-context</a></span>
 </body>
 </html>

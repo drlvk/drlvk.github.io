@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:16-04:00    *-->
+<!--*    on 2021-09-13T19:17:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>It is not so easy to improve accuracy further. There is a family of higher-order ODE solution methods (Runge-Kutta methods) of which the 4th order method is most popular; it involves several predictor-corrector steps. As with adaptive integration, one can compare the results of two methods of different orders in order to decide if the step size \(h\) should be reduced. This is what Matlab's ODE solvers do; for example, <code class="code-inline tex2jax_ignore">ode45</code> is a solver that combines a 4th order method with a 5th order method. We will use it later.</p>
+<p>Theoretical analysis of accuracy confirms the above observation that trapezoidal method is much more accurate. For the model equation \(y'=y\) it gives \(y_1 = 1+ h(1+1+h)/2 = 1+h+h^2/2\text{,}\) which matches exact solution \(e^h = 1+h+h^2/2+h^3/3\) up to \(h^3\) term. Therefore, the cumulative error is of order \(h^2\text{.}\)</p>
 <span class="incontext"><a href="section-ode-euler-improved.html#p-629">in-context</a></span>
 </body>
 </html>

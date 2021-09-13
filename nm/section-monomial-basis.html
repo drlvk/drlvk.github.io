@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:06:57-04:00    *-->
+<!--*    on 2021-09-13T19:17:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -414,9 +414,9 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-monomial-basis"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">21.1</span> <span class="title">Interpolation in the monomial basis</span>
 </h2>
-<p id="p-659">Given \(n\) data points \((x_k, y_k)\) with \(k=1, \dots, n\text{,}\) where all \(x_k\) are different, we are looking for a polynomial \(p\) of degree \(\lt n\) such that \(p(x_k) = y_k\) for  \(k=1, \dots, n\text{.}\) Such <em class="emphasis">interpolating polynomial</em> exists and is unique. Existence will be shown below, and uniqueness is a consequence of the fact that a polynomial of degree less than \(n\) cannot have \(n\) distinct zeros. Outside of exceptional cases, the interpolating polynomial will have degree \(n-1\text{.}\) The main question is how to construct it.</p>
-<p id="p-660">A straightforward way is to do this is to write \(p(x) = \sum_{j=0}^{n-1} c_j x^j\) and solve a linear system for \(c_j\text{;}\) it has \(n\) equations with \(n\) unknowns. But this process is both slow and numerically fragile; the matrix of the linear system is likely to be ill-conditioned. And even if we could find the coefficients of monomials \(x_j\) easily, we do not necessarily want to, for the following reason.</p>
-<p id="p-661">We are used to seeing polynomials written in terms of the <dfn class="terminology">monomial basis</dfn> \(x^0, x^1, \dots, x^d\text{,}\) that is, as a linear combination of the monomials. But this basis is ill-suited for numerical computations away from the point \(x=0\text{.}\) For example, consider the simple polynomial \(p(x) = (x-7)^{15}\text{.}\) If we expand it in the monomial basis and then try to compute its values on the interval \([6, 8]\text{,}\) the result will be disappointing. In the code below, <code class="code-inline tex2jax_ignore">c</code> is a vector of coefficients; the ellipsis notation allows it to by split between lines for readability.</p>
+<p id="p-661">Given \(n\) data points \((x_k, y_k)\) with \(k=1, \dots, n\text{,}\) where all \(x_k\) are different, we are looking for a polynomial \(p\) of degree \(\lt n\) such that \(p(x_k) = y_k\) for  \(k=1, \dots, n\text{.}\) Such <em class="emphasis">interpolating polynomial</em> exists and is unique. Existence will be shown below, and uniqueness is a consequence of the fact that a polynomial of degree less than \(n\) cannot have \(n\) distinct zeros. Outside of exceptional cases, the interpolating polynomial will have degree \(n-1\text{.}\) The main question is how to construct it.</p>
+<p id="p-662">A straightforward way is to do this is to write \(p(x) = \sum_{j=0}^{n-1} c_j x^j\) and solve a linear system for \(c_j\text{;}\) it has \(n\) equations with \(n\) unknowns. But this process is both slow and numerically fragile; the matrix of the linear system is likely to be ill-conditioned. And even if we could find the coefficients of monomials \(x_j\) easily, we do not necessarily want to, for the following reason.</p>
+<p id="p-663">We are used to seeing polynomials written in terms of the <dfn class="terminology">monomial basis</dfn> \(x^0, x^1, \dots, x^d\text{,}\) that is, as a linear combination of the monomials. But this basis is ill-suited for numerical computations away from the point \(x=0\text{.}\) For example, consider the simple polynomial \(p(x) = (x-7)^{15}\text{.}\) If we expand it in the monomial basis and then try to compute its values on the interval \([6, 8]\text{,}\) the result will be disappointing. In the code below, <code class="code-inline tex2jax_ignore">c</code> is a vector of coefficients; the ellipsis notation allows it to by split between lines for readability.</p>
 <pre class="code-block tex2jax_ignore">c = [1, -105, 5145, -156065, 3277365, -50471421, 588833245, -5299499205, ...
     37096494435, -201969803035, 848273172747, -2699051004195, 6297785676455, ...
     -10173346092735, 10173346092735, -4747561509943];
@@ -431,7 +431,7 @@ plot(x, p)
 subplot(1, 2, 2)
 plot(x, (x-7).^15)
 </pre>
-<p id="p-662">There is a catastrophic loss of significance here. If one uses <code class="code-inline tex2jax_ignore">p = polyval(c, x)</code>, the result is not much better, even though this command tries to avoid the loss of significance. Expanding this polynomial in the monomial basis is numerically unwise.</p></section></div></main>
+<p id="p-664">There is a catastrophic loss of significance here. If one uses <code class="code-inline tex2jax_ignore">p = polyval(c, x)</code>, the result is not much better, even though this command tries to avoid the loss of significance. Expanding this polynomial in the monomial basis is numerically unwise.</p></section></div></main>
 </div>
 </body>
 </html>

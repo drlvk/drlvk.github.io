@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:13-04:00    *-->
+<!--*    on 2021-09-13T19:17:37-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<ul class="disc">
-<li>With \(f(x) = x^0\) we get \(f'(x) = 0\) and \(\frac{f(x+h)-f(x)}{h}=0\text{,}\) so the error term is zero for this function.</li>
-<li>With \(f(x) = x^1\) we get \(f'(x) = 1\) and \(\frac{f(x+h)-f(x)}{h}=\frac{h}{h}=1\text{,}\) so the error term is zero for this function.</li>
-<li>With \(f(x) = x^2\) we get \(f'(x) = 2x\) and \(\frac{f(x+h)-f(x)}{h}=\frac{x^2+2xh+h^2-x^2}{h}=2x + h\text{,}\) so the error term for this function is \(h^1\text{.}\)</li>
-</ul>
-<p data-braille="continuation">In conclusion, the formula has order of error 1.</p>
+<p>There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
+<ol class="decimal">
+<li>Let \(n= 0\)</li>
+<li>Plug \(f(x) = x^n\) into the formula and find the error term.</li>
+<li>If the error term is some nonzero multiple of a power of \(h\text{,}\) the exponent of \(h\) is the order of the error term.</li>
+<li>If the error term is zero, increase \(n\) by \(1\) and return to step 2.</li>
+</ol>
 <span class="incontext"><a href="section-differentiation-intro.html#p-420">in-context</a></span>
 </body>
 </html>

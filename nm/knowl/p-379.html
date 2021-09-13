@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-12T16:07:13-04:00    *-->
+<!--*    on 2021-09-13T19:17:36-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Consider a polynomial equation, for example \(x^3 + 2x^2 - 7x + 1 = 0\text{.}\) This is a scalar equation with one scalar variable, so it could be solved by the methods of previous chapters, including Newton's method in one variable. But then we would get only one root (depending on initial position), not all three. Rewrite this equation as a system of three equations for three roots \(x_1, x_2, x_3\text{,}\) using the fact that the polynomial factors as \((x-x_1)(x-x_2)(x-x_3)\text{.}\)</p>
-<span class="incontext"><a href="examples-multivariate-newton.html#p-379">in-context</a></span>
+<p>A new issue is the <dfn class="terminology">scaling</dfn> of variables. When the components of unknown vector have very different orders of magnitude, it is hard to understand what changes are significant or not. Suppose we are solving a system involving the distance and speed of <a class="external" href="https://en.wikipedia.org/wiki/New_Horizons" target="_blank">New Horizons probe</a> which is traveling at the speed of about 14 km/s and has distance about \(6.43\times 10^9\) km from the Sun (as of 2020). So the vector we work with will look like <code class="code-inline tex2jax_ignore">[14; 6.43e9]</code>. The difference between this vector and, for example, <code class="code-inline tex2jax_ignore">[20; 6.43e9]</code> looks relatively small: the difference has norm about \(10^{-9}\) times the norm of the original vector, one billionth. But of course the difference between 14 and 20 is quite significant. To avoid this, one should try to use units in which the quantities involved have about the same order of magnitude. For New Horizons, one could measure distance in astronomical units (AU) which makes it about 43. So the vector becomes <code class="code-inline tex2jax_ignore">[14; 43]</code> which is much better numerically.</p>
+<span class="incontext"><a href="section-multivariate-newton-method-issues.html#p-379">in-context</a></span>
 </body>
 </html>
