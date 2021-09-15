@@ -449,7 +449,7 @@ y =                % population of your hometown in these years
 xx = linspace(min(x), max(x), 500);  % to be used for plotting the line
 plot(x, y, 'r*', xx, c*xx + d, 'b')  % plot red points and blue line
 
-function [k, c] = linearfit(x,y)
+function [c, d] = linearfit(x,y)
   ... set up and solve an overdetermined system, 
   ... then assign c and d based on its solution
 end
