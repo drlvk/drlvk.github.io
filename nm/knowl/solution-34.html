@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:38-04:00    *-->
+<!--*    on 2021-09-19T19:42:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,17 +14,14 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">13.5.2.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">13.5.1.1</span><span class="period">.</span>
 </h6>
-<p>The substitution \(u = e^{-x}\) works well here. Since \(du = -e^{-x}\,dx\) and \(x = -\log u\text{,}\) it follows that</p>
+<p>The rightpoint rule is exact for \(x^0\text{.}\) But for \(\int_0^h x^1\,dx\) it predicts \(\int_0^h x^1\,dx  = h^2\text{,}\) while the true value is \(h^2/2\text{.}\) So we stop at \(d=1\) with the error of \(h^2/2\text{,}\) which cam be written as \(\dfrac{1}{2} \ 1! \ h^2\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/2\text{.}\) In conclusion, the error of the rightpoint rule is at most</p>
 <div class="displaymath">
 \begin{equation*}
-\int_1^\infty \dfrac{e^{-x}}{x} \,dx 
-= -\int_0^{1/e} \dfrac{1}{\log u} \,du 
+|\text{error}| \le \frac{1}{2}\max_{[a,b]} |f'|  (b-a) h
 \end{equation*}
 </div>
-<p data-braille="continuation">The integral on the right is proper. As \(u\to 0+\text{,}\) the logarithm tends to negative infinity, but this only makes the integrand zero; so it is a continuous function on the interval of integration.</p>
-<p>Note that the substitution does not bring us any closer to the symbolic solution, since \(1/\log u\) cannot be integrated with calculus methods either. But it makes a more convenient integral for numerical methods.</p>
 </div>
 <span class="incontext"><a href="examples-trapezoid-midpoint.html#solution-34">in-context</a></span>
 </body>

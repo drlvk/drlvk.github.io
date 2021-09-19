@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:42-04:00    *-->
+<!--*    on 2021-09-19T19:42:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,17 +12,15 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<p>We need to compute proportions <code class="code-inline tex2jax_ignore">y = R/121</code> and transform them by <code class="code-inline tex2jax_ignore">yt = log(y./(1-y))</code>. Then the usual linear regression is applied.</p>
-<pre class="code-block tex2jax_ignore">x = (1:numel(R))';  
-y = R/121;
-yt = log(y./(1-y));
+<p>The vector <code class="code-inline tex2jax_ignore">y</code> is already defined above, but we need <code class="code-inline tex2jax_ignore">yt = log(y)</code> to get transformed y-values.</p>
+<pre class="code-block tex2jax_ignore">x = (1:8)';  
+yt = log(y);
 X = x.^(0:1); 
 beta = X\yt;
-f = @(x) 1 ./ (1 + exp(-(x.^(0:1))*beta));
+f = @(x) exp((x.^(0:1))*beta);
 
-t = linspace(min(x), max(x), 1000)';
+t = linspace(1, 10, 1000)';
 plot(t, f(t), 'b', x, y, 'r*')
 </pre>
-<p>Here the logistic function is written as \(1/(1+\exp(-\beta_1 - \beta_2 x))\) with parameters \(\beta_1, \beta_2\) contained in the vector <code class="code-inline tex2jax_ignore">beta</code>.</p>
 </div></body>
 </html>

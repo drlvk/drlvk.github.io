@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:38-04:00    *-->
+<!--*    on 2021-09-19T19:42:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Note that while for Gauss-Legendre integration the sum of weights is \(\int_{-1}^1 1\,dx = 2\text{,}\) for the Gauss-Laguerre integration the sum is \(\int_{0}^\infty 1\,e^{-x}\,dx = 1\text{.}\)</p>
-<span class="incontext"><a href="section-gauss-laguerre.html#p-541">in-context</a></span>
+<p>The <dfn class="terminology">Gauss-Legendre integration rule</dfn> is to let the evaluation points \(x_1,\dots, x_n\) be the roots of \(P_n\) and then choose their weights \(w_1,\dots, w_n\) so that the rule</p>
+<div class="displaymath">
+\begin{equation*}
+\int_{-1}^1 f(x)\,dx \approx \sum_{k=1}^n w_k f(x_k)
+\end{equation*}
+</div>
+<p data-braille="continuation">is exact for \(f(x)=x^p\text{,}\) \(p=0,\dots,n-1\text{.}\) The second part is not new; this is exactly what we did for Newton-Cotes rules. But with this specific choice of evaluation points, the integration rule is exact for all polynomials of degrees \(\le 2n-1\text{,}\) not just \(\le n-1\text{.}\) This means the Gauss-Legendre integration has order of accuracy \(2n\text{:}\) for example, it has order \(14\) if we use 7 points.</p>
+<span class="incontext"><a href="section-gauss-legendre.html#p-541">in-context</a></span>
 </body>
 </html>

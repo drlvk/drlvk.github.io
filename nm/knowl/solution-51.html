@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:43-04:00    *-->
+<!--*    on 2021-09-19T19:42:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,36 +14,25 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">30.4.3.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">30.4.2.1</span><span class="period">.</span>
 </h6>
-<p>We use the variables <code class="code-inline tex2jax_ignore">fc</code> and <code class="code-inline tex2jax_ignore">fd</code> to store the values of \(f\) at the points <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>. When the algorithm replaces of these points with the other, the previously computed value is reused without executing the function \(f\) again. This approach requires more work to be done before the main loop, in order to initialize <code class="code-inline tex2jax_ignore">fc</code> and <code class="code-inline tex2jax_ignore">fd</code>.</p>
 <pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
 a = -2;
 b = 2;
 r = (3-sqrt(5))/2;
 
-c = a + r*(b-a);        % preparation
-fc = f(c);
-d = b - r*(b-a);
-fd = f(d);
-
 while b-a &gt;= 100*eps(a)
-    if fc &lt; fd
+    c = a + r*(b-a);
+    d = b - r*(b-a);
+    if f(c) &lt; f(d)
         b = d;
-        d = c;
-        fd = fc;         % reused value
-        c = a + r*(b-a);
-        fc = f(c);       % newly computed value
     else
         a = c;
-        c = d;
-        fc = fd;         % reused value
-        d = b - r*(b-a);
-        fd = f(d);       % newly computed value
     end
 end
+
+fprintf('Found a minimum x = %g with f(x) = %g \n', c, f(c));
 </pre>
-<p>The code is longer than <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a>  but it runs faster because at every execution of the loop there is only one call to function \(f\) instead of two.</p>
 </div>
 <span class="incontext"><a href="section-golden-section.html#solution-51">in-context</a></span>
 </body>

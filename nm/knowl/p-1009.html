@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:45-04:00    *-->
+<!--*    on 2021-09-19T19:42:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,17 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In Matlab, the problem <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a> is solved with</p>
+<p>Hint: to improve the performance of <code class="code-inline tex2jax_ignore">fminsearch</code>, do not use absolute value: instead, minimize the product</p>
+<div class="displaymath">
+\begin{equation*}
+\prod_{1\le k \lt \ell\le 4}(x_k - x_\ell)
+\end{equation*}
+</div>
+<p data-braille="continuation">This product can be concisely expressed in Matlab as</p>
 <pre class="code-block tex2jax_ignore">
-x = linprog(c, A, b)
+prod(x(1:3)-x(4))*prod(x(1:2)-x(3))*(x(1)-x(2))    
 </pre>
-<p data-braille="continuation">which returns the optimal \(\mathbf x\text{.}\) One can get the optimal value of objective function with <code class="code-inline tex2jax_ignore">c'*x</code>.</p>
-<span class="incontext"><a href="section-linear-programming-introduction.html#p-1009">in-context</a></span>
+<p data-braille="continuation">The constraint function <code class="code-inline tex2jax_ignore">c</code> could be simply <code class="code-inline tex2jax_ignore">max(abs(x)) - 1</code>; this constrains all four points to the interval at once.</p>
+<span class="incontext"><a href="exercises-constrained-optimization.html#p-1009">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:45-04:00    *-->
+<!--*    on 2021-09-19T19:42:18-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,18 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>What form of duality is this, and where do negative prices come from? This is an example of asymmetric duality, where the primal problem is of type EN (moving nonnegative amounts of coal, which must add up exactly to what is available or required), and the dual problem is of type IR (setting possibly negative prices, allowing for inequalities \(\varphi(X)+\psi(Y) \le c(X, Y)\)). Here is a concrete example with two coal mines and three factories: the amounts of production, consumption, and transportation costs per unit are stated on the diagram.</p>
-<span class="incontext"><a href="section-lp-duality-transportation.html#p-1037">in-context</a></span>
+<p>For the dual problem assume that \(y\) unit prices for each of these means of production (inputs) are set by a planning board. The planning board's job is to minimize the total cost of procuring the set amounts of inputs while providing the farmer with a floor on the unit price of each of his crops (outputs), \(S_1\) for wheat and \(S_2\) for barley. This corresponds to the following problem: minimize the total cost</p>
+<div class="displaymath">
+\begin{equation*}
+L y_L + F y_F + P y_P \to \min
+\end{equation*}
+</div>
+<p data-braille="continuation">subject to constraints:</p>
+<ul class="disc">
+<li>\(y_L+F_1 y_F+P_1 y_P\geq S_1\) (the farmer must receive at least \(S_1\) for each unit of wheat)</li>
+<li>\(y_L+F_2 y_F+P_2 y_P\geq S_2\) (the farmer must receive at least \(S_2\) for each unit of barley)</li>
+<li>\(y_L, y_F, y_P\geq 0\) (prices cannot be negative)</li>
+</ul>
+<span class="incontext"><a href="section-lp-duality-economic.html#p-1037">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:45-04:00    *-->
+<!--*    on 2021-09-19T19:42:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Imagine applying force \(\mathbf c\) to the point \(\mathbf x^*\text{:}\) if it can be moved in this direction, the objective function will increase. Since such an increase is impossible, the force \(\mathbf c\) must be balanced by reaction forces of the “walls”, i.e., hyperplanes \((A\mathbf x)_k\le b_k\text{,}\) which represent constraints. Only the <em class="emphasis">active</em> constraints, those for which \((A\mathbf x^*)_k = b_k\text{,}\) are relevant here, since \(\mathbf x^*\) does not touch the hyperplanes of inactive constraints. The normal vectors of the constraint hyperplanes are given by the rows of \(A\text{.}\) Transposition makes \(\mathbf c\) a linear combination of the columns of \(A^T\) with nonnegative coefficients; moreover, the coefficients of inactive constraints are zero. This means that \(\mathbb c = A^T \mathbf y^*\) for some vector \(\mathbf y^*\ge 0\) such that if \((A\mathbf x^*)_k\lt b_k\) (inactive constraint) then \(y^*_k=0\text{.}\) Returning to <a class="xref" data-knowl="./knowl/eq-lp-duality-sketch.html" title="Equation 35.2.5">(35.2.5)</a> we see that with \(\mathbf y=\mathbf y^*\) it becomes an equality.</p>
-<span class="incontext"><a href="section-linear-programming-duality.html#p-1023">in-context</a></span>
+<p><em class="emphasis">Octave-specific remark</em>. The current version of Octave has a similar function <code class="code-inline tex2jax_ignore">glpk</code> instead of <code class="code-inline tex2jax_ignore">linprog</code>. The main difference is that <code class="code-inline tex2jax_ignore">glpk(c, A, b)</code> solves <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a> instead of <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a>. However, the fourth argument of <code class="code-inline tex2jax_ignore">glpk</code> can be used to set lower bounds to \(-\infty\) instead of \(0\text{,}\) the fifth argument (for upper bounds) can be left empty <code class="code-inline tex2jax_ignore">[]</code>, and the sixth argument is a string indicating the form of constraints, with letters 'U' for \(\le\text{.}\) So, <a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a> with Octave would be</p>
+<pre class="code-block tex2jax_ignore">
+glpk([-1; -1], [1 2; 3 1], [4; 5], [-Inf; -Inf], [], 'UU')
+</pre>
+<p data-braille="continuation">See <code class="code-inline tex2jax_ignore">help glpk</code> for more.</p>
+<span class="incontext"><a href="section-linear-programming-introduction.html#p-1023">in-context</a></span>
 </body>
 </html>

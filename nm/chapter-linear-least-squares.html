@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:26-04:00    *-->
+<!--*    on 2021-09-19T19:41:58-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -414,7 +415,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="chapter" id="chapter-linear-least-squares"><h2 class="heading">
 <span class="type">Chapter</span> <span class="codenumber">27</span> <span class="title">Linear Least Squares</span>
 </h2>
-<section class="introduction" id="introduction-27"><p id="p-802">We briefly encountered least-squares fit in <a href="chapter-linear-systems.html" class="internal" title="Chapter 6: Systems of linear equations">Chapter 6</a> but this method deserves a closer look in regard to how we choose a model to fit a given data set. It is one thing to find a function that matches the data (interpolation), another to have a model that learns from the data and has predictive power. Interpolation uses about as many parameters (coefficients) as the number of data points; curve-fitting uses relatively few parameters, hence does not hit the points precisely. Using too many parameters results in overfitting: a model begins to memorize training data rather than learning to generalize from trend.</p></section><nav class="summary-links"><ul>
+<section class="introduction" id="introduction-27"><p id="p-812">We briefly encountered least-squares fit in <a href="chapter-linear-systems.html" class="internal" title="Chapter 6: Systems of linear equations">Chapter 6</a> but this method deserves a closer look in regard to how we choose a model to fit a given data set. It is one thing to find a function that matches the data (interpolation), another to have a model that learns from the data and has predictive power. Interpolation uses about as many parameters (coefficients) as the number of data points; curve-fitting uses relatively few parameters, hence does not hit the points precisely. Using too many parameters results in overfitting: a model begins to memorize training data rather than learning to generalize from trend.</p></section><nav class="summary-links"><ul>
 <li><a href="section-lsq-overview.html"><span class="codenumber">27.1</span> <span class="title">Overview of least squares</span></a></li>
 <li><a href="section-overfitting.html"><span class="codenumber">27.2</span> <span class="title">Overfitting, training and testing</span></a></li>
 <li><a href="section-standard-error.html"><span class="codenumber">27.3</span> <span class="title">The standard error of parameters</span></a></li>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:38-04:00    *-->
+<!--*    on 2021-09-19T19:42:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,16 +12,14 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<p>We need 5 linear equations involving integrals of \(x^0, x^1, \dots, x^4\text{.}\) If we number them by index \(i\) running from 1 to 5, then the equation has \(\int_{-1}^1 x^{i-1}\,dx\)  on the right hand side, which is \((1-(-1)^i)/i\text{.}\) On the left we have the sum \(\sum_j w_j x_j^{i-1}\) which means the coefficients of the unknown \(w_j\) is \(x_j^{i-1}\text{.}\) We can create a matrix using outer exponentiation of a row vector by a column vector.</p>
-<pre class="code-block tex2jax_ignore">n = 5;
-x = linspace(-1, 1, n);
-i = (1:n)'; 
-A = x.^(i-1);
-b = (1-(-1).^i)./i;
-w = A\b;
-disp(rats(w'))
-</pre>
-<p>Here <code class="code-inline tex2jax_ignore">rats</code> is used to display the solution as rational numbers (which they are) rather than the usual decimal approximation.</p>
-<p>Having computed the weights as above, we can integrate any function f on [-1, 1] simply by executing <code class="code-inline tex2jax_ignore">f(x)*w</code>, which is the dot product of a vector with function values with the vector of weights. Try this for the exponential function.</p>
+<p>The substitution \(u = e^{-x}\) works well here. Since \(du = -e^{-x}\,dx\) and \(x = -\log u\text{,}\) it follows that</p>
+<div class="displaymath">
+\begin{equation*}
+\int_1^\infty \dfrac{e^{-x}}{x} \,dx 
+= -\int_0^{1/e} \dfrac{1}{\log u} \,du 
+\end{equation*}
+</div>
+<p data-braille="continuation">The integral on the right is proper. As \(u\to 0+\text{,}\) the logarithm tends to negative infinity, but this only makes the integrand zero; so it is a continuous function on the interval of integration.</p>
+<p>Note that the substitution does not bring us any closer to the symbolic solution, since \(1/\log u\) cannot be integrated with calculus methods either. But it makes a more convenient integral for numerical methods.</p>
 </div></body>
 </html>

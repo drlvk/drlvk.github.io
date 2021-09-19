@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:42-04:00    *-->
+<!--*    on 2021-09-19T19:42:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,24 +12,14 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<pre class="code-block tex2jax_ignore">X = [x.^2 x.*y y.^2 x y];
-b = X\ones(7, 1);
-hold on
-plot(x, y, 'r*')
-fun = @(x, y) b(1)*x.^2 + b(2)*x.*y + b(3)*y.^2 + b(4)*x + b(5)*y - 1;
-win = [min(x)-1 max(x)+1 min(y)-1 max(y)+1]; 
-fimplicit(fun, win)
-hold off
+<p>We continue the code from <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> by adding the following lines.</p>
+<pre class="code-block tex2jax_ignore">w = y.*(1-y);            % weights 
+beta = (X.*w)\(yt.*w);   % weighted least squares solution
+f = @(x) 1 ./ (1 + exp(-(x.^(0:1))*beta));
+figure();
+plot(t, f(t), 'b', x, y, 'r*')
+title('Weighted Least Squares')
 </pre>
-<p>Here the vector of parameters is called <code class="code-inline tex2jax_ignore">b</code> instead of <code class="code-inline tex2jax_ignore">beta</code> to shorten the implicit formula. It is obtained by solving a system with 1 on the right hand side, according to <a class="xref" data-knowl="./knowl/eq-ellipse-implicit.html" title="Equation 28.4.1">(28.4.1)</a>. The plot window is calculated from the data to allow margins of 1 unit on all sides.</p>
-<p>Note that while it's safe to leave spaces around <code class="code-inline tex2jax_ignore">+</code> signs in the formula <code class="code-inline tex2jax_ignore">fun</code> (some find it improves readability), one has to be extra careful with such spaces within a vector. Indeed,</p>
-<pre class="code-block tex2jax_ignore">
-[min(x) -1 max(x) +1 min(y) -1 max(y) +1]  
-</pre>
-<p data-braille="continuation">would be a vector of 8 numbers, not 4. Matlab does understand</p>
-<pre class="code-block tex2jax_ignore">
-[min(x) - 1 max(x) + 1 min(y) - 1 max(y) + 1];
-</pre>
-<p data-braille="continuation">as a vector of 4 numbers, however.</p>
+<p>The first two lines compute new parameters \(\beta_1, \beta_2\) for logistic function \(1/(1+\exp(-\beta_1 - \beta_2 x))\text{,}\) using weights. The rest proceeds as before. The plot is shown on a new figure.</p>
 </div></body>
 </html>

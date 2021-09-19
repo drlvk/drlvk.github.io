@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:36-04:00    *-->
+<!--*    on 2021-09-19T19:42:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,22 +14,22 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">10.2.2.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">10.2.1.1</span><span class="period">.</span>
 </h6>
-<pre class="code-block tex2jax_ignore">F = @(x) [x(1)^2*exp(3*x(2)) - 30; x(1)*x(2) - sin(x(1) + x(2)^2)];
-J = @(x) [2*x(1)*exp(3*x(2)), 3*x(1)^2*exp(3*x(2)); 
+<p>The Jacobian matrix is</p>
+<div class="displaymath">
+\begin{equation*}
+J = \begin{pmatrix}
+2x_1e^{3x_2} \amp 3x_1^2e^{3x_2}  \\ 
+x_2-\cos(x_1+x_2^2) \amp x_1-2x_2\cos(x_1+x_2^2) 
+\end{pmatrix} 
+\end{equation*}
+</div>
+<p data-braille="continuation">As a Matlab function, it can be written as follows.</p>
+<pre class="code-block tex2jax_ignore">J = @(x) [2*x(1)*exp(3*x(2)), 3*x(1)^2*exp(3*x(2)); 
           x(2) - cos(x(1) + x(2)^2), x(1) - 2*x(2)*cos(x(1) + x(2)^2)];
-
-x = [2; -1];
-h = [0.3; 0.2];
-fprintf("Linear approximation: (%g, %g)\n", F(x) + J(x)*h)
-fprintf("Actual value: (%g, %g)\n", F(x + h))
 </pre>
-<p>The output:</p>
-<pre class="code-block tex2jax_ignore">Linear approximation: (-29.6216, -2.14012)
-Actual value: (-29.5201, -2.04023)
-</pre>
-<p>These are close, so the approximation is good. Note the use of formatted strings with vectors: Matlab automatically “unpacks” vectors when they are used in <code class="code-inline tex2jax_ignore">fprintf</code>. This means one should have a formatting code for every entry of the vector, like <code class="code-inline tex2jax_ignore">(%g, %g)</code> above. The formatting code <code class="code-inline tex2jax_ignore">%g</code> without any specification of precision means the numbers are shown as Matlab would normally shows them.</p>
+<p>The linebreak between matrix rows is optional but improves readability.</p>
 </div>
 <span class="incontext"><a href="section-multivariate-newton.html#solution-19">in-context</a></span>
 </body>

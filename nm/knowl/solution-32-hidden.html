@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:38-04:00    *-->
+<!--*    on 2021-09-19T19:42:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,11 +12,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<p>The midpoint rule is exact for \(x^0\) and \(x^1\text{.}\) But for \(\int_0^h x^2\,dx\) it predicts \(\int_0^h x^2\,dx  = h^3/4\text{,}\) while the true value is \(h^3/3\text{.}\) So we stop at \(d=2\) with the error of \(h^3/12\text{,}\) which can be written as \(\dfrac{1}{24} \ 2! \ h^3\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/24\text{.}\) In conclusion, the error of the midpoint rule is at most</p>
-<div class="displaymath">
-\begin{equation*}
-|\text{error}| \le \frac{1}{24}\max_{[a,b]} |f''|  (b-a) h^2
-\end{equation*}
-</div>
+<pre class="code-block tex2jax_ignore">f = @(x) exp(x);
+a = -1;
+b = 1;
+n = 10;
+h = (b-a)/n;
+x = a:h:b;
+y = f(x);
+
+L = sum(y(1:end-1))*h;
+R = sum(y(2:end))*h;
+T = (y(1) + y(end)) * h/2 + sum(y(2:end-1))*h; 
+midpoints = (x(1:end-1) + x(2:end))/2;
+M = sum(f(midpoints))*h;
+
+exact = exp(1)-exp(-1);
+er = abs([L R T M] - exact);
+fprintf('Errors: Leftpoint %g, Rightpoint %g, Trapezoidal %g, Midpoint %g\n', er);
+</pre>
+<p>Here <code class="code-inline tex2jax_ignore">fprintf</code> “unpacks” the vector <code class="code-inline tex2jax_ignore">er</code>, inserting its entries in the right places.</p>
 </div></body>
 </html>

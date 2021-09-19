@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:44-04:00    *-->
+<!--*    on 2021-09-19T19:42:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Apply the code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> to <dfn class="terminology">Easom function</dfn></p>
+<p>The process of changing the shape of the triangle is <em class="emphasis">expansion</em>, which is introduced as an alternative to reflection from <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a>. Suppose that the current triangle qualifies for reflection: for example, \(C\) is the point with largest value, and \(f(R) \lt f(C)\text{.}\) Consider the possibility of replacing \(C\) with a point \(E\) that lies beyond \(R\text{,}\) thus making the triangle longer. The point \(E\) is determined by the following equation, which shows that it is as far from \(R\) as \(R\) is from the center of reflection \(M\text{:}\)</p>
 <div class="displaymath">
 \begin{equation*}
-f(x_1, x_2) = -\cos x_1 \cos x_2 \exp(-(x_1-\pi)^2-(x_2-\pi)^2)
+E = R + (R-M) = 2R - M
 \end{equation*}
 </div>
-<p data-braille="continuation">The global minimum is \((\pi, \pi)\) with \(f(\pi, \pi)=-1\) but it is difficult to find because the function has many local minima and its landscape does not naturally lead to the global minimum. If you run the code based on <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> five times (simply pressing <kbd class="kbdkey">F5</kbd> repeatedly), how many times does it converge to the global minimum \((\pi, \pi)\text{?}\)</p>
-<span class="incontext"><a href="exercises-nelder-mead.html#p-977">in-context</a></span>
+<p data-braille="continuation">If \(f(E) \lt f(R)\text{,}\) then we replace \(C\) with \(E\) rather than \(R\text{.}\) In other words, the “highest” vertex of the triangle is replaced by whichever of \(E, R\) is lower.</p>
+<span class="incontext"><a href="section-nelder-mead-expand.html#p-977">in-context</a></span>
 </body>
 </html>

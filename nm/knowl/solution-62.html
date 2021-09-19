@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:44-04:00    *-->
+<!--*    on 2021-09-19T19:42:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,21 +14,56 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">34.1.1.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">33.4.1.1</span><span class="period">.</span>
 </h6>
-<pre class="code-block tex2jax_ignore">f = @(x) (x(1) + 7*x(2)).^3;
-c = @(x) x(1).^2 + x(2).^2 - 1;
-M = 1e6;
+<p>The code collects the lines from the previous paragraphs.</p>
+<pre class="code-block tex2jax_ignore">f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2 + 100*(x(2)^2 - x(3))^2;
+n = 3;             % number of variables 
+A = randn(n, 1);
+T = [A, A+eye(n)];
+max_tries = 10000;
+path = zeros(n, max_tries);
 
-x0 = randn(2, 1);
-xm1 = fminsearch(@(x) f(x) + M*max(c(x), 0), x0);
-xm2 = fminsearch(@(x) f(x) + M*max(c(x), 0).^2, x0);
+for k = 1:max_tries
+    path(:, k) = mean(T, 2);
+    if max(abs(T - mean(T, 2))) &lt; 1e-6
+        break
+    end
+    values = zeros(1, n+1);
+    for j = 1:n+1
+        values(j) = f(T(:, j));
+    end
+    [fmax, ind] = max(values);
+    M = (sum(T, 2) - T(:, ind))/n;
+    R = 2*M - T(:, ind);
+    if f(R) &lt; fmax
+        E = 2*R - M;  
+        if f(E) &lt; f(R)
+            T(:, ind) = E;
+        else
+            T(:, ind) = R;
+        end
+    else 
+        [fmin, ind] = min(values);
+        T = (T + T(:, ind))/2;
+    end
+end
 
-fprintf('Linear penalty: found x = (%g, %g), |x| = %g, f(x) = %g \n', xm1, norm(xm1), f(xm1));
-fprintf('Quadratic penalty: found x = (%g, %g), |x| = %g, f(x) = %g \n', xm2, norm(xm2), f(xm2));
+if n == 2
+    plot(path(1, 1:k), path(2, 1:k), '-+')
+elseif n == 3
+    plot3(path(1, 1:k), path(2, 1:k), path(3, 1:k), '-+')
+end
+
+if k &lt; max_tries
+    x = mean(T, 2);
+    fprintf('Found x with f(x) = %g after %d steps\n x =', f(x), k);
+    disp(x');
+else
+    disp('Failed to converge')
+end
 </pre>
-<p>With the linear penalty, the minimization process sometimes fails to converge within the allowed attempts; but if it converges, it stays in the unit disk. With the quadratic penalty, the convergence is more reliable but the norm of the point of minimum is usually greater than \(1\text{.}\)</p>
 </div>
-<span class="incontext"><a href="section-penalty-method.html#solution-62">in-context</a></span>
+<span class="incontext"><a href="section-nelder-mead-ndim.html#solution-62">in-context</a></span>
 </body>
 </html>

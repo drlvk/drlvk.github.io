@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:36-04:00    *-->
+<!--*    on 2021-09-19T19:42:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When faced with an iterative method which moves either too slowly, undershooting the target (<a class="xref" data-knowl="./knowl/newton3-png.html" title="Figure 9.2.1">Figure 9.2.1</a>) or too quickly, overshooting it (<a class="xref" data-knowl="./knowl/newton2-png.html" title="Figure 9.2.2">Figure 9.2.2</a>), we can try and fix the issue by introducing a <dfn class="terminology">relaxation parameter</dfn>. This is a fixed positive number \(\omega \gt 0\) by which we multiply the step size \(h\) obtained from Newton's method (or secant method, etc). That is, instead of iterating the function</p>
-<div class="displaymath">
-\begin{equation*}
-g(x) = x - \frac{f(x)}{f'(x)}
-\end{equation*}
-</div>
-<p data-braille="continuation">we iterate the function</p>
-<div class="displaymath">
-\begin{equation*}
-g(x) = x - \omega \frac{f(x)}{f'(x)}
-\end{equation*}
-</div>
-<p data-braille="continuation">If \(\omega &gt; 1\text{,}\) this is <dfn class="terminology">over-relaxation</dfn>, meant to make the process move faster. If \(\omega \lt 1\text{,}\) this is <dfn class="terminology">under-relaxation</dfn>, meant to slow down the process so it does not overshoot and run off in a wrong direction.</p>
-<span class="incontext"><a href="section-relaxation-parameter.html#p-342">in-context</a></span>
+<p>Matlab command <code class="code-inline tex2jax_ignore">fzero</code> implements <a class="external" href="https://en.wikipedia.org/wiki/Brent%27s_method" target="_blank">Brent's method</a> (1973). It builds on earlier <a class="external" href="https://en.wikipedia.org/wiki/Brent%27s_method#Dekker's_method" target="_blank">Dekker's method</a> (1969) which is easier to describe:</p>
+<ol class="decimal">
+<li>Start with a bracketing interval.</li>
+<li>Try the secant method.</li>
+<li>Accept the result of secant method if it “looks right”, which means: it lies between the midpoint and the endpoint with smaller value of \(|f|\text{.}\)</li>
+<li>Otherwise use bisection instead.</li>
+<li>Identify a new bracketing interval. Repeat until it is small enough.</li>
+</ol>
+<span class="incontext"><a href="section-fzero-algorithm.html#p-342">in-context</a></span>
 </body>
 </html>

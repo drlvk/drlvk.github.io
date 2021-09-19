@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:36-04:00    *-->
+<!--*    on 2021-09-19T19:42:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,25 +14,34 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">10.4.1.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">10.2.3.1</span><span class="period">.</span>
 </h6>
-<p>Expanding the product, we find</p>
-<div class="displaymath">
-\begin{equation*}
-x^3 + 2x^2 - 7x + 1 = (x-x_1)(x-x_2)(x-x_3) = x^3 + Ax^2 + Bx + C
-\end{equation*}
+<p>Following the structure of single-variable Newton method with notational adjustments:</p>
+<pre class="code-block tex2jax_ignore">F = @(x) [x(1)^2*exp(3*x(2)) - 30; x(1)*x(2) - sin(x(1) + x(2)^2)];
+J = @(x) [2*x(1)*exp(3*x(2)), 3*x(1)^2*exp(3*x(2)); 
+          x(2) - cos(x(1) + x(2)^2), x(1) - 2*x(2)*cos(x(1) + x(2)^2)];
+      
+x = [2; 1];
+max_tries = 10000;
+
+for k = 1:max_tries
+    h = -J(x)\F(x);
+    x = x + h;
+    if norm(h) &lt; 100*eps(norm(x))
+        break
+    end
+end
+
+if k &lt; max_tries
+    fprintf('Found a solution after %d steps:\n', k);
+    disp(x)
+    fprintf('The norm of F(x) is %g\n', norm(F(x)))
+else
+    disp('Failed to converge')
+end
+</pre>
+<p>It is reasonable to increase the “max tries” number in Newton's method when several variables are involved, as convergence may take longer. In the above example, with initial point <code class="code-inline tex2jax_ignore">[2; 1]</code>, a solution <code class="code-inline tex2jax_ignore">[-0.0019; 5.3185]</code> is found in 15 steps. With initial point <code class="code-inline tex2jax_ignore">[1; 2]</code> the method fails to converge. With initial point <code class="code-inline tex2jax_ignore">[2; 2]</code> it converges in 10 steps to a different solution, <code class="code-inline tex2jax_ignore">[-0.2734; 1.9982]</code>.</p>
 </div>
-<p data-braille="continuation">where \(A = -(x_1+x_2+x_3)\text{,}\) \(B = x_1x_2 + x_1x_3 + x_2x_2\text{,}\) and \(C = -x_1x_2x_3\text{.}\) Equating the coefficients, we get the system</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{cases} x_1+x_2+x_3 \amp = -2  \\
-x_1x_2 + x_1x_3 + x_2x_3 \amp = -7 \\ 
-x_1x_2x_3 \amp = -1 
-\end{cases}
-\end{equation*}
-</div>
-<p data-braille="continuation">If we can solve this system, the solution will consist of all three roots of the original equation.</p>
-</div>
-<span class="incontext"><a href="examples-multivariate-newton.html#solution-21">in-context</a></span>
+<span class="incontext"><a href="section-multivariate-newton.html#solution-21">in-context</a></span>
 </body>
 </html>

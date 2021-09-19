@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,25 +12,12 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<p>Recall from <a class="xref" data-knowl="./knowl/example-error-diff-f1-symm.html" title="Example 12.3.1: Order of error of symmmetric difference approximation to \(f'\)">Example 12.3.1</a> that the symmetric difference formula has error of order 2. Therefore, in the equation <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> we have \(2\text{.}\) The approximation \(A_1\) is the original formula</p>
-<div class="displaymath">
-\begin{equation*}
-A_1 = \frac{f(x+h)-f(x-h)}{2h}
-\end{equation*}
-</div>
-<p data-braille="continuation">To get \(A_2\) we replace \(h\) by \(2h\text{:}\)</p>
-<div class="displaymath">
-\begin{equation*}
-A_2 = \frac{f(x+2h)-f(x-2h)}{4h}
-\end{equation*}
-</div>
-<p data-braille="continuation">The formula <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> now tells us that</p>
-<div class="displaymath">
-\begin{equation}
-f'(x) \approx 	\frac{4 A_1 - A_2}{3}
-= 2\frac{f(x+h)-f(x-h)}{3h} - \frac{f(x+2h)-f(x-2h)}{12h}\tag{12.4.4}
-\end{equation}
-</div>
-<p data-braille="continuation">which is the extrapolated approximation to \(f'(x)\text{.}\)</p>
+<ul class="disc">
+<li>With \(f(x) = x^0\) we get \(f'(x) = 0\) and \(\frac{f(x+h)-f(x-h)}{2h}=0\text{,}\) so the error term is zero for this function.</li>
+<li>With \(f(x) = x^1\) we get \(f'(x) = 1\) and \(\frac{f(x+h)-f(x-h)}{2h}=\frac{2h}{2h}=1\text{,}\) so the error term is zero for this function.</li>
+<li>With \(f(x) = x^2\) we get \(f'(x) = 2x\) and \(\frac{f(x+h)-f(x-h)}{2h}=\frac{4xh}{2h}=2x\text{,}\) so the error term is zero for this function.</li>
+<li>With \(f(x) = x^3\) we get \(f'(x) = 3x^2\) and \(\frac{f(x+h)-f(x-h)}{2h}=\frac{6x^2h +2h^3}{2h}=3x^2 + h^2\text{,}\) so the error term for this function is \(h^2\text{.}\)</li>
+</ul>
+<p data-braille="continuation">In conclusion, the formula has order of error equal to 2.</p>
 </div></body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:41-04:00    *-->
+<!--*    on 2021-09-19T19:42:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,21 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An image is loaded into Matlab with a command like <code class="code-inline tex2jax_ignore">im = imread('filename.jpg')</code>. Try this using, for example, <a class="external" href="https://twitter.com/SyracuseU/status/831617805673984000/photo/1" target="_blank">the winter scene</a> (first save the file in Matlab/Octave current directory). There are several things to learn about this <code class="code-inline tex2jax_ignore">im</code> object:</p>
-<ul class="disc">
-<li>
-<code class="code-inline tex2jax_ignore">size(im)</code> shows its size (dimensions) as 462<span class="times-sign">×</span>692<span class="times-sign">×</span>3. This is a three-dimensional array, where the last index means the <dfn class="terminology">color channel</dfn>: Red, Green, Blue. The first two indices are rows and columns. One can access individual channels with <code class="code-inline tex2jax_ignore">im(:, :, 1)</code> (for red). Matlab can also work with <dfn class="terminology">grayscale</dfn> images which have just one channel for brightness; such images are represented by matrices which makes them easier to work with.</li>
-<li>
-<code class="code-inline tex2jax_ignore">class(im)</code> says “uint8”. All other Matlab objects we worked have class <code class="code-inline tex2jax_ignore">double</code> meaning they are floating-point numbers with double-precision, able to store about 16 decimal digits. But <code class="code-inline tex2jax_ignore">uint8</code> is different: it is an <dfn class="terminology">unsigned 8-bit integer</dfn>, with possible values 0, 1, …, 255. This reflects the image format: in each channel, the brightness of each pixel ranges from 0 to 255. (How many possible colors does this create?) In other languages, one would say “type” instead of “class”.</li>
-</ul>
-<span class="incontext"><a href="section-image-compression.html#p-780">in-context</a></span>
+<p>A key term here is <dfn class="terminology">aliasing</dfn>, which is the fact that different trigonometric (or complex exponential) functions may coincide when restricted to a discrete grid of points (<a class="external" href="https://commons.wikimedia.org/wiki/File:AliasingSines.svg" target="_blank">illustration</a>). Specifically,</p>
+<div class="displaymath">
+\begin{equation*}
+\exp(2\pi i k t)  = \exp(2\pi i (k-n) t), \quad t = 0, 1/n, 2/n, \dots, 1
+\end{equation*}
+</div>
+<p data-braille="continuation">In order to avoid extraneous oscillations we should subtract \(n\) from large elements of the vector <code class="code-inline tex2jax_ignore">k = 0:n-1</code> above, so that instead of</p>
+<pre class="code-block tex2jax_ignore">
+k = [0 1 2 3 4 5 6 7 8];
+</pre>
+<p data-braille="continuation">we have</p>
+<pre class="code-block tex2jax_ignore">
+k = [0 1 2 3 4 -4 -3 -2 -1];
+</pre>
+<p data-braille="continuation">Replacing <code class="code-inline tex2jax_ignore">k = 0:n-1</code> in the above code with <code class="code-inline tex2jax_ignore">k = [0:(n-1)/2 (1-n)/2:-1];</code> corrects the issue.</p>
+<span class="incontext"><a href="section-trigonometric-interpolation.html#p-780">in-context</a></span>
 </body>
 </html>

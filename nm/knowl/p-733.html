@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:41-04:00    *-->
+<!--*    on 2021-09-19T19:42:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>So, cubic splines <em class="emphasis">do not preserve monotonicity</em> (while piecewise linear interpolation does). Note that SU COVID dashboard later replaced splines with piecewise linear functions, which are monotone when the data values are monotone.</p>
-<span class="incontext"><a href="section-drawbacks-spline-interpolation.html#p-733">in-context</a></span>
+<p>There is also an option to combine construction and evaluation of a spline into the same command <code class="code-inline tex2jax_ignore">spline</code>, by feeding <code class="code-inline tex2jax_ignore">t</code> as a third argument. That is, <code class="code-inline tex2jax_ignore">spline(x, y, t)</code> constructs a spline from <code class="code-inline tex2jax_ignore">x, y</code> and immediately evaluates it at <code class="code-inline tex2jax_ignore">t</code>. For example:</p>
+<pre class="code-block tex2jax_ignore">
+t = linspace(min(x), max(x), 1000);
+plot(t, spline(x, y, t))
+</pre>
+<p data-braille="continuation">We can also plot it with the original data points marked:</p>
+<pre class="code-block tex2jax_ignore">
+plot(t, spline(x, y, t), x, y, 'r*')
+</pre>
+<span class="incontext"><a href="section-using-cubic-splines.html#p-733">in-context</a></span>
 </body>
 </html>

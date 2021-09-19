@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:39-04:00    *-->
+<!--*    on 2021-09-19T19:42:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One has to carefully consider when the difference <code class="code-inline tex2jax_ignore">abs(I1 - I2)</code> is “small enough”. One approach is to ask for small relative error, like <code class="code-inline tex2jax_ignore">abs(I1 - I2) &lt; 1e-6 * abs(I2)</code>. However this risks infinite recursion for functions like \(f(x) = \sqrt{x}\) near \(0\text{,}\) which is both small and poorly behaved. No matter how small an interval \([0, \epsilon]\) we use, dividing it further will result in a change that is not very small in relative terms. The process terminates with Matlab reporting: “Out of memory. The likely cause is an infinite recursion within the program.”</p>
-<span class="incontext"><a href="section-adaptive-integration-bisection.html#p-571">in-context</a></span>
+<p>To use the estimate <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> we need the fourth derivative of \(f\text{,}\) which is \((9/16)x^{-5/2}\text{.}\) The absolute value of this function is maximal at \(x=1\text{,}\) so \(\max|f^{(4)}| = 9/16\text{.}\) Also, \(h = (b-a)/2 = 4\text{.}\) So <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a> says</p>
+<div class="displaymath">
+\begin{equation*}
+|\text{error}|\le \frac{1}{180} \frac{9}{16} (9-1) 4^4  = 6.4 
+\end{equation*}
+</div>
+<p data-braille="continuation">Indeed, \(0.1618 \le 6.4\) but we see that the error estimate does not give the right idea of how large the error actually is.</p>
+<span class="incontext"><a href="section-motivation-adaptive-integration.html#p-571">in-context</a></span>
 </body>
 </html>

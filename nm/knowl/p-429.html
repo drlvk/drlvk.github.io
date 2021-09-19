@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An important case of such rearrangement in the quadratic formula: its familiar form</p>
+<p>The definition of derivative says:</p>
+<div class="displaymath">
+\begin{equation*}
+f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
+\end{equation*}
+</div>
+<p data-braille="continuation">This suggests a way to approximate \(f'(x)\text{:}\) take two consecutive values of \(f\text{,}\) subtract, divide by difference of x-values:</p>
 <div class="displaymath">
 \begin{equation}
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\tag{12.2.2}
+f'(x) \approx \frac{f(x+h)-f(x)}{h}\tag{12.1.1}
 \end{equation}
 </div>
-<p data-braille="continuation">leads to loss of significance when \(b\) is much larger than \(ac\text{.}\) The following code erroneously returns <code class="code-inline tex2jax_ignore">0</code> as a root of the quadratic equation \(x^2+10^9x+1=0\text{.}\)</p>
-<span class="incontext"><a href="section-loss-significance.html#p-429">in-context</a></span>
+<p data-braille="continuation">Here the value of \(h\) is some concrete number, so the two sides are only approximately equal. One can express this more precisely as</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{f(x+h)-f(x)}{h} = f'(x) + e(h) 
+\end{equation*}
+</div>
+<p data-braille="continuation">where the error term \(e\) is a function of \(h\text{.}\) The accuracy of approximation is measured by the <dfn class="terminology">order</dfn> of the error term, which is a number \(d\) such that \(|e(h)|\) is bounded by some multiple of \(|h|^d\text{.}\)</p>
+<span class="incontext"><a href="section-differentiation-intro.html#p-429">in-context</a></span>
 </body>
 </html>

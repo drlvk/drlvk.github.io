@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:39-04:00    *-->
+<!--*    on 2021-09-19T19:42:12-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>It is convenient to express \(S, I, R\) as a proportion of total population. This means these quantities are between \(0\) and \(1\) and their sum is \(1\text{.}\) An important assumption of the model is that the rate of infection is proportional to the product \(SI\text{.}\) This is based on the simplifying idea that any two people in the population are equally likely to meet and transmit the disease, and since \(SI\) is the number of all susceptible-infected pairings, the number of transmissions will be proportional to it. This is not too far from reality when “population” means, for example, student population on some campus. When modeling the population of a large country, one would have to consider the effects of geography.</p>
-<span class="incontext"><a href="section-ode-epidemiology.html#p-640">in-context</a></span>
+<p>A close relative is <dfn class="terminology">midpoint method</dfn>. In it the trapezoidal corrector <a class="xref" data-knowl="./knowl/eq-ode-corrector.html" title="Equation 19.4.2">(19.4.2)</a> is replaced by</p>
+<div class="displaymath">
+\begin{equation}
+y_{k+1} = y_k + hf((t_k+t_{k+1})/2, (y_k + \tilde y_{k+1})/2)\tag{19.4.3}
+\end{equation}
+</div>
+<p data-braille="continuation">where \(\tilde y_{k+1}\) is computed as in <a class="xref" data-knowl="./knowl/eq-ode-predictor.html" title="Equation 19.4.1">(19.4.1)</a>.</p>
+<span class="incontext"><a href="section-ode-euler-improved.html#p-640">in-context</a></span>
 </body>
 </html>

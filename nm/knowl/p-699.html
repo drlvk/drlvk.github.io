@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:40-04:00    *-->
+<!--*    on 2021-09-19T19:42:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,24 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Use the formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> to interpolate a few functions such as</p>
-<ul class="disc">
-<li>\(f(x) = 1/(x^2+1)\) on \([-5, 5]\)</li>
-<li>\(f(x) = \tan^{-1} x\) on \([-7, 11]\)</li>
-<li>\(f(x) = \cos(2x)\) on \([1, 15]\)</li>
-<li>\(f(x) = \sin(x^2)\) on \([0, 5]\)</li>
-<li>\(f(x) = \operatorname{sign} x\) on \([-1, 1]\)</li>
-</ul>
-<p data-braille="continuation">Use \(20\) Chebyshev extreme points (or more if you prefer).</p>
-<span class="incontext"><a href="section-chebyshev-extreme-points.html#p-699">in-context</a></span>
+<p><a class="xref" data-knowl="./knowl/example-computation-chebyshev-coefficients.html" title="Example 22.2.1: Plot Chebyshev polynomials \(T_n\)">Example 22.2.1</a> indicates that Chebyshev polynomials oscillate between \(-1\) and \(1\) on the interval \([-1, 1]\text{.}\) The following remarkable identity confirms this observation:</p>
+<div class="displaymath">
+\begin{equation}
+T_n(\cos\theta) = \cos (n\theta)   \tag{22.2.2}
+\end{equation}
+</div>
+<p data-braille="continuation">for all \(\theta\in\mathbb R\text{.}\) The proof is by induction. Base of induction is \(n=0, 1\text{:}\) for \(T_0(x)=1\) and \(T_1(x)=x\) the validity of <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> is obvious. For the inductive step, assume <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> holds for \(T_0, \dots, T_n\) and use <a class="xref" data-knowl="./knowl/eq-chebyshev-recursion.html" title="Equation 22.2.1">(22.2.1)</a>:</p>
+<div class="displaymath">
+\begin{equation*}
+T_{n+1}(\cos \theta) = 2\cos \theta \cos (n\theta)  - \cos ((n-1)\theta) = \cos ((n+1)\theta)
+\end{equation*}
+</div>
+<p data-braille="continuation">where the second step involves the identity</p>
+<div class="displaymath">
+\begin{equation*}
+2\cos \alpha \cos\beta = \cos (\alpha-\beta) + \cos(\alpha+\beta)
+\end{equation*}
+</div>
+<span class="incontext"><a href="section-chebyshev-polynomials-interpolation.html#p-699">in-context</a></span>
 </body>
 </html>

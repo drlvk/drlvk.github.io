@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:31-04:00    *-->
+<!--*    on 2021-09-19T19:42:03-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -414,7 +415,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-lagrange-multiplier"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">34.2</span> <span class="title">Lagrange multiplier method</span>
 </h2>
-<p id="p-991">Suppose we want to minimize \(f\) subject to equality constraint \(c = 0\) in \(n\)-dimensional space. A point \(x^*\) of such constrained minimum must have \(\nabla f\) perpendicular to the surface \(c = 0\text{.}\) Therefore, \(\nabla f \) is parallel to \(\nabla c\text{.}\) We can express this as \(\nabla f = \lambda \nabla c\) where \(\lambda\) is the <dfn class="terminology">Lagrange multiplier</dfn> (so far unknown). We have the system</p>
+<p id="p-1001">Suppose we want to minimize \(f\) subject to equality constraint \(c = 0\) in \(n\)-dimensional space. A point \(x^*\) of such constrained minimum must have \(\nabla f\) perpendicular to the surface \(c = 0\text{.}\) Therefore, \(\nabla f \) is parallel to \(\nabla c\text{.}\) We can express this as \(\nabla f = \lambda \nabla c\) where \(\lambda\) is the <dfn class="terminology">Lagrange multiplier</dfn> (so far unknown). We have the system</p>
 <div class="displaymath">
 \begin{equation*}
 \nabla f(\mathbf x) - \lambda \nabla c(\mathbf x) = 0, \quad c(\mathbf x) = 0
@@ -429,10 +430,10 @@ MathJax.Hub.Config({
 <p data-braille="continuation">where \(Hf\)  is the Hessian of \(f\text{.}\) It is feasible to solve the system using multivarible Newton's method, for example.</p>
 <article class="example example-like" id="example-lagrange-multiplier"><a data-knowl="" class="id-ref original" data-refid="hk-example-lagrange-multiplier"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">34.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Using the Lagrange multiplier method.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lagrange-multiplier"><article class="example example-like"><p id="p-992">Minimize  \(f(\mathbf x) = x_1^4 + \exp(3x_1+x_2)\) on the circle \(x_1^2 + x_2^2 = 1\) using the Lagrange multiplier method.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lagrange-multiplier"><article class="example example-like"><p id="p-1002">Minimize  \(f(\mathbf x) = x_1^4 + \exp(3x_1+x_2)\) on the circle \(x_1^2 + x_2^2 = 1\) using the Lagrange multiplier method.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-solution-64" id="solution-64"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-64"><div class="solution solution-like">
-<p id="p-993">The code is similar to <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> but with more complicated gradient and Hessian. To avoid notational confusion, it uses <code class="code-inline tex2jax_ignore">x</code> for the vector \((x_1, x_2)\) and <code class="code-inline tex2jax_ignore">v</code> for the vector \((x_1, x_2, \lambda)\text{.}\) The functions <code class="code-inline tex2jax_ignore">Fg</code> and <code class="code-inline tex2jax_ignore">Fh</code> below are the gradient and Hessian of the function</p>
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-65" id="solution-65"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-65"><div class="solution solution-like">
+<p id="p-1003">The code is similar to <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> but with more complicated gradient and Hessian. To avoid notational confusion, it uses <code class="code-inline tex2jax_ignore">x</code> for the vector \((x_1, x_2)\) and <code class="code-inline tex2jax_ignore">v</code> for the vector \((x_1, x_2, \lambda)\text{.}\) The functions <code class="code-inline tex2jax_ignore">Fg</code> and <code class="code-inline tex2jax_ignore">Fh</code> below are the gradient and Hessian of the function</p>
 <div class="displaymath">
 \begin{equation*}
 F(x_1, x_2, \lambda) = x_1^4 + \exp(3x_1+x_2) - \lambda (x_1^2 + x_2^2 - 1)
@@ -467,10 +468,10 @@ else
     disp('Failed to converge')
 end
 </pre>
-<p id="p-994">The method converges quickly and the point it finds satisfies to constraint. But this point is often a maximum rather than a minimum of the function. As usual with Newton's method, the situation can be improved by running a rough search algorithm first, just to locate a good starting point.</p>
+<p id="p-1004">The method converges quickly and the point it finds satisfies to constraint. But this point is often a maximum rather than a minimum of the function. As usual with Newton's method, the situation can be improved by running a rough search algorithm first, just to locate a good starting point.</p>
 </div></div>
 </div></article></div>
-<p id="p-995">Matlab provides a command <code class="code-inline tex2jax_ignore">fmincon</code> which implements constrained minimization with various constraints, both equality and inequality types. However, its availability may vary depending on version, and Octave does not have it built-in.</p></section></div></main>
+<p id="p-1005">Matlab provides a command <code class="code-inline tex2jax_ignore">fmincon</code> which implements constrained minimization with various constraints, both equality and inequality types. However, its availability may vary depending on version, and Octave does not have it built-in.</p></section></div></main>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:19-04:00    *-->
+<!--*    on 2021-09-19T19:41:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -415,9 +416,9 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">17.6</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="ex-simpson-1"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-583">Estimate the error of computing \(\int_{0.1}^{1.1} \sqrt{x}\,dx\) using Simpson's rule with \(h=1/2\text{,}\) according to the error bound <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a>.</p></article><article class="exercise exercise-like" id="exercise-42"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-584">Calculate the actual error in <a class="xref" data-knowl="./knowl/ex-simpson-1.html" title="Exercise 17.6.1">Exercise 17.6.1</a>, that is, the difference between what Simpson's rule gives and the exact value of the integral. Is the actual error similar in size to the error estimate found in <a class="xref" data-knowl="./knowl/ex-simpson-1.html" title="Exercise 17.6.1">Exercise 17.6.1</a>?</p></article><article class="exercise exercise-like" id="exercise-43"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
-<p id="p-585">Rewrite the adaptive integration script in <a class="xref" data-knowl="./knowl/example-implement-adaptive-gauss.html" title="Example 17.5.1: Adaptive Gauss integration">Example 17.5.1</a> so that it uses trapezoidal and Simpson's rules for \(I_1, I_2\text{,}\) and test it on the integral \(\int_0^4 x^{3/2}\,dx\) to make sure it returns a correct result.</p></article></section></div></main>
+<p id="p-593">Estimate the error of computing \(\int_{0.1}^{1.1} \sqrt{x}\,dx\) using Simpson's rule with \(h=1/2\text{,}\) according to the error bound <a class="xref" data-knowl="./knowl/eq-simpson-error.html" title="Equation 17.1.1">(17.1.1)</a>.</p></article><article class="exercise exercise-like" id="exercise-42"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-594">Calculate the actual error in <a class="xref" data-knowl="./knowl/ex-simpson-1.html" title="Exercise 17.6.1">Exercise 17.6.1</a>, that is, the difference between what Simpson's rule gives and the exact value of the integral. Is the actual error similar in size to the error estimate found in <a class="xref" data-knowl="./knowl/ex-simpson-1.html" title="Exercise 17.6.1">Exercise 17.6.1</a>?</p></article><article class="exercise exercise-like" id="exercise-43"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>
+<p id="p-595">Rewrite the adaptive integration script in <a class="xref" data-knowl="./knowl/example-implement-adaptive-gauss.html" title="Example 17.5.1: Adaptive Gauss integration">Example 17.5.1</a> so that it uses trapezoidal and Simpson's rules for \(I_1, I_2\text{,}\) and test it on the integral \(\int_0^4 x^{3/2}\,dx\) to make sure it returns a correct result.</p></article></section></div></main>
 </div>
 </body>
 </html>

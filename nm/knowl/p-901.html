@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:43-04:00    *-->
+<!--*    on 2021-09-19T19:42:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,20 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Golden section method improves on the above by choosing \(c,d\) as follows:</p>
+<p>If we can find the derivative \(f'\) (or gradient \(\nabla f\) in higher dimensions), it may be possible to apply one of root-finding methods of <a href="part-equations.html" class="internal" title="Part II: Solving Equations">Part II</a> to it. For example, Newton's method was one of those. But since we are solving \(f'=0\text{,}\) the method will involve the second derivative of \(f\text{:}\) it amounts to iteration of the function</p>
 <div class="displaymath">
-\begin{equation*}
-c = a+r(b-a), \quad d=b-r(b-a), \quad \text{where } r=\frac{3-\sqrt{5}}{2}
-\end{equation*}
+\begin{equation}
+g(x) = x - \frac{f'(x)}{f''(x)}\tag{30.3.1}
+\end{equation}
 </div>
-<p data-braille="continuation">The number \(r\) is related to golden ratio \(\varphi = (\sqrt{5}+1 )/2\approx 1.618\) by \(r=1/\varphi^2\text{.}\) The following intervals are all in the golden ratio to each other:</p>
-<div class="displaymath">
-\begin{equation*}
-\frac{b-a}{d-a} = \frac{b-a}{b-c} = \frac{d-a}{c-a}  = \frac{b-c}{b-d} 
-= \frac{c-a}{d-c} = \frac{b-d}{d-c} = \varphi
-\end{equation*}
-</div>
-<p data-braille="continuation">The result of this invariance of the ratio is that when the bracket is reduced, the remaining interior point again divides it in the golden ratio.</p>
-<span class="incontext"><a href="section-golden-section.html#p-901">in-context</a></span>
+<p data-braille="continuation">Let's try this out on a simple example.</p>
+<span class="incontext"><a href="section-newton-method-min.html#p-901">in-context</a></span>
 </body>
 </html>

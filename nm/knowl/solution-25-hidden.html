@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,11 +12,48 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<ul class="disc">
-<li>With \(f(x) = x^0\) we get \(f'(x) = 0\) and \(\frac{f(x+h)-f(x)}{h}=0\text{,}\) so the error term is zero for this function.</li>
-<li>With \(f(x) = x^1\) we get \(f'(x) = 1\) and \(\frac{f(x+h)-f(x)}{h}=\frac{h}{h}=1\text{,}\) so the error term is zero for this function.</li>
-<li>With \(f(x) = x^2\) we get \(f'(x) = 2x\) and \(\frac{f(x+h)-f(x)}{h}=\frac{x^2+2xh+h^2-x^2}{h}=2x + h\text{,}\) so the error term for this function is \(h^1\text{.}\)</li>
-</ul>
-<p data-braille="continuation">In conclusion, the formula has order of error 1.</p>
+<p>We have the same vector function to be equated to zero</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf F(\mathbf x) = \begin{pmatrix} x_1+x_2+x_3 +2  \\ 
+x_1x_2 + x_1x_3 + x_2x_3 + 7 \\
+x_1x_2x_3 + 1
+\end{pmatrix} 
+\end{equation*}
+</div>
+<p data-braille="continuation">but no longer use its Jacobian matrix. The code is modified by computing the steps as <code class="code-inline tex2jax_ignore">h = -B*F(x)</code> and updating the matrix <code class="code-inline tex2jax_ignore">B</code> according to Broyden's method.</p>
+<pre class="code-block tex2jax_ignore">F = @(x) [x(1) + x(2) + x(3) + 2; 
+          x(1)*x(2) + x(1)*x(3) + x(2)*x(3) + 7;
+          x(1)*x(2)*x(3) + 1];
+
+x = [1; 2; 3];
+B = eye(3);
+max_tries = 10000;
+
+for k = 1:max_tries
+    h = -B*F(x);
+    w = F(x+h) - F(x);
+    B = B + (h - B*w)*h'*B / (h'*B*w);
+    x = x + h;
+    if norm(h) &lt; 100*eps(norm(x))
+        break
+    end
+end
+
+if k &lt; max_tries
+    fprintf('Found a solution after %d steps:\n', k);
+    disp(x)
+    fprintf('The norm of F(x) is %g\n', norm(F(x)))
+else
+    disp('Failed to converge')
+end
+</pre>
+<p>Starting from the same point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> as we used for Newton's method, we get:</p>
+<pre class="code-block tex2jax_ignore">Found a solution after 1359 steps:
+    1.7240
+   -3.8737
+    0.1497
+</pre>
+<p>By contrast, Newton's method converged in 9 steps. There is a price to pay for the lack of Jacobian matrix.</p>
 </div></body>
 </html>

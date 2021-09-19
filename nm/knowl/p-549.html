@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:38-04:00    *-->
+<!--*    on 2021-09-19T19:42:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The error is about \(8.2\cdot 10^{-10}\) for the first integral and about \(0.058\) for the second. Somehow, the rule is 100 million times more accurate for the first function than for the second, even though they are both perfectly smooth functions on the interval \([-1, 1]\text{.}\) The reason for such a different behavior is that \(e^x\) is easy to approximate by polynomials while \((9x^2+1)^{-1}\) is not so easy; it has to do with the Taylor series of these functions. This will come up again when we study approximation of functions.</p>
-<span class="incontext"><a href="examples-gaussian-integration.html#p-549">in-context</a></span>
+<p>One difference is the right hand side of the system which we use to solve for the weights \(w_k\text{.}\) For Gauss-Legendre integration we have \(\int_{-1}^1 x^p\,dx = (1-(-1)^{p+1})/(p+1)\) there. For Gauss-Laguerre integration we have \(\int_{0}^\infty x^p e^{-x}\,dx\) which takes a but more work. Integration by parts helps:</p>
+<div class="displaymath">
+\begin{equation*}
+\int_{0}^\infty x^p e^{-x}\,dx = -x^pe^{-x}\bigg|_{x=0}^{x\to\infty} - \int_{0}^\infty p x^{p-1} (-e^{-x})\,dx 
+= p \int_{0}^\infty x^{p-1} e^{-x}\,dx
+\end{equation*}
+</div>
+<p data-braille="continuation">which shows, by induction, that \(\int_{0}^\infty x^p e^{-x}\,dx = p!\text{.}\)</p>
+<span class="incontext"><a href="section-gauss-laguerre.html#p-549">in-context</a></span>
 </body>
 </html>

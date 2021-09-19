@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:40-04:00    *-->
+<!--*    on 2021-09-19T19:42:12-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The original Lotka-Volterra model assumes that on their own, rabbit population would grow exponentially: \(R'  = a R\) leads to \(R(t) = R_0e^{at}\text{.}\) But in reality, population is constrained by available resources (food and habitat). Modify the equation <a class="xref" data-knowl="./knowl/eq-LV-R.html" title="Equation 20.2.1">(20.2.1)</a> by replacing \(aR\) with \(aR(1-R/K)\) where \(K\) is the <dfn class="terminology">carrying capacity</dfn> of the population. Adjust the parameters to</p>
+<p>Sometimes it is desirable to compute the solution at specific points of interval \([a, b]\text{,}\) for example at equally spaced points with step \(h\text{.}\) This is achieved by replacing the interval parameter with a vector of \(t\)-values, for example</p>
 <pre class="code-block tex2jax_ignore">
-d = 0.003;
-K = 200;  
+h = 0.1;
+[t, y] = ode45(rhs, a:h:b, y0);  
 </pre>
-<p data-braille="continuation">and solve the system on the interval \([0, 500]\text{.}\)</p>
-<span class="incontext"><a href="examples-ode-modeling.html#p-654">in-context</a></span>
+<span class="incontext"><a href="section-ode-epidemiology.html#p-654">in-context</a></span>
 </body>
 </html>

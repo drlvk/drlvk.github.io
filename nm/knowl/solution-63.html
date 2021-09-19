@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:45-04:00    *-->
+<!--*    on 2021-09-19T19:42:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,18 +14,20 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">34.1.2.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">34.1.1.1</span><span class="period">.</span>
 </h6>
 <pre class="code-block tex2jax_ignore">f = @(x) (x(1) + 7*x(2)).^3;
 c = @(x) x(1).^2 + x(2).^2 - 1;
-x0 = randn(2, 1);
+M = 1e6;
 
-for M = [1e3, 1e6, 1e9, 1e12]
-    x0 = fminsearch(@(x) f(x) + M*max(c(x), 0).^2, x0);
-end
-    
-fprintf('Found x = (%g, %g), |x| = %g, f(x) = %g \n', x0, norm(x0), f(x0));
+x0 = randn(2, 1);
+xm1 = fminsearch(@(x) f(x) + M*max(c(x), 0), x0);
+xm2 = fminsearch(@(x) f(x) + M*max(c(x), 0).^2, x0);
+
+fprintf('Linear penalty: found x = (%g, %g), |x| = %g, f(x) = %g \n', xm1, norm(xm1), f(xm1));
+fprintf('Quadratic penalty: found x = (%g, %g), |x| = %g, f(x) = %g \n', xm2, norm(xm2), f(xm2));
 </pre>
+<p>With the linear penalty, the minimization process sometimes fails to converge within the allowed attempts; but if it converges, it stays in the unit disk. With the quadratic penalty, the convergence is more reliable but the norm of the point of minimum is usually greater than \(1\text{.}\)</p>
 </div>
 <span class="incontext"><a href="section-penalty-method.html#solution-63">in-context</a></span>
 </body>

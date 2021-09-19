@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:39-04:00    *-->
+<!--*    on 2021-09-19T19:42:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The result is 11.8764, compared to the WolframAlpha output 12.5419. This is less accurate than what we got for rectangle. Note that all points with \(x=\pm 2\) are wasted because there is no interval to integrate over with respect to \(y\text{.}\) For this reason, open-ended rules such as Gaussian integration is preferable. Replacing the choice of <code class="code-inline tex2jax_ignore">x, w</code> above with the 3-point Gaussian rule</p>
-<pre class="code-block tex2jax_ignore">
-x = [-sqrt(3/5) 0 sqrt(3/5)]*(b-a)/2 + (a+b)/2;
-w = [5/9 8/9 5/9]*(b-a)/2;
-</pre>
-<p data-braille="continuation">we get 12.7081, which is much more accurate.</p>
-<span class="incontext"><a href="section-integration-general-2d.html#p-599">in-context</a></span>
+<p>In the \(y\) direction, the evaluation points are \(-1, 0, 1\) with the weights \(1/3, 4/3, 1/3\text{.}\) In the \(x\) direction, the evaluation points are \(-2, 0, 2\) with the weights \(2/3, 8/3, 2/3\text{.}\) So the sum has 9 terms:</p>
+<div class="displaymath">
+\begin{equation*}
+\iint_R f(x, y)\,dA \approx 
+\frac{2}{9} (f(-2,-1) + 4f(0,-1) + f(2,-1) + 4f(-2,0) + 16f(0,0) + 4f(2,0) + f(-2,1) + 4f(0,1) + f(2,1))
+\end{equation*}
+</div>
+<span class="incontext"><a href="section-integration-rectangle.html#p-599">in-context</a></span>
 </body>
 </html>

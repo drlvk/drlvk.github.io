@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:39-04:00    *-->
+<!--*    on 2021-09-19T19:42:11-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One of the distinguishing features of the normal distribution is the following: if one generates a random \(d\)-dimensional vector \(\mathbf x\) by taking each component \(x_1, \dots, x_d\) independently from the normal distribution, the vector \(\mathbf x\) is equally likely to point in any given direction. More precisely, the unit vectors \(\mathbf x / |\mathbf x|\) are uniformly distributed over the unit sphere. With Matlab, this process amounts to the computations</p>
-<pre class="code-block tex2jax_ignore">
-x = randn(1, d);
-x = x/norm(x);
-</pre>
-<p data-braille="continuation">Note that <code class="code-inline tex2jax_ignore">x = randn(1, d)/norm(randn(1, d))</code> would not do the job, because each use of <code class="code-inline tex2jax_ignore">randn</code> leads to a new random vector.</p>
-<span class="incontext"><a href="section-integration-monte-carlo.html#p-607">in-context</a></span>
+<p>Rewrite <a class="xref" data-knowl="./knowl/example-rectangle-simpson-eval.html" title="Example 18.1.2: Implement Simpson's rule over a rectangle">Example 18.1.2</a> to integrate the same function over the interior of the ellipse inscribed in the rectangle \(R = [-2,2]\times [-1,1]\text{.}\) (The ellipse with the equation \(x^2/4 + y^2 = 1\text{.}\)) Use composite Simpson's rule with \(n=4\) subintervals in both variables.</p>
+<span class="incontext"><a href="section-integration-general-2d.html#p-607">in-context</a></span>
 </body>
 </html>

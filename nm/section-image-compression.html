@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:25-04:00    *-->
+<!--*    on 2021-09-19T19:41:57-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -414,22 +415,22 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-image-compression"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">26.1</span> <span class="title">Working with images in Matlab</span>
 </h2>
-<p id="p-780">An image is loaded into Matlab with a command like <code class="code-inline tex2jax_ignore">im = imread('filename.jpg')</code>. Try this using, for example, <a class="external" href="https://twitter.com/SyracuseU/status/831617805673984000/photo/1" target="_blank">the winter scene</a> (first save the file in Matlab/Octave current directory). There are several things to learn about this <code class="code-inline tex2jax_ignore">im</code> object:</p>
+<p id="p-790">An image is loaded into Matlab with a command like <code class="code-inline tex2jax_ignore">im = imread('filename.jpg')</code>. Try this using, for example, <a class="external" href="https://twitter.com/SyracuseU/status/831617805673984000/photo/1" target="_blank">the winter scene</a> (first save the file in Matlab/Octave current directory). There are several things to learn about this <code class="code-inline tex2jax_ignore">im</code> object:</p>
 <ul class="disc">
-<li id="li-185">
+<li id="li-195">
 <code class="code-inline tex2jax_ignore">size(im)</code> shows its size (dimensions) as 462<span class="times-sign">×</span>692<span class="times-sign">×</span>3. This is a three-dimensional array, where the last index means the <dfn class="terminology">color channel</dfn>: Red, Green, Blue. The first two indices are rows and columns. One can access individual channels with <code class="code-inline tex2jax_ignore">im(:, :, 1)</code> (for red). Matlab can also work with <dfn class="terminology">grayscale</dfn> images which have just one channel for brightness; such images are represented by matrices which makes them easier to work with.</li>
-<li id="li-186">
+<li id="li-196">
 <code class="code-inline tex2jax_ignore">class(im)</code> says “uint8”. All other Matlab objects we worked have class <code class="code-inline tex2jax_ignore">double</code> meaning they are floating-point numbers with double-precision, able to store about 16 decimal digits. But <code class="code-inline tex2jax_ignore">uint8</code> is different: it is an <dfn class="terminology">unsigned 8-bit integer</dfn>, with possible values 0, 1, …, 255. This reflects the image format: in each channel, the brightness of each pixel ranges from 0 to 255. (How many possible colors does this create?) In other languages, one would say “type” instead of “class”.</li>
 </ul>
-<p id="p-781">The command <code class="code-inline tex2jax_ignore">imshow(im)</code> displays the image. An image (an array of numbers) can be transformed in multiple ways and then either saved as a file with <code class="code-inline tex2jax_ignore">imwrite</code> or just displayed with <code class="code-inline tex2jax_ignore">imshow</code>; we will do the latter, which is simpler. Try the following and observe the effects:</p>
+<p id="p-791">The command <code class="code-inline tex2jax_ignore">imshow(im)</code> displays the image. An image (an array of numbers) can be transformed in multiple ways and then either saved as a file with <code class="code-inline tex2jax_ignore">imwrite</code> or just displayed with <code class="code-inline tex2jax_ignore">imshow</code>; we will do the latter, which is simpler. Try the following and observe the effects:</p>
 <ul class="disc">
-<li id="li-187">Remove one of colors entirely, for example <code class="code-inline tex2jax_ignore">im(:, :, 3)  = 0;</code>
+<li id="li-197">Remove one of colors entirely, for example <code class="code-inline tex2jax_ignore">im(:, :, 3)  = 0;</code>
 </li>
-<li id="li-188">Set all pixels darker than some level to black (0) with <code class="code-inline tex2jax_ignore">im(im &lt; 128) = 0;</code>
+<li id="li-198">Set all pixels darker than some level to black (0) with <code class="code-inline tex2jax_ignore">im(im &lt; 128) = 0;</code>
 </li>
-<li id="li-189">Set the intensity of some color to some specific value, for example <code class="code-inline tex2jax_ignore">im(:, :, 2)  = 64;</code>
+<li id="li-199">Set the intensity of some color to some specific value, for example <code class="code-inline tex2jax_ignore">im(:, :, 2)  = 64;</code>
 </li>
-<li id="li-190">…</li>
+<li id="li-200">…</li>
 </ul>
 <p data-braille="continuation">If you do something that causes the array to lose its class “uint8”, that can usually be fixed with the command <code class="code-inline tex2jax_ignore">uint8(...)</code>.</p></section></div></main>
 </div>

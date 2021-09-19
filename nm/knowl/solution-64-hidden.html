@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:45-04:00    *-->
+<!--*    on 2021-09-19T19:42:17-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,42 +11,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="solution solution-like">
-<p>The code is similar to <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> but with more complicated gradient and Hessian. To avoid notational confusion, it uses <code class="code-inline tex2jax_ignore">x</code> for the vector \((x_1, x_2)\) and <code class="code-inline tex2jax_ignore">v</code> for the vector \((x_1, x_2, \lambda)\text{.}\) The functions <code class="code-inline tex2jax_ignore">Fg</code> and <code class="code-inline tex2jax_ignore">Fh</code> below are the gradient and Hessian of the function</p>
-<div class="displaymath">
-\begin{equation*}
-F(x_1, x_2, \lambda) = x_1^4 + \exp(3x_1+x_2) - \lambda (x_1^2 + x_2^2 - 1)
-\end{equation*}
-</div>
-<p data-braille="continuation">We equate <code class="code-inline tex2jax_ignore">Fg</code> to zero vector, and use <code class="code-inline tex2jax_ignore">Fh</code> according to Newton's method.</p>
-<pre class="code-block tex2jax_ignore">f = @(x) x(1)^4 + exp(3*x(1)+x(2));
+<body><div class="solution solution-like"><pre class="code-block tex2jax_ignore">f = @(x) (x(1) + 7*x(2)).^3;
+c = @(x) x(1).^2 + x(2).^2 - 1;
+x0 = randn(2, 1);
 
-Fg = @(v) [4*v(1)^3 + 3*exp(3*v(1) + v(2)) - v(3)*(2*v(1)); ...
-    exp(3*v(1) + v(2)) - v(3)*(2*v(2)); ...
-    -(v(1)^2 + v(2)^2 - 1)];
-Fh = @(v) [12*v(1)^2 + 9*exp(3*v(1) + v(2)) - v(3)*2, 3*exp(3*v(1) + v(2)), -(2*v(1)); ... 
-    3*exp(3*v(1) + v(2)), exp(3*v(1) + v(2)) - v(3)*2, -(2*v(2)); ...
-    -2*v(1),  -2*v(2), 0];
+for M = [1e3, 1e6, 1e9, 1e12]
+    x0 = fminsearch(@(x) f(x) + M*max(c(x), 0).^2, x0);
+end
     
-v = randn(3, 1);
-
-max_tries = 10000;
-
-for k=1:max_tries
-    dv = -Fh(v)\Fg(v);
-    v = v + dv;
-    if norm(dv) &lt; 1e-6
-        break
-    end
-end
-
-x = v(1:2);
-if k &lt; max_tries
-    fprintf('Found x = (%g, %g) with f(x) = %g after %d steps\n', x, f(x), k);
-else
-    disp('Failed to converge')
-end
-</pre>
-<p>The method converges quickly and the point it finds satisfies to constraint. But this point is often a maximum rather than a minimum of the function. As usual with Newton's method, the situation can be improved by running a rough search algorithm first, just to locate a good starting point.</p>
-</div></body>
+fprintf('Found x = (%g, %g), |x| = %g, f(x) = %g \n', x0, norm(x0), f(x0));
+</pre></div></body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:13-04:00    *-->
+<!--*    on 2021-09-19T19:41:45-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -9,7 +9,7 @@
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Newton's method and secant method</title>
+<title>Newton's method and its relatives</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/x-mathjax-config">
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link active">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -412,15 +413,16 @@ MathJax.Hub.Config({
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="chapter" id="chapter-newton-secant"><h2 class="heading">
-<span class="type">Chapter</span> <span class="codenumber">9</span> <span class="title">Newton's method and secant method</span>
+<span class="type">Chapter</span> <span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span>
 </h2>
 <section class="introduction" id="introduction-9"><p id="p-327"><dfn class="terminology">Newton's method</dfn> of solving an equation \(f(x)=0\) is based on iterating a specific function \(g\) such that every root of \(f\) is an attracting (usually super-attracting) point for \(g\text{.}\) The formula for \(g\) is geometrically motivated: it comes from tangent line approximation to the graph of \(f\) and therefore involves its derivative. Since the derivative is not always known, we consider an alternative <dfn class="terminology">secant method</dfn> which replaces the tangent line by a secant line.</p></section><nav class="summary-links"><ul>
 <li><a href="section-newton-method-intro.html"><span class="codenumber">9.1</span> <span class="title">Newton's method</span></a></li>
 <li><a href="section-newton-method-issues.html"><span class="codenumber">9.2</span> <span class="title">Potential issues with Newton's method</span></a></li>
 <li><a href="section-secant-method.html"><span class="codenumber">9.3</span> <span class="title">The secant method</span></a></li>
-<li><a href="section-relaxation-parameter.html"><span class="codenumber">9.4</span> <span class="title">The relaxation parameter</span></a></li>
-<li><a href="examples-newton-secant.html"><span class="codenumber">9.5</span> <span class="title">Examples and questions</span></a></li>
-<li><a href="exercises-newton-secant.html"><span class="codenumber">9.6</span> <span class="title">Homework</span></a></li>
+<li><a href="section-fzero-algorithm.html"><span class="codenumber">9.4</span> <span class="title">How <code class="code-inline tex2jax_ignore">fzero</code> works</span></a></li>
+<li><a href="section-relaxation-parameter.html"><span class="codenumber">9.5</span> <span class="title">The relaxation parameter</span></a></li>
+<li><a href="examples-newton-secant.html"><span class="codenumber">9.6</span> <span class="title">Examples and questions</span></a></li>
+<li><a href="exercises-newton-secant.html"><span class="codenumber">9.7</span> <span class="title">Homework</span></a></li>
 </ul></nav></section></div></main>
 </div>
 </body>

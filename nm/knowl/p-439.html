@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,31 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Let \(Q\) be the quantity we want to find. Using step size \(h\) we get an approximation \(A_1\) with error term \(E_1\text{,}\) meaning that</p>
+<p>An important case of such rearrangement in the quadratic formula: its familiar form</p>
 <div class="displaymath">
 \begin{equation}
-Q = A_1 + E_1\tag{12.4.1}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\tag{12.2.2}
 \end{equation}
 </div>
-<p data-braille="continuation">Using step size \(2h\) we get an approximation \(A_2\) with error term \(E_2\text{,}\) meaning that</p>
-<div class="displaymath">
-\begin{equation}
-Q = A_2 + E_2\tag{12.4.2}
-\end{equation}
-</div>
-<p data-braille="continuation">Since we know that \(E_2\) is close to \(2^n E_1\text{,}\) we can try to cancel out the error terms: multiply <a class="xref" data-knowl="./knowl/eq-rich-1.html" title="Equation 12.4.1">(12.4.1)</a> by \(2^n\) and subtract <a class="xref" data-knowl="./knowl/eq-rich-2.html" title="Equation 12.4.2">(12.4.2)</a>. The result is</p>
-<div class="displaymath">
-\begin{equation*}
-(2^n-1) Q = 2^n A_1 - A_2 + [2^n E_1 - E_2]
-\end{equation*}
-</div>
-<p data-braille="continuation">Since the error terms should almost cancel each other, the new approximation</p>
-<div class="displaymath">
-\begin{equation}
-Q \approx \frac{2^n A_1 - A_2}{2^n-1}\tag{12.4.3}
-\end{equation}
-</div>
-<p data-braille="continuation">should be much more accurate than the original approximation <a class="xref" data-knowl="./knowl/eq-rich-1.html" title="Equation 12.4.1">(12.4.1)</a>. The formula <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> expresses the method of Richardson extrapolation. This idea is not specific to numerical differentiation; it can be used any time a computed quantity has an error proportional to a known power of step size.</p>
-<span class="incontext"><a href="section-richardson-extrapolation.html#p-439">in-context</a></span>
+<p data-braille="continuation">leads to loss of significance when \(b\) is much larger than \(ac\text{.}\) The following code erroneously returns <code class="code-inline tex2jax_ignore">0</code> as a root of the quadratic equation \(x^2+10^9x+1=0\text{.}\)</p>
+<span class="incontext"><a href="section-loss-significance.html#p-439">in-context</a></span>
 </body>
 </html>

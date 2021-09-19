@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,20 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When a function is increasing, the leftpoint rule underestimates its integral, and rightpoint rule overestimates it. So, their average \(T_n=(L_n+R_n)/2\) should be a better approximation. This is the <dfn class="terminology">Trapezoidal Rule</dfn>:</p>
+<p>Rewrite the formula</p>
 <div class="displaymath">
 \begin{equation*}
-T_n = \frac{h}{2}(f(a)+f(b)) + h( f(x_1)+\dots+f(x_{n-1}))
+\frac{\sqrt{9 + x^4} - 3}{\sin(x^4)}
 \end{equation*}
 </div>
-<p data-braille="continuation">In Matlab, the computation is similar to <a class="xref" data-knowl="./knowl/example-lrm-rules.html" title="Example 13.2.1: Computing with left- right- and midpoint rules">Example 13.2.1</a></p>
-<pre class="code-block tex2jax_ignore">
-T = (f(x(1)) + f(x(end))) * h/2 + sum(f(x(2:end-1)))*h;	
-</pre>
-<p data-braille="continuation">It may be simpler to compute the vector <code class="code-inline tex2jax_ignore">y = f(x)</code> first, which reduces the number of calls to function <code class="code-inline tex2jax_ignore">f</code> and the number of parentheses:</p>
-<pre class="code-block tex2jax_ignore">
-T = (y(1) + y(end)) * h/2 + sum(y(2:end-1))*h;	
-</pre>
-<span class="incontext"><a href="section-trapezoidal-rulet.html#p-461">in-context</a></span>
+<p data-braille="continuation">to avoid the loss of significance when \(x\) is close to \(0\text{.}\) Evaluate both the original and rewritten formulas when \(x = 10^{-4}\text{.}\) How different are the results?</p>
+<span class="incontext"><a href="exercises-numerical-differentiation.html#p-461">in-context</a></span>
 </body>
 </html>

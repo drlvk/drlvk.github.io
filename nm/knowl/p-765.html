@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:41-04:00    *-->
+<!--*    on 2021-09-19T19:42:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The <dfn class="terminology">Fourier coefficients</dfn> of a given discretized function \((z_0, z_1, \dots, z_{n-1})\) are computed as:</p>
-<div class="displaymath">
-\begin{equation}
-c_k = \sum_{\ell=0}^{n-1} z_\ell \exp(-2\pi i k\ell/n) \tag{25.3.2}
-\end{equation}
-</div>
-<p data-braille="continuation">and from there, the function is precisely reconstructed as</p>
-<div class="displaymath">
-\begin{equation}
-z_\ell = \frac{1}{n} \sum_{k=0}^{n-1} c_k \exp(2\pi i k\ell/n)\tag{25.3.3}
-\end{equation}
-</div>
-<p data-braille="continuation">Some people put \(1/n\) in <a class="xref" data-knowl="./knowl/eq-fourier-coefficients-discrete.html" title="Equation 25.3.2">(25.3.2)</a> instead of <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a>, and some put \(1/\sqrt{n}\) in both, for symmetry.</p>
-<span class="incontext"><a href="section-discrete-fourier-transform.html#p-765">in-context</a></span>
+<p>It is important to recognize that even if the coefficients \(a_k, b_k\) were real, the corresponding coefficients \(c_k\) will in general be complex. Complex numbers in Matlab can be entered directly like <code class="code-inline tex2jax_ignore">3 + 4i</code> (note there is no <code class="code-inline tex2jax_ignore">*</code> between 4 and i). If you have variables <code class="code-inline tex2jax_ignore">a, b</code> and want to construct \(a + ib\text{,}\) then <code class="code-inline tex2jax_ignore">a + 1i*b</code> works. Also, the letter <code class="code-inline tex2jax_ignore">j</code> can be used in place of <code class="code-inline tex2jax_ignore">i</code>.</p>
+<span class="incontext"><a href="section-periodic-functions.html#p-765">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:17-04:00    *-->
+<!--*    on 2021-09-19T19:41:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -416,10 +417,10 @@ MathJax.Hub.Config({
 </h2>
 <article class="example example-like" id="example-simpson-rule-compare"><a data-knowl="" class="id-ref original" data-refid="hk-example-simpson-rule-compare"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">14.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Comparing the accuracy of Simpson's, trapezoidal, and midpoint rules.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-simpson-rule-compare"><article class="example example-like"><p id="p-493">For the function \(f(x) = e^x \) on the interval \([0, 1]\text{,}\) use Matlab to compute the left-, right, and midpoint approximations with \(n=10\) and find the error of each approximation (that is, its difference with the actual integral).</p>
-<p id="p-494">Then repeat the same with \(f(x) = e^{\sqrt{x}} \text{.}\) What could explain the lackluster performance of Simpson's rule here?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-simpson-rule-compare"><article class="example example-like"><p id="p-503">For the function \(f(x) = e^x \) on the interval \([0, 1]\text{,}\) use Matlab to compute the left-, right, and midpoint approximations with \(n=10\) and find the error of each approximation (that is, its difference with the actual integral).</p>
+<p id="p-504">Then repeat the same with \(f(x) = e^{\sqrt{x}} \text{.}\) What could explain the lackluster performance of Simpson's rule here?</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-solution-36" id="solution-36"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-36"><div class="solution solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-37" id="solution-37"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-37"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) exp(x);  % or exp(sqrt(x))
 a = 0;
 b = 1;
@@ -438,12 +439,12 @@ M = h*sum(f(midpoints));
 er = abs([T M S] - exact);
 fprintf('Errors: Trapezoidal %g, Midpoint %g, Simpson %g\n', er);
 </pre>
-<p id="p-495">The function \(f(x) = e^{\sqrt{x}} \) is not differentiable at \(0\text{.}\) This behavior affects higher order methods more because they are based on comparing the function to a smooth one (such as a parabola). The midpoint method has an advantage in that it does not use the problematic point \(0\text{.}\)</p>
+<p id="p-505">The function \(f(x) = e^{\sqrt{x}} \) is not differentiable at \(0\text{.}\) This behavior affects higher order methods more because they are based on comparing the function to a smooth one (such as a parabola). The midpoint method has an advantage in that it does not use the problematic point \(0\text{.}\)</p>
 </div></div>
 </div></article></div>
 <article class="question example-like" id="question-28"><a data-knowl="" class="id-ref original" data-refid="hk-question-28"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">14.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Richardson extrapolation of the midpoint rule.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-28"><article class="question example-like"><p id="p-496">We derived Simpson's rule from trapezoidal rule using the Richardson extrapolation. Why not do the same starting from the midpoint rule instead of trapezoidal?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-28"><article class="question example-like"><p id="p-506">We derived Simpson's rule from trapezoidal rule using the Richardson extrapolation. Why not do the same starting from the midpoint rule instead of trapezoidal?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

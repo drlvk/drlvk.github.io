@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:40-04:00    *-->
+<!--*    on 2021-09-19T19:42:13-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A more abstract approach to the construction of degree 1 spline is as follows:</p>
+<p>Use the formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> to interpolate a few functions such as</p>
 <ul class="disc">
-<li>We have \(n-1\) subintervals between \(n\) data points.</li>
-<li>On each subinterval we choose a degree 1 polynomial; this means we have \(2(n-1)\) coefficients to choose.</li>
-<li>But we want to spline to be continuous, so the values at each interior data point from the left and from the right must match. There are \(n-2\) interior data points, so the continuity imposes \(n-2\) equations.</li>
-<li>Finally, the spline must pass through each of \(n\) data points. This adds \(n\) equations.</li>
-<li>The total is \(n-2+n=2n-2\) equations with \(2(n-1) = 2n-2\) unknowns, so we expect (and get) a unique solution.</li>
+<li>\(f(x) = 1/(x^2+1)\) on \([-5, 5]\)</li>
+<li>\(f(x) = \tan^{-1} x\) on \([-7, 11]\)</li>
+<li>\(f(x) = \cos(2x)\) on \([1, 15]\)</li>
+<li>\(f(x) = \sin(x^2)\) on \([0, 5]\)</li>
+<li>\(f(x) = \operatorname{sign} x\) on \([-1, 1]\)</li>
 </ul>
-<span class="incontext"><a href="section-piecewise-linear-interpolation.html#p-709">in-context</a></span>
+<p data-braille="continuation">Use \(20\) Chebyshev extreme points (or more if you prefer).</p>
+<span class="incontext"><a href="section-chebyshev-extreme-points.html#p-709">in-context</a></span>
 </body>
 </html>

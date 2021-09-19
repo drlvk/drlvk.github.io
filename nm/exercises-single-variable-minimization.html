@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:28-04:00    *-->
+<!--*    on 2021-09-19T19:42:01-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -415,15 +416,15 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">30.5</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-70"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-910">(Theoretical) For each of the following functions, use the derivative \(f'\) to determine if it is unimodal  on the given interval. You do not need to actually find the minimum.</p>
+<p id="p-920">(Theoretical) For each of the following functions, use the derivative \(f'\) to determine if it is unimodal  on the given interval. You do not need to actually find the minimum.</p>
 <ol class="lower-alpha">
-<li id="li-210">\(e^{-x}\sin x \) on \([1,100] \)</li>
-<li id="li-211">\(\ln(x)+10/x \) on \([1,100] \)</li>
-<li id="li-212">\(x^2 e^{x} \) on \([-10,10] \)</li>
-<li id="li-213">\(x^3 e^{x} \) on \([-10,10] \)</li>
+<li id="li-220">\(e^{-x}\sin x \) on \([1,100] \)</li>
+<li id="li-221">\(\ln(x)+10/x \) on \([1,100] \)</li>
+<li id="li-222">\(x^2 e^{x} \) on \([-10,10] \)</li>
+<li id="li-223">\(x^3 e^{x} \) on \([-10,10] \)</li>
 </ol></article><article class="exercise exercise-like" id="exercise-71"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-911">One can combine the reliability of golden section method with the speed of Newton's method as follows: start with golden section, and when the bracket becomes small (say, less than \(0.1\)), switch to Newton's method. This makes sense because once we get close to a root of \(f'\text{,}\) Newton's method converges to that specific root very quickly.</p>
-<p id="p-912">Apply the idea of previous paragraph to the minimization problem in <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a>. This means exiting the while loop sooner, and following <a class="xref" data-knowl="./knowl/example-newton-method-min.html" title="Example 30.3.1: Using Newton method for minimization">Example 30.3.1</a> after that.</p></article></section></div></main>
+<p id="p-921">One can combine the reliability of golden section method with the speed of Newton's method as follows: start with golden section, and when the bracket becomes small (say, less than \(0.1\)), switch to Newton's method. This makes sense because once we get close to a root of \(f'\text{,}\) Newton's method converges to that specific root very quickly.</p>
+<p id="p-922">Apply the idea of previous paragraph to the minimization problem in <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a>. This means exiting the while loop sooner, and following <a class="xref" data-knowl="./knowl/example-newton-method-min.html" title="Example 30.3.1: Using Newton method for minimization">Example 30.3.1</a> after that.</p></article></section></div></main>
 </div>
 </body>
 </html>

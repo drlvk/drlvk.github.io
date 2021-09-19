@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:21-04:00    *-->
+<!--*    on 2021-09-19T19:41:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -414,7 +415,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-ode-euler-improved"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">19.4</span> <span class="title">Improving Euler's method</span>
 </h2>
-<p id="p-627">By analogy with Trapezoidal rule for numerical integration, one can try to improve the accuracy by using the average of both endpoints of an interval. That is, we would like to write</p>
+<p id="p-637">By analogy with Trapezoidal rule for numerical integration, one can try to improve the accuracy by using the average of both endpoints of an interval. That is, we would like to write</p>
 <div class="displaymath">
 \begin{equation*}
 y_{k+1} = y_k + h\frac{f(t_k,y_k)+f(t_{k+1},y_{k+1})}{2} 
@@ -435,7 +436,7 @@ y_{k+1} = y_k + h\frac{f(t_k,y_k)+f(t_{k+1},\tilde y_{k+1})}{2} \label{eq-ode-co
 <p data-braille="continuation">This is one of many <dfn class="terminology">predictor-corrector</dfn> methods for solving ODE. This particular method goes by various names (modified Euler method, improved Euler method); I prefer to call it the trapezoidal method, because this name describes the logic of <a class="xref" data-knowl="./knowl/eq-ode-corrector.html" title="Equation 19.4.2">(19.4.2)</a>.</p>
 <article class="example example-like" id="example-implement-trapezoidal-ode"><a data-knowl="" class="id-ref original" data-refid="hk-example-implement-trapezoidal-ode"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">19.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Implement trapezoidal method for ODE.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-implement-trapezoidal-ode"><article class="example example-like"><p id="p-628">Modify <a class="xref" data-knowl="./knowl/example-implement-euler.html" title="Example 19.2.1: Implement Euler's method">Example 19.2.1</a> to use the trapezoidal method.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-implement-trapezoidal-ode"><article class="example example-like"><p id="p-638">Modify <a class="xref" data-knowl="./knowl/example-implement-euler.html" title="Example 19.2.1: Implement Euler's method">Example 19.2.1</a> to use the trapezoidal method.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-53" id="answer-53"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-53"><div class="answer solution-like"><pre class="code-block tex2jax_ignore">f = @(t, y) -t*y;   % or without -
 h = 0.3;   %  or 0.1, 0.01 
@@ -453,15 +454,15 @@ plot(t, y, t, exact)
 legend('trapezoid', 'exact')
 </pre></div></div>
 </div></article></div>
-<p id="p-629">Theoretical analysis of accuracy confirms the above observation that trapezoidal method is much more accurate. For the model equation \(y'=y\) it gives \(y_1 = 1+ h(1+1+h)/2 = 1+h+h^2/2\text{,}\) which matches exact solution \(e^h = 1+h+h^2/2+h^3/3\) up to \(h^3\) term. Therefore, the cumulative error is of order \(h^2\text{.}\)</p>
-<p id="p-630">A close relative is <dfn class="terminology">midpoint method</dfn>. In it the trapezoidal corrector <a class="xref" data-knowl="./knowl/eq-ode-corrector.html" title="Equation 19.4.2">(19.4.2)</a> is replaced by</p>
+<p id="p-639">Theoretical analysis of accuracy confirms the above observation that trapezoidal method is much more accurate. For the model equation \(y'=y\) it gives \(y_1 = 1+ h(1+1+h)/2 = 1+h+h^2/2\text{,}\) which matches exact solution \(e^h = 1+h+h^2/2+h^3/3\) up to \(h^3\) term. Therefore, the cumulative error is of order \(h^2\text{.}\)</p>
+<p id="p-640">A close relative is <dfn class="terminology">midpoint method</dfn>. In it the trapezoidal corrector <a class="xref" data-knowl="./knowl/eq-ode-corrector.html" title="Equation 19.4.2">(19.4.2)</a> is replaced by</p>
 <div class="displaymath">
 \begin{equation}
 y_{k+1} = y_k + hf((t_k+t_{k+1})/2, (y_k + \tilde y_{k+1})/2)\label{eq-ode-corrector-midpoint}\tag{19.4.3}
 \end{equation}
 </div>
 <p data-braille="continuation">where \(\tilde y_{k+1}\) is computed as in <a class="xref" data-knowl="./knowl/eq-ode-predictor.html" title="Equation 19.4.1">(19.4.1)</a>.</p>
-<p id="p-631">It is not so easy to improve accuracy further. There is a family of higher-order ODE solution methods (Runge-Kutta methods) of which the 4th order method is most popular; it involves several predictor-corrector steps. As with adaptive integration, one can compare the results of two methods of different orders in order to decide if the step size \(h\) should be reduced. This is what Matlab's ODE solvers do; for example, <code class="code-inline tex2jax_ignore">ode45</code> is a solver that combines a 4th order method with a 5th order method. We will use it later.</p></section></div></main>
+<p id="p-641">It is not so easy to improve accuracy further. There is a family of higher-order ODE solution methods (Runge-Kutta methods) of which the 4th order method is most popular; it involves several predictor-corrector steps. As with adaptive integration, one can compare the results of two methods of different orders in order to decide if the step size \(h\) should be reduced. This is what Matlab's ODE solvers do; for example, <code class="code-inline tex2jax_ignore">ode45</code> is a solver that combines a 4th order method with a 5th order method. We will use it later.</p></section></div></main>
 </div>
 </body>
 </html>

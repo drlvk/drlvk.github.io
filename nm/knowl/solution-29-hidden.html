@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,19 +12,29 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<pre class="code-block tex2jax_ignore">f = @(x) sin(x);
-fp = @(x) cos(x);
-
-x = linspace(0, 5, 500);
-h = 0.1;
-orig = (f(x+h) - f(x))/h;
-symm = (f(x+h) - f(x-h))/(2*h);
-extr = 2*(f(x+h) - f(x-h))/(3*h) - (f(x+2*h) - f(x-2*h))/(12*h);
-exact = fp(x);
-
-semilogy(x, abs(orig-exact), x, abs(symm-exact), x, abs(extr-exact))
-legend('original', 'symmetric', 'extrapolated')
+<p>The issue is that \(\cos x\) is close to \(1\) and we subtract it from \(1\text{.}\) The identity</p>
+<div class="displaymath">
+\begin{equation*}
+(1-\cos x)(1+\cos x) = 1-\cos^2 x = \sin^2 x
+\end{equation*}
+</div>
+<p data-braille="continuation">can be used to avoid this issue. According to it,</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1-\cos(x)}{x^2} = \frac{\sin^2(x)}{x^2(1+\cos x)}
+\end{equation*}
+</div>
+<p data-braille="continuation">There is no loss of significance in the formula on the right. Compare in Matlab:</p>
+<pre class="code-block tex2jax_ignore">f = @(x) (1-cos(x))/x^2;
+g = @(x) sin(x)^2/(x^2*(1+cos(x)));
+disp(f(1e-9))
+disp(g(1e-9))
 </pre>
-<p>The result indicates that the error is about \(10^{-1}\) for the original formula (from the definition of derivative), about \(10^{-3}\) for the symmetric formula, and about \(10^{-6}\) for the extrapolated formula.</p>
+<p>The first formula produces \(0\text{,}\) the second produces \(0.5\text{.}\) The second value is correct. Indeed,</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1-\cos(x)}{x^2} \to \frac12 \quad \text{as } x\to 0
+\end{equation*}
+</div>
 </div></body>
 </html>

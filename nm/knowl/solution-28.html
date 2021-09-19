@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,33 +14,29 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">12.5.1.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">12.4.1.1</span><span class="period">.</span>
 </h6>
-<p>The issue is that \(\cos x\) is close to \(1\) and we subtract it from \(1\text{.}\) The identity</p>
+<p>Recall from <a class="xref" data-knowl="./knowl/example-error-diff-f1-symm.html" title="Example 12.3.1: Order of error of symmmetric difference approximation to \(f'\)">Example 12.3.1</a> that the symmetric difference formula has error of order 2. Therefore, in the equation <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> we have \(2\text{.}\) The approximation \(A_1\) is the original formula</p>
 <div class="displaymath">
 \begin{equation*}
-(1-\cos x)(1+\cos x) = 1-\cos^2 x = \sin^2 x
+A_1 = \frac{f(x+h)-f(x-h)}{2h}
 \end{equation*}
 </div>
-<p data-braille="continuation">can be used to avoid this issue. According to it,</p>
+<p data-braille="continuation">To get \(A_2\) we replace \(h\) by \(2h\text{:}\)</p>
 <div class="displaymath">
 \begin{equation*}
-\frac{1-\cos(x)}{x^2} = \frac{\sin^2(x)}{x^2(1+\cos x)}
+A_2 = \frac{f(x+2h)-f(x-2h)}{4h}
 \end{equation*}
 </div>
-<p data-braille="continuation">There is no loss of significance in the formula on the right. Compare in Matlab:</p>
-<pre class="code-block tex2jax_ignore">f = @(x) (1-cos(x))/x^2;
-g = @(x) sin(x)^2/(x^2*(1+cos(x)));
-disp(f(1e-9))
-disp(g(1e-9))
-</pre>
-<p>The first formula produces \(0\text{,}\) the second produces \(0.5\text{.}\) The second value is correct. Indeed,</p>
+<p data-braille="continuation">The formula <a class="xref" data-knowl="./knowl/eq-rich-main.html" title="Equation 12.4.3">(12.4.3)</a> now tells us that</p>
 <div class="displaymath">
-\begin{equation*}
-\frac{1-\cos(x)}{x^2} \to \frac12 \quad \text{as } x\to 0
-\end{equation*}
+\begin{equation}
+f'(x) \approx 	\frac{4 A_1 - A_2}{3}
+= 2\frac{f(x+h)-f(x-h)}{3h} - \frac{f(x+2h)-f(x-2h)}{12h}\tag{12.4.4}
+\end{equation}
 </div>
+<p data-braille="continuation">which is the extrapolated approximation to \(f'(x)\text{.}\)</p>
 </div>
-<span class="incontext"><a href="examples-numerical-differentiation.html#solution-28">in-context</a></span>
+<span class="incontext"><a href="section-richardson-extrapolation.html#solution-28">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:36-04:00    *-->
+<!--*    on 2021-09-19T19:42:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,23 +14,15 @@
 <body>
 <div class="solution solution-like">
 <h6 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">10.2.1.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">9.6.4.1</span><span class="period">.</span>
 </h6>
-<p>The Jacobian matrix is</p>
-<div class="displaymath">
-\begin{equation*}
-J = \begin{pmatrix}
-2x_1e^{3x_2} \amp 3x_1^2e^{3x_2}  \\ 
-x_2-\cos(x_1+x_2^2) \amp x_1-2x_2\cos(x_1+x_2^2) 
-\end{pmatrix} 
-\end{equation*}
-</div>
-<p data-braille="continuation">As a Matlab function, it can be written as follows.</p>
-<pre class="code-block tex2jax_ignore">J = @(x) [2*x(1)*exp(3*x(2)), 3*x(1)^2*exp(3*x(2)); 
-          x(2) - cos(x(1) + x(2)^2), x(1) - 2*x(2)*cos(x(1) + x(2)^2)];
+<p>If we try <code class="code-inline tex2jax_ignore">fzero(@(x) tan(x), [1 2])</code> then the result is \(1.5708\) and no warning is shown. But with the verbose option,</p>
+<pre class="code-block tex2jax_ignore">
+options = optimset('Display', 'iter');
+fzero(@(x) tan(x), [1 2], options)
 </pre>
-<p>The linebreak between matrix rows is optional but improves readability.</p>
+<p data-braille="continuation">Matlab will display an additional statement at the end: “Current point x may be near a singular point. The interval [1, 2] reduced to the requested tolerance and the function changes sign in the interval, but f(x) increased in magnitude as the interval reduced.”</p>
 </div>
-<span class="incontext"><a href="section-multivariate-newton.html#solution-18">in-context</a></span>
+<span class="incontext"><a href="examples-newton-secant.html#solution-18">in-context</a></span>
 </body>
 </html>

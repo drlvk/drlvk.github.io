@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:16-04:00    *-->
+<!--*    on 2021-09-19T19:41:48-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -414,22 +415,22 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-lrtm-error-estimates"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">13.4</span> <span class="title">Error estimates</span>
 </h2>
-<p id="p-464">How to estimate the accuracy of integration rules? Here is an empirical method which is similar to how we estimated the accuracy of differentiation rules in <a href="section-differentiation-intro.html" class="internal" title="Section 12.1: Definition of derivative and the order of error">Section 12.1</a>.</p>
-<p id="p-465">There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
+<p id="p-474">How to estimate the accuracy of integration rules? Here is an empirical method which is similar to how we estimated the accuracy of differentiation rules in <a href="section-differentiation-intro.html" class="internal" title="Section 12.1: Definition of derivative and the order of error">Section 12.1</a>.</p>
+<p id="p-475">There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
 <ol class="decimal">
-<li id="li-134">Let \(d = 0\)</li>
-<li id="li-135">Apply the integration rule to \(f(x) = x^d\) on the interval \([0, h]\text{,}\) with the smallest possible number of evaluation points. Find the error term.</li>
-<li id="li-136">If the error term is zero, increase \(d\) by \(1\) and return to step 2.</li>
-<li id="li-137">Express the error as \(C \,d! \,h^{d+1}\) with an explicit constant \(C\text{.}\) Note that the factorial \(d!\) is here because it is the derivative of \(f\) of order \(d\text{,}\) which is the source of the error.</li>
-<li id="li-138">The error bound for a single subinterval is \(C \max |f^{(d)}|  h^{d+1}\text{.}\)</li>
-<li id="li-139">When the estimate is applied on an interval \([a,b]\) with step size \(h=(b-a)/n\text{,}\) the error estimate is multiplied by \(n\text{;}\) thus the final result is \(C \max |f^{(d)}|  (b-a)  h^d \text{.}\)</li>
+<li id="li-144">Let \(d = 0\)</li>
+<li id="li-145">Apply the integration rule to \(f(x) = x^d\) on the interval \([0, h]\text{,}\) with the smallest possible number of evaluation points. Find the error term.</li>
+<li id="li-146">If the error term is zero, increase \(d\) by \(1\) and return to step 2.</li>
+<li id="li-147">Express the error as \(C \,d! \,h^{d+1}\) with an explicit constant \(C\text{.}\) Note that the factorial \(d!\) is here because it is the derivative of \(f\) of order \(d\text{,}\) which is the source of the error.</li>
+<li id="li-148">The error bound for a single subinterval is \(C \max |f^{(d)}|  h^{d+1}\text{.}\)</li>
+<li id="li-149">When the estimate is applied on an interval \([a,b]\) with step size \(h=(b-a)/n\text{,}\) the error estimate is multiplied by \(n\text{;}\) thus the final result is \(C \max |f^{(d)}|  (b-a)  h^d \text{.}\)</li>
 </ol>
 <article class="example example-like" id="example-error-midpoint-rule"><a data-knowl="" class="id-ref original" data-refid="hk-example-error-midpoint-rule"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">The error of midpoint rule.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-midpoint-rule"><article class="example example-like"><p id="p-466">Using the process describe above, estimate the error of the midpoint rule.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-midpoint-rule"><article class="example example-like"><p id="p-476">Using the process describe above, estimate the error of the midpoint rule.</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-solution-32" id="solution-32"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-32"><div class="solution solution-like">
-<p id="p-467">The midpoint rule is exact for \(x^0\) and \(x^1\text{.}\) But for \(\int_0^h x^2\,dx\) it predicts \(\int_0^h x^2\,dx  = h^3/4\text{,}\) while the true value is \(h^3/3\text{.}\) So we stop at \(d=2\) with the error of \(h^3/12\text{,}\) which can be written as \(\dfrac{1}{24} \ 2! \ h^3\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/24\text{.}\) In conclusion, the error of the midpoint rule is at most</p>
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-33" id="solution-33"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-33"><div class="solution solution-like">
+<p id="p-477">The midpoint rule is exact for \(x^0\) and \(x^1\text{.}\) But for \(\int_0^h x^2\,dx\) it predicts \(\int_0^h x^2\,dx  = h^3/4\text{,}\) while the true value is \(h^3/3\text{.}\) So we stop at \(d=2\) with the error of \(h^3/12\text{,}\) which can be written as \(\dfrac{1}{24} \ 2! \ h^3\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/24\text{.}\) In conclusion, the error of the midpoint rule is at most</p>
 <div class="displaymath">
 \begin{equation*}
 |\text{error}| \le \frac{1}{24}\max_{[a,b]} |f''|  (b-a) h^2

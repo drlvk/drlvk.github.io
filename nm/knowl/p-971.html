@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:44-04:00    *-->
+<!--*    on 2021-09-19T19:42:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The algorithm described above works quite well, considering we are minimizing a challenging function without using any derivative information. The version of the Nelder-Mead algorithm implemented in Matlab is a little different in that it chooses between three ways of contracting a simplex (called “contract inside”, “contract outside”, “shrink”) but the main ideas are the same. To observe the process of <code class="code-inline tex2jax_ignore">fminsearch</code> optimization, run</p>
-<pre class="code-block tex2jax_ignore">
-f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
-options = optimset('Display', 'iter');
-fminsearch(f, randn(2, 1), options)   
-</pre>
-<span class="incontext"><a href="section-nelder-mead-expand.html#p-971">in-context</a></span>
+<p>One issue with the reflection-only method of <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a> is the fixed size of the triangle. With a large triangle, we will only have a rough idea of where  the minimum is when the search ends. Also, a large triangle will not detect any fine features of the landscape such as the narrow valley of Rosenbrock's function. On the other hand, a small triangle necessarily moves in small steps and is therefore slow.</p>
+<span class="incontext"><a href="section-nelder-mead-contract.html#p-971">in-context</a></span>
 </body>
 </html>

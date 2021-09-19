@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
-<ol class="decimal">
-<li>Let \(n= 0\)</li>
-<li>Plug \(f(x) = x^n\) into the formula and find the error term.</li>
-<li>If the error term is some nonzero multiple of a power of \(h\text{,}\) the exponent of \(h\) is the order of the error term.</li>
-<li>If the error term is zero, increase \(n\) by \(1\) and return to step 2.</li>
-</ol>
-<span class="incontext"><a href="section-differentiation-intro.html#p-420">in-context</a></span>
+<p>We have the same vector function to be equated to zero</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf F(\mathbf x) = \begin{pmatrix} x_1+x_2+x_3 +2  \\ 
+x_1x_2 + x_1x_3 + x_2x_3 + 7 \\
+x_1x_2x_3 + 1
+\end{pmatrix} 
+\end{equation*}
+</div>
+<p data-braille="continuation">but no longer use its Jacobian matrix. The code is modified by computing the steps as <code class="code-inline tex2jax_ignore">h = -B*F(x)</code> and updating the matrix <code class="code-inline tex2jax_ignore">B</code> according to Broyden's method.</p>
+<span class="incontext"><a href="examples-broyden.html#p-420">in-context</a></span>
 </body>
 </html>

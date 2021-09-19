@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:20-04:00    *-->
+<!--*    on 2021-09-19T19:41:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -414,14 +415,14 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-integration-general-2d"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">18.2</span> <span class="title">Double integrals over general regions</span>
 </h2>
-<p id="p-595">One way to evaluate \(\iint_D f(x, y)\,dA\) for a general region \(D\) is to define \(f\) to be \(0\) outside of \(D\text{,}\) and integrate this redefined function over some rectangle containing \(D\text{.}\) This approach is problematic because the redefined function will probably be discontinuous on the boundary of \(D\text{,}\) and discontinuities cause large errors in numerical integration rules.</p>
-<p id="p-596">Instead, one can literally adopt the iterated integration approach from calculus courses: do integration in one variable at a time. Suppose the integration is done in \(y\) variable first (“vertical slicing”). Then the limits of the inner integral will be functions of \(x\text{.}\) These functions will need to be implemented in Matlab, and will be called in a loop.</p>
+<p id="p-605">One way to evaluate \(\iint_D f(x, y)\,dA\) for a general region \(D\) is to define \(f\) to be \(0\) outside of \(D\text{,}\) and integrate this redefined function over some rectangle containing \(D\text{.}\) This approach is problematic because the redefined function will probably be discontinuous on the boundary of \(D\text{,}\) and discontinuities cause large errors in numerical integration rules.</p>
+<p id="p-606">Instead, one can literally adopt the iterated integration approach from calculus courses: do integration in one variable at a time. Suppose the integration is done in \(y\) variable first (“vertical slicing”). Then the limits of the inner integral will be functions of \(x\text{.}\) These functions will need to be implemented in Matlab, and will be called in a loop.</p>
 <article class="example example-like" id="example-rectangle-simpson-ellipse"><a data-knowl="" class="id-ref original" data-refid="hk-example-rectangle-simpson-ellipse"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">18.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Implement Simpson's rule over a non-rectangular region.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rectangle-simpson-ellipse"><article class="example example-like"><p id="p-597">Rewrite <a class="xref" data-knowl="./knowl/example-rectangle-simpson-eval.html" title="Example 18.1.2: Implement Simpson's rule over a rectangle">Example 18.1.2</a> to integrate the same function over the interior of the ellipse inscribed in the rectangle \(R = [-2,2]\times [-1,1]\text{.}\) (The ellipse with the equation \(x^2/4 + y^2 = 1\text{.}\)) Use composite Simpson's rule with \(n=4\) subintervals in both variables.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-rectangle-simpson-ellipse"><article class="example example-like"><p id="p-607">Rewrite <a class="xref" data-knowl="./knowl/example-rectangle-simpson-eval.html" title="Example 18.1.2: Implement Simpson's rule over a rectangle">Example 18.1.2</a> to integrate the same function over the interior of the ellipse inscribed in the rectangle \(R = [-2,2]\times [-1,1]\text{.}\) (The ellipse with the equation \(x^2/4 + y^2 = 1\text{.}\)) Use composite Simpson's rule with \(n=4\) subintervals in both variables.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-answer-50" id="answer-50"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-50"><div class="answer solution-like">
-<p id="p-598">We need functions for top and bottom boundaries, according to the integral structure</p>
+<p id="p-608">We need functions for top and bottom boundaries, according to the integral structure</p>
 <div class="displaymath">
 \begin{equation*}
 \int_a^b \int_{\text{bottom}}^{\text{top}} f(x, y)\,dy\,dx
@@ -449,7 +450,7 @@ end
     
 disp(innerint*w');
 </pre>
-<p id="p-599">The result is 11.8764, compared to the WolframAlpha output 12.5419. This is less accurate than what we got for rectangle. Note that all points with \(x=\pm 2\) are wasted because there is no interval to integrate over with respect to \(y\text{.}\) For this reason, open-ended rules such as Gaussian integration is preferable. Replacing the choice of <code class="code-inline tex2jax_ignore">x, w</code> above with the 3-point Gaussian rule</p>
+<p id="p-609">The result is 11.8764, compared to the WolframAlpha output 12.5419. This is less accurate than what we got for rectangle. Note that all points with \(x=\pm 2\) are wasted because there is no interval to integrate over with respect to \(y\text{.}\) For this reason, open-ended rules such as Gaussian integration is preferable. Replacing the choice of <code class="code-inline tex2jax_ignore">x, w</code> above with the 3-point Gaussian rule</p>
 <pre class="code-block tex2jax_ignore">
 x = [-sqrt(3/5) 0 sqrt(3/5)]*(b-a)/2 + (a+b)/2;
 w = [5/9 8/9 5/9]*(b-a)/2;

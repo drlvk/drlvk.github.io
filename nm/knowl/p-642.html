@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:39-04:00    *-->
+<!--*    on 2021-09-19T19:42:12-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We could solve the system <a class="xref" data-knowl="./knowl/eq-SIR-S.html" title="Equation 20.1.1">(20.1.1)</a>-<a class="xref" data-knowl="./knowl/eq-SIR-I.html" title="Equation 20.1.2">(20.1.2)</a>-<a class="xref" data-knowl="./knowl/eq-SIR-R.html" title="Equation 20.1.3">(20.1.3)</a> numerically using the methods of <a href="chapter-ode-euler.html" class="internal" title="Chapter 19: Differential equations: Euler's method and its relatives">Chapter 19</a> but to keep the focus on the modeling aspect, we use Matlab's solver <code class="code-inline tex2jax_ignore">ode45</code>. Its basic syntax is</p>
-<pre class="code-block tex2jax_ignore">
-[t, y] = ode45(rhs, [a, b], y0);  
-</pre>
-<p data-braille="continuation">where <code class="code-inline tex2jax_ignore">rhs</code> is the right hand side of the ODE system,  <code class="code-inline tex2jax_ignore">[a, b]</code> is the interval on which solution must be found, and <code class="code-inline tex2jax_ignore">y0</code> is the initial condition at the left endpoint of that interval. The initial condition can be a single number (when solving a single equation) or a vector (when solving a system). It is preferable to use a row vector for <code class="code-inline tex2jax_ignore">y0</code> when solving a system, because of how the solution is presented by <code class="code-inline tex2jax_ignore">ode45</code>: see below. Note that <code class="code-inline tex2jax_ignore">rhs</code> must take two variables in this order: <code class="code-inline tex2jax_ignore">rhs = @(t, y) ...</code> even if the system does not involve time (is autonomous). The output of function <code class="code-inline tex2jax_ignore">rhs</code> must be a column vector (it can be a single number if we are solving one equation).</p>
-<span class="incontext"><a href="section-ode-epidemiology.html#p-642">in-context</a></span>
+<p>Conceptually, any of the above methods can be directly applied to systems of \(m\) differential equations, just by interpreting \(y\) as a vector function \(\mathbf y\text{.}\) The notation becomes awkward: now \(y_2\) refer to the second component of \(\mathbf y\text{,}\) while the value \(\mathbf y(t_2)\) might be denoted \(\mathbf y_2\text{.}\) There are also a few changes in Matlab notation regarding <code class="code-inline tex2jax_ignore">y</code>: it will now be a matrix, where rows correspond to components and columns correspond to points of evaluation. The right-hand side function <code class="code-inline tex2jax_ignore">f</code> should return a column vector of the same dimesion \(m\text{.}\)</p>
+<span class="incontext"><a href="section-ode-systems.html#p-642">in-context</a></span>
 </body>
 </html>

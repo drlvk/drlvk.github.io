@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:36-04:00    *-->
+<!--*    on 2021-09-19T19:42:08-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Write a script that attempts to solve the equation \(\arctan x - 1 = 0\) using Newton's method (Note that Matlab's  notation for arctangent is <code class="code-inline tex2jax_ignore">atan</code>.) Similarly to <a class="xref" data-knowl="./knowl/example-secant-method.html" title="Example 9.3.1: Implement the secant method">Example 9.3.1</a> and <a class="xref" data-knowl="./knowl/example-solve-fixed-point-iteration.html" title="Example 8.2.1: Rewrite and solve by fixed-point iteration">Example 8.2.1</a>, the script should show the number of steps it took to find a solution, or report that it failed to converge. Allow the algorithm up to 10000 steps before giving up. As the initial point <code class="code-inline tex2jax_ignore">x0</code>, use the number formed by the first two digits of your SUID. (Note: it is expected that your script will fail to converge.)</p>
-<span class="incontext"><a href="exercises-newton-secant.html#p-356">in-context</a></span>
+<p>It is difficult to analyze the convergence of secant method in general. A representative example where such analysis can be done is \(f(x) = x + x^2\text{.}\) Find a simplified form of the function \(x - \dfrac{x-p}{f(x)-f(p)} f(x)\) and try to justify the statement that the rate of convergence is faster than linear, assuming that \(x\) and \(p\) converge to 0.</p>
+<span class="incontext"><a href="examples-newton-secant.html#p-356">in-context</a></span>
 </body>
 </html>

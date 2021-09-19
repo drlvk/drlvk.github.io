@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:42-04:00    *-->
+<!--*    on 2021-09-19T19:42:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,23 +12,17 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like"><pre class="code-block tex2jax_ignore">x = (0:14)';  
-y = [9 8 5 5 3 1 2 5 4 7 8 8 7 7 8]';
-x_train = x(1:2:end);
-y_train = y(1:2:end);
-x_test = x(2:2:end);
-y_test = y(2:2:end);
-
-d = 2;
-
-X = x_train.^(0:d);
-beta = X\y_train; 
-f = @(x) (x.^(0:d))*beta; 
+y = [9 8 5 5 3 1 2 5 4 7 8 8 7 7 8]';  % data
+d = 2;                     % degree of polynomial
+X = x.^(0:d);              % matrix of linear system for parameters
+beta = X\y;                % optimal parameters
+f = @(x) (x.^(0:d))*beta;  % best-fitting function f
 
 t = linspace(min(x), max(x), 1000)';
 plot(t, f(t), 'b', x, y, 'r*')
 
-total = norm(y_test - mean(y_test))^2;
-residual = norm(y_test - f(x_test))^2;
+total = norm(y - mean(y))^2;
+residual = norm(y - f(x))^2;
 fprintf('R^2 for degree %d is %g\n', d, 1 - residual/total);
 </pre></div></body>
 </html>

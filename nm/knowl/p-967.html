@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:44-04:00    *-->
+<!--*    on 2021-09-19T19:42:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The process of changing the shape of the triangle is <em class="emphasis">expansion</em>, which is introduced as an alternative to reflection from <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a>. Suppose that the current triangle qualifies for reflection: for example, \(C\) is the point with largest value, and \(f(R) \lt f(C)\text{.}\) Consider the possibility of replacing \(C\) with a point \(E\) that lies beyond \(R\text{,}\) thus making the triangle longer. The point \(E\) is determined by the following equation, which shows that it is as far from \(R\) as \(R\) is from the center of reflection \(M\text{:}\)</p>
+<p>Given a triangle \(ABC\) in \(xy\)-plane, we evaluate the function \(f\) at its vertices. The vertex with the largest value of \(f\) (for example, \(C\)) <em class="emphasis">might</em> get replaced by its reflection. One could imagine reflecting \(C\) about the opposite side \(AB\) by dropping a perpendicular line from \(C\) onto \(AB\) and following it. However, this kind of reflection is not invariant under linear transformations of \(xy\) plane, such as the scaling of coordinates. The Nelder-Mead method uses reflection about the midpoint of \(AB\text{.}\) The midpoint can be computed as \(M = (A+B)/2\text{,}\) and then the reflected point is</p>
 <div class="displaymath">
-\begin{equation*}
-E = R + (R-M) = 2R - M
-\end{equation*}
+\begin{equation}
+R = 2M - C \tag{33.1.1}
+\end{equation}
 </div>
-<p data-braille="continuation">If \(f(E) \lt f(R)\text{,}\) then we replace \(C\) with \(E\) rather than \(R\text{.}\) In other words, the “highest” vertex of the triangle is replaced by whichever of \(E, R\) is lower.</p>
-<span class="incontext"><a href="section-nelder-mead-expand.html#p-967">in-context</a></span>
+<span class="incontext"><a href="section-nelder-mead-reflect.html#p-967">in-context</a></span>
 </body>
 </html>

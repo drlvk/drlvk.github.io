@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:14-04:00    *-->
+<!--*    on 2021-09-19T19:41:47-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -414,7 +415,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-broyden-method"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">11.3</span> <span class="title">Details of Broyden's method</span>
 </h2>
-<p id="p-404">Recall from <a href="section-broyden-intro.html" class="internal" title="Section 11.1: Idea of Broyden's method">Section 11.1</a> that we seek to improve our guess for the inverse of Jacobian by finding a matrix \(B_1\) such that</p>
+<p id="p-414">Recall from <a href="section-broyden-intro.html" class="internal" title="Section 11.1: Idea of Broyden's method">Section 11.1</a> that we seek to improve our guess for the inverse of Jacobian by finding a matrix \(B_1\) such that</p>
 <div class="displaymath">
 \begin{equation*}
 B_1(\mathbf F(\mathbf x_1) - \mathbf F(\mathbf x_0)) = \mathbf x_1 - \mathbf x_0 
@@ -428,8 +429,8 @@ B_1 \mathbf w = \mathbf h\label{eq-B1-equation}\tag{11.3.1}
 </div>
 <article class="question example-like" id="question-22"><a data-knowl="" class="id-ref original" data-refid="hk-question-22"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">11.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Why would not an outer product work here?</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-22"><article class="question example-like"><p id="p-405">We already know how to find a matrix that satisfies <a class="xref" data-knowl="./knowl/eq-B1-equation.html" title="Equation 11.3.1">(11.3.1)</a>, by taking an outer product multiplied by a scalar <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. But this would be a bad, illogical choice for \(B_1\text{.}\) Why?</p></article></div>
-<p id="p-406">We want \(B_1\) to have some similarity to \(B_0\) in the hope that the process of improving guesses \(B_0, B_1, \dots\) will converge to something, rather than just jump around. We want to improve the previous guess, not replace it entirely. So, let \(B_1 = (I + M)B_0 = B_0 + MB_0\) where \(M\) can be constructed from an outer product as in <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. Namely, we want</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-22"><article class="question example-like"><p id="p-415">We already know how to find a matrix that satisfies <a class="xref" data-knowl="./knowl/eq-B1-equation.html" title="Equation 11.3.1">(11.3.1)</a>, by taking an outer product multiplied by a scalar <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. But this would be a bad, illogical choice for \(B_1\text{.}\) Why?</p></article></div>
+<p id="p-416">We want \(B_1\) to have some similarity to \(B_0\) in the hope that the process of improving guesses \(B_0, B_1, \dots\) will converge to something, rather than just jump around. We want to improve the previous guess, not replace it entirely. So, let \(B_1 = (I + M)B_0 = B_0 + MB_0\) where \(M\) can be constructed from an outer product as in <a class="xref" data-knowl="./knowl/eq-construct-M.html" title="Equation 11.2.2">(11.2.2)</a>. Namely, we want</p>
 <div class="displaymath">
 \begin{equation*}
 B_0 \mathbf w + M B_0 \mathbf w = \mathbf h
@@ -454,7 +455,7 @@ B_1 = B_0 + \frac{1}{\mathbf h^T \mathbf B_0 \mathbf w} (\mathbf h - B_0 \mathbf
 \end{equation*}
 </div>
 <p data-braille="continuation">It looks messy, but at least the derivation was logical.</p>
-<p id="p-407">The matrix \(B_1\) is still a guess, it may be very different from the actual inverse of Jacobian matrix. But it is a more educated guess, and as this process repeats, these repeated corrections will produce more accurate guesses.</p></section></div></main>
+<p id="p-417">The matrix \(B_1\) is still a guess, it may be very different from the actual inverse of Jacobian matrix. But it is a more educated guess, and as this process repeats, these repeated corrections will produce more accurate guesses.</p></section></div></main>
 </div>
 </body>
 </html>

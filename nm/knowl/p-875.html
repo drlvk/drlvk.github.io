@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:43-04:00    *-->
+<!--*    on 2021-09-19T19:42:15-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,18 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>High-dimensional optimization is difficult, and <code class="code-inline tex2jax_ignore">fminsearch</code> will need your help in the form of a good initial point (<code class="code-inline tex2jax_ignore">ones(9, 1)</code> is not good enough). The logistic equation <a class="xref" data-knowl="./knowl/eq-logistic-curve-shift.html" title="Equation 29.2.1">(29.2.1)</a> leads to the 9-parameter model</p>
-<div class="displaymath">
-\begin{equation}
-y = \frac{M_1}{1 + e^{-(x-a_1)/s_1}} + \frac{M_2}{1 + e^{-(x-a_2)/s_2}} + \frac{M_3}{1 + e^{-(x-a_3)/s_3}}\tag{29.4.1}
-\end{equation}
-</div>
-<p data-braille="continuation">Reasonable initial guesses would be:</p>
-<ul class="disc">
-<li>\(a_1, a_2, a_3\) are the x-values of places where the three “waves” are the steepest</li>
-<li>\(M_1, M_2, M_3\) are the sizes of the three waves (how much each of them adds to the total)</li>
-<li>\(s_1, s_2, s_3\) are about a tenth of the non-flat span of the wave.</li>
-</ul>
-<span class="incontext"><a href="exercises-nonlinear-least-squares.html#p-875">in-context</a></span>
+<p>The <code class="code-inline tex2jax_ignore">fminsearch</code> optimization includes limits on the number of function evaluations, and on the number of iterations that it can do before stopping. If you get a warning that the process stopped because of these limits, try increasing them. For example,</p>
+<pre class="code-block tex2jax_ignore">
+options = optimset('MaxFunEvals', 10000, 'MaxIter', 10000);
+opt = fminsearch(..., options);
+</pre>
+<p data-braille="continuation">The first line creates a “structure” (which would be called a “dictionary” in some languages) which records the options for the optimization algorithm.</p>
+<span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-875">in-context</a></span>
 </body>
 </html>

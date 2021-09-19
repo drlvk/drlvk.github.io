@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:42-04:00    *-->
+<!--*    on 2021-09-19T19:42:14-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>How to intepret these results? Can the model be improved by discarding some explanatory variables which fail to explain anything?</p>
-<span class="incontext"><a href="section-multiple-regression.html#p-819">in-context</a></span>
+<p>A simple but effective way to combad overfitting is to split the data into two parts: one (training set) is used to compute the coefficients \(\beta_k\text{,}\) and then another part (testing set) is used to evaluate goodness of fit. The split may be done randomly, perhaps 50:50 or 60:40 proportion. Which of the following 50:50 splits looks better?</p>
+<pre class="code-block tex2jax_ignore">
+x_train = x(1:8); 
+x_test = x(9:end);
+</pre>
+<p data-braille="continuation">(and similarly for <code class="code-inline tex2jax_ignore">y</code>) or</p>
+<pre class="code-block tex2jax_ignore">
+x_train = x(1:2:end); 
+x_test = x(2:2:end);
+</pre>
+<span class="incontext"><a href="section-overfitting.html#p-819">in-context</a></span>
 </body>
 </html>

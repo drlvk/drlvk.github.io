@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:25-04:00    *-->
+<!--*    on 2021-09-19T19:41:57-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -415,9 +416,9 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">25.5</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-61"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-776">Modify <a class="xref" data-knowl="./knowl/example-real-trigonometric-interpolation.html" title="Example 25.4.1: Interpolation by a real trigonometric polynomial">Example 25.4.1</a> to create and plot two real trigonometric polynomials \(p\) such that the values \(p(0), p(1/9), \dots, p(8/9)\) are the 9 digits of your SUID number. One polynomial should use the aliased reconstruction formula <code class="code-inline tex2jax_ignore">k = [0:(n-1)/2 (1-n)/2:-1];</code> and the other the non-aliased formula <code class="code-inline tex2jax_ignore">k = 0:n-1</code>.</p>
-<p id="p-777">The command <code class="code-inline tex2jax_ignore">subplot</code> can help display these polynomials side by side, for example <code class="code-inline tex2jax_ignore">subplot(1, 2, 1)</code> before the first plot and then <code class="code-inline tex2jax_ignore">subplot(1, 2, 2)</code> before the second. Which polynomial creates a more natural curve through given points?</p></article><article class="exercise exercise-like" id="exercise-62"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-778">Choose some complex numbers \(z_0, z_1, \dots, z_{n-1}\) (with odd \(n\)) so that connecting them in this order (and connecting \(z_{n-1}\) to \(z_0\)) one gets a closed curve similar to letter B. Then use Discrete Fourier Transform to plot a complex trigonometric polynomial interpolating these numbers. Does its plot look like letter B?</p></article></section></div></main>
+<p id="p-786">Modify <a class="xref" data-knowl="./knowl/example-real-trigonometric-interpolation.html" title="Example 25.4.1: Interpolation by a real trigonometric polynomial">Example 25.4.1</a> to create and plot two real trigonometric polynomials \(p\) such that the values \(p(0), p(1/9), \dots, p(8/9)\) are the 9 digits of your SUID number. One polynomial should use the aliased reconstruction formula <code class="code-inline tex2jax_ignore">k = [0:(n-1)/2 (1-n)/2:-1];</code> and the other the non-aliased formula <code class="code-inline tex2jax_ignore">k = 0:n-1</code>.</p>
+<p id="p-787">The command <code class="code-inline tex2jax_ignore">subplot</code> can help display these polynomials side by side, for example <code class="code-inline tex2jax_ignore">subplot(1, 2, 1)</code> before the first plot and then <code class="code-inline tex2jax_ignore">subplot(1, 2, 2)</code> before the second. Which polynomial creates a more natural curve through given points?</p></article><article class="exercise exercise-like" id="exercise-62"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-788">Choose some complex numbers \(z_0, z_1, \dots, z_{n-1}\) (with odd \(n\)) so that connecting them in this order (and connecting \(z_{n-1}\) to \(z_0\)) one gets a closed curve similar to letter B. Then use Discrete Fourier Transform to plot a complex trigonometric polynomial interpolating these numbers. Does its plot look like letter B?</p></article></section></div></main>
 </div>
 </body>
 </html>

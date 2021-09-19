@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,19 +12,19 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<pre class="code-block tex2jax_ignore">f = @(x) sin(x.^2);
-a = 1;
-b = 3;
-n = 10;
-h = (b-a)/n;
-x = a:h:b;
+<pre class="code-block tex2jax_ignore">f = @(x) sin(x);
+fp = @(x) cos(x);
 
-L = sum(f(x(1:end-1)))*h;
-R = sum(f(x(2:end)))*h;
-midpoints = (x(1:end-1) + x(2:end))/2;
-M = sum(f(midpoints))*h;
-fprintf('Leftpoint %g, Rightpoint %g, Midpoint %g\n', L, R, M);
+x = linspace(0, 5, 500);
+h = 0.1;
+orig = (f(x+h) - f(x))/h;
+symm = (f(x+h) - f(x-h))/(2*h);
+extr = 2*(f(x+h) - f(x-h))/(3*h) - (f(x+2*h) - f(x-2*h))/(12*h);
+exact = fp(x);
+
+semilogy(x, abs(orig-exact), x, abs(symm-exact), x, abs(extr-exact))
+legend('original', 'symmetric', 'extrapolated')
 </pre>
-<p>The output is “Leftpoint 0.483958, Rightpoint 0.398087, Midpoint 0.474599”. (One can check with WolframAlpha that the actual value of the integral is about 0.4633.)</p>
+<p>The result indicates that the error is about \(10^{-1}\) for the original formula (from the definition of derivative), about \(10^{-3}\) for the symmetric formula, and about \(10^{-6}\) for the extrapolated formula.</p>
 </div></body>
 </html>

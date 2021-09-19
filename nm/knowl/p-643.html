@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:39-04:00    *-->
+<!--*    on 2021-09-19T19:42:12-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The solver returns a vector of \(t\)-values and a vector or matrix of corresponding \(y\)-values. It is a matrix if we solve a system; in this case <code class="code-inline tex2jax_ignore">y(:,1)</code> approximates the first unknown function, <code class="code-inline tex2jax_ignore">y(:,2)</code> the second, and so on. The \(t\)-values are not uniformly spaced in general; they are chosen based on the behavior of the system. One can plot the solution with <code class="code-inline tex2jax_ignore">plot(t, y)</code>.</p>
-<span class="incontext"><a href="section-ode-epidemiology.html#p-643">in-context</a></span>
+<p>Solve the system</p>
+<div class="displaymath">
+\begin{align*}
+y_1' \amp = t - 3y_2\\
+y_2' \amp = 2y_1
+\end{align*}
+</div>
+<p data-braille="continuation">with initial condition \(y(0) = \begin{pmatrix}1 \\ 0\end{pmatrix}\text{,}\) on the interval \([0, 10]\) using the trapezoidal method with the step \(h=0.01\text{.}\) Plot the solution.</p>
+<span class="incontext"><a href="section-ode-systems.html#p-643">in-context</a></span>
 </body>
 </html>

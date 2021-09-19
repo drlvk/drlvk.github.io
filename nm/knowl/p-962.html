@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:44-04:00    *-->
+<!--*    on 2021-09-19T19:42:16-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>There is a way to improve the situation: instead of stopping when reflection does not work, reduce the size of triangle in half, contracting it toward the “best” vertex (the one is the with lowest value). The contraction map is \(f(x) = (x+b)/2\) where \(b\) is the vertex toward which we contract. This reflection-contraction method needs a stopping criterion, so it does not run forever. We can stop when the triangle becomes very small, with vertices getting close to one another.</p>
-<span class="incontext"><a href="section-nelder-mead-contract.html#p-962">in-context</a></span>
+<p>Compare the search path to what we get without correction in <code class="code-inline tex2jax_ignore">w</code>: it is less zigzagging. However, if we use the original Rosenbrock function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> which is very far from quadratic or convex, the search diverges to infinity. Several other correction terms (different choices for \(\gamma\) coefficient) have been proposed for the nonlinear conjugate gradient method. But it appears that the “narrow valley” landscape of the Rosenbrock function is best navigated either by using both first and second order derivatives (the Newton method) or by using no derivatives at all (the Nelder-Mead method, to be considered later).</p>
+<span class="incontext"><a href="section-conjugate-gradient.html#p-962">in-context</a></span>
 </body>
 </html>

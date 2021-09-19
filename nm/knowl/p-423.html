@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The importance of the order of error can be illustrated by an example. Suppose we want to find \(f'(x)\) with absolute error at most \(10^{-12}\text{.}\)</p>
-<ul class="disc">
-<li>If the error term of our formula is \(h^1\text{,}\) we need to use extremely small \(h\text{;}\) that is \(|h|\le 10^{-12}\text{.}\)</li>
-<li>If the error term is \(h^2\text{,}\) we need \(|h|\le 10^{-6}\) which is still small but not as extreme.</li>
-<li>If the error term is \(h^3\text{,}\) we need \(|h|\le 10^{-4}\text{.}\)</li>
-<li>If the error term is \(h^4\text{,}\) we need \(|h|\le 10^{-3}\text{.}\)</li>
-</ul>
-<p data-braille="continuation">Thus, a higher-order formula should allow us to obtain an accurate result while avoidung extremely small values of \(h\text{.}\) But why do we want to avoid extremely small \(h\text{?}\) This is explained in next section.</p>
-<span class="incontext"><a href="section-differentiation-intro.html#p-423">in-context</a></span>
+<p>The initial point <code class="code-inline tex2jax_ignore">[1; 2; 3]</code> seems unfortunately chosen in <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>, because if we start with <code class="code-inline tex2jax_ignore">[1; 1; 1]</code> instead, the method converges much faster: in 37 steps. Recall that for Newton's method this initial point did not work at all. What makes the difference?</p>
+<span class="incontext"><a href="examples-broyden.html#p-423">in-context</a></span>
 </body>
 </html>

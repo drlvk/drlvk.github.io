@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:11-04:00    *-->
+<!--*    on 2021-09-19T19:41:43-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -442,10 +443,10 @@ x_1 -2 x_2 + 3x_3 - x_4 \amp =  -3  \\
 \end{cases}
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-15"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-259">Write a function <code class="code-inline tex2jax_ignore">linearfit</code> that takes arguments <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">y</code> (vectors of the same size) and returns two numbers <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>, coefficients of the best-fitting line \(y=cx+d\text{.}\) Then apply it to the population of your hometown during years 1980, 1985, ..., 2010, 2015. (The data should be easy to find online; if not, use a larger nearby town). The code could look like this.</p>
-<pre class="code-block tex2jax_ignore">x =  (1980:5:2015)';  % years, transposed to a column vector  
-y =                % population of your hometown in these years 
-[c, d] = linearfit(x, y);            % find the coefficient of linear fit
+<p id="p-259">Write a function <code class="code-inline tex2jax_ignore">linearfit</code> that takes arguments <code class="code-inline tex2jax_ignore">x</code> and <code class="code-inline tex2jax_ignore">y</code> (vectors of the same size) and returns two numbers <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>, coefficients of the best-fitting line \(y=cx+d\text{.}\) Then apply it to the population of your hometown during years 1950, 1960, ..., 2010, 2020. (The data should be easy to find online; if not, use a larger nearby town). The code could look like this.</p>
+<pre class="code-block tex2jax_ignore">x =  (1950:10:2020)';  % years as a column vector
+y =                    % population of your hometown in these years 
+[c, d] = linearfit(x, y);            % find the coefficients of linear fit
 xx = linspace(min(x), max(x), 500);  % to be used for plotting the line
 plot(x, y, 'r*', xx, c*xx + d, 'b')  % plot red points and blue line
 

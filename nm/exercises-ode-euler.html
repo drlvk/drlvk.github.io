@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:21-04:00    *-->
+<!--*    on 2021-09-19T19:41:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -165,10 +165,11 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and secant method</span></a><ul>
+<a href="chapter-newton-secant.html" data-scroll="chapter-newton-secant"><span class="codenumber">9</span> <span class="title">Newton's method and its relatives</span></a><ul>
 <li><a href="section-newton-method-intro.html" data-scroll="section-newton-method-intro">Newton's method</a></li>
 <li><a href="section-newton-method-issues.html" data-scroll="section-newton-method-issues">Potential issues with Newton's method</a></li>
 <li><a href="section-secant-method.html" data-scroll="section-secant-method">The secant method</a></li>
+<li><a href="section-fzero-algorithm.html" data-scroll="section-fzero-algorithm">How <code class="code-inline tex2jax_ignore">fzero</code> works</a></li>
 <li><a href="section-relaxation-parameter.html" data-scroll="section-relaxation-parameter">The relaxation parameter</a></li>
 <li><a href="examples-newton-secant.html" data-scroll="examples-newton-secant">Examples and questions</a></li>
 <li><a href="exercises-newton-secant.html" data-scroll="exercises-newton-secant">Homework</a></li>
@@ -415,8 +416,8 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">19.6</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-46"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-636">(Theoretical) Rewrite the second-order equation \(y'' + yy' - ty^3 = e^{-t}\) as a system of two first-order equations.</p></article><article class="exercise exercise-like" id="exercise-47"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-637">Use the <em class="emphasis">midpoint method</em> <a class="xref" data-knowl="./knowl/eq-ode-corrector-midpoint.html" title="Equation 19.4.3">(19.4.3)</a> with step size \(h=0.01\) to solve the autonomous system</p>
+<p id="p-646">(Theoretical) Rewrite the second-order equation \(y'' + yy' - ty^3 = e^{-t}\) as a system of two first-order equations.</p></article><article class="exercise exercise-like" id="exercise-47"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-647">Use the <em class="emphasis">midpoint method</em> <a class="xref" data-knowl="./knowl/eq-ode-corrector-midpoint.html" title="Equation 19.4.3">(19.4.3)</a> with step size \(h=0.01\) to solve the autonomous system</p>
 <div class="displaymath">
 \begin{align*}
 y_1' \amp = y_2\\

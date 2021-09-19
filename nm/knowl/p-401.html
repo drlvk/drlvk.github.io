@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:09-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The result should be: rank is 1, and the determinant is some extremely small (but nonzero) number, for example <code class="code-inline tex2jax_ignore">3.2391e-69</code>. Mathematically this is impossible: a 5<span class="times-sign">×</span>5 matrix of rank less than 5 must have determinant equal to 0. But the reality of computer arithmetic is that floating point numbers rarely add up exactly to zero, as noted in <a href="section-round-off.html" class="internal" title="Section 6.4: The effect of round-off errors">Section 6.4</a>. Matlab's <code class="code-inline tex2jax_ignore">rank</code> command takes this into account and reports the rank as 1 when the matrix is “close enough” to actually having rank 1.</p>
-<span class="incontext"><a href="section-broyden-linear-algebra.html#p-401">in-context</a></span>
+<p>At which of the following points \((x,y,z)\) is the Jacobian matrix from the previous exercise  invertible?</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} 1\\1\\1\end{pmatrix}, \begin{pmatrix} 3\\1\\5\end{pmatrix},  \begin{pmatrix} 2\\1\\2\end{pmatrix}
+\end{equation*}
+</div>
+<p data-braille="continuation">To save time,  use Matlab: define an anonymous function like <code class="code-inline tex2jax_ignore">J = @(x,y,z) [... ; ... ; ...]</code> so that you can then do <code class="code-inline tex2jax_ignore">rank(J(1,1,1))</code> and so on, without computing the matrices yourself. Note the difference between this approach to J and the approach of <a href="section-multivariate-newton.html" class="internal" title="Section 10.2: Multivariate Newton's method">Section 10.2</a>: here the function <code class="code-inline tex2jax_ignore">J</code> takes three scalar arguments, instead of one vector argument.</p>
+<span class="incontext"><a href="exercises-multivariate-newton.html#p-401">in-context</a></span>
 </body>
 </html>

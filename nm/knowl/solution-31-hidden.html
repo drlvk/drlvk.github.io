@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:37-04:00    *-->
+<!--*    on 2021-09-19T19:42:10-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,24 +12,19 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<pre class="code-block tex2jax_ignore">f = @(x) exp(x);
-a = -1;
-b = 1;
+<pre class="code-block tex2jax_ignore">f = @(x) sin(x.^2);
+a = 1;
+b = 3;
 n = 10;
 h = (b-a)/n;
 x = a:h:b;
-y = f(x);
 
-L = sum(y(1:end-1))*h;
-R = sum(y(2:end))*h;
-T = (y(1) + y(end)) * h/2 + sum(y(2:end-1))*h; 
+L = sum(f(x(1:end-1)))*h;
+R = sum(f(x(2:end)))*h;
 midpoints = (x(1:end-1) + x(2:end))/2;
 M = sum(f(midpoints))*h;
-
-exact = exp(1)-exp(-1);
-er = abs([L R T M] - exact);
-fprintf('Errors: Leftpoint %g, Rightpoint %g, Trapezoidal %g, Midpoint %g\n', er);
+fprintf('Leftpoint %g, Rightpoint %g, Midpoint %g\n', L, R, M);
 </pre>
-<p>Here <code class="code-inline tex2jax_ignore">fprintf</code> “unpacks” the vector <code class="code-inline tex2jax_ignore">er</code>, inserting its entries in the right places.</p>
+<p>The output is “Leftpoint 0.483958, Rightpoint 0.398087, Midpoint 0.474599”. (One can check with WolframAlpha that the actual value of the integral is about 0.4633.)</p>
 </div></body>
 </html>

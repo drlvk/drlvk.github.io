@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-13T19:17:40-04:00    *-->
+<!--*    on 2021-09-19T19:42:12-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We previously encountered Legendre and Laguerre polynomials. Chebyshev polynomials are another family of orthogonal polynomials which is useful in numerical methods, especially for interpolation. One of their attractive features is that there is a simple explicit formula for their roots and extrema, in contrast to the other orthogonal polynomials that we studied. These polynomials are important tools for interpolation and approximation of functions.</p>
-<span class="incontext"><a href="chapter-chebyshev.html#p-679">in-context</a></span>
+<p>The double loop computes the weights <code class="code-inline tex2jax_ignore">w</code> which do not involve the argument of the interpolating polynomial <code class="code-inline tex2jax_ignore">p</code>. This argument is called <code class="code-inline tex2jax_ignore">t</code> because <code class="code-inline tex2jax_ignore">x</code> is already used for the data points. The interval for plotting is chosen to contain the given x-values with a small margin on both sides: this helps both visualization and evaluation, because we avoid plugging in \(t = x_1, x_n\text{.}\) The barycentric evaluation of the polynomial is vectorized. When <code class="code-inline tex2jax_ignore">t</code> is a scalar, <code class="code-inline tex2jax_ignore">t - x'</code> is a column vector. Taking reciprocals element-wise gives another column vector. Dot-product with <code class="code-inline tex2jax_ignore">w</code> or <code class="code-inline tex2jax_ignore">y.*w</code> implements the sums such as \(\sum_{k=1}^n w_k/(t-x_k)\text{.}\)</p>
+<span class="incontext"><a href="section-lagrange-polynomial.html#p-679">in-context</a></span>
 </body>
 </html>
