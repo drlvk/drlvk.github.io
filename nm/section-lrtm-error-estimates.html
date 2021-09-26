@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:41:48-04:00    *-->
+<!--*    on 2021-09-26T17:24:36-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,8 +415,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-lrtm-error-estimates"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">13.4</span> <span class="title">Error estimates</span>
 </h2>
-<p id="p-474">How to estimate the accuracy of integration rules? Here is an empirical method which is similar to how we estimated the accuracy of differentiation rules in <a href="section-differentiation-intro.html" class="internal" title="Section 12.1: Definition of derivative and the order of error">Section 12.1</a>.</p>
-<p id="p-475">There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
+<p id="p-475">How to estimate the accuracy of integration rules? Here is an empirical method which is similar to how we estimated the accuracy of differentiation rules in <a href="section-differentiation-intro.html" class="internal" title="Section 12.1: Definition of derivative and the order of error">Section 12.1</a>.</p>
+<p id="p-476">There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
 <ol class="decimal">
 <li id="li-144">Let \(d = 0\)</li>
 <li id="li-145">Apply the integration rule to \(f(x) = x^d\) on the interval \([0, h]\text{,}\) with the smallest possible number of evaluation points. Find the error term.</li>
@@ -427,10 +427,10 @@ MathJax.Hub.Config({
 </ol>
 <article class="example example-like" id="example-error-midpoint-rule"><a data-knowl="" class="id-ref original" data-refid="hk-example-error-midpoint-rule"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">The error of midpoint rule.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-midpoint-rule"><article class="example example-like"><p id="p-476">Using the process describe above, estimate the error of the midpoint rule.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-midpoint-rule"><article class="example example-like"><p id="p-477">Using the process describe above, estimate the error of the midpoint rule.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-33" id="solution-33"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-33"><div class="solution solution-like">
-<p id="p-477">The midpoint rule is exact for \(x^0\) and \(x^1\text{.}\) But for \(\int_0^h x^2\,dx\) it predicts \(\int_0^h x^2\,dx  = h^3/4\text{,}\) while the true value is \(h^3/3\text{.}\) So we stop at \(d=2\) with the error of \(h^3/12\text{,}\) which can be written as \(\dfrac{1}{24} \ 2! \ h^3\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/24\text{.}\) In conclusion, the error of the midpoint rule is at most</p>
+<p id="p-478">The midpoint rule is exact for \(x^0\) and \(x^1\text{.}\) But for \(\int_0^h x^2\,dx\) it predicts \(\int_0^h x^2\,dx  = h^3/4\text{,}\) while the true value is \(h^3/3\text{.}\) So we stop at \(d=2\) with the error of \(h^3/12\text{,}\) which can be written as \(\dfrac{1}{24} \ 2! \ h^3\text{.}\) Therefore, the constant factor in the error formula: is \(C=1/24\text{.}\) In conclusion, the error of the midpoint rule is at most</p>
 <div class="displaymath">
 \begin{equation*}
 |\text{error}| \le \frac{1}{24}\max_{[a,b]} |f''|  (b-a) h^2

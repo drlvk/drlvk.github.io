@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:41:54-04:00    *-->
+<!--*    on 2021-09-26T17:24:42-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,7 +415,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-lagrange-polynomial"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">21.2</span> <span class="title">Lagrange interpolating polynomial</span>
 </h2>
-<p id="p-675">Thinking of the set of all polynomials of degree less than \(n\) is a vector space of dimension \(n\text{,}\) we should realize this space may have a better basis for our task than \(x^0, x^1, \dots, x^{n-1}\text{.}\) Given interpolation data \((x_k, y_k)\) with \(k=1, \dots, n\text{,}\) we can construct one such basis as follows. The <dfn class="terminology">Lagrange basis polynomials</dfn> are</p>
+<p id="p-677">Thinking of the set of all polynomials of degree less than \(n\) is a vector space of dimension \(n\text{,}\) we should realize this space may have a better basis for our task than \(x^0, x^1, \dots, x^{n-1}\text{.}\) Given interpolation data \((x_k, y_k)\) with \(k=1, \dots, n\text{,}\) we can construct one such basis as follows. The <dfn class="terminology">Lagrange basis polynomials</dfn> are</p>
 <div class="displaymath">
 \begin{equation}
 \ell_k (x) = \prod_{j\ne k} \frac{x-x_j}{x_k-x_j} \label{eq-lagrange-basis}\tag{21.2.1}
@@ -430,8 +430,8 @@ p(x) = \sum_{k=1}^n y_k\ell_k(x) \label{eq-lagrange-poly}\tag{21.2.2}
 <p data-braille="continuation">which obviously satisfies \(p(x_k)=y_k\text{.}\) The coefficients of interpolating polynomial in this basis are just the given \(y\)-values.</p>
 <article class="question example-like" id="question-34"><a data-knowl="" class="id-ref original" data-refid="hk-question-34"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">21.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Sum of Lagrange basis polynomials.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-34"><article class="question example-like"><p id="p-676">What is the sum of all Lagrange basis polynomials, that is, \(\ell_1+\ell_2+\cdots+\ell_n\text{?}\)</p></article></div>
-<p id="p-677">For the sake of efficiency and numerical stability, the evaluation of \(p\) can be arranged as follows. Since the denominators in <a class="xref" data-knowl="./knowl/eq-lagrange-basis.html" title="Equation 21.2.1">(21.2.1)</a> do not involve \(x\text{,}\) they can be computed in advance. Introduce “barycentric weights”</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-34"><article class="question example-like"><p id="p-678">What is the sum of all Lagrange basis polynomials, that is, \(\ell_1+\ell_2+\cdots+\ell_n\text{?}\)</p></article></div>
+<p id="p-679">For the sake of efficiency and numerical stability, the evaluation of \(p\) can be arranged as follows. Since the denominators in <a class="xref" data-knowl="./knowl/eq-lagrange-basis.html" title="Equation 21.2.1">(21.2.1)</a> do not involve \(x\text{,}\) they can be computed in advance. Introduce “barycentric weights”</p>
 <div class="displaymath">
 \begin{equation}
 w_k = \prod_{j\ne k} (x_k-x_j)^{-1} \label{eq-barycentric-weights}\tag{21.2.3}
@@ -453,13 +453,13 @@ p(x) = \frac{\sum_{k=1}^n y_k w_k(x-x_k)^{-1}}{ \sum_{k=1}^n w_k (x-x_k)^{-1} } 
 <p data-braille="continuation">The idea of computing a polynomial as the quotient of two rational functions is counterintuitive. But the formula <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a> wins over the original formula <a class="xref" data-knowl="./knowl/eq-lagrange-poly.html" title="Equation 21.2.2">(21.2.2)</a> in terms of numerical stability and computational speed, because it avoids a large number of multiplications involving \((x-x_j)\) for every point \(x\text{.}\) A slight disadvantage of <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a> is that one cannot plug in \(x=x_k\) into <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a>, but we know that \(p(x_k)=y_k\) anyway.</p>
 <article class="example example-like" id="example-lagrange-polynomial"><a data-knowl="" class="id-ref original" data-refid="hk-example-lagrange-polynomial"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">21.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Plot the Lagrange polynomial through 10 points.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lagrange-polynomial"><article class="example example-like"><p id="p-678">Plot the Lagrange polynomial each of the following data sets:</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lagrange-polynomial"><article class="example example-like"><p id="p-680">Plot the Lagrange polynomial each of the following data sets:</p>
 <ol class="lower-alpha">
 <li id="li-167">the points \((k, \sin k)\text{,}\) \(k=1, \dots, 10\text{;}\)</li>
 <li id="li-168">the points with \(x_k\) as above, and \(y_k\) chosen randomly from the standard normal distribution.</li>
 </ol>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-57" id="answer-57"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-57"><div class="answer solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-58" id="answer-58"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-58"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">n = 10;
 x = 1:n;
 y = sin(x);  % or y = randn(1, n);
@@ -476,8 +476,8 @@ p = @(t) (y.*w*(t - x').^(-1)) ./ (w*(t - x').^(-1));
 t = linspace(min(x)-0.01, max(x)+0.01, 1000);
 plot(t, p(t), x, y, 'r*')
 </pre>
-<p id="p-679">The double loop computes the weights <code class="code-inline tex2jax_ignore">w</code> which do not involve the argument of the interpolating polynomial <code class="code-inline tex2jax_ignore">p</code>. This argument is called <code class="code-inline tex2jax_ignore">t</code> because <code class="code-inline tex2jax_ignore">x</code> is already used for the data points. The interval for plotting is chosen to contain the given x-values with a small margin on both sides: this helps both visualization and evaluation, because we avoid plugging in \(t = x_1, x_n\text{.}\) The barycentric evaluation of the polynomial is vectorized. When <code class="code-inline tex2jax_ignore">t</code> is a scalar, <code class="code-inline tex2jax_ignore">t - x'</code> is a column vector. Taking reciprocals element-wise gives another column vector. Dot-product with <code class="code-inline tex2jax_ignore">w</code> or <code class="code-inline tex2jax_ignore">y.*w</code> implements the sums such as \(\sum_{k=1}^n w_k/(t-x_k)\text{.}\)</p>
-<p id="p-680">How does <code class="code-inline tex2jax_ignore">p</code> accept a row vector as <code class="code-inline tex2jax_ignore">t</code>? The expression <code class="code-inline tex2jax_ignore">t - x'</code> is the difference of a row vector and a column vector; in Matlab this creates a matrix where \((i, j)\) entry is \(t_j - x_i\text{.}\) Subsequent operations proceed as above, and the result is a row vector of values \(p(t)\text{.}\)</p>
+<p id="p-681">The double loop computes the weights <code class="code-inline tex2jax_ignore">w</code> which do not involve the argument of the interpolating polynomial <code class="code-inline tex2jax_ignore">p</code>. This argument is called <code class="code-inline tex2jax_ignore">t</code> because <code class="code-inline tex2jax_ignore">x</code> is already used for the data points. The interval for plotting is chosen to contain the given x-values with a small margin on both sides: this helps both visualization and evaluation, because we avoid plugging in \(t = x_1, x_n\text{.}\) The barycentric evaluation of the polynomial is vectorized. When <code class="code-inline tex2jax_ignore">t</code> is a scalar, <code class="code-inline tex2jax_ignore">t - x'</code> is a column vector. Taking reciprocals element-wise gives another column vector. Dot-product with <code class="code-inline tex2jax_ignore">w</code> or <code class="code-inline tex2jax_ignore">y.*w</code> implements the sums such as \(\sum_{k=1}^n w_k/(t-x_k)\text{.}\)</p>
+<p id="p-682">How does <code class="code-inline tex2jax_ignore">p</code> accept a row vector as <code class="code-inline tex2jax_ignore">t</code>? The expression <code class="code-inline tex2jax_ignore">t - x'</code> is the difference of a row vector and a column vector; in Matlab this creates a matrix where \((i, j)\) entry is \(t_j - x_i\text{.}\) Subsequent operations proceed as above, and the result is a row vector of values \(p(t)\text{.}\)</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

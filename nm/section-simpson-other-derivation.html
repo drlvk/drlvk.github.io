@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:41:49-04:00    *-->
+<!--*    on 2021-09-26T17:24:37-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,8 +415,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-simpson-other-derivation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">14.2</span> <span class="title">Other derivations of Simpson's rule</span>
 </h2>
-<p id="p-493">A simple way to arrive at Simpson's rule is to observe that Midpoint rule and Trapezoidal rule have errors of opposite signs due to concavity. This suggests averaging them to improve the accuracy. But the simple average \((M+T)/2\) would not achieve much because the error of midpoint rule is about half of the error of trapezoidal rule, according to the estimates in <a href="chapter-trapezoid-midpoint.html" class="internal" title="Chapter 13: Numerical integration: basic rules">Chapter 13</a>. Instead, the weighted average \((2M+T)/3\) is used, giving weight \(2/3\) to Midpoint and \(1/3\) to Trapezoidal. The result is Simpson's rule.</p>
-<p id="p-494">But historically Simpson's rule was derived from <em class="emphasis">parabolic interpolation</em>, following the same line of reasoning that produces Trapezoid rule from <em class="emphasis">linear interpolation</em>. For simplicity, consider a function \(f\) on the interval \([-1, 1]\text{.}\) We are looking for a parabola \(g(x) = Ax^2+Bx+C\) that agrees with \(f\) at three points \(-1, 0, 1\text{.}\) This can be done by observing that</p>
+<p id="p-494">A simple way to arrive at Simpson's rule is to observe that Midpoint rule and Trapezoidal rule have errors of opposite signs due to concavity. This suggests averaging them to improve the accuracy. But the simple average \((M+T)/2\) would not achieve much because the error of midpoint rule is about half of the error of trapezoidal rule, according to the estimates in <a href="chapter-trapezoid-midpoint.html" class="internal" title="Chapter 13: Numerical integration: basic rules">Chapter 13</a>. Instead, the weighted average \((2M+T)/3\) is used, giving weight \(2/3\) to Midpoint and \(1/3\) to Trapezoidal. The result is Simpson's rule.</p>
+<p id="p-495">But historically Simpson's rule was derived from <em class="emphasis">parabolic interpolation</em>, following the same line of reasoning that produces Trapezoid rule from <em class="emphasis">linear interpolation</em>. For simplicity, consider a function \(f\) on the interval \([-1, 1]\text{.}\) We are looking for a parabola \(g(x) = Ax^2+Bx+C\) that agrees with \(f\) at three points \(-1, 0, 1\text{.}\) This can be done by observing that</p>
 <ul class="disc">
 <li id="li-150">\(\displaystyle C=g(0)=f(0)\)</li>
 <li id="li-151">\(\displaystyle 2B=g(1)-g(-1)=f(1)-f(-1)\)</li>

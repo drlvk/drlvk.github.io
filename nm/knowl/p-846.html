@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:15-04:00    *-->
+<!--*    on 2021-09-26T17:25:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,27 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When we solve an overdetermined linear system \(Az=b\) as <code class="code-inline tex2jax_ignore">z = A\b</code>, the result is the least squares solution which minimizes the sum</p>
-<div class="displaymath">
-\begin{equation}
-\sum_k ((Az)_k-b_k)^2\tag{28.3.1}
-\end{equation}
-</div>
-<p data-braille="continuation">(the penalty). For example, the difference of \(0.1\) between \((Az)_k\) and \(b_k\) contributes \(0.01\) to the penalty, no matter what \(k\) is. But in some contexts we may want to treat different data points differently:</p>
-<ul class="disc">
-<li>We are more certain about some of the numbers \(b_k\) than others.</li>
-<li>Some of the numbers are much larger than others, and we expect the absolute errors for them to be larger.</li>
-<li>We applied some transformation to the data, like in the previous sections.</li>
-</ul>
-<p data-braille="continuation">In such cases we may want to introduce <em class="emphasis">weights</em> \(w_k\) (some positive numbers) and minimize the sum</p>
-<div class="displaymath">
-\begin{equation}
-\sum_k ((Az)_k-b_k)^2 w_k^2\tag{28.3.2}
-\end{equation}
-</div>
-<p data-braille="continuation">instead of <a class="xref" data-knowl="./knowl/eq-penalty-lsq.html" title="Equation 28.3.1">(28.3.1)</a>. Larger weights mean that we penalize the residuals (the differences between the model and the data) more. To solve this <em class="emphasis">weighted least squares</em> problem in Matlab, we need to multiply the first equation in \(Az=b\) by \(w_1\text{,}\) the second by \(w_2\text{,}\) and so on. To do this, arrange the weights into a column vector <code class="code-inline tex2jax_ignore">w</code> and let</p>
-<pre class="code-block tex2jax_ignore">z = (A.*w)\(b.*w);</pre>
-<p data-braille="continuation">The array operations <code class="code-inline tex2jax_ignore">.*</code> take care of multiplying each equation by its weight.</p>
-<span class="incontext"><a href="section-weighted-least-squares.html#p-846">in-context</a></span>
+<p>Here the logistic function is written as \(1/(1+\exp(-\beta_1 - \beta_2 x))\) with parameters \(\beta_1, \beta_2\) contained in the vector <code class="code-inline tex2jax_ignore">beta</code>.</p>
+<span class="incontext"><a href="section-example-logistic-fit.html#p-846">in-context</a></span>
 </body>
 </html>

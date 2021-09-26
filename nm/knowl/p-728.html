@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:13-04:00    *-->
+<!--*    on 2021-09-26T17:25:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The <em class="emphasis">knots</em> of a spline are the transition points where it turns from one polynomial to another. These are often, but not always, the points \(x_k\) from the given data. Requiring \(S'''\) to be continuous at \(x_2\) implies we have the same polynomial on both intervals \([x_1, x_2]\) and \([x_2, x_3]\) (why?), and therefore \(x_2\) is <em class="emphasis">not a knot</em> for this spline. Same for \(x_{n-1}\text{.}\) The not-a-knot condition is the standard choice when we do not have any reason to impose other conditions.</p>
+<p>This terminology needs some explanation. The word <a class="external" href="https://en.wikipedia.org/wiki/Flat_spline" target="_blank">spline</a> used to refer to a long thin strip of flexible material (e.g., metal) which, if constrained at several points, assumes the shape of a smooth curve passing through these points. Unlike an elastic band which minimizes its length (creating a piecewise linear shape), the spline minimizes its <em class="emphasis">bending energy</em>. A mathematical idealization of the bending energy of a curve \(y=f(x)\) is the integral \(\int_a^b f''(x)^2\,dx\text{.}\) It can be shown that among <em class="emphasis">all functions</em> (of whatever form) that satisfy the constraints \(f(x_k)=y_k\text{,}\) the “natural spline” has the smallest value of \(\int_a^b f''(x)^2\,dx\text{.}\) This attractive mathematical property earned it the “natural” name… but upon further reflection, the boundary conditions \(S''(a) = 0 = S''(b)\) are actually not that natural. If we are interpolating some smooth function \(y=f(x)\text{,}\) there is no reason to assume that \(f''\) happens to be \(0\) at the endpoints.</p>
 <span class="incontext"><a href="section-cubic-splines.html#p-728">in-context</a></span>
 </body>
 </html>

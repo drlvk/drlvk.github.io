@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:14-04:00    *-->
+<!--*    on 2021-09-26T17:25:01-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,21 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The same approach works for interpolating real-valued data with a trigonometric function. The main difference is in plotting the real-valued periodic function: we want the horizontal axis to represent \(t\) while the vertical axis shows the values of the function.</p>
+<p>A key term here is <dfn class="terminology">aliasing</dfn>, which is the fact that different trigonometric (or complex exponential) functions may coincide when restricted to a discrete grid of points (<a class="external" href="https://commons.wikimedia.org/wiki/File:AliasingSines.svg" target="_blank">illustration</a>). Specifically,</p>
+<div class="displaymath">
+\begin{equation*}
+\exp(2\pi i k t)  = \exp(2\pi i (k-n) t), \quad t = 0, 1/n, 2/n, \dots, 1
+\end{equation*}
+</div>
+<p data-braille="continuation">In order to avoid extraneous oscillations we should subtract \(n\) from large elements of the vector <code class="code-inline tex2jax_ignore">k = 0:n-1</code> above, so that instead of</p>
+<pre class="code-block tex2jax_ignore">
+k = [0 1 2 3 4 5 6 7 8];
+</pre>
+<p data-braille="continuation">we have</p>
+<pre class="code-block tex2jax_ignore">
+k = [0 1 2 3 4 -4 -3 -2 -1];
+</pre>
+<p data-braille="continuation">Replacing <code class="code-inline tex2jax_ignore">k = 0:n-1</code> in the above code with <code class="code-inline tex2jax_ignore">k = [0:(n-1)/2 (1-n)/2:-1];</code> corrects the issue.</p>
 <span class="incontext"><a href="section-trigonometric-interpolation.html#p-782">in-context</a></span>
 </body>
 </html>

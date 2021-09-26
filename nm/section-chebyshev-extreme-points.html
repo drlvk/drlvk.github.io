@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:41:55-04:00    *-->
+<!--*    on 2021-09-26T17:24:43-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,9 +415,9 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-chebyshev-extreme-points"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">22.3</span> <span class="title">Chebyshev extreme points</span>
 </h2>
-<p id="p-705"><a class="xref" data-knowl="./knowl/chebroots1-png.html" title="Figure 22.2.2">Figure 22.2.2</a> involves the <em class="emphasis">midpoints</em> of equal arcs, which should remind us of the Midpoint Rule. There is a parallel  “trapezoidal” story, in which we consider the <em class="emphasis">endpoints</em> of all these arcs and give half the weight to the smallest and largest.</p>
+<p id="p-707"><a class="xref" data-knowl="./knowl/chebroots1-png.html" title="Figure 22.2.2">Figure 22.2.2</a> involves the <em class="emphasis">midpoints</em> of equal arcs, which should remind us of the Midpoint Rule. There is a parallel  “trapezoidal” story, in which we consider the <em class="emphasis">endpoints</em> of all these arcs and give half the weight to the smallest and largest.</p>
 <figure class="figure figure-like" id="cheb-points-2-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/chebpoints2.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">22.3.1<span class="period">.</span></span><span class="space"> </span>Chebyshev points of the second kind</figcaption></figure><p id="p-706">These projections are called “Chebyshev extreme points” or “Chebyshev points of the second kind”. Explicitly, they are</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">22.3.1<span class="period">.</span></span><span class="space"> </span>Chebyshev points of the second kind</figcaption></figure><p id="p-708">These projections are called “Chebyshev extreme points” or “Chebyshev points of the second kind”. Explicitly, they are</p>
 <div class="displaymath">
 \begin{equation}
 x_k = \cos(\pi k/n) \quad \text{where } k=0, 1, \dots, n\label{eq-chebyshev-extrema}\tag{22.3.1}
@@ -428,8 +428,8 @@ x_k = \cos(\pi k/n) \quad \text{where } k=0, 1, \dots, n\label{eq-chebyshev-extr
 x = cos(linspace(0, pi, n+1));
 </pre>
 <p data-braille="continuation">While the midpoint projections (Chebyshev points of the first kind) are the <em class="emphasis">roots</em> of polynomials \(T_n\text{,}\) the points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> are the <em class="emphasis">extreme points</em> of \(T_n\text{.}\) Indeed, the identity <a class="xref" data-knowl="./knowl/eq-chebyshev-cosine.html" title="Equation 22.2.2">(22.2.2)</a> says that \(T_n\) attains extreme values \(\pm 1\) when \(\cos (n\theta) = \pm 1\text{,}\) hence \(\theta = \pi k/n\text{,}\) hence \(x = \cos(\pi k/n)\text{.}\)</p>
-<p id="p-707">Note that in this section, unlike the previous ones, we have \(n+1\) points of interpolation, rather than \(n\text{.}\) This is more convenient notation-wise, similarly to how the Trapezoidal rule with \(n\) subintervals uses \(n+1\) points of evaluation, while the Midpoint rule with the same subintervals uses \(n\) points.</p>
-<p id="p-708">An advantage of using Chebyshev extreme points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> as the points of interpolation is that one does not need to compute the weights like we did in <a class="xref" data-knowl="./knowl/example-lagrange-polynomial-chebyshev.html" title="Example 22.2.3: An interpolating polynomial using Chebyshev points">Example 22.2.3</a>. For this specific choice of points, the weights in the barycentric formula <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a> turn out to be</p>
+<p id="p-709">Note that in this section, unlike the previous ones, we have \(n+1\) points of interpolation, rather than \(n\text{.}\) This is more convenient notation-wise, similarly to how the Trapezoidal rule with \(n\) subintervals uses \(n+1\) points of evaluation, while the Midpoint rule with the same subintervals uses \(n\) points.</p>
+<p id="p-710">An advantage of using Chebyshev extreme points <a class="xref" data-knowl="./knowl/eq-chebyshev-extrema.html" title="Equation 22.3.1">(22.3.1)</a> as the points of interpolation is that one does not need to compute the weights like we did in <a class="xref" data-knowl="./knowl/example-lagrange-polynomial-chebyshev.html" title="Example 22.2.3: An interpolating polynomial using Chebyshev points">Example 22.2.3</a>. For this specific choice of points, the weights in the barycentric formula <a class="xref" data-knowl="./knowl/eq-lagrange-poly-barycentric.html" title="Equation 21.2.5">(21.2.5)</a> turn out to be</p>
 <div class="displaymath">
 \begin{equation}
 w_k = (-1)^k   \quad \text{except } w_0=1/2, w_n = (-1)^n/2\label{eq-weights-chebyshev}\tag{22.3.2}
@@ -450,7 +450,7 @@ x_k = \frac{b-a}{2}  \cos(\pi k/n) + \frac{a+b}{2}
 <p data-braille="continuation">Note that the function \(p\) is in fact a polynomial of degree \(n\text{,}\) even if the formula does not look like it. The straightforward way of expressing a polynomial of high degree, as a sum of powers with constant coefficients, is likely to cause numerical issues (see <a href="section-monomial-basis.html" class="internal" title="Section 21.1: Interpolation in the monomial basis">Section 21.1</a>), while the barycentric formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> is numerically stable.</p>
 <article class="example example-like" id="example-chebyshev-extreme-interpolation"><a data-knowl="" class="id-ref original" data-refid="hk-example-chebyshev-extreme-interpolation"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">22.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Interpolate through Chebyshev extreme points.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-chebyshev-extreme-interpolation"><article class="example example-like"><p id="p-709">Use the formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> to interpolate a few functions such as</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-chebyshev-extreme-interpolation"><article class="example example-like"><p id="p-711">Use the formula <a class="xref" data-knowl="./knowl/eq-chebyshev-interp-extreme.html" title="Equation 22.3.3">(22.3.3)</a> to interpolate a few functions such as</p>
 <ul class="disc">
 <li id="li-175">\(f(x) = 1/(x^2+1)\) on \([-5, 5]\)</li>
 <li id="li-176">\(f(x) = \tan^{-1} x\) on \([-7, 11]\)</li>
@@ -460,7 +460,7 @@ x_k = \frac{b-a}{2}  \cos(\pi k/n) + \frac{a+b}{2}
 </ul>
 <p data-braille="continuation">Use \(20\) Chebyshev extreme points (or more if you prefer).</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-answer-62" id="answer-62"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-62"><div class="answer solution-like">
+<a data-knowl="" class="id-ref original" data-refid="hk-answer-63" id="answer-63"><span class="type">Answer</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-63"><div class="answer solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) 1./(x.^2+1);  % or another f 
 n = 19;   % there will be n+1 = 20 points
 a = -5;   % or another a
@@ -475,7 +475,7 @@ p = @(t) (y.*w*(t - x').^(-1)) ./ (w*(t - x').^(-1));
 t = linspace(a-0.01, b+0.01, 1000);
 plot(x, y, 'k*', t, f(t), 'r', t, p(t), 'b')
 </pre>
-<p id="p-710">The plot includes the points of interpolation as black asterisks, the original function is a red curve, and the interpolating polynomial as a blue curve. Often the blue curve follows the red one so precisely that it covers it completely.</p>
+<p id="p-712">The plot includes the points of interpolation as black asterisks, the original function is a red curve, and the interpolating polynomial as a blue curve. Often the blue curve follows the red one so precisely that it covers it completely.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

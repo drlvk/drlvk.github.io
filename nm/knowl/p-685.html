@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:12-04:00    *-->
+<!--*    on 2021-09-26T17:25:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Plot the Newton polynomial for the points \((k, \arctan k)\text{,}\) \(k=-5, \dots, 5\text{.}\) Then repeat with 5 replaced by 8.</p>
+<p>This repeats: we start with <code class="code-inline tex2jax_ignore">c=y</code> and repeat the subtract-and-divide step to turn its term into the coefficients of the Newton polynomial.</p>
+<pre class="code-block tex2jax_ignore">
+c = y;
+for k=2:n
+    c(k:n) = (c(k:n)-c(k-1))./(x(k:n)-x(k-1))
+end
+</pre>
+<p data-braille="continuation">At the end of the loop, the vector <code class="code-inline tex2jax_ignore">c</code> contains the coefficients of Newton polynomial.</p>
 <span class="incontext"><a href="section-newton-polynomial.html#p-685">in-context</a></span>
 </body>
 </html>

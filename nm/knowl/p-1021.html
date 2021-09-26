@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:17-04:00    *-->
+<!--*    on 2021-09-26T17:25:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,11 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Rephrasing this as the minimization of \(-x_1-x_2\text{,}\) we see that the coefficient vector should be <code class="code-inline tex2jax_ignore">[-1 -1]</code>. Executing</p>
+<p>In Matlab, the problem <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a> is solved with</p>
 <pre class="code-block tex2jax_ignore">
-linprog([-1; -1], [1 2; 3 1], [4; 5])
+x = linprog(c, A, b)
 </pre>
-<p data-braille="continuation">yields <code class="code-inline tex2jax_ignore">[1.2; 1.4]</code>. (Try to visualize this problem and its solution.)</p>
+<p data-braille="continuation">which returns the optimal \(\mathbf x\text{.}\) One can get the optimal value of objective function with <code class="code-inline tex2jax_ignore">c'*x</code>.</p>
 <span class="incontext"><a href="section-linear-programming-introduction.html#p-1021">in-context</a></span>
 </body>
 </html>

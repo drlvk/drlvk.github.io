@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:12-04:00    *-->
+<!--*    on 2021-09-26T17:25:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -11,24 +11,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">n = 10;
-x = 1:n;
-y = sin(x);  % or y = randn(1, n);
-w = ones(1, n);
-for k = 1:n
-    for j = 1:n
-        if j ~= k
-            w(k) = w(k)/(x(k)-x(j));
-        end
-    end
+<body><div class="answer solution-like">In the code below, <code class="code-inline tex2jax_ignore">c</code> is a vector of coefficients; the ellipsis notation allows it to by split between lines for readability (without …, a linebreak would be understood as the beginning of a new row of a matrix).<pre class="code-block tex2jax_ignore">c = [1, -105, 5145, -156065, 3277365, -50471421, 588833245, -5299499205, ...
+    37096494435, -201969803035, 848273172747, -2699051004195, 6297785676455, ...
+    -10173346092735, 10173346092735, -4747561509943];
+d = 15;
+x = linspace(6, 8, 1000);
+p = zeros(size(x));
+for k=1:d+1
+    p = p + c(k)*x.^(d+1-k);
 end
-
-p = @(t) (y.*w*(t - x').^(-1)) ./ (w*(t - x').^(-1));
-t = linspace(min(x)-0.01, max(x)+0.01, 1000);
-plot(t, p(t), x, y, 'r*')
+subplot(1, 2, 1)
+plot(x, p)
+subplot(1, 2, 2)
+plot(x, (x-7).^15)
 </pre>
-<p>The double loop computes the weights <code class="code-inline tex2jax_ignore">w</code> which do not involve the argument of the interpolating polynomial <code class="code-inline tex2jax_ignore">p</code>. This argument is called <code class="code-inline tex2jax_ignore">t</code> because <code class="code-inline tex2jax_ignore">x</code> is already used for the data points. The interval for plotting is chosen to contain the given x-values with a small margin on both sides: this helps both visualization and evaluation, because we avoid plugging in \(t = x_1, x_n\text{.}\) The barycentric evaluation of the polynomial is vectorized. When <code class="code-inline tex2jax_ignore">t</code> is a scalar, <code class="code-inline tex2jax_ignore">t - x'</code> is a column vector. Taking reciprocals element-wise gives another column vector. Dot-product with <code class="code-inline tex2jax_ignore">w</code> or <code class="code-inline tex2jax_ignore">y.*w</code> implements the sums such as \(\sum_{k=1}^n w_k/(t-x_k)\text{.}\)</p>
-<p>How does <code class="code-inline tex2jax_ignore">p</code> accept a row vector as <code class="code-inline tex2jax_ignore">t</code>? The expression <code class="code-inline tex2jax_ignore">t - x'</code> is the difference of a row vector and a column vector; in Matlab this creates a matrix where \((i, j)\) entry is \(t_j - x_i\text{.}\) Subsequent operations proceed as above, and the result is a row vector of values \(p(t)\text{.}\)</p>
+<p>There is a catastrophic loss of significance here. If one uses <code class="code-inline tex2jax_ignore">p = polyval(c, x)</code>, the result is not much better, even though this command tries to avoid the loss of significance. Expanding this polynomial in the monomial basis is numerically unwise.</p>
 </div></body>
 </html>

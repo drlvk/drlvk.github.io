@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:12-04:00    *-->
+<!--*    on 2021-09-26T17:24:59-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>A close relative is <dfn class="terminology">midpoint method</dfn>. In it the trapezoidal corrector <a class="xref" data-knowl="./knowl/eq-ode-corrector.html" title="Equation 19.4.2">(19.4.2)</a> is replaced by</p>
-<div class="displaymath">
-\begin{equation}
-y_{k+1} = y_k + hf((t_k+t_{k+1})/2, (y_k + \tilde y_{k+1})/2)\tag{19.4.3}
-\end{equation}
-</div>
-<p data-braille="continuation">where \(\tilde y_{k+1}\) is computed as in <a class="xref" data-knowl="./knowl/eq-ode-predictor.html" title="Equation 19.4.1">(19.4.1)</a>.</p>
+<p>Theoretical analysis of accuracy confirms the above observation that trapezoidal method is much more accurate. For the model equation \(y'=y\) it gives \(y_1 = 1+ h(1+1+h)/2 = 1+h+h^2/2\text{,}\) which matches exact solution \(e^h = 1+h+h^2/2+h^3/3\) up to \(h^3\) term. Therefore, the cumulative error is of order \(h^2\text{.}\)</p>
 <span class="incontext"><a href="section-ode-euler-improved.html#p-640">in-context</a></span>
 </body>
 </html>

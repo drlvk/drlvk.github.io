@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:17-04:00    *-->
+<!--*    on 2021-09-26T17:25:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> works only for functions of two variables but it can be adapted for \(n\)-dimensional optimization. Instead of the initial triangle</p>
+<p>The algorithm described above works quite well, considering we are minimizing a challenging function without using any derivative information. The version of the Nelder-Mead algorithm implemented in Matlab is a little different in that it chooses between three ways of contracting a simplex (called “contract inside”, “contract outside”, “shrink”) but the main ideas are the same. To observe the process of <code class="code-inline tex2jax_ignore">fminsearch</code> optimization, run</p>
 <pre class="code-block tex2jax_ignore">
-A = randn(2, 1);
-B = A + [1; 0];
-C = A + [0; 1];
-T = [A B C];
+f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
+options = optimset('Display', 'iter');
+fminsearch(f, randn(2, 1), options)   
 </pre>
-<p data-braille="continuation">we create initial \(n\)-dimensional simplex using implicit array expansion:</p>
-<pre class="code-block tex2jax_ignore">
-A = randn(n, 1);
-T = [A A+eye(n)];
-</pre>
-<p data-braille="continuation">The search path will be <code class="code-inline tex2jax_ignore">path = zeros(n, max_tries)</code> which we will only use for visualization when \(n=2, 3\text{.}\)</p>
-<span class="incontext"><a href="section-nelder-mead-ndim.html#p-983">in-context</a></span>
+<span class="incontext"><a href="section-nelder-mead-expand.html#p-983">in-context</a></span>
 </body>
 </html>

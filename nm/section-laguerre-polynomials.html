@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:41:50-04:00    *-->
+<!--*    on 2021-09-26T17:24:38-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,11 +415,11 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-laguerre-polynomials"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">15.3</span> <span class="title">Laguerre polynomials</span>
 </h2>
-<p id="p-521">In an earlier homework we found that finding integrals of the form \(\int_0^\infty f(x)\,dx\) is hard: we had to pick some large upper limit \(b\) (mostly by guessing) to replace the infinite upper limit. Otherwise, there was no way to choose evaluation points by placing them at equal distances throughout the interval.</p>
-<p id="p-522">But now we have a way of choosing evaluation points differently, as roots of orthogonal polynomials. So we can try to integrate on an infinite interval by using orthogonal polynomials on such an interval.</p>
-<p id="p-523">However, on an infinite interval we cannot define the inner product of polynomials in the sense of the integral \(\int_0^\infty fg\text{,}\) the integral will diverge. Instead we define dot product as \(\int_0^\infty f(x)g(x)e^{-x}\,dx\text{,}\) introducing a <dfn class="terminology">weight</dfn> \(e^{-x}\) which allows the integral to converge. This way we can build orthogonal polynomials: for example, \(1\) and \(1-x\) are orthogonal (check).</p>
-<p id="p-524">The <dfn class="terminology">Laguerre polynomial</dfn> of degree \(n\text{,}\) denoted \(L_n\text{,}\) is the unique \(n\)-th degree polynomial such that \(\int_0^\infty x^k L_n(x)e^{-x}\,dx = 0\) for \(k =0, 1, \dots, n-1\text{,}\) and \(L_n(0)=1\text{.}\) Note that \(\int_0^\infty Q(x)P_n(x)e^{-x}\,dx = 0\) for every polynomial \(Q\) with degree \(\deg Q&lt; n\text{.}\)</p>
-<p id="p-525">Similarly to Legendre polynomials, the Laguerre polynomials have a recursive  formula:</p>
+<p id="p-522">In an earlier homework we found that finding integrals of the form \(\int_0^\infty f(x)\,dx\) is hard: we had to pick some large upper limit \(b\) (mostly by guessing) to replace the infinite upper limit. Otherwise, there was no way to choose evaluation points by placing them at equal distances throughout the interval.</p>
+<p id="p-523">But now we have a way of choosing evaluation points differently, as roots of orthogonal polynomials. So we can try to integrate on an infinite interval by using orthogonal polynomials on such an interval.</p>
+<p id="p-524">However, on an infinite interval we cannot define the inner product of polynomials in the sense of the integral \(\int_0^\infty fg\text{,}\) the integral will diverge. Instead we define dot product as \(\int_0^\infty f(x)g(x)e^{-x}\,dx\text{,}\) introducing a <dfn class="terminology">weight</dfn> \(e^{-x}\) which allows the integral to converge. This way we can build orthogonal polynomials: for example, \(1\) and \(1-x\) are orthogonal (check).</p>
+<p id="p-525">The <dfn class="terminology">Laguerre polynomial</dfn> of degree \(n\text{,}\) denoted \(L_n\text{,}\) is the unique \(n\)-th degree polynomial such that \(\int_0^\infty x^k L_n(x)e^{-x}\,dx = 0\) for \(k =0, 1, \dots, n-1\text{,}\) and \(L_n(0)=1\text{.}\) Note that \(\int_0^\infty Q(x)P_n(x)e^{-x}\,dx = 0\) for every polynomial \(Q\) with degree \(\deg Q&lt; n\text{.}\)</p>
+<p id="p-526">Similarly to Legendre polynomials, the Laguerre polynomials have a recursive  formula:</p>
 <div class="displaymath">
 \begin{equation}
 L_{n+1}(x) = \frac{(2n+1-x) L_n(x) - n L_{n-1}(x)}{n+1}\label{eq-laguerre-recursion}\tag{15.3.1}
@@ -428,10 +428,10 @@ L_{n+1}(x) = \frac{(2n+1-x) L_n(x) - n L_{n-1}(x)}{n+1}\label{eq-laguerre-recurs
 <p data-braille="continuation">which can be used to compute them starting with \(L_0(x)=1\) and \(L_1(x)=1-x\text{.}\)</p>
 <article class="example example-like" id="example-80"><a data-knowl="" class="id-ref original" data-refid="hk-example-80"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">15.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Using the recursive formula for Laguerre polynomials.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-80"><article class="example example-like"><p id="p-526">Using the formula <a class="xref" data-knowl="./knowl/eq-laguerre-recursion.html" title="Equation 15.3.1">(15.3.1)</a>, find the polynomials \(L_n\) for \(n=2, 3\text{.}\) What are their roots?</p></article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-80"><article class="example example-like"><p id="p-527">Using the formula <a class="xref" data-knowl="./knowl/eq-laguerre-recursion.html" title="Equation 15.3.1">(15.3.1)</a>, find the polynomials \(L_n\) for \(n=2, 3\text{.}\) What are their roots?</p></article></div>
 <article class="question example-like" id="question-30"><a data-knowl="" class="id-ref original" data-refid="hk-question-30"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">15.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of Laguerre polynomials.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-30"><article class="question example-like"><p id="p-527">What patterns in the polynomials \(L_n\) do you observe on the basis of the examples computed above?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-30"><article class="question example-like"><p id="p-528">What patterns in the polynomials \(L_n\) do you observe on the basis of the examples computed above?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:41:50-04:00    *-->
+<!--*    on 2021-09-26T17:24:38-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,14 +415,14 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-gauss-legendre"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">16.2</span> <span class="title">Gauss-Legendre integration</span>
 </h2>
-<p id="p-541">The <dfn class="terminology">Gauss-Legendre integration rule</dfn> is to let the evaluation points \(x_1,\dots, x_n\) be the roots of \(P_n\) and then choose their weights \(w_1,\dots, w_n\) so that the rule</p>
+<p id="p-542">The <dfn class="terminology">Gauss-Legendre integration rule</dfn> is to let the evaluation points \(x_1,\dots, x_n\) be the roots of \(P_n\) and then choose their weights \(w_1,\dots, w_n\) so that the rule</p>
 <div class="displaymath">
 \begin{equation*}
 \int_{-1}^1 f(x)\,dx \approx \sum_{k=1}^n w_k f(x_k)
 \end{equation*}
 </div>
 <p data-braille="continuation">is exact for \(f(x)=x^p\text{,}\) \(p=0,\dots,n-1\text{.}\) The second part is not new; this is exactly what we did for Newton-Cotes rules. But with this specific choice of evaluation points, the integration rule is exact for all polynomials of degrees \(\le 2n-1\text{,}\) not just \(\le n-1\text{.}\) This means the Gauss-Legendre integration has order of accuracy \(2n\text{:}\) for example, it has order \(14\) if we use 7 points.</p>
-<p id="p-542"><em class="emphasis">Proof</em>. Given a polynomial \(F\) of degree \(\le 2n-1\text{,}\) use long division of polynomials to write it as \(F = Q P_n +R\) with \(Q\) and \(R\) having degree \(\le n-1\) (why is this possible?). Plug this into the integral:</p>
+<p id="p-543"><em class="emphasis">Proof</em>. Given a polynomial \(F\) of degree \(\le 2n-1\text{,}\) use long division of polynomials to write it as \(F = Q P_n +R\) with \(Q\) and \(R\) having degree \(\le n-1\) (why is this possible?). Plug this into the integral:</p>
 <div class="displaymath">
 \begin{equation*}
 \int_{-1}^1 F(x)\,dx = \int_{-1}^1 (Q(x) P_n(x) +R(x))\,dx = \int_{-1}^1 R(x)\,dx 
@@ -440,15 +440,15 @@ MathJax.Hub.Config({
 \int_{-1}^1 F(x)\,dx = \sum_{k=1}^n w_k F(x_k)
 \end{equation*}
 </div>
-<p id="p-543">It turns out the Gauss-Legendre integration rule has the best possible order of accuracy. That is, there is no integration rule with \(n\) evaluation points that is exact for all polynomials of degrees \(\le 2n\text{.}\) Indeed, suppose such a rule exists, with some evaluation points \(x_1, \dots, x_n\text{.}\) Let \(F(x) = (x-x_1)^2 \cdots (x-x_n)^2\) which is a polynomial of degree \(2n\text{.}\) Since \(F(x_k)=0\) for every \(k\text{,}\) the evaluation rule will produce \(0\text{,}\) no matter what the weights. But \(\int_{-1}^1 F(x)\,dx &gt; 0\) because \(F &gt; 0\) in between the evaluation points.</p>
-<p id="p-544">Another nice feature of the integration rules based on orthogonal polynomials is that all weights \(w_k\) are positive (unlike in the Newton-Cotes rules, which may give negative weights to some points). To see why, consider the polynomial \(G(x) = F(x)/(x-x_k)^2\) where \(F\) is as in the previous paragraph. Since \((x-x_k)^2\) cancels out, \(G\) is a polynomial of degree \(2n-2\text{.}\) Therefore, the integration rule is exact for it:</p>
+<p id="p-544">It turns out the Gauss-Legendre integration rule has the best possible order of accuracy. That is, there is no integration rule with \(n\) evaluation points that is exact for all polynomials of degrees \(\le 2n\text{.}\) Indeed, suppose such a rule exists, with some evaluation points \(x_1, \dots, x_n\text{.}\) Let \(F(x) = (x-x_1)^2 \cdots (x-x_n)^2\) which is a polynomial of degree \(2n\text{.}\) Since \(F(x_k)=0\) for every \(k\text{,}\) the evaluation rule will produce \(0\text{,}\) no matter what the weights. But \(\int_{-1}^1 F(x)\,dx &gt; 0\) because \(F &gt; 0\) in between the evaluation points.</p>
+<p id="p-545">Another nice feature of the integration rules based on orthogonal polynomials is that all weights \(w_k\) are positive (unlike in the Newton-Cotes rules, which may give negative weights to some points). To see why, consider the polynomial \(G(x) = F(x)/(x-x_k)^2\) where \(F\) is as in the previous paragraph. Since \((x-x_k)^2\) cancels out, \(G\) is a polynomial of degree \(2n-2\text{.}\) Therefore, the integration rule is exact for it:</p>
 <div class="displaymath">
 \begin{equation*}
 \int_{-1}^1 G(x)\,dx = w_k G(x_k)
 \end{equation*}
 </div>
 <p data-braille="continuation">where the right hand side has just one term because \(G(x_j)=0\) for all indices \(j\ne k\text{.}\) Since \(G\) is a square, the left hand side is positive and \(G(x_k)\) is also positive. Hence \(w_k &gt; 0\text{.}\)</p>
-<p id="p-545">Since these integration rules are exact for the constant function \(f(x)=1\) (a polynomial of degree 0), we have \(\sum_{k=1}^n w_k = \int_{-1}^1 1\,dx = 2\text{.}\) As a consequence, all weights are between \(0\) and \(2\text{.}\)</p></section></div></main>
+<p id="p-546">Since these integration rules are exact for the constant function \(f(x)=1\) (a polynomial of degree 0), we have \(\sum_{k=1}^n w_k = \int_{-1}^1 1\,dx = 2\text{.}\) As a consequence, all weights are between \(0\) and \(2\text{.}\)</p></section></div></main>
 </div>
 </body>
 </html>

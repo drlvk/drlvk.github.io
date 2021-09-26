@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:13-04:00    *-->
+<!--*    on 2021-09-26T17:25:00-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -12,20 +12,22 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="answer solution-like">
-<pre class="code-block tex2jax_ignore">f = @(x) 1./(x.^2+1);  % or another f 
-n = 19;   % there will be n+1 = 20 points
-a = -5;   % or another a
-b = 5;    % or another b
-
-x = cos(linspace(0, pi, n+1)) * (b-a)/2 + (a+b)/2;  % Chebyshev extreme points
-y = f(x);
-w = (-1).^(0:n);             % simple formula for weights
-w([1 end]) = w([1 end])/2;   % trapezoidal adjustment 
+<p>The only change to <a class="xref" data-knowl="./knowl/example-lagrange-polynomial.html" title="Example 21.2.2: Plot the Lagrange polynomial through 10 points">Example 21.2.2</a> is replacing the x-coordinates.</p>
+<pre class="code-block tex2jax_ignore">n = 10;
+x = cos((2*(1:n)-1)*pi/(2*n)); 
+y = randn(1, n);
+w = ones(1, n);
+for k = 1:n
+    for j = 1:n
+        if j ~= k
+            w(k) = w(k)/(x(k)-x(j));
+        end
+    end
+end
 
 p = @(t) (y.*w*(t - x').^(-1)) ./ (w*(t - x').^(-1));
-t = linspace(a-0.01, b+0.01, 1000);
-plot(x, y, 'k*', t, f(t), 'r', t, p(t), 'b')
+t = linspace(min(x)-0.01, max(x)+0.01, 1000);
+plot(t, p(t), x, y, 'r*')
 </pre>
-<p>The plot includes the points of interpolation as black asterisks, the original function is a red curve, and the interpolating polynomial as a blue curve. Often the blue curve follows the red one so precisely that it covers it completely.</p>
 </div></body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:15-04:00    *-->
+<!--*    on 2021-09-26T17:25:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In practice, trying to minimize a function by solving <a class="xref" data-knowl="./knowl/eq-critical-points-eq.html" title="Equation 29.1.4">(29.1.4)</a> is not the most productive approach: there are probably many critical points, some of them saddle points, and some of them may be points of local maximum rather than minimum. It is better to search for a minimum directly, which is a problem of <dfn class="terminology">multivariable optimization</dfn>. We will study optimization in the last part of this course. For now, we'll use the built-in Matlab tool <code class="code-inline tex2jax_ignore">fminsearch</code>, the underlying principle of which (the Nelder-Mead method) will be considered later.</p>
+<p>Suppose we observe population growth over time, and expect that it should be governed by a differential equation of the form</p>
+<div class="displaymath">
+\begin{equation}
+y' = ry(1-y/M)\tag{29.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">which means the growth, initially exponential, is eventually constrained by the <dfn class="terminology">carrying capacity</dfn> \(M\text{.}\) The general solution of <a class="xref" data-knowl="./knowl/eq-logistic-ode-growth.html" title="Equation 29.1.1">(29.1.1)</a> is</p>
+<div class="displaymath">
+\begin{equation}
+y = \frac{M}{1 + Ae^{-rx}}\tag{29.1.2}
+\end{equation}
+</div>
+<p data-braille="continuation">where \(A\) depends on the initial condition. In practice, we do not know the values of \(A, M, r\) but we can try to estimate them by fitting a function of type <a class="xref" data-knowl="./knowl/eq-general-logistic-curve.html" title="Equation 29.1.2">(29.1.2)</a> to observations \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{.}\) It seems impossible to transform the data in a way that will make all three parameters linear (logit transformation works only if \(M\) is known).</p>
 <span class="incontext"><a href="section-nls-motivation.html#p-865">in-context</a></span>
 </body>
 </html>

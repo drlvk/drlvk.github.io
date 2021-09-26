@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:42:15-04:00    *-->
+<!--*    on 2021-09-26T17:25:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Since the choice of initial point is an important step, we need a way to choose reasonable values of the parameters. To do this, let us take a closer look at the logistic curve <a class="xref" data-knowl="./knowl/eq-general-logistic-curve.html" title="Equation 29.1.2">(29.1.2)</a>. The meaning of parameter \(A\) is not very intuitive, which motivates the following  <em class="emphasis">equivalent form</em> of the function:</p>
-<div class="displaymath">
-\begin{equation}
-y = \frac{M}{1 + e^{-(x-a)/s}}\tag{29.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">Note that this curve is obtained from the <dfn class="terminology">standard logistic function</dfn></p>
-<div class="displaymath">
-\begin{equation*}
-\sigma(x) = \frac{1}{1+e^{-x}}
-\end{equation*}
-</div>
-<p data-braille="continuation">with</p>
-<ul class="disc">
-<li>vertical stretching by factor \(M\text{;}\)</li>
-<li>shift to the right by \(a\) units;</li>
-<li>horizontal stretching by factor \(s\text{.}\)</li>
-</ul>
-<p data-braille="continuation">(<a class="external" href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank">Reference and plot</a>.)</p>
+<p>As most numerical methods, <code class="code-inline tex2jax_ignore">fminsearch</code> may fail at its task:</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) exp(x), 0)  
+</pre>
+<p data-braille="continuation">returns “-786.4315” (there are no points of minimum, of course), while</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) x^3 - x, 4)
+</pre>
+<p data-braille="continuation">overlooks the local minimum at \(x = 1/\sqrt{3}\) and diverges to negative infinity. The success is much more likely if the initial point is chosen with some care. In case of fitting a curve to data, one should try to guess the signs and approximate sizes of the parameters.</p>
 <span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-869">in-context</a></span>
 </body>
 </html>

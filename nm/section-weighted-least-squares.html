@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-19T19:41:59-04:00    *-->
+<!--*    on 2021-09-26T17:24:47-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,7 +415,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-weighted-least-squares"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">28.3</span> <span class="title">Weighted least squares</span>
 </h2>
-<p id="p-846">When we solve an overdetermined linear system \(Az=b\) as <code class="code-inline tex2jax_ignore">z = A\b</code>, the result is the least squares solution which minimizes the sum</p>
+<p id="p-848">When we solve an overdetermined linear system \(Az=b\) as <code class="code-inline tex2jax_ignore">z = A\b</code>, the result is the least squares solution which minimizes the sum</p>
 <div class="displaymath">
 \begin{equation}
 \sum_k ((Az)_k-b_k)^2\label{eq-penalty-lsq}\tag{28.3.1}
@@ -436,8 +436,8 @@ MathJax.Hub.Config({
 <p data-braille="continuation">instead of <a class="xref" data-knowl="./knowl/eq-penalty-lsq.html" title="Equation 28.3.1">(28.3.1)</a>. Larger weights mean that we penalize the residuals (the differences between the model and the data) more. To solve this <em class="emphasis">weighted least squares</em> problem in Matlab, we need to multiply the first equation in \(Az=b\) by \(w_1\text{,}\) the second by \(w_2\text{,}\) and so on. To do this, arrange the weights into a column vector <code class="code-inline tex2jax_ignore">w</code> and let</p>
 <pre class="code-block tex2jax_ignore">z = (A.*w)\(b.*w);</pre>
 <p data-braille="continuation">The array operations <code class="code-inline tex2jax_ignore">.*</code> take care of multiplying each equation by its weight.</p>
-<p id="p-847">Weights can be used to mitigate the distortion caused by data transformation of the form \(\hat y = T(y)\text{.}\) Indeed, the application of \(T\) magnifies the errors around \(y=y_k\) by the factor of \(|T'(y_k)|\text{.}\) If this is undesirable, we should use the weights \(w_k = 1/|T'(y_k)|\) to compensate.</p>
-<p id="p-848">In <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> we used the logit transformation \(T(y) = \log(y/(1-y)) = \log(y) - \log(1-y)\text{.}\) Its derivative is</p>
+<p id="p-849">Weights can be used to mitigate the distortion caused by data transformation of the form \(\hat y = T(y)\text{.}\) Indeed, the application of \(T\) magnifies the errors around \(y=y_k\) by the factor of \(|T'(y_k)|\text{.}\) If this is undesirable, we should use the weights \(w_k = 1/|T'(y_k)|\) to compensate.</p>
+<p id="p-850">In <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> we used the logit transformation \(T(y) = \log(y/(1-y)) = \log(y) - \log(1-y)\text{.}\) Its derivative is</p>
 <div class="displaymath">
 \begin{equation*}
 T'(y) = \frac{1}{y} + \frac{1}{1-y} = \frac{1}{y(1-y)}\text{.}
@@ -446,10 +446,10 @@ T'(y) = \frac{1}{y} + \frac{1}{1-y} = \frac{1}{y(1-y)}\text{.}
 <p data-braille="continuation">This is a positive quantity, so we do not need absolute value; the weights are simply \(w_k = y_k(1-y_k)\text{.}\)</p>
 <article class="example example-like" id="example-weighted-fit-logistic"><a data-knowl="" class="id-ref original" data-refid="hk-example-weighted-fit-logistic"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">28.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Use weighted least squares to fit a logistic function.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-weighted-fit-logistic"><article class="example example-like"><p id="p-849">Improve the solution of <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> by using weights to compensate for data transformation. Compare the results to the previous ones.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-weighted-fit-logistic"><article class="example example-like"><p id="p-851">Improve the solution of <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> by using weights to compensate for data transformation. Compare the results to the previous ones.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-45" id="solution-45"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-45"><div class="solution solution-like">
-<p id="p-850">We continue the code from <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> by adding the following lines.</p>
+<p id="p-852">We continue the code from <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> by adding the following lines.</p>
 <pre class="code-block tex2jax_ignore">w = y.*(1-y);            % weights 
 beta = (X.*w)\(yt.*w);   % weighted least squares solution
 f = @(x) 1 ./ (1 + exp(-(x.^(0:1))*beta));
@@ -457,10 +457,10 @@ figure();
 plot(t, f(t), 'b', x, y, 'r*')
 title('Weighted Least Squares')
 </pre>
-<p id="p-851">The first two lines compute new parameters \(\beta_1, \beta_2\) for logistic function \(1/(1+\exp(-\beta_1 - \beta_2 x))\text{,}\) using weights. The rest proceeds as before. The plot is shown on a new figure.</p>
+<p id="p-853">The first two lines compute new parameters \(\beta_1, \beta_2\) for logistic function \(1/(1+\exp(-\beta_1 - \beta_2 x))\text{,}\) using weights. The rest proceeds as before. The plot is shown on a new figure.</p>
 </div></div>
 </div></article></div>
-<p id="p-852">Note that we do not <em class="emphasis">always</em> want to compensate for data transformation by using weights \(w_k = 1/|T'(y_k)|\text{.}\) Linear regression works best if the standard deviation of different values \(y_k\) (assumed to include random errors) is about the same. When the values grow exponentially and are measured with the same relative accuracy, the standard deviation will grow with the values. In this case, the logarithmic transformation \(T(y)=\log y\) may help with non-linearity of the model <em class="emphasis">and</em> with the uniformity of standard deviations.</p></section></div></main>
+<p id="p-854">Note that we do not <em class="emphasis">always</em> want to compensate for data transformation by using weights \(w_k = 1/|T'(y_k)|\text{.}\) Linear regression works best if the standard deviation of different values \(y_k\) (assumed to include random errors) is about the same. When the values grow exponentially and are measured with the same relative accuracy, the standard deviation will grow with the values. In this case, the logarithmic transformation \(T(y)=\log y\) may help with non-linearity of the model <em class="emphasis">and</em> with the uniformity of standard deviations.</p></section></div></main>
 </div>
 </body>
 </html>
