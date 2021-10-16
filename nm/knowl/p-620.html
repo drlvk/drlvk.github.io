@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:34-04:00    *-->
+<!--*    on 2021-10-16T16:38:44-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Rewrite <a class="xref" data-knowl="./knowl/example-rectangle-simpson-ellipse.html" title="Example 18.2.1: Implement Simpson's rule over a non-rectangular region">Example 18.2.1</a> so that the number of subintervals \(n\) can be entered by the user. The input should be rejected with <code class="code-inline tex2jax_ignore">error('n must be even')</code> if an odd number is entered. The command <code class="code-inline tex2jax_ignore">mod(n, 2)</code> will be useful for checking this. The code producing the weights <code class="code-inline tex2jax_ignore">w, v</code> will need to be generalized so that it works for general \(n\text{.}\)</p>
-<span class="incontext"><a href="exercises-multivariable-integration.html#p-620">in-context</a></span>
+<p>Monte-Carlo method can also be used to average a function over a <em class="emphasis">sphere</em> with the help of <dfn class="terminology">normal distribution</dfn>.  Here is a brief summary of random number generators in Matlab:</p>
+<ul class="disc">
+<li>
+<code class="code-inline tex2jax_ignore">rand(m, n)</code> generates an \(m\times n\) matrix of random real numbers taken from the uniform distribution on the interval \([0, 1]\text{.}\)</li>
+<li>
+<code class="code-inline tex2jax_ignore">randi([A B], m, n)</code> generates an \(m\times n\) matrix of random <em class="emphasis">integer</em> numbers taken from the discrete uniform distribution on the finite set \(A, A+1, \dots, B\text{.}\)</li>
+<li>
+<code class="code-inline tex2jax_ignore">randn(m, n)</code> generates an \(m\times n\) matrix of random real numbers taken from the <a class="external" href="https://en.wikipedia.org/wiki/Normal_distribution" target="_blank">standard normal distribution</a> on the real line.</li>
+</ul>
+<p data-braille="continuation">Try them out with <code class="code-inline tex2jax_ignore">rand(1, 5)</code>, <code class="code-inline tex2jax_ignore">randi([2 7], 1, 5)</code>, and <code class="code-inline tex2jax_ignore">randn(1, 5)</code> to observe the differences in output.</p>
+<span class="incontext"><a href="section-integration-monte-carlo.html#p-620">in-context</a></span>
 </body>
 </html>

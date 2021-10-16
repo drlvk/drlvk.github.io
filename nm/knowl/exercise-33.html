@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:33-04:00    *-->
+<!--*    on 2021-10-16T16:38:43-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -22,6 +22,7 @@
 \end{equation*}
 </div>
 <p data-braille="continuation">Two approximations must be made here: replacing \(\infty\) in the integral with a large number \(b\text{,}\) and using the <em class="emphasis">trapezoidal</em> rule with a large number of subintervals \(n\text{.}\) While avoiding extremely large \(b\) and \(n\) that might freeze your computer, calculate the value of integral \(I\) with enough precision so that <code class="code-inline tex2jax_ignore">round(8*I^2, 2)</code> (rounding to 2 places) produces 3.14, a reasonable approximation to \(\pi\text{.}\)</p>
-<p>Questions to answer: (a) What values of \(b\) and \(n\) did you use to achieve 3.14? (b) If you increase \(b\) while keeping \(n\) fixed, does the answer become more precise or less precise? Why? (Hint: think of the error estimate formula)</p></article><span class="incontext"><a href="exercises-trapezoid-midpoint.html#exercise-33">in-context</a></span>
+<p>Questions to answer: (a) What values of \(b\) and \(n\) did you use to achieve 3.14? (b) If you increase \(b\) while keeping \(n\) fixed, does the answer become more precise or less precise? Why? (Hint: think of the error estimate formula)</p>
+<p>(For Octave users: <code class="code-inline tex2jax_ignore">round(x, 2)</code> is not currently available in Octave: it only has <code class="code-inline tex2jax_ignore">round(x)</code>, rounding to the nearest integer. As a workaround, use <code class="code-inline tex2jax_ignore">round(x*100)/100</code> which has the same effect as <code class="code-inline tex2jax_ignore">round(x, 2)</code> in Matlab.)</p></article><span class="incontext"><a href="exercises-trapezoid-midpoint.html#exercise-33">in-context</a></span>
 </body>
 </html>

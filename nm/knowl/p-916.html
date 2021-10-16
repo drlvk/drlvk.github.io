@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:38-04:00    *-->
+<!--*    on 2021-10-16T16:38:48-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,20 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Minimize \(f(x) = x^4 - 3 x^2 + x + 1\) using the golden section method on the interval \([-2, 2]\text{.}\)</p>
+<p>Golden section method improves on the above by choosing \(c,d\) as follows:</p>
+<div class="displaymath">
+\begin{equation*}
+c = a+r(b-a), \quad d=b-r(b-a), \quad \text{where } r=\frac{3-\sqrt{5}}{2}
+\end{equation*}
+</div>
+<p data-braille="continuation">The number \(r\) is related to golden ratio \(\varphi = (\sqrt{5}+1 )/2\approx 1.618\) by \(r=1/\varphi^2\text{.}\) The following intervals are all in the golden ratio to each other:</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{b-a}{d-a} = \frac{b-a}{b-c} = \frac{d-a}{c-a}  = \frac{b-c}{b-d} 
+= \frac{c-a}{d-c} = \frac{b-d}{d-c} = \varphi
+\end{equation*}
+</div>
+<p data-braille="continuation">The result of this invariance of the ratio is that when the bracket is reduced, the remaining interior point again divides it in the golden ratio.</p>
 <span class="incontext"><a href="section-golden-section.html#p-916">in-context</a></span>
 </body>
 </html>

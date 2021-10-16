@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:39-04:00    *-->
+<!--*    on 2021-10-16T16:38:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Functions of one variable can be efficiently minimized by a combination of golden section and parabolic interpolation methods, which is implemented by <code class="code-inline tex2jax_ignore">fminbnd</code> command in Matlab. These methods are derivative-free: we do not need to either know or estimate any derivatives of the objective function. In contrast, all methods for minimization in several variables that we studied so far require derivatives. The goal of this chapter is  to understand a derivative-free minimization method introduced by Nelder and Mead in 1965, which powers the Matlab command <code class="code-inline tex2jax_ignore">fminsearch</code>.</p>
-<span class="incontext"><a href="chapter-nelder-mead.html#p-967">in-context</a></span>
+<p>Compare the search path to what we get without correction in <code class="code-inline tex2jax_ignore">w</code>: it is less zigzagging. However, if we use the original Rosenbrock function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> which is very far from quadratic or convex, the search diverges to infinity. Several other correction terms (different choices for \(\gamma\) coefficient) have been proposed for the nonlinear conjugate gradient method. But it appears that the “narrow valley” landscape of the Rosenbrock function is best navigated either by using both first and second order derivatives (the Newton method) or by using no derivatives at all (the Nelder-Mead method, to be considered later).</p>
+<span class="incontext"><a href="section-conjugate-gradient.html#p-967">in-context</a></span>
 </body>
 </html>

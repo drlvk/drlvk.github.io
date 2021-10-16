@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:32-04:00    *-->
+<!--*    on 2021-10-16T16:38:42-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>An important case of such rearrangement in the quadratic formula: its familiar form</p>
+<p>Sometimes one can avoid the loss of significance by rearranging the expression algebraically. For example,</p>
 <div class="displaymath">
-\begin{equation}
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\tag{12.2.2}
-\end{equation}
+\begin{equation*}
+\frac{\sqrt{x+h} - \sqrt{x}}{h} = 	\frac{(\sqrt{x+h} - \sqrt{x})(\sqrt{x+h} + \sqrt{x})}{h(\sqrt{x+h} + \sqrt{x})} = \frac{x+h-x}{h(\sqrt{x+h} + \sqrt{x})} = \frac{1}{\sqrt{x+h} + \sqrt{x}} 
+\end{equation*}
 </div>
-<p data-braille="continuation">leads to loss of significance when \(b\) is much larger than \(ac\text{.}\) The following code erroneously returns <code class="code-inline tex2jax_ignore">0</code> as a root of the quadratic equation \(x^2+10^9x+1=0\text{.}\)</p>
+<p data-braille="continuation">Algebraically these expressions are identical, but in Matlab, <code class="code-inline tex2jax_ignore">1/(sqrt(x+h) + sqrt(x))</code> produces accurate answer <code class="code-inline tex2jax_ignore">5.0000e-04</code> for any of the above values of \(h\text{.}\)</p>
 <span class="incontext"><a href="section-loss-significance.html#p-439">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:39-04:00    *-->
+<!--*    on 2021-10-16T16:38:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Remark: the combination of ideas of Broyden's method and line search, with some modifications, is known as the <a class="external" href="https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm" target="_blank">BFGS algorithm</a>, which is widely used for gradient-based unconstrained optimization. It is implemented in Matlab (<code class="code-inline tex2jax_ignore">fminunc</code> command), Python scientific library SciPy, etc.</p>
-<span class="incontext"><a href="exercises-gradient-newton-conjugate.html#p-966">in-context</a></span>
+<p>Modify <a class="xref" data-knowl="./knowl/example-gradient-descent-line-search.html" title="Example 32.1.1: Gradient descent with line search">Example 32.1.1</a> so that it minimizes the simplified Rosenbrock's function</p>
+<div class="displaymath">
+\begin{equation}
+f(\mathbf x) = (x_1 - 1)^2 + (x_1^2 - x_2)^2\tag{32.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">using conjugate gradient method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code>. Plot the path of the search.</p>
+<span class="incontext"><a href="section-conjugate-gradient.html#p-966">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:33-04:00    *-->
+<!--*    on 2021-10-16T16:38:43-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>There is a general method of choosing evaluation points \(x_1,\dots,x_n\) in an optimal way: they will be the roots of some special \(n\)-th degree polynomial. This method is called Gaussian integration and it is built into TI-83 calculators and many software packages, including Matlab (<code class="code-inline tex2jax_ignore">quadgk</code> command). But before we get to actual integration, we have to study the orthogonal polynomials themselves.  The process of using them for integration will be covered in next chapter.</p>
+<p>It turns out there is a much more accurate two-point integration rule:</p>
+<div class="displaymath">
+\begin{equation*}
+\int_{-1}^1 f(x)\,dx\approx f(-1/\sqrt{3}) + f(1/\sqrt{3}) 
+\end{equation*}
+</div>
+<p data-braille="continuation">For the exponential function it gives \(2.3427\text{,}\) the error of only 0.0077. This is about 100 times more accurate than the trapezoidal rule, with the same number of function evaluations.</p>
 <span class="incontext"><a href="section-legendre-motivation.html#p-515">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:09-04:00    *-->
+<!--*    on 2021-10-16T16:38:21-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,7 +415,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-differentiation-intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">12.1</span> <span class="title">Definition of derivative and the order of error</span>
 </h2>
-<p id="p-429">The definition of derivative says:</p>
+<p id="p-430">The definition of derivative says:</p>
 <div class="displaymath">
 \begin{equation*}
 f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
@@ -434,7 +434,7 @@ f'(x) \approx \frac{f(x+h)-f(x)}{h}\label{eq-diff-f1}\tag{12.1.1}
 \end{equation*}
 </div>
 <p data-braille="continuation">where the error term \(e\) is a function of \(h\text{.}\) The accuracy of approximation is measured by the <dfn class="terminology">order</dfn> of the error term, which is a number \(d\) such that \(|e(h)|\) is bounded by some multiple of \(|h|^d\text{.}\)</p>
-<p id="p-430">There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
+<p id="p-431">There  is a method to determine the order of error of an approximation to some derivative of \(f\text{:}\)</p>
 <ol class="decimal">
 <li id="li-123">Let \(n= 0\)</li>
 <li id="li-124">Plug \(f(x) = x^n\) into the formula and find the error term.</li>
@@ -443,10 +443,10 @@ f'(x) \approx \frac{f(x+h)-f(x)}{h}\label{eq-diff-f1}\tag{12.1.1}
 </ol>
 <article class="example example-like" id="example-error-diff-f1"><a data-knowl="" class="id-ref original" data-refid="hk-example-error-diff-f1"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Find the order of error of approximation to \(f'\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-diff-f1"><article class="example example-like"><p id="p-431">Find the order of error of the formula <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a>.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-error-diff-f1"><article class="example example-like"><p id="p-432">Find the order of error of the formula <a class="xref" data-knowl="./knowl/eq-diff-f1.html" title="Equation 12.1.1">(12.1.1)</a>.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-26" id="solution-26"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-26"><div class="solution solution-like">
-<ul id="p-432" class="disc">
+<ul id="p-433" class="disc">
 <li id="li-127">With \(f(x) = x^0\) we get \(f'(x) = 0\) and \(\frac{f(x+h)-f(x)}{h}=0\text{,}\) so the error term is zero for this function.</li>
 <li id="li-128">With \(f(x) = x^1\) we get \(f'(x) = 1\) and \(\frac{f(x+h)-f(x)}{h}=\frac{h}{h}=1\text{,}\) so the error term is zero for this function.</li>
 <li id="li-129">With \(f(x) = x^2\) we get \(f'(x) = 2x\) and \(\frac{f(x+h)-f(x)}{h}=\frac{x^2+2xh+h^2-x^2}{h}=2x + h\text{,}\) so the error term for this function is \(h^1\text{.}\)</li>
@@ -454,7 +454,7 @@ f'(x) \approx \frac{f(x+h)-f(x)}{h}\label{eq-diff-f1}\tag{12.1.1}
 <p data-braille="continuation">In conclusion, the formula has order of error 1.</p>
 </div></div>
 </div></article></div>
-<p id="p-433">The importance of the order of error can be illustrated by an example. Suppose we want to find \(f'(x)\) with absolute error at most \(10^{-12}\text{.}\)</p>
+<p id="p-434">The importance of the order of error can be illustrated by an example. Suppose we want to find \(f'(x)\) with absolute error at most \(10^{-12}\text{.}\)</p>
 <ul class="disc">
 <li id="li-130">If the error term of our formula is \(h^1\text{,}\) we need to use extremely small \(h\text{;}\) that is \(|h|\le 10^{-12}\text{.}\)</li>
 <li id="li-131">If the error term is \(h^2\text{,}\) we need \(|h|\le 10^{-6}\) which is still small but not as extreme.</li>

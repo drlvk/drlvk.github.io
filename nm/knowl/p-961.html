@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:39-04:00    *-->
+<!--*    on 2021-10-16T16:38:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The methods considered so far in this chapter have one thing in common: lack of memory. Each step is taken as if it was the first. In contrast, <dfn class="terminology">conjugate gradient method</dfn> uses its previous step to determine the direction of next one. The primary benefit is avoiding “sharp turns” which create a zigzagging pattern we saw in <a class="xref" data-knowl="./knowl/example-gradient-descent-line-search.html" title="Example 32.1.1: Gradient descent with line search">Example 32.1.1</a>. The method described below is sometimes called <em class="emphasis">nonlinear</em> conjugate gradient method because “conjugate gradient method” often refers specifically to minimization of a quadratic function \(f(\mathbf x) = |A\mathbf x - \mathbf b|^2\) as a way of approximately solving the linear system  \(A\mathbf x = \mathbf b\text{.}\)</p>
-<span class="incontext"><a href="section-conjugate-gradient.html#p-961">in-context</a></span>
+<p>The gradient of Rosenbrock's function is <a class="xref" data-knowl="./knowl/eq-rosenbrock-grad.html" title="Equation 32.1.3">(32.1.3)</a> and its Hessian matrix is</p>
+<div class="displaymath">
+\begin{equation}
+\begin{pmatrix} 2 + 400 (x_1^2-x_2) + 800 x_1^2 &amp; -400x_1 \\
+-400 x_1 &amp; 200 \end{pmatrix}\tag{32.2.1}
+\end{equation}
+</div>
+<span class="incontext"><a href="section-newton-method-min-nd.html#p-961">in-context</a></span>
 </body>
 </html>

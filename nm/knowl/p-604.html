@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:34-04:00    *-->
+<!--*    on 2021-10-16T16:38:44-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,9 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The first four lines do not involve the function; they are setting the stage. The function is evaluated on the rectangular grid and its values are conveniently aggregated using matrix-vector multiplication. The result is 15.8859.  <a class="external" href="https://www.wolframalpha.com/input/?i=integrate+sqrt%28x*y+%2B+y%5E3+%2B4%29+from+x%3D-2+to+x%3D2+from+y%3D-1+to+y%3D1" target="_blank">WolframAlpha</a> gives 15.9219.</p>
+<p>Given the large number of terms in double sum <a class="xref" data-knowl="./knowl/eq-double-quad-gen.html" title="Equation 18.1.1">(18.1.1)</a>, we should try to organize such computations efficiently. The first thing to do is to evaluate the function on a rectangular grid formed by all \((x_i, y_j)\) points. A useful Matlab command is <code class="code-inline tex2jax_ignore">meshgrid</code>, which is used as</p>
+<pre class="code-block tex2jax_ignore">[X, Y] = meshgrid(x, y)</pre>
+<p data-braille="continuation">where <code class="code-inline tex2jax_ignore">x,y</code> are vectors with evaluation points. The output consists of two matrices <code class="code-inline tex2jax_ignore">X, Y</code> which represent the rectangular grid: <code class="code-inline tex2jax_ignore">X</code> has the x-coordinates of all the grid points, and <code class="code-inline tex2jax_ignore">Y</code> has their y-coordinates. The reason this is useful is that <code class="code-inline tex2jax_ignore">f(X, Y)</code> can now be used to evaluate the function on the entire grid at once (producing a matrix of its values), provided \(f\) is written so that it can handle matrix input.</p>
 <span class="incontext"><a href="section-integration-rectangle.html#p-604">in-context</a></span>
 </body>
 </html>

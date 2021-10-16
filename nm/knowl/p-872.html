@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:37-04:00    *-->
+<!--*    on 2021-10-16T16:38:47-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Since the standard logistic function rises from 0 to 1 and has maximal slope when \(x=0\text{,}\) we can relate  parameters \(a, M, s\) directly to shape of the curve:</p>
-<ul class="disc">
-<li>\(a\) is the x-value at which the curve has the steepest slope;</li>
-<li>\(M\) is the amount by which the curve rises;</li>
-<li>\(s\) measures its horizontal size; the curve is essentially flat outside of the interval \([a-5s, a+5s]\text{.}\)</li>
-</ul>
+<p>As most numerical methods, <code class="code-inline tex2jax_ignore">fminsearch</code> may fail at its task:</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) exp(x), 0)  
+</pre>
+<p data-braille="continuation">returns “-786.4315” (there are no points of minimum, of course), while</p>
+<pre class="code-block tex2jax_ignore">
+fminsearch(@(x) x^3 - x, 4)
+</pre>
+<p data-braille="continuation">overlooks the local minimum at \(x = 1/\sqrt{3}\) and diverges to negative infinity. The success is much more likely if the initial point is chosen with some care. In case of fitting a curve to data, one should try to guess the signs and approximate sizes of the parameters.</p>
 <span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-872">in-context</a></span>
 </body>
 </html>

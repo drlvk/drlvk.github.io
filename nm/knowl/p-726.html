@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:35-04:00    *-->
+<!--*    on 2021-10-16T16:38:46-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When discussing spline coefficients, it should be noted they are not necessarily the coefficients of powers of \(x\text{.}\) It is more natural and numerically safer to represent the spline on each subinterval \([x_k, x_{k+1}]\) in terms of the powers of \((x-x_k)\text{.}\) That is,</p>
-<div class="displaymath">
-\begin{equation}
-S(x) = A_k(x-x_k)^3 + B_k(x-x_k)^2 + C_k(x-x_k) + D_k\tag{23.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">where the coefficients \(a_k, b_k, c_k, d_k\) are to be determined. Of course, \(D_k=y_k\) but to find the rest one needs to solve a linear system.</p>
+<p>A cubic spline is a function \(S\) that is piecewise a degree 3 polynomial, and such that \(S, S', S''\) are continuous (have the same value from both sides at the points where pieces meet). In our context of fitting to data points \((x_k, y_k)\text{,}\) \(k=1, \dots, n\text{,}\) it is natural to have each cubic polynomial defined on \([x_{k}, x_{k+1}]\text{.}\) The continuity of first and second derivatives means that the graph of a cubic spline has no corners of sudden changes of curvature, it flows quite naturally. Compare the plots below, for the same data set.</p>
 <span class="incontext"><a href="section-cubic-splines.html#p-726">in-context</a></span>
 </body>
 </html>

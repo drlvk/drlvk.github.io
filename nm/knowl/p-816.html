@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:37-04:00    *-->
+<!--*    on 2021-10-16T16:38:47-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>If \(\mathbf z = \sum_{k=1}^p \beta_k \mathbf v_k\) is the best prediction, then the difference \(\mathbf z - \mathbf y\) is orthogonal to each \(\mathbf v_k\text{.}\) That is,</p>
-<div class="displaymath">
-\begin{equation}
-\mathbf z\cdot \mathbf v_k = \mathbf y\cdot \mathbf v_k\tag{27.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">for each \(k\text{.}\) These are \(p\) linear equations for \(p\) parameters.  Let us express them in matrix form. Let \(X\) be the \(n\times p\) matrix formed by vectors  \(\mathbf v_1, \dots, \mathbf v_p\) as columns. Then \(X^T\mathbf y\) is the column vector with entries \(\mathbf y\cdot \mathbf v_k\text{,}\) matching the right hand side of <a class="xref" data-knowl="./knowl/eq-lsq-1.html" title="Equation 27.1.1">(27.1.1)</a>. The left hand side of <a class="xref" data-knowl="./knowl/eq-lsq-1.html" title="Equation 27.1.1">(27.1.1)</a> involves \(z = X\beta\)  where \(\beta\) is the vector of coefficients that we are looking for. With this, we recognize that \(X^TX \beta \) is the vector whose entries match the left hand side. In conclusion, the matrix form of <a class="xref" data-knowl="./knowl/eq-lsq-1.html" title="Equation 27.1.1">(27.1.1)</a> is</p>
-<div class="displaymath">
-\begin{equation}
-X^TX  \beta = X^T \mathbf y \tag{27.1.2}
-\end{equation}
-</div>
-<p data-braille="continuation">which is known as the <dfn class="terminology">normal equations</dfn> associated to the overdetermined system \(X\beta = \mathbf y\text{.}\) Note that \(X^TX\) is invertible if and only if the explanatory vectors are linearly independent (which they should be; otherwise we have redundant ones).</p>
-<span class="incontext"><a href="section-lsq-overview.html#p-816">in-context</a></span>
+<p>Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q = 90</code>, <code class="code-inline tex2jax_ignore">q = 80</code>, and <code class="code-inline tex2jax_ignore">q = 70</code>. In addition to showing the compressed image, the script should display the percentage of Fourier coefficients that were kept as non-zero values: for example, <code class="code-inline tex2jax_ignore">100*numel(nonzeros(fc))/numel(fc)</code>.</p>
+<span class="incontext"><a href="exercises-dft-applications.html#p-816">in-context</a></span>
 </body>
 </html>

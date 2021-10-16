@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:39-04:00    *-->
+<!--*    on 2021-10-16T16:38:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,14 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The line <code class="code-inline tex2jax_ignore">values = [f(T(:,1)) f(T(:,2)) f(T(:,3))]</code> resists vectorization unless we rewrite <code class="code-inline tex2jax_ignore">f</code> (which we probably should not do because in practice, the objective function is user-provided code). So it becomes a loop:</p>
+<p>The algorithm described above works quite well, considering we are minimizing a challenging function without using any derivative information. The version of the Nelder-Mead algorithm implemented in Matlab is a little different in that it chooses between three ways of contracting a simplex (called “contract inside”, “contract outside”, “shrink”) but the main ideas are the same. To observe the process of <code class="code-inline tex2jax_ignore">fminsearch</code> optimization, run</p>
 <pre class="code-block tex2jax_ignore">
-values = zeros(1, n+1);
-for j = 1:n+1
-    values(j) = f(T(:, j));
-end    
+f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2;
+options = optimset('Display', 'iter');
+fminsearch(f, randn(2, 1), options)   
 </pre>
-<p data-braille="continuation">The remaining adjustments are small: the midpoint of opposite side is now <code class="code-inline tex2jax_ignore">M = (sum(T, 2) - T(:, ind))/n</code> but the formulas for reflection \(R\text{,}\) expansion \(E\text{,}\) and contraction remain the same. The plot of search path and formatting of text output need cosmetic changes, as shown in the following example.</p>
-<span class="incontext"><a href="section-nelder-mead-ndim.html#p-986">in-context</a></span>
+<span class="incontext"><a href="section-nelder-mead-expand.html#p-986">in-context</a></span>
 </body>
 </html>

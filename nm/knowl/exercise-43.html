@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:34-04:00    *-->
+<!--*    on 2021-10-16T16:38:44-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -15,6 +15,17 @@
 <article class="exercise exercise-like"><h6 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">3<span class="period">.</span></span>
 </h6>
-<p>Rewrite the adaptive integration script in <a class="xref" data-knowl="./knowl/example-implement-adaptive-gauss.html" title="Example 17.5.1: Adaptive Gauss integration">Example 17.5.1</a> so that it uses trapezoidal and Simpson's rules for \(I_1, I_2\text{,}\) and test it on the integral \(\int_0^4 x^{3/2}\,dx\) to make sure it returns a correct result.</p></article><span class="incontext"><a href="exercises-adaptive-integration.html#exercise-43">in-context</a></span>
+<p>Rewrite the adaptive integration script in <a class="xref" data-knowl="./knowl/example-implement-adaptive-gauss.html" title="Example 17.5.1: Adaptive Gauss integration">Example 17.5.1</a> so that it uses trapezoidal rule for \(I_1\) and Simpson's rule for \(I_2\text{.}\) Test it on the integral \(\int_0^4 x^{3/2}\,dx\) to make sure the script returns a correct result.</p>
+<p>(For Octave users: recursive functions in Octave have some restrictions: the file must be named as the function itself, and the call to the function must come from the command line or from another file. For example, the Fibonacci recursion in Octave would be saved in file “fib.m” with the contents</p>
+<pre class="code-block tex2jax_ignore">
+function f = fib(n)
+    if n &lt; 1
+        f = 1;
+    else
+        f = fib(n-1) + fib(n-2);
+    endif
+endfunction
+</pre>
+<p data-braille="continuation">and then one would use it by entering, for example, <code class="code-inline tex2jax_ignore">fib(8)</code> in the command line.)</p></article><span class="incontext"><a href="exercises-adaptive-integration.html#exercise-43">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:10-04:00    *-->
+<!--*    on 2021-10-16T16:38:22-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,7 +415,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-trapezoidal-rulet"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">13.3</span> <span class="title">Trapezoidal rule</span>
 </h2>
-<p id="p-472">When a function is increasing, the leftpoint rule underestimates its integral, and rightpoint rule overestimates it. So, their average \(T_n=(L_n+R_n)/2\) should be a better approximation. This is the <dfn class="terminology">Trapezoidal Rule</dfn>:</p>
+<p id="p-473">When a function is increasing, the leftpoint rule underestimates its integral, and rightpoint rule overestimates it. So, their average \(T_n=(L_n+R_n)/2\) should be a better approximation. This is the <dfn class="terminology">Trapezoidal Rule</dfn>:</p>
 <div class="displaymath">
 \begin{equation*}
 T_n = \frac{h}{2}(f(a)+f(b)) + h( f(x_1)+\dots+f(x_{n-1}))
@@ -431,7 +431,7 @@ T = (y(1) + y(end)) * h/2 + sum(y(2:end-1))*h;
 </pre>
 <article class="example example-like" id="example-lrmt-rules-compare"><a data-knowl="" class="id-ref original" data-refid="hk-example-lrmt-rules-compare"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Comparing the accuracy of four rules.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lrmt-rules-compare"><article class="example example-like"><p id="p-473">For the function \(f(x) = e^x \) on the interval \([-1, 1]\text{,}\) use Matlab to compute the left-, right, and midpoint approximations with \(n=10\) and find the error of each approximation (that is, its difference with the actual integral).</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-lrmt-rules-compare"><article class="example example-like"><p id="p-474">For the function \(f(x) = e^x \) on the interval \([-1, 1]\text{,}\) use Matlab to compute the left-, right, and midpoint approximations with \(n=10\) and find the error of each approximation (that is, its difference with the actual integral).</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-32" id="solution-32"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-32"><div class="solution solution-like">
 <pre class="code-block tex2jax_ignore">f = @(x) exp(x);
@@ -452,7 +452,7 @@ exact = exp(1)-exp(-1);
 er = abs([L R T M] - exact);
 fprintf('Errors: Leftpoint %g, Rightpoint %g, Trapezoidal %g, Midpoint %g\n', er);
 </pre>
-<p id="p-474">Here <code class="code-inline tex2jax_ignore">fprintf</code> “unpacks” the vector <code class="code-inline tex2jax_ignore">er</code>, inserting its entries in the right places.</p>
+<p id="p-475">Here <code class="code-inline tex2jax_ignore">fprintf</code> “unpacks” the vector <code class="code-inline tex2jax_ignore">er</code>, inserting its entries in the right places.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>

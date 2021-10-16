@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:36-04:00    *-->
+<!--*    on 2021-10-16T16:38:46-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The problem is that our formula for <code class="code-inline tex2jax_ignore">p</code> involves complex exponential functions with “frequencies” \(k=0, 1, \dots, 9\) which is not how trigonometric polynomials <a class="xref" data-knowl="./knowl/eq-trigonometric-polynomial-complex.html" title="Equation 25.1.3">(25.1.3)</a> normally look. The high frequencies create the oscillatory behavior which, while matching the data, does not create a reasonable interpolant.</p>
-<span class="incontext"><a href="section-trigonometric-interpolation.html#p-781">in-context</a></span>
+<p>The computation of Fourier coefficients <a class="xref" data-knowl="./knowl/eq-fourier-coefficients-discrete.html" title="Equation 25.3.2">(25.3.2)</a> amounts to matrix-vector multiplication \(c = Wz\) where \(W\) is the <dfn class="terminology">Fourier matrix</dfn> defined as follows. Let \(\omega = \exp(-2\pi i /n)\text{.}\) The matrix \(W\) has size \(n\times n\text{,}\) with entries given by  \(W_{k\ell} = \omega^{(k-1)(\ell-1)}\text{.}\) Explicitly,</p>
+<div class="displaymath">
+\begin{equation}
+W = \begin{pmatrix} 1 &amp; 1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 \\
+1 &amp; \omega &amp; \omega^2 &amp; \omega^3 &amp; \dots &amp; \omega^{n-1} \\
+1 &amp; \omega^2 &amp; \omega^4 &amp; \omega^6 &amp; \dots &amp; \omega^{2(n-1)} \\
+1 &amp; \omega^3 &amp; \omega^6 &amp; \omega^9 &amp; \dots &amp; \omega^{3(n-1)} \\
+\cdots \\
+1 &amp; \omega^{n-1} &amp; \omega^{2(n-1)} &amp; \omega^{3(n-1)} &amp; \dots &amp; \omega^{(n-1)(n-1)} \\
+\end{pmatrix}\tag{25.3.4}
+\end{equation}
+</div>
+<p data-braille="continuation">Normally, matrix-vector multiplication takes on the order of \(n^2\) operations. The <dfn class="terminology">Fast Fourier Transform</dfn> (FFT) is an algorithm that uses the specific structure of \(W\) to reduce the number of computations to something of the order \(n\log n\text{.}\) The reconstruction of function values from coefficients <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a> is very similar. Besides the factor of \(1/n\text{,}\) the only other difference is replacing matrix \(W\) with matrix \(W^*\) of the same form <a class="xref" data-knowl="./knowl/eq-fourier-matrix.html" title="Equation 25.3.4">(25.3.4)</a> but with \(\omega = \exp(2\pi i /n)\text{.}\)</p>
+<span class="incontext"><a href="section-discrete-fourier-transform.html#p-781">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:39-04:00    *-->
+<!--*    on 2021-10-16T16:38:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p><em class="emphasis">Remark</em>: The documentation of <a class="external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html" target="_blank">SciPy optimize</a> package provides an overview of many other optimization methods. There are a few bracket-based methods for functions of one variable (including golden section), several multivariate methods (such as Nelder-Mead), and in addition, some methods designed for finding the global minimum. Most of the latter group are stochastic methods: they intentionally make the search process subject to chance.</p>
+<p>Apply the code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> to <dfn class="terminology">Easom function</dfn></p>
+<div class="displaymath">
+\begin{equation*}
+f(x_1, x_2) = -\cos x_1 \cos x_2 \exp(-(x_1-\pi)^2-(x_2-\pi)^2)
+\end{equation*}
+</div>
+<p data-braille="continuation">The global minimum is \((\pi, \pi)\) with \(f(\pi, \pi)=-1\) but it is difficult to find because the function has many local minima and its landscape does not naturally lead to the global minimum. If you run the code based on <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> five times (simply pressing <kbd class="kbdkey">F5</kbd> repeatedly), how many times does it converge to the global minimum \((\pi, \pi)\text{?}\)</p>
 <span class="incontext"><a href="exercises-nelder-mead.html#p-992">in-context</a></span>
 </body>
 </html>

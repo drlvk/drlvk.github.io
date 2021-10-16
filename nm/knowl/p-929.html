@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:38-04:00    *-->
+<!--*    on 2021-10-16T16:38:48-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,25 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>How to find the critical point of parabola passing through points \((a, f(a))\text{,}\) \((b, f(b))\text{,}\) \((c, f(c))\text{?}\)  Newton interpolating polynomial is one way: it provides the interpolating  polynomial in the form</p>
-<div class="displaymath">
-\begin{equation}
-g(x) = f(a) + \alpha(x-a) + \beta(x-a)(x-b)\tag{31.1.1}
-\end{equation}
-</div>
-<p data-braille="continuation">from where we can find \(g'(x) = \alpha + \beta(2x - a- b)\text{,}\) hence</p>
-<div class="displaymath">
-\begin{equation}
-x = \frac{a+b}{2} - \frac{\alpha}{2\beta}\tag{31.1.2}
-\end{equation}
-</div>
-<p data-braille="continuation">The coefficients \(\alpha, \beta\) are determined from \(g(b) = f(b)\) and \(g(c) = f(c)\text{,}\) namely</p>
-<div class="displaymath">
-\begin{equation}
-\alpha = \frac{f(b)-f(a)}{b-a},\quad 
-\beta = \frac{f(c) - f(a) - \alpha(c-a)}{(c-a)(c-b)}\tag{31.1.3}
-\end{equation}
-</div>
+<p>Recall that Newton's method for root-finding, namely \(x = a - f(a)/f'(a)\text{,}\) has a geometric interpretation: draw a tangent line to \(y = f(x)\) at \(x = a\text{,}\) and use the intersection of that line with the horizontal axis as the new \(x\)-value. This geometric construction naturally led to the secant method: just replace a tangent line by a secant line. Is there a geometric interpretation for minimization using Newton's method, that is \(x = a - f'(a)/f''(a)\text{?}\)</p>
 <span class="incontext"><a href="section-parabolic-interpolation.html#p-929">in-context</a></span>
 </body>
 </html>

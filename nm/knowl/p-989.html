@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:39-04:00    *-->
+<!--*    on 2021-10-16T16:38:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Apply the code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> to <dfn class="terminology">Easom function</dfn></p>
-<div class="displaymath">
-\begin{equation*}
-f(x_1, x_2) = -\cos x_1 \cos x_2 \exp(-(x_1-\pi)^2-(x_2-\pi)^2)
-\end{equation*}
-</div>
-<p data-braille="continuation">The global minimum is \((\pi, \pi)\) with \(f(\pi, \pi)=-1\) but it is difficult to find because the function has many local minima and its landscape does not naturally lead to the global minimum. If you run the code based on <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> five times (simply pressing <kbd class="kbdkey">F5</kbd> repeatedly), how many times does it converge to the global minimum \((\pi, \pi)\text{?}\)</p>
-<span class="incontext"><a href="exercises-nelder-mead.html#p-989">in-context</a></span>
+<p>The line <code class="code-inline tex2jax_ignore">values = [f(T(:,1)) f(T(:,2)) f(T(:,3))]</code> resists vectorization unless we rewrite <code class="code-inline tex2jax_ignore">f</code> (which we probably should not do because in practice, the objective function is user-provided code). So it becomes a loop:</p>
+<pre class="code-block tex2jax_ignore">
+values = zeros(1, n+1);
+for j = 1:n+1
+    values(j) = f(T(:, j));
+end    
+</pre>
+<p data-braille="continuation">The remaining adjustments are small: the midpoint of opposite side is now <code class="code-inline tex2jax_ignore">M = (sum(T, 2) - T(:, ind))/n</code> but the formulas for reflection \(R\text{,}\) expansion \(E\text{,}\) and contraction remain the same. The plot of search path and formatting of text output need cosmetic changes, as shown in the following example.</p>
+<span class="incontext"><a href="section-nelder-mead-ndim.html#p-989">in-context</a></span>
 </body>
 </html>

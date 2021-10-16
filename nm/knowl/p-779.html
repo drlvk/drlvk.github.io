@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:36-04:00    *-->
+<!--*    on 2021-10-16T16:38:46-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In Matlab, the computation <a class="xref" data-knowl="./knowl/eq-fourier-coefficients-discrete.html" title="Equation 25.3.2">(25.3.2)</a> is implemented by command <code class="code-inline tex2jax_ignore">fft</code> while <a class="xref" data-knowl="./knowl/eq-fourier-sum-discrete.html" title="Equation 25.3.3">(25.3.3)</a> is implemented by <code class="code-inline tex2jax_ignore">ifft</code> (“i” for “inverse”). Try applying them to standard basis vectors and compare the output to the columns of \(W\) or \(\frac{1}{n} W^*\text{.}\) (The commands also allow matrix input: <code class="code-inline tex2jax_ignore">fft(eye(n))</code> and <code class="code-inline tex2jax_ignore">ifft(eye(n))</code> return the matrices \(W\) and \(\frac{1}{n} W^*\text{.}\))</p>
+<p>There is a discrete version of the Fourier series theory outlined in <a href="section-fourier-series.html" class="internal" title="Section 25.2: Fourier series">Section 25.2</a>. In it we fix an integer \(n\) and replace a function \(f\colon [0, 1]\to \mathbb C\) by its sampled values \(z_k = f(k/n)\text{,}\) \(k=0, 1, \dots, n-1\text{.}\) The discrete version of inner product <a class="xref" data-knowl="./knowl/eq-inner-product.html" title="Equation 25.2.1">(25.2.1)</a> is</p>
+<div class="displaymath">
+\begin{equation}
+\langle f, g \rangle_d =  \sum_{\ell=0}^{n-1}f(\ell/n)\overline{g(\ell/n)}
+=  \sum_{\ell=0}^{n-1} z_\ell \overline{w_\ell}\tag{25.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">The functions \(f_k = \exp(2\pi i k)\text{,}\) \(k=0, \dots, n-1\text{,}\) are orthogonal with respect to this inner product. (Not orthonormal, as \(\langle f_k, f_k\rangle = n\text{.}\)) Note we only need \(n\) of these functions (why?).</p>
 <span class="incontext"><a href="section-discrete-fourier-transform.html#p-779">in-context</a></span>
 </body>
 </html>

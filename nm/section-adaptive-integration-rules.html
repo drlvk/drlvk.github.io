@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:13-04:00    *-->
+<!--*    on 2021-10-16T16:38:25-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,11 +415,11 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-adaptive-integration-rules"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">17.4</span> <span class="title">Combining two rules</span>
 </h2>
-<p id="p-586">What combination of two rules should we use for approximations \(I_1\) and \(I_2\text{?}\) These rules should be of different accuracy; for example, it would be a bad idea to use the left endpoint and right endpoint rules. Both of these are about equally imprecise, so they may give the same answer which is still wrong by some large amount.</p>
-<p id="p-587">One can use, for example, the trapezoidal rule (order 2) and Simpson's rule (order 4). This has an advantage in that of of three evaluation points in Simpson's rule, two are also in trapezoidal rule. So one can compute function values once, for example</p>
+<p id="p-588">What combination of two rules should we use for approximations \(I_1\) and \(I_2\text{?}\) These rules should be of different accuracy; for example, it would be a bad idea to use the left endpoint and right endpoint rules. Both of these are about equally imprecise, so they may give the same answer which is still wrong by some large amount.</p>
+<p id="p-589">One can use, for example, the trapezoidal rule (order 2) and Simpson's rule (order 4). This has an advantage in that of of three evaluation points in Simpson's rule, two are also in trapezoidal rule. So one can compute function values once, for example</p>
 <pre class="code-block tex2jax_ignore">y = f([a, (a+b)/2, b]);</pre>
 <p data-braille="continuation">and obtain both trapezoidal and Simpson's rules from the vector <code class="code-inline tex2jax_ignore">y</code>. This property of two rules being <em class="emphasis">nested</em> (evaluation points of one rule are contained in the other) is valuable for speeding up the computation.</p>
-<p id="p-588">Since the Gauss integration rule is the most accurate of those we discussed, one may decide to use it for both \(I_1\) and \(I_2\text{,}\) just with different number of evaluation points, perhaps \(n\) and \(2n\text{.}\) A downside is that Gauss evaluation points are not nested. In practice, the Gauss rule is used for \(I_1\) and the Kronrod rule (also based on orthogonal polynomials, but beyond our scope) is used for \(I_2\text{.}\) The Kronrod rule is designed to include all of the points used by the Gauss rule, and some additional ones. A popular choice, e.g., in TI graphing calculators, is (G7, K15), meaning 7-point Gauss rule combined with 15-point Kronrod rule. For an illustration of adaptive integration in Python module SciPy, see <a class="external" href="https://calculus7.wordpress.com/2018/10/27/numerical-integration-visualized/" target="_blank">this blog post</a>: it shows that SciPy uses (G10, K21) combination.</p></section></div></main>
+<p id="p-590">Since the Gauss integration rule is the most accurate of those we discussed, one may decide to use it for both \(I_1\) and \(I_2\text{,}\) just with different number of evaluation points, perhaps \(n\) and \(2n\text{.}\) A downside is that Gauss evaluation points are not nested. In practice, the Gauss rule is used for \(I_1\) and the Kronrod rule (also based on orthogonal polynomials, but beyond our scope) is used for \(I_2\text{.}\) The Kronrod rule is designed to include all of the points used by the Gauss rule, and some additional ones. A popular choice, e.g., in TI graphing calculators, is (G7, K15), meaning 7-point Gauss rule combined with 15-point Kronrod rule. For an illustration of adaptive integration in Python module SciPy, see <a class="external" href="https://calculus7.wordpress.com/2018/10/27/numerical-integration-visualized/" target="_blank">this blog post</a>: it shows that SciPy uses (G10, K21) combination.</p></section></div></main>
 </div>
 </body>
 </html>

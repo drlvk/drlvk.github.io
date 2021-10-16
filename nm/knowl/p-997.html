@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:39-04:00    *-->
+<!--*    on 2021-10-16T16:38:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Let us try both methods with a simple function: minimize \(f(x, y) = (x + 7y)^3\) on the disk \(x^2 + y^2\le 1\text{.}\) We could use our own implementation of Nelder-Mead method from <a href="chapter-nelder-mead.html" class="internal" title="Chapter 33: The Nelder-Mead method">Chapter 33</a> but <code class="code-inline tex2jax_ignore">fminsearch</code> already does that, so it is used below.</p>
+<p>A typical problem of constrained optimization is to find the minimum of a function \(f\) on some region \(D\) of \(\mathbb R^n\text{.}\) One approach is to add a penalty for being outside of \(D\text{,}\) for example let</p>
+<div class="displaymath">
+\begin{equation}
+g(x) = \begin{cases} f(x)  &amp; x\in D \\ f(x) + M &amp; x\notin D \end{cases} \tag{34.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">where \(M\) is a large number, say \(10^6\text{.}\) Then try to minimize \(g\text{,}\) with the expectation that the minimum will be in \(D\text{.}\) Since \(g=f\) within \(D\text{,}\) such a minimum will also be a minimum of \(f\text{.}\)</p>
 <span class="incontext"><a href="section-penalty-method.html#p-997">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-09-26T18:24:39-04:00    *-->
+<!--*    on 2021-10-16T16:38:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The intuitive picture of steepest descent (the gradient method) is a drop of water sliding down the graph of a function under the force of gravity: the water follows the steepest way down. The intuition of the Nelder-Mead method is a geometric shape like a triangle or a tetrahedron tumbling down a sloped surface. In two dimensions, the shape is a triangle, in three dimensions it is a tetrahedron; in \(n\) dimensions it is an \(n\)-dimensional <dfn class="terminology">simplex</dfn>, meaning \(n+1\) points that are not contained in any hyperplane. To keep the explanation simple, we focus on the case \(n=2\text{.}\)</p>
-<span class="incontext"><a href="section-nelder-mead-reflect.html#p-968">in-context</a></span>
+<p>Modify <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> to include the idea of Broyden's method from <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>: the script should not use the Hessian matrix <code class="code-inline tex2jax_ignore">fh</code>, instead relying on an approximation to its inverse obtained with Broyden's method. The following modification should help with convergence: start with small initial guess</p>
+<pre class="code-block tex2jax_ignore">
+B = 0.001*eye(2);
+</pre>
+<p data-braille="continuation">and make the stopping condition less restrictive:</p>
+<pre class="code-block tex2jax_ignore">
+norm(h) &lt; 1e-6
+</pre>
+<p data-braille="continuation">Re-run the script several times (about five): since it has a random initial point, the results may differ. Does the minimization process converge to the minimum \((1, 1)\) every time?</p>
+<span class="incontext"><a href="exercises-gradient-newton-conjugate.html#p-968">in-context</a></span>
 </body>
 </html>
