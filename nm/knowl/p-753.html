@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:46-04:00    *-->
+<!--*    on 2021-10-21T17:52:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>As we know, piecewise linear interpolation lacks smoothness, and this is seen in the angular shape of the hat function <a class="xref" data-knowl="./knowl/eq-hat-function.html" title="Equation 24.2.1">(24.2.1)</a>. We would like to replace it with something of similar shape but smooth. Here is a piecewise cubic function which does the job.</p>
+<p>We look for a way to smoothly model the data while avoiding the issues in <a href="section-drawbacks-spline-interpolation.html" class="internal" title="Section 24.1: Weak points of spline interpolation">Section 24.1</a>. To simplify the computations, assume the x-values are equally spaced, which means that after shifting and scaling we can assume \(x_k=k\) for \(k=1, \dots, n\text{.}\) Then the linear interpolation can be expressed as the sum</p>
 <div class="displaymath">
 \begin{equation}
-B(t) = \frac16 \max(0,2-|t|)^3 - \frac23 \max(0,1-|t|)^3\tag{24.2.2}
+L(x) = \sum_{k=1}^n y_k H(x-k)\tag{24.2.1}
 \end{equation}
 </div>
-<p data-braille="continuation">Its graph on \([-3, 3]\) is shown below, with the hat function \(H\) for comparison. In technical terms, both \(H\) and \(B\) are “cardinal B-splines” of degrees 1 and 3, respectively.</p>
+<p data-braille="continuation">where \(H(x) = \max(0, 1-|x|)\) is a function whose graph is a triangle with base \([-1,1]\text{.}\) Functions like \(H\) are sometimes called the “hat functions” based on the appearance of the graph. An important feature of the functions \(H(x-k)\) is that they add up to \(1\) everywhere on the interval \([1, n]\) (why?). This ensures that interpolation of constant values \(y_1=\cdots =y_n\) produces a constant function, which is a necessary condition for the algorithm to preserve monotonicity of data.</p>
 <span class="incontext"><a href="section-b-splines.html#p-753">in-context</a></span>
 </body>
 </html>

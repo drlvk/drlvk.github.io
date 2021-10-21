@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:47-04:00    *-->
+<!--*    on 2021-10-21T17:52:53-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In practice, trying to minimize a function by solving <a class="xref" data-knowl="./knowl/eq-critical-points-eq.html" title="Equation 29.1.4">(29.1.4)</a> is not the most productive approach: there are probably many critical points, some of them saddle points, and some of them may be points of local maximum rather than minimum. It is better to search for a minimum directly, which is a problem of <dfn class="terminology">multivariable optimization</dfn>. We will study optimization in the last part of this course. For now, we'll use the built-in Matlab tool <code class="code-inline tex2jax_ignore">fminsearch</code>, the underlying principle of which (the Nelder-Mead method) will be considered later.</p>
+<p>Recall that <em class="emphasis">least squares</em> method means minimizing the sum of squares of residuals, which is a function of parameters \(A, M, r\text{:}\)</p>
+<div class="displaymath">
+\begin{equation}
+S(A, M, r) = \sum_{k=1}^n \left(y_k - \frac{M}{1 + Ae^{-rx_k}}\right)^2\tag{29.1.3}
+\end{equation}
+</div>
+<p data-braille="continuation">Since \(S\) is a smooth function, we could theoretically try the multivariable calculus approach: finds its partial derivatives of first order, equate them to zero, and solve the resulting system of equations:</p>
+<div class="displaymath">
+\begin{equation}
+\frac{\partial S}{\partial A} = 0, \quad \frac{\partial S}{\partial M} = 0, \quad \frac{\partial S}{\partial r} = 0\tag{29.1.4}
+\end{equation}
+</div>
+<p data-braille="continuation">But this system will be <em class="emphasis">nonlinear</em> and is unlikely to have a symbolic solution. Should we try some  multivariable root-finding method such as Newton's method?</p>
 <span class="incontext"><a href="section-nls-motivation.html#p-870">in-context</a></span>
 </body>
 </html>

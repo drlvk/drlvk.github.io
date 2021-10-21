@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:46-04:00    *-->
+<!--*    on 2021-10-21T17:52:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,24 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>As written, the formula <a class="xref" data-knowl="./knowl/eq-approximating-cubic-spline.html" title="Equation 24.2.3">(24.2.3)</a> has an issue at the boundary, where instead of averages <a class="xref" data-knowl="./knowl/eq-values-of-approx-spline.html" title="Equation 24.2.4">(24.2.4)</a> we get</p>
+<p>It is also possible to derive an interpolating spline as a linear combination of bumps \(B(x-k)\text{,}\) by solving a simple linear system. Indeed, we can find the coefficients \(c_1, \dots, c_n\) such that</p>
 <div class="displaymath">
-\begin{equation}
-S(x_1)= \frac{4y_1 + y_{2}}{6},\quad S(x_n) = \frac{y_{n-1} + 4y_n }{6}\tag{24.2.5}
-\end{equation}
+\begin{equation*}
+\sum_{k=1}^n c_k B(x-k) = y_k,\quad k=1,\dots, n 
+\end{equation*}
 </div>
-<p data-braille="continuation">because there is no \(y_0\) or \(y_{n+1}\text{.}\) This is an issue because, for example, with constant values \(y_k=1\) we get \(S(x_1)=5/6=S(x_n)\text{,}\) failing monotonicity. To fix the boundary behavior, we should extend the sum <a class="xref" data-knowl="./knowl/eq-approximating-cubic-spline.html" title="Equation 24.2.3">(24.2.3)</a> with two more terms:</p>
+<p data-braille="continuation">by solving the system \(Ac=y\) where \(A\) is the <em class="emphasis">tridiagonal</em> matrix</p>
 <div class="displaymath">
-\begin{equation}
-S(x) = \sum_{k=0}^{n+1} y_k B(x-k),\quad y_0=y_1, \ y_{n+1} = y_n\tag{24.2.6}
-\end{equation}
+\begin{equation*}
+A = \frac{1}{6} \begin{pmatrix} 
+4 &amp; 1 &amp; 0 &amp; \cdots &amp; 0  \\
+1 &amp; 4 &amp; 1 &amp; \cdots &amp; 0  \\
+0 &amp; 1 &amp; 4 &amp; \cdots &amp; 0  \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots 
+\end{pmatrix}
+\end{equation*}
 </div>
-<p data-braille="continuation">This is typical when computing with values on a grid: sometimes our formulas refer to out-of-grid points, and instead of just ignoring such terms we should somehow extrapolate the known values outside of the grid.</p>
+<p data-braille="continuation">But this brings back the kind of splines in <a href="chapter-spline-interpolation.html" class="internal" title="Chapter 23: Spline Interpolation">Chapter 23</a> with the deficiencies noted earlier, so we do not pursue this approach further.</p>
 <span class="incontext"><a href="section-b-splines.html#p-757">in-context</a></span>
 </body>
 </html>

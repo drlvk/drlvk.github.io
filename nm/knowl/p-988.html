@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:49-04:00    *-->
+<!--*    on 2021-10-21T17:52:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The code in <a class="xref" data-knowl="./knowl/example-rce-nelder-mead.html" title="Example 33.3.1: Reflection-contraction-expansion Nelder-Mead method">Example 33.3.1</a> works only for functions of two variables but it can be adapted for \(n\)-dimensional optimization. Instead of the initial triangle</p>
-<pre class="code-block tex2jax_ignore">
-A = randn(2, 1);
-B = A + [1; 0];
-C = A + [0; 1];
-T = [A B C];
-</pre>
-<p data-braille="continuation">we create initial \(n\)-dimensional simplex using implicit array expansion:</p>
-<pre class="code-block tex2jax_ignore">
-A = randn(n, 1);
-T = [A A+eye(n)];
-</pre>
-<p data-braille="continuation">The search path will be <code class="code-inline tex2jax_ignore">path = zeros(n, max_tries)</code> which we will only use for visualization when \(n=2, 3\text{.}\)</p>
+<p>This is an optional section, feel free to skip it.</p>
 <span class="incontext"><a href="section-nelder-mead-ndim.html#p-988">in-context</a></span>
 </body>
 </html>

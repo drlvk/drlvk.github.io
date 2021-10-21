@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:49-04:00    *-->
+<!--*    on 2021-10-21T17:52:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>However, it would be pointless to replace \(C\) by \(R\) if this did not make the function smaller. So the replacement only happens if \(f(R)\lt f(C)\text{.}\) Otherwise the program stops and reports the center \((A+B+C)/3\) of the last computed triangle as an approximate point of minimum. This is a “reflection-only” version of the Nelder-Mead method.</p>
+<p>Given a triangle \(ABC\) in \(xy\)-plane, we evaluate the function \(f\) at its vertices. The vertex with the largest value of \(f\) (for example, \(C\)) <em class="emphasis">might</em> get replaced by its reflection. One could imagine reflecting \(C\) about the opposite side \(AB\) by dropping a perpendicular line from \(C\) onto \(AB\) and following it. However, this kind of reflection is not invariant under linear transformations of \(xy\) plane, such as the scaling of coordinates. The Nelder-Mead method uses reflection about the midpoint of \(AB\text{.}\) The midpoint can be computed as \(M = (A+B)/2\text{,}\) and then the reflected point is</p>
+<div class="displaymath">
+\begin{equation}
+R = 2M - C \tag{33.1.1}
+\end{equation}
+</div>
 <span class="incontext"><a href="section-nelder-mead-reflect.html#p-973">in-context</a></span>
 </body>
 </html>

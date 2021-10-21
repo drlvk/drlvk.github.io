@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:50-04:00    *-->
+<!--*    on 2021-10-21T17:52:56-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>As an additional example, let us solve the problem at the beginning of this section. The objective function \(f(\mathbf x) = x_1+2x_2-5x_3\) was to be maximized, so we minimize \(-f\) which means <code class="code-inline tex2jax_ignore">c = [-1; -2; 5]</code>. The constraints \(0\le x_1\le x_2\le x_3\le 10\) become \(-x_1\le 0\text{,}\) \(x_1-x_2\le 0\text{,}\) \(x_2-x_3\le 0\text{,}\) and \(x_3\le 10\text{.}\) Finally, \(2x_3 - x_1\ge 3\) becomes \(x_1 - 2x_3 \le -3\text{.}\) We arrive at a system of five linear constraints, summarized in <code class="code-inline tex2jax_ignore">A, b</code> below:</p>
+<p><em class="emphasis">Octave-specific remark</em>. The current version of Octave has a similar function <code class="code-inline tex2jax_ignore">glpk</code> instead of <code class="code-inline tex2jax_ignore">linprog</code>. The main difference is that <code class="code-inline tex2jax_ignore">glpk(c, A, b)</code> solves <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a> instead of <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a>. However, the fourth argument of <code class="code-inline tex2jax_ignore">glpk</code> can be used to set lower bounds to \(-\infty\) instead of \(0\text{,}\) the fifth argument (for upper bounds) can be left empty <code class="code-inline tex2jax_ignore">[]</code>, and the sixth argument is a string indicating the form of constraints, with letters 'U' for \(\le\text{.}\) So, <a class="xref" data-knowl="./knowl/example-solving-with-linprog.html" title="Example 35.1.1: A simple linear programming problem">Example 35.1.1</a> with Octave would be</p>
 <pre class="code-block tex2jax_ignore">
-c = [-1; -2; 5];
-A = [-1 0 0; 1 -1 0; 0 1 -1; 0 0 1; 1 0 -2];
-b = [0; 0; 0; 10; -3];
-x = linprog(c, A, b);
-fprintf('Found x = (%g, %g, %g) with c*x = %g \n', x, c'*x) ;
+glpk([-1; -1], [1 2; 3 1], [4; 5], [-Inf; -Inf], [], 'UU')
 </pre>
-<p data-braille="continuation">Note that <code class="code-inline tex2jax_ignore">A*x</code> is the vector <code class="code-inline tex2jax_ignore">[0; -1.5; 0; 1.5; -3]</code> where three of components are equal to the components of <code class="code-inline tex2jax_ignore">b</code> and the others are strictly less. The equality means that the corresponding constraints, such as \(-x_1 \le 0\text{,}\) are <dfn class="terminology">active</dfn> at the optimal point: the point pushes against them. The constraints \(x_1\le x_2\) and \(x_3\le 10\) are <dfn class="terminology">inactive</dfn> at this point: they hold as strict inequalities. The solution would stay the same if the inactive constraints were removed.</p>
+<p data-braille="continuation">See <code class="code-inline tex2jax_ignore">help glpk</code> for more.</p>
 <span class="incontext"><a href="section-linear-programming-introduction.html#p-1029">in-context</a></span>
 </body>
 </html>

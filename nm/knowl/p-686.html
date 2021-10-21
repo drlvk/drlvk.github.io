@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:45-04:00    *-->
+<!--*    on 2021-10-21T17:52:51-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,22 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Newton  polynomial is a third way of constructing an interpolating polynomial of degree \(\lt n\) through \(n\) given points. It is still the same polynomial, since there is only one such polynomial. But the method is different because, yet again, we use a different basis. The Newton basis is somewhere between monomial basis and Lagrange basis, in the following sense. Let \(\mathbf c\) be the vector of coefficients of interpolating polynomial in some basis; these coefficients are obtained from a linear system \(A\mathbf c=\mathbf y\) where the square matrix \(A\) depends on the basis.</p>
-<ul class="disc">
-<li>For the monomial basis, the matrix \(A\) is dense and often ill-conditioned (it has entries \(x_j^{i-1}\) and is known as the <a class="external" href="https://en.wikipedia.org/wiki/Vandermonde_matrix" target="_blank">Vandermonde matrix</a>.</li>
-<li>For the Lagrange basis, the matrix \(A\) is the identity matrix, so the coefficients \(c_k\) are simply the given values \(y_k\text{.}\)</li>
-<li>For the Newton basis, the matrix \(A\) is <em class="emphasis">triangular</em>. This means there is some work to be done to obtain \(\mathbf c\) from \(\mathbf y\) but it is straightforward.</li>
-</ul>
-<p data-braille="continuation">The <dfn class="terminology">Newton polynomial basis</dfn> consists of</p>
-<div class="displaymath">
-\begin{align*}
-\phi_1(x) \amp = 1\\
-\phi_2(x) \amp = x-x_1\\
-\phi_3(x) \amp = (x-x_1)(x-x_2)\\
-\phi_4(x) \amp = (x-x_1)(x-x_2)(x-x_3)
-\end{align*}
-</div>
-<p data-braille="continuation">and so on. An advantage of Newton polynomial is that it is easier to evaluate than Lagrange polynomial. Also, we will see that adding a new data point is very easy to handle because the computation processes one step at a time. A key fact is that \(\phi_j(x_k) = 0\) when \(k \lt j\text{.}\)</p>
-<span class="incontext"><a href="section-newton-polynomial.html#p-686">in-context</a></span>
+<p>How does <code class="code-inline tex2jax_ignore">p</code> accept a row vector as <code class="code-inline tex2jax_ignore">t</code>? The expression <code class="code-inline tex2jax_ignore">t - x'</code> is the difference of a row vector and a column vector; in Matlab this creates a matrix where \((i, j)\) entry is \(t_j - x_i\text{.}\) Subsequent operations proceed as above, and the result is a row vector of values \(p(t)\text{.}\)</p>
+<span class="incontext"><a href="section-lagrange-polynomial.html#p-686">in-context</a></span>
 </body>
 </html>

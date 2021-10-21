@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:44-04:00    *-->
+<!--*    on 2021-10-21T17:52:50-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -31,6 +31,7 @@ x = randn(1, d);
 x = x/norm(x);
 </pre>
 <p data-braille="continuation">Note that <code class="code-inline tex2jax_ignore">x = randn(1, d)/norm(randn(1, d))</code> would not do the job, because each use of <code class="code-inline tex2jax_ignore">randn</code> leads to a new random vector.</p>
-<p>Using this random unit vector in a loop, like in <a class="xref" data-knowl="./knowl/example-monte-carlo-box.html" title="Example 18.3.1: Implement the Monte-Carlo method over a high-dimensional cube">Example 18.3.1</a>, we can find an approximate value of the average of a function \(f\) over the unit sphere \(\{\mathbf x\in \mathbb R^d\colon |\mathbf x|=1\}\text{.}\) This method works specifically for the normal distribution because of the following property of its probability density function \(p\text{:}\) the product \(p(x_1)p(x_2)\cdots p(x_d)\) depends only on the norm of vector \(\mathbf x\text{.}\)</p></article><span class="incontext"><a href="section-integration-monte-carlo.html#remark-normal-distribution">in-context</a></span>
+<p>If one replaces <code class="code-inline tex2jax_ignore">x = rand(1, d)</code> in <a class="xref" data-knowl="./knowl/example-monte-carlo-box.html" title="Example 18.3.1: Implement the Monte-Carlo method over a high-dimensional cube">Example 18.3.1</a> with the above code for generating random unit vectors, the result is an approximate value of the average of function \(f\) over the unit sphere \(\{\mathbf x\in \mathbb R^d\colon |\mathbf x|=1\}\text{.}\)</p>
+<p>A remark for those familiar with probability theory: the process of generating vectors uniformly distributed over the unit sphere is based on the normal distribution because of the following property of its probability density function \(p\text{:}\) the product \(p(x_1)p(x_2)\cdots p(x_d)\) depends only on the norm of vector \(\mathbf x\text{.}\)</p></article><span class="incontext"><a href="section-integration-monte-carlo.html#remark-normal-distribution">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:47-04:00    *-->
+<!--*    on 2021-10-21T17:52:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The goal of this exercise is to modify <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a> so that the input value is quality <code class="code-inline tex2jax_ignore">q</code> such as 90 or 95, and the image in <a class="xref" data-knowl="./knowl/winter-png.html" title="Figure 26.2.1">Figure 26.2.1</a> is compressed based on the energy consideration.</p>
+<p>Instead of deciding in advance how many coefficients to discard, it is usually preferable to maintain some degree of quality of the image. This is often measured in terms of “energy”, defined as the sum of squares of absolute values of Fourier coefficients (except the constant one). That, is to have 95% quality, we want to keep enough Fourier coefficients so that the sum of their squares is at least 95% of the total sum of squares. Equivalently, we discard the coefficients that contribute 5% of the energy.</p>
 <span class="incontext"><a href="exercises-dft-applications.html#p-814">in-context</a></span>
 </body>
 </html>

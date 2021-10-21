@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:34-04:00    *-->
+<!--*    on 2021-10-21T17:52:39-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,11 +415,11 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-golden-section"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">30.4</span> <span class="title">Golden section search</span>
 </h2>
-<p id="p-912">This is a bracket-based method for minimization which is similar to bisection method. However, if we applied bisection method to \(f'\) we might find a local maximum. The <dfn class="terminology">golden section</dfn> search will not do that; it is designed to search for a minimum.</p>
-<p id="p-913">The bisection method was based on the idea that if \(f(a)f(b) \lt 0\) (and \(f\) is continuous), then there is a root of \(f\) on the interval \([a, b]\text{.}\) What do we need to be sure there is at least a local minimum on \([a, b]\text{?}\) Some point \(c\in [a, b]\) such that \(f(c) \lt f(a)\) and \(f(c) \lt f(b)\text{.}\) However, if we divide the interval into \([a, c]\) and \([c, b]\text{,}\) it is not clear what to do next: which part should we keep?</p>
-<p id="p-914">Instead, the bracket should include two interior points, say \(a \lt c \lt d \lt b\text{.}\) Then we can compare \(f(c)\) and \(f(d)\text{;}\) the smaller one will point to us which interval to keep, either \([a, d]\) (if \(f(c)\) is smaller)  or \([c, b]\) (if \(f(d)\) is smaller).</p>
-<p id="p-915">The choice of two points \(c,d\) is not obvious. We could place them \(1/3\) of the way from each end, namely \(c=a+(b-a)/3\) and \(d=b-(b-a)/3\text{.}\) Then if, for example, \(f(c)\lt f(d)\text{,}\) we know there is a point of minimum in \([a, d]\text{.}\) To keep the process going, need to pick two interior evaluation points on \([a,d]\text{.}\) Frustratingly, the point \(c\) which is in \([a, d]\text{,}\) does not fit our algorithm because it is in the middle of \([a,d]\text{,}\) not \(1/3\) from an edge.</p>
-<p id="p-916">Golden section method improves on the above by choosing \(c,d\) as follows:</p>
+<p id="p-913">This is a bracket-based method for minimization which is similar to bisection method. However, if we applied bisection method to \(f'\) we might find a local maximum. The <dfn class="terminology">golden section</dfn> search will not do that; it is designed to search for a minimum.</p>
+<p id="p-914">The bisection method was based on the idea that if \(f(a)f(b) \lt 0\) (and \(f\) is continuous), then there is a root of \(f\) on the interval \([a, b]\text{.}\) What do we need to be sure there is at least a local minimum on \([a, b]\text{?}\) Some point \(c\in [a, b]\) such that \(f(c) \lt f(a)\) and \(f(c) \lt f(b)\text{.}\) However, if we divide the interval into \([a, c]\) and \([c, b]\text{,}\) it is not clear what to do next: which part should we keep?</p>
+<p id="p-915">Instead, the bracket should include two interior points, say \(a \lt c \lt d \lt b\text{.}\) Then we can compare \(f(c)\) and \(f(d)\text{;}\) the smaller one will point to us which interval to keep, either \([a, d]\) (if \(f(c)\) is smaller)  or \([c, b]\) (if \(f(d)\) is smaller).</p>
+<p id="p-916">The choice of two points \(c,d\) is not obvious. We could place them \(1/3\) of the way from each end, namely \(c=a+(b-a)/3\) and \(d=b-(b-a)/3\text{.}\) Then if, for example, \(f(c)\lt f(d)\text{,}\) we know there is a point of minimum in \([a, d]\text{.}\) To keep the process going, need to pick two interior evaluation points on \([a,d]\text{.}\) Frustratingly, the point \(c\) which is in \([a, d]\text{,}\) does not fit our algorithm because it is in the middle of \([a,d]\text{,}\) not \(1/3\) from an edge.</p>
+<p id="p-917">Golden section method improves on the above by choosing \(c,d\) as follows:</p>
 <div class="displaymath">
 \begin{equation*}
 c = a+r(b-a), \quad d=b-r(b-a), \quad \text{where } r=\frac{3-\sqrt{5}}{2}
@@ -434,11 +434,11 @@ c = a+r(b-a), \quad d=b-r(b-a), \quad \text{where } r=\frac{3-\sqrt{5}}{2}
 </div>
 <p data-braille="continuation">The result of this invariance of the ratio is that when the bracket is reduced, the remaining interior point again divides it in the golden ratio.</p>
 <figure class="figure figure-like" id="golden-png"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/golden.png" style="width: 100%; height: auto;" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">30.4.1<span class="period">.</span></span><span class="space"> </span>Golden section search</figcaption></figure><p id="p-917">With each step of iteration, only one additional evaluation of \(f\) is needed. The bracket size is divided by \(\varphi\) at every step. This is linear rate of convergence, which is slow but reliable (if the function is unimodal), and we don't need the derivative of \(f\) to use this method.</p>
-<p id="p-918">What if the function is not unimodal? If we are lucky, the process may converge to the global minimum. But it's quite possible that the global minimum will be lost from the bracket at some step and then we'll converge to a local minimum instead.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">30.4.1<span class="period">.</span></span><span class="space"> </span>Golden section search</figcaption></figure><p id="p-918">With each step of iteration, only one additional evaluation of \(f\) is needed. The bracket size is divided by \(\varphi\) at every step. This is linear rate of convergence, which is slow but reliable (if the function is unimodal), and we don't need the derivative of \(f\) to use this method.</p>
+<p id="p-919">What if the function is not unimodal? If we are lucky, the process may converge to the global minimum. But it's quite possible that the global minimum will be lost from the bracket at some step and then we'll converge to a local minimum instead.</p>
 <article class="example example-like" id="example-golden-section"><a data-knowl="" class="id-ref original" data-refid="hk-example-golden-section"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">30.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Minimize by golden section.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-golden-section"><article class="example example-like"><p id="p-919">Minimize \(f(x) = x^4 - 3 x^2 + x + 1\) using the golden section method on the interval \([-2, 2]\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-golden-section"><article class="example example-like"><p id="p-920">Minimize \(f(x) = x^4 - 3 x^2 + x + 1\) using the golden section method on the interval \([-2, 2]\text{.}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-51" id="solution-51"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-51"><div class="solution solution-like"><pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
 a = -2;
@@ -458,13 +458,13 @@ end
 fprintf('Found a minimum x = %g with f(x) = %g \n', c, f(c));
 </pre></div></div>
 </div></article></div>
-<p id="p-920">The code in <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a> does not store previously computed values of the function and therefore they get recomputed again for the same \(x\)-value. In some languages, such <em class="emphasis">caching</em> of previously computed function values may happen behind the scenes. In Matlab it does not (currently), so we need to store the values to be reused. The following version of the above code does this.</p>
+<p id="p-921">The code in <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a> does not store previously computed values of the function and therefore they get recomputed again for the same \(x\)-value. In some languages, such <em class="emphasis">caching</em> of previously computed function values may happen behind the scenes. In Matlab it does not (currently), so we need to store the values to be reused. The following version of the above code does this.</p>
 <article class="example example-like" id="example-golden-section-optimized"><a data-knowl="" class="id-ref original" data-refid="hk-example-golden-section-optimized"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">30.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Efficient golden section search.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-golden-section-optimized"><article class="example example-like"><p id="p-921">Improve the efficiency of the code in <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a> by storing and reusing some function values.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-golden-section-optimized"><article class="example example-like"><p id="p-922">Improve the efficiency of the code in <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a> by storing and reusing some function values.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-52" id="solution-52"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-52"><div class="solution solution-like">
-<p id="p-922">We use the variables <code class="code-inline tex2jax_ignore">fc</code> and <code class="code-inline tex2jax_ignore">fd</code> to store the values of \(f\) at the points <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>. When the algorithm replaces of these points with the other, the previously computed value is reused without executing the function \(f\) again. This approach requires more work to be done before the main loop, in order to initialize <code class="code-inline tex2jax_ignore">fc</code> and <code class="code-inline tex2jax_ignore">fd</code>.</p>
+<p id="p-923">We use the variables <code class="code-inline tex2jax_ignore">fc</code> and <code class="code-inline tex2jax_ignore">fd</code> to store the values of \(f\) at the points <code class="code-inline tex2jax_ignore">c</code> and <code class="code-inline tex2jax_ignore">d</code>. When the algorithm replaces of these points with the other, the previously computed value is reused without executing the function \(f\) again. This approach requires more work to be done before the main loop, in order to initialize <code class="code-inline tex2jax_ignore">fc</code> and <code class="code-inline tex2jax_ignore">fd</code>.</p>
 <pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
 a = -2;
 b = 2;
@@ -491,10 +491,10 @@ while b-a &gt;= 100*eps(a)
     end
 end
 </pre>
-<p id="p-923">The code is longer than <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a>  but it runs faster because at every execution of the loop there is only one call to function \(f\) instead of two.</p>
+<p id="p-924">The code is longer than <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a>  but it runs faster because at every execution of the loop there is only one call to function \(f\) instead of two.</p>
 </div></div>
 </div></article></div>
-<p id="p-924">Since the function \(f\) used in <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a> and <a class="xref" data-knowl="./knowl/example-golden-section-optimized.html" title="Example 30.4.3: Efficient golden section search">Example 30.4.3</a> is easy to compute, the gain of optimized implementation may not be evident. To make it visible, replace the function with the following, which takes relatively long to evaluate:</p>
+<p id="p-925">Since the function \(f\) used in <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a> and <a class="xref" data-knowl="./knowl/example-golden-section-optimized.html" title="Example 30.4.3: Efficient golden section search">Example 30.4.3</a> is easy to compute, the gain of optimized implementation may not be evident. To make it visible, replace the function with the following, which takes relatively long to evaluate:</p>
 <pre class="code-block tex2jax_ignore">
 f = @(x) x.^4 - 3*x.^2 + x + 1 + 0*sum(rand(1, 1e6));
 </pre>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-10-16T16:38:46-04:00    *-->
+<!--*    on 2021-10-21T17:52:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,36 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The formula <a class="xref" data-knowl="./knowl/eq-cubic-cardinal-spline.html" title="Equation 24.2.2">(24.2.2)</a> deserves some explanation. The idea is to start with the linear interpolant (degree 1 spline) \(S_1=L\) defined by <a class="xref" data-knowl="./knowl/eq-hat-function.html" title="Equation 24.2.1">(24.2.1)</a> and repeatedly smoothen it using a <dfn class="terminology">moving average</dfn> with a window of size \(1\text{:}\)</p>
-<div class="displaymath">
-\begin{equation}
-S_2(x) = \int_{x-1/2}^{x+1/2} S_1(t)\,dt\tag{24.3.1}
-\end{equation}
-</div>
-<div class="displaymath">
-\begin{equation}
-S_3(x) = \int_{x-1/2}^{x+1/2} S_2(t)\,dt\tag{24.3.2}
-\end{equation}
-</div>
-<p data-braille="continuation">and so on. The fundamental theorem of calculus shows that</p>
-<div class="displaymath">
-\begin{equation*}
-S_2'(x) = S_1(x+1/2)-S_1(x-1/2)
-\end{equation*}
-</div>
-<p data-braille="continuation">in particular \(S_2\) has continuous first derivative. Similarly,</p>
-<div class="displaymath">
-\begin{equation*}
-S_3'(x) = S_2(x+1/2)-S_2(x-1/2)
-\end{equation*}
-</div>
-<p data-braille="continuation">so</p>
-<div class="displaymath">
-\begin{equation*}
-S_3''(x) = S_2'(x+1/2)-S_2'(x-1/2)
-\end{equation*}
-</div>
-<p data-braille="continuation">is continuous as well.</p>
-<span class="incontext"><a href="section-construct-cardinal-splines.html#p-760">in-context</a></span>
+<p>As discussed above, the x-y values are extended by two points to the left and right; this is what the vectors <code class="code-inline tex2jax_ignore">xe</code> and <code class="code-inline tex2jax_ignore">ye</code> represent. After that, the spline is evaluating in a single vectorized computation. The plot shows a smoothly increasing function. Trying this again with <code class="code-inline tex2jax_ignore">y = [9 9 1 1 9 9]</code> we get a smooth positive function.</p>
+<span class="incontext"><a href="section-b-splines.html#p-760">in-context</a></span>
 </body>
 </html>
