@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:44-04:00    *-->
+<!--*    on 2021-11-01T18:44:03-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The first two lines compute new parameters \(\beta_1, \beta_2\) for logistic function \(1/(1+\exp(-\beta_1 - \beta_2 x))\text{,}\) using weights. The rest proceeds as before. The plot is shown on a new figure.</p>
+<p>In <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> we used the logit transformation \(T(y) = \log(y/(1-y)) = \log(y) - \log(1-y)\text{.}\) Its derivative is</p>
+<div class="displaymath">
+\begin{equation*}
+T'(y) = \frac{1}{y} + \frac{1}{1-y} = \frac{1}{y(1-y)}\text{.}
+\end{equation*}
+</div>
+<p data-braille="continuation">This is a positive quantity, so we do not need absolute value; the weights are simply \(w_k = y_k(1-y_k)\text{.}\)</p>
 <span class="incontext"><a href="section-weighted-least-squares.html#p-857">in-context</a></span>
 </body>
 </html>

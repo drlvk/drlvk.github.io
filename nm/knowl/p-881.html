@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:44-04:00    *-->
+<!--*    on 2021-11-01T18:44:03-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The <code class="code-inline tex2jax_ignore">fminsearch</code> optimization includes limits on the number of function evaluations, and on the number of iterations that it can do before stopping. If you get a warning that the process stopped because of these limits, try increasing them. For example,</p>
-<pre class="code-block tex2jax_ignore">
-options = optimset('MaxFunEvals', 10000, 'MaxIter', 10000);
-opt = fminsearch(..., options);
-</pre>
-<p data-braille="continuation">The first line creates a “structure” (which would be called a “dictionary” in some languages) which records the options for the optimization algorithm.</p>
+<p>Once we have the data <code class="code-inline tex2jax_ignore">x, y</code>, we can set up the sum-of-squares function <code class="code-inline tex2jax_ignore">S</code> according to <a class="xref" data-knowl="./knowl/eq-sum-logistic-residuals.html" title="Equation 29.1.3">(29.1.3)</a>. The parameters are to be represented by the components <code class="code-inline tex2jax_ignore">b(1), b(2), b(3)</code> in some order (I use the order \(M, a, s\)). First, use a mindless guess for initial point, <code class="code-inline tex2jax_ignore">[0; 0; 1]</code>. The orientation of data vectors <code class="code-inline tex2jax_ignore">x, y</code> does not matter here since we no longer make a linear system out of them.</p>
 <span class="incontext"><a href="section-using-fminsearch-curvefit.html#p-881">in-context</a></span>
 </body>
 </html>

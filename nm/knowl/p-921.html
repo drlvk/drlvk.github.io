@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:45-04:00    *-->
+<!--*    on 2021-11-01T18:44:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The code in <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a> does not store previously computed values of the function and therefore they get recomputed again for the same \(x\)-value. In some languages, such <em class="emphasis">caching</em> of previously computed function values may happen behind the scenes. In Matlab it does not (currently), so we need to store the values to be reused. The following version of the above code does this.</p>
+<p>With each step of iteration, only one additional evaluation of \(f\) is needed. The bracket size is divided by \(\varphi\) at every step. This is linear rate of convergence, which is slow but reliable (if the function is unimodal), and we don't need the derivative of \(f\) to use this method.</p>
 <span class="incontext"><a href="section-golden-section.html#p-921">in-context</a></span>
 </body>
 </html>

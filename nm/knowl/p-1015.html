@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:46-04:00    *-->
+<!--*    on 2021-11-01T18:44:05-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,17 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Hint: to improve the performance of <code class="code-inline tex2jax_ignore">fminsearch</code>, do not use absolute value: instead, minimize the product</p>
-<div class="displaymath">
-\begin{equation*}
-\prod_{1\le k \lt \ell\le 4}(x_k - x_\ell)
-\end{equation*}
-</div>
-<p data-braille="continuation">This product can be concisely expressed in Matlab as</p>
-<pre class="code-block tex2jax_ignore">
-prod(x(1:3)-x(4))*prod(x(1:2)-x(3))*(x(1)-x(2))    
-</pre>
-<p data-braille="continuation">The constraint function <code class="code-inline tex2jax_ignore">c</code> could be simply <code class="code-inline tex2jax_ignore">max(abs(x)) - 1</code>; this constrains all four points to the interval at once.</p>
+<p>(Theoretical) Use the Lagrange multiplier method to find the critical points of the function \(f(x, y) = (x + 7y)^3 \) on the circle \(x^2 + y^2 = 1\text{.}\) Compare with the result of <a class="xref" data-knowl="./knowl/example-iterative-constrained-minimization.html" title="Example 34.1.2: Iterative minimization on the unit disk">Example 34.1.2</a>.</p>
 <span class="incontext"><a href="exercises-constrained-optimization.html#p-1015">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:43-04:00    *-->
+<!--*    on 2021-11-01T18:44:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,22 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>In <a href="chapter-discrete-fourier-transform.html" class="internal" title="Chapter 25: Discrete Fourier Transform">Chapter 25</a> we worked with periodic functions, approximating them by trigonometric polynomials. Can we use trigonometric polynomials to approximate non-periodic functions? For example, suppose we solved the initial-value problem</p>
-<div class="displaymath">
-\begin{equation}
-y'(t) =\sin(y^2)+t,\quad y(0)=1\tag{26.3.1}
-\end{equation}
-</div>
-<p data-braille="continuation">with</p>
-<pre class="code-block tex2jax_ignore">
-[t, y] = ode45(@(t, y) sin(y^2) + t, 0:0.1:3, 1);
-</pre>
-<p data-braille="continuation">Note that in contrast to <a href="chapter-ode-modeling.html" class="internal" title="Chapter 20: Modeling with differential equations">Chapter 20</a> the second argument is given not as an interval (two-element vector) <code class="code-inline tex2jax_ignore">[0 3]</code> but as a set of t-values at which the solution needs to be found. This ensures that we get y-values for these specific t-values. But now that we have them, how can we get a simple <em class="emphasis">approximate</em> solution?</p>
-<ul class="disc">
-<li>Polynomial interpolation? Hopeless, a degree 30 polynomial through 31 equally spaced points is not even worth trying.</li>
-<li>Cubic spline interpolation? It would make a nice plot but in terms of a formula, the spline would have 120 coefficients (4 for each of 30 subintervals). This is hardly a simple solution.</li>
-<li>Trigonometric polynomials? But they are periodic, and our function has different values at 0 and 3.</li>
-</ul>
-<span class="incontext"><a href="section-cosine-interpolation.html#p-806">in-context</a></span>
+<p>The inverse Fourier transform may have imaginary part due to the truncation of Fourier coefficients and rounding errors in computations. This imaginary part is removed with <code class="code-inline tex2jax_ignore">real</code>. The result is converted to unsigned 8-bit integers with <code class="code-inline tex2jax_ignore">uint8</code>.</p>
+<span class="incontext"><a href="section-2d-dft.html#p-806">in-context</a></span>
 </body>
 </html>

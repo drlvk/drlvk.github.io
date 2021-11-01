@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:43-04:00    *-->
+<!--*    on 2021-11-01T18:44:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>If we increase \(n\) toward \(7\text{,}\) the curve gets closer to the points but it also becomes more wiggly. Most importantly, the prediction it makes for \(x=10\text{,}\) that is \(f(10)\text{,}\) becomes less realistic. This is <dfn class="terminology">overfitting</dfn>, which describes the situation in which our model \(f\) mostly memorizes the data instead of learning from it. (<a class="external" href="https://imgs.xkcd.com/comics/curve_fitting_2x.png" target="_blank">Food for thought from xkcd</a>)</p>
-<span class="incontext"><a href="section-overfitting.html#p-824">in-context</a></span>
+<p>The goodness of fit could be measured in several ways. One indicator is the norm of the residual vector \(\mathbf y-\mathbf z\text{,}\) or better yet, the squared norm</p>
+<div class="displaymath">
+\begin{equation}
+| \mathbf y-\mathbf z| = \sum_{k=1}^n |y_k-z_k|^2\tag{27.1.3}
+\end{equation}
+</div>
+<p data-braille="continuation">However this quantity has the units of \(y_k\) squared, and a unit-free quantity is preferable. A popular approach is to compare the residual sum fo squares <a class="xref" data-knowl="./knowl/eq-residual-squares.html" title="Equation 27.1.3">(27.1.3)</a> to the total sum of squares</p>
+<div class="displaymath">
+\begin{equation}
+\sum_{k=1}^n |y_k-\bar y|^2 ,\quad \bar y = \frac{1}{n} \sum_{k=1}^n y_k\tag{27.1.4}
+\end{equation}
+</div>
+<p data-braille="continuation">We want our model to predict \(y_k\) better than the baseline guess \(\bar y\) (which does not use any explanatory variables). So, if <a class="xref" data-knowl="./knowl/eq-residual-squares.html" title="Equation 27.1.3">(27.1.3)</a>  is much smaller than <a class="xref" data-knowl="./knowl/eq-total-squares.html" title="Equation 27.1.4">(27.1.4)</a>, the fit is good. The goodness-of-fit is then measured by the <dfn class="terminology">coefficient of determination</dfn></p>
+<div class="displaymath">
+\begin{equation}
+R^2 = 1 - \frac{\sum_{k=1}^n |y_k-z_k|^2}{\sum_{k=1}^n |y_k-\bar y|^2}\tag{27.1.5}
+\end{equation}
+</div>
+<p data-braille="continuation">which shows how much of the variability in observation is predicted by the model. The value does not exceed 1, with 1 being exact fit and close to 0 being a rather useless model (<a class="external" href="https://imgs.xkcd.com/comics/linear_regression_2x.png" target="_blank">example</a>).  The quantity \(R^2\) may even be negative if the model does a worse job than the constant predictor \(\bar y\text{.}\) The notation  \(R^2\) comes from the fact that for linear regression \(y=ax+b\) (without testing-training split), it is the square of correlation coefficient. But in general it is not a square of anything.</p>
+<span class="incontext"><a href="section-lsq-overview.html#p-824">in-context</a></span>
 </body>
 </html>

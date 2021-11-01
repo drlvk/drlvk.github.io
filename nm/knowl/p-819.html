@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:43-04:00    *-->
+<!--*    on 2021-11-01T18:44:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,19 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Least squares fit is about more than just fitting a curve to some points like <a class="xref" data-knowl="./knowl/example-parabola-best-fit.html" title="Example 6.5.1: Parabola of best fit">Example 6.5.1</a>. In its general form we have a vector \(\mathbf y\) of \(n\) observations and \(p\) vectors of <dfn class="terminology">explanatory variables</dfn>, say \(\mathbf v_1, \dots, \mathbf v_p\text{.}\) Our goal is to approximate \(\mathbf y\) by a linear combination of \(\mathbf v_k\text{,}\) say \(\sum_{k=1}^p \beta_k \mathbf v_k\text{.}\) What are these vectors in the polynomial model?</p>
-<span class="incontext"><a href="section-lsq-overview.html#p-819">in-context</a></span>
+<p>Suggestions: sort the Fourier coefficients from largest to smallest using</p>
+<pre class="code-block tex2jax_ignore">
+sorted = sort(abs(fc(:)), 'descend');  
+</pre>
+<p data-braille="continuation">and remove the largest of them (the constant term):</p>
+<pre class="code-block tex2jax_ignore">
+sorted = sorted(2:end);  
+</pre>
+<p data-braille="continuation">The total energy is</p>
+<pre class="code-block tex2jax_ignore">
+total = sum(sorted.^2); 
+</pre>
+<p data-braille="continuation">The key step is writing a loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until the sum reaches the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
+<span class="incontext"><a href="exercises-dft-applications.html#p-819">in-context</a></span>
 </body>
 </html>

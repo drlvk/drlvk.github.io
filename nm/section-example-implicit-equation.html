@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:29-04:00    *-->
+<!--*    on 2021-11-01T18:43:47-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,8 +415,8 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-example-implicit-equation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">28.4</span> <span class="title">Fitting an implicit equation</span>
 </h2>
-<p id="p-859">This is an optional section, feel free to skip it.</p>
-<p id="p-860">Not all data points represent a function of the form \(y = f(x)\text{.}\) They may happen to accumulate along some closed curve such as an ellipse. General implicit equation of an ellipse is</p>
+<p id="p-862">This is an optional section, feel free to skip it.</p>
+<p id="p-863">Not all data points represent a function of the form \(y = f(x)\text{.}\) They may happen to accumulate along some closed curve such as an ellipse. General implicit equation of an ellipse is</p>
 <div class="displaymath">
 \begin{equation}
 Ax^2 + Bxy + Cy^2 + Dx + Ey  = 1\label{eq-ellipse-implicit}\tag{28.4.1}
@@ -431,7 +431,7 @@ Ax^2 + Bxy + Cy^2 + Dx + Ey  = 1\label{eq-ellipse-implicit}\tag{28.4.1}
 <p data-braille="continuation">which should hopefully fit the ellipse.</p>
 <article class="example example-like" id="example-best-fit-ellipse"><a data-knowl="" class="id-ref original" data-refid="hk-example-best-fit-ellipse"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">28.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Fit an ellipse to given points.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-ellipse"><article class="example example-like"><p id="p-861">Plot an ellipse that fits the given 7 data points:</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-ellipse"><article class="example example-like"><p id="p-864">Plot an ellipse that fits the given 7 data points:</p>
 <pre class="code-block tex2jax_ignore">  
 x = [1 2 4 5 4 3 1]'; 
 y = [2 0 -1 1 2 3 4]';
@@ -452,8 +452,8 @@ win = [min(x)-1 max(x)+1 min(y)-1 max(y)+1];
 fimplicit(fun, win)
 hold off
 </pre>
-<p id="p-862">Here the vector of parameters is called <code class="code-inline tex2jax_ignore">b</code> instead of <code class="code-inline tex2jax_ignore">beta</code> to shorten the implicit formula. It is obtained by solving a system with 1 on the right hand side, according to <a class="xref" data-knowl="./knowl/eq-ellipse-implicit.html" title="Equation 28.4.1">(28.4.1)</a>. The plot window is calculated from the data to allow margins of 1 unit on all sides.</p>
-<p id="p-863">Note that while it's safe to leave spaces around <code class="code-inline tex2jax_ignore">+</code> signs in the formula <code class="code-inline tex2jax_ignore">fun</code> (some find it improves readability), one has to be extra careful with such spaces within a vector. Indeed,</p>
+<p id="p-865">Here the vector of parameters is called <code class="code-inline tex2jax_ignore">b</code> instead of <code class="code-inline tex2jax_ignore">beta</code> to shorten the implicit formula. It is obtained by solving a system with 1 on the right hand side, according to <a class="xref" data-knowl="./knowl/eq-ellipse-implicit.html" title="Equation 28.4.1">(28.4.1)</a>. The plot window is calculated from the data to allow margins of 1 unit on all sides.</p>
+<p id="p-866">Note that while it's safe to leave spaces around <code class="code-inline tex2jax_ignore">+</code> signs in the formula <code class="code-inline tex2jax_ignore">fun</code> (some find it improves readability), one has to be extra careful with such spaces within a vector. Indeed,</p>
 <pre class="code-block tex2jax_ignore">
 [min(x) -1 max(x) +1 min(y) -1 max(y) +1]  
 </pre>
@@ -466,7 +466,7 @@ hold off
 </div></article></div>
 <article class="question example-like" id="question-37"><a data-knowl="" class="id-ref original" data-refid="hk-question-37"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">28.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Vectorizing a function for implicit plot.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-37"><article class="question example-like"><p id="p-864">It is tempting to write the anonymous function as <code class="code-inline tex2jax_ignore">fun = @(x, y) [x.^2 x.*y y.^2 x y]*b - 1</code> which is shorter and consistent with how we used parameters in the past. And this works but Matlab complains: “Warning: Function behaves unexpectedly on array inputs. To improve performance, properly vectorize your function to return an output with the same size and shape as the input arguments.” What is it complaining about?</p></article></div></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-37"><article class="question example-like"><p id="p-867">It is tempting to write the anonymous function as <code class="code-inline tex2jax_ignore">fun = @(x, y) [x.^2 x.*y y.^2 x y]*b - 1</code> which is shorter and consistent with how we used parameters in the past. And this works but Matlab complains: “Warning: Function behaves unexpectedly on array inputs. To improve performance, properly vectorize your function to return an output with the same size and shape as the input arguments.” What is it complaining about?</p></article></div></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:43-04:00    *-->
+<!--*    on 2021-11-01T18:44:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Let us try this with the grayscale version of the winter image, saved here as a PNG file for lossless compression.</p>
-<span class="incontext"><a href="section-2d-dft.html#p-799">in-context</a></span>
+<p>An image is loaded into Matlab with a command like <code class="code-inline tex2jax_ignore">im = imread('filename.jpg')</code>. Try this using, for example, <a class="external" href="https://twitter.com/SyracuseU/status/831617805673984000/photo/1" target="_blank">the winter scene</a> (first save the file in Matlab/Octave current directory). There are several things to learn about this <code class="code-inline tex2jax_ignore">im</code> object:</p>
+<ul class="disc">
+<li>
+<code class="code-inline tex2jax_ignore">size(im)</code> shows its size (dimensions) as 462<span class="times-sign">×</span>692<span class="times-sign">×</span>3. This is a three-dimensional array, where the last index means the <dfn class="terminology">color channel</dfn>: Red, Green, Blue. The first two indices are rows and columns. One can access individual channels with <code class="code-inline tex2jax_ignore">im(:, :, 1)</code> (for red). Matlab can also work with <dfn class="terminology">grayscale</dfn> images which have just one channel for brightness; such images are represented by matrices which makes them easier to work with.</li>
+<li>
+<code class="code-inline tex2jax_ignore">class(im)</code> says “uint8”. All other Matlab objects we worked have class <code class="code-inline tex2jax_ignore">double</code> meaning they are floating-point numbers with double-precision, able to store about 16 decimal digits. But <code class="code-inline tex2jax_ignore">uint8</code> is different: it is an <dfn class="terminology">unsigned 8-bit integer</dfn>, with possible values 0, 1, …, 255. This reflects the image format: in each channel, the brightness of each pixel ranges from 0 to 255. (How many possible colors does this create?) In other languages, one would say “type” instead of “class”.</li>
+</ul>
+<span class="incontext"><a href="section-image-compression.html#p-799">in-context</a></span>
 </body>
 </html>

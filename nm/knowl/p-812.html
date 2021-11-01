@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:43-04:00    *-->
+<!--*    on 2021-11-01T18:44:02-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,25 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The cosine sum in <a class="xref" data-knowl="./knowl/example-cosine-interpolation.html" title="Example 26.3.1: Interpolate with cosines">Example 26.3.1</a> has 31 terms, as many as there are data points. But many of them are very close to zero, as <code class="code-inline tex2jax_ignore">plot(cf)</code> shows. For example, we could keep the first <code class="code-inline tex2jax_ignore">m=8</code> of them and still have a good approximation for this function.</p>
+<p>Having found the Fourier coefficients <code class="code-inline tex2jax_ignore">c = fft(ye)/numel(ye)</code> we observe they are all real (any imaginary component is due to round-off errors). This makes it possible to “fold” the sum of complex exponentials into a cosine sum: for \(k=1, \dots, n-2\) the pair of terms</p>
+<div class="displaymath">
+\begin{equation*}
+c_k \exp(i k x ) +  c_{2n-k} \exp(i (2n-k) x )
+\end{equation*}
+</div>
+<p data-braille="continuation">is aliased to</p>
+<div class="displaymath">
+\begin{equation*}
+c_k \exp(i k x ) +  c_{2n-k} \exp(i (-k) x ) = 2c_k \cos (kx)
+\end{equation*}
+</div>
+<p data-braille="continuation">(here \(x\) is a multiple of \(\pi/n\text{.}\)) The terms \(c_0\) and \(c_{n-1}\) do not have a counterpart among the coefficients \(c_0, \dots, c_{2n-2}\text{,}\) so the cosine sum ends up being</p>
+<div class="displaymath">
+\begin{equation}
+c_0 + 2\sum_{k=1}^{n-2} c_k \cos (\pi kx/L) + c_{n-1} \cos (\pi (n-1) x/L)\tag{26.3.2}
+\end{equation}
+</div>
+<p data-braille="continuation">And of course, Matlab indexing of the coefficients begins with 1, forcing another adjustment: see the following example.</p>
 <span class="incontext"><a href="section-cosine-interpolation.html#p-812">in-context</a></span>
 </body>
 </html>

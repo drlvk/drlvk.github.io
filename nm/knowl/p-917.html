@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-01T18:04:45-04:00    *-->
+<!--*    on 2021-11-01T18:44:04-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,20 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Golden section method improves on the above by choosing \(c,d\) as follows:</p>
-<div class="displaymath">
-\begin{equation*}
-c = a+r(b-a), \quad d=b-r(b-a), \quad \text{where } r=\frac{3-\sqrt{5}}{2}
-\end{equation*}
-</div>
-<p data-braille="continuation">The number \(r\) is related to golden ratio \(\varphi = (\sqrt{5}+1 )/2\approx 1.618\) by \(r=1/\varphi^2\text{.}\) The following intervals are all in the golden ratio to each other:</p>
-<div class="displaymath">
-\begin{equation*}
-\frac{b-a}{d-a} = \frac{b-a}{b-c} = \frac{d-a}{c-a}  = \frac{b-c}{b-d} 
-= \frac{c-a}{d-c} = \frac{b-d}{d-c} = \varphi
-\end{equation*}
-</div>
-<p data-braille="continuation">The result of this invariance of the ratio is that when the bracket is reduced, the remaining interior point again divides it in the golden ratio.</p>
+<p>The bisection method was based on the idea that if \(f(a)f(b) \lt 0\) (and \(f\) is continuous), then there is a root of \(f\) on the interval \([a, b]\text{.}\) What do we need to be sure there is at least a local minimum on \([a, b]\text{?}\) Some point \(c\in [a, b]\) such that \(f(c) \lt f(a)\) and \(f(c) \lt f(b)\text{.}\) However, if we divide the interval into \([a, c]\) and \([c, b]\text{,}\) it is not clear what to do next: which part should we keep?</p>
 <span class="incontext"><a href="section-golden-section.html#p-917">in-context</a></span>
 </body>
 </html>
