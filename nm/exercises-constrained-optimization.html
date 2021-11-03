@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-02T19:35:51-04:00    *-->
+<!--*    on 2021-11-03T18:43:35-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -416,16 +416,16 @@ MathJax.Hub.Config({
 <span class="type">Exercises</span> <span class="codenumber">34.3</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-75"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-1015">(Theoretical) Use the Lagrange multiplier method to find the critical points of the function \(f(x, y) = (x + 7y)^3 \) on the circle \(x^2 + y^2 = 1\text{.}\) Compare with the result of <a class="xref" data-knowl="./knowl/example-iterative-constrained-minimization.html" title="Example 34.1.2: Iterative minimization on the unit disk">Example 34.1.2</a>.</p></article><article class="exercise exercise-like" id="exercise-76"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
-<p id="p-1016">Using the penalty method of <a class="xref" data-knowl="./knowl/example-iterative-constrained-minimization.html" title="Example 34.1.2: Iterative minimization on the unit disk">Example 34.1.2</a>, find four numbers \(x_1, x_2, x_3, x_4\) on the interval \([-1, 1]\) for which the product of all pairwise distances</p>
+<p id="p-1017">(Theoretical) Use the Lagrange multiplier method to find the critical points of the function \(f(x, y) = (x + 7y)^3 \) on the circle \(x^2 + y^2 = 1\text{.}\) Compare with the result of <a class="xref" data-knowl="./knowl/example-iterative-constrained-minimization.html" title="Example 34.1.2: Iterative minimization on the unit disk">Example 34.1.2</a>.</p></article><article class="exercise exercise-like" id="exercise-76"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>
+<p id="p-1018">Using the penalty method of <a class="xref" data-knowl="./knowl/example-iterative-constrained-minimization.html" title="Example 34.1.2: Iterative minimization on the unit disk">Example 34.1.2</a>, find four numbers \(x_1, x_2, x_3, x_4\) on the interval \([-1, 1]\) for which the product of all pairwise distances</p>
 <div class="displaymath">
 \begin{equation*}
 \prod_{1\le k \lt \ell\le 4}|x_k - x_\ell|
 \end{equation*}
 </div>
 <p data-braille="continuation">is as large as possible. What pattern do you observe in the points that achieve this maximum?</p>
-<p id="p-1017">Remark: such maximization problem makes sense for any number of points, and on any bounded set. The points that maximize the product of distances are known as <dfn class="terminology">Fekete points</dfn> and are used in approximation theory, specifically for polynomial interpolation.</p>
-<p id="p-1018">Hint: to improve the performance of <code class="code-inline tex2jax_ignore">fminsearch</code>, do not use absolute value: instead, minimize the product</p>
+<p id="p-1019">Remark: such maximization problem makes sense for any number of points, and on any bounded set. The points that maximize the product of distances are known as <dfn class="terminology">Fekete points</dfn> and are used in approximation theory, specifically for polynomial interpolation.</p>
+<p id="p-1020">Hint: to improve the performance of <code class="code-inline tex2jax_ignore">fminsearch</code>, do not use absolute value: instead, minimize the product</p>
 <div class="displaymath">
 \begin{equation*}
 \prod_{1\le k \lt \ell\le 4}(x_k - x_\ell)

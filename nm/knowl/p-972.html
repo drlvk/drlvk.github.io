@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-02T19:36:04-04:00    *-->
+<!--*    on 2021-11-03T18:43:49-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,15 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Modify <a class="xref" data-knowl="./knowl/example-newton-min-rosenbrock.html" title="Example 32.2.1: Multivariate minimization with Newton's method">Example 32.2.1</a> to include the idea of Broyden's method from <a class="xref" data-knowl="./knowl/example-durand-kerner-broyden.html" title="Example 11.4.1: Use Broyden's method to find all roots of a cubic polynomial">Example 11.4.1</a>: the script should not use the Hessian matrix <code class="code-inline tex2jax_ignore">fh</code>, instead relying on an approximation to its inverse obtained with Broyden's method. The following modification should help with convergence: start with small initial guess</p>
-<pre class="code-block tex2jax_ignore">
-B = 0.001*eye(2);
-</pre>
-<p data-braille="continuation">and make the stopping condition less restrictive:</p>
-<pre class="code-block tex2jax_ignore">
-norm(h) &lt; 1e-6
-</pre>
-<p data-braille="continuation">Re-run the script several times (about five): since it has a random initial point, the results may differ. Does the minimization process converge to the minimum \((1, 1)\) every time?</p>
-<span class="incontext"><a href="exercises-gradient-newton-conjugate.html#p-972">in-context</a></span>
+<p>Modify <a class="xref" data-knowl="./knowl/example-gradient-descent-line-search.html" title="Example 32.1.1: Gradient descent with line search">Example 32.1.1</a> so that it minimizes the simplified Rosenbrock's function</p>
+<div class="displaymath">
+\begin{equation}
+f(\mathbf x) = (x_1 - 1)^2 + (x_1^2 - x_2)^2\tag{32.3.1}
+\end{equation}
+</div>
+<p data-braille="continuation">using conjugate gradient method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code>. Plot the path of the search.</p>
+<span class="incontext"><a href="section-conjugate-gradient.html#p-972">in-context</a></span>
 </body>
 </html>

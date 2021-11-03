@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-02T19:36:05-04:00    *-->
+<!--*    on 2021-11-03T18:43:50-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,24 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Once we find \(\mathbf c\) which maximizes \(\log L\text{,}\) the model can then be used to make predictions about unobserved outcomes on the basis of explanatory variables \(\mathbf x\text{.}\) If \(h_{\mathbf c}(\mathbf x)\) is close to \(1\text{,}\) we expect the outcome \(z=1\text{;}\) it is close to \(0\text{,}\) we expect the outcome \(z=0\text{.}\) The quantity \(h_{\mathbf c}(\mathbf x)\) may be interpreted as the probability of \(z=1\text{,}\) predicted by the model.</p>
+<p>We focus on the case of two categories, represented by the binary outcome variable \(z\) attaining two possible values, \(0\) and \(1\text{.}\) The model may involve one or more explanatory variables \(x_k\text{,}\) and the goal is to predict the outcome based on these variables. Some examples:</p>
+<ul class="disc">
+<li>Explanatory variables: temperature, humidity, atmospheric pressure. Outcome: rain (1) or no rain (0).</li>
+<li>Explanatory variables: patient's weight, height, age, activity level. Outcome: has diabetes (1) or not (0).</li>
+</ul>
+<p data-braille="continuation">In the examples such as these, it is understood that the prediction may be far from certain. A way to think of such a model as assigning a probability of outcome (1), based on the data available. This leads to the idea of a model being a function that takes values between \(0\) and \(1\text{.}\) The standard logistic function (<a href="section-using-fminsearch-curvefit.html" class="internal" title="Section 29.2: Using fminsearch for curve-fitting">Section 29.2</a>) has this property:</p>
+<div class="displaymath">
+\begin{equation*}
+\sigma(x) = \frac{1}{1+\exp(-x)}
+\end{equation*}
+</div>
+<p data-braille="continuation">In order to include several explanatory variables \(x_1, \dots, x_m\) in this model, we use the composite function</p>
+<div class="displaymath">
+\begin{equation}
+h_{\mathbf c}(\mathbf x) = \sigma\left(\sum_{k=1}^m c_k x_k\right) = \frac{1}{1+\exp\left(-\sum_{k=1}^m c_k x_k\right)}\tag{36.1.1}
+\end{equation}
+</div>
+<p data-braille="continuation">where the coefficients \(c_1, \dots, c_m\) are to be determined by training the model on some data set with known outcomes.</p>
 <span class="incontext"><a href="section-classification-logistic-regression.html#p-1071">in-context</a></span>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2021-11-03T18:43:46-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="hint solution-like">
+<h6 class="heading">
+<span class="type">Hint</span><span class="space"> </span><span class="codenumber">26.4.1.1</span><span class="period">.</span>
+</h6>
+<p>Consider a small example: the sorted array of nonconstant coefficients is <code class="code-inline tex2jax_ignore">[10 8 7 5 4 2 1]</code> which makes its total energy \(259\text{.}\) Suppose we want to determine the threshold <code class="code-inline tex2jax_ignore">thr</code> that preserves 90% of energy, which is \(0.9\cdot 259 = 233.1\text{.}\) Start adding the squares of coefficients until the required amount is reached:</p>
+<ul class="disc">
+<li>\(10^2 = 100\text{,}\) not enough</li>
+<li>add \(8^2\text{,}\) get \(164\text{,}\) still not enough</li>
+<li>add \(7^2\text{,}\) get \(213\text{,}\) still not enough</li>
+<li>add \(5^2\text{,}\) get \(238\text{,}\) which is enough</li>
+</ul>
+<p data-braille="continuation">At the conclusion of this process (which can be either a <code class="code-inline tex2jax_ignore">while</code> loop or a <code class="code-inline tex2jax_ignore">for</code> loop with a <code class="code-inline tex2jax_ignore">break</code> statement) we find that \(5\) is the smallest coefficient that we should keep; any smaller ones should be discarded. Thus, in this example <code class="code-inline tex2jax_ignore">thr = 5</code> would be the correct choice of threshold. Once the threshold is determined, the rest proceeds as in <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a>.</p>
+<p>Note that the command <code class="code-inline tex2jax_ignore">prctile</code> is not needed in this homework.</p>
+</div>
+<span class="incontext"><a href="exercises-dft-applications.html#hint-7">in-context</a></span>
+</body>
+</html>

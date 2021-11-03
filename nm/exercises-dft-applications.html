@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-02T19:35:45-04:00    *-->
+<!--*    on 2021-11-03T18:43:30-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -431,7 +431,20 @@ sorted = sorted(2:end);
 total = sum(sorted.^2); 
 </pre>
 <p data-braille="continuation">The key step is writing a loop that sums the squares of the elements of <code class="code-inline tex2jax_ignore">sorted</code> array until the sum reaches the desired proportion of the total energy. When the loop exits, you will know what threshold value <code class="code-inline tex2jax_ignore">thr</code> should be used for truncating Fourier coefficients.</p>
-<p id="p-820">Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q = 90</code>, <code class="code-inline tex2jax_ignore">q = 80</code>, and <code class="code-inline tex2jax_ignore">q = 70</code>. In addition to showing the compressed image, the script should display the percentage of Fourier coefficients that were kept as non-zero values: for example, <code class="code-inline tex2jax_ignore">100*numel(nonzeros(fc))/numel(fc)</code>.</p></article></section></div></main>
+<p id="p-820">Compare the quality of compressed image with <code class="code-inline tex2jax_ignore">q = 90</code>, <code class="code-inline tex2jax_ignore">q = 80</code>, and <code class="code-inline tex2jax_ignore">q = 70</code>. In addition to showing the compressed image, the script should display the percentage of Fourier coefficients that were kept as non-zero values: for example, <code class="code-inline tex2jax_ignore">100*numel(nonzeros(fc))/numel(fc)</code>.</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref original" data-refid="hk-hint-7" id="hint-7"><span class="type">Hint</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-7"><div class="hint solution-like">
+<p id="p-821">Consider a small example: the sorted array of nonconstant coefficients is <code class="code-inline tex2jax_ignore">[10 8 7 5 4 2 1]</code> which makes its total energy \(259\text{.}\) Suppose we want to determine the threshold <code class="code-inline tex2jax_ignore">thr</code> that preserves 90% of energy, which is \(0.9\cdot 259 = 233.1\text{.}\) Start adding the squares of coefficients until the required amount is reached:</p>
+<ul class="disc">
+<li id="li-208">\(10^2 = 100\text{,}\) not enough</li>
+<li id="li-209">add \(8^2\text{,}\) get \(164\text{,}\) still not enough</li>
+<li id="li-210">add \(7^2\text{,}\) get \(213\text{,}\) still not enough</li>
+<li id="li-211">add \(5^2\text{,}\) get \(238\text{,}\) which is enough</li>
+</ul>
+<p data-braille="continuation">At the conclusion of this process (which can be either a <code class="code-inline tex2jax_ignore">while</code> loop or a <code class="code-inline tex2jax_ignore">for</code> loop with a <code class="code-inline tex2jax_ignore">break</code> statement) we find that \(5\) is the smallest coefficient that we should keep; any smaller ones should be discarded. Thus, in this example <code class="code-inline tex2jax_ignore">thr = 5</code> would be the correct choice of threshold. Once the threshold is determined, the rest proceeds as in <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a>.</p>
+<p id="p-822">Note that the command <code class="code-inline tex2jax_ignore">prctile</code> is not needed in this homework.</p>
+</div></div>
+</div></article></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-02T19:36:02-04:00    *-->
+<!--*    on 2021-11-03T18:43:47-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Recall that <em class="emphasis">least squares</em> method means minimizing the sum of squares of residuals, which is a function of parameters \(A, M, r\text{:}\)</p>
-<div class="displaymath">
-\begin{equation}
-S(A, M, r) = \sum_{k=1}^n \left(y_k - \frac{M}{1 + Ae^{-rx_k}}\right)^2\tag{29.1.3}
-\end{equation}
-</div>
-<p data-braille="continuation">Since \(S\) is a smooth function, we could theoretically try the multivariable calculus approach: finds its partial derivatives of first order, equate them to zero, and solve the resulting system of equations:</p>
-<div class="displaymath">
-\begin{equation}
-\frac{\partial S}{\partial A} = 0, \quad \frac{\partial S}{\partial M} = 0, \quad \frac{\partial S}{\partial r} = 0\tag{29.1.4}
-\end{equation}
-</div>
-<p data-braille="continuation">But this system will be <em class="emphasis">nonlinear</em> and is unlikely to have a symbolic solution. Should we try some  multivariable root-finding method such as Newton's method?</p>
-<span class="incontext"><a href="section-nls-motivation.html#p-873">in-context</a></span>
+<p>Transforming data to make the Linear Least Squares work has limited applicability. Most nonlinear models cannot be transformed in this way, and even if the transformation is possible, it sometimes results in poorly fitting curves. We should consider the possibility of working directly with parameters that lead to nonlinear problems.</p>
+<span class="incontext"><a href="chapter-nonlinear-least-squares.html#p-873">in-context</a></span>
 </body>
 </html>

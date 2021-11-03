@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-02T19:35:47-04:00    *-->
+<!--*    on 2021-11-03T18:43:32-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -415,7 +415,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-using-fminsearch-curvefit"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">29.2</span> <span class="title">Using fminsearch for curve-fitting</span>
 </h2>
-<p id="p-875">The syntax of <code class="code-inline tex2jax_ignore">fminsearch</code> is similar to <code class="code-inline tex2jax_ignore">fsolve</code> (which searchers for solutions \(f=0\)): the first argument is the function to be minimized, the second is initial point from which to start the search. For example,</p>
+<p id="p-877">The syntax of <code class="code-inline tex2jax_ignore">fminsearch</code> is similar to <code class="code-inline tex2jax_ignore">fsolve</code> (which searchers for solutions \(f=0\)): the first argument is the function to be minimized, the second is initial point from which to start the search. For example,</p>
 <pre class="code-block tex2jax_ignore">
 fminsearch(@(x) x^2 + x, 0)
 </pre>
@@ -424,7 +424,7 @@ fminsearch(@(x) x^2 + x, 0)
 fminsearch(@(x) x^4 - x^2, 0)
 </pre>
 <p data-braille="continuation">the initial point matters: the function may find the minimum 0.7071 or -0.7071. Note that <code class="code-inline tex2jax_ignore">fminsearch</code> is not misled by \(x=0\) which is also a critical point: it can tell a difference between minimum and maximum.</p>
-<p id="p-876">As most numerical methods, <code class="code-inline tex2jax_ignore">fminsearch</code> may fail at its task:</p>
+<p id="p-878">As most numerical methods, <code class="code-inline tex2jax_ignore">fminsearch</code> may fail at its task:</p>
 <pre class="code-block tex2jax_ignore">
 fminsearch(@(x) exp(x), 0)  
 </pre>
@@ -433,12 +433,12 @@ fminsearch(@(x) exp(x), 0)
 fminsearch(@(x) x^3 - x, 4)
 </pre>
 <p data-braille="continuation">overlooks the local minimum at \(x = 1/\sqrt{3}\) and diverges to negative infinity. The success is much more likely if the initial point is chosen with some care. In case of fitting a curve to data, one should try to guess the signs and approximate sizes of the parameters.</p>
-<p id="p-877">Since our models generally have more than one parameter, we need multivariable <code class="code-inline tex2jax_ignore">fminsearch</code>. For example,</p>
+<p id="p-879">Since our models generally have more than one parameter, we need multivariable <code class="code-inline tex2jax_ignore">fminsearch</code>. For example,</p>
 <pre class="code-block tex2jax_ignore">
 fminsearch(@(b) b(1)^2 + b(2)^4 + 3*b(1) - b(2), [1; 2])
 </pre>
 <p data-braille="continuation">finds the minimum of \(b_1^2 + b_2^4 + 3b_1 - b_2\) (using letter b to shorten the formula, as usually our parameters are called \(\beta_1, \beta_2,\dots\text{.}\)) Note that the function being minimized still has only one  argument, but this argument is now a vector.</p>
-<p id="p-878">Since the choice of initial point is an important step, we need a way to choose reasonable values of the parameters. To do this, let us take a closer look at the logistic curve <a class="xref" data-knowl="./knowl/eq-general-logistic-curve.html" title="Equation 29.1.2">(29.1.2)</a>. The meaning of parameter \(A\) is not very intuitive, which motivates the following  <em class="emphasis">equivalent form</em> of the function:</p>
+<p id="p-880">Since the choice of initial point is an important step, we need a way to choose reasonable values of the parameters. To do this, let us take a closer look at the logistic curve <a class="xref" data-knowl="./knowl/eq-general-logistic-curve.html" title="Equation 29.1.2">(29.1.2)</a>. The meaning of parameter \(A\) is not very intuitive, which motivates the following  <em class="emphasis">equivalent form</em> of the function:</p>
 <div class="displaymath">
 \begin{equation}
 y = \frac{M}{1 + e^{-(x-a)/s}}\label{eq-logistic-curve-shift}\tag{29.2.1}
@@ -452,23 +452,23 @@ y = \frac{M}{1 + e^{-(x-a)/s}}\label{eq-logistic-curve-shift}\tag{29.2.1}
 </div>
 <p data-braille="continuation">with</p>
 <ul class="disc">
-<li id="li-211">vertical stretching by factor \(M\text{;}\)</li>
-<li id="li-212">shift to the right by \(a\) units;</li>
-<li id="li-213">horizontal stretching by factor \(s\text{.}\)</li>
+<li id="li-215">vertical stretching by factor \(M\text{;}\)</li>
+<li id="li-216">shift to the right by \(a\) units;</li>
+<li id="li-217">horizontal stretching by factor \(s\text{.}\)</li>
 </ul>
 <p data-braille="continuation">(<a class="external" href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank">Reference and plot</a>.)</p>
-<p id="p-879">Since the standard logistic function rises from 0 to 1 and has maximal slope when \(x=0\text{,}\) we can relate  parameters \(a, M, s\) directly to shape of the curve:</p>
+<p id="p-881">Since the standard logistic function rises from 0 to 1 and has maximal slope when \(x=0\text{,}\) we can relate  parameters \(a, M, s\) directly to shape of the curve:</p>
 <ul class="disc">
-<li id="li-214">\(a\) is the x-value at which the curve has the steepest slope;</li>
-<li id="li-215">\(M\) is the amount by which the curve rises;</li>
-<li id="li-216">\(s\) measures its horizontal size; the curve is essentially flat outside of the interval \([a-5s, a+5s]\text{.}\)</li>
+<li id="li-218">\(a\) is the x-value at which the curve has the steepest slope;</li>
+<li id="li-219">\(M\) is the amount by which the curve rises;</li>
+<li id="li-220">\(s\) measures its horizontal size; the curve is essentially flat outside of the interval \([a-5s, a+5s]\text{.}\)</li>
 </ul>
 <article class="example example-like" id="example-best-fit-logistic-nls"><a data-knowl="" class="id-ref original" data-refid="hk-example-best-fit-logistic-nls"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">29.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Fit a logistic function to Covid data.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-logistic-nls"><article class="example example-like"><p id="p-880">Fit a general logistic curve to the data in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> without variable transformations.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-best-fit-logistic-nls"><article class="example example-like"><p id="p-882">Fit a general logistic curve to the data in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a> without variable transformations.</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-47" id="solution-47"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-47"><div class="solution solution-like">
-<p id="p-881">Once we have the data <code class="code-inline tex2jax_ignore">x, y</code>, we can set up the sum-of-squares function <code class="code-inline tex2jax_ignore">S</code> according to <a class="xref" data-knowl="./knowl/eq-sum-logistic-residuals.html" title="Equation 29.1.3">(29.1.3)</a>. The parameters are to be represented by the components <code class="code-inline tex2jax_ignore">b(1), b(2), b(3)</code> in some order (I use the order \(M, a, s\)). First, use a mindless guess for initial point, <code class="code-inline tex2jax_ignore">[0; 0; 1]</code>. The orientation of data vectors <code class="code-inline tex2jax_ignore">x, y</code> does not matter here since we no longer make a linear system out of them.</p>
+<p id="p-883">Once we have the data <code class="code-inline tex2jax_ignore">x, y</code>, we can set up the sum-of-squares function <code class="code-inline tex2jax_ignore">S</code> according to <a class="xref" data-knowl="./knowl/eq-sum-logistic-residuals.html" title="Equation 29.1.3">(29.1.3)</a>. The parameters are to be represented by the components <code class="code-inline tex2jax_ignore">b(1), b(2), b(3)</code> in some order (I use the order \(M, a, s\)). First, use a mindless guess for initial point, <code class="code-inline tex2jax_ignore">[0; 0; 1]</code>. The orientation of data vectors <code class="code-inline tex2jax_ignore">x, y</code> does not matter here since we no longer make a linear system out of them.</p>
 <pre class="code-block tex2jax_ignore">y = [1 1 1 5 8 10 27 44 62 93 101 110 112 115 116 117 118 120];
 x = 1:numel(y);  
 
@@ -479,11 +479,11 @@ t = linspace(min(x), max(x), 1000)';
 plot(t, f(t, opt), 'b', x, y, 'r*')
 disp(opt)
 </pre>
-<p id="p-882">The two middle lines describe the logic of the method: set up a model as a function of explanatory variable(s) <code class="code-inline tex2jax_ignore">x</code> and parameter(s) <code class="code-inline tex2jax_ignore">b</code>, then minimize the sum of squares of the deviations <code class="code-inline tex2jax_ignore">y - f(x, b)</code>. Finally, the optimal (?) values of parameter <code class="code-inline tex2jax_ignore">b</code> are used to plot the best-fitting curve.</p>
-<p id="p-883">The above code fails, as is often the case with multivariable optimization. We should think of a better way to choose the initial point. For example, the first parameter \(M\) is the carrying capacity, and this is clearly at least as large as 120. The second parameter is the \(x\)-coordinate of its center which looks like 10. And the third parameter is about a tenth of the horizontal span of the non-flat part, maybe 2. An initial point like <code class="code-inline tex2jax_ignore">[120; 10; 2]</code> does the job. Note that the fit is much better than what we achieved in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a>.</p>
+<p id="p-884">The two middle lines describe the logic of the method: set up a model as a function of explanatory variable(s) <code class="code-inline tex2jax_ignore">x</code> and parameter(s) <code class="code-inline tex2jax_ignore">b</code>, then minimize the sum of squares of the deviations <code class="code-inline tex2jax_ignore">y - f(x, b)</code>. Finally, the optimal (?) values of parameter <code class="code-inline tex2jax_ignore">b</code> are used to plot the best-fitting curve.</p>
+<p id="p-885">The above code fails, as is often the case with multivariable optimization. We should think of a better way to choose the initial point. For example, the first parameter \(M\) is the carrying capacity, and this is clearly at least as large as 120. The second parameter is the \(x\)-coordinate of its center which looks like 10. And the third parameter is about a tenth of the horizontal span of the non-flat part, maybe 2. An initial point like <code class="code-inline tex2jax_ignore">[120; 10; 2]</code> does the job. Note that the fit is much better than what we achieved in <a class="xref" data-knowl="./knowl/example-best-fit-logistic.html" title="Example 28.2.1: Fit a logistic function to Covid data">Example 28.2.1</a>.</p>
 </div></div>
 </div></article></div>
-<p id="p-884">The <code class="code-inline tex2jax_ignore">fminsearch</code> optimization includes limits on the number of function evaluations, and on the number of iterations that it can do before stopping. If you get a warning that the process stopped because of these limits, try increasing them. For example,</p>
+<p id="p-886">The <code class="code-inline tex2jax_ignore">fminsearch</code> optimization includes limits on the number of function evaluations, and on the number of iterations that it can do before stopping. If you get a warning that the process stopped because of these limits, try increasing them. For example,</p>
 <pre class="code-block tex2jax_ignore">
 options = optimset('MaxFunEvals', 10000, 'MaxIter', 10000);
 opt = fminsearch(..., options);

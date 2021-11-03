@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-02T19:36:03-04:00    *-->
+<!--*    on 2021-11-03T18:43:48-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One can combine the reliability of golden section method with the speed of Newton's method as follows: start with golden section, and when the bracket becomes small (say, less than \(0.1\)), switch to Newton's method. This makes sense because once we get close to a root of \(f'\text{,}\) Newton's method converges to that specific root very quickly.</p>
-<span class="incontext"><a href="exercises-single-variable-minimization.html#p-930">in-context</a></span>
+<p>Since the function \(f\) used in <a class="xref" data-knowl="./knowl/example-golden-section.html" title="Example 30.4.2: Minimize by golden section">Example 30.4.2</a> and <a class="xref" data-knowl="./knowl/example-golden-section-optimized.html" title="Example 30.4.3: Efficient golden section search">Example 30.4.3</a> is easy to compute, the gain of optimized implementation may not be evident. To make it visible, replace the function with the following, which takes relatively long to evaluate:</p>
+<pre class="code-block tex2jax_ignore">
+f = @(x) x.^4 - 3*x.^2 + x + 1 + 0*sum(rand(1, 1e6));
+</pre>
+<p data-braille="continuation">and time the script with <code class="code-inline tex2jax_ignore">tic</code> <code class="code-inline tex2jax_ignore">toc</code> as in <a href="section-timing-code.html" class="internal" title="Section 4.5: Measuring the computation time">Section 4.5</a>.</p>
+<span class="incontext"><a href="section-golden-section.html#p-930">in-context</a></span>
 </body>
 </html>

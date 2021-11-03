@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-02T19:36:05-04:00    *-->
+<!--*    on 2021-11-03T18:43:50-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,31 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Specifically, symmetric duality states that the dual of</p>
-<div class="displaymath">
-\begin{equation}
-\mathbf c^T \mathbf x\to \max  \quad \text{where } A\mathbf x \le \mathbf b, \quad \mathbf x \ge 0\tag{35.2.1}
-\end{equation}
-</div>
-<p data-braille="continuation">is</p>
-<div class="displaymath">
-\begin{equation}
-\mathbf b^T \mathbf y\to \min  \quad \text{where } A^T\mathbf y \ge \mathbf c, \quad \mathbf y \ge 0\tag{35.2.2}
-\end{equation}
-</div>
-<p data-braille="continuation">Asymmetric duality states that the dual of</p>
-<div class="displaymath">
-\begin{equation}
-\mathbf c^T \mathbf x\to \max \quad \text{where } A\mathbf x \le \mathbf b\tag{35.2.3}
-\end{equation}
-</div>
-<p data-braille="continuation">is</p>
-<div class="displaymath">
-\begin{equation}
-\mathbf b^T \mathbf y\to \min  \quad \text{where } A^T\mathbf y = \mathbf c, \quad \mathbf y \ge 0\tag{35.2.4}
-\end{equation}
-</div>
-<p data-braille="continuation">Note that in both cases, the variables and constraints trade places; the dual has as many constraints as the original problem had variables (not counting the nonnegativity requirements). Also, the dual of a maximization problem is a minimization problem (and the other way around).</p>
+<p>The main differences between the standard forms of LP problems can be summarized as:</p>
+<ul class="disc">
+<li>Constraints: <em class="emphasis">I</em>nequalities or <em class="emphasis">E</em>quations</li>
+<li>Variables: <em class="emphasis">R</em>eal or <em class="emphasis">N</em>onnegative</li>
+</ul>
+<p data-braille="continuation">Other differences: minimization vs maximization, inequalities \(\le \) vs \(\ge \text{,}\) are relatively minor: changing the signs of \(A, \mathbf b\text{,}\) or \(\mathbf c\) takes care of those variations. So, one can imagine four major types of LP problems: IR, IN, ER, and EN. However, “ER” type problems are not really interesting, because a system of linear equations with real variables determines a hyperplane, and the restriction of a  linear function to a hyperplane is either unbounded or constant. This leaves us with three types: IR, IN, EN, the examples of which are given by <a class="xref" data-knowl="./knowl/eq-standard-form-IR.html" title="Equation 35.1.1">(35.1.1)</a>, <a class="xref" data-knowl="./knowl/eq-standard-form-IN.html" title="Equation 35.1.2">(35.1.2)</a>, and <a class="xref" data-knowl="./knowl/eq-standard-form-EN.html" title="Equation 35.1.3">(35.1.3)</a>, respectively.</p>
 <span class="incontext"><a href="section-linear-programming-duality.html#p-1038">in-context</a></span>
 </body>
 </html>

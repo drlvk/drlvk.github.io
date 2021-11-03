@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-02T19:36:01-04:00    *-->
+<!--*    on 2021-11-03T18:43:46-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,14 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We briefly encountered least-squares fit in <a href="chapter-linear-systems.html" class="internal" title="Chapter 6: Systems of linear equations">Chapter 6</a> but this method deserves a closer look in regard to how we choose a model to fit a given data set. It is one thing to find a function that matches the data (interpolation), another to have a model that learns from the data and has predictive power. Interpolation uses about as many parameters (coefficients) as the number of data points; curve-fitting uses relatively few parameters, hence does not hit the points precisely. Using too many parameters results in overfitting: a model begins to memorize training data rather than learning to generalize from trend.</p>
-<span class="incontext"><a href="chapter-linear-least-squares.html#p-821">in-context</a></span>
+<p>Consider a small example: the sorted array of nonconstant coefficients is <code class="code-inline tex2jax_ignore">[10 8 7 5 4 2 1]</code> which makes its total energy \(259\text{.}\) Suppose we want to determine the threshold <code class="code-inline tex2jax_ignore">thr</code> that preserves 90% of energy, which is \(0.9\cdot 259 = 233.1\text{.}\) Start adding the squares of coefficients until the required amount is reached:</p>
+<ul class="disc">
+<li>\(10^2 = 100\text{,}\) not enough</li>
+<li>add \(8^2\text{,}\) get \(164\text{,}\) still not enough</li>
+<li>add \(7^2\text{,}\) get \(213\text{,}\) still not enough</li>
+<li>add \(5^2\text{,}\) get \(238\text{,}\) which is enough</li>
+</ul>
+<p data-braille="continuation">At the conclusion of this process (which can be either a <code class="code-inline tex2jax_ignore">while</code> loop or a <code class="code-inline tex2jax_ignore">for</code> loop with a <code class="code-inline tex2jax_ignore">break</code> statement) we find that \(5\) is the smallest coefficient that we should keep; any smaller ones should be discarded. Thus, in this example <code class="code-inline tex2jax_ignore">thr = 5</code> would be the correct choice of threshold. Once the threshold is determined, the rest proceeds as in <a class="xref" data-knowl="./knowl/example-compress-image.html" title="Example 26.2.2: Compress an image using Discrete Fourier Transform">Example 26.2.2</a>.</p>
+<span class="incontext"><a href="exercises-dft-applications.html#p-821">in-context</a></span>
 </body>
 </html>

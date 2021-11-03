@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-02T19:35:45-04:00    *-->
+<!--*    on 2021-11-03T18:43:29-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -420,7 +420,7 @@ MathJax.Hub.Config({
 <li id="li-195">
 <code class="code-inline tex2jax_ignore">size(im)</code> shows its size (dimensions) as 462<span class="times-sign">×</span>692<span class="times-sign">×</span>3. This is a three-dimensional array, where the last index means the <dfn class="terminology">color channel</dfn>: Red, Green, Blue. The first two indices are rows and columns. One can access individual channels with <code class="code-inline tex2jax_ignore">im(:, :, 1)</code> (for red). Matlab can also work with <dfn class="terminology">grayscale</dfn> images which have just one channel for brightness; such images are represented by matrices which makes them easier to work with.</li>
 <li id="li-196">
-<code class="code-inline tex2jax_ignore">class(im)</code> says “uint8”. All other Matlab objects we worked have class <code class="code-inline tex2jax_ignore">double</code> meaning they are floating-point numbers with double-precision, able to store about 16 decimal digits. But <code class="code-inline tex2jax_ignore">uint8</code> is different: it is an <dfn class="terminology">unsigned 8-bit integer</dfn>, with possible values 0, 1, …, 255. This reflects the image format: in each channel, the brightness of each pixel ranges from 0 to 255. (How many possible colors does this create?) In other languages, one would say “type” instead of “class”.</li>
+<code class="code-inline tex2jax_ignore">class(im)</code> says “uint8”. All other Matlab objects we encountered so far have class <code class="code-inline tex2jax_ignore">double</code> meaning they contain floating-point numbers with double-precision, able to store about 16 decimal digits. But <code class="code-inline tex2jax_ignore">uint8</code> is different: it is an <dfn class="terminology">unsigned 8-bit integer</dfn>, with possible values 0, 1, …, 255. This reflects the image format: in each channel, the brightness of each pixel ranges from 0 to 255. (How many possible colors does this create?) Since 8 bits form a <em class="emphasis">byte</em>, the data in our image requires \(462 \times 692 \times 3 = 959112\) bytes for storage. But the JPEG file with this image is much smaller, due to built-in compression which will be described later.</li>
 </ul>
 <p id="p-800">The command <code class="code-inline tex2jax_ignore">imshow(im)</code> displays the image. An image (an array of numbers) can be transformed in multiple ways and then either saved as a file with <code class="code-inline tex2jax_ignore">imwrite</code> or just displayed with <code class="code-inline tex2jax_ignore">imshow</code>; we will do the latter, which is simpler. Try the following and observe the effects:</p>
 <ul class="disc">
