@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-04T22:13:07-04:00    *-->
+<!--*    on 2021-11-05T21:47:07-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -428,11 +428,11 @@ MathJax.Hub.Config({
 X^TX  \beta = X^T \mathbf y \label{eq-lsq-2}\tag{27.1.2}
 \end{equation}
 </div>
-<p data-braille="continuation">which is known as the <dfn class="terminology">normal equations</dfn> associated to the overdetermined system \(X\beta = \mathbf y\text{.}\) Note that \(X^TX\) is invertible if and only if the explanatory vectors are linearly independent (which they should be; otherwise we have redundant ones).</p>
+<p data-braille="continuation">which is known as the <dfn class="terminology">normal equations</dfn> associated to the overdetermined system \(X\beta = \mathbf y\text{.}\) Note that \(X^TX\) is invertible if and only if the explanatory vectors are linearly independent (which they should be; otherwise we have redundant ones). However, in practice we do not obtain \(\beta\) by solving the system <a class="xref" data-knowl="./knowl/eq-lsq-2.html" title="Equation 27.1.2">(27.1.2)</a>: it is more efficient for Matlab to find it directly from the overdetermined system \(X\beta = \mathbf y\text{:}\) the command <code class="code-inline tex2jax_ignore">beta = X\y</code> does this by using QR decomposition (covered in an Applied Linear Algebra course).</p>
 <p id="p-826">The goodness of fit could be measured in several ways. One indicator is the norm of the residual vector \(\mathbf y-\mathbf z\text{,}\) or better yet, the squared norm</p>
 <div class="displaymath">
 \begin{equation}
-| \mathbf y-\mathbf z| = \sum_{k=1}^n |y_k-z_k|^2\label{eq-residual-squares}\tag{27.1.3}
+| \mathbf y-\mathbf z|^2 = \sum_{k=1}^n |y_k-z_k|^2\label{eq-residual-squares}\tag{27.1.3}
 \end{equation}
 </div>
 <p data-braille="continuation">However this quantity has the units of \(y_k\) squared, and a unit-free quantity is preferable. A popular approach is to compare the residual sum fo squares <a class="xref" data-knowl="./knowl/eq-residual-squares.html" title="Equation 27.1.3">(27.1.3)</a> to the total sum of squares</p>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-04T22:13:23-04:00    *-->
+<!--*    on 2021-11-05T21:47:23-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -25,7 +25,7 @@
 X^TX  \beta = X^T \mathbf y \tag{27.1.2}
 \end{equation}
 </div>
-<p data-braille="continuation">which is known as the <dfn class="terminology">normal equations</dfn> associated to the overdetermined system \(X\beta = \mathbf y\text{.}\) Note that \(X^TX\) is invertible if and only if the explanatory vectors are linearly independent (which they should be; otherwise we have redundant ones).</p>
+<p data-braille="continuation">which is known as the <dfn class="terminology">normal equations</dfn> associated to the overdetermined system \(X\beta = \mathbf y\text{.}\) Note that \(X^TX\) is invertible if and only if the explanatory vectors are linearly independent (which they should be; otherwise we have redundant ones). However, in practice we do not obtain \(\beta\) by solving the system <a class="xref" data-knowl="./knowl/eq-lsq-2.html" title="Equation 27.1.2">(27.1.2)</a>: it is more efficient for Matlab to find it directly from the overdetermined system \(X\beta = \mathbf y\text{:}\) the command <code class="code-inline tex2jax_ignore">beta = X\y</code> does this by using QR decomposition (covered in an Applied Linear Algebra course).</p>
 <span class="incontext"><a href="section-lsq-overview.html#p-825">in-context</a></span>
 </body>
 </html>
