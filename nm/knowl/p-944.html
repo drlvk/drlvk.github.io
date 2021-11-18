@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-05T21:47:25-04:00    *-->
+<!--*    on 2021-11-17T19:49:47-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,16 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Minimize the function \(f(x) = x^4 - 3 x^2 + x + 1\) from <a class="xref" data-knowl="./knowl/example-newton-method-min.html" title="Example 30.3.1: Using Newton method for minimization">Example 30.3.1</a> using gradient descent with \(\beta = 0.1\) and initial point \(0\text{.}\)</p>
-<span class="incontext"><a href="section-gradient-descent-1d.html#p-944">in-context</a></span>
+<p>There are three ways to learn more about Matlab functions such as this one.</p>
+<ul class="disc">
+<li>
+<code class="code-inline tex2jax_ignore">help fminbnd</code> shows a brief plain-text description, focused on the syntax and examples of use</li>
+<li>
+<code class="code-inline tex2jax_ignore">doc fminbnd</code> opens a new window with more information, including an outline of the algorithm used and its limitations</li>
+<li>
+<code class="code-inline tex2jax_ignore">open fminbnd</code> shows the code of the function <em class="emphasis">if</em> it is itself written in Matlab (for example, <code class="code-inline tex2jax_ignore">fzero</code>, <code class="code-inline tex2jax_ignore">fminbnd</code> and <code class="code-inline tex2jax_ignore">fminsearch</code> are but <code class="code-inline tex2jax_ignore">fft</code> is not)</li>
+</ul>
+<p data-braille="continuation">The source code shows that <code class="code-inline tex2jax_ignore">fminbnd</code> tries parabolic interpolation first and falls back on golden section when the parabola is considered unacceptable.</p>
+<span class="incontext"><a href="section-fminbnd.html#p-944">in-context</a></span>
 </body>
 </html>

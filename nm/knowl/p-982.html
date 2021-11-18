@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-05T21:47:25-04:00    *-->
+<!--*    on 2021-11-17T19:49:47-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,12 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>One issue with the reflection-only method of <a href="section-nelder-mead-reflect.html" class="internal" title="Section 33.1: First attempt at derivative-free minimization">Section 33.1</a> is the fixed size of the triangle. With a large triangle, we will only have a rough idea of where  the minimum is when the search ends. Also, a large triangle will not detect any fine features of the landscape such as the narrow valley of Rosenbrock's function. On the other hand, a small triangle necessarily moves in small steps and is therefore slow.</p>
-<span class="incontext"><a href="section-nelder-mead-contract.html#p-982">in-context</a></span>
+<p>Given a triangle \(ABC\) in \(xy\)-plane, we evaluate the function \(f\) at its vertices. The vertex with the largest value of \(f\) (for example, \(C\)) <em class="emphasis">might</em> get replaced by its reflection. One could imagine reflecting \(C\) about the opposite side \(AB\) by dropping a perpendicular line from \(C\) onto \(AB\) and following it. However, this kind of reflection is not invariant under linear transformations of \(xy\) plane, such as the scaling of coordinates. The Nelder-Mead method uses reflection about the midpoint of \(AB\text{.}\) The midpoint can be computed as \(M = (A+B)/2\text{,}\) and then the reflected point is</p>
+<div class="displaymath">
+\begin{equation}
+R = 2M - C \tag{33.1.1}
+\end{equation}
+</div>
+<span class="incontext"><a href="section-nelder-mead-reflect.html#p-982">in-context</a></span>
 </body>
 </html>

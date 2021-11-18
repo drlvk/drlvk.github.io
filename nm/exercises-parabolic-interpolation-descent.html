@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-05T21:47:10-04:00    *-->
+<!--*    on 2021-11-17T19:49:32-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -366,6 +366,7 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="chapter-parabolic-interpolation-descent.html" data-scroll="chapter-parabolic-interpolation-descent"><span class="codenumber">31</span> <span class="title">Parabolic Interpolation and Gradient Descent</span></a><ul>
 <li><a href="section-parabolic-interpolation.html" data-scroll="section-parabolic-interpolation">Successive parabolic interpolation</a></li>
+<li><a href="section-fminbnd.html" data-scroll="section-fminbnd">How <code class="code-inline tex2jax_ignore">fminbnd</code> works</a></li>
 <li><a href="section-gradient-descent-1d.html" data-scroll="section-gradient-descent-1d">Gradient descent in one dimension</a></li>
 <li><a href="exercises-parabolic-interpolation-descent.html" data-scroll="exercises-parabolic-interpolation-descent" class="active">Homework</a></li>
 </ul>
@@ -413,11 +414,12 @@ MathJax.Hub.Config({
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="exercises" id="exercises-parabolic-interpolation-descent"><h2 class="heading hide-type">
-<span class="type">Exercises</span> <span class="codenumber">31.3</span> <span class="title">Homework</span>
+<span class="type">Exercises</span> <span class="codenumber">31.4</span> <span class="title">Homework</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-72"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>
-<p id="p-951">Parabolic interpolation is also useful when applied just once, without iteration. For example, after evaluating \(f\) on a grid \(x_1, \dots, x_n\) and choosing \(k\) with smallest \(f(x_k)\) (i.e., brute force minimization) we can get a more precise location of the minimum with parabolic interpolation through the points \((x_j, f(x_j))\text{,}\) \(j=k-1, k, k+1\text{.}\)</p>
-<p id="p-952">Write a script that applies the above idea to the function \(f(x) = \sin (x)\) on the interval \([0, 7]\text{.}\) Use \(n=100\) points for brute force minimization, locating a grid point \(x_k\) with the smallest function value \(f(x_k)\text{.}\) Then find a more precise point of minimum \(x^*\) using parabolic interpolation <em class="emphasis">once</em>. Since the exact point of minimum is \(3\pi/2\text{,}\)  the script should display the differences \(|x_k - 3\pi/2|\) and \(|x^* - 3\pi/2|\) to illustrate the improvement achieved with parabolic interpolation.</p></article></section></div></main>
+<p id="p-954">Parabolic interpolation is also useful when applied just once, without iteration. For example, after evaluating \(f\) on a grid \(x_1, \dots, x_n\) and choosing \(k\) with smallest \(f(x_k)\) (i.e., brute force minimization) we can get a more precise location of the minimum with parabolic interpolation through the points \((x_j, f(x_j))\text{,}\) \(j=k-1, k, k+1\text{.}\)</p>
+<p id="p-955">Write a script that applies the above idea to the function \(f(x) = \sin (x)\) on the interval \([0, 7]\text{.}\) Use \(n=100\) points for brute force minimization, locating a grid point \(x_k\) with the smallest function value \(f(x_k)\text{.}\) Then find a more precise point of minimum \(x^*\) using parabolic interpolation <em class="emphasis">once</em>. Since the exact point of minimum is \(3\pi/2\text{,}\)  the script should display the differences \(|x_k - 3\pi/2|\) and \(|x^* - 3\pi/2|\) to illustrate the improvement achieved with parabolic interpolation.</p>
+<p id="p-956">There should be no loops in the script.</p></article></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-05T21:47:25-04:00    *-->
+<!--*    on 2021-11-17T19:49:47-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,9 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Minimize Rosenbrock's function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a> using the reflection-contraction-expansion version of the Nelder-Mead method. Use a random starting point <code class="code-inline tex2jax_ignore">randn(2, 1)</code> as one vertex \(A\) of the initial triangle, and let other vertices be \(A + \mathbf e_1\text{,}\) \(A+\mathbf e_2\text{.}\) Plot the path of the search.</p>
-<span class="incontext"><a href="section-nelder-mead-expand.html#p-990">in-context</a></span>
+<p><a class="xref" data-knowl="./knowl/example-reflection-contraction-nelder-mead.html" title="Example 33.2.1: Reflection-contraction Nelder-Mead method">Example 33.2.1</a> works fine in terms of speed and accuracy. However, replacing the relatively simple function \(f\) in <a class="xref" data-knowl="./knowl/example-reflection-nelder-mead.html" title="Example 33.1.1: Reflection-only Nelder-Mead method">Example 33.1.1</a> with Rosenbrock's function <a class="xref" data-knowl="./knowl/eq-rosenbrock.html" title="Equation 32.1.2">(32.1.2)</a></p>
+<pre class="code-block tex2jax_ignore">f = @(x) (x(1)-1)^2 + 100*(x(1)^2 - x(2))^2 </pre>
+<p data-braille="continuation">we find the search usually fails. The moving triangle has to become very small to fit into the “narrow valley” of this function, which makes subsequent movement along the valley floor very slow. As as the valley is long, it fails to reach the minimum within the allowed number of steps.</p>
+<span class="incontext"><a href="section-nelder-mead-contract.html#p-990">in-context</a></span>
 </body>
 </html>

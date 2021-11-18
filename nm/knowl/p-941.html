@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-05T21:47:24-04:00    *-->
+<!--*    on 2021-11-17T19:49:47-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,7 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Would it help if instead of replacing the “oldest” of \(a, b, c\) we replaced the point with largest value of \(f\text{?}\) This would at least make the method prefer minimization to maximization. Try this out on the above example, using something like</p>
-<pre class="code-block tex2jax_ignore">
-old = [a b c];
-[fm, ind] = max(f(old)); 
-old(ind) = x;
-</pre>
-<p data-braille="continuation">and so on. (This sounds like a good idea but it can turn the process into an infinite loop.)</p>
-<span class="incontext"><a href="section-parabolic-interpolation.html#p-941">in-context</a></span>
+<p>Matlab has a built-in command <code class="code-inline tex2jax_ignore">fminbnd</code> for minimizing a function \(f\) on a given interval \([a, b]\text{.}\) Its format is <code class="code-inline tex2jax_ignore">x = fminbnd(f, a, b)</code>. We can get additional information about its work from the option <code class="code-inline tex2jax_ignore">optimset('Display', 'iter')</code> which displays every step of the algorithm.</p>
+<span class="incontext"><a href="section-fminbnd.html#p-941">in-context</a></span>
 </body>
 </html>

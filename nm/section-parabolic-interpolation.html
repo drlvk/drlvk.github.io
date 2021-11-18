@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-05T21:47:10-04:00    *-->
+<!--*    on 2021-11-17T19:49:32-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -67,10 +67,10 @@ MathJax.Hub.Config({
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="chapter-parabolic-interpolation-descent.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-parabolic-interpolation-descent.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-gradient-descent-1d.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="chapter-parabolic-interpolation-descent.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-parabolic-interpolation-descent.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-fminbnd.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-parabolic-interpolation-descent.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-parabolic-interpolation-descent.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-gradient-descent-1d.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-parabolic-interpolation-descent.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-parabolic-interpolation-descent.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-fminbnd.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -366,6 +366,7 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="chapter-parabolic-interpolation-descent.html" data-scroll="chapter-parabolic-interpolation-descent"><span class="codenumber">31</span> <span class="title">Parabolic Interpolation and Gradient Descent</span></a><ul>
 <li><a href="section-parabolic-interpolation.html" data-scroll="section-parabolic-interpolation" class="active">Successive parabolic interpolation</a></li>
+<li><a href="section-fminbnd.html" data-scroll="section-fminbnd">How <code class="code-inline tex2jax_ignore">fminbnd</code> works</a></li>
 <li><a href="section-gradient-descent-1d.html" data-scroll="section-gradient-descent-1d">Gradient descent in one dimension</a></li>
 <li><a href="exercises-parabolic-interpolation-descent.html" data-scroll="exercises-parabolic-interpolation-descent">Homework</a></li>
 </ul>
@@ -453,8 +454,7 @@ x = \frac{a+b}{2} - \frac{\alpha}{2\beta}\label{eq-crit-point-interp}\tag{31.1.2
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">31.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Minimize by successive parabolic interpolation.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-successive-parabolic-interpolation"><article class="example example-like"><p id="p-939">Minimize \(f(x) = x^4 - 3 x^2 + x + 1\) using successive parabolic interpolation with initial triple of points \(a, b, c = -2, 0, 2\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref original" data-refid="hk-solution-53" id="solution-53"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-53"><div class="solution solution-like">
-<pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
+<a data-knowl="" class="id-ref original" data-refid="hk-solution-53" id="solution-53"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-53"><div class="solution solution-like"><pre class="code-block tex2jax_ignore">f = @(x) x.^4 - 3*x.^2 + x + 1;
 a = -2;
 b = 0;
 c = 2;
@@ -478,17 +478,9 @@ if k &lt; max_tries
 else
     disp('Failed to converge')
 end
-</pre>
-<p id="p-940">As the example shows, parabolic interpolation can converge to a local maximum. Indeed, a closer look shows it does not distinguish between \(f\) and \(-f\text{,}\) so it can minimize just as well as maximize. As with Newton's method, we can benefit from this method by using it in a small neighborhood of minimum.</p>
-</div></div>
+</pre></div></div>
 </div></article></div>
-<p id="p-941">Would it help if instead of replacing the “oldest” of \(a, b, c\) we replaced the point with largest value of \(f\text{?}\) This would at least make the method prefer minimization to maximization. Try this out on the above example, using something like</p>
-<pre class="code-block tex2jax_ignore">
-old = [a b c];
-[fm, ind] = max(f(old)); 
-old(ind) = x;
-</pre>
-<p data-braille="continuation">and so on. (This sounds like a good idea but it can turn the process into an infinite loop.)</p></section></div></main>
+<p id="p-940">As <a class="xref" data-knowl="./knowl/example-successive-parabolic-interpolation.html" title="Example 31.1.1: Minimize by successive parabolic interpolation">Example 31.1.1</a> shows, parabolic interpolation can converge to a local maximum. Indeed, a closer look shows it does not distinguish between \(f\) and \(-f\text{,}\) so it can maximize just as well as minimize (same issue as with Newton's method). So this method should be used in combination with another one, so that when the interpolated parabola is not acceptable (is “upside down”), we fall back on the second method.</p></section></div></main>
 </div>
 </body>
 </html>

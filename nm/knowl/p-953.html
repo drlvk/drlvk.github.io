@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-05T21:47:25-04:00    *-->
+<!--*    on 2021-11-17T19:49:47-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,11 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Although the idea of following the direction of steepest descent is natural, it has important limitations in multivariate optimization. We consider why the steepest descent might not be the right direction, and some approaches to correct this.</p>
-<span class="incontext"><a href="chapter-gradient-newton-conjugate.html#p-953">in-context</a></span>
+<p>The message of <a class="xref" data-knowl="./knowl/example-model-case-gradient-descent.html" title="Example 31.3.2: Model case of gradient descent">Example 31.3.2</a> is that we should try to adjust \(\beta\) to be of the size \(1/f''\text{,}\) even if we do not have a formula for \(f''\text{.}\) One way to do this is to start with a guess like \(\beta=0.1\) and then <em class="emphasis">update</em> \(\beta\) after every step using \(\beta = |x-a|/|f'(x)-f'(a)|\text{.}\) This makes \(\beta\) approximately the reciprocal of \(|f''|\text{.}\) (Similar idea was used in Broyden's method in <a href="chapter-broyden.html" class="internal" title="Chapter 11: Broyden's method">Chapter 11</a>.) To implement this idea, we insert the line</p>
+<pre class="code-block tex2jax_ignore">
+beta = abs(x-a)/abs(fp(x)-fp(a));
+</pre>
+<p data-braille="continuation">into the loop in <a class="xref" data-knowl="./knowl/example-simplest-form-gradient-descent.html" title="Example 31.3.1: First attempt at gradient descent">Example 31.3.1</a> (where?). Now if the function is multiplied by 2 or even 2000, the method continues to converge.</p>
+<span class="incontext"><a href="section-gradient-descent-1d.html#p-953">in-context</a></span>
 </body>
 </html>
