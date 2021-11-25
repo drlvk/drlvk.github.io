@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2021-11-17T19:49:35-05:00    *-->
+<!--*    on 2021-11-25T16:55:13-05:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -416,7 +416,7 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-classification-logistic-regression"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">36.1</span> <span class="title">Classification and logistic regression</span>
 </h2>
-<p id="p-1075">We focus on the case of two categories, represented by the binary outcome variable \(z\) attaining two possible values, \(0\) and \(1\text{.}\) The model may involve one or more explanatory variables \(x_k\text{,}\) and the goal is to predict the outcome based on these variables. Some examples:</p>
+<p id="p-1076">We focus on the case of two categories, represented by the binary outcome variable \(z\) attaining two possible values, \(0\) and \(1\text{.}\) The model may involve one or more explanatory variables \(x_k\text{,}\) and the goal is to predict the outcome based on these variables. Some examples:</p>
 <ul class="disc">
 <li id="li-254">Explanatory variables: temperature, humidity, atmospheric pressure. Outcome: rain (1) or no rain (0).</li>
 <li id="li-255">Explanatory variables: patient's weight, height, age, activity level. Outcome: has diabetes (1) or not (0).</li>
@@ -434,44 +434,44 @@ h_{\mathbf c}(\mathbf x) = \sigma\left(\sum_{k=1}^m c_k x_k\right) = \frac{1}{1+
 \end{equation}
 </div>
 <p data-braille="continuation">where the coefficients \(c_1, \dots, c_m\) are to be determined by training the model on some data set with known outcomes.</p>
-<p id="p-1076">In <a href="chapter-nonlinear-least-squares.html" class="internal" title="Chapter 29: Nonlinear Least Squares">Chapter 29</a> our training method was to minimize the sum of squares</p>
+<p id="p-1077">In <a href="chapter-nonlinear-least-squares.html" class="internal" title="Chapter 29: Nonlinear Least Squares">Chapter 29</a> our training method was to minimize the sum of squares</p>
 <div class="displaymath">
 \begin{equation*}
-S(\mathbf c) = \sum_{j=1}^n (z_j - h_{\mathbf c}(\mathbf x_j))^2
+S(\mathbf c) = \sum_{k=1}^n (z_k - h_{\mathbf c}(\mathbf x_k))^2
 \end{equation*}
 </div>
-<p data-braille="continuation">However, in the context of probability there is a more natural method: maximizing the <dfn class="terminology">likelihood</dfn> function. Think of \(h_{\mathbf c}(\mathbf x_j)\) as the probability that \(z_j=1\text{,}\) and therefore \(1 - h_{\mathbf c}(\mathbf x_j)\) is the probability that \(z_j=0\text{.}\) Assuming the independence of outcomes, the probability of observing the data that was actually observed is</p>
+<p data-braille="continuation">However, in the context of probability there is a more natural method: maximizing the <dfn class="terminology">likelihood</dfn> function. Think of \(h_{\mathbf c}(\mathbf x_k)\) as the probability that \(z_k=1\text{,}\) and therefore \(1 - h_{\mathbf c}(\mathbf x_k)\) is the probability that \(z_k=0\text{.}\) Assuming the independence of outcomes, the probability of observing the data that was actually observed is</p>
 <div class="displaymath">
 \begin{equation}
-L(\mathbf c)  = \prod_{z_j = 1}  h_{\mathbf c}(\mathbf x_j)  \cdot \prod_{z_j = 0} (1-h_{\mathbf c}(\mathbf x_j))\label{eq-likelihood-function}\tag{36.1.2}
+L(\mathbf c)  = \prod_{z_k = 1}  h_{\mathbf c}(\mathbf x_k)  \cdot \prod_{z_k = 0} (1-h_{\mathbf c}(\mathbf x_k))\label{eq-likelihood-function}\tag{36.1.2}
 \end{equation}
 </div>
-<p data-braille="continuation">Since the outcomes \(z_j\) already occurred, this expression is not really the probability of a random event; it is the <dfn class="terminology">likelihood</dfn> of the parameters being \(\mathbf c\text{.}\) We want to maximize this likelihood. Since the product may be very small when there are many observations, it is easier to maximize the <dfn class="terminology">log-likelihood</dfn>, the logarithm of <a class="xref" data-knowl="./knowl/eq-likelihood-function.html" title="Equation 36.1.2">(36.1.2)</a>:</p>
+<p data-braille="continuation">Since the outcomes \(z_k\) already occurred, this expression is not really the probability of a random event; it is the <dfn class="terminology">likelihood</dfn> of the parameters being \(\mathbf c\text{.}\) We want to maximize this likelihood. Since the product may be very small when there are many observations, it is easier to maximize the <dfn class="terminology">log-likelihood</dfn>, the logarithm of <a class="xref" data-knowl="./knowl/eq-likelihood-function.html" title="Equation 36.1.2">(36.1.2)</a>:</p>
 <div class="displaymath">
 \begin{equation}
-\log L(\mathbf c) = \sum_{z_j = 1} \log h_{\mathbf c}(\mathbf x_j)  + \sum_{z_j = 0} \log (1-h_{\mathbf c}(\mathbf x_j))\label{eq-log-likelihood-function}\tag{36.1.3}
+\log L(\mathbf c) = \sum_{z_k = 1} \log h_{\mathbf c}(\mathbf x_k)  + \sum_{z_k = 0} \log (1-h_{\mathbf c}(\mathbf x_k))\label{eq-log-likelihood-function}\tag{36.1.3}
 \end{equation}
 </div>
-<p id="p-1077">Once we find \(\mathbf c\) which maximizes \(\log L\text{,}\) the model can then be used to make predictions about unobserved outcomes on the basis of explanatory variables \(\mathbf x\text{.}\) If \(h_{\mathbf c}(\mathbf x)\) is close to \(1\text{,}\) we expect the outcome \(z=1\text{;}\) it is close to \(0\text{,}\) we expect the outcome \(z=0\text{.}\) The quantity \(h_{\mathbf c}(\mathbf x)\) may be interpreted as the probability of \(z=1\text{,}\) predicted by the model.</p>
-<p id="p-1078">Unless the explanatory variables \(\mathbf x\) are <dfn class="terminology">centered</dfn> (have zero mean by design), the exponential should include a constant term, as shown in the following example.</p>
+<p id="p-1078">Once we find \(\mathbf c\) which maximizes \(\log L\text{,}\) the model can then be used to make predictions about unobserved outcomes on the basis of explanatory variables \(\mathbf x\text{.}\) If \(h_{\mathbf c}(\mathbf x)\) is close to \(1\text{,}\) we expect the outcome \(z=1\text{;}\) it is close to \(0\text{,}\) we expect the outcome \(z=0\text{.}\) The quantity \(h_{\mathbf c}(\mathbf x)\) may be interpreted as the probability of \(z=1\text{,}\) predicted by the model.</p>
+<p id="p-1079">Unless the explanatory variables \(\mathbf x\) are <dfn class="terminology">centered</dfn> (have zero mean by design), the exponential should include a constant term, as shown in the following example.</p>
 <article class="example example-like" id="example-smoker-logistic-regression"><a data-knowl="" class="id-ref original" data-refid="hk-example-smoker-logistic-regression"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">36.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Smoking,  age and blood pressure.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-smoker-logistic-regression"><article class="example example-like"><p id="p-1079">The following data, taken from Matlab's built-in <code class="code-inline tex2jax_ignore">patients</code> data sample (<a class="external" href="https://www.mathworks.com/help/matlab/matlab_prog/split-data-into-groups-and-calculate-statistics.html" target="_blank">reference</a>), records the ages and systolic pressure of 10 smokers (\(z=1\)) and 12 nonsmokers (\(z=0\)). Train a logistic regression model on this data.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-smoker-logistic-regression"><article class="example example-like"><p id="p-1080">The following data, taken from Matlab's built-in <code class="code-inline tex2jax_ignore">patients</code> data sample (<a class="external" href="https://www.mathworks.com/help/matlab/matlab_prog/split-data-into-groups-and-calculate-statistics.html" target="_blank">reference</a>), records the ages and systolic pressure of 10 smokers (\(z=1\)) and 12 nonsmokers (\(z=0\)). Train a logistic regression model on this data.</p>
 <pre class="code-block tex2jax_ignore">age1 = [38 33 39 48 32 27 44 28 30 45];
 sys1 = [124 130 130 130 124 123 128 129 127 134];
 age0 = [43 38 40 49 46 40 28 31 45 42 25 36];
 sys0 = [109 125 117 122 121 115 115 118 114 115 127 114];
 </pre>
-<p id="p-1080">Then test the model on a separate data set, generating predictions for the people based on their age and systolic pressure:</p>
+<p id="p-1081">Then test the model on a separate data set, generating predictions for the people based on their age and systolic pressure:</p>
 <pre class="code-block tex2jax_ignore">age = [38 45 30 48 48 25 44 49 45 48];
 sys = [138 124 130 123 129 128 124 119 136 114];
 </pre>
-<p id="p-1081">Finally, compare the model's prediction with actual smoker status in the test dataset.</p>
+<p id="p-1082">Finally, compare the model's prediction with actual smoker status in the test dataset.</p>
 <pre class="code-block tex2jax_ignore">actual = [1 0 0 0 0 1 1 0 1 0];
 </pre>
 <div class="solutions">
 <a data-knowl="" class="id-ref original" data-refid="hk-solution-67" id="solution-67"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-67"><div class="solution solution-like">
-<p id="p-1082">We set up the log-likelihood function <code class="code-inline tex2jax_ignore">LogL</code>, maximize it, and use the optimal parameters <code class="code-inline tex2jax_ignore">cc</code> to predict the status of the 10 people who were not a part of the training set.</p>
+<p id="p-1083">We set up the log-likelihood function <code class="code-inline tex2jax_ignore">LogL</code>, maximize it, and use the optimal parameters <code class="code-inline tex2jax_ignore">cc</code> to predict the status of the 10 people who were not a part of the training set.</p>
 <pre class="code-block tex2jax_ignore">LogL = @(c) sum(log(1./(1+exp(-c(1)*age1-c(2)*sys1-c(3))))) + sum(log(1 - 1./(1+exp(-c(1)*age0-c(2)*sys0-c(3)))));
 cc = fminsearch(@(c) -LogL(c), [0; 0; 0]);
 
@@ -481,7 +481,7 @@ prediction = 1./(1+exp(-cc(1)*age-cc(2)*sys-cc(3)));
 actual = [1 0 0 0 0 1 1 0 1 0];
 disp([prediction' actual']);
 </pre>
-<p id="p-1083">Excluding the cases where prediction is a number close to \(0.5\) (which should be considered a “don't know” answer), the model got 6 out of 8 right.</p>
+<p id="p-1084">Excluding the cases where prediction is a number close to \(0.5\) (which should be considered a “don't know” answer), the model got 6 out of 8 right.</p>
 </div></div>
 </div></article></div></section></div></main>
 </div>
