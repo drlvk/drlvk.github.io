@@ -4,14 +4,45 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="exam.css">
-<script type="text/javascript" src="time.js"></script>
+<script>
+let startTime = new Date();
+startTime.setHours(10);
+startTime.setMinutes(35);
+startTime.setSeconds(0);
+const duration = 55;
+let endTime = new Date();
+endTime.setTime(startTime.getTime() + duration*60*1000);
+formatTime = (x => x.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"}));
+document.addEventListener("DOMContentLoaded", displayClock);
+
+function displayClock() {
+  let currentTime = new Date();
+  document.getElementById("currentTime").innerText = formatTime(currentTime);
+  let minutesLeft = Math.min(duration, Math.ceil((endTime.getTime() - currentTime.getTime())/60000));
+  let remElement = document.getElementById("remaining");
+  let dnoElement = document.getElementById("donotopen");
+  if (remElement) {
+		if (currentTime > endTime) {
+			remElement.remove();
+			document.getElementById("away").remove();
+		}
+		else if (currentTime > startTime) {
+			remElement.innerText = "Time remaining: " + minutesLeft + " min";
+			if (dnoElement) {
+				dnoElement.remove();
+			}
+		}
+  }
+  setTimeout(displayClock, 1000); 
+}
+</script>
 <title>Exam in progress</title>
 </head>
 <body>
 <h1>MAT 284 Exam 1</h1>
-<h1>Current time: <span id="time"></span></h1>
-<h3>Read and sign the first page, but do not open the booklet yet</h3>
-<h3>Put away your notes, books, phones, and other devices</h3>
-<h3>Exam ends at 11:30 AM</h3>
+<h1>Current time: <span id="currentTime"></span></h1>
+<h1 id="remaining"></h1>
+<h3 id="donotopen">Read and sign the first page, but do not open the booklet yet</h3>
+<h3 id="away">Put away your notes, books, phones, and other devices</h3>
 </body>
 </html>
