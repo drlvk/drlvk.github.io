@@ -12,28 +12,46 @@ startTime.setSeconds(0);
 const duration = 55;
 let endTime = new Date();
 endTime.setTime(startTime.getTime() + duration*60*1000);
-formatTime = (x => x.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"}));
-document.addEventListener("DOMContentLoaded", displayClock);
+let status = 0; // 0 initial, 1 before exam, 2 during, 3 after 
+document.addEventListener("DOMContentLoaded", cycle);
 
-function displayClock() {
-  let currentTime = new Date();
-  document.getElementById("currentTime").innerText = formatTime(currentTime);
-  let minutesLeft = Math.min(duration, Math.ceil((endTime.getTime() - currentTime.getTime())/60000));
-  let remElement = document.getElementById("remaining");
-  let dnoElement = document.getElementById("donotopen");
-  if (remElement) {
-		if (currentTime > endTime) {
-			remElement.remove();
-			document.getElementById("away").remove();
+function removeElement(elementId) {
+	let elem = document.getElementById(elementId);
+	if (elem) {
+		elem.remove();
+	}
+} 
+function updateElement(elementId, text) {
+	let elem = document.getElementById(elementId);
+	if (elem) {
+		elem.innerText = text;
+	}
+} 
+function cycle() {
+	let currentTime = new Date();
+	if (currentTime < startTime) {
+		status = 1;
+	}
+	else if (currentTime < endTime) {
+		if (status < 2) {
+			removeElement("donotopen");
+			updateElement("showId", "Show your SUID when turning in the exam");
+			status = 2;
 		}
-		else if (currentTime > startTime) {
-			remElement.innerText = "Time remaining: " + minutesLeft + " min";
-			if (dnoElement) {
-				dnoElement.remove();
-			}
-		}
-  }
-  setTimeout(displayClock, 1000); 
+	}
+	else if (status < 3) {
+		removeElement("donotopen");
+		removeElement("remaining");
+		updateElement("away", "Turn in your exam");
+		updateElement("showId", "Show your SUID when turning in the exam");
+		status = 3;
+	}
+  updateElement("currentTime", currentTime.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"}));
+  if (status == 2) {
+		let minutesLeft = Math.min(duration, Math.ceil((endTime.getTime() - currentTime.getTime())/60000));
+		updateElement("remaining", "Time remaining: " + minutesLeft + " min");
+	}
+  setTimeout(cycle, 1000); 
 }
 </script>
 <title>Exam in progress</title>
@@ -44,5 +62,6 @@ function displayClock() {
 <h1 id="remaining"></h1>
 <h3 id="donotopen">Read and sign the first page, but do not open the booklet yet</h3>
 <h3 id="away">Put away your notes, books, phones, and other devices</h3>
+<h3 id="showId"></h3>
 </body>
 </html>
