@@ -1,2 +1,1 @@
-
-Adopted from https://github.com/codingsapienss/Grade-Calculator
+Based on https://github.com/codingsapienss/Grade-Calculator
