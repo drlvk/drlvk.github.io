@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="exam.css">
+<script>
+let startTime = new Date();
+startTime.setHours(10);
+startTime.setMinutes(0);
+startTime.setSeconds(0);
+const duration = 180;
+let endTime = new Date();
+endTime.setTime(startTime.getTime() + duration*60*1000);
+let status = 0; // 0 initial, 1 before exam, 2 during, 3 after 
+document.addEventListener("DOMContentLoaded", cycle);
+
+function removeElement(elementId) {
+	let elem = document.getElementById(elementId);
+	if (elem) {
+		elem.remove();
+	}
+} 
+function updateElement(elementId, text) {
+	let elem = document.getElementById(elementId);
+	if (elem) {
+		elem.innerText = text;
+	}
+} 
+function cycle() {
+	let currentTime = new Date();
+	if (currentTime < startTime) {
+		status = 1;
+	}
+	else if (currentTime < endTime) {
+		if (status < 2) {
+			removeElement("donotopen");
+			// updateElement("showId", "Show your SUID when turning in the exam");
+			status = 2;
+		}
+	}
+	else if (status < 3) {
+		removeElement("donotopen");
+		removeElement("remaining");
+		updateElement("away", "Turn in your exam");
+		// updateElement("showId", "Show your SUID when turning in the exam");
+		status = 3;
+	}
+  updateElement("currentTime", currentTime.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"}));
+  if (status == 2) {
+		let minutesLeft = Math.min(duration, Math.ceil((endTime.getTime() - currentTime.getTime())/60000));
+		updateElement("remaining", "Time remaining: " + minutesLeft + " min");
+	}
+  setTimeout(cycle, 1000); 
+}
+</script>
+<title>Exam in progress</title>
+</head>
+<body>
+<h1>Putnam Session A</h1>
+<h1>Current time: <span id="currentTime"></span></h1>
+<h1 id="remaining"></h1>
+<h3 id="donotopen">Read the instructions below. Do not look at the problems yet</h3>
+<h4 id="away">Please turn off and stow away your cell phone. All work is to be done on the paper that I have provided. 
+Do not put solutions to two different problems on the same sheet of paper. Do not write on the reverse side of the paper. All work
+to justify a solution and all necessary steps of a proof should be presented. No collaboration or outside aid is permitted.
+At the top of each page that you submit for grading, write your PIN, the problem number (letter A or B followed by a
+number from 1 to 6), and the page number in the format “Page k of n”, where n is the number of pages for the solution to that
+problem and 1≤k≤n. Each solution is numbered separately.</h4>
+<h3 id="showId"></h3>
+<!--Hand in the work you wish to have graded. Make certain that your PIN, the problem number, and the page number for that
+solution appear at the top of each page you submit. Do not include scratch paper or blank paper. In front of each solution
+that you wish to submit for grading, place the appropriate cover sheet. The order of pages is important. Do not take any
+Putnam Competition materials outside of the room.-->
+</body>
+</html>
