@@ -37,14 +37,14 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
 * html h1, * html h2 { margin-top: 0; } 
 	
 h2 {
-	margin-top: 1.6875em; /* 27px */
-	margin-bottom: 0.5625em; /* 9px */
+	margin-top: 1.6875em;  
+	margin-bottom: 0.5625em;  
 	text-align: center;
 }
 
 h3 {
-	margin-top: 1em; /* 27 px */
-	margin-bottom: 0.643em; /* 9px */
+	margin-top: 1em;  
+	margin-bottom: 0.643em; 
 	text-align: center;
 }
 	h2 + h3 { 
@@ -52,7 +52,9 @@ h3 {
 	}
 
 h4 {
-	margin-top: 1.5em; /* 18px */
+	margin-top: 1em;
+	font-size: 1em;
+	text-align: center;
 	}
 	h3 + h4 {
 		margin-top: 0.5em; /* 9 px */
