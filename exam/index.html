@@ -35,7 +35,7 @@ function cycle() {
 	else if (currentTime < endTime) {
 		if (status < 2) {
 			removeElement("donotopen");
-			updateElement("showId", "Show your SUID when turning in the exam");
+			//updateElement("showId", "Show your SUID when turning in the exam");
 			status = 2;
 		}
 	}
@@ -43,7 +43,7 @@ function cycle() {
 		removeElement("donotopen");
 		removeElement("remaining");
 		updateElement("away", "Turn in your exam");
-		updateElement("showId", "Show your SUID when turning in the exam");
+		//updateElement("showId", "Show your SUID when turning in the exam");
 		status = 3;
 	}
   updateElement("currentTime", currentTime.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"}));
@@ -57,7 +57,7 @@ function cycle() {
 <title>Exam in progress</title>
 </head>
 <body>
-<h1>MAT 284 Exam 1</h1>
+<h1>MAT 284 Exam 2</h1>
 <h1>Current time: <span id="currentTime"></span></h1>
 <h1 id="remaining"></h1>
 <h3 id="donotopen">Read and sign the first page, but do not open the booklet yet</h3>
