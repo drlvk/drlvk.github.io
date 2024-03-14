@@ -17,9 +17,9 @@ function allCalculation() {
   let overall =
     parseFloat(homework.value)/100 * 10 +
     parseFloat(quiz.value)/100 * 15 +
-    parseFloat(exam1.value)/50 * 16 +
-    parseFloat(exam2.value)/50 * 16 +
-    parseFloat(exam3.value)/50 * 16 +
+    parseFloat(exam1.value)/100 * 16 +
+    parseFloat(exam2.value)/100 * 16 +
+    parseFloat(exam3.value)/100 * 16 +
     parseFloat(finalexam.value)/100 * 27;
 
   overall = overall.toFixed(2);
