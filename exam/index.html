@@ -6,10 +6,10 @@
 <link rel="stylesheet" type="text/css" href="exam.css">
 <script>
 let startTime = new Date();
-startTime.setHours(9);
-startTime.setMinutes(30);
+startTime.setHours(10);
+startTime.setMinutes(15);
 startTime.setSeconds(0);
-const duration = 55;
+const duration = 120;
 let endTime = new Date();
 endTime.setTime(startTime.getTime() + duration*60*1000);
 let status = 0; // 0 initial, 1 before exam, 2 during, 3 after 
@@ -57,10 +57,10 @@ function cycle() {
 <title>Exam in progress</title>
 </head>
 <body>
-<h1>MAT 284 Exam 3</h1>
+<h1>MAT 284 Final Exam</h1>
 <h1>Current time: <span id="currentTime"></span></h1>
 <h1 id="remaining"></h1>
-<h3 id="donotopen">Read the first page, but do not open the booklet yet</h3>
+<h3 id="donotopen">Read and sign the first page, but do not open the booklet yet</h3>
 <h3 id="away">Put away your notes, books, phones, and other devices</h3>
 <h3 id="showId"></h3>
 </body>
