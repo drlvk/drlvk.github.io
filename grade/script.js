@@ -7,6 +7,7 @@ let quiz = document.querySelector("#quiz");
 let exam1 = document.querySelector("#exam1");
 let exam2 = document.querySelector("#exam2");
 let exam3 = document.querySelector("#exam3");
+let exam4 = document.querySelector("#exam4");
 let finalexam = document.querySelector("#finalexam");
 
 let btn = document.querySelector(".btn");
@@ -17,10 +18,11 @@ function allCalculation() {
   let overall =
     parseFloat(homework.value)/100 * 10 +
     parseFloat(quiz.value)/100 * 15 +
-    parseFloat(exam1.value)/100 * 16 +
-    parseFloat(exam2.value)/100 * 16 +
-    parseFloat(exam3.value)/100 * 16 +
-    parseFloat(finalexam.value)/100 * 27;
+    parseFloat(exam1.value)/100 * 13 +
+    parseFloat(exam2.value)/100 * 13 +
+    parseFloat(exam3.value)/100 * 13 +
+    parseFloat(exam4.value)/100 * 13 +
+    parseFloat(finalexam.value)/100 * 23;
 
   overall = overall.toFixed(2);
   result.innerHTML = "";
