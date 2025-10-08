@@ -3,77 +3,196 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" type="text/css" href="std.css" />
 <title>Bookmarks</title>
 <style type="text/css">
 body {
-font-size: 14px;
-font-family: Verdana;
-line-height: 20px;
+  font-size: 14px;
+  font-family: Verdana;
+  line-height: 20px;
+  margin: 0;
+  padding: 20px;
 }
-h1,
-h2 {
-text-align: center;
+h1, h2 {
+  text-align: center;
 }
 #container {
-width: 820px;
-margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.column {
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+.column h2 {
+  margin-top: 0;
+  font-size: 18px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+li ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 1200px) {
+  #container {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 <body>
 <div id="container">
-<ul>
-<li>Class
-<ul>
-<li><a href="https://blackboard.syracuse.edu/">Blackboard</a></li>
-<li><a href="https://syracuseuniversity.zoom.us/">Zoom</a>: <a href="https://syracuseuniversity.zoom.us/j/92411248021">class</a>, <a href="https://syracuseuniversity.zoom.us/j/91631489482">office</a></li>
-<li><a href="https://webwork.syr.edu/webwork2/MAT_284_Fall_2025_Kovalev">MAT 284 WeBWorK</a></li>
-<li><a href="https://www.polleverywhere.com/activities">Poll Everywhere</a></li>
-<li><a href="https://plus.pearson.com">MAT 284 textbook</a></li>
-<li><a href="https://drlvk.github.io/exam">Exam timer</a>; <a href="https://drlvk.github.io/quiz">Quiz timer</a></li>
-</ul></li>
-<li>Web apps
-<ul>  
-<li><a href="https://book.ms/b/LVK@bookings.syr.edu">Booking page</a></li>
-<li><a href="https://to-do.office.com/tasks/planned">To do</a></li>
-<li><a href="https://office.syr.edu/">Office</a></li>  
-<li><a href="https://sumailsyr-my.sharepoint.com/my">OneDrive</a></li>  
-<li><a href="https://drive.google.com/drive/my-drive">Google Drive</a></li>
-<li><a href="https://rds.syr.edu">Remote Desktop</a></li>  
-<li><a href="https://syracuseuniversity.ca1.qualtrics.com/ControlPanel/">Qualtrics</a></li>  
-<li><a href="https://acrobat.adobe.com/link/home/?locale=en-US">Acrobat</a></li>
-<li><a href="https://www.overleaf.com/project">Overleaf</a></li>  
-<li><a href="https://github.com/">Github</a></li>
-<li><a href="https://onlinenotepad.org/app">Online Notepad</a></li>
-<li><a href="https://www.webassign.net/wa-auth/login">WebAssign</a></li>
-<li><a href="https://webwork.syr.edu/webwork2/">WeBWorK</a></li>
-</ul></li>  
-<li>SU resources
-<ul>
-<li><a href="https://myslice.syr.edu/">MySlice</a></li>
-<li><a href="https://myslice.ps.syr.edu/psp/PTL9PROD/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?2=2">Class Search</a></li>
-<li><a href="https://25live.collegenet.com/pro/syracuse#!/home/search/location/availability/731587">25Live</a></li>
-<li><a href="https://www.syracuse.edu/academics/calendars/academic-year/">Academic calendar</a></li>
-<li><a href="https://courses.syracuse.edu/">Catalog</a></li> 
-<li><a href="https://news.syr.edu/sections/">News</a></li>
-<li><a href="https://lvkovale.expressions.syr.edu/">Expressions</a></li>
-<li><a href="https://artsandsciences.syracuse.edu/mathematics/undergraduate-studies/">Math for undergraduates</a></li>  
-<li><a href="https://math-internal.syr.edu/">Math internal</a></li>
-<li><a href="https://sumailsyr.sharepoint.com/">SU SharePoint</a></li>
-<li><a href="https://drlvk.github.io/s.html">More</a></li>    
-</ul></li>
-<li>Other resources
-<ul>
-<li><a href="https://mathscinet-ams-org.libezproxy2.syr.edu/mathscinet/">MathSciNet</a></li>
-<li><a href="https://putnam.edvistas.com/">Putnam Portal</a></li>  
-<li><a href="https://kskedlaya.org/putnam-archive/">Putnam Archive</a></li>
-<li><a href="https://mathbooks.unl.edu/PreCalculus/Test.html">UNL Precalculus</a></li>
-<li><a href="https://drlvk.github.io/nm/numerical-methods.html">Numerical Methods notes</a></li>  
-<li><a href="https://drlvk.github.io/r.html">Research</a></li>  
-</ul>
-</li>
-</ul>
+  <div class="column">
+    <h2>SU Resources</h2>
+    <ul>
+      <li><strong>General SU links</strong>
+        <ul>
+          <li><a href="https://myslice.syr.edu/">MySlice</a></li>
+          <li><a href="https://myslice.ps.syr.edu/psp/PTL9PROD/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?2=2">Class Search</a></li>
+          <li><a href="https://25live.collegenet.com/pro/syracuse#!/home/search/location/availability/731587">25Live</a></li>
+          <li><a href="https://www.syracuse.edu/academics/calendars/academic-year/">Academic calendar</a></li>
+          <li><a href="https://coursecatalog.syracuse.edu">Catalog</a></li>
+          <li><a href="https://syracuse.bncollege.com/">Bookstore</a></li>
+          <li><a href="https://aip.bncollege.com/">Bookstore Portal</a></li>
+          <li><a href="https://news.syr.edu/news/">News</a></li>
+          <li><a href="https://registrar.syr.edu/students/student-forms/">RO Forms</a></li>
+          <li><a href="https://artsandsciences.syracuse.edu/student-success/advising-services/academic-forms-and-procedures/">CAS Forms</a></li>
+          <li><a href="https://artsandsciences.syracuse.edu/student-success/">CAS Student Success</a></li>
+          <li><a href="https://artsandsciences.syracuse.edu/student-success/advising-services/liberal-arts-core/">CAS LA Core</a></li>
+          <li><a href="https://artsandsciences.syracuse.edu/student-success/advising-services/grade-appeal-process-and-procedures/">CAS Grade Appeals</a></li>
+          <li><a href="https://registrar.syr.edu/faculty-staff/final-exams/">Final Exams</a></li>
+          <li><a href="https://registrar.syr.edu/faculty-staff/class-and-room-scheduling/time-blocks/">Class Scheduling Paradigm</a></li>
+          <li><a href="https://su-jsm.atlassian.net/wiki/spaces/itslemp/pages/158925570/Classroom+Resource+Guide">Classroom Resource Guide</a></li>
+          <li><a href="https://facultyportfolio.syr.edu/">Faculty Portfolio System</a></li>
+          <li><a href="https://academicaffairs.syracuse.edu/faculty-affairs/policies-and-procedures/faculty-manual/">Faculty Manual</a></li>
+          <li><a href="https://sumailsyr.sharepoint.com/">SU SharePoint</a></li>
+          <li><a href="https://sumailsyr.sharepoint.com/sites/artsandsciences">CAS SharePoint</a></li>
+          <li><a href="https://sumailsyr.sharepoint.com/sites/office-of-the-registrar">Registrar SharePoint</a></li>
+          <li><a href="https://sumailsyr.sharepoint.com/sites/university-senate">Senate SharePoint</a></li>
+          <li><a href="https://senate.syracuse.edu/committees/curriculuminstruction/">Senate Curriculum</a></li>
+        </ul>
+      </li>
+      <li><strong>Mathematics</strong>
+        <ul>
+          <li><a href="https://artsandsciences.syracuse.edu/mathematics/undergraduate-studies/">Math for undergraduates</a></li>
+          <li><a href="https://su-jsm.atlassian.net/wiki/spaces/place/pages/163086429/Math+Placement+Exam+Instructions">Math Placement Instructions</a></li>
+          <li><a href="https://math-internal.syr.edu/">Math internal</a></li>
+          <li><a href="https://docs.google.com/spreadsheets/d/1Sucpzcl_Ukt8JPWSYPn5DyCdYnuON0SC8kLLfpcCNBA/edit?folder=0AA2jWYQZgKXLUk9PVA#gid=0">GPA Calculator</a></li>		  
+          <li><a href="https://coursecatalog.syracuse.edu/undergraduate/arts-sciences/mathematics-ba/">BA Mathematics</a></li>
+          <li><a href="https://coursecatalog.syracuse.edu/undergraduate/arts-sciences/mathematics-bs/">BS Mathematics</a></li>
+          <li><a href="https://coursecatalog.syracuse.edu/undergraduate/arts-sciences/applied-mathematics-ba/">BA Applied Mathematics</a></li>
+          <li><a href="https://coursecatalog.syracuse.edu/undergraduate/arts-sciences/applied-mathematics-bs/">BS Applied Mathematics</a></li>
+          <li><a href="https://coursecatalog.syracuse.edu/undergraduate/arts-sciences/statistics-ba/">BA Statistics</a></li>
+          <li><a href="https://coursecatalog.syracuse.edu/undergraduate/arts-sciences/statistics-bs/">BS Statistics</a></li>
+          <li><a href="https://coursecatalog.syracuse.edu/undergraduate/arts-sciences/mathematics-minor/">Minor in Mathematics</a></li>
+        </ul>
+      </li>
+      <li><strong>Data</strong>
+        <ul>
+          <li><a href="https://datainsights.syr.edu/#/site/data/views/ClassListDetailNew_16658742414140/RegistrarClassListDetail/f8c86937-cffb-4a18-add6-0e0f08b2c321/MathEnrollment?:iid=1">Enrollment</a></li>
+          <li><a href="https://datainsights.syr.edu/#/site/data/views/IncompleteorMissingGrades_16742359539720/PivotByCourse/7edae266-35a1-4f44-a5d9-1eacd615fc5a/MATcourses?:iid=1">Incompletes</a></li>
+          <li><a href="https://datainsights.syr.edu/#/site/data/views/ActiveStudentDashboard_16364952105340/ActiveStudentReportsDashboard/01517958-6986-44a0-876a-1f60f174890f/Math-realmmajors?:iid=1">Majors</a></li>
+          <li><a href="https://datainsights.syr.edu/#/site/data/views/RegistrarStudentGroups/RegistrarStudentGroupSummary/45cfe71c-7dff-41c2-aa6b-fe32c10ab10a/MathDistinction?:iid=1">Distinction</a></li>
+          <li><a href="https://datainsights.syr.edu/#/site/data/favorites">Favorites</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="column">
+    <h2>Main Bookmarks</h2>
+    <ul>
+      <li><strong>Class</strong>
+        <ul>
+          <li><a href="https://blackboard.syracuse.edu/">Blackboard</a></li>
+          <li><a href="https://syracuseuniversity.zoom.us/">Zoom</a>: <a href="https://syracuseuniversity.zoom.us/j/92411248021">class</a>, <a href="https://syracuseuniversity.zoom.us/j/91631489482">office</a></li>
+          <li><a href="https://webwork.syr.edu/webwork2/MAT_284_Fall_2025_Kovalev">MAT 284 WeBWorK</a></li>
+          <li><a href="https://www.polleverywhere.com/activities">Poll Everywhere</a></li>
+          <li><a href="https://plus.pearson.com">MAT 284 textbook</a></li>
+          <li><a href="https://drlvk.github.io/exam">Exam timer</a>; <a href="https://drlvk.github.io/quiz">Quiz timer</a></li>
+        </ul>
+      </li>
+      <li><strong>Web apps</strong>
+        <ul>
+          <li><a href="https://book.ms/b/LVK@bookings.syr.edu">Booking page</a></li>
+          <li><a href="https://to-do.office.com/tasks/planned">To do</a></li>
+          <li><a href="https://office.syr.edu/">Office</a></li>
+          <li><a href="https://sumailsyr-my.sharepoint.com/my">OneDrive</a></li>
+          <li><a href="https://drive.google.com/drive/my-drive">Google Drive</a></li>
+          <li><a href="https://rds.syr.edu">Remote Desktop</a></li>
+          <li><a href="https://syracuseuniversity.ca1.qualtrics.com/ControlPanel/">Qualtrics</a></li>
+          <li><a href="https://acrobat.adobe.com/link/home/?locale=en-US">Acrobat</a></li>
+          <li><a href="https://github.com/">Github</a></li>
+          <li><a href="https://onlinenotepad.org/app">Online Notepad</a></li>
+		  <li><a href="https://www.desmos.com/calculator">Desmos</a></li>
+          <li><a href="https://c3d.libretexts.org/CalcPlot3D/index.html">CalcPlot3D</a></li>		  
+          <li><a href="https://www.webassign.net/wa-auth/login">WebAssign</a></li>
+          <li><a href="https://webwork.syr.edu/webwork2/">WeBWorK</a></li>
+        </ul>
+      </li>
+      <li><strong>Other resources</strong>
+        <ul>
+          <li><a href="https://putnam.edvistas.com/">Putnam Portal</a></li>
+          <li><a href="https://kskedlaya.org/putnam-archive/">Putnam Archive</a></li>
+		  <li><a href="https://openstax.org/subjects/math">OpenStax</a></li>
+          <li><a href="https://mathbooks.unl.edu/PreCalculus/Test.html">UNL Precalculus</a></li>
+          <li><a href="https://drlvk.github.io/nm/numerical-methods.html">Numerical Methods</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="column">
+    <h2>Research Bookmarks</h2>
+    <ul>
+      <li><strong>Overleaf</strong>
+        <ul>
+          <li><a href="https://overleaf.com/project">Projects</a></li>
+          <li><a href="https://www.overleaf.com/project/5ad13d0f593782275817984c">Questions</a></li>
+          <li><a href="https://www.overleaf.com/project/5ae2424c5c78f86526214867">Letters</a></li>
+          <li><a href="https://www.overleaf.com/project/5ae263f65c78f86526214951">Reviews</a></li>
+          <li><a href="https://www.overleaf.com/project/66ba99f5052e0fab5e961ea9">Scratch</a></li>
+        </ul>
+      </li>
+      <li><strong>Colab</strong>
+        <ul>
+          <li><a href="https://drive.google.com/drive/search?q=owner:me%20(type:application/vnd.google.colaboratory%20||%20type:application/vnd.google.colab)">Projects</a></li>
+          <li><a href="https://colab.research.google.com/drive/19HGHvgxyuhRc0dAV7YE1ibKhgt-qoEmc">Scratch</a></li>
+          <li><a href="https://colab.research.google.com/drive/11O8pyHWVQ7ZWbnn67Jlm5AZ1Eeg3U-UX">Centers</a></li>
+        </ul>
+      </li>
+      <li><strong>Other</strong>
+        <ul>
+          <li><a href="https://mathscinet-ams-org.libezproxy2.syr.edu/mathscinet/">MathSciNet</a></li>
+          <li><a href="https://scholar.google.com/">Google Scholar</a></li>
+          <li><a href="https://search.syr.edu/">SU Library</a></li>
+          <li><a href="https://www.wolframalpha.com/">WolframAlpha</a></li>
+          <li><a href="https://claude.ai/">Claude</a></li>
+          <li><a href="https://chatgpt.com/">ChatGPT</a></li>
+		  <li><a href="https://gemini.google.com/">Gemini</a></li>
+          <li><a href="https://www.editorialmanager.com/jana/">JANA</a></li>
+          <li><a href="https://mathscinet-ams-org.libezproxy2.syr.edu/mathscinet/publications-search?query=ic%3A%221-SRCS%22&page=1&size=20&sort=newest&facets=finst%3Av%27Department%20of%20Mathematics,%20Syracuse%20University%27&ls=">SU Math</a></li>
+          <li><a href="https://sumailsyr-my.sharepoint.com/personal/lvkovale_syr_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Flvkovale%5Fsyr%5Fedu%2FDocuments%2Fprojects&view=0">OneDrive projects</a></li>
+          <li><a href="https://drlvk.github.io/research/">Papers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </div>
 </body>
 </html>
