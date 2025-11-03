@@ -4,6 +4,7 @@ let container = document.querySelector(".container");
 let result = document.querySelector(".result");
 let homework = document.querySelector("#homework");
 let quiz = document.querySelector("#quiz");
+let participation = document.querySelector("#participation");
 let exam1 = document.querySelector("#exam1");
 let exam2 = document.querySelector("#exam2");
 let exam3 = document.querySelector("#exam3");
@@ -18,11 +19,12 @@ function allCalculation() {
   let overall =
     parseFloat(homework.value)/100 * 10 +
     parseFloat(quiz.value)/100 * 15 +
+    parseFloat(participation.value)/100 * 3 +
     parseFloat(exam1.value)/100 * 13 +
     parseFloat(exam2.value)/100 * 13 +
     parseFloat(exam3.value)/100 * 13 +
     parseFloat(exam4.value)/100 * 13 +
-    parseFloat(finalexam.value)/100 * 23;
+    parseFloat(finalexam.value)/100 * 20;
 
   overall = overall.toFixed(2);
   result.innerHTML = "";
@@ -37,3 +39,4 @@ function allCalculation() {
 btn.addEventListener("click", () => {
   allCalculation();
 });
+
