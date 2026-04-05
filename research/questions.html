@@ -266,5 +266,75 @@ True for $p\le 2$, by Parseval. True in the derivative-at-0 form for $p\le 4$, b
 False for $p&gt;4$ (even in the derivative-at-0 form); a counterexample is similar to one in Theorem&nbsp;1 of <a href="https://doi.org/10.1016/j.bulsci.2011.01.004" class="ref">[MS]</a>. Namely, $f(z) = (z+\epsilon \bar{z})/|z+\epsilon \bar{z}|$ on the unit circle where $\epsilon&gt;0$ is small.
 </p>
 
+<hr class="section-divider">
+ 
+<h1><span class="num">3.</span> Finite Subset Spaces</h1>
+ 
+<p>
+Let $X(n)$ be the space of subsets of $X$ with cardinality at most $n$, with the Hausdorff metric.
+</p>
+ 
+<h2><span class="num">3.1</span> Inheritance of properties</h2>
+ 
+<p>
+If $X$ is doubling, quasiconvex, has finite Nagata dimension, has the binary intersection property, or is an absolute Lipschitz retract, does $X(n)$ have the same property? True for quasiconvexity <a href="https://doi.org/10.1007/s41478-024-00827-z" class="ref">[Ak2024]</a>.
+</p>
+ 
+<h2><span class="num">3.2</span> Dependence of the existence on $n$</h2>
+ 
+<p>
+If a Lipschitz retraction $X(n+1)\to X(n)$ exists, does a Lipschitz retraction $X(n)\to X(n-1)$ exist?
+</p>
+ 
+<h2><span class="num">3.3</span> Absolute Lipschitz retracts</h2>
+ 
+<p>
+If $X$ is an absolute Lipschitz retract, does it admit Lipschitz retractions $X(n)\to X(n-1)$ for all $n$? Would be enough to answer for $\ell^\infty$. See <a href="https://doi.org/10.1007/s12220-022-00928-w" class="ref">[Ko2022]</a>.
+</p>
+ 
+<h2><span class="num">3.4</span> Contractibility</h2>
+ 
+<p>
+If $X$ admits continuous retractions $X(n)\to X(n-1)$ for all $n$, is it contractible?
+</p>
+ 
+<h2><span class="num">3.5</span> Existence of continuous retractions</h2>
+ 
+<p>
+Does every subset of $\mathbb{R}$ admit continuous retractions $X(n)\to X(n-1)$ for all $n$? Also, is this property preserved by homeomorphisms (or just by uniform homeomorphisms)?
+</p>
+ 
+<h2><span class="num">3.6</span> Finite subset retraction in a normed space</h2>
+ 
+<p>
+Does every normed space $X$ admit Lipschitz retractions $X(n)\to X(n-1)$? True for Hilbert spaces <a href="https://doi.org/10.1007/s12220-022-00928-w" class="ref">[Ko2022]</a>. True for small $n$ <a href="https://doi.org/10.1007/s11856-019-1935-x" class="ref">[Ak2019]</a>.
+</p>
+ 
+<h2><span class="num">3.7</span> In a finite metric space</h2>
+ 
+<p>
+Let $X$ be a finite metric space, $|X|=N&gt;n$. The existence of Lipschitz retractions $X(n)\to X(n-1)$ is clear (e.g., use an arbitrary order of the points of $X$, and pick the first $n-1$ elements in that order). But what is the smallest possible Lipschitz constant of such a retraction, in terms of the space?
+</p>
+ 
+<h2><span class="num">3.8</span> Finite subset retraction and quasiarcs</h2>
+ 
+<p>
+Let $\Gamma$ be a curve (bounded or unbounded, planar or abstract) with Lipschitz retractions $\Gamma(n)\to \Gamma(n-1)$. Does it follow that $\Gamma$ is a quasiarc?
+</p>
+ 
+<div class="counter-example">
+<p>
+<span class="label">No for $n=2$:</span>
+the cusp $y=\pm x^2$ admits a retraction that sends $\{(x_i, \epsilon_i x_i^2)\}$ where $\epsilon_i = \pm 1$, to $(x, \epsilon x^2)$ where $x = \min(x_1, x_2)$ and $\epsilon = \max(\epsilon_1, \epsilon_2)$.
+</p>
+</div>
+ 
+<h2><span class="num">3.9</span> Finite subset retraction on domains</h2>
+ 
+<p>
+Let $\Omega\subset \mathbb{R}^d$ be a domain (homeomorphic to a ball). When do Lipschitz retractions $\Omega(n)\to \Omega(n-1)$ exist? By <a href="https://doi.org/10.1007/s12220-022-00928-w" class="ref">[Ko2022]</a> it is necessary for $\Omega$ to be (locally uniformly) quasiconvex. If we assume $\Omega$ bounded, then it is quasiconvex. In two dimensions, contractible and quasiconvex imply ALR (see Heinonen&rsquo;s <em>Lectures on Lipschitz Analysis</em>).
+</p>
+
+  
 </body>
 </html>
