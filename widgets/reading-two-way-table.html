@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading a two-way table</title>
+<style>
+  :root{
+    --paper:#EDF0F7;
+    --card:#FFFFFF;
+    --ink:#161A2E;
+    --muted:#474D64;
+    --line:#DCE1EF;
+    --accent:#4338CA;
+    --accent-2:#6D5BE8;
+    --accent-soft:#EEF0FF;
+    --good:#15803D;
+    --good-bg:#E8F6EC;
+    --good-line:#BFE6C9;
+    --bad:#B42318;
+    --bad-bg:#FCEDEB;
+    --bad-line:#F3C9C4;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  [hidden]{display:none !important;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:740px;margin:0 auto;padding:clamp(24px,5vw,56px) clamp(18px,4vw,28px) 80px;}
+
+  /* ---------- Hero ---------- */
+  h1{
+    font-weight:800;
+    font-size:clamp(30px,6.6vw,52px);
+    line-height:1.04;
+    letter-spacing:-.03em;
+    margin:0 0 18px;
+  }
+  .lede{
+    font-size:clamp(16px,2.4vw,18px);
+    color:var(--muted);
+    margin:0 0 26px;
+    max-width:56ch;
+  }
+
+  /* ---------- Reference table ---------- */
+  .twoway{margin:2px 0 18px;overflow-x:auto;}
+  .twoway table{border-collapse:collapse;width:100%;}
+  .twoway caption{caption-side:top;text-align:left;font-size:13px;
+    color:var(--muted);margin-bottom:9px;font-weight:600;}
+  .twoway th,.twoway td{padding:11px 14px;text-align:center;
+    border-bottom:1px solid var(--line);}
+  .twoway thead th{font-size:12px;color:var(--muted);font-weight:700;
+    text-transform:uppercase;letter-spacing:.06em;}
+  .twoway tbody th{text-align:left;font-weight:600;color:var(--ink);font-size:15px;}
+  .twoway td{font-family:var(--mono);font-size:16px;color:var(--ink);}
+  .twoway .tot{background:var(--accent-soft);font-weight:700;}
+  .twoway thead .tot{color:var(--accent);}
+  .twoway .totrow th{background:var(--accent-soft);font-weight:700;}
+  .twoway .totrow td{background:var(--accent-soft);font-weight:700;}
+  .twoway .totrow .tot{background:#DCDEFB;}
+  .twoway tbody tr:last-child th,.twoway tbody tr:last-child td{border-bottom:none;}
+
+  /* The method panel */
+  .identity{
+    background:#FFFFFF;
+    color:var(--ink);
+    border:2px solid var(--accent);
+    border-radius:16px;
+    padding:24px clamp(18px,4vw,30px);
+    margin:0 0 14px;
+    box-shadow:0 2px 10px rgba(67,56,202,.07);
+  }
+  .identity .formula{
+    font-family:var(--mono);
+    font-size:clamp(16px,3.4vw,23px);
+    font-weight:600;
+    letter-spacing:-.01em;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:.4ch;
+  }
+  .identity .tok{padding:2px 8px;border-radius:7px;}
+  .identity .tok.part{background:#FBEEDC;}
+  .identity .tok.total{background:#EAE7FB;}
+  .identity .tok.frac{background:#E2F3EB;}
+  .identity .op{color:#565C72;font-weight:600;}
+  .identity .note{
+    margin:14px 0 0;
+    font-size:14.5px;
+    color:#33384C;
+    line-height:1.55;
+  }
+  .identity .note b{color:var(--ink);}
+
+  .legend{
+    display:flex;flex-wrap:wrap;gap:10px 18px;
+    margin:0 0 34px;font-size:13px;color:var(--muted);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:7px;}
+  .swatch{width:13px;height:13px;border-radius:4px;display:inline-block;}
+  .swatch.part{background:#E0913C;}
+  .swatch.total{background:#8D80F7;}
+  .swatch.frac{background:#5BBF95;}
+
+  /* ---------- Progress ---------- */
+  .progress{position:sticky;top:0;z-index:5;
+    background:var(--paper);padding:14px 0 16px;margin-bottom:6px;}
+  .progress-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-family:var(--mono);font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:8px;
+  }
+  .progress-head b{color:var(--ink);font-weight:700;}
+  .progress-track{height:8px;border-radius:99px;background:var(--line);overflow:hidden;}
+  .progress-fill{height:100%;width:0;border-radius:99px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    transition:width .5s cubic-bezier(.4,0,.2,1);}
+
+  /* ---------- Cards ---------- */
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:clamp(20px,4vw,28px);
+    margin-top:18px;
+    box-shadow:0 1px 2px rgba(22,26,46,.04);
+  }
+  .card-top{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .qnum{
+    font-family:var(--mono);font-size:13px;font-weight:700;
+    color:var(--accent);background:var(--accent-soft);
+    width:30px;height:30px;border-radius:9px;flex:none;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .tag{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;padding:4px 9px;border-radius:99px;font-weight:600;
+  }
+  .tag.read{color:#0F6E73;background:#DDF1F2;}
+  .tag.ofall{color:#1F6FA8;background:#E2EFF8;}
+  .tag.cond{color:#4A3DA8;background:#EAE7FB;}
+  .tag.orx{color:#8A2D6B;background:#FBE7F2;}
+
+  .prompt{font-size:clamp(16px,2.6vw,19px);font-weight:600;margin:8px 0 18px;}
+
+  /* answer row */
+  .answer{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;}
+  .field{flex:1 1 150px;min-width:130px;}
+  .field label{display:block;font-size:12.5px;color:var(--muted);
+    margin-bottom:6px;font-weight:600;}
+  .inputwrap{position:relative;display:flex;align-items:center;}
+  .affix{position:absolute;font-family:var(--mono);color:var(--muted);
+    font-size:16px;pointer-events:none;}
+  .affix.pre{left:14px;}
+  .affix.post{right:14px;}
+  input[type=text]{
+    width:100%;font-family:var(--mono);font-size:16px;color:var(--ink);
+    padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;
+    background:#FBFCFE;transition:border-color .15s,box-shadow .15s;
+  }
+  input.pad-pre{padding-left:28px;}
+  input.pad-post{padding-right:30px;}
+  input:focus{outline:none;border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(67,56,202,.14);}
+  input.ok{border-color:var(--good-line);background:var(--good-bg);}
+  input.no{border-color:var(--bad-line);background:var(--bad-bg);}
+
+  /* choice field (yes / no) */
+  .choices{display:flex;gap:8px;}
+  .choice-btn{
+    font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);
+    background:#FBFCFE;border:1.5px solid var(--line);border-radius:11px;
+    padding:11px 20px;cursor:pointer;
+    transition:border-color .15s,background .15s,color .15s;
+  }
+  .choice-btn:hover{border-color:var(--accent);}
+  .choice-btn:focus-visible{outline:3px solid rgba(67,56,202,.4);outline-offset:2px;}
+  .choice-btn.selected{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);}
+  .choice-btn.ok{border-color:var(--good-line);background:var(--good-bg);color:var(--good);}
+  .choice-btn.no{border-color:var(--bad-line);background:var(--bad-bg);color:var(--bad);}
+
+  .btn{
+    font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;
+    background:var(--accent);border:none;border-radius:11px;
+    padding:12px 22px;cursor:pointer;flex:none;
+    transition:background .15s,transform .05s;
+  }
+  .btn:hover{background:#3A2FB0;}
+  .btn:active{transform:translateY(1px);}
+  .btn:focus-visible{outline:3px solid rgba(67,56,202,.4);outline-offset:2px;}
+
+  /* feedback */
+  .feedback{margin-top:16px;border-radius:12px;padding:0 16px;
+    max-height:0;opacity:0;overflow:hidden;
+    transition:max-height .35s ease,opacity .3s ease,padding .35s ease;}
+  .feedback.open{max-height:460px;opacity:1;padding:15px 16px;}
+  .feedback.right{background:var(--good-bg);border:1px solid var(--good-line);}
+  .feedback.wrong{background:var(--bad-bg);border:1px solid var(--bad-line);}
+  .verdict{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;}
+  .feedback.right .verdict{color:var(--good);}
+  .feedback.wrong .verdict{color:var(--bad);}
+  .hint{font-size:14.5px;color:#3C4257;line-height:1.6;margin-top:8px;}
+  .hint b{color:var(--ink);}
+  .reveal-lead{font-size:13px;color:var(--muted);margin-top:14px;}
+  .reveal-btn{
+    margin-top:7px;font-family:var(--sans);font-size:13.5px;font-weight:600;
+    color:var(--accent);background:#fff;border:1.5px solid var(--line);
+    border-radius:9px;padding:8px 15px;cursor:pointer;
+    transition:border-color .15s,background .15s;
+  }
+  .reveal-btn:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .reveal-btn:focus-visible{outline:3px solid rgba(67,56,202,.4);outline-offset:2px;}
+  .explain{font-size:14.5px;color:#33384C;line-height:1.6;margin-top:10px;}
+  .explain b{color:var(--ink);}
+  .explain code{font-family:var(--mono);background:rgba(22,26,46,.06);
+    padding:1px 6px;border-radius:6px;font-size:13.5px;}
+
+  .done{margin-top:28px;text-align:center;font-size:15px;color:var(--muted);
+    opacity:0;transition:opacity .4s ease;}
+  .done.show{opacity:1;}
+  .done b{color:var(--accent);}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Reading a two-way table</h1>
+  <p class="lede">A two-way table sorts people by two characteristics at once. Reading it well means knowing where to look &mdash; a single cell, a row or column total, or the grand total &mdash; and, for a percent, which total belongs in the denominator. Every question below refers to this one table.</p>
+
+  <div class="twoway">
+  <table>
+    <caption>Employees by department and office</caption>
+    <thead>
+      <tr><th scope="col"></th><th scope="col">East</th><th scope="col">West</th><th scope="col" class="tot">Total</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Engineering</th><td>120</td><td>20</td><td class="tot">140</td></tr>
+      <tr><th scope="row">Sales</th><td>60</td><td>25</td><td class="tot">85</td></tr>
+      <tr><th scope="row">Support</th><td>20</td><td>5</td><td class="tot">25</td></tr>
+      <tr class="totrow"><th scope="row">Total</th><td>200</td><td>50</td><td class="tot">250</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="identity">
+    <div class="formula">
+      <span class="tok frac">percent</span><span class="op">&nbsp;=&nbsp;</span><span class="tok part">part</span><span class="op">&nbsp;&divide;&nbsp;</span><span class="tok total">the right total</span><span class="op">&nbsp;&times; 100</span>
+    </div>
+    <p class="note">Each cell counts people in one row <em>and</em> one column; the margins are the row and column totals, and 250 is the grand total. A <b>"percent of all"</b> divides by 250; <b>"among the East office"</b> divides by the East total (200), not by 250; and <b>"Sales or West"</b> adds the Sales and West totals, then subtracts the one cell counted in both. Multiply the resulting fraction by 100 to write it as a percent.</p>
+  </div>
+  <div class="legend">
+    <span><i class="swatch part"></i>part &mdash; the count you're asking about</span>
+    <span><i class="swatch total"></i>total &mdash; all 250, or one row/column</span>
+    <span><i class="swatch frac"></i>percent &mdash; the part out of that total, &times;100</span>
+  </div>
+
+  <div class="progress">
+    <div class="progress-head"><span>Solved</span><span><b id="solvedCount">0</b> / 6</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <div id="questions"></div>
+
+  <p class="done" id="doneMsg">Nice work &mdash; all six cleared. <b>Mind which total is the denominator.</b></p>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    n:1, tag:"read", tagLabel:"read a total",
+    prompt:"How many employees are in Sales?",
+    hint:`Read the Sales row total straight from the Total column.`,
+    fields:[{label:"Employees in Sales", answer:85, tol:0.5}],
+    explain:`The Sales row total is <b>85</b> (60 in the East + 25 in the West). You can read it directly from the Total column &mdash; no calculation needed.`
+  },
+  {
+    n:2, tag:"read", tagLabel:"read a total",
+    prompt:"How many employees are in the East office?",
+    hint:`Read the East column total straight from the Total row.`,
+    fields:[{label:"Employees in East", answer:200, tol:0.5}],
+    explain:`The East column total is <b>200</b> (120 + 60 + 20). Read it from the Total row at the bottom of the East column.`
+  },
+  {
+    n:3, tag:"ofall", tagLabel:"percent of all",
+    prompt:"What percent of all employees are in Support?",
+    hint:`Support is 25 out of all 250: 25 &divide; 250, then &times; 100.`,
+    fields:[{label:"Support, of all", answer:10, tol:0.01, post:"%"}],
+    explain:`Support has 25 people out of the grand total of 250: 25 &divide; 250 = 0.10 = <b>10%</b>. "Of all" means the denominator is the grand total.`
+  },
+  {
+    n:4, tag:"cond", tagLabel:"within a group",
+    prompt:"Among the employees in the East office, what percent are in Engineering?",
+    hint:`Stay inside the East column. Of its 200 people, 120 are in Engineering: 120 &divide; 200, then &times; 100.`,
+    fields:[{label:"Engineering, of East", answer:60, tol:0.01, post:"%"}],
+    explain:`"Among the East office" makes the denominator the East total, 200 &mdash; not 250. Engineering in the East is 120, so 120 &divide; 200 = 0.60 = <b>60%</b>.`
+  },
+  {
+    n:5, tag:"cond", tagLabel:"within a group",
+    prompt:"Among the Sales employees, what percent are in the West office? (Round to the nearest tenth of a percent.)",
+    hint:`Stay inside the Sales row. Of its 85 people, 25 are in the West: 25 &divide; 85, then &times; 100.`,
+    fields:[{label:"West, of Sales", answer:29.4, tol:0.1, post:"%"}],
+    explain:`"Among Sales" makes the denominator the Sales total, 85. West Sales is 25, so 25 &divide; 85 = 0.2941&hellip; &asymp; <b>29.4%</b>. Real data often gives a percent that doesn't come out even, so rounding is expected here.`
+  },
+  {
+    n:6, tag:"orx", tagLabel:"or",
+    prompt:"What percent of all employees are in Sales or in the West office (or both)?",
+    hint:`Sales total + West total counts the Sales-and-West cell twice. Use 85 + 50 &minus; 25, then divide by 250.`,
+    fields:[{label:"Sales or West, of all", answer:44, tol:0.01, post:"%"}],
+    explain:`Sales is 85 and West is 50, but the 25 who are in Sales and the West are in both totals, so Sales-or-West = 85 + 50 &minus; 25 = 110. Out of all 250: 110 &divide; 250 = 0.44 = <b>44%</b>. (Subtract the shared cell once, just like overlapping groups.)`
+  }
+];
+
+const solved = new Set();
+const root = document.getElementById('questions');
+
+QUESTIONS.forEach(q => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-top">
+      <span class="qnum">${q.n}</span>
+      <span class="tag ${q.tag}">${q.tagLabel}</span>
+    </div>
+    <p class="prompt">${q.prompt}</p>
+    <div class="answer">
+      ${q.fields.map((f,i)=>{
+        if(f.type === 'choice'){
+          return `<div class="field">
+            <label>${f.label}</label>
+            <div class="choices" data-choice data-field="${i}">
+              ${f.options.map(o=>`<button type="button" class="choice-btn" data-value="${o}">${o}</button>`).join('')}
+            </div>
+          </div>`;
+        }
+        const preCls = f.pre ? 'pad-pre' : '';
+        const postCls = f.post ? 'pad-post' : '';
+        return `<div class="field">
+          <label for="q${q.n}f${i}">${f.label}</label>
+          <div class="inputwrap">
+            ${f.pre?`<span class="affix pre">${f.pre}</span>`:''}
+            <input type="text" inputmode="decimal" id="q${q.n}f${i}"
+              class="${preCls} ${postCls}" data-field="${i}" autocomplete="off">
+            ${f.post?`<span class="affix post">${f.post}</span>`:''}
+          </div>
+        </div>`;
+      }).join('')}
+      <button class="btn" data-check>Check</button>
+    </div>
+    <div class="feedback" data-feedback>
+      <div class="verdict" data-verdict></div>
+      <div class="hint" data-hint hidden>${q.hint}</div>
+      <div class="reveal-lead" data-reveal-lead hidden>Give it another go above &mdash; or if you're still stuck:</div>
+      <button class="reveal-btn" data-reveal hidden>Show the solution</button>
+      <div class="explain" data-explain hidden>${q.explain}</div>
+    </div>
+  `;
+  root.appendChild(card);
+
+  const inputs = [...card.querySelectorAll('input')];
+  const checkBtn = card.querySelector('[data-check]');
+  const feedback = card.querySelector('[data-feedback]');
+  const verdict = card.querySelector('[data-verdict]');
+  const hintEl = card.querySelector('[data-hint]');
+  const revealBtn = card.querySelector('[data-reveal]');
+  const revealLead = card.querySelector('[data-reveal-lead]');
+  const explainEl = card.querySelector('[data-explain]');
+  let revealed = false;
+
+  // choice selection (supported by the engine; unused on this page)
+  card.querySelectorAll('[data-choice]').forEach(group=>{
+    group.querySelectorAll('.choice-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        group.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected','ok','no'));
+        btn.classList.add('selected');
+        group.dataset.selected = btn.dataset.value;
+      });
+    });
+  });
+
+  function parseVal(s){
+    const cleaned = (s||'').replace(/[^0-9.\-]/g,'');
+    if(cleaned === '' || cleaned === '-' || cleaned === '.') return NaN;
+    return parseFloat(cleaned);
+  }
+
+  function check(){
+    let allRight = true, anyEmpty = false, anyWrongValue = false, strayPercent = false;
+
+    q.fields.forEach((f,i)=>{
+      if(f.type === 'choice'){
+        const group = card.querySelector(`[data-choice][data-field="${i}"]`);
+        const sel = group.dataset.selected;
+        const right = sel === f.answer;
+        const empty = !sel;
+        if(empty) anyEmpty = true; else if(!right) anyWrongValue = true;
+        group.querySelectorAll('.choice-btn').forEach(b=>{
+          b.classList.remove('ok','no');
+          if(b.dataset.value === sel){ b.classList.toggle('ok', right); b.classList.toggle('no', !right); }
+        });
+        if(!right) allRight = false;
+        return;
+      }
+      const inp = card.querySelector(`input[data-field="${i}"]`);
+      const raw = inp.value;
+      const expectsPercent = f.post === '%';
+      const hasPercentSign = raw.indexOf('%') !== -1;
+      const pctMistake = hasPercentSign && !expectsPercent;
+      const v = parseVal(raw);
+      const numericRight = !isNaN(v) && Math.abs(v - f.answer) <= f.tol;
+      const right = numericRight && !pctMistake;
+      const empty = isNaN(v) && !pctMistake;
+
+      if(empty) anyEmpty = true; else if(!right) anyWrongValue = true;
+      if(pctMistake) strayPercent = true;
+
+      inp.classList.toggle('ok', right);
+      inp.classList.toggle('no', !right && !empty);
+      if(!right) allRight = false;
+    });
+
+    feedback.classList.add('open');
+    feedback.classList.toggle('right', allRight);
+    feedback.classList.toggle('wrong', !allRight);
+
+    if(allRight){
+      verdict.innerHTML = '&#10003; Correct';
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = false;
+      if(!solved.has(q.n)){ solved.add(q.n); updateProgress(); }
+      return;
+    }
+
+    solved.delete(q.n); updateProgress();
+
+    if(strayPercent){
+      verdict.innerHTML = '&#10007; This answer is a head count, not a percent &mdash; remove the % sign and check again';
+    } else if(anyWrongValue){
+      verdict.innerHTML = '&#10007; Not quite &mdash; adjust your answer and press Check again';
+    } else {
+      verdict.innerHTML = '&#9432; Fill in your answer, then check';
+    }
+
+    const hasMistake = anyWrongValue || strayPercent;
+    if(hasMistake){
+      hintEl.hidden = false;
+      if(revealed){
+        explainEl.hidden = false;
+        revealLead.hidden = true;
+        revealBtn.hidden = true;
+      } else {
+        explainEl.hidden = true;
+        revealLead.hidden = false;
+        revealBtn.hidden = false;
+      }
+    } else {
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = !revealed;
+    }
+  }
+
+  revealBtn.addEventListener('click', ()=>{
+    revealed = true;
+    explainEl.hidden = false;
+    revealLead.hidden = true;
+    revealBtn.hidden = true;
+  });
+
+  checkBtn.addEventListener('click', check);
+  inputs.forEach((inp,idx)=>{
+    inp.addEventListener('keydown', e=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        if(idx < inputs.length-1) inputs[idx+1].focus();
+        else check();
+      }
+    });
+    inp.addEventListener('input', ()=>{ inp.classList.remove('ok','no'); });
+  });
+});
+
+function updateProgress(){
+  const c = solved.size;
+  document.getElementById('solvedCount').textContent = c;
+  document.getElementById('progressFill').style.width = (c/QUESTIONS.length*100) + '%';
+  document.getElementById('doneMsg').classList.toggle('show', c === QUESTIONS.length);
+}
+</script>
+</body>
+</html>

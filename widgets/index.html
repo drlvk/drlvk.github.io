@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math practice tutorials</title>
+<style>
+  :root{
+    --paper:#EDF0F7;
+    --card:#FFFFFF;
+    --ink:#161A2E;
+    --muted:#474D64;
+    --line:#DCE1EF;
+    --accent:#4338CA;
+    --accent-soft:#EEF0FF;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:740px;margin:0 auto;padding:clamp(28px,6vw,64px) clamp(18px,4vw,28px) 80px;}
+
+  h1{font-weight:800;font-size:clamp(32px,7vw,52px);line-height:1.03;
+    letter-spacing:-.03em;margin:0 0 16px;}
+  .lede{font-size:clamp(16px,2.4vw,18px);color:var(--muted);margin:0 0 32px;max-width:54ch;}
+
+  .grid{display:flex;flex-direction:column;gap:12px;}
+  a.tut{
+    display:flex;align-items:flex-start;gap:16px;text-decoration:none;color:inherit;
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:18px clamp(16px,3vw,22px);
+    box-shadow:0 1px 2px rgba(22,26,46,.04);
+    transition:border-color .15s,box-shadow .15s,transform .05s;
+  }
+  a.tut:hover{border-color:var(--accent);box-shadow:0 4px 14px rgba(67,56,202,.10);}
+  a.tut:active{transform:translateY(1px);}
+  a.tut:focus-visible{outline:3px solid rgba(67,56,202,.4);outline-offset:2px;}
+  .num{
+    font-family:var(--mono);font-size:14px;font-weight:700;color:var(--accent);
+    background:var(--accent-soft);min-width:34px;height:34px;border-radius:10px;flex:none;
+    display:flex;align-items:center;justify-content:center;margin-top:2px;
+  }
+  .txt{flex:1;}
+  .ttl{font-size:clamp(16px,2.6vw,18px);font-weight:700;margin:0 0 3px;letter-spacing:-.01em;}
+  .desc{font-size:14px;color:var(--muted);margin:0;}
+  .arrow{align-self:center;color:var(--muted);font-size:20px;flex:none;transition:transform .15s,color .15s;}
+  a.tut:hover .arrow{color:var(--accent);transform:translateX(3px);}
+
+  footer{margin-top:36px;font-size:13px;color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Math practice</h1>
+  <p class="lede">A set of short, self-contained practice tutorials. Each one opens with a worked idea, then a handful of questions with instant feedback and step-by-step solutions.</p>
+
+  <div class="grid">
+
+    <a class="tut" href="percent-intro.html">
+      <span class="num">1</span>
+      <span class="txt">
+        <p class="ttl">Percents: introduction</p>
+        <p class="desc">Finding a part, a percent, or a whole &mdash; all from one relationship.</p>
+      </span>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <a class="tut" href="percentage-changes.html">
+      <span class="num">2</span>
+      <span class="txt">
+        <p class="ttl">Percentage changes</p>
+        <p class="desc">Increases, discounts, and stacked changes &mdash; every change is a multiplier.</p>
+      </span>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <a class="tut" href="percent-of-a-percent.html">
+      <span class="num">3</span>
+      <span class="txt">
+        <p class="ttl">A percent of a percent</p>
+        <p class="desc">When one percentage is taken of a group that's already a percentage.</p>
+      </span>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <a class="tut" href="averages.html">
+      <span class="num">4</span>
+      <span class="txt">
+        <p class="ttl">Averages</p>
+        <p class="desc">Means, the center and half-width of an interval, and recovering a total.</p>
+      </span>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <a class="tut" href="word-problems.html">
+      <span class="num">5</span>
+      <span class="txt">
+        <p class="ttl">Word problems</p>
+        <p class="desc">Turning a sentence into the right calculation.</p>
+      </span>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <a class="tut" href="multi-step-word-problems.html">
+      <span class="num">6</span>
+      <span class="txt">
+        <p class="ttl">Multi-step word problems</p>
+        <p class="desc">Combining several pieces &mdash; with signs, penalties, and a fixed base.</p>
+      </span>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <a class="tut" href="counting-overlapping-groups.html">
+      <span class="num">7</span>
+      <span class="txt">
+        <p class="ttl">Counting with overlapping groups</p>
+        <p class="desc">Subtract the overlap once: at least one, neither, and the overlap itself.</p>
+      </span>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <a class="tut" href="reading-two-way-table.html">
+      <span class="num">8</span>
+      <span class="txt">
+        <p class="ttl">Reading a two-way table</p>
+        <p class="desc">Cells, row and column totals, and which total goes in the denominator.</p>
+      </span>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <a class="tut" href="reading-inequality-phrases.html">
+      <span class="num">9</span>
+      <span class="txt">
+        <p class="ttl">Reading "at least", "more than", "between"</p>
+        <p class="desc">Inclusive vs. exclusive boundaries, and counting whole numbers in a range.</p>
+      </span>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+  </div>
+
+</div>
+</body>
+</html>

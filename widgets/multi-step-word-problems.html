@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-step word problems</title>
+<style>
+  :root{
+    --paper:#EDF0F7;
+    --card:#FFFFFF;
+    --ink:#161A2E;
+    --muted:#474D64;
+    --line:#DCE1EF;
+    --accent:#4338CA;
+    --accent-2:#6D5BE8;
+    --accent-soft:#EEF0FF;
+    --good:#15803D;
+    --good-bg:#E8F6EC;
+    --good-line:#BFE6C9;
+    --bad:#B42318;
+    --bad-bg:#FCEDEB;
+    --bad-line:#F3C9C4;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  [hidden]{display:none !important;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:740px;margin:0 auto;padding:clamp(24px,5vw,56px) clamp(18px,4vw,28px) 80px;}
+
+  /* ---------- Hero ---------- */
+  h1{
+    font-weight:800;
+    font-size:clamp(30px,7vw,52px);
+    line-height:1.04;
+    letter-spacing:-.03em;
+    margin:0 0 18px;
+  }
+  .lede{
+    font-size:clamp(16px,2.4vw,18px);
+    color:var(--muted);
+    margin:0 0 26px;
+    max-width:56ch;
+  }
+
+  /* The method panel */
+  .identity{
+    background:#FFFFFF;
+    color:var(--ink);
+    border:2px solid var(--accent);
+    border-radius:16px;
+    padding:24px clamp(18px,4vw,30px);
+    margin:0 0 14px;
+    box-shadow:0 2px 10px rgba(67,56,202,.07);
+  }
+  .identity .formula{
+    font-family:var(--mono);
+    font-size:clamp(14px,2.9vw,20px);
+    font-weight:600;
+    letter-spacing:-.01em;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:.3ch;
+  }
+  .identity .tok{padding:2px 8px;border-radius:7px;}
+  .identity .tok.rate{background:#FBEEDC;}
+  .identity .tok.amount{background:#EAE7FB;}
+  .identity .tok.total{background:#E2F3EB;}
+  .identity .op{color:#565C72;font-weight:600;}
+  .identity .note{
+    margin:14px 0 0;
+    font-size:14.5px;
+    color:#33384C;
+    line-height:1.55;
+  }
+  .identity .note b{color:var(--ink);}
+
+  .legend{
+    display:flex;flex-wrap:wrap;gap:10px 18px;
+    margin:0 0 34px;font-size:13px;color:var(--muted);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:7px;}
+  .swatch{width:13px;height:13px;border-radius:4px;display:inline-block;}
+  .swatch.rate{background:#E0913C;}
+  .swatch.amount{background:#8D80F7;}
+  .swatch.total{background:#5BBF95;}
+
+  /* ---------- Progress ---------- */
+  .progress{position:sticky;top:0;z-index:5;
+    background:var(--paper);padding:14px 0 16px;margin-bottom:6px;}
+  .progress-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-family:var(--mono);font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:8px;
+  }
+  .progress-head b{color:var(--ink);font-weight:700;}
+  .progress-track{height:8px;border-radius:99px;background:var(--line);overflow:hidden;}
+  .progress-fill{height:100%;width:0;border-radius:99px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    transition:width .5s cubic-bezier(.4,0,.2,1);}
+
+  /* ---------- Cards ---------- */
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:clamp(20px,4vw,28px);
+    margin-top:18px;
+    box-shadow:0 1px 2px rgba(22,26,46,.04);
+  }
+  .card-top{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .qnum{
+    font-family:var(--mono);font-size:13px;font-weight:700;
+    color:var(--accent);background:var(--accent-soft);
+    width:30px;height:30px;border-radius:9px;flex:none;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .tag{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;padding:4px 9px;border-radius:99px;font-weight:600;
+  }
+  .tag.pieces{color:#0F6E73;background:#DDF1F2;}
+  .tag.base{color:#1F6FA8;background:#E2EFF8;}
+  .tag.penalty{color:#8A2D6B;background:#FBE7F2;}
+
+  .prompt{font-size:clamp(16px,2.6vw,19px);font-weight:600;margin:8px 0 18px;}
+
+  /* answer row */
+  .answer{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;}
+  .field{flex:1 1 150px;min-width:130px;}
+  .field label{display:block;font-size:12.5px;color:var(--muted);
+    margin-bottom:6px;font-weight:600;}
+  .inputwrap{position:relative;display:flex;align-items:center;}
+  .affix{position:absolute;font-family:var(--mono);color:var(--muted);
+    font-size:16px;pointer-events:none;}
+  .affix.pre{left:14px;}
+  .affix.post{right:14px;}
+  input[type=text]{
+    width:100%;font-family:var(--mono);font-size:16px;color:var(--ink);
+    padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;
+    background:#FBFCFE;transition:border-color .15s,box-shadow .15s;
+  }
+  input.pad-pre{padding-left:28px;}
+  input.pad-post{padding-right:30px;}
+  input:focus{outline:none;border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(67,56,202,.14);}
+  input.ok{border-color:var(--good-line);background:var(--good-bg);}
+  input.no{border-color:var(--bad-line);background:var(--bad-bg);}
+
+  /* choice field (yes / no) */
+  .choices{display:flex;gap:8px;}
+  .choice-btn{
+    font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);
+    background:#FBFCFE;border:1.5px solid var(--line);border-radius:11px;
+    padding:11px 20px;cursor:pointer;
+    transition:border-color .15s,background .15s,color .15s;
+  }
+  .choice-btn:hover{border-color:var(--accent);}
+  .choice-btn:focus-visible{outline:3px solid rgba(67,56,202,.4);outline-offset:2px;}
+  .choice-btn.selected{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);}
+  .choice-btn.ok{border-color:var(--good-line);background:var(--good-bg);color:var(--good);}
+  .choice-btn.no{border-color:var(--bad-line);background:var(--bad-bg);color:var(--bad);}
+
+  .btn{
+    font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;
+    background:var(--accent);border:none;border-radius:11px;
+    padding:12px 22px;cursor:pointer;flex:none;
+    transition:background .15s,transform .05s;
+  }
+  .btn:hover{background:#3A2FB0;}
+  .btn:active{transform:translateY(1px);}
+  .btn:focus-visible{outline:3px solid rgba(67,56,202,.4);outline-offset:2px;}
+
+  /* feedback */
+  .feedback{margin-top:16px;border-radius:12px;padding:0 16px;
+    max-height:0;opacity:0;overflow:hidden;
+    transition:max-height .35s ease,opacity .3s ease,padding .35s ease;}
+  .feedback.open{max-height:460px;opacity:1;padding:15px 16px;}
+  .feedback.right{background:var(--good-bg);border:1px solid var(--good-line);}
+  .feedback.wrong{background:var(--bad-bg);border:1px solid var(--bad-line);}
+  .verdict{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;}
+  .feedback.right .verdict{color:var(--good);}
+  .feedback.wrong .verdict{color:var(--bad);}
+  .hint{font-size:14.5px;color:#3C4257;line-height:1.6;margin-top:8px;}
+  .hint b{color:var(--ink);}
+  .reveal-lead{font-size:13px;color:var(--muted);margin-top:14px;}
+  .reveal-btn{
+    margin-top:7px;font-family:var(--sans);font-size:13.5px;font-weight:600;
+    color:var(--accent);background:#fff;border:1.5px solid var(--line);
+    border-radius:9px;padding:8px 15px;cursor:pointer;
+    transition:border-color .15s,background .15s;
+  }
+  .reveal-btn:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .reveal-btn:focus-visible{outline:3px solid rgba(67,56,202,.4);outline-offset:2px;}
+  .explain{font-size:14.5px;color:#33384C;line-height:1.6;margin-top:10px;}
+  .explain b{color:var(--ink);}
+  .explain code{font-family:var(--mono);background:rgba(22,26,46,.06);
+    padding:1px 6px;border-radius:6px;font-size:13.5px;}
+
+  .done{margin-top:28px;text-align:center;font-size:15px;color:var(--muted);
+    opacity:0;transition:opacity .4s ease;}
+  .done.show{opacity:1;}
+  .done b{color:var(--accent);}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Multi-step word problems</h1>
+  <p class="lede">A multi-step problem is built from several smaller pieces. Work out each piece on its own &mdash; usually a rate times an amount &mdash; then combine them, adding what's gained and subtracting what's lost.</p>
+
+  <div class="identity">
+    <div class="formula">
+      <span class="tok total">total</span><span class="op">&nbsp;= (</span><span class="tok rate">rate</span><span class="op">&nbsp;&times;&nbsp;</span><span class="tok amount">amount</span><span class="op">) + (</span><span class="tok rate">rate</span><span class="op">&nbsp;&times;&nbsp;</span><span class="tok amount">amount</span><span class="op">) + &hellip;</span>
+    </div>
+    <p class="note">Break the problem into pieces and compute each as <b>rate &times; amount</b>, then combine them. <b>Gains and bonuses add; losses, penalties, and returns subtract</b> &mdash; so a rate can be negative. Don't forget a <b>fixed base</b> that's charged no matter what, and ignore any piece that contributes zero except to keep your tally honest.</p>
+  </div>
+  <div class="legend">
+    <span><i class="swatch rate"></i>rate &mdash; value per item (+ or &minus;)</span>
+    <span><i class="swatch amount"></i>amount &mdash; how many of that item</span>
+    <span><i class="swatch total"></i>total &mdash; all the pieces combined</span>
+  </div>
+
+  <div class="progress">
+    <div class="progress-head"><span>Solved</span><span><b id="solvedCount">0</b> / 4</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <div id="questions"></div>
+
+  <p class="done" id="doneMsg">Nice work &mdash; all four cleared. <b>Piece by piece, then combine.</b></p>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    n:1, tag:"pieces", tagLabel:"combine pieces",
+    prompt:"A contest gives +4 for each correct answer, \u22121 for each wrong one, and 0 for blanks. A student has 16 correct, 5 wrong, and 4 blank. What is the total score?",
+    hint:`Score each category as rate &times; amount: correct (16 &times; 4), wrong (5 &times; &minus;1), blanks (4 &times; 0). Then add the three pieces.`,
+    fields:[{label:"Total score", answer:59, tol:0.5}],
+    explain:`Correct: 16 &times; 4 = 64. Wrong: 5 &times; (&minus;1) = &minus;5. Blanks: 4 &times; 0 = 0. Combine: 64 &minus; 5 + 0 = <b>59</b>. The 4 blanks add nothing, but it's worth checking they're worth zero rather than skipping them.`
+  },
+  {
+    n:2, tag:"pieces", tagLabel:"combine pieces",
+    prompt:"A game gives +10 per win and \u22123 per loss. After 7 wins and 4 losses, what is the net score?",
+    hint:`Wins add (7 &times; 10), losses subtract (4 &times; 3). Compute each piece, then combine.`,
+    fields:[{label:"Net score", answer:58, tol:0.5}],
+    explain:`Wins: 7 &times; 10 = 70. Losses: 4 &times; (&minus;3) = &minus;12. Net: 70 &minus; 12 = <b>58</b>.`
+  },
+  {
+    n:3, tag:"base", tagLabel:"base + rate",
+    prompt:"Shipping costs a $5 base fee plus $2 per pound. What does a 7-pound package cost?",
+    hint:`Start with the $5 base fee, then add $2 for each of the 7 pounds (2 &times; 7).`,
+    fields:[{label:"Cost", answer:19, tol:0.01, pre:"$"}],
+    explain:`Base fee: $5 (charged once). Per-pound piece: 2 &times; 7 = $14. Total: 5 + 14 = <b>$19</b>. The base sits on top of the per-pound amount &mdash; it isn't multiplied by the weight.`
+  },
+  {
+    n:4, tag:"penalty", tagLabel:"earn, then subtract",
+    prompt:"A rewards card gives 3 points per dollar spent and subtracts 50 points for a return. After spending $40 and making one return, how many points are there?",
+    hint:`Earn 3 points for each of the 40 dollars (3 &times; 40), then subtract the 50-point return penalty.`,
+    fields:[{label:"Points", answer:70, tol:0.5}],
+    explain:`Earned: 3 &times; 40 = 120 points. Return penalty: &minus;50. Total: 120 &minus; 50 = <b>70 points</b>.`
+  }
+];
+
+const solved = new Set();
+const root = document.getElementById('questions');
+
+QUESTIONS.forEach(q => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-top">
+      <span class="qnum">${q.n}</span>
+      <span class="tag ${q.tag}">${q.tagLabel}</span>
+    </div>
+    <p class="prompt">${q.prompt}</p>
+    <div class="answer">
+      ${q.fields.map((f,i)=>{
+        if(f.type === 'choice'){
+          return `<div class="field">
+            <label>${f.label}</label>
+            <div class="choices" data-choice data-field="${i}">
+              ${f.options.map(o=>`<button type="button" class="choice-btn" data-value="${o}">${o}</button>`).join('')}
+            </div>
+          </div>`;
+        }
+        const preCls = f.pre ? 'pad-pre' : '';
+        const postCls = f.post ? 'pad-post' : '';
+        return `<div class="field">
+          <label for="q${q.n}f${i}">${f.label}</label>
+          <div class="inputwrap">
+            ${f.pre?`<span class="affix pre">${f.pre}</span>`:''}
+            <input type="text" inputmode="decimal" id="q${q.n}f${i}"
+              class="${preCls} ${postCls}" data-field="${i}" autocomplete="off">
+            ${f.post?`<span class="affix post">${f.post}</span>`:''}
+          </div>
+        </div>`;
+      }).join('')}
+      <button class="btn" data-check>Check</button>
+    </div>
+    <div class="feedback" data-feedback>
+      <div class="verdict" data-verdict></div>
+      <div class="hint" data-hint hidden>${q.hint}</div>
+      <div class="reveal-lead" data-reveal-lead hidden>Give it another go above &mdash; or if you're still stuck:</div>
+      <button class="reveal-btn" data-reveal hidden>Show the solution</button>
+      <div class="explain" data-explain hidden>${q.explain}</div>
+    </div>
+  `;
+  root.appendChild(card);
+
+  const inputs = [...card.querySelectorAll('input')];
+  const checkBtn = card.querySelector('[data-check]');
+  const feedback = card.querySelector('[data-feedback]');
+  const verdict = card.querySelector('[data-verdict]');
+  const hintEl = card.querySelector('[data-hint]');
+  const revealBtn = card.querySelector('[data-reveal]');
+  const revealLead = card.querySelector('[data-reveal-lead]');
+  const explainEl = card.querySelector('[data-explain]');
+  let revealed = false;
+
+  // choice selection (supported by the engine; unused on this page)
+  card.querySelectorAll('[data-choice]').forEach(group=>{
+    group.querySelectorAll('.choice-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        group.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected','ok','no'));
+        btn.classList.add('selected');
+        group.dataset.selected = btn.dataset.value;
+      });
+    });
+  });
+
+  function parseVal(s){
+    const cleaned = (s||'').replace(/[^0-9.\-]/g,'');
+    if(cleaned === '' || cleaned === '-' || cleaned === '.') return NaN;
+    return parseFloat(cleaned);
+  }
+
+  function check(){
+    let allRight = true, anyEmpty = false, anyWrongValue = false, strayPercent = false;
+
+    q.fields.forEach((f,i)=>{
+      if(f.type === 'choice'){
+        const group = card.querySelector(`[data-choice][data-field="${i}"]`);
+        const sel = group.dataset.selected;
+        const right = sel === f.answer;
+        const empty = !sel;
+        if(empty) anyEmpty = true; else if(!right) anyWrongValue = true;
+        group.querySelectorAll('.choice-btn').forEach(b=>{
+          b.classList.remove('ok','no');
+          if(b.dataset.value === sel){ b.classList.toggle('ok', right); b.classList.toggle('no', !right); }
+        });
+        if(!right) allRight = false;
+        return;
+      }
+      const inp = card.querySelector(`input[data-field="${i}"]`);
+      const raw = inp.value;
+      const expectsPercent = f.post === '%';
+      const hasPercentSign = raw.indexOf('%') !== -1;
+      const pctMistake = hasPercentSign && !expectsPercent;
+      const v = parseVal(raw);
+      const numericRight = !isNaN(v) && Math.abs(v - f.answer) <= f.tol;
+      const right = numericRight && !pctMistake;
+      const empty = isNaN(v) && !pctMistake;
+
+      if(empty) anyEmpty = true; else if(!right) anyWrongValue = true;
+      if(pctMistake) strayPercent = true;
+
+      inp.classList.toggle('ok', right);
+      inp.classList.toggle('no', !right && !empty);
+      if(!right) allRight = false;
+    });
+
+    feedback.classList.add('open');
+    feedback.classList.toggle('right', allRight);
+    feedback.classList.toggle('wrong', !allRight);
+
+    if(allRight){
+      verdict.innerHTML = '&#10003; Correct';
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = false;
+      if(!solved.has(q.n)){ solved.add(q.n); updateProgress(); }
+      return;
+    }
+
+    solved.delete(q.n); updateProgress();
+
+    if(strayPercent){
+      verdict.innerHTML = '&#10007; This answer isn\u2019t a percent &mdash; remove the % sign and check again';
+    } else if(anyWrongValue){
+      verdict.innerHTML = '&#10007; Not quite &mdash; adjust your answer and press Check again';
+    } else {
+      verdict.innerHTML = '&#9432; Fill in your answer, then check';
+    }
+
+    const hasMistake = anyWrongValue || strayPercent;
+    if(hasMistake){
+      hintEl.hidden = false;
+      if(revealed){
+        explainEl.hidden = false;
+        revealLead.hidden = true;
+        revealBtn.hidden = true;
+      } else {
+        explainEl.hidden = true;
+        revealLead.hidden = false;
+        revealBtn.hidden = false;
+      }
+    } else {
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = !revealed;
+    }
+  }
+
+  revealBtn.addEventListener('click', ()=>{
+    revealed = true;
+    explainEl.hidden = false;
+    revealLead.hidden = true;
+    revealBtn.hidden = true;
+  });
+
+  checkBtn.addEventListener('click', check);
+  inputs.forEach((inp,idx)=>{
+    inp.addEventListener('keydown', e=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        if(idx < inputs.length-1) inputs[idx+1].focus();
+        else check();
+      }
+    });
+    inp.addEventListener('input', ()=>{ inp.classList.remove('ok','no'); });
+  });
+});
+
+function updateProgress(){
+  const c = solved.size;
+  document.getElementById('solvedCount').textContent = c;
+  document.getElementById('progressFill').style.width = (c/QUESTIONS.length*100) + '%';
+  document.getElementById('doneMsg').classList.toggle('show', c === QUESTIONS.length);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading inequality phrases</title>
+<style>
+  :root{
+    --paper:#EDF0F7;
+    --card:#FFFFFF;
+    --ink:#161A2E;
+    --muted:#474D64;
+    --line:#DCE1EF;
+    --accent:#4338CA;
+    --accent-2:#6D5BE8;
+    --accent-soft:#EEF0FF;
+    --good:#15803D;
+    --good-bg:#E8F6EC;
+    --good-line:#BFE6C9;
+    --bad:#B42318;
+    --bad-bg:#FCEDEB;
+    --bad-line:#F3C9C4;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  [hidden]{display:none !important;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:740px;margin:0 auto;padding:clamp(24px,5vw,56px) clamp(18px,4vw,28px) 80px;}
+
+  /* ---------- Hero ---------- */
+  h1{
+    font-weight:800;
+    font-size:clamp(28px,6.2vw,48px);
+    line-height:1.05;
+    letter-spacing:-.03em;
+    margin:0 0 18px;
+  }
+  .lede{
+    font-size:clamp(16px,2.4vw,18px);
+    color:var(--muted);
+    margin:0 0 26px;
+    max-width:58ch;
+  }
+
+  /* ---------- Reference table ---------- */
+  .ref{margin:2px 0 18px;overflow-x:auto;}
+  .ref table{border-collapse:collapse;width:100%;}
+  .ref caption{caption-side:top;text-align:left;font-size:13px;
+    color:var(--muted);margin-bottom:9px;font-weight:600;}
+  .ref th,.ref td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);}
+  .ref thead th{font-size:12px;color:var(--muted);font-weight:700;
+    text-transform:uppercase;letter-spacing:.05em;}
+  .ref .ph{font-weight:600;color:var(--ink);font-size:14px;}
+  .ref .ineq{font-family:var(--mono);font-weight:600;color:var(--ink);white-space:nowrap;font-size:14px;}
+  .ref .nums{font-family:var(--mono);color:#33384C;font-size:14px;}
+  .ref .nums b{color:var(--accent);}
+  .ref tbody tr:last-child td{border-bottom:none;}
+
+  /* The method panel */
+  .identity{
+    background:#FFFFFF;
+    color:var(--ink);
+    border:2px solid var(--accent);
+    border-radius:16px;
+    padding:24px clamp(18px,4vw,30px);
+    margin:0 0 14px;
+    box-shadow:0 2px 10px rgba(67,56,202,.07);
+  }
+  .identity .formula{
+    font-family:var(--mono);
+    font-size:clamp(16px,3.4vw,23px);
+    font-weight:600;
+    letter-spacing:-.01em;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:.4ch;
+  }
+  .identity .tok{padding:2px 8px;border-radius:7px;}
+  .identity .tok.first{background:#FBEEDC;}
+  .identity .tok.last{background:#EAE7FB;}
+  .identity .tok.count{background:#E2F3EB;}
+  .identity .op{color:#565C72;font-weight:600;}
+  .identity .note{
+    margin:14px 0 0;
+    font-size:14.5px;
+    color:#33384C;
+    line-height:1.55;
+  }
+  .identity .note b{color:var(--ink);}
+
+  .legend{
+    display:flex;flex-wrap:wrap;gap:10px 18px;
+    margin:0 0 34px;font-size:13px;color:var(--muted);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:7px;}
+  .swatch{width:13px;height:13px;border-radius:4px;display:inline-block;}
+  .swatch.first{background:#E0913C;}
+  .swatch.last{background:#8D80F7;}
+  .swatch.count{background:#5BBF95;}
+
+  /* ---------- Progress ---------- */
+  .progress{position:sticky;top:0;z-index:5;
+    background:var(--paper);padding:14px 0 16px;margin-bottom:6px;}
+  .progress-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-family:var(--mono);font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:8px;
+  }
+  .progress-head b{color:var(--ink);font-weight:700;}
+  .progress-track{height:8px;border-radius:99px;background:var(--line);overflow:hidden;}
+  .progress-fill{height:100%;width:0;border-radius:99px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    transition:width .5s cubic-bezier(.4,0,.2,1);}
+
+  /* ---------- Cards ---------- */
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:clamp(20px,4vw,28px);
+    margin-top:18px;
+    box-shadow:0 1px 2px rgba(22,26,46,.04);
+  }
+  .card-top{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .qnum{
+    font-family:var(--mono);font-size:13px;font-weight:700;
+    color:var(--accent);background:var(--accent-soft);
+    width:30px;height:30px;border-radius:9px;flex:none;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .tag{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;padding:4px 9px;border-radius:99px;font-weight:600;
+  }
+  .tag.cutoff{color:#0F6E73;background:#DDF1F2;}
+  .tag.range{color:#1F6FA8;background:#E2EFF8;}
+  .tag.count{color:#4A3DA8;background:#EAE7FB;}
+
+  .prompt{font-size:clamp(16px,2.6vw,19px);font-weight:600;margin:8px 0 18px;}
+
+  /* answer row */
+  .answer{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;}
+  .field{flex:1 1 150px;min-width:130px;}
+  .field label{display:block;font-size:12.5px;color:var(--muted);
+    margin-bottom:6px;font-weight:600;}
+  .inputwrap{position:relative;display:flex;align-items:center;}
+  .affix{position:absolute;font-family:var(--mono);color:var(--muted);
+    font-size:16px;pointer-events:none;}
+  .affix.pre{left:14px;}
+  .affix.post{right:14px;}
+  input[type=text]{
+    width:100%;font-family:var(--mono);font-size:16px;color:var(--ink);
+    padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;
+    background:#FBFCFE;transition:border-color .15s,box-shadow .15s;
+  }
+  input.pad-pre{padding-left:28px;}
+  input.pad-post{padding-right:30px;}
+  input:focus{outline:none;border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(67,56,202,.14);}
+  input.ok{border-color:var(--good-line);background:var(--good-bg);}
+  input.no{border-color:var(--bad-line);background:var(--bad-bg);}
+
+  /* choice field (yes / no) */
+  .choices{display:flex;gap:8px;}
+  .choice-btn{
+    font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);
+    background:#FBFCFE;border:1.5px solid var(--line);border-radius:11px;
+    padding:11px 20px;cursor:pointer;
+    transition:border-color .15s,background .15s,color .15s;
+  }
+  .choice-btn:hover{border-color:var(--accent);}
+  .choice-btn:focus-visible{outline:3px solid rgba(67,56,202,.4);outline-offset:2px;}
+  .choice-btn.selected{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);}
+  .choice-btn.ok{border-color:var(--good-line);background:var(--good-bg);color:var(--good);}
+  .choice-btn.no{border-color:var(--bad-line);background:var(--bad-bg);color:var(--bad);}
+
+  .btn{
+    font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;
+    background:var(--accent);border:none;border-radius:11px;
+    padding:12px 22px;cursor:pointer;flex:none;
+    transition:background .15s,transform .05s;
+  }
+  .btn:hover{background:#3A2FB0;}
+  .btn:active{transform:translateY(1px);}
+  .btn:focus-visible{outline:3px solid rgba(67,56,202,.4);outline-offset:2px;}
+
+  /* feedback */
+  .feedback{margin-top:16px;border-radius:12px;padding:0 16px;
+    max-height:0;opacity:0;overflow:hidden;
+    transition:max-height .35s ease,opacity .3s ease,padding .35s ease;}
+  .feedback.open{max-height:460px;opacity:1;padding:15px 16px;}
+  .feedback.right{background:var(--good-bg);border:1px solid var(--good-line);}
+  .feedback.wrong{background:var(--bad-bg);border:1px solid var(--bad-line);}
+  .verdict{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;}
+  .feedback.right .verdict{color:var(--good);}
+  .feedback.wrong .verdict{color:var(--bad);}
+  .hint{font-size:14.5px;color:#3C4257;line-height:1.6;margin-top:8px;}
+  .hint b{color:var(--ink);}
+  .reveal-lead{font-size:13px;color:var(--muted);margin-top:14px;}
+  .reveal-btn{
+    margin-top:7px;font-family:var(--sans);font-size:13.5px;font-weight:600;
+    color:var(--accent);background:#fff;border:1.5px solid var(--line);
+    border-radius:9px;padding:8px 15px;cursor:pointer;
+    transition:border-color .15s,background .15s;
+  }
+  .reveal-btn:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .reveal-btn:focus-visible{outline:3px solid rgba(67,56,202,.4);outline-offset:2px;}
+  .explain{font-size:14.5px;color:#33384C;line-height:1.6;margin-top:10px;}
+  .explain b{color:var(--ink);}
+  .explain code{font-family:var(--mono);background:rgba(22,26,46,.06);
+    padding:1px 6px;border-radius:6px;font-size:13.5px;}
+
+  .done{margin-top:28px;text-align:center;font-size:15px;color:var(--muted);
+    opacity:0;transition:opacity .4s ease;}
+  .done.show{opacity:1;}
+  .done b{color:var(--accent);}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Reading "at least", "more than", "between"</h1>
+  <p class="lede">Each of these phrases turns into an inequality, and the whole game is whether the boundary number is in or out: "at least" and "at most" keep it, while "more than" and "less than" step one whole number past it. The table below shows the five patterns; the questions ask you to pin down the exact whole numbers.</p>
+
+  <div class="ref">
+  <table>
+    <caption>The five phrases (using 5, or 5 to 8, as an example)</caption>
+    <thead>
+      <tr><th scope="col">Phrase</th><th scope="col">Inequality</th><th scope="col">Whole numbers it allows</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="ph">at least 5</td><td class="ineq">x &ge; 5</td><td class="nums"><b>5</b>, 6, 7, &hellip;</td></tr>
+      <tr><td class="ph">more than 5</td><td class="ineq">x &gt; 5</td><td class="nums"><b>6</b>, 7, 8, &hellip;</td></tr>
+      <tr><td class="ph">at most 5</td><td class="ineq">x &le; 5</td><td class="nums">&hellip;, 3, 4, <b>5</b></td></tr>
+      <tr><td class="ph">less than 5</td><td class="ineq">x &lt; 5</td><td class="nums">&hellip;, 2, 3, <b>4</b></td></tr>
+      <tr><td class="ph">between 5 and 8 (inclusive)</td><td class="ineq">5 &le; x &le; 8</td><td class="nums"><b>5</b>, 6, 7, <b>8</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="identity">
+    <div class="formula">
+      <span class="tok count">count</span><span class="op">&nbsp;=&nbsp;</span><span class="tok last">last</span><span class="op">&nbsp;&minus;&nbsp;</span><span class="tok first">first</span><span class="op">&nbsp;+ 1</span>
+    </div>
+    <p class="note"><b>"At least"</b> and <b>"at most"</b> include the boundary; <b>"more than"</b> and <b>"less than"</b> exclude it, so for whole numbers you step one past &mdash; more than 5 starts at 6, less than 10 ends at 9. To count a run of whole numbers from the first to the last (inclusive), it's <b>last &minus; first + 1</b>, not last &minus; first. And watch for a hidden range: "two-digit numbers" means 10 through 99.</p>
+  </div>
+  <div class="legend">
+    <span><i class="swatch first"></i>first &mdash; the smallest whole number in the run</span>
+    <span><i class="swatch last"></i>last &mdash; the largest whole number in the run</span>
+    <span><i class="swatch count"></i>count &mdash; how many: last &minus; first + 1</span>
+  </div>
+
+  <div class="progress">
+    <div class="progress-head"><span>Solved</span><span><b id="solvedCount">0</b> / 6</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <div id="questions"></div>
+
+  <p class="done" id="doneMsg">Nice work &mdash; all six cleared. <b>In or out? That's the whole trick.</b></p>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    n:1, tag:"cutoff", tagLabel:"at least",
+    prompt:"A city council has 40 members. A motion passes if at least 60% of them vote for it. How many votes are required for a motion to pass?",
+    hint:`First find 60% of 40 (0.60 &times; 40). "At least" that many means that exact number is enough.`,
+    fields:[{label:"Votes to pass", answer:24, tol:0.5}],
+    explain:`60% of 40 is 0.60 &times; 40 = 24. "At least 24" includes 24, so <b>24</b> votes pass the motion. (Exactly 24 out of 40 is exactly 60%, which the rule allows.)`
+  },
+  {
+    n:2, tag:"cutoff", tagLabel:"more than",
+    prompt:"A city council has 40 members. They can override the mayor's veto if more than 75% of them vote for it. How many votes are required to override the veto?",
+    hint:`Find 75% of 40 first (0.75 &times; 40). "More than" that excludes it, so go one whole vote higher.`,
+    fields:[{label:"Votes to override", answer:31, tol:0.5}],
+    explain:`75% of 40 is 0.75 &times; 40 = 30. "More than 30" excludes 30, so you need one more: <b>31</b> votes. Exactly 30 votes (75%) would <em>not</em> be enough &mdash; this is where "more than" differs from "at least".`
+  },
+  {
+    n:3, tag:"range", tagLabel:"a range",
+    prompt:"Team size must be at least 5 but less than 10. Give the smallest and largest possible team sizes.",
+    hint:`"At least 5" includes 5; "less than 10" excludes 10. The smallest is 5; the largest is the whole number just below 10.`,
+    fields:[
+      {label:"Smallest team size", answer:5, tol:0.5},
+      {label:"Largest team size", answer:9, tol:0.5}
+    ],
+    explain:`"At least 5" means x &ge; 5 and "less than 10" means x &lt; 10, so 5 &le; x &lt; 10. The smallest team is <b>5</b> (included); the largest is <b>9</b>, since 10 itself is not allowed.`
+  },
+  {
+    n:4, tag:"range", tagLabel:"a range",
+    prompt:"Team size must be more than 7 but at most 15. Give the smallest and largest possible team sizes.",
+    hint:`"More than 7" excludes 7, so the smallest is the next whole number up; "at most 15" includes 15.`,
+    fields:[
+      {label:"Smallest team size", answer:8, tol:0.5},
+      {label:"Largest team size", answer:15, tol:0.5}
+    ],
+    explain:`"More than 7" means x &gt; 7, so the smallest team is <b>8</b> (7 is excluded). "At most 15" means x &le; 15, so the largest team is <b>15</b> (15 is included). Notice this is the mirror image of the previous problem: here the lower end steps past and the upper end keeps the boundary.`
+  },
+  {
+    n:5, tag:"count", tagLabel:"between, inclusive",
+    prompt:"How many whole numbers are between 7 and 15, inclusive?",
+    hint:`"Inclusive" keeps both 7 and 15. Count with last &minus; first + 1.`,
+    fields:[{label:"How many whole numbers", answer:9, tol:0.5}],
+    explain:`"Inclusive" keeps both ends, so the run is 7, 8, &hellip;, 15. The count is 15 &minus; 7 + 1 = <b>9</b>. (Just doing 15 &minus; 7 = 8 forgets to count one of the endpoints.)`
+  },
+  {
+    n:6, tag:"count", tagLabel:"greater than",
+    prompt:"Out of the two-digit whole numbers, how many are greater than 87?",
+    hint:`Two-digit numbers run 10\u201399. "Greater than 87" excludes 87, so start at 88 and count up to 99.`,
+    fields:[{label:"How many two-digit numbers", answer:12, tol:0.5}],
+    explain:`Two-digit numbers go from 10 to 99. "Greater than 87" starts at 88 (87 is excluded), so count 88, 89, &hellip;, 99: that's 99 &minus; 88 + 1 = <b>12</b>. The phrase "two-digit" quietly caps the range at 99.`
+  }
+];
+
+const solved = new Set();
+const root = document.getElementById('questions');
+
+QUESTIONS.forEach(q => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-top">
+      <span class="qnum">${q.n}</span>
+      <span class="tag ${q.tag}">${q.tagLabel}</span>
+    </div>
+    <p class="prompt">${q.prompt}</p>
+    <div class="answer">
+      ${q.fields.map((f,i)=>{
+        if(f.type === 'choice'){
+          return `<div class="field">
+            <label>${f.label}</label>
+            <div class="choices" data-choice data-field="${i}">
+              ${f.options.map(o=>`<button type="button" class="choice-btn" data-value="${o}">${o}</button>`).join('')}
+            </div>
+          </div>`;
+        }
+        const preCls = f.pre ? 'pad-pre' : '';
+        const postCls = f.post ? 'pad-post' : '';
+        return `<div class="field">
+          <label for="q${q.n}f${i}">${f.label}</label>
+          <div class="inputwrap">
+            ${f.pre?`<span class="affix pre">${f.pre}</span>`:''}
+            <input type="text" inputmode="numeric" id="q${q.n}f${i}"
+              class="${preCls} ${postCls}" data-field="${i}" autocomplete="off">
+            ${f.post?`<span class="affix post">${f.post}</span>`:''}
+          </div>
+        </div>`;
+      }).join('')}
+      <button class="btn" data-check>Check</button>
+    </div>
+    <div class="feedback" data-feedback>
+      <div class="verdict" data-verdict></div>
+      <div class="hint" data-hint hidden>${q.hint}</div>
+      <div class="reveal-lead" data-reveal-lead hidden>Give it another go above &mdash; or if you're still stuck:</div>
+      <button class="reveal-btn" data-reveal hidden>Show the solution</button>
+      <div class="explain" data-explain hidden>${q.explain}</div>
+    </div>
+  `;
+  root.appendChild(card);
+
+  const inputs = [...card.querySelectorAll('input')];
+  const checkBtn = card.querySelector('[data-check]');
+  const feedback = card.querySelector('[data-feedback]');
+  const verdict = card.querySelector('[data-verdict]');
+  const hintEl = card.querySelector('[data-hint]');
+  const revealBtn = card.querySelector('[data-reveal]');
+  const revealLead = card.querySelector('[data-reveal-lead]');
+  const explainEl = card.querySelector('[data-explain]');
+  let revealed = false;
+
+  // choice selection (supported by the engine; unused on this page)
+  card.querySelectorAll('[data-choice]').forEach(group=>{
+    group.querySelectorAll('.choice-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        group.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected','ok','no'));
+        btn.classList.add('selected');
+        group.dataset.selected = btn.dataset.value;
+      });
+    });
+  });
+
+  function parseVal(s){
+    const cleaned = (s||'').replace(/[^0-9.\-]/g,'');
+    if(cleaned === '' || cleaned === '-' || cleaned === '.') return NaN;
+    return parseFloat(cleaned);
+  }
+
+  function check(){
+    let allRight = true, anyEmpty = false, anyWrongValue = false, strayPercent = false;
+
+    q.fields.forEach((f,i)=>{
+      if(f.type === 'choice'){
+        const group = card.querySelector(`[data-choice][data-field="${i}"]`);
+        const sel = group.dataset.selected;
+        const right = sel === f.answer;
+        const empty = !sel;
+        if(empty) anyEmpty = true; else if(!right) anyWrongValue = true;
+        group.querySelectorAll('.choice-btn').forEach(b=>{
+          b.classList.remove('ok','no');
+          if(b.dataset.value === sel){ b.classList.toggle('ok', right); b.classList.toggle('no', !right); }
+        });
+        if(!right) allRight = false;
+        return;
+      }
+      const inp = card.querySelector(`input[data-field="${i}"]`);
+      const raw = inp.value;
+      const expectsPercent = f.post === '%';
+      const hasPercentSign = raw.indexOf('%') !== -1;
+      const pctMistake = hasPercentSign && !expectsPercent;
+      const v = parseVal(raw);
+      const numericRight = !isNaN(v) && Math.abs(v - f.answer) <= f.tol;
+      const right = numericRight && !pctMistake;
+      const empty = isNaN(v) && !pctMistake;
+
+      if(empty) anyEmpty = true; else if(!right) anyWrongValue = true;
+      if(pctMistake) strayPercent = true;
+
+      inp.classList.toggle('ok', right);
+      inp.classList.toggle('no', !right && !empty);
+      if(!right) allRight = false;
+    });
+
+    feedback.classList.add('open');
+    feedback.classList.toggle('right', allRight);
+    feedback.classList.toggle('wrong', !allRight);
+
+    if(allRight){
+      verdict.innerHTML = '&#10003; Correct';
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = false;
+      if(!solved.has(q.n)){ solved.add(q.n); updateProgress(); }
+      return;
+    }
+
+    solved.delete(q.n); updateProgress();
+
+    if(strayPercent){
+      verdict.innerHTML = '&#10007; This answer is a count, not a percent &mdash; remove the % sign and check again';
+    } else if(anyWrongValue){
+      verdict.innerHTML = '&#10007; Not quite &mdash; adjust your answer and press Check again';
+    } else {
+      verdict.innerHTML = '&#9432; Fill in each part, then check';
+    }
+
+    const hasMistake = anyWrongValue || strayPercent;
+    if(hasMistake){
+      hintEl.hidden = false;
+      if(revealed){
+        explainEl.hidden = false;
+        revealLead.hidden = true;
+        revealBtn.hidden = true;
+      } else {
+        explainEl.hidden = true;
+        revealLead.hidden = false;
+        revealBtn.hidden = false;
+      }
+    } else {
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = !revealed;
+    }
+  }
+
+  revealBtn.addEventListener('click', ()=>{
+    revealed = true;
+    explainEl.hidden = false;
+    revealLead.hidden = true;
+    revealBtn.hidden = true;
+  });
+
+  checkBtn.addEventListener('click', check);
+  inputs.forEach((inp,idx)=>{
+    inp.addEventListener('keydown', e=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        if(idx < inputs.length-1) inputs[idx+1].focus();
+        else check();
+      }
+    });
+    inp.addEventListener('input', ()=>{ inp.classList.remove('ok','no'); });
+  });
+});
+
+function updateProgress(){
+  const c = solved.size;
+  document.getElementById('solvedCount').textContent = c;
+  document.getElementById('progressFill').style.width = (c/QUESTIONS.length*100) + '%';
+  document.getElementById('doneMsg').classList.toggle('show', c === QUESTIONS.length);
+}
+</script>
+</body>
+</html>
