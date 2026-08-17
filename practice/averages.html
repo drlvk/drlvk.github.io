@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Averages</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .identity .tok.avg{background:#E2F3EB;}
+  .identity .tok.sum{background:#FBEEDC;}
+  .identity .tok.count{background:#EAE7FB;}
+  .swatch.sum{background:#E0913C;}
+  .swatch.count{background:#8D80F7;}
+  .swatch.avg{background:#5BBF95;}
+  .tag.mean{color:#0F6E73;background:#DDF1F2;}
+  .tag.interval{color:#1F6FA8;background:#E2EFF8;}
+  .tag.reverse{color:#8A2D6B;background:#FBE7F2;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Averages</h1>
+  <p class="lede">An average is a sum shared equally &mdash; the balancing point of a set of numbers. The same idea locates the center of an interval and, run backward, recovers a total from an average.</p>
+
+  <div class="identity">
+    <div class="formula">
+      <span class="tok avg">average</span><span class="op">&nbsp;=&nbsp;</span><span class="tok sum">sum</span><span class="op">&nbsp;&divide;&nbsp;</span><span class="tok count">count</span>
+    </div>
+    <p class="note">With two numbers the average lands exactly halfway between them &mdash; which is why the <b>center</b> of an interval (a, b) is (a + b) &divide; 2, and its <b>half-width</b> is (b &minus; a) &divide; 2, so the interval is center &plusmn; half-width. Run the identity backward and a total appears: <b style="color:#9A5A12">sum</b> = <b style="color:#2C7256">average</b> &times; <b style="color:#4A3DA8">count</b>.</p>
+  </div>
+  <div class="legend">
+    <span><i class="swatch sum"></i>sum &mdash; all the values added up</span>
+    <span><i class="swatch count"></i>count &mdash; how many values</span>
+    <span><i class="swatch avg"></i>average &mdash; the sum shared equally</span>
+  </div>
+
+  <div class="progress">
+    <div class="progress-head"><span>Solved</span><span><b id="solvedCount">0</b> / 6</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <div id="questions"></div>
+
+  <p class="done" id="doneMsg">Nice work &mdash; all six cleared. <b>Sum, count, average: three views of one idea.</b></p>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    n:1, tag:"mean", tagLabel:"average",
+    prompt:"Find the average of 12 and 18.",
+    hint:`Add the two numbers and divide by 2.`,
+    fields:[{label:"Average", answer:15, tol:0.001}],
+    explain:`Average = sum &divide; count = (12 + 18) &divide; 2 = 30 &divide; 2 = <b>15</b>. With two numbers, the average sits exactly halfway between them.`
+  },
+  {
+    n:2, tag:"interval", tagLabel:"center",
+    prompt:"Find the midpoint (center) of the interval (12.4, 17.8).",
+    hint:`The center of an interval is the average of its two endpoints: add them and divide by 2.`,
+    fields:[{label:"Center", answer:15.1, tol:0.01}],
+    explain:`The center is the average of the endpoints: (12.4 + 17.8) &divide; 2 = 30.2 &divide; 2 = <b>15.1</b>.`
+  },
+  {
+    n:3, tag:"interval", tagLabel:"half-width",
+    prompt:"For that same interval (12.4, 17.8), find the half-width: the distance from the center to either endpoint.",
+    hint:`The half-width is half the distance between the endpoints: (b &minus; a) &divide; 2. Or measure from the center to one endpoint.`,
+    fields:[{label:"Half-width", answer:2.7, tol:0.01}],
+    explain:`Half-width = half the spread = (17.8 &minus; 12.4) &divide; 2 = 5.4 &divide; 2 = <b>2.7</b>. Check: the center 15.1 is 2.7 away from each endpoint.`
+  },
+  {
+    n:4, tag:"mean", tagLabel:"average",
+    prompt:"Find the average of 4, 8, 10, and 18.",
+    hint:`Add all four numbers, then divide by how many there are (4).`,
+    fields:[{label:"Average", answer:10, tol:0.001}],
+    explain:`Average = (4 + 8 + 10 + 18) &divide; 4 = 40 &divide; 4 = <b>10</b>. More values just means dividing by a larger count.`
+  },
+  {
+    n:5, tag:"interval", tagLabel:"center & half-width",
+    prompt:"A range runs from 30 to 50. Give its center and its half-width.",
+    hint:`Center is the average of 30 and 50; half-width is half the distance between them.`,
+    fields:[
+      {label:"Center", answer:40, tol:0.01},
+      {label:"Half-width", answer:10, tol:0.01}
+    ],
+    explain:`Center = (30 + 50) &divide; 2 = <b>40</b>. Half-width = (50 &minus; 30) &divide; 2 = <b>10</b>. So the range is 40 &plusmn; 10.`
+  },
+  {
+    n:6, tag:"reverse", tagLabel:"find the total",
+    prompt:"A class of 20 students has a test average of 75. What is the total of all their scores?",
+    hint:`The average is the total shared among everyone, so the total is average &times; count. Multiply 75 by 20.`,
+    fields:[{label:"Total of all scores", answer:1500, tol:0.5}],
+    explain:`Turn the identity around: sum = average &times; count = 75 &times; 20 = <b>1500</b>. The 20 students together scored 1500 points.`
+  }
+];
+
+const solved = new Set();
+const root = document.getElementById('questions');
+
+QUESTIONS.forEach(q => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-top">
+      <span class="qnum">${q.n}</span>
+      <span class="tag ${q.tag}">${q.tagLabel}</span>
+    </div>
+    <p class="prompt">${q.prompt}</p>
+    <div class="answer">
+      ${q.fields.map((f,i)=>{
+        if(f.type === 'choice'){
+          return `<div class="field">
+            <label>${f.label}</label>
+            <div class="choices" data-choice data-field="${i}">
+              ${f.options.map(o=>`<button type="button" class="choice-btn" data-value="${o}">${o}</button>`).join('')}
+            </div>
+          </div>`;
+        }
+        const preCls = f.pre ? 'pad-pre' : '';
+        const postCls = f.post ? 'pad-post' : '';
+        return `<div class="field">
+          <label for="q${q.n}f${i}">${f.label}</label>
+          <div class="inputwrap">
+            ${f.pre?`<span class="affix pre">${f.pre}</span>`:''}
+            <input type="text" inputmode="decimal" id="q${q.n}f${i}"
+              class="${preCls} ${postCls}" data-field="${i}" autocomplete="off">
+            ${f.post?`<span class="affix post">${f.post}</span>`:''}
+          </div>
+        </div>`;
+      }).join('')}
+      <button class="btn" data-check>Check</button>
+    </div>
+    <div class="feedback" data-feedback>
+      <div class="verdict" data-verdict></div>
+      <div class="hint" data-hint hidden>${q.hint}</div>
+      <div class="reveal-lead" data-reveal-lead hidden>Give it another go above &mdash; or if you're still stuck:</div>
+      <button class="reveal-btn" data-reveal hidden>Show the solution</button>
+      <div class="explain" data-explain hidden>${q.explain}</div>
+    </div>
+  `;
+  root.appendChild(card);
+
+  const inputs = [...card.querySelectorAll('input')];
+  const checkBtn = card.querySelector('[data-check]');
+  const feedback = card.querySelector('[data-feedback]');
+  const verdict = card.querySelector('[data-verdict]');
+  const hintEl = card.querySelector('[data-hint]');
+  const revealBtn = card.querySelector('[data-reveal]');
+  const revealLead = card.querySelector('[data-reveal-lead]');
+  const explainEl = card.querySelector('[data-explain]');
+  let revealed = false;
+
+  // choice selection (supported by the engine; unused on this page)
+  card.querySelectorAll('[data-choice]').forEach(group=>{
+    group.querySelectorAll('.choice-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        group.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected','ok','no'));
+        btn.classList.add('selected');
+        group.dataset.selected = btn.dataset.value;
+      });
+    });
+  });
+
+  function parseVal(s){
+    const cleaned = (s||'').replace(/[^0-9.\-]/g,'');
+    if(cleaned === '' || cleaned === '-' || cleaned === '.') return NaN;
+    return parseFloat(cleaned);
+  }
+
+  function check(){
+    let allRight = true, anyEmpty = false, anyWrongValue = false, strayPercent = false;
+
+    q.fields.forEach((f,i)=>{
+      if(f.type === 'choice'){
+        const group = card.querySelector(`[data-choice][data-field="${i}"]`);
+        const sel = group.dataset.selected;
+        const right = sel === f.answer;
+        const empty = !sel;
+        if(empty) anyEmpty = true; else if(!right) anyWrongValue = true;
+        group.querySelectorAll('.choice-btn').forEach(b=>{
+          b.classList.remove('ok','no');
+          if(b.dataset.value === sel){ b.classList.toggle('ok', right); b.classList.toggle('no', !right); }
+        });
+        if(!right) allRight = false;
+        return;
+      }
+      const inp = card.querySelector(`input[data-field="${i}"]`);
+      const raw = inp.value;
+      const expectsPercent = f.post === '%';
+      const hasPercentSign = raw.indexOf('%') !== -1;
+      const pctMistake = hasPercentSign && !expectsPercent;
+      const v = parseVal(raw);
+      const numericRight = !isNaN(v) && Math.abs(v - f.answer) <= f.tol;
+      const right = numericRight && !pctMistake;
+      const empty = isNaN(v) && !pctMistake;
+
+      if(empty) anyEmpty = true; else if(!right) anyWrongValue = true;
+      if(pctMistake) strayPercent = true;
+
+      inp.classList.toggle('ok', right);
+      inp.classList.toggle('no', !right && !empty);
+      if(!right) allRight = false;
+    });
+
+    feedback.classList.add('open');
+    feedback.classList.toggle('right', allRight);
+    feedback.classList.toggle('wrong', !allRight);
+
+    if(allRight){
+      verdict.innerHTML = '&#10003; Correct';
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = false;
+      if(!solved.has(q.n)){ solved.add(q.n); updateProgress(); }
+      return;
+    }
+
+    solved.delete(q.n); updateProgress();
+
+    if(strayPercent){
+      verdict.innerHTML = '&#10007; This answer is a plain number &mdash; remove the % sign and check again';
+    } else if(anyWrongValue){
+      verdict.innerHTML = '&#10007; Not quite &mdash; adjust your answer and press Check again';
+    } else {
+      verdict.innerHTML = '&#9432; Fill in each part, then check';
+    }
+
+    const hasMistake = anyWrongValue || strayPercent;
+    if(hasMistake){
+      hintEl.hidden = false;
+      if(revealed){
+        explainEl.hidden = false;
+        revealLead.hidden = true;
+        revealBtn.hidden = true;
+      } else {
+        explainEl.hidden = true;
+        revealLead.hidden = false;
+        revealBtn.hidden = false;
+      }
+    } else {
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = !revealed;
+    }
+  }
+
+  revealBtn.addEventListener('click', ()=>{
+    revealed = true;
+    explainEl.hidden = false;
+    revealLead.hidden = true;
+    revealBtn.hidden = true;
+  });
+
+  checkBtn.addEventListener('click', check);
+  inputs.forEach((inp,idx)=>{
+    inp.addEventListener('keydown', e=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        if(idx < inputs.length-1) inputs[idx+1].focus();
+        else check();
+      }
+    });
+    inp.addEventListener('input', ()=>{ inp.classList.remove('ok','no'); });
+  });
+});
+
+function updateProgress(){
+  const c = solved.size;
+  document.getElementById('solvedCount').textContent = c;
+  document.getElementById('progressFill').style.width = (c/QUESTIONS.length*100) + '%';
+  document.getElementById('doneMsg').classList.toggle('show', c === QUESTIONS.length);
+}
+</script>
+</body>
+</html>

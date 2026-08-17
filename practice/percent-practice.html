@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percents: introduction</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .identity .tok.percent{background:#EAE7FB;}
+  .identity .tok.whole{background:#E2F3EB;}
+  .identity .tok.part{background:#FBEEDC;}
+  .swatch.percent{background:#8D80F7;}
+  .swatch.whole{background:#5BBF95;}
+  .swatch.part{background:#F0A45E;}
+  .tag.part{color:#9A5A12;background:#FBEEDC;}
+  .tag.percent{color:#4A3DA8;background:#EAE7FB;}
+  .tag.whole{color:#2C7256;background:#E2F3EB;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Percents: introduction</h1>
+  <p class="lede">Every percent problem is the same statement read from a different angle. Once you know the shape, you only have to spot which piece is missing.</p>
+
+  <div class="identity">
+    <div class="formula">
+      <span class="tok percent">percent</span><span class="op">&nbsp;&times;&nbsp;</span><span class="tok whole">whole</span><span class="op">&nbsp;=&nbsp;</span><span class="tok part">part</span>
+    </div>
+    <p class="note">Know any two and the third falls out. Multiply to find the <b style="color:#9A5A12">part</b>; divide the part by the whole for the <b style="color:#4A3DA8">percent</b>; divide the part by the percent for the <b style="color:#2C7256">whole</b>. (A percent like 8% just means 8 &divide; 100 = 0.08.)</p>
+  </div>
+  <div class="legend">
+    <span><i class="swatch part"></i>part &mdash; the amount</span>
+    <span><i class="swatch whole"></i>whole &mdash; the total</span>
+    <span><i class="swatch percent"></i>percent &mdash; the rate</span>
+  </div>
+
+  <div class="progress">
+    <div class="progress-head"><span>Solved</span><span><b id="solvedCount">0</b> / 6</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <div id="questions"></div>
+
+  <p class="done" id="doneMsg">Nice work &mdash; you cleared all six. <b>You've got the shape.</b></p>
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    n:1, find:"part",
+    prompt:"What is 30% of 250?",
+    hint:`Change the percent into a decimal, then multiply it by the whole.`,
+    fields:[{label:"Answer", answer:75, tol:0.001}],
+    explain:`"of" means multiply, and 30% means <code>0.30</code>. So <b>part = percent &times; whole = 0.30 &times; 250 = 75</b>. Note that 75 is an amount, not a percent.`
+  },
+  {
+    n:2, find:"part",
+    prompt:"What is 8% of 50?",
+    hint:`Change the percent into a decimal, then multiply it by the whole.`,
+    fields:[{label:"Answer", answer:4, tol:0.001}],
+    explain:`Write 8% as <code>0.08</code> and multiply: <b>0.08 &times; 50 = 4</b>. A small percent of a small whole gives a small part.`
+  },
+  {
+    n:3, find:"percent",
+    prompt:"15 is what percent of 60?",
+    hint:`You know the part and the whole. Divide the part by the whole, then read the result as a percent.`,
+    fields:[{label:"Percent", answer:25, tol:0.01, post:"%"}],
+    explain:`Here the part (15) and whole (60) are known, so solve for the rate: <b>percent = part &divide; whole = 15 &divide; 60 = 0.25</b>, which is <b>25%</b>. (Multiply a decimal by 100 to read it as a percent.)`
+  },
+  {
+    n:4, find:"whole",
+    prompt:"40% of a number is 18. What is the number?",
+    hint:`You know the part (18) and the percent. Division undoes the multiply &mdash; work backward to the whole.`,
+    fields:[{label:"The number", answer:45, tol:0.01}],
+    explain:`Now the part (18) and percent (40% = <code>0.40</code>) are known, and the whole is missing: <b>whole = part &divide; percent = 18 &divide; 0.40 = 45</b>. Check: 40% of 45 is 18. &check;`
+  },
+  {
+    n:5, find:"part",
+    prompt:"A class has 80 students and 65% passed. How many passed?",
+    hint:`65% of the class &mdash; the same "percent of a whole" multiply as the earlier problems.`,
+    fields:[{label:"Students who passed", answer:52, tol:0.01}],
+    explain:`Same multiply move as #1: <b>part = 0.65 &times; 80 = 52 students</b>. The whole is the class of 80; the part is the group that passed.`
+  },
+  {
+    n:6, find:"part",
+    prompt:"A $90 item is taxed at 8%. How much is the tax, and what is the total cost?",
+    hint:`Find the tax first (a percent of the price), then add it to the price to get the total.`,
+    fields:[
+      {label:"Tax", answer:7.2, tol:0.01, pre:"$"},
+      {label:"Total cost", answer:97.2, tol:0.01, pre:"$"}
+    ],
+    explain:`First the part: <b>tax = 0.08 &times; 90 = $7.20</b>. The total is the original plus the tax: <b>$90 + $7.20 = $97.20</b>.`
+  }
+];
+
+const solved = new Set();
+const root = document.getElementById('questions');
+
+QUESTIONS.forEach(q => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-top">
+      <span class="qnum">${q.n}</span>
+      <span class="tag ${q.find}">find the ${q.find}</span>
+    </div>
+    <p class="prompt">${q.prompt}</p>
+    <div class="answer">
+      ${q.fields.map((f,i)=>{
+        const preCls = f.pre ? 'pad-pre' : '';
+        const postCls = f.post ? 'pad-post' : '';
+        return `<div class="field">
+          <label for="q${q.n}f${i}">${f.label}</label>
+          <div class="inputwrap">
+            ${f.pre?`<span class="affix pre">${f.pre}</span>`:''}
+            <input type="text" inputmode="decimal" id="q${q.n}f${i}"
+              class="${preCls} ${postCls}" data-field="${i}" autocomplete="off">
+            ${f.post?`<span class="affix post">${f.post}</span>`:''}
+          </div>
+        </div>`;
+      }).join('')}
+      <button class="btn" data-check>Check</button>
+    </div>
+    <div class="feedback" data-feedback>
+      <div class="verdict" data-verdict></div>
+      <div class="hint" data-hint hidden>${q.hint}</div>
+      <div class="reveal-lead" data-reveal-lead hidden>Give it another go above &mdash; or if you're still stuck:</div>
+      <button class="reveal-btn" data-reveal hidden>Show the solution</button>
+      <div class="explain" data-explain hidden>${q.explain}</div>
+    </div>
+  `;
+  root.appendChild(card);
+
+  const inputs = [...card.querySelectorAll('input')];
+  const checkBtn = card.querySelector('[data-check]');
+  const feedback = card.querySelector('[data-feedback]');
+  const verdict = card.querySelector('[data-verdict]');
+  const hintEl = card.querySelector('[data-hint]');
+  const revealBtn = card.querySelector('[data-reveal]');
+  const revealLead = card.querySelector('[data-reveal-lead]');
+  const explainEl = card.querySelector('[data-explain]');
+  let revealed = false;
+
+  function parseVal(s){
+    const cleaned = (s||'').replace(/[^0-9.\-]/g,'');
+    if(cleaned === '' || cleaned === '-' || cleaned === '.') return NaN;
+    return parseFloat(cleaned);
+  }
+
+  function check(){
+    let allRight = true, anyEmpty = false, anyWrongValue = false, strayPercent = false;
+    inputs.forEach((inp,i)=>{
+      const f = q.fields[i];
+      const raw = inp.value;
+      const expectsPercent = f.post === '%';
+      const hasPercentSign = raw.indexOf('%') !== -1;
+      const pctMistake = hasPercentSign && !expectsPercent;
+      const v = parseVal(raw);
+      const numericRight = !isNaN(v) && Math.abs(v - f.answer) <= f.tol;
+      const right = numericRight && !pctMistake;
+      const empty = isNaN(v) && !pctMistake;
+
+      if(empty) anyEmpty = true;
+      else if(!right) anyWrongValue = true;
+      if(pctMistake) strayPercent = true;
+
+      inp.classList.toggle('ok', right);
+      inp.classList.toggle('no', !right && !empty);
+      if(!right) allRight = false;
+    });
+
+    feedback.classList.add('open');
+    feedback.classList.toggle('right', allRight);
+    feedback.classList.toggle('wrong', !allRight);
+
+    if(allRight){
+      verdict.innerHTML = '&#10003; Correct';
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = false;
+      if(!solved.has(q.n)){ solved.add(q.n); updateProgress(); }
+      return;
+    }
+
+    solved.delete(q.n); updateProgress();
+
+    if(strayPercent){
+      verdict.innerHTML = '&#10007; This answer is an amount, not a percent &mdash; remove the % sign and check again';
+    } else if(anyWrongValue){
+      verdict.innerHTML = '&#10007; Not quite &mdash; edit your answer and press Check again';
+    } else {
+      verdict.innerHTML = '&#9432; Type a number, then check';
+    }
+
+    const hasMistake = anyWrongValue || strayPercent;
+    if(hasMistake){
+      hintEl.hidden = false;
+      if(revealed){
+        explainEl.hidden = false;
+        revealLead.hidden = true;
+        revealBtn.hidden = true;
+      } else {
+        explainEl.hidden = true;
+        revealLead.hidden = false;
+        revealBtn.hidden = false;
+      }
+    } else {
+      // nothing entered yet
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = !revealed;
+    }
+  }
+
+  revealBtn.addEventListener('click', ()=>{
+    revealed = true;
+    explainEl.hidden = false;
+    revealLead.hidden = true;
+    revealBtn.hidden = true;
+  });
+
+  checkBtn.addEventListener('click', check);
+  inputs.forEach((inp,idx)=>{
+    inp.addEventListener('keydown', e=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        if(idx < inputs.length-1) inputs[idx+1].focus();
+        else check();
+      }
+    });
+    inp.addEventListener('input', ()=>{ inp.classList.remove('ok','no'); });
+  });
+});
+
+function updateProgress(){
+  const c = solved.size;
+  document.getElementById('solvedCount').textContent = c;
+  document.getElementById('progressFill').style.width = (c/QUESTIONS.length*100) + '%';
+  document.getElementById('doneMsg').classList.toggle('show', c === QUESTIONS.length);
+}
+</script>
+</body>
+</html>

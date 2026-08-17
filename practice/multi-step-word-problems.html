@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-step word problems</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .identity .tok.rate{background:#FBEEDC;}
+  .identity .tok.amount{background:#EAE7FB;}
+  .identity .tok.total{background:#E2F3EB;}
+  .swatch.rate{background:#E0913C;}
+  .swatch.amount{background:#8D80F7;}
+  .swatch.total{background:#5BBF95;}
+  .tag.pieces{color:#0F6E73;background:#DDF1F2;}
+  .tag.base{color:#1F6FA8;background:#E2EFF8;}
+  .tag.penalty{color:#8A2D6B;background:#FBE7F2;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Multi-step word problems</h1>
+  <p class="lede">A multi-step problem is built from several smaller pieces. Work out each piece on its own &mdash; usually a rate times an amount &mdash; then combine them, adding what's gained and subtracting what's lost.</p>
+
+  <div class="identity">
+    <div class="formula">
+      <span class="tok total">total</span><span class="op">&nbsp;= (</span><span class="tok rate">rate</span><span class="op">&nbsp;&times;&nbsp;</span><span class="tok amount">amount</span><span class="op">) + (</span><span class="tok rate">rate</span><span class="op">&nbsp;&times;&nbsp;</span><span class="tok amount">amount</span><span class="op">) + &hellip;</span>
+    </div>
+    <p class="note">Break the problem into pieces and compute each as <b>rate &times; amount</b>, then combine them. <b>Gains and bonuses add; losses, penalties, and returns subtract</b> &mdash; so a rate can be negative. Don't forget a <b>fixed base</b> that's charged no matter what, and ignore any piece that contributes zero except to keep your tally honest.</p>
+  </div>
+  <div class="legend">
+    <span><i class="swatch rate"></i>rate &mdash; value per item (+ or &minus;)</span>
+    <span><i class="swatch amount"></i>amount &mdash; how many of that item</span>
+    <span><i class="swatch total"></i>total &mdash; all the pieces combined</span>
+  </div>
+
+  <div class="progress">
+    <div class="progress-head"><span>Solved</span><span><b id="solvedCount">0</b> / 4</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <div id="questions"></div>
+
+  <p class="done" id="doneMsg">Nice work &mdash; all four cleared. <b>Piece by piece, then combine.</b></p>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    n:1, tag:"pieces", tagLabel:"combine pieces",
+    prompt:"A contest gives +4 for each correct answer, \u22121 for each wrong one, and 0 for blanks. A student has 16 correct, 5 wrong, and 4 blank. What is the total score?",
+    hint:`Score each category as rate &times; amount: correct (16 &times; 4), wrong (5 &times; &minus;1), blanks (4 &times; 0). Then add the three pieces.`,
+    fields:[{label:"Total score", answer:59, tol:0.5}],
+    explain:`Correct: 16 &times; 4 = 64. Wrong: 5 &times; (&minus;1) = &minus;5. Blanks: 4 &times; 0 = 0. Combine: 64 &minus; 5 + 0 = <b>59</b>. The 4 blanks add nothing, but it's worth checking they're worth zero rather than skipping them.`
+  },
+  {
+    n:2, tag:"pieces", tagLabel:"combine pieces",
+    prompt:"A game gives +10 per win and \u22123 per loss. After 7 wins and 4 losses, what is the net score?",
+    hint:`Wins add (7 &times; 10), losses subtract (4 &times; 3). Compute each piece, then combine.`,
+    fields:[{label:"Net score", answer:58, tol:0.5}],
+    explain:`Wins: 7 &times; 10 = 70. Losses: 4 &times; (&minus;3) = &minus;12. Net: 70 &minus; 12 = <b>58</b>.`
+  },
+  {
+    n:3, tag:"base", tagLabel:"base + rate",
+    prompt:"Shipping costs a $5 base fee plus $2 per pound. What does a 7-pound package cost?",
+    hint:`Start with the $5 base fee, then add $2 for each of the 7 pounds (2 &times; 7).`,
+    fields:[{label:"Cost", answer:19, tol:0.01, pre:"$"}],
+    explain:`Base fee: $5 (charged once). Per-pound piece: 2 &times; 7 = $14. Total: 5 + 14 = <b>$19</b>. The base sits on top of the per-pound amount &mdash; it isn't multiplied by the weight.`
+  },
+  {
+    n:4, tag:"penalty", tagLabel:"earn, then subtract",
+    prompt:"A rewards card gives 3 points per dollar spent and subtracts 50 points for a return. After spending $40 and making one return, how many points are there?",
+    hint:`Earn 3 points for each of the 40 dollars (3 &times; 40), then subtract the 50-point return penalty.`,
+    fields:[{label:"Points", answer:70, tol:0.5}],
+    explain:`Earned: 3 &times; 40 = 120 points. Return penalty: &minus;50. Total: 120 &minus; 50 = <b>70 points</b>.`
+  }
+];
+
+const solved = new Set();
+const root = document.getElementById('questions');
+
+QUESTIONS.forEach(q => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-top">
+      <span class="qnum">${q.n}</span>
+      <span class="tag ${q.tag}">${q.tagLabel}</span>
+    </div>
+    <p class="prompt">${q.prompt}</p>
+    <div class="answer">
+      ${q.fields.map((f,i)=>{
+        if(f.type === 'choice'){
+          return `<div class="field">
+            <label>${f.label}</label>
+            <div class="choices" data-choice data-field="${i}">
+              ${f.options.map(o=>`<button type="button" class="choice-btn" data-value="${o}">${o}</button>`).join('')}
+            </div>
+          </div>`;
+        }
+        const preCls = f.pre ? 'pad-pre' : '';
+        const postCls = f.post ? 'pad-post' : '';
+        return `<div class="field">
+          <label for="q${q.n}f${i}">${f.label}</label>
+          <div class="inputwrap">
+            ${f.pre?`<span class="affix pre">${f.pre}</span>`:''}
+            <input type="text" inputmode="decimal" id="q${q.n}f${i}"
+              class="${preCls} ${postCls}" data-field="${i}" autocomplete="off">
+            ${f.post?`<span class="affix post">${f.post}</span>`:''}
+          </div>
+        </div>`;
+      }).join('')}
+      <button class="btn" data-check>Check</button>
+    </div>
+    <div class="feedback" data-feedback>
+      <div class="verdict" data-verdict></div>
+      <div class="hint" data-hint hidden>${q.hint}</div>
+      <div class="reveal-lead" data-reveal-lead hidden>Give it another go above &mdash; or if you're still stuck:</div>
+      <button class="reveal-btn" data-reveal hidden>Show the solution</button>
+      <div class="explain" data-explain hidden>${q.explain}</div>
+    </div>
+  `;
+  root.appendChild(card);
+
+  const inputs = [...card.querySelectorAll('input')];
+  const checkBtn = card.querySelector('[data-check]');
+  const feedback = card.querySelector('[data-feedback]');
+  const verdict = card.querySelector('[data-verdict]');
+  const hintEl = card.querySelector('[data-hint]');
+  const revealBtn = card.querySelector('[data-reveal]');
+  const revealLead = card.querySelector('[data-reveal-lead]');
+  const explainEl = card.querySelector('[data-explain]');
+  let revealed = false;
+
+  // choice selection (supported by the engine; unused on this page)
+  card.querySelectorAll('[data-choice]').forEach(group=>{
+    group.querySelectorAll('.choice-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        group.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected','ok','no'));
+        btn.classList.add('selected');
+        group.dataset.selected = btn.dataset.value;
+      });
+    });
+  });
+
+  function parseVal(s){
+    const cleaned = (s||'').replace(/[^0-9.\-]/g,'');
+    if(cleaned === '' || cleaned === '-' || cleaned === '.') return NaN;
+    return parseFloat(cleaned);
+  }
+
+  function check(){
+    let allRight = true, anyEmpty = false, anyWrongValue = false, strayPercent = false;
+
+    q.fields.forEach((f,i)=>{
+      if(f.type === 'choice'){
+        const group = card.querySelector(`[data-choice][data-field="${i}"]`);
+        const sel = group.dataset.selected;
+        const right = sel === f.answer;
+        const empty = !sel;
+        if(empty) anyEmpty = true; else if(!right) anyWrongValue = true;
+        group.querySelectorAll('.choice-btn').forEach(b=>{
+          b.classList.remove('ok','no');
+          if(b.dataset.value === sel){ b.classList.toggle('ok', right); b.classList.toggle('no', !right); }
+        });
+        if(!right) allRight = false;
+        return;
+      }
+      const inp = card.querySelector(`input[data-field="${i}"]`);
+      const raw = inp.value;
+      const expectsPercent = f.post === '%';
+      const hasPercentSign = raw.indexOf('%') !== -1;
+      const pctMistake = hasPercentSign && !expectsPercent;
+      const v = parseVal(raw);
+      const numericRight = !isNaN(v) && Math.abs(v - f.answer) <= f.tol;
+      const right = numericRight && !pctMistake;
+      const empty = isNaN(v) && !pctMistake;
+
+      if(empty) anyEmpty = true; else if(!right) anyWrongValue = true;
+      if(pctMistake) strayPercent = true;
+
+      inp.classList.toggle('ok', right);
+      inp.classList.toggle('no', !right && !empty);
+      if(!right) allRight = false;
+    });
+
+    feedback.classList.add('open');
+    feedback.classList.toggle('right', allRight);
+    feedback.classList.toggle('wrong', !allRight);
+
+    if(allRight){
+      verdict.innerHTML = '&#10003; Correct';
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = false;
+      if(!solved.has(q.n)){ solved.add(q.n); updateProgress(); }
+      return;
+    }
+
+    solved.delete(q.n); updateProgress();
+
+    if(strayPercent){
+      verdict.innerHTML = '&#10007; This answer isn\u2019t a percent &mdash; remove the % sign and check again';
+    } else if(anyWrongValue){
+      verdict.innerHTML = '&#10007; Not quite &mdash; adjust your answer and press Check again';
+    } else {
+      verdict.innerHTML = '&#9432; Fill in your answer, then check';
+    }
+
+    const hasMistake = anyWrongValue || strayPercent;
+    if(hasMistake){
+      hintEl.hidden = false;
+      if(revealed){
+        explainEl.hidden = false;
+        revealLead.hidden = true;
+        revealBtn.hidden = true;
+      } else {
+        explainEl.hidden = true;
+        revealLead.hidden = false;
+        revealBtn.hidden = false;
+      }
+    } else {
+      hintEl.hidden = true;
+      revealLead.hidden = true;
+      revealBtn.hidden = true;
+      explainEl.hidden = !revealed;
+    }
+  }
+
+  revealBtn.addEventListener('click', ()=>{
+    revealed = true;
+    explainEl.hidden = false;
+    revealLead.hidden = true;
+    revealBtn.hidden = true;
+  });
+
+  checkBtn.addEventListener('click', check);
+  inputs.forEach((inp,idx)=>{
+    inp.addEventListener('keydown', e=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        if(idx < inputs.length-1) inputs[idx+1].focus();
+        else check();
+      }
+    });
+    inp.addEventListener('input', ()=>{ inp.classList.remove('ok','no'); });
+  });
+});
+
+function updateProgress(){
+  const c = solved.size;
+  document.getElementById('solvedCount').textContent = c;
+  document.getElementById('progressFill').style.width = (c/QUESTIONS.length*100) + '%';
+  document.getElementById('doneMsg').classList.toggle('show', c === QUESTIONS.length);
+}
+</script>
+</body>
+</html>
