@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Aug 24 &mdash; Linear equations and interval notation</title>
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Monday, August 24</p>
+  <h1>Linear equations and interval notation</h1>
+  <p class="standfirst">First day. How the course works and how to pass it, then section 1.1 part 1: recognizing a linear equation, solving one, and writing inequalities as intervals.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#course">How the course works</a>
+  <a href="#grade">How your grade is built</a>
+  <a href="#linear">What makes an equation linear</a>
+  <a href="#solving">Solving linear equations</a>
+  <a href="#notation">Inequality and interval notation</a>
+  <a href="#tax">Tax brackets</a>
+  <a href="#next">Before next class</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">This week</p>
+    <ul>
+      <li>Section <strong>1.1 Linear Equations and Inequalities</strong> runs all week &mdash; Monday, Wednesday, Friday.</li>
+      <li><strong>Concept Check Questions</strong> on Blackboard: two per class, due at the end of the day the class meets. That includes today.</li>
+      <li>WeBWorK for 1.1 is split into three parts, all with the same two deadlines: <strong>Aug 31</strong> for extra credit, <strong>Sep 3</strong> for regular credit.</li>
+      <li>Thursday recitation has a <strong>Readiness Test</strong> instead of a quiz. It does not count toward your grade.</li>
+      <li>First exam: <strong>Wednesday, September 16</strong>.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">Polls</p>
+    <p>In-class polls run through Poll Everywhere at <a href="https://pollev.com/leonidkovalev/">pollev.com/leonidkovalev</a> &mdash; the same link all semester, also on Blackboard. Log in with your SU email (netid@syr.edu) and use the &ldquo;Log in with Syracuse University&rdquo; button.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="course">
+  <h2><span class="marker">Orientation</span>How the course works</h2>
+
+  <p>The semester runs in three stages, each one leaning on the one before it.</p>
+
+  <div class="card">
+    <p class="card-label">Outline of the course</p>
+    <ol>
+      <li>Review of algebra &mdash; solving equations and inequalities.</li>
+      <li>Pre-calculus &mdash; functions: linear, exponential, logarithmic.</li>
+      <li>Calculus &mdash; limits, derivatives, integrals, with applications: marginal cost, elasticity of demand, profit maximization.</li>
+    </ol>
+  </div>
+
+  <h3>How to learn all of this</h3>
+  <ol>
+    <li><strong>Read the textbook.</strong> It comes to you electronically through Orange Instant Access.</li>
+    <li><strong>Answer the Concept Check Questions</strong> on Blackboard. Two per class, based on that day's lecture, due the same day.</li>
+    <li><strong>Do the WeBWorK</strong> without too much outside help, and do not wait for the due date. Finishing most of a set before recitation leaves you better prepared for the quiz, and early work earns bonus points.</li>
+    <li><strong>Arrive at Thursday recitation</strong> either understanding the topics or carrying specific questions about them.</li>
+    <li><strong>Stay consistent.</strong> Steady engagement beats cramming before an exam.</li>
+  </ol>
+</section>
+
+<section id="grade">
+  <h2><span class="marker">Orientation</span>How your grade is built</h2>
+
+  <p>Frequent homework, concept checks, and polls reward steady engagement &mdash; these are the easy points. Weekly quizzes predict how well you will do on the exams. Four term exams check your progress, and the final is cumulative.</p>
+
+  <table>
+    <caption>Weights in the final grade</caption>
+    <thead>
+      <tr><th scope="col">Component</th><th scope="col">Weight</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Term exams (4 exams \(\times\) 12%; no scores dropped)</td><td>48%</td></tr>
+      <tr><td>Final exam</td><td>20%</td></tr>
+      <tr><td>Quizzes (in recitation almost every week)</td><td>15%</td></tr>
+      <tr><td>Homework (WeBWorK)</td><td>10%</td></tr>
+      <tr><td>CCQ (Concept Check Questions on Blackboard)</td><td>4%</td></tr>
+      <tr><td>In-class polls (participation, not correctness)</td><td>3%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <p class="card-label">Where the free points are</p>
+    <p>Homework, concept checks, and polls together are 17% of the grade and none of them require getting the answer right on the first try. Losing these is the most common avoidable way to drop a letter grade.</p>
+  </div>
+</section>
+
+<section id="linear">
+  <h2><span class="marker">Definition</span>What makes an equation linear</h2>
+
+  <p>An equation or an inequality is called <strong>linear</strong> if the variable (the unknown) is not raised to a power, does not appear in a denominator, and does not sit inside some function.</p>
+
+  <div class="card">
+    <p class="card-label">The shape to look for</p>
+    <ul class="keys">
+      <li>(coefficient) \(\cdot\) (variable) \(\pm\) (number) \(=\) (number)</li>
+      <li>Disqualifying: \(x^2\), \(\dfrac{7}{x}\), \(\sqrt{u}\), and anything else wrapping the variable</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Which of the following equations are linear?</p>
+    <p><strong>A)</strong> \(6x^2 + 3x + 2 = 0\) &nbsp;&nbsp; <strong>B)</strong> \(3t + 2 = 7/4\) &nbsp;&nbsp; <strong>C)</strong> \(3x + 2 = 7/x\)</p>
+    <p><strong>D)</strong> \(3y + 9 = 7(4 - y)\) &nbsp;&nbsp; <strong>E)</strong> \(3\sqrt{u + 9} = 7u\) &nbsp;&nbsp; <strong>F)</strong> \(\dfrac{x}{3} + \sqrt{9} = \dfrac{4 - x}{7}\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">A</span><span class="work"><strong>Not linear.</strong> The \(x^2\) term.</span></li>
+        <li><span class="step">B</span><span class="work"><strong>Linear.</strong> Coefficient times variable, plus a number, equals a number. \(7/4\) is just a number.</span></li>
+        <li><span class="step">C</span><span class="work"><strong>Not linear.</strong> \(\frac{7}{x}\) puts \(x\) in the denominator.</span></li>
+        <li><span class="step">D</span><span class="work"><strong>Linear.</strong> Distribute and it becomes \(3y + 9 = 28 - 7y\).</span></li>
+        <li><span class="step">E</span><span class="work"><strong>Not linear.</strong> \(u\) sits under a square root.</span></li>
+        <li><span class="step">F</span><span class="work"><strong>Linear.</strong> No \(x\) in a denominator &mdash; the 3 and the 7 are constants &mdash; and \(\sqrt{9}\) is just \(3\).</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>B, D, F</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Watch out</p>
+    <p>A square root or a fraction does not by itself break linearity. Ask only one question: is the <em>variable</em> the thing being squared, divided into, or fed to a function? In F, \(\sqrt{9}\) contains no variable and \(\frac{x}{3}\) has the variable on top, so F is linear. In E, the \(u\) is under the root, so E is not.</p>
+  </div>
+</section>
+
+<section id="solving">
+  <h2><span class="marker">Method</span>Solving linear equations</h2>
+
+  <p>Isolate the variable on one side. To get there you may add, subtract, multiply, or divide by the same quantity on both sides.</p>
+
+  <h3>Equation B</h3>
+  <div class="problem">
+    <p>Solve \(3t + 2 = 7/4\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Subtract 2</span><span class="work">\[3t = \frac{7}{4} - 2\]</span></li>
+        <li><span class="step">Combine</span><span class="work">\[3t = -\frac{1}{4} \quad\text{or}\quad 3t = -0.25\]</span></li>
+        <li><span class="step">Divide by 3</span><span class="work">\[t = \frac{-1/4}{3} = -\frac{1}{4}\cdot\frac{1}{3} = -\frac{1}{12}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>t = &minus;1/12</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Dividing a fraction by a number</p>
+    <p>\(\dfrac{-1/4}{3}\) is not \(-\dfrac{3}{4}\). Dividing by 3 means multiplying by \(\frac{1}{3}\), so the 3 lands on the <em>denominator</em>: \(-\frac{1}{4}\cdot\frac{1}{3} = -\frac{1}{12}\).</p>
+  </div>
+
+  <h3>Equation D</h3>
+  <div class="problem">
+    <p>Solve \(3y + 9 = 7(4 - y)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Distribute</span><span class="work">\[3y + 9 = 28 - 7y\]</span></li>
+        <li><span class="step">Add 7y</span><span class="work">\[3y + 7y + 9 = 28\]</span></li>
+        <li><span class="step">Combine</span><span class="work">\[3y + 7y = (3 + 7)y = 10y \quad\Longrightarrow\quad 10y + 9 = 28\]</span></li>
+        <li><span class="step">Subtract 9</span><span class="work">\[10y = 19\]</span></li>
+        <li><span class="step">Divide by 10</span><span class="work">\[y = 1.9\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y = 1.9</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Distribute to both terms</p>
+    <p>\(7(4 - y)\) is \(7\cdot 4 - 7\cdot y\). The most common slip is multiplying only the first term and writing \(28 - y\).</p>
+  </div>
+</section>
+
+<section id="notation">
+  <h2><span class="marker">Notation</span>Inequalities and intervals</h2>
+
+  <p>We are not solving inequalities today, just fixing the notation.</p>
+
+  <div class="card">
+    <p class="card-label">Strict and non-strict</p>
+    <ul class="keys">
+      <li>\(a &lt; b\) means that \(a\) is less than \(b\); on the number line \(a\) is to the left of \(b\)</li>
+      <li>\(a &gt; b\) means that \(a\) is greater than \(b\); on the number line \(a\) is to the right of \(b\)</li>
+      <li>\(a \le b\) means that either \(a &lt; b\) or \(a = b\)</li>
+      <li>\(a \ge b\) means that either \(a &gt; b\) or \(a = b\)</li>
+    </ul>
+  </div>
+
+  <p>The first two are <strong>strict</strong>; the last two are <strong>non-strict</strong>. The difference is only about the endpoint: \(x \ge 7\) allows \(7\), while \(x &gt; 7\) does not.</p>
+
+  <p>For intervals, a square bracket means <strong>included</strong> and a round parenthesis means <strong>not included</strong>. Infinity always gets a parenthesis &mdash; you can never reach it, so it can never be included.</p>
+
+  <table>
+    <caption>Inequality to interval</caption>
+    <thead>
+      <tr><th scope="col">Inequality</th><th scope="col">Interval</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>\(a &lt; x &lt; b\)</td><td>\((a, b)\)</td></tr>
+      <tr><td>\(a \le x \le b\)</td><td>\([a, b]\)</td></tr>
+      <tr><td>\(a \le x &lt; b\)</td><td>\([a, b)\)</td></tr>
+      <tr><td>\(x &gt; a\)</td><td>\((a, \infty)\)</td></tr>
+      <tr><td>\(x \ge a\)</td><td>\([a, \infty)\)</td></tr>
+      <tr><td>\(x \le b\)</td><td>\((-\infty, b]\)</td></tr>
+      <tr><td>\(x &lt; b\)</td><td>\((-\infty, b)\)</td></tr>
+    </tbody>
+  </table>
+
+  <p>The interval \((-\infty, \infty)\) is the entire number line.</p>
+
+  <h3>Writing statements as intervals</h3>
+  <div class="problem">
+    <p>Express each of the following in interval notation.</p>
+    <p><strong>a)</strong> \(x &gt; 5\) &nbsp;&nbsp; <strong>b)</strong> \(x &gt; 5\) and \(x \le 10\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a)</span><span class="work">Everything to the right of 5, with 5 itself excluded: \((5, \infty)\)</span></li>
+        <li><span class="step">b)</span><span class="work">Right of 5, up to and including 10: \((5, 10]\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(5, &infin;) and (5, 10]</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Draw the number line</p>
+    <p>Sketching the line and shading the region takes five seconds and catches almost every bracket-direction mistake. Mark an excluded endpoint with an open circle and an included one with a filled circle.</p>
+  </div>
+
+  <h3>Unions</h3>
+  <p>An <strong>and</strong> statement describes one stretch of the line. An <strong>or</strong> statement can describe two stretches with a gap between them, and those are joined with the union symbol \(\cup\), as in \((1, 3) \cup [7, 11]\).</p>
+
+  <div class="problem">
+    <p>Express each of the following in interval notation.</p>
+    <p><strong>a)</strong> \(x \le 5\) or \(x &gt; 10\) &nbsp;&nbsp; <strong>b)</strong> \(x \ne 4\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a) Left piece</span><span class="work">\(x \le 5\) is \((-\infty, 5]\) &mdash; 5 included</span></li>
+        <li><span class="step">a) Right piece</span><span class="work">\(x &gt; 10\) is \((10, \infty)\) &mdash; 10 excluded</span></li>
+        <li><span class="step">a) Join</span><span class="work">\[(-\infty, 5] \cup (10, \infty)\]</span></li>
+        <li><span class="step">b) Rewrite</span><span class="work">\(x \ne 4\) says \(x &lt; 4\) or \(x &gt; 4\) &mdash; the whole line with one point removed</span></li>
+        <li><span class="step">b) Join</span><span class="work">\[(-\infty, 4) \cup (4, \infty)\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(&minus;&infin;, 5] &cup; (10, &infin;) &nbsp;and&nbsp; (&minus;&infin;, 4) &cup; (4, &infin;)</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">And vs. or</p>
+    <p><strong>And</strong> means both conditions hold at once, so you keep the overlap &mdash; usually one interval. <strong>Or</strong> means at least one holds, so you keep everything either one covers &mdash; often two pieces joined by \(\cup\).</p>
+  </div>
+</section>
+
+<section id="tax">
+  <h2><span class="marker">Worked example</span>Tax brackets</h2>
+
+  <p>Word problems hinge on which words are strict and which are not. <em>Greater than</em> is strict; <em>does not exceed</em> is not.</p>
+
+  <div class="problem">
+    <p>According to the IRS, you are in the 22% tax bracket if your 2025 income is greater than $48,475 but does not exceed $103,350. Express this condition two ways: as an inequality, and as an interval.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Let</span><span class="work">\(x =\) your 2025 income, in dollars</span></li>
+        <li><span class="step">Greater than</span><span class="work">strict, so \(48475 &lt; x\)</span></li>
+        <li><span class="step">Not exceed</span><span class="work">non-strict, so \(x \le 103350\)</span></li>
+        <li><span class="step">Inequality</span><span class="work">\[48475 &lt; x \le 103350\]</span></li>
+        <li><span class="step">Interval</span><span class="work">\[(48475,\ 103350]\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>48,475 &lt; x &le; 103,350 &nbsp;is&nbsp; (48475, 103350]</p>
+      <p>The bracket shapes mirror the inequality signs exactly: the strict \(&lt;\) becomes a parenthesis, the non-strict \(\le\) becomes a square bracket.</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>The top bracket (37%) is for income exceeding $626,350. Express this as an inequality and as an interval.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Exceeding</span><span class="work">strict, and there is no upper limit</span></li>
+        <li><span class="step">Inequality</span><span class="work">\[x &gt; 626350\]</span></li>
+        <li><span class="step">Interval</span><span class="work">\[(626350,\ \infty)\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x &gt; 626,350 &nbsp;is&nbsp; (626350, &infin;)</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Words that set the bracket</p>
+    <p>Strict, parenthesis: <em>greater than</em>, <em>less than</em>, <em>exceeds</em>, <em>more than</em>, <em>under</em>.</p>
+    <p>Non-strict, square bracket: <em>at least</em>, <em>at most</em>, <em>no more than</em>, <em>does not exceed</em>, <em>up to and including</em>.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before next class</h2>
+  <ul class="checklist">
+    <li>Answer today's Concept Check Questions on Blackboard &mdash; they are due <strong>tonight</strong>.</li>
+    <li>Confirm you can reach the textbook through Orange Instant Access, and read section 1.1.</li>
+    <li>Start the WeBWorK for 1.1. Extra credit closes Aug 31.</li>
+    <li>Redo equations B and D above with the solutions hidden, writing every step.</li>
+    <li>Take the seven rows of the interval table and cover the right column. Reproduce it from the inequality alone.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 1.1 part 1 &middot; August 24</p>
+</footer>
+
+</div>
+</body>
+</html>
