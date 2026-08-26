@@ -1,0 +1,352 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+/* ============================================================
+   Lecture notes — shared stylesheet
+   Used by every lecture page in this folder. Edit here, not in
+   the individual HTML files.
+
+   Faster first paint, if you care: delete the @import above and
+   put the equivalent <link rel="stylesheet"> in each page's head.
+   The @import costs one extra round trip but keeps the per-page
+   boilerplate down to three lines.
+   ============================================================ */
+
+
+/* ---------- 1. Tokens ------------------------------------- */
+
+:root{
+  /* Palette. All text colors clear WCAG AAA (7:1) against both
+     --paper and --sheet. Check any replacement before using it. */
+  --paper:#eef1ed;      /* page background, faint ledger green   */
+  --sheet:#ffffff;      /* cards and solution panels             */
+  --ink:#0a1620;        /* body text                             */
+  --ink-soft:#3a4a52;   /* standfirst, nav, captions, markers    */
+  --pen-red:#8f1a12;    /* step labels, callouts, accents        */
+  --ledger:#0a3d2a;     /* answers                               */
+  --rule:#b0bfb1;       /* section and card borders              */
+  --rule-soft:#d0dad1;  /* hairlines inside cards                */
+
+  --f-body:"Source Serif 4",Charter,Georgia,"Times New Roman",serif;
+  --f-label:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-fig:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --measure:44rem;      /* text column width                     */
+  --gap:1.35rem;        /* default vertical rhythm               */
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#101815;
+    --sheet:#18211c;
+    --ink:#f0f5ef;
+    --ink-soft:#bccbbe;
+    --pen-red:#ff9d92;
+    --ledger:#8ee5b6;
+    --rule:#3a4a40;
+    --rule-soft:#2a352e;
+  }
+}
+
+
+/* ---------- 2. Base --------------------------------------- */
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:clamp(1rem,0.97rem + 0.2vw,1.09rem);
+  line-height:1.6;
+}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 1.15rem 5rem}
+p{margin:0 0 var(--gap)}
+ul,ol{margin:0 0 var(--gap);padding-left:1.25rem}
+li{margin-bottom:.4rem}
+strong{font-weight:600}
+a{color:var(--pen-red)}
+:focus-visible{outline:2px solid var(--pen-red);outline-offset:2px}
+
+
+/* ---------- 3. Masthead and navigation -------------------- */
+
+.masthead{
+  border-bottom:2px solid var(--ink);
+  padding:2.6rem 0 1.1rem;
+  margin-bottom:1.6rem;
+}
+.eyebrow{
+  font-family:var(--f-label);
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:.74rem;
+  color:var(--pen-red);
+  margin:0 0 .5rem;
+}
+h1{
+  font-family:var(--f-label);
+  font-weight:700;
+  font-size:clamp(1.65rem,1.25rem + 1.9vw,2.5rem);
+  line-height:1.1;
+  letter-spacing:-.005em;
+  margin:0 0 .55rem;
+}
+.standfirst{margin:0;color:var(--ink-soft);max-width:34rem}
+
+.jump{
+  font-family:var(--f-label);
+  font-size:.82rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.35rem .95rem;
+  padding-bottom:1.4rem;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:2rem;
+}
+.jump a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)}
+.jump a:hover,.jump a:focus-visible{color:var(--pen-red);border-color:var(--pen-red)}
+
+
+/* ---------- 4. Sections and headings ---------------------- */
+
+section{margin:0 0 3.2rem;scroll-margin-top:1.5rem}
+h2{
+  font-family:var(--f-label);
+  font-weight:700;
+  font-size:1.32rem;
+  letter-spacing:.005em;
+  margin:0 0 .2rem;
+  padding-top:.9rem;
+  border-top:1px solid var(--rule);
+}
+h2 .marker{
+  display:block;
+  font-size:.7rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--ink-soft);
+  margin-bottom:.3rem;
+}
+h3{
+  font-family:var(--f-label);
+  font-weight:600;
+  font-size:1.03rem;
+  margin:1.9rem 0 .4rem;
+}
+
+
+/* ---------- 5. Content blocks ----------------------------- */
+
+/* .card — a boxed aside: announcements, formulas to memorize */
+.card{
+  background:var(--sheet);
+  border:1px solid var(--rule);
+  border-radius:2px;
+  padding:1.15rem 1.25rem .35rem;
+  margin:0 0 var(--gap);
+}
+.card > :last-child{margin-bottom:1rem}
+.card-label{
+  font-family:var(--f-label);
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:0 0 .7rem;
+}
+
+/* .keys — a ruled list, for formulas worth memorizing */
+.keys{list-style:none;padding:0;margin:0 0 1rem}
+.keys li{padding:.5rem 0;border-bottom:1px solid var(--rule-soft);margin:0}
+.keys li:last-child{border-bottom:0}
+
+/* .problem — the statement of a question, dark rule on the left */
+.problem{
+  border-left:3px solid var(--ink);
+  padding:.15rem 0 .15rem 1rem;
+  margin:0 0 1.1rem;
+}
+.problem p:last-child{margin-bottom:0}
+
+/* .note — the red-pen aside: warnings, common mistakes */
+.note{
+  border-left:3px solid var(--pen-red);
+  padding:.15rem 0 .15rem 1rem;
+  margin:0 0 var(--gap);
+  color:var(--ink);
+}
+.note p:last-child{margin-bottom:0}
+.note .card-label{color:var(--pen-red);margin-bottom:.35rem}
+
+
+/* ---------- 6. The ledger: step name left, algebra right --- */
+
+.ledger{list-style:none;padding:0;margin:.2rem 0 1rem}
+.ledger li{
+  display:grid;
+  grid-template-columns:7rem 1fr;
+  gap:0 1rem;
+  align-items:baseline;
+  padding:.45rem 0;
+  border-bottom:1px solid var(--rule-soft);
+  margin:0;
+}
+.ledger li:last-child{border-bottom:0}
+.step{
+  font-family:var(--f-label);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--pen-red);
+  padding-top:.28em;
+}
+.work{min-width:0;overflow-x:auto;overflow-y:hidden}
+.work > :last-child{margin-bottom:0}
+@media (max-width:34rem){
+  .ledger li{grid-template-columns:1fr;gap:.15rem}
+  .step{padding-top:0}
+}
+
+.answer{
+  font-family:var(--f-fig);
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--ledger);
+  border-top:2px solid var(--ledger);
+  padding-top:.6rem;
+  margin:.2rem 0 .4rem;
+}
+.answer .tag{
+  font-family:var(--f-label);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-right:.6rem;
+}
+
+
+/* ---------- 7. Collapsible solutions ---------------------- */
+
+details.sol{
+  border:1px solid var(--rule);
+  border-radius:2px;
+  background:var(--sheet);
+  margin:0 0 1.6rem;
+}
+summary{
+  font-family:var(--f-label);
+  font-weight:600;
+  font-size:.84rem;
+  letter-spacing:.05em;
+  cursor:pointer;
+  padding:.7rem 1.1rem;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  color:var(--ink);
+}
+summary::-webkit-details-marker{display:none}
+summary::before{
+  content:"";
+  width:.5rem;height:.5rem;
+  border-right:2px solid var(--pen-red);
+  border-bottom:2px solid var(--pen-red);
+  transform:rotate(-45deg);
+  transition:transform .18s ease;
+  flex:none;
+}
+details[open] > summary::before{transform:rotate(45deg)}
+summary:hover{color:var(--pen-red)}
+summary:focus-visible{outline:2px solid var(--pen-red);outline-offset:-2px}
+.sol-body{padding:.2rem 1.1rem .1rem;border-top:1px solid var(--rule-soft)}
+
+/* Solutions are open in the markup so MathJax measures them correctly,
+   and so the page still works with JavaScript off. notes.js hides them
+   once typesetting finishes; without this, every answer flashes on
+   screen during load. */
+.js .sol-body{opacity:0}
+.js.ready .sol-body{opacity:1}
+
+.controls{display:flex;justify-content:flex-end;margin:0 0 1.4rem}
+.controls button{
+  font-family:var(--f-label);
+  font-size:.78rem;
+  font-weight:600;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink);
+  background:transparent;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  padding:.42rem .9rem;
+  cursor:pointer;
+}
+.controls button:hover{background:var(--ink);color:var(--paper)}
+.controls button:focus-visible{outline:2px solid var(--pen-red);outline-offset:2px}
+
+
+/* ---------- 8. Tables and checklists ---------------------- */
+
+table{border-collapse:collapse;width:100%;margin:0 0 var(--gap);font-size:.97rem}
+caption{
+  font-family:var(--f-label);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  text-align:left;
+  padding-bottom:.5rem;
+}
+th,td{border:1px solid var(--rule);padding:.55rem .7rem;text-align:left;vertical-align:top}
+th{font-family:var(--f-label);font-weight:600;font-size:.86rem;background:var(--sheet)}
+
+/* The checkbox is positioned, not a grid or flex track. A grid would
+   make every element child its own grid item, so a <strong> or a
+   MathJax container mid-sentence would be pushed into the checkbox
+   column and wrap. Here the content is ordinary inline flow and can
+   hold anything. */
+.checklist{list-style:none;padding:0}
+.checklist li{
+  position:relative;
+  padding:.45rem 0 .45rem 2rem;
+  border-bottom:1px solid var(--rule-soft);
+}
+.checklist li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:calc(.45rem + .35em);
+  width:.9rem;height:.9rem;
+  border:1.5px solid var(--ink-soft);
+  border-radius:1px;
+}
+
+
+/* ---------- 9. Footer, motion, print ---------------------- */
+
+footer{
+  border-top:1px solid var(--rule);
+  padding-top:1.2rem;
+  font-family:var(--f-label);
+  font-size:.8rem;
+  color:var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;animation:none !important}
+}
+
+@media print{
+  :root{--paper:#fff;--sheet:#fff}
+  body{font-size:10.5pt}
+  .jump,.controls{display:none}
+  details.sol,.card{break-inside:avoid;border-color:#666}
+  h2,h3{break-after:avoid}
+}

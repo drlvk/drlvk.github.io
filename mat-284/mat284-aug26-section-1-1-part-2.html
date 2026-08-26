@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Aug 26 &mdash; Linear inequalities and applications</title>
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, August 26</p>
+  <h1>Linear inequalities and applications</h1>
+  <p class="standfirst">Section 1.1, part 2. Solving inequalities the same way as equations &mdash; with one rule that is not the same &mdash; then translating revenue, cost, and profit problems into equations and inequalities.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#rules">Rules for solving</a>
+  <a href="#simple">Two worked inequalities</a>
+  <a href="#compound">Compound inequalities</a>
+  <a href="#translate">Translating word problems</a>
+  <a href="#profit">Building a profit formula</a>
+  <a href="#wordineq">Inequalities in word problems</a>
+  <a href="#next">Before next class</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">This week</p>
+    <ul>
+      <li>Today's two <strong>Concept Check Questions</strong> are due on Blackboard by the end of the day.</li>
+      <li><strong>Thursday, Aug 27</strong> recitation: the <strong>Readiness Test</strong>, not a quiz. Diagnostic only &mdash; it does not count toward your grade.</li>
+      <li><strong>Friday, Aug 28</strong>: section 1.1 part 3, more applications of linear equations and inequalities.</li>
+      <li>WeBWorK for 1.1: <strong>Aug 31</strong> for extra credit, <strong>Sep 3</strong> for regular credit. The early submissions score 153% instead of 100%, so the extra credit is worth real points.</li>
+      <li><strong>Monday, Aug 31</strong>: section A.7, quadratic equations &mdash; that is why WeBWorK shows a set named A.7.</li>
+      <li>First quiz is <strong>Thursday, Sep 3</strong> in recitation, on this week's material.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">Also Aug 31</p>
+    <p>The Add/Swap deadline. If you are still deciding on your recitation section, note that switching is only possible through MySlice.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="rules">
+  <h2><span class="marker">Method</span>Rules for solving a linear inequality</h2>
+
+  <p>Last time we solved linear equations such as \(5x + 3 = 7(x - 3)\). A linear inequality looks exactly the same, except that in place of \(=\) it carries one of four signs.</p>
+
+  <div class="card">
+    <p class="card-label">The four signs</p>
+    <ul class="keys">
+      <li>\(&gt;\) &nbsp; greater than</li>
+      <li>\(&lt;\) &nbsp; less than</li>
+      <li>\(\ge\) &nbsp; greater than or equal (equality allowed)</li>
+      <li>\(\le\) &nbsp; less than or equal (equality allowed)</li>
+    </ul>
+  </div>
+
+  <p>You solve one the same way as an equation: gather all the unknown terms on one side. The moves available to you are these.</p>
+
+  <ul>
+    <li>Add or subtract the same quantity on both sides.</li>
+    <li>Multiply or divide both sides by the same number &mdash; but if that number is <strong>negative</strong>, the inequality sign changes direction.</li>
+  </ul>
+
+  <div class="note">
+    <p class="card-label">The one rule that differs from equations</p>
+    <p>Start from \(3 &lt; 5\), which is true.</p>
+    <p>Multiply both sides by \(4\), a positive number: \(12 &lt; 20\). The sign stays \(&lt;\).</p>
+    <p>Multiply both sides by \(-2\): the correct statement is \(-6 &gt; -10\), <em>not</em> &ldquo;\(-6 &lt; -10\).&rdquo; Multiplying by a negative flips the sign.</p>
+  </div>
+</section>
+
+<section id="simple">
+  <h2><span class="marker">Worked example</span>Two inequalities</h2>
+
+  <div class="problem">
+    <p>Solve \(-20x &lt; 100\) and express the answer as an interval.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Divide by &minus;20</span><span class="work">\[\frac{-20x}{-20} \;\;\boldsymbol{&gt;}\;\; \frac{100}{-20}\]</span></li>
+        <li><span class="step">Flip</span><span class="work">\(-20\) is negative, so \(&lt;\) becomes \(&gt;\)</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[x &gt; -5\]</span></li>
+        <li><span class="step">Interval</span><span class="work">Everything to the right of \(-5\), endpoint excluded: \((-5, \infty)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(&minus;5, &infin;)</p>
+      <p>Check one value: \(x = 0\) gives \(0 &lt; 100\). &check; And \(x = -10\) gives \(200 &lt; 100\), which is false &mdash; so the solution really is the right-hand side.</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Solve \(10(3x - 40) \ge 50 + 10x\) and express the answer as an interval.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Distribute</span><span class="work">\[30x - 400 \ge 50 + 10x\]</span></li>
+        <li><span class="step">&minus;10x, +400</span><span class="work">\[30x - 10x \ge 50 + 400\]</span></li>
+        <li><span class="step">Combine</span><span class="work">\[20x \ge 450\]</span></li>
+        <li><span class="step">Divide by 20</span><span class="work">\[x \ge \frac{450}{20} = 22.5\]</span></li>
+        <li><span class="step">Interval</span><span class="work">\(20\) is positive, so the sign does not move. Endpoint included: \([22.5, \infty)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>[22.5, &infin;)</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Where the bracket comes from</p>
+    <p>Nothing about the interval is a separate decision. A strict sign gives a parenthesis, a non-strict sign gives a square bracket, and infinity always gets a parenthesis. Read the bracket straight off the final inequality.</p>
+  </div>
+</section>
+
+<section id="compound">
+  <h2><span class="marker">Method</span>Compound inequalities</h2>
+
+  <p>A <strong>double</strong> or <strong>compound</strong> inequality packs two inequalities into one line. For example</p>
+
+  \[-2 \le 3x + 1 &lt; 10\]
+
+  <p>combines two statements about \(3x + 1\): that it is at least \(-2\), and that it is below \(10\). You can solve them one at a time, or handle both at once by doing the same thing to all three parts.</p>
+
+  <div class="problem">
+    <p>Solve \(-2 \le 3x + 1 &lt; 10\) and express the answer as an interval.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Subtract 1</span><span class="work">\[-2 - 1 \le 3x + 1 - 1 &lt; 10 - 1\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[-3 \le 3x &lt; 9\]</span></li>
+        <li><span class="step">Divide all by 3</span><span class="work">\[-1 \le x &lt; 3\]</span></li>
+        <li><span class="step">Interval</span><span class="work">\(-1\) included, \(3\) excluded: \([-1, 3)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>[&minus;1, 3)</p>
+    </div>
+  </details>
+
+  <h3>Poll question from class</h3>
+  <div class="problem">
+    <p>Solve \(3 &lt; 5 - 2x \le 10\) and express the answer as an interval.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Subtract 5</span><span class="work">\[3 - 5 &lt; -2x \le 10 - 5\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[-2 &lt; -2x \le 5\]</span></li>
+        <li><span class="step">Divide by &minus;2</span><span class="work">both signs flip: \[1 &gt; x \ge -2.5\]</span></li>
+        <li><span class="step">Rewrite</span><span class="work">read it left to right, smallest first: \[-2.5 \le x &lt; 1\]</span></li>
+        <li><span class="step">Interval</span><span class="work">\([-2.5,\ 1)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>[&minus;2.5, 1)</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Watch out</p>
+    <p>When you divide a compound inequality by a negative number, <strong>both</strong> signs flip and the whole line reverses. After that, rewrite it with the smaller number on the left before reading off the interval &mdash; otherwise it is easy to write \((1, -2.5]\), which describes nothing.</p>
+    <p>Notice also which endpoint kept which bracket. The \(-2.5\) came from the \(\le\), so it stays included; the \(1\) came from the \(&lt;\), so it stays excluded. Reversing the line does not change that.</p>
+  </div>
+</section>
+
+<section id="translate">
+  <h2><span class="marker">Method</span>Translating word problems to math</h2>
+
+  <p>Many word problems in this course become a linear equation or inequality that you then solve. The translation step is usually the hard part, and it is where most of the points are.</p>
+
+  <p>This being business calculus, the problems tend to involve <strong>revenue</strong>, <strong>cost</strong>, and <strong>profit</strong>. Four relations connect them.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>profit \(=\) (total revenue) \(-\) (total cost)</li>
+      <li>(total revenue) \(=\) (price per unit) \(\cdot\) (number of units sold)</li>
+      <li>(total cost) \(=\) (fixed cost) \(+\) (variable cost)</li>
+      <li>(variable cost) \(=\) (cost per unit) \(\cdot\) (number of units produced)</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Fill in the blanks.</p>
+    <p>To <strong>break even</strong> means Revenue ___ Total Cost.</p>
+    <p>To <strong>make a profit</strong> means Revenue ___ Total Cost.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Break even</span><span class="work">Revenue \(=\) Total Cost (profit is exactly zero)</span></li>
+        <li><span class="step">Make a profit</span><span class="work">Revenue \(&gt;\) Total Cost (profit is strictly greater than zero)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>= for break even, &gt; for profit</p>
+    </div>
+  </details>
+
+  <p>So the recipe is: identify the business terms in the problem, recall the relation between them, then replace each term with a number, a formula, or a letter standing for an unknown.</p>
+
+  <p>The textbook writes \(p\) for price and \(x\) for the number of units, though \(x\) also gets used for other unknowns. Whatever letter you pick, say in words what it stands for before you use it.</p>
+</section>
+
+<section id="profit">
+  <h2><span class="marker">Worked example</span>Building a profit formula</h2>
+
+  <div class="problem">
+    <p>Fixed cost is $100,000, variable cost is $15 per unit, and the selling price is $25. Express the profit in terms of \(x\), the number of units sold.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Revenue</span><span class="work">\[\text{revenue} = 25x\]</span></li>
+        <li><span class="step">Total cost</span><span class="work">\[\text{total cost} = 100000 + 15x\]</span></li>
+        <li><span class="step">Profit</span><span class="work">\[\text{profit} = 25x - (100000 + 15x)\]</span></li>
+        <li><span class="step">Expand</span><span class="work">\[= 25x - 100000 - 15x\]</span></li>
+        <li><span class="step">Combine</span><span class="work">\[\text{profit} = 10x - 100000\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Formula</span>profit = 10x &minus; 100000</p>
+      <p>The minus sign in front of the parenthesis hits <em>both</em> terms inside it. Dropping it on the \(15x\) is the most common error here.</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>How many units must be sold to reach a profit of $50,000?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Goal</span><span class="work">\[\text{profit} = 50000\]</span></li>
+        <li><span class="step">Substitute</span><span class="work">put the formula for profit in: \[10x - 100000 = 50000\]</span></li>
+        <li><span class="step">Add 100000</span><span class="work">\[10x = 150000\]</span></li>
+        <li><span class="step">Divide by 10</span><span class="work">\[x = 15000\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>15,000 units</p>
+    </div>
+  </details>
+</section>
+
+<section id="wordineq">
+  <h2><span class="marker">Method</span>Inequalities in word problems</h2>
+
+  <p>You get an inequality rather than an equation when the stated goal is to <em>make a profit</em> &mdash; that is, profit \(&gt; 0\) &mdash; or when the words <strong>at most</strong>, <strong>at least</strong>, <strong>more</strong>, or <strong>less</strong> appear.</p>
+
+  <div class="note">
+    <p class="card-label">Strict vs. non-strict, when the answer must be a whole number</p>
+    <p>The smallest \(x\) satisfying \(5x \ge 150\) is \(x = 30\).</p>
+    <p>But if the requirement is \(5x &gt; 150\), then \(x &gt; 30\), and 30 itself is not allowed. If \(x\) must be a whole number, the smallest one is \(31\).</p>
+  </div>
+
+  <div class="problem">
+    <p>Your business has fixed cost $100,000, variable cost $15 per unit, and each unit sells for $25.</p>
+    <p><strong>a)</strong> How many units &mdash; a whole number &mdash; must be produced and sold to make a profit?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Recall</span><span class="work">from the previous section, \(\text{profit} = 10x - 100000\)</span></li>
+        <li><span class="step">Goal</span><span class="work">&ldquo;make a profit&rdquo; means \(\text{profit} &gt; 0\)</span></li>
+        <li><span class="step">Inequality</span><span class="work">\[10x - 100000 &gt; 0\]</span></li>
+        <li><span class="step">Add 100000</span><span class="work">\[10x &gt; 100000\]</span></li>
+        <li><span class="step">Divide by 10</span><span class="work">\[x &gt; 10000\]</span></li>
+        <li><span class="step">Whole number</span><span class="work">\(x = 10000\) gives profit exactly \(0\), which is breaking even, not a profit</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>10,001 units</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>b)</strong> How many units must be produced and sold for the profit to be at least $20,000?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Goal</span><span class="work">&ldquo;at least&rdquo; is non-strict: \(\text{profit} \ge 20000\)</span></li>
+        <li><span class="step">Inequality</span><span class="work">\[10x - 100000 \ge 20000\]</span></li>
+        <li><span class="step">Add 100000</span><span class="work">\[10x \ge 120000\]</span></li>
+        <li><span class="step">Divide by 10</span><span class="work">\[x \ge 12000\]</span></li>
+        <li><span class="step">Whole number</span><span class="work">\(12000\) is allowed here, because \(\ge\) includes equality</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>12,000 units</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Compare (a) and (b)</p>
+    <p>The algebra is identical; only the sign differs. In (a) the boundary value 10,000 is excluded, so the answer is 10,001. In (b) the boundary value 12,000 is included, so the answer is 12,000. Reading &ldquo;make a profit&rdquo; as \(\ge\) would cost you the point.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before next class</h2>
+  <ul class="checklist">
+    <li>Answer today's two Concept Check Questions on Blackboard &mdash; due <strong>tonight</strong>.</li>
+    <li>Write the four revenue/cost/profit relations from memory, without looking.</li>
+    <li>Work the WeBWorK for 1.1. Extra credit closes <strong>Aug 31</strong>.</li>
+    <li>Redo \(-20x &lt; 100\) and \(3 &lt; 5 - 2x \le 10\) with the solutions hidden, and say out loud why the sign flips.</li>
+    <li>For each word problem above, hide the solution and write only the setup line.</li>
+    <li>Thursday's recitation is the Readiness Test. Nothing to study for &mdash; but if it goes badly, Appendix A of the textbook is the algebra review to work through.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 1.1 part 2 &middot; August 26</p>
+</footer>
+
+</div>
+</body>
+</html>
