@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MAT 284 lecture notes">
+  <title>MAT 284 lecture notes</title>
+  <style>
+    .bg{fill:#eef1ed}
+    .mk{fill:none;stroke:#8f1a12;stroke-width:7.31;stroke-linecap:round}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#18211c}
+      .mk{stroke:#ff9d92}
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="9"/>
+  <path class="mk" d="M44.00 18.95 C44.32 8.83 34.71 6.53 33.88 16.87 C32.83 27.83 31.17 36.70 30.12 47.13 C29.29 57.47 19.68 55.17 20.00 45.05"/>
+</svg>
