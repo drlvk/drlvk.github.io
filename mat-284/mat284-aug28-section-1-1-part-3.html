@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Aug 28 &mdash; More applications of linear equations and inequalities</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, August 28</p>
+  <h1>More applications of linear equations and inequalities</h1>
+  <p class="standfirst">Section 1.1, part 3. Percentages, then the two word-problem patterns that carry most of the section: a percentage taken of the wrong quantity, and an amount split between two options.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#percent">Percentages</a>
+  <a href="#price">Profit as a percent of price</a>
+  <a href="#spoilage">When not every unit sells</a>
+  <a href="#commission">Base salary plus commission</a>
+  <a href="#allocation">Allocation problems</a>
+  <a href="#investment">Splitting an investment</a>
+  <a href="#tickets">Concert tickets</a>
+  <a href="#next">Before next class</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>There is a <strong>Concept Check</strong> after every class, due the same day. Complete the Concept Check for Friday by the end of the day.</li>
+      <li>Two ways to find the current one on Blackboard: open the <strong>Concept Check</strong> folder, or go to <strong>Calendar &rarr; Due Dates</strong> and click the item listed under today.</li>
+      <li>The three WeBWorK sets for 1.1 should be finished by the end of <strong>Monday, Aug 31</strong> for extra credit, and by the end of <strong>Thursday, Sep 3</strong> for regular credit.</li>
+      <li>There is a quiz in recitation on <strong>Thursday, Sep 3</strong>, covering section 1.1.</li>
+      <li><strong>Monday, Aug 31</strong>: section A.7, quadratic equations.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">Also Aug 31</p>
+    <p>The Add/Swap deadline. Recitation sections can only be changed through MySlice.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="percent">
+  <h2><span class="marker">Tool</span>Percentages</h2>
+
+  <p>Read the percent sign as &ldquo;divided by 100.&rdquo; That single reading handles every percentage problem in this course.</p>
+
+  <p>So 35% of a quantity \(x\) is</p>
+  \[\frac{35}{100}\cdot x\]
+
+  <p>For instance, 35% of 40 is \(\frac{35}{100}\cdot 40 = 14\).</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\(x\) <strong>increased by</strong> 35% is \(\;x + \frac{35}{100}x = \left(1 + \frac{35}{100}\right)x = 1.35x\)</li>
+      <li>\(x\) <strong>reduced by</strong> 35% is \(\;x - \frac{35}{100}x = \left(1 - \frac{35}{100}\right)x = 0.65x\)</li>
+    </ul>
+  </div>
+
+  <p>Factoring out the \(x\) is what turns a two-term expression into a single multiplier. Once you have \(1.35x\) or \(0.65x\), the rest of the problem is ordinary algebra.</p>
+</section>
+
+<section id="price">
+  <h2><span class="marker">Worked example</span>Profit as a percent of price</h2>
+
+  <p>Careful with this one. It is very easy to get wrong, because the percentage is taken of a quantity you do not know yet.</p>
+
+  <div class="problem">
+    <p>Each unit costs you $200 to make. You want the profit to be 50% of the selling price. What should the price be?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Let</span><span class="work">\(x =\) the selling price of one unit, in dollars</span></li>
+        <li><span class="step">Profit</span><span class="work">\[\text{profit} = x - 200\]</span></li>
+        <li><span class="step">Goal</span><span class="work">\[\text{profit} = \frac{50}{100}\cdot \text{price}\]</span></li>
+        <li><span class="step">Equation</span><span class="work">\[x - 200 = \frac{50}{100}\cdot x = 0.5x\]</span></li>
+        <li><span class="step">Collect</span><span class="work">\[(1 - 0.5)x = 200\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[0.5x = 200\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x = \frac{200}{0.5} = 400\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>$400 per unit</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Why this one is a trap</p>
+    <p>The 50% is 50% <em>of the price</em>, and the price is the unknown. So the percentage lands on the same letter you are solving for, and both occurrences of \(x\) have to be collected on one side. The wrong reading is to take 50% of the cost, which gives a $300 price and a profit of only $100.</p>
+    <p>Check: at a price of $400 the profit is \(400 - 200 = 200\), which is indeed half of $400.</p>
+  </div>
+</section>
+
+<section id="spoilage">
+  <h2><span class="marker">Worked example</span>When not every unit sells</h2>
+
+  <div class="problem">
+    <p>Your company has fixed cost $90,000, variable cost $8 per unit, and a selling price of $20. But not every unit sells: 10% of the product ends up expired, damaged, or stolen.</p>
+    <p>How many units must be produced so that the profit is at least $25,000?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>The plan for any problem of this kind: state the business relations, then fill them in with formulas.</p>
+      <ol class="ledger">
+        <li><span class="step">Goal</span><span class="work">&ldquo;at least&rdquo; is non-strict: \[\text{profit} \ge 25000\]</span></li>
+        <li><span class="step">Need</span><span class="work">a formula for profit \(=\) revenue \(-\) (total cost)</span></li>
+        <li><span class="step">Let</span><span class="work">\(x =\) the number of units <em>made</em></span></li>
+        <li><span class="step">Total cost</span><span class="work">every unit made costs money: \[\text{total cost} = 90000 + 8x\]</span></li>
+        <li><span class="step">Quantity sold</span><span class="work">only 90% of them sell: \(\left(1 - \frac{10}{100}\right)x = 0.9x\)</span></li>
+        <li><span class="step">Revenue</span><span class="work">\[\text{revenue} = 20 \cdot 0.9x = 18x\]</span></li>
+        <li><span class="step">Profit</span><span class="work">\[\text{profit} = 18x - (90000 + 8x) = 10x - 90000\]</span></li>
+        <li><span class="step">Inequality</span><span class="work">\[10x - 90000 \ge 25000\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[10x \ge 115000 \quad\Longrightarrow\quad x \ge 11500\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>11,500 units produced</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Which formula the 10% touches</p>
+    <p>Spoilage changes the <strong>revenue</strong> formula and leaves the <strong>cost</strong> formula alone. You paid to make all \(x\) units; you only get paid for \(0.9x\) of them. Applying the 10% to the cost as well is the standard way to lose this problem.</p>
+    <p>Note also what the answer counts. \(x\) was defined as units made, so 11,500 is units produced, not units sold.</p>
+  </div>
+</section>
+
+<section id="commission">
+  <h2><span class="marker">Worked example</span>Base salary plus commission</h2>
+
+  <p>This one looks like a percentage problem, but more is going on. Careful reading is what makes the translation accurate.</p>
+
+  <div class="problem">
+    <p>An employee of a computer store is paid a base salary of $2,000 a month plus an 8% commission on all sales over $7,000 during the month. How much must the employee sell in one month to earn a total of $4,000?</p>
+    <p><em>This was the Poll Everywhere question.</em></p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Let \(x\) be the sales volume in dollars. We want to find it from the relation monthly income \(= 4000\). The base salary alone is not enough, so there has to be some commission income, which means \(x &gt; 7000\).</p>
+      <p>The key step is expressing the income in terms of \(x\). The commission is 8% <em>of sales over $7,000</em>, so the quantity being multiplied is \(x - 7000\).</p>
+      <ol class="ledger">
+        <li><span class="step">Commission</span><span class="work">\[\frac{8}{100}\cdot(x - 7000) = 0.08(x - 7000)\]</span></li>
+        <li><span class="step">Income</span><span class="work">\[\text{income} = 2000 + 0.08(x - 7000)\]</span></li>
+        <li><span class="step">Equation</span><span class="work">\[2000 + 0.08(x - 7000) = 4000\]</span></li>
+        <li><span class="step">Subtract 2000</span><span class="work">\[0.08(x - 7000) = 2000\]</span></li>
+        <li><span class="step">Divide by 0.08</span><span class="work">\[x - 7000 = \frac{2000}{0.08} = 25000\]</span></li>
+        <li><span class="step">Add 7000</span><span class="work">\[x = 32000\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>$32,000 in sales</p>
+      <p>Check: sales above $7,000 come to $25,000, and 8% of that is $2,000. Base plus commission is $4,000, and \(32000 &gt; 7000\) as required.</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Watch out</p>
+    <p>The commission is not 8% of sales. Writing \(0.08x\) instead of \(0.08(x - 7000)\) gives $25,000, which is wrong. The phrase &ldquo;on all sales over $7,000&rdquo; is doing real work in that sentence.</p>
+    <p>Notice too that dividing by \(0.08\) before expanding the parenthesis saves a line of algebra.</p>
+  </div>
+</section>
+
+<section id="allocation">
+  <h2><span class="marker">Method</span>Allocation problems</h2>
+
+  <p>Sometimes the job is to decide how to split a given amount between two options. These all follow one recipe.</p>
+
+  <div class="card">
+    <p class="card-label">How to approach such problems</p>
+    <ol>
+      <li>Introduce two variables, one for each option.</li>
+      <li>Translate the statement into an equation or inequality with these variables.</li>
+      <li>Find a relationship between the two variables and use it to eliminate one of them.</li>
+      <li>Solve the equation or inequality for the remaining variable.</li>
+    </ol>
+  </div>
+
+  <div class="problem">
+    <p>A company produces coffee makers. The labor cost of assembling one coffee maker during regular business hours is $2.55. If the work is done in overtime, the labor cost is $4.55 per unit.</p>
+    <p>The company must produce 580 coffee makers this week, and does not want to spend more than $1,719 in labor costs. What is the smallest number of units that must be assembled during the regular hours?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Two variables</span><span class="work">\(x =\) units made in regular time, \(y =\) units made in overtime</span></li>
+        <li><span class="step">Labor cost</span><span class="work">\[2.55x + 4.55y\]</span></li>
+        <li><span class="step">Want</span><span class="work">&ldquo;not more than&rdquo; is non-strict: \[2.55x + 4.55y \le 1719\]</span></li>
+        <li><span class="step">Relation</span><span class="work">\[x + y = 580 \quad\Longrightarrow\quad y = 580 - x\]</span></li>
+        <li><span class="step">Substitute</span><span class="work">\[2.55x + 4.55(580 - x) \le 1719\]</span></li>
+        <li><span class="step">Expand</span><span class="work">\[2.55x + 2639 - 4.55x \le 1719\]</span></li>
+        <li><span class="step">Collect</span><span class="work">\[-2x \le -920\]</span></li>
+        <li><span class="step">Divide by &minus;2</span><span class="work">the sign flips: \[x \ge 460\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>460 units in regular hours</p>
+      <p>Check: 460 regular units and 120 overtime units cost \(460(2.55) + 120(4.55) = 1173 + 546 = 1719\), exactly the limit.</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Two things to notice</p>
+    <p>Dividing both sides by a <strong>negative</strong> number flips the inequality. This is where most of the lost points on this problem come from.</p>
+    <p>The answer is a floor rather than a ceiling, and that is the right shape. More regular hours means less spending, so the budget forces \(x\) to be large, not small. If your answer had come out as \(x \le 460\), the sign flip went missing.</p>
+  </div>
+</section>
+
+<section id="investment">
+  <h2><span class="marker">Worked example</span>Splitting an investment</h2>
+
+  <p>This one has percentages <em>and</em> a split between two options, so both tools from today appear at once.</p>
+
+  <div class="problem">
+    <p>Suppose you have $500,000 to invest. Fund A pays 5.2% annually; Fund B pays 7.7% annually, though it is riskier. How should you divide your money between Fund A and Fund B to produce an annual interest income of $34,000?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Two variables</span><span class="work">\(x =\) money in Fund A, \(y =\) money in Fund B, both in dollars</span></li>
+        <li><span class="step">Want</span><span class="work">\[\frac{5.2}{100}x + \frac{7.7}{100}y = 34000\]</span></li>
+        <li><span class="step">Relation</span><span class="work">\[x + y = 500000 \quad\Longrightarrow\quad y = 500000 - x\]</span></li>
+        <li><span class="step">Substitute</span><span class="work">\[0.052x + 0.077(500000 - x) = 34000\]</span></li>
+        <li><span class="step">Expand</span><span class="work">\[0.052x + 38500 - 0.077x = 34000\]</span></li>
+        <li><span class="step">Collect</span><span class="work">\[-0.025x = -4500\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x = \frac{-4500}{-0.025} = 180000\]</span></li>
+        <li><span class="step">Find y</span><span class="work">\[y = 500000 - 180000 = 320000\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>$180,000 in Fund A and $320,000 in Fund B</p>
+      <p>Check: \(0.052(180000) = 9360\) and \(0.077(320000) = 24640\), and \(9360 + 24640 = 34000\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Finish the job</p>
+    <p>After you solve for \(x\), go back and find \(y\) as well. The question asks how to divide the money, so a complete answer names both amounts. Stopping at \(x = 180000\) answers half the question.</p>
+    <p>A quick sanity check on the answer: 5.2% of the whole $500,000 would be $26,000 and 7.7% would be $38,500. The target of $34,000 sits between them, closer to the top, so most of the money should be in Fund B. It is.</p>
+  </div>
+</section>
+
+<section id="tickets">
+  <h2><span class="marker">Worked example</span>Concert tickets</h2>
+
+  <div class="problem">
+    <p>What type of problem is this?</p>
+    <p>A concert brought in $129,000 from the sale of 3,800 tickets. If the tickets sold for $30 and $40 each, how many of each type of ticket were sold?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>It is an <strong>allocation problem</strong>. Nothing about tickets makes it different from the coffee makers or the two funds: a fixed total is split between two options with different unit values.</p>
+      <ol class="ledger">
+        <li><span class="step">Two variables</span><span class="work">\(x =\) tickets sold at $30, \(y =\) tickets sold at $40</span></li>
+        <li><span class="step">Total sales</span><span class="work">\[30x + 40y = 129000\]</span></li>
+        <li><span class="step">Relation</span><span class="work">\[x + y = 3800 \quad\Longrightarrow\quad y = 3800 - x\]</span></li>
+        <li><span class="step">Substitute</span><span class="work">\[30x + 40(3800 - x) = 129000\]</span></li>
+        <li><span class="step">Expand</span><span class="work">\[30x + 152000 - 40x = 129000\]</span></li>
+        <li><span class="step">Collect</span><span class="work">\[-10x = -23000\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x = 2300\]</span></li>
+        <li><span class="step">Find y</span><span class="work">\[y = 3800 - 2300 = 1500\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>2,300 tickets at $30 and 1,500 at $40</p>
+      <p>Check: \(2300 + 1500 = 3800\) tickets, and \(30(2300) + 40(1500) = 69000 + 60000 = 129000\). &check;</p>
+    </div>
+  </details>
+
+  <div class="card">
+    <p class="card-label">The pattern behind the last three</p>
+    <ul class="keys">
+      <li>Coffee makers: 580 units split between $2.55 and $4.55 labor</li>
+      <li>Investment: $500,000 split between 5.2% and 7.7% returns</li>
+      <li>Tickets: 3,800 tickets split between $30 and $40 prices</li>
+    </ul>
+    <p>One fixed total, two options, two different rates. Name both parts, write the rate equation, use the total to eliminate one variable.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before next class</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Friday by the end of the day. It is in the Concept Check folder on Blackboard, or under Calendar and then Due Dates.</li>
+    <li>Finish the three WeBWorK sets for 1.1. Extra credit closes at the end of <strong>Monday, Aug 31</strong>.</li>
+    <li>Redo the $200 price problem and the commission problem with the solutions hidden. Both turn on taking the percentage of the right quantity.</li>
+    <li>The quiz on <strong>Thursday, Sep 3</strong> covers all of section 1.1, so review the Aug 24 and Aug 26 notes as well.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 1.1 part 3 &middot; August 28</p>
+</footer>
+
+</div>
+</body>
+</html>
