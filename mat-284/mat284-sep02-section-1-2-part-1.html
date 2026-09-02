@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Sep 2 &mdash; Graphs and lines</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, September 2</p>
+  <h1>Graphs and lines</h1>
+  <p class="standfirst">Section 1.2, part 1. Coordinates, then everything about a line: how to draw one from two points, what its slope measures, and the three forms of its equation.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#coords">The coordinate system</a>
+  <a href="#graphs">Graphs and intercepts</a>
+  <a href="#slope">Slope</a>
+  <a href="#pointslope">Point-slope form</a>
+  <a href="#slopeint">Slope-intercept form</a>
+  <a href="#parallel">Parallel lines</a>
+  <a href="#next">Before next class</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>Complete the <strong>Concept Check</strong> for Wednesday by the end of the day.</li>
+      <li><strong>Quiz 1</strong> is tomorrow, <strong>Thursday, Sep 3</strong>, in recitation. It covers section 1.1: two problems, both similar to WeBWorK problems.</li>
+      <li>The WeBWorK sets for 1.1 close for regular credit at the end of <strong>Thursday, Sep 3</strong>.</li>
+      <li><strong>Friday, Sep 4</strong>: section 1.2 part 2, applications of graphs and lines.</li>
+      <li>No class <strong>Monday, Sep 7</strong> (Labor Day).</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">Coming up Sep 14</p>
+    <p>The academic drop deadline, which is also the textbook opt-out deadline for Orange Instant Access. If you plan to get the book elsewhere, decide before then.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="coords">
+  <h2><span class="marker">Definition</span>The coordinate system</h2>
+
+  <p>The rectangular <strong>coordinate system</strong> is two axes, one horizontal and one vertical. Usually the horizontal one is labeled \(x\) and the vertical one \(y\), but other letters appear. In this course the vertical axis will often be marked \(p\), for price.</p>
+
+  <p>Every point of the plane is a pair of numbers \((x, y)\), its <strong>coordinates</strong>. They say how far to move from the <strong>origin</strong> \((0,0)\): first in the horizontal direction, then in the vertical one. Negative coordinates mean moving the other way, left or down.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 380 270" role="img" aria-label="Coordinate plane with the origin, the point 5 comma 2, and the point negative 4 comma negative 3 marked">
+      <path class="grid" d="M10 131V139 M30 131V139 M50 131V139 M70 131V139 M90 131V139 M110 131V139 M130 131V139 M150 131V139 M190 131V139 M210 131V139 M230 131V139 M250 131V139 M270 131V139 M290 131V139 M310 131V139 M330 131V139 M350 131V139 M370 131V139 M166 255H174 M166 235H174 M166 215H174 M166 195H174 M166 175H174 M166 155H174 M166 115H174 M166 95H174 M166 75H174 M166 55H174 M166 35H174 M166 15H174"/>
+      <path class="axis" d="M12 135H364 M170 258V16"/>
+      <path class="mark" d="M364 135l-8 -4.5v9z M170 16l-4.5 8h9z"/>
+      <text class="label" x="366" y="153">x</text>
+      <text class="label" x="179" y="24">y</text>
+      <path class="helper" d="M170 95H270 M270 135V95"/>
+      <text class="label-soft" x="212" y="129">5 across</text>
+      <text class="label-soft" x="277" y="117">2 up</text>
+      <circle class="dot" cx="270" cy="95" r="4.2"/>
+      <text class="label-key" x="280" y="86">(5, 2)</text>
+      <circle class="dot" cx="90" cy="195" r="4.2"/>
+      <text class="label-key" x="18" y="215">(&minus;4, &minus;3)</text>
+      <circle class="dot" cx="170" cy="135" r="4.2"/>
+      <text class="label-key" x="118" y="156">(0, 0)</text>
+    </svg>
+    <figcaption>Reading a point: from the origin, go across, then up. Negative coordinates go left and down.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="card-label">Two facts to keep</p>
+    <ul class="keys">
+      <li>\(x = 0\) exactly when the point is on the \(y\)-axis</li>
+      <li>\(y = 0\) exactly when the point is on the \(x\)-axis</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <p class="card-label">The order matters</p>
+    <p>\((5, 2)\) and \((2, 5)\) are different points. The first number is always the horizontal one.</p>
+  </div>
+</section>
+
+<section id="graphs">
+  <h2><span class="marker">Method</span>Graphs and intercepts</h2>
+
+  <p>The coordinate system lets us graph any equation relating two variables, such as</p>
+
+  \[x^2 + y^7 = \frac{50}{3x + 4y}\]
+
+  <p>The <strong>graph</strong> is all the points whose coordinates satisfy the equation. For instance \((2, 1)\) satisfies this one, since \(2^2 + 1^7 = 5\) and \(\frac{50}{6 + 4} = 5\), so \((2,1)\) is part of the graph.</p>
+
+  <p>But that equation is far too complicated to work with. We focus instead on <strong>linear equations</strong>, which look like</p>
+
+  \[Ax + By = C\]
+
+  <p>for some constants \(A\), \(B\), \(C\). This is the <strong>standard form</strong> of a linear equation.</p>
+
+  <p>As the name suggests, the graph of a linear equation is a line. So we can draw it by finding just <em>two</em> points that satisfy the equation and connecting them. The easiest two to find are usually the <strong>intercepts</strong>.</p>
+
+  <div class="card">
+    <p class="card-label">Finding the intercepts</p>
+    <ul class="keys">
+      <li>The \(y\)-<strong>intercept</strong> is where the graph crosses the \(y\)-axis. Plug in \(x = 0\) and solve for \(y\).</li>
+      <li>The \(x\)-<strong>intercept</strong> is where the graph crosses the \(x\)-axis. Plug in \(y = 0\) and solve for \(x\).</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Graph \(12x + 5y = 30\) by finding its intercepts.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Set x = 0</span><span class="work">\[5y = 30 \quad\Longrightarrow\quad y = 6\]</span></li>
+        <li><span class="step">y-intercept</span><span class="work">the point \((0, 6)\)</span></li>
+        <li><span class="step">Set y = 0</span><span class="work">\[12x = 30 \quad\Longrightarrow\quad x = 2.5\]</span></li>
+        <li><span class="step">x-intercept</span><span class="work">the point \((2.5, 0)\)</span></li>
+        <li><span class="step">Draw</span><span class="work">plot both points and connect them</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>the line through (0, 6) and (2.5, 0)</p>
+
+      <figure class="fig fig-narrow">
+        <svg viewBox="0 0 214 316" role="img" aria-label="The line 12x plus 5y equals 30 drawn through its two intercepts, 0 comma 6 on the y axis and 2.5 comma 0 on the x axis">
+          <path class="grid" d="M32 241V249 M92 241V249 M122 241V249 M152 241V249 M182 241V249 M58 275H66 M58 215H66 M58 185H66 M58 155H66 M58 125H66 M58 95H66 M58 65H66 M58 35H66"/>
+          <path class="axis" d="M8 245H192 M62 308V12"/>
+          <text class="label" x="198" y="262">x</text>
+          <text class="label" x="71" y="20">y</text>
+          <path class="curve" d="M47 29L155.8 290"/>
+          <circle class="dot" cx="62" cy="65" r="4.5"/>
+          <text class="label-key" x="73" y="57">(0, 6)</text>
+          <circle class="dot" cx="137" cy="245" r="4.5"/>
+          <text class="label-key" x="85" y="267">(2.5, 0)</text>
+          <text class="label-soft" x="89" y="262">1</text>
+          <text class="label-soft" x="45" y="189">2</text>
+        </svg>
+        <figcaption>Two points are enough. Any third point you compute is only a check.</figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <h3>When only one intercept exists</h3>
+  <p>There are exceptional cases where only one variable is present, so only one intercept is available.</p>
+
+  <div class="problem">
+    <p>Graph \(3y = 6\) and \(2x = -5\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">First one</span><span class="work">no \(x\) appears, so \(y = 2\) no matter what \(x\) is: a <strong>horizontal</strong> line through \((0,2)\)</span></li>
+        <li><span class="step">Second one</span><span class="work">no \(y\) appears, so \(x = -2.5\) no matter what \(y\) is: a <strong>vertical</strong> line through \((-2.5, 0)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y = 2 is horizontal; x = &minus;2.5 is vertical</p>
+      <p>Trying to find the missing intercept of \(y = 2\) means solving \(2 = 0\), which has no solution. That is the algebra telling you the line never crosses that axis.</p>
+    </div>
+  </details>
+</section>
+
+<section id="slope">
+  <h2><span class="marker">Definition</span>Slope</h2>
+
+  <p>The <strong>slope</strong> of a line measures how steep it is. It can be computed from any two points on the line.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\[m = \frac{\text{difference of } y \text{ coordinates}}{\text{difference of } x \text{ coordinates}} = \frac{\text{vertical change}}{\text{horizontal change}}\]</li>
+    </ul>
+  </div>
+
+  <p>This is the <em>divided differences</em> formula. Whichever point you call first, be consistent: the same order on top and on the bottom.</p>
+
+  <div class="problem">
+    <p>Find the slope of the line through \((3, 8)\) and \((5, 14)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Set up</span><span class="work">\[m = \frac{14 - 8}{5 - 3}\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[m = \frac{6}{2} = 3\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>m = 3</p>
+      <p>The \(14\) and the \(8\) are the vertical coordinates, and they go on top. Reversing both differences gives \(\frac{8-14}{3-5} = \frac{-6}{-2} = 3\), the same answer. Reversing only one gives \(-3\), which is wrong.</p>
+    </div>
+  </details>
+
+  <h3>What the sign of the slope tells you</h3>
+
+  <figure class="fig">
+    <svg viewBox="0 0 410 130" role="img" aria-label="Four small graphs: a steep positive slope, a gentle positive slope, a negative slope, and a zero slope shown as a horizontal line">
+      <path class="axis" d="M6 58H86 M46 100V16"/>
+      <path class="curve" d="M28.7 96L63.3 20"/>
+      <text class="label-soft" x="46" y="124" style="text-anchor:middle">steep positive</text>
+      <path class="axis" d="M112 58H192 M152 100V16"/>
+      <path class="curve" d="M120 74L184 42"/>
+      <text class="label-soft" x="152" y="124" style="text-anchor:middle">gentle positive</text>
+      <path class="axis" d="M218 58H298 M258 100V16"/>
+      <path class="curve" d="M228.8 20L287.2 96"/>
+      <text class="label-soft" x="258" y="124" style="text-anchor:middle">negative</text>
+      <path class="axis" d="M324 58H404 M364 100V16"/>
+      <path class="curve" d="M332 58L396 58"/>
+      <text class="label-soft" x="364" y="124" style="text-anchor:middle">zero</text>
+    </svg>
+    <figcaption>The sign says which way the line tilts; the size says how steeply.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="card-label">The four cases</p>
+    <ul class="keys">
+      <li><strong>Positive</strong> slope: as \(x\) increases, \(y\) increases. The line goes up.</li>
+      <li><strong>Negative</strong> slope: as \(x\) increases, \(y\) decreases. The line goes down.</li>
+      <li><strong>Zero</strong> slope: no vertical change, so the line is horizontal.</li>
+      <li><strong>Vertical</strong> line: the slope is <em>undefined</em>, because the horizontal change is 0 and we cannot divide by 0.</li>
+    </ul>
+  </div>
+
+  <h3>A real data set</h3>
+  <div class="problem">
+    <p>The population of Syracuse, in thousands of people, was 197 in 1970 and 149 in 2020. Find the slope of the line through these two data points.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>First decide what the variables mean: \(x\) is the year and \(y\) is the population in thousands. So the two points are \((1970, 197)\) and \((2020, 149)\).</p>
+      <ol class="ledger">
+        <li><span class="step">Set up</span><span class="work">\[m = \frac{149 - 197}{2020 - 1970}\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[m = \frac{-48}{50} = -0.96\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>m = &minus;0.96</p>
+      <p>Read the units off the formula: thousands of people per year. The city lost about 960 people a year on average over those fifty years, and the slope is negative because the population fell.</p>
+    </div>
+  </details>
+</section>
+
+<section id="pointslope">
+  <h2><span class="marker">Tool</span>Point-slope form</h2>
+
+  <p>Knowing the slope of a line is not enough to find its equation. Why not? Because infinitely many different lines share the same slope; they are all parallel to each other. The slope fixes the direction but not the position.</p>
+
+  <p>But if you know the slope \(m\) <strong>and</strong> some point \((x_1, y_1)\) on the line, the equation follows.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\[y - y_1 = m(x - x_1) \qquad \text{(point-slope equation)}\]</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Using the Syracuse data, write the equation of the line and use it to &ldquo;predict&rdquo; the population in 2050.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>We already found \(m = -0.96\). Take the point \((2020,\ 149)\).</p>
+      <ol class="ledger">
+        <li><span class="step">Substitute</span><span class="work">\[y - 149 = -0.96(x - 2020)\]</span></li>
+        <li><span class="step">Set x = 2050</span><span class="work">\[y - 149 = -0.96(2050 - 2020) = -0.96(30)\]</span></li>
+        <li><span class="step">Compute</span><span class="work">\[y - 149 = -28.8\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[y = 120.2\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>about 120.2 thousand people in 2050</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 341 274" role="img" aria-label="Population of Syracuse falling from 197 thousand in 1970 to 149 thousand in 2020, with a dashed extension of the line reaching 120.2 thousand in 2050">
+          <path class="grid" d="M63.5 242V247 M125.5 242V247 M187.5 242V247 M249.5 242V247 M311.5 242V247 M43 209H48 M43 165H48 M43 121H48 M43 77H48 M43 33H48"/>
+          <path class="axis" d="M48 242H333 M48 242V16"/>
+          <path class="curve" d="M63.5 39.6L218.5 145.2"/>
+          <path class="curve-2" d="M218.5 145.2L311.5 208.6"/>
+          <circle class="dot" cx="63.5" cy="39.6" r="4.5"/>
+          <text class="label-key" x="72.5" y="30.6">197</text>
+          <circle class="dot" cx="218.5" cy="145.2" r="4.5"/>
+          <text class="label-key" x="227.5" y="136.2">149</text>
+          <circle class="dot" cx="311.5" cy="208.6" r="4.5"/>
+          <text class="label-key" x="269.5" y="228.6">120.2</text>
+          <text class="label-soft" x="63.5" y="261" style="text-anchor:middle">1970</text>
+          <text class="label-soft" x="125.5" y="261" style="text-anchor:middle">1990</text>
+          <text class="label-soft" x="187.5" y="261" style="text-anchor:middle">2010</text>
+          <text class="label-soft" x="249.5" y="261" style="text-anchor:middle">2030</text>
+          <text class="label-soft" x="311.5" y="261" style="text-anchor:middle">2050</text>
+          <text class="label-soft" x="39" y="213" style="text-anchor:end">120</text>
+          <text class="label-soft" x="39" y="169" style="text-anchor:end">140</text>
+          <text class="label-soft" x="39" y="125" style="text-anchor:end">160</text>
+          <text class="label-soft" x="39" y="81" style="text-anchor:end">180</text>
+          <text class="label-soft" x="39" y="37" style="text-anchor:end">200</text>
+        </svg>
+        <figcaption>Year on the horizontal axis, population in thousands on the vertical. Solid between the two data points; dashed where the line is extrapolated. The axes are not to the same scale, since the units differ.</figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Either point works</p>
+    <p>Using \((1970,\ 197)\) instead gives \(y - 197 = -0.96(x - 1970)\), which looks different but describes the same line. At \(x = 2050\) it also gives \(197 - 0.96(80) = 120.2\).</p>
+  </div>
+
+  <div class="note">
+    <p class="card-label">Why &ldquo;predict&rdquo; is in quotation marks</p>
+    <p>A line through two data points is the simplest possible model, not a forecast. It assumes the population keeps falling at exactly the same rate for another thirty years, which nothing guarantees. Extending a line past the data you have is <em>extrapolation</em>, and it is the part of the answer to be least confident about.</p>
+  </div>
+</section>
+
+<section id="slopeint">
+  <h2><span class="marker">Tool</span>Slope-intercept form</h2>
+
+  <p>The point-slope equation \(y - y_1 = m(x - x_1)\) can be simplified to</p>
+
+  \[y = mx + b \qquad \text{(slope-intercept equation)}\]
+
+  <p>It is called that because the constant term \(b\) is the \(y\)-intercept of the line. This is really the same equation as before, written in a different form.</p>
+
+  <div class="problem">
+    <p>Put the Syracuse population equation into slope-intercept form.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Start</span><span class="work">\[y - 149 = -0.96(x - 2020)\]</span></li>
+        <li><span class="step">Distribute</span><span class="work">\[y - 149 = -0.96x + 1939.2\]</span></li>
+        <li><span class="step">Add 149</span><span class="work">\[y = -0.96x + 2088.2\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y = &minus;0.96x + 2088.2</p>
+      <p>Check both data points: at \(x = 1970\), \(-0.96(1970) + 2088.2 = 197\), and at \(x = 2020\), \(-0.96(2020) + 2088.2 = 149\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">When b means nothing</p>
+    <p>Here \(b = 2088.2\) is the \(y\)-intercept, so it is the value the model gives at \(x = 0\), that is, in year 0. That is not a fact about Syracuse. \(b\) is a real feature of the line, but it only has a real-world meaning when \(x = 0\) is inside the range the model is about.</p>
+  </div>
+
+  <h3>Poll question from class</h3>
+  <div class="problem">
+    <p>Find the slope-intercept form of \(3x + 2y - 8 = 0\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Solve for \(y\). That is all &ldquo;put it in slope-intercept form&rdquo; ever means.</p>
+      <ol class="ledger">
+        <li><span class="step">Isolate 2y</span><span class="work">\[2y = -3x + 8\]</span></li>
+        <li><span class="step">Divide by 2</span><span class="work">\[y = -\frac{3}{2}x + 4\]</span></li>
+        <li><span class="step">Read off</span><span class="work">slope \(m = -1.5\), \(y\)-intercept \(b = 4\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y = &minus;1.5x + 4</p>
+      <p>Divide <em>both</em> terms on the right by 2. Halving the \(-3x\) but not the \(8\) is the usual slip.</p>
+    </div>
+  </details>
+</section>
+
+<section id="parallel">
+  <h2><span class="marker">Worked example</span>Parallel lines</h2>
+
+  <p><strong>Parallel</strong> lines have the same slope. That single fact turns a parallel-line question into a point-slope question.</p>
+
+  <div class="problem">
+    <p>Find the slope-intercept equation of the line that is parallel to \(3x + 2y = 7\) and passes through the point \((1, 10)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>The first job is to find the slope of the given line, since the line we want has the same one.</p>
+      <ol class="ledger">
+        <li><span class="step">Isolate 2y</span><span class="work">\[2y = 7 - 3x\]</span></li>
+        <li><span class="step">Divide by 2</span><span class="work">\[y = 3.5 - 1.5x, \quad\text{that is}\quad y = -1.5x + 3.5\]</span></li>
+        <li><span class="step">Slope</span><span class="work">\(m = -\frac{3}{2}\), or \(-1.5\); our line has the same slope</span></li>
+        <li><span class="step">Point-slope</span><span class="work">through \((1, 10)\): \[y - 10 = -\frac{3}{2}(x - 1)\]</span></li>
+        <li><span class="step">Distribute</span><span class="work">\[y - 10 = -\frac{3}{2}x + \frac{3}{2}\]</span></li>
+        <li><span class="step">Add 10</span><span class="work">\[y = -\frac{3}{2}x + \frac{23}{2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y = &minus;(3/2)x + 23/2</p>
+      <p>Check: at \(x = 1\), \(-\frac{3}{2} + \frac{23}{2} = \frac{20}{2} = 10\). &check; And the slope is \(-\frac{3}{2}\), matching the given line. The two lines differ only in their intercepts, \(3.5\) against \(11.5\), which is exactly what being parallel means.</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The order of operations</p>
+    <p>Find the slope of the given line first, then use the point. Doing it the other way round leaves nothing to substitute into the point-slope formula. And note that the constant \(7\) in \(3x + 2y = 7\) never enters the answer: it moves the given line up or down but does not change its direction.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before next class</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Wednesday by the end of the day.</li>
+    <li><strong>Quiz 1 is tomorrow in recitation</strong>, on section 1.1. Rework the Aug 24, Aug 26, and Aug 28 examples with the solutions hidden.</li>
+    <li>Finish the 1.1 WeBWorK sets. Regular credit closes at the end of Thursday.</li>
+    <li>Memorize the slope formula and the point-slope equation. Everything else on this page follows from those two.</li>
+    <li>Practice going from standard form to slope-intercept form and back, on \(12x + 5y = 30\) and \(3x + 2y = 7\).</li>
+    <li>Sketch \(y = 2\) and \(x = -2.5\) from memory, and say which one has an undefined slope.</li>
+    <li>Read section 1.2 before Friday, when we apply all of this.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 1.2 part 1 &middot; September 2</p>
+</footer>
+
+</div>
+</body>
+</html>

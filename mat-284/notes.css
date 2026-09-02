@@ -329,7 +329,59 @@ th{font-family:var(--f-label);font-weight:600;font-size:.86rem;background:var(--
 }
 
 
-/* ---------- 9. Footer, motion, print ---------------------- */
+/* ---------- 9. Figures -------------------------------------
+   For inline SVG diagrams: axes, lines, geometry sketches.
+
+   Markup:
+     <figure class="fig">
+       <svg viewBox="0 0 W H" role="img" aria-label="...">...</svg>
+       <figcaption>What the picture shows.</figcaption>
+     </figure>
+
+   Colors come from the classes below, never from a fill= or
+   stroke= attribute in the markup, so figures follow the palette
+   and the dark-mode block like everything else. Give the <svg> a
+   viewBox and no width/height; it scales to the text column.
+   ---------------------------------------------------------- */
+
+.fig{
+  margin:0 0 var(--gap);
+  padding:1rem 1.1rem .5rem;
+  background:var(--sheet);
+  border:1px solid var(--rule);
+  border-radius:2px;
+}
+.fig svg{display:block;width:100%;height:auto;overflow:visible}
+/* .fig-narrow — for portrait figures, so a tall viewBox does not
+   stretch to the full text column. */
+.fig-narrow{max-width:17rem;margin-left:auto;margin-right:auto}
+.fig figcaption{
+  font-family:var(--f-label);
+  font-size:.78rem;
+  color:var(--ink-soft);
+  margin-top:.7rem;
+}
+
+/* Figure vocabulary. Stroke widths are in user units, so keep every
+   figure's viewBox on a similar scale or the weights will not match. */
+.fig .axis{stroke:var(--ink);stroke-width:1.6;fill:none}
+.fig .grid{stroke:var(--rule-soft);stroke-width:1;fill:none}
+.fig .curve{stroke:var(--pen-red);stroke-width:2.6;fill:none;stroke-linecap:round}
+.fig .curve-2{stroke:var(--ink-soft);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-dasharray:7 5}
+.fig .helper{stroke:var(--ink-soft);stroke-width:1.3;fill:none;stroke-dasharray:4 4}
+.fig .dot{fill:var(--ledger);stroke:none}
+.fig .mark{fill:var(--ink);stroke:none}   /* arrowheads and other solid bits */
+.fig .label{
+  font-family:var(--f-label);
+  font-size:13px;
+  font-weight:600;
+  fill:var(--ink);
+}
+.fig .label-soft{font-family:var(--f-label);font-size:12px;fill:var(--ink-soft)}
+.fig .label-key{font-family:var(--f-label);font-size:13px;font-weight:600;fill:var(--ledger)}
+
+
+/* ---------- 10. Footer, motion, print --------------------- */
 
 footer{
   border-top:1px solid var(--rule);
@@ -347,6 +399,7 @@ footer{
   :root{--paper:#fff;--sheet:#fff}
   body{font-size:10.5pt}
   .jump,.controls{display:none}
-  details.sol,.card{break-inside:avoid;border-color:#666}
+  details.sol,.card,.fig{break-inside:avoid;border-color:#666}
   h2,h3{break-after:avoid}
+  .fig{max-width:26rem}
 }
