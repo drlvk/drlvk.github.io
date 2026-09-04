@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Sep 4 &mdash; Applications of linear equations</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, September 4</p>
+  <h1>Applications of linear equations</h1>
+  <p class="standfirst">Section 1.2, part 2. Fitting a line to two data points, the demand and supply equations that come out of it, where they cross, and what a tax does to that crossing.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#twopoints">A line from two data points</a>
+  <a href="#demandsupply">Demand and supply</a>
+  <a href="#demand">A linear demand equation</a>
+  <a href="#supply">A linear supply equation</a>
+  <a href="#equilibrium">The equilibrium point</a>
+  <a href="#tax">The effect of a tax</a>
+  <a href="#next">Before next class</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>Complete the <strong>Concept Check</strong> for Friday by the end of the day. There is one on every class day.</li>
+      <li><strong>Homework 1.1 scores are posted</strong> on Blackboard, with the adjustment applied, so many of you will see above 100% from the early-completion extra credit.</li>
+      <li>This week's homework sets are <strong>A.7</strong> and <strong>1.2</strong> (in two parts). Target dates: <strong>Sep 8</strong> for extra credit, <strong>Sep 10</strong> for regular credit.</li>
+      <li>The quiz next <strong>Thursday, Sep 10</strong> covers <strong>A.7 and 1.2</strong>.</li>
+      <li>No class <strong>Monday, Sep 7</strong> (Labor Day). We resume Wednesday with section 2.1.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">Polls</p>
+    <p>Poll Everywhere can also be reached from the Poll Everywhere link on Blackboard, if scanning the QR code is inconvenient.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="twopoints">
+  <h2><span class="marker">Method</span>A line from two data points</h2>
+
+  <p>Linear equations are popular in applications because they can be pinned down from just two data points. First compute the slope, then feed it and either one of the points into the point-slope equation.</p>
+
+  <div class="card">
+    <p class="card-label">The two-step recipe</p>
+    <ul class="keys">
+      <li>\[m = \frac{y_2 - y_1}{x_2 - x_1}\]</li>
+      <li>then \[y - y_1 = m(x - x_1)\]</li>
+    </ul>
+  </div>
+
+  <p>Of course, the assumption that a real-world relation <em>is linear</em>, such as the relation between price and demand, may be true or false in practice. It is an assumption, not a discovery.</p>
+
+  <h3>Poll question from class</h3>
+  <div class="problem">
+    <p>Suppose 10 units cost $40 and 20 units cost $70. Find the cost equation, assuming it is linear.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Decide what the variables mean first. Here \(x\) is the number of units, which goes on the horizontal axis, and \(C\) is the cost, which goes on the vertical. So the points are \((10, 40)\) and \((20, 70)\).</p>
+      <ol class="ledger">
+        <li><span class="step">Slope</span><span class="work">\[m = \frac{70 - 40}{20 - 10} = \frac{30}{10} = 3\]</span></li>
+        <li><span class="step">Point-slope</span><span class="work">through \((10, 40)\): \[C - 40 = 3(x - 10)\]</span></li>
+        <li><span class="step">Distribute</span><span class="work">\[C - 40 = 3x - 30\]</span></li>
+        <li><span class="step">Add 40</span><span class="work">\[C = 3x + 10\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>C = 3x + 10</p>
+      <p>Both numbers have meanings you already know: the slope 3 is the <strong>cost per unit</strong>, and the intercept 10 is the <strong>fixed cost</strong>. Check: at \(x = 10\), \(C = 40\), and at \(x = 20\), \(C = 70\). &check;</p>
+    </div>
+  </details>
+</section>
+
+<section id="demandsupply">
+  <h2><span class="marker">Definition</span>Demand and supply</h2>
+
+  <p>The <strong>price&ndash;demand equation</strong> shows how much consumers are willing to <strong>buy</strong> at a given price. It relates the quantity \(x\) demanded to the price \(p\).</p>
+
+  <p>The <strong>price&ndash;supply equation</strong> shows how much producers are willing to <strong>sell</strong> at a given price. It also relates a quantity \(x\) produced to a price \(p\), but it is a different relation.</p>
+
+  <p>By convention both are drawn on a coordinate plane with the horizontal axis labeled \(x\) and the vertical axis labeled \(p\). That gives us the <strong>demand curve</strong> and the <strong>supply curve</strong>.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 386 180" role="img" aria-label="Two graphs with quantity x horizontal and price p vertical: a demand curve sloping down and a supply curve sloping up">
+      <path class="axis" d="M30 124H168 M30 124V14"/>
+      <path class="mark" d="M168 124l-7 -4v8z M30 14l-4 7h8z"/>
+      <text class="label" x="166" y="141">x</text>
+      <text class="label" x="14" y="20">p</text>
+      <path class="curve" d="M44 22C90 44 100 108 150 116"/>
+      <text class="label-key" x="92" y="40">demand</text>
+      <path class="axis" d="M236 124H374 M236 124V14"/>
+      <path class="mark" d="M374 124l-7 -4v8z M236 14l-4 7h8z"/>
+      <text class="label" x="372" y="141">x</text>
+      <text class="label" x="220" y="20">p</text>
+      <path class="curve" d="M246 108C291 102 306 44 358 26"/>
+      <text class="label-key" x="254" y="36">supply</text>
+      <text class="label-soft" x="90" y="176" style="text-anchor:middle">falls as x grows</text>
+      <text class="label-soft" x="296" y="176" style="text-anchor:middle">rises as x grows</text>
+    </svg>
+    <figcaption>The two curves tilt in opposite directions, and that is what guarantees they cross.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="card-label">The sign of each slope</p>
+    <ul class="keys">
+      <li>The <strong>demand</strong> curve has <strong>negative</strong> slope. Cheaper goods sell in larger numbers.</li>
+      <li>The <strong>supply</strong> curve has <strong>positive</strong> slope. Higher prices make producers willing to make more.</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <p class="card-label">A sign check you get for free</p>
+    <p>Once you have computed a slope, look at its sign before going further. A positive slope on a demand equation, or a negative one on a supply equation, means something went wrong in the setup. It is the cheapest error check in this section.</p>
+  </div>
+</section>
+
+<section id="demand">
+  <h2><span class="marker">Worked example</span>A linear demand equation</h2>
+
+  <p>Demand and supply equations are easy to find <em>if</em> we assume they are linear. When a problem makes that assumption, it will say so explicitly. Later in the course we will handle non-linear demand and supply, where calculus becomes necessary.</p>
+
+  <div class="problem">
+    <p>When a coffee shop charged $4 for a large cappuccino, they sold 350 cups per day. After raising the price to $5.50, they are selling 270 cups per day. Find the price&ndash;demand equation, assuming it is linear.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Quantity is \(x\) and price is \(p\), so the points are \((350,\ 4)\) and \((270,\ 5.50)\). Note that quantity comes first even though the problem states the price first.</p>
+      <ol class="ledger">
+        <li><span class="step">Slope</span><span class="work">\[m = \frac{5.50 - 4}{270 - 350} = \frac{1.5}{-80} = -0.01875\]</span></li>
+        <li><span class="step">Sign check</span><span class="work">negative, as a demand equation should be</span></li>
+        <li><span class="step">Point-slope</span><span class="work">through \((350,\ 4)\): \[p - 4 = -0.01875(x - 350)\]</span></li>
+        <li><span class="step">Distribute</span><span class="work">\[p - 4 = -0.01875x + 6.5625\]</span></li>
+        <li><span class="step">Add 4</span><span class="work">\[p = -0.01875x + 10.5625\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>p &minus; 4 = &minus;0.01875(x &minus; 350), or p = &minus;0.01875x + 10.5625</p>
+      <p>Check both data points: at \(x = 350\), \(p = 4\), and at \(x = 270\), \(p = 5.50\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Keep the slope exact</p>
+    <p>The slope here is \(\frac{1.5}{-80} = -\frac{3}{160}\), which is exactly \(-0.01875\). A calculator showing \(-0.0187\) has cut it short, and rounding a slope this small early will visibly move your answer once you multiply it by a quantity in the hundreds. Round at the end, not in the middle.</p>
+  </div>
+</section>
+
+<section id="supply">
+  <h2><span class="marker">Worked example</span>A linear supply equation</h2>
+
+  <div class="problem">
+    <p>A manufacturer of shoes will make 50,000 pairs when the price is $75, and 35,000 pairs when the price is $60. Find the price&ndash;supply equation, assuming it is linear.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>The points are \((50000,\ 75)\) and \((35000,\ 60)\).</p>
+      <ol class="ledger">
+        <li><span class="step">Slope</span><span class="work">\[m = \frac{75 - 60}{50000 - 35000} = \frac{15}{15000} = \frac{1}{1000}\]</span></li>
+        <li><span class="step">Sign check</span><span class="work">positive, as a supply equation should be</span></li>
+        <li><span class="step">Point-slope</span><span class="work">through \((35000,\ 60)\): \[p - 60 = \frac{1}{1000}(x - 35000)\]</span></li>
+        <li><span class="step">Distribute</span><span class="work">\[p - 60 = \frac{1}{1000}x - 35\]</span></li>
+        <li><span class="step">Add 60</span><span class="work">\[p = \frac{1}{1000}x + 25\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>p = x/1000 + 25</p>
+      <p>Check: at \(x = 50000\), \(p = 50 + 25 = 75\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">A fraction is often tidier than a decimal</p>
+    <p>\(\frac{1}{1000}\) is exact and easy to multiply by. Writing it as \(0.001\) is equally fine here, but with slopes like \(\frac{1}{3}\) or \(\frac{1}{160}\) the fraction is the only exact form, so keep the habit.</p>
+  </div>
+</section>
+
+<section id="equilibrium">
+  <h2><span class="marker">Definition</span>The equilibrium point</h2>
+
+  <p>The intersection of the price&ndash;supply and price&ndash;demand curves is the <strong>equilibrium point</strong>. Its coordinates are the <strong>equilibrium quantity</strong> and the <strong>equilibrium price</strong>. It is the one price at which the amount producers want to sell matches the amount consumers want to buy.</p>
+
+  <div class="card">
+    <p class="card-label">How to find it</p>
+    <p>Solve both equations for the <em>same</em> variable, then set the two right-hand sides equal.</p>
+    <ul class="keys">
+      <li>If both are \(p = \cdots\), equate them and solve for \(x\), then get \(p\) from either equation.</li>
+      <li>If it is easier to get both into the form \(x = \cdots\), do that instead, equate, and solve for \(p\).</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>From WeBWorK. Given the price&ndash;supply equation \(2x - 200p + 1600 = 0\) and the price&ndash;demand equation \(300p + x - 4800 = 0\), find the equilibrium point.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Here it is easier to solve each one for \(x\), since \(x\) appears with a simple coefficient in both.</p>
+      <ol class="ledger">
+        <li><span class="step">Supply &divide; 2</span><span class="work">\[x - 100p + 800 = 0\]</span></li>
+        <li><span class="step">Supply for x</span><span class="work">\[x = 100p - 800\]</span></li>
+        <li><span class="step">Demand for x</span><span class="work">\[x = -300p + 4800\]</span></li>
+        <li><span class="step">Set equal</span><span class="work">\[100p - 800 = -300p + 4800\]</span></li>
+        <li><span class="step">Collect</span><span class="work">\[400p = 5600\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[p = \frac{5600}{400} = 14\]</span></li>
+        <li><span class="step">Back for x</span><span class="work">\[x = 100(14) - 800 = 1400 - 800 = 600\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 600 and p = 14, that is the point (600, 14)</p>
+      <p>Check in the other equation: \(300(14) + 600 - 4800 = 4200 + 600 - 4800 = 0\). &check;</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 430 274" role="img" aria-label="Price against quantity: a rising supply line and a falling demand line crossing at the equilibrium 600 comma 14">
+          <path class="grid" d="M119 240V245 M194 240V245 M269 240V245 M344 240V245 M39 185H44 M39 130H44 M39 75H44 M39 20H44"/>
+          <path class="axis" d="M44 240H422 M44 240V12"/>
+          <text class="label" x="424" y="258" style="text-anchor:end">x</text>
+          <text class="label" x="30" y="10">p</text>
+          <path class="curve" d="M44 64L356.5 109.8"/>
+          <text class="label-key" x="362.5" y="113.8">demand</text>
+          <path class="curve" d="M44 152L344 20"/>
+          <text class="label-key" x="350" y="24">supply</text>
+          <circle class="dot" cx="194" cy="86" r="5"/>
+          <text class="label-key" x="204" y="108">(600, 14)</text>
+          <text class="label-soft" x="119" y="258" style="text-anchor:middle">300</text>
+          <text class="label-soft" x="194" y="258" style="text-anchor:middle">600</text>
+          <text class="label-soft" x="269" y="258" style="text-anchor:middle">900</text>
+          <text class="label-soft" x="344" y="258" style="text-anchor:middle">1200</text>
+          <text class="label-soft" x="35" y="189" style="text-anchor:end">5</text>
+          <text class="label-soft" x="35" y="134" style="text-anchor:end">10</text>
+          <text class="label-soft" x="35" y="79" style="text-anchor:end">15</text>
+          <text class="label-soft" x="35" y="24" style="text-anchor:end">20</text>
+        </svg>
+        <figcaption>The two lines of this problem. Supply rises from \(p = 8\), demand falls from \(p = 16\), and they meet at \((600, 14)\).</figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Solve for whichever variable is easier</p>
+    <p>Both routes give the same point, so pick the one with less arithmetic. Here \(x\) has coefficient 2 in one equation and 1 in the other, while \(p\) has 200 and 300, so solving for \(x\) is clearly lighter. Also, say which coordinate is which in your answer: \((600, 14)\) means 600 units at $14, not 600 dollars.</p>
+  </div>
+</section>
+
+<section id="tax">
+  <h2><span class="marker">Method</span>The effect of a tax</h2>
+
+  <p>The equilibrium shifts when a tax is imposed on the supplier. Suppose the tax is \(t\) dollars per unit. Having sold a unit for \(p\) dollars, the supplier actually receives \(p - t\) dollars. So the supplier's behavior is governed by \(p - t\), not by \(p\).</p>
+
+  <div class="card">
+    <p class="card-label">To include a tax</p>
+    <ul class="keys">
+      <li>Replace \(p\) by \((p - \text{amount of tax})\) in the price&ndash;<strong>supply</strong> equation.</li>
+      <li>Leave the price&ndash;<strong>demand</strong> equation unchanged.</li>
+    </ul>
+  </div>
+
+  <p>The demand equation does not change because consumers still pay \(p\); it is only the seller who keeps less.</p>
+
+  <div class="problem">
+    <p>Same equations as above: price&ndash;supply \(2x - 200p + 1600 = 0\) and price&ndash;demand \(300p + x - 4800 = 0\), with equilibrium \((600, 14)\). A $3 per unit tax is added on the supplier. Find the new equilibrium.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Replace p</span><span class="work">\(p\) becomes \((p-3)\) in the supply equation: \[2x - 200(p - 3) + 1600 = 0\]</span></li>
+        <li><span class="step">Divide by 2</span><span class="work">\[x - 100(p - 3) + 800 = 0\]</span></li>
+        <li><span class="step">Expand</span><span class="work">\[x - 100p + 300 + 800 = 0\]</span></li>
+        <li><span class="step">New supply</span><span class="work">\[x = 100p - 1100\]</span></li>
+        <li><span class="step">Demand</span><span class="work">unchanged: \[x = -300p + 4800\]</span></li>
+        <li><span class="step">Set equal</span><span class="work">\[100p - 1100 = -300p + 4800\]</span></li>
+        <li><span class="step">Collect</span><span class="work">\[400p = 5900\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[p = \frac{5900}{400} = 14.75\]</span></li>
+        <li><span class="step">Back for x</span><span class="work">\[x = 100(14.75) - 1100 = 1475 - 1100 = 375\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 375 and p = 14.75, that is the point (375, 14.75)</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 430 274" role="img" aria-label="Price against quantity: a rising supply line and a falling demand line crossing at the equilibrium 600 comma 14, with the supply line shifted up by the 3 dollar tax and a second equilibrium at 375 comma 14.75">
+          <path class="grid" d="M119 240V245 M194 240V245 M269 240V245 M344 240V245 M39 185H44 M39 130H44 M39 75H44 M39 20H44"/>
+          <path class="axis" d="M44 240H422 M44 240V12"/>
+          <text class="label" x="424" y="258" style="text-anchor:end">x</text>
+          <text class="label" x="30" y="10">p</text>
+          <path class="curve" d="M44 64L356.5 109.8"/>
+          <text class="label-key" x="362.5" y="113.8">demand</text>
+          <path class="curve-2" d="M44 152L344 20"/>
+          <text class="label-soft" x="350" y="24">supply (no tax)</text>
+          <path class="curve" d="M44 119L234 35.4"/>
+          <text class="label-key" x="228" y="27.4" style="text-anchor:end">supply (+$3)</text>
+          <circle class="dot" cx="194" cy="86" r="5"/>
+          <text class="label-key" x="200" y="108">old</text>
+          <circle class="dot" cx="137.8" cy="77.8" r="5"/>
+          <text class="label-key" x="103.8" y="69.8">new</text>
+          <text class="label-soft" x="119" y="258" style="text-anchor:middle">300</text>
+          <text class="label-soft" x="194" y="258" style="text-anchor:middle">600</text>
+          <text class="label-soft" x="269" y="258" style="text-anchor:middle">900</text>
+          <text class="label-soft" x="344" y="258" style="text-anchor:middle">1200</text>
+          <text class="label-soft" x="35" y="189" style="text-anchor:end">5</text>
+          <text class="label-soft" x="35" y="134" style="text-anchor:end">10</text>
+          <text class="label-soft" x="35" y="79" style="text-anchor:end">15</text>
+          <text class="label-soft" x="35" y="24" style="text-anchor:end">20</text>
+        </svg>
+        <figcaption>The tax lifts the supply line by $3, sliding the equilibrium up the unchanged demand line. Old point \((600, 14)\), new point \((375, 14.75)\).</figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The tax is $3, but the price rose only 75 cents</p>
+    <p>The price went from $14.00 to $14.75, and the quantity fell from 600 to 375. So the consumer pays $0.75 more per unit, while the supplier now keeps \(14.75 - 3 = 11.75\), which is $2.25 less than before. The two amounts add to the $3 tax, and here the supplier absorbs three quarters of it.</p>
+    <p>This is worth knowing as a sanity check as much as an economics point. If your new price comes out $3 higher than the old one, you have almost certainly changed the demand equation as well as the supply equation.</p>
+  </div>
+
+  <div class="note">
+    <p class="card-label">Which sign, and where</p>
+    <p>It is \(p - 3\), not \(p + 3\), because the supplier <em>receives less</em> than the sticker price. And the substitution goes into the supply equation only. Putting it in both, or into the demand equation, is the most common way this problem goes wrong.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before next class</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Friday by the end of the day.</li>
+    <li>Start the A.7 and 1.2 WeBWorK sets. Extra credit closes <strong>Sep 8</strong>, regular credit <strong>Sep 10</strong>.</li>
+    <li>For each of the three data problems on this page, redo just the slope, and check its sign against what the situation demands.</li>
+    <li>Rework the equilibrium problem by solving both equations for \(p\) instead of \(x\), and confirm you land on \((600, 14)\) either way.</li>
+    <li>The quiz on <strong>Thursday, Sep 10</strong> covers A.7 and 1.2, so review the Aug 31 and Sep 2 notes as well.</li>
+    <li>No class Monday. Next up is section 2.1 on functions, on Wednesday, Sep 9.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 1.2 part 2 &middot; September 4</p>
+</footer>
+
+</div>
+</body>
+</html>
