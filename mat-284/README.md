@@ -21,6 +21,8 @@ to `/favicon.svg` — on a project site that resolves to the wrong place.
 | `mat284-aug28-section-1-1-part-3.html` | Aug 28 — More applications of linear equations and inequalities |
 | `mat284-aug31-section-a-7.html` | Aug 31 — Quadratic equations (Appendix A.7) |
 | `mat284-sep02-section-1-2-part-1.html` | Sep 2 — Graphs and lines |
+| `mat284-sep04-section-1-2-part-2.html` | Sep 4 — Applications of linear equations |
+| `mat284-sep09-section-2-1.html` | Sep 9 — Functions |
 
 ## Adding a lecture
 
@@ -60,8 +62,10 @@ Two rules here as well:
 
 1. **Never put a `fill` or `stroke` attribute in the markup.** Use the classes
    in section 9 of `notes.css` — `axis`, `grid`, `curve`, `curve-2`, `helper`,
-   `dot`, `mark`, `label`, `label-soft`, `label-key`. That is what keeps figures
-   on the palette and working in dark mode.
+   `dot`, `hole`, `band`, `box`, `mark`, `label`, `label-soft`, `label-key`.
+   That is what keeps figures on the palette and working in dark mode.
+   `dot` and `hole` are the filled and open endpoints of an interval, `band` is
+   the shaded stretch between them, and `box` is a labeled node in a diagram.
 2. **Give the `<svg>` a `viewBox` and no `width` or `height`.** It scales to the
    text column. A portrait figure also wants `class="fig fig-narrow"`, or a tall
    viewBox will stretch to the full column width.

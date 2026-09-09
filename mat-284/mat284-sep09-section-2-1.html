@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Sep 9 &mdash; Functions</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, September 9</p>
+  <h1>Functions</h1>
+  <p class="standfirst">Section 2.1. What a function is, the notation for one, and the question that comes up naturally: which inputs does it accept?</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#idea">What a function is</a>
+  <a href="#notation">Function notation</a>
+  <a href="#domainrange">Domain and range</a>
+  <a href="#formulas">Functions given by formulas</a>
+  <a href="#vsequations">Functions vs equations</a>
+  <a href="#domain">Finding the domain</a>
+  <a href="#examples">Worked domains</a>
+  <a href="#next">Before next class</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Announcements</p>
+    <ul>
+      <li><strong>Exam 1 is Wednesday, Sep 16</strong>, one week from today. It covers weeks 1 through 3, specifically sections <strong>1.1, 1.2, A.7, 2.1, 2.2, 2.4</strong>.</li>
+      <li>An optional <strong>Exam 1 practice</strong> set is on WeBWorK. It is a remix of problems you have seen, not new material.</li>
+      <li>Do the regular for-credit WeBWorK <em>first</em>, before the practice set. Sets <strong>A.7</strong> and <strong>1.2</strong> are due tomorrow, and tomorrow's quiz is based on them.</li>
+      <li>New sets this week: <strong>2.1, 2.2, 2.4</strong>.</li>
+      <li>Complete the <strong>Concept Check</strong> for Wednesday by the end of the day.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">Order of operations for this week</p>
+    <p>The practice set earns no credit, so it is the last thing to do, not the first. Finish A.7 and 1.2 tonight, then this week's three sets, and use the practice set as a rehearsal in the day or two before the exam.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="idea">
+  <h2><span class="marker">Definition</span>What a function is</h2>
+
+  <p>Abstractly, a <strong>function</strong> is any procedure that turns an input into an output.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 400 116" role="img" aria-label="A function drawn as a machine: an input arrow enters a box labeled f and an output arrow leaves it">
+      <rect class="box" x="150" y="30" width="100" height="52" rx="3"/>
+      <text class="label" x="200" y="62" style="text-anchor:middle">f</text>
+      <path class="axis" d="M40 56H140"/>
+      <path class="mark" d="M148 56l-9 -5v10z"/>
+      <path class="axis" d="M252 56H352"/>
+      <path class="mark" d="M360 56l-9 -5v10z"/>
+      <text class="label-soft" x="88" y="44" style="text-anchor:middle">input</text>
+      <text class="label-soft" x="306" y="44" style="text-anchor:middle">output</text>
+      <text class="label-key" x="88" y="78" style="text-anchor:middle">x</text>
+      <text class="label-key" x="306" y="78" style="text-anchor:middle">f(x)</text>
+      <text class="label-soft" x="200" y="110" style="text-anchor:middle">some inputs jam the machine; those are outside the domain</text>
+    </svg>
+    <figcaption>A function as a machine. This picture is worth keeping in mind for the rest of the course.</figcaption>
+  </figure>
+
+  <p>Nothing in that definition says the input has to be a number. Two examples where it is not:</p>
+
+  <h3>Counting the letters in a word</h3>
+  <p>The input is a word, the output is a number, and the function is the process of counting letters.</p>
+  <p>&ldquo;orange&rdquo; \(\to 6\), &nbsp; &ldquo;calculus&rdquo; \(\to 8\)</p>
+
+  <h3>The day of the week</h3>
+  <p>The input is a date, the output is a day of the week, and the function amounts to looking at a calendar.</p>
+  <p>09/16/2026 \(\to\) &ldquo;Wednesday&rdquo; (first exam), &nbsp; 12/11/2026 \(\to\) &ldquo;Friday&rdquo; (final exam)</p>
+</section>
+
+<section id="notation">
+  <h2><span class="marker">Notation</span>Function notation</h2>
+
+  <p>Once we consider several functions at once, the arrow notation becomes impractical. Each function needs a <strong>name</strong>, traditionally a symbol like \(f\), \(g\), \(h\).</p>
+
+  <p>Call the letter-counting function \(f\) and the calendar function \(g\). Then we can write</p>
+
+  \[f(\text{“orange”}) = 6, \qquad g(09/16/2026) = \text{“Wednesday”}\]
+
+  <div class="card">
+    <p class="card-label">The shape of the notation</p>
+    <ul class="keys">
+      <li>(name of function)(input) \(=\) output</li>
+      <li>The input goes in parentheses, with the function's name in front of them.</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <p class="card-label">The one mistake everybody makes</p>
+    <p>\(f(x)\) does <strong>not</strong> mean \(f\) times \(x\). The parentheses here are not multiplication, and none of the usual rules for multiplying apply. In particular, \(a(b+c) = ab + ac\) is true when \(a\) is a number and false when \(a\) is a function.</p>
+    <p>The same symbols can mean either thing, so you have to read the context: is that letter standing for a number, or for a function?</p>
+  </div>
+</section>
+
+<section id="domainrange">
+  <h2><span class="marker">Definition</span>Domain and range</h2>
+
+  <p>The <strong>domain</strong> of a function is all the input values the function accepts. For the two examples above:</p>
+
+  <ul>
+    <li>The domain of \(f\), the letter-counting function, consists of <strong>words</strong>.</li>
+    <li>The domain of \(g\), the day-of-the-week function, consists of <strong>dates</strong>.</li>
+  </ul>
+
+  <p>So \(g(\text{“orange”})\) does not make sense: the input is not in the domain of \(g\). We say \(g(\text{“orange”})\) is <strong>undefined</strong>.</p>
+
+  <p>The <strong>range</strong> of a function is all the outputs it can produce.</p>
+
+  <ul>
+    <li>The range of \(g\) is a set with seven elements: {&ldquo;Monday&rdquo;, &ldquo;Tuesday&rdquo;, &ldquo;Wednesday&rdquo;, &ldquo;Thursday&rdquo;, &ldquo;Friday&rdquo;, &ldquo;Saturday&rdquo;, &ldquo;Sunday&rdquo;}.</li>
+    <li>The range of \(f\) is some set of positive integers: a word cannot contain 0 letters, or a fractional number of them. Pinning it down exactly would mean deciding what counts as a word, that is, choosing a dictionary.</li>
+  </ul>
+
+  <div class="note">
+    <p class="card-label">Which one to worry about</p>
+    <p>The range is generally harder to determine than the domain, and it matters less. The rest of this lecture is about the domain.</p>
+  </div>
+</section>
+
+<section id="formulas">
+  <h2><span class="marker">Method</span>Functions given by formulas</h2>
+
+  <p>In this course we deal with a particular kind of function: the input is a single number, and so is the output. Such functions are usually described by a <strong>formula</strong>.</p>
+
+  <p>For example, &ldquo;add a 20% tip&rdquo; can be written</p>
+
+  \[y = x + \frac{20}{100}x = \left(1 + \frac{20}{100}\right)x = 1.2x\]
+
+  <p>where \(x\) is the cost of dinner (the input) and \(y\) is the amount to be paid (the output). Factoring out the \(x\) gives the simpler formula \(y = 1.2x\).</p>
+
+  <p>Now compare that with this line. What is different?</p>
+
+  \[T(x) = x + \frac{20}{100}x, \qquad \text{or} \qquad T(x) = 1.2x\]
+
+  <p>This time we gave a name to the <em>function</em> itself; it is called \(T\). And we gave no name to the output, but it can always be referred to as \(T(x)\), meaning &ldquo;the output you get if you plug \(x\) into \(T\).&rdquo;</p>
+
+  <div class="problem">
+    <p>Using \(T(x) = x + \frac{20}{100}x\), evaluate:</p>
+    <p><strong>a)</strong> \(T(70)\) &nbsp;&nbsp; <strong>b)</strong> \(T(x-2)\) &nbsp;&nbsp; <strong>c)</strong> \(T(z+h) + T(z-h)\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>In each case, replace the variable in the formula for \(T\) by the given input. Whatever is handed to \(T\) goes everywhere \(x\) used to be.</p>
+      <ol class="ledger">
+        <li><span class="step">a) Substitute</span><span class="work">\[T(70) = 70 + \frac{20}{100}\cdot 70 = 70 + 14 = 84\]</span></li>
+        <li><span class="step">b) Substitute</span><span class="work">\[T(x-2) = (x-2) + \frac{20}{100}(x-2)\]</span></li>
+        <li><span class="step">b) Simplify</span><span class="work">\[= 1.2(x-2) = 1.2x - 2.4\]</span></li>
+        <li><span class="step">c) Substitute</span><span class="work">\[\Big[(z+h) + \tfrac{20}{100}(z+h)\Big] + \Big[(z-h) + \tfrac{20}{100}(z-h)\Big]\]</span></li>
+        <li><span class="step">c) Simplify</span><span class="work">\[= 1.2(z+h) + 1.2(z-h) = 1.2(2z) = 2.4z\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>84, &nbsp; 1.2x &minus; 2.4, &nbsp; 2.4z</p>
+      <p>The \(h\) cancels in part (c), which is worth noticing. Check with \(z = 5\) and \(h = 2\): \(T(7) + T(3) = 8.4 + 3.6 = 12\), and \(2.4(5) = 12\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Keep the parentheses</p>
+    <p>In part (b) the input is the whole quantity \(x-2\), so it needs its own parentheses: \((x-2) + \frac{20}{100}(x-2)\). Writing \(x - 2 + \frac{20}{100}x - 2\) applies the tip to only part of the bill and subtracts the 2 twice.</p>
+  </div>
+</section>
+
+<section id="vsequations">
+  <h2><span class="marker">Method</span>Functions vs equations</h2>
+
+  <p>An equation with two letters in it is not automatically a function. Something more is required: each input must determine <em>one</em> output.</p>
+
+  <div class="problem">
+    <p>Does \(x^2 + y^2 = 25\) define \(y\) as a function of \(x\)? Why or why not?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>No. Take \(x = 3\).</p>
+      <ol class="ledger">
+        <li><span class="step">Substitute</span><span class="work">\[3^2 + y^2 = 25\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[y^2 = 16\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[y = 4 \quad\text{or}\quad y = -4\]</span></li>
+        <li><span class="step">Conclusion</span><span class="work">the input \(3\) does not determine a single output, so this is not a function</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>No. One input gives two outputs.</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 300 262" role="img" aria-label="The circle x squared plus y squared equals 25 with the vertical line x equals 3 crossing it at y equals 4 and y equals negative 4, so y is not a function of x">
+          <path class="grid" d="M80 136V144 M220 136V144 M146 196H154 M146 84H154"/>
+          <path class="axis" d="M14 140H284 M150 248V16"/>
+          <path class="mark" d="M284 140l-8 -4.5v9z M150 16l-4.5 8h9z"/>
+          <text class="label" x="286" y="158">x</text>
+          <text class="label" x="159" y="24">y</text>
+          <circle class="curve" cx="150" cy="140" r="70"/>
+          <path class="helper" d="M192 232.4V47.6"/>
+          <circle class="dot" cx="192" cy="84" r="4.5"/>
+          <text class="label-key" x="202" y="76">(3, 4)</text>
+          <circle class="dot" cx="192" cy="196" r="4.5"/>
+          <text class="label-key" x="202" y="216">(3, &minus;4)</text>
+          <text class="label-soft" x="201" y="40">x = 3</text>
+        </svg>
+        <figcaption>The graph is a circle, and the vertical line \(x = 3\) meets it twice. Two outputs for one input is exactly what disqualifies it.</figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <p>On the other hand, some equations can be rearranged until the function is visible.</p>
+
+  <div class="problem">
+    <p>Rewrite \(\dfrac{8}{x^2} + \dfrac{5}{y} = 2\) so that it is clear \(y\) is a function of \(x\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Solve for \(y\).</p>
+      <ol class="ledger">
+        <li><span class="step">Isolate</span><span class="work">\[\frac{5}{y} = 2 - \frac{8}{x^2}\]</span></li>
+        <li><span class="step">Times y</span><span class="work">\[5 = \left(2 - \frac{8}{x^2}\right)y\]</span></li>
+        <li><span class="step">Divide</span><span class="work">\[y = \frac{5}{\,2 - \dfrac{8}{x^2}\,}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y = 5 / (2 &minus; 8/x&sup2;)</p>
+      <p>Now each \(x\) produces exactly one \(y\), so this <em>is</em> a function. We will find its domain in the next section.</p>
+    </div>
+  </details>
+</section>
+
+<section id="domain">
+  <h2><span class="marker">Method</span>Finding the domain</h2>
+
+  <p>Not every number is an acceptable input. Sometimes the input jams the machine and nothing comes out. There are only two ways this happens in this course.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <p>Find the domain by examining every square root and every denominator in the function.</p>
+    <ul class="keys">
+      <li>The content of each <strong>square root</strong> must be \(\ge 0\).</li>
+      <li>Each <strong>denominator</strong> must not be 0, so exclude the inputs that make it 0.</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Find the domain of \(y = \dfrac{5}{\,2 - \frac{8}{x^2}\,}\) from the previous section.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>There are two denominators here, not one, so there are two things to check.</p>
+      <ol class="ledger">
+        <li><span class="step">Inner</span><span class="work">\(x^2 = 0\) when \(x = 0\), so \(0\) is excluded</span></li>
+        <li><span class="step">Outer</span><span class="work">\[2 - \frac{8}{x^2} = 0 \quad\Longrightarrow\quad \frac{8}{x^2} = 2\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x^2 = 4 \quad\Longrightarrow\quad x = 2 \ \text{ or } \ x = -2\]</span></li>
+        <li><span class="step">Exclude</span><span class="work">so \(0\), \(2\), and \(-2\) are all outside the domain</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>all numbers except 0, 2, and &minus;2</p>
+    </div>
+  </details>
+
+  <p>Two smaller examples, to isolate each rule.</p>
+
+  <div class="problem">
+    <p>Find the domain of <strong>a)</strong> \(f(x) = x + 1\), &nbsp; <strong>b)</strong> \(f(x) = \dfrac{1}{x+1}\), &nbsp; <strong>c)</strong> \(f(x) = \sqrt{x+4}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a)</span><span class="work">no roots and no denominators, so every number works: the domain is \((-\infty, \infty)\)</span></li>
+        <li><span class="step">b)</span><span class="work">the denominator \(x+1\) is 0 when \(x = -1\): all numbers except \(-1\)</span></li>
+        <li><span class="step">c)</span><span class="work">we cannot take square roots of negatives, so we need \(x + 4 \ge 0\), that is \(x \ge -4\), or \([-4, \infty)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(&minus;&infin;, &infin;); &nbsp; all except &minus;1; &nbsp; [&minus;4, &infin;)</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Two rules, two shapes of answer</p>
+    <p>A <strong>denominator</strong> removes isolated points from the number line, so the answer reads &ldquo;all numbers except &hellip;&rdquo;. A <strong>square root</strong> cuts off a whole ray, so the answer is an inequality or an interval. When a function has both, you get both kinds of restriction at once, as in the last example below.</p>
+  </div>
+</section>
+
+<section id="examples">
+  <h2><span class="marker">Worked example</span>Worked domains</h2>
+
+  <h3>Poll question from class</h3>
+  <div class="problem">
+    <p>Find the domain of \(f(x) = \dfrac{4 + 3x}{\sqrt{x - 2}}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>The square root is <em>in</em> the denominator, so both rules apply to the same expression.</p>
+      <ol class="ledger">
+        <li><span class="step">Root</span><span class="work">\(\sqrt{x-2}\) requires \(x - 2 \ge 0\), so \(x \ge 2\)</span></li>
+        <li><span class="step">Denominator</span><span class="work">\(\sqrt{x-2} = 0\) when \(x = 2\), so \(2\) must be excluded</span></li>
+        <li><span class="step">Combine</span><span class="work">we need \(x \ge 2\) but not \(x = 2\), so \(x &gt; 2\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x &gt; 2, that is (2, &infin;)</p>
+      <p>The two rules pull in the same direction here, and the endpoint is the casualty. Answering \(x \ge 2\) misses the second rule.</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Find the domain of \(g(x) = \dfrac{4 + 3x}{\sqrt{x} - 2}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Notice how little changed in the formula, and how much changed in the answer. The \(-2\) is now outside the root.</p>
+      <ol class="ledger">
+        <li><span class="step">Root</span><span class="work">\(\sqrt{x}\) requires \(x \ge 0\)</span></li>
+        <li><span class="step">Denominator</span><span class="work">\(\sqrt{x} - 2 = 0\) when \(\sqrt{x} = 2\), that is \(x = 4\)</span></li>
+        <li><span class="step">Combine</span><span class="work">\(x \ge 0\), excluding \(4\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>all x &ge; 0 except 4, that is [0, 4) &cup; (4, &infin;)</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">\(\sqrt{x-2}\) against \(\sqrt{x}-2\)</p>
+    <p>These two problems have the same numerator and nearly the same denominator, and their domains are \((2,\infty)\) and \([0,4)\cup(4,\infty)\). Read carefully where the root ends. Everything inside it faces the \(\ge 0\) rule; everything outside it does not.</p>
+  </div>
+
+  <div class="problem">
+    <p>Find the domain of \(h(t) = \dfrac{\sqrt{2t + 5}}{9 - t^2}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Root</span><span class="work">\(2t + 5 \ge 0\), so \(t \ge -\frac{5}{2} = -2.5\)</span></li>
+        <li><span class="step">Denominator</span><span class="work">\[9 - t^2 = 0 \quad\Longrightarrow\quad t^2 = 9 \quad\Longrightarrow\quad t = 3 \ \text{ or } \ t = -3\]</span></li>
+        <li><span class="step">Check both</span><span class="work">\(-3\) is already below \(-2.5\), so it was never allowed; only \(3\) has to be removed</span></li>
+        <li><span class="step">Combine</span><span class="work">\(t \ge -2.5\), excluding \(3\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>[&minus;2.5, 3) &cup; (3, &infin;)</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 420 92" role="img" aria-label="Number line shaded from negative 2.5 rightwards, with a filled endpoint at negative 2.5 and an open gap at 3">
+          <path class="axis" d="M14 46H402"/>
+          <path class="mark" d="M410 46l-9 -5v10z"/>
+          <path class="grid" d="M65.8 42V50 M129.5 42V50 M193.1 42V50 M256.7 42V50 M320.4 42V50 M384 42V50"/>
+          <text class="label-soft" x="65.8" y="66" style="text-anchor:middle">&minus;4</text>
+          <text class="label-soft" x="129.5" y="66" style="text-anchor:middle">&minus;2</text>
+          <text class="label-soft" x="193.1" y="66" style="text-anchor:middle">0</text>
+          <text class="label-soft" x="256.7" y="66" style="text-anchor:middle">2</text>
+          <text class="label-soft" x="320.4" y="66" style="text-anchor:middle">4</text>
+          <text class="label-soft" x="384" y="66" style="text-anchor:middle">6</text>
+          <path class="band" d="M113.5 46H288.5"/>
+          <path class="band" d="M288.5 46H398"/>
+          <circle class="dot" cx="113.5" cy="46" r="5"/>
+          <circle class="hole" cx="288.5" cy="46" r="5"/>
+          <text class="label-key" x="113.5" y="30" style="text-anchor:middle">&minus;2.5</text>
+          <text class="label-key" x="288.5" y="30" style="text-anchor:middle">3</text>
+          <text class="label-soft" x="199.5" y="86" style="text-anchor:middle">included</text>
+          <text class="label-soft" x="339.5" y="86" style="text-anchor:middle">included</text>
+        </svg>
+        <figcaption>Filled dot at \(-2.5\) because the root allows equality; open dot at \(3\) because \(3\) is excluded. The line continues to the right without end.</figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Check each excluded point against the other rule</p>
+    <p>The denominator produced two candidates, \(3\) and \(-3\), but \(-3\) sits outside the region the square root already permits. Writing the answer as &ldquo;\(t \ge -2.5\) except \(3\) and \(-3\)&rdquo; is not wrong so much as redundant, and on an interval-notation question it costs you the point. Draw the number line and the overlap becomes obvious.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before next class</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Wednesday by the end of the day.</li>
+    <li><strong>Finish the A.7 and 1.2 WeBWorK sets tonight.</strong> They are due tomorrow, and tomorrow's quiz is based on them.</li>
+    <li>Start the 2.1, 2.2, and 2.4 sets. Leave the optional Exam 1 practice set for last.</li>
+    <li>For each function on this page, cover the solution and list the roots and denominators before solving anything. That inventory is the whole method.</li>
+    <li>Redo \(f(x) = \frac{4+3x}{\sqrt{x-2}}\) and \(g(x) = \frac{4+3x}{\sqrt{x}-2}\) side by side, and be able to say why the answers differ.</li>
+    <li>Sketch the number line for every domain answer, even when the question does not ask for interval notation.</li>
+    <li><strong>Exam 1 is Wednesday, Sep 16</strong>, on sections 1.1, 1.2, A.7, 2.1, 2.2, and 2.4. Start reviewing the earlier notes now rather than next Tuesday.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 2.1 &middot; September 9</p>
+</footer>
+
+</div>
+</body>
+</html>
