@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Sep 11 &mdash; Elementary, polynomial, and rational functions</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, September 11</p>
+  <h1>Elementary, polynomial, and rational functions</h1>
+  <p class="standfirst">Sections 2.2 and 2.4. The handful of function types this course keeps returning to: constant, linear, absolute value, piecewise, polynomial, and rational. The last lecture before Exam 1.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Warm-up</a>
+  <a href="#constantlinear">Constant and linear</a>
+  <a href="#piecewise">Absolute value and piecewise</a>
+  <a href="#salesperson">A piecewise word problem</a>
+  <a href="#polynomials">Polynomials</a>
+  <a href="#rational">Rational functions</a>
+  <a href="#domain">Domain of a rational function</a>
+  <a href="#next">Before the exam</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Exam 1</p>
+    <ul>
+      <li><strong>Exam 1 is Wednesday, Sep 16.</strong> It covers the first three weeks of the semester, everything up to and including today.</li>
+      <li><strong>Monday's class is review</strong> for the exam.</li>
+      <li>The exam is <strong>closed-book and closed-notes, with no formula sheet</strong>. You need to remember the formulas yourself: the business relations, the line equations, the quadratic formula.</li>
+      <li>The best preparation is solving WeBWorK problems carefully, <em>writing down the steps</em> so you can recall them during the exam. If the regular sets are finished, try the optional <strong>Exam 1 practice</strong>.</li>
+      <li>Review the quizzes too. <strong>Quiz 1 is on Gradescope</strong> and Quiz 2 will be added once grading finishes.</li>
+      <li>Complete the <strong>Concept Check</strong> for Friday by the end of the day.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">If you are not sure what went wrong on a quiz</p>
+    <p>Ask. Your instructor, your TA, or an LLM can explain what went wrong in your solution, and doing that may help more than rereading a correct one.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up</span>A quadratic, and a trap</h2>
+
+  <div class="problem">
+    <p>Solve \(3x^2 = 7x + 5\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Standard form</span><span class="work">\[3x^2 - 7x - 5 = 0\]</span></li>
+        <li><span class="step">Read off</span><span class="work">\(a = 3\), \(b = -7\), \(c = -5\)</span></li>
+        <li><span class="step">Formula</span><span class="work">\[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]</span></li>
+        <li><span class="step">Discriminant</span><span class="work">\((-7)^2 = 49\), so \[49 - 4\cdot 3\cdot(-5) = 49 + 60 = 109\]</span></li>
+        <li><span class="step">Substitute</span><span class="work">\[x = \frac{7 \pm \sqrt{109}}{6}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = (7 &plusmn; &radic;109)/6 &asymp; 2.907 or &minus;0.573</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">What not to do</p>
+    <p>Do not take a square root of both sides. Writing \(\sqrt{3x^2} = \sqrt{7x+5}\) gains nothing, and simplifying it to \(\sqrt{3}\,x = \sqrt{7x} + \sqrt{5}\) is simply false: a square root does not distribute over a sum.</p>
+    <p>The square-root method needs an equation with an \(x^2\) term and <em>no</em> first-power term. This one has both, so the quadratic formula is the tool.</p>
+  </div>
+
+  <div class="note">
+    <p class="card-label">And watch that sign</p>
+    <p>\((-7)^2 = 49\), not \(-49\). Writing \(-7^2\) means \(-(7^2)\), which is where the sign gets lost. With \(b = -7\) the term \(-b\) becomes \(+7\), so the numerator opens with \(7\), not \(-7\).</p>
+  </div>
+</section>
+
+<section id="constantlinear">
+  <h2><span class="marker">Definition</span>Constant and linear functions</h2>
+
+  <p>Recall that a function takes a single number and outputs a single number. &ldquo;Take the square root and double it&rdquo; can be written \(f(x) = 2\sqrt{x}\) or as \(y = 2\sqrt{x}\). Both notations have their merits: the first names the function \(f\), the second names the output \(y\).</p>
+
+  <h3>Constant functions</h3>
+  <p>A <strong>constant</strong> function outputs the same number no matter what the input is. For example \(f(x) = 10\).</p>
+
+  <div class="problem">
+    <p>For \(f(x) = 10\), what is \(f(3)\)?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p class="answer"><span class="tag">Answer</span>f(3) = 10</p>
+      <p>Because this function always outputs 10. There is no \(x\) in the formula to substitute into, which is exactly what makes it constant.</p>
+    </div>
+  </details>
+
+  <h3>Linear functions</h3>
+  <p><strong>Linear</strong> functions have the form \(f(x) = ax + b\), where \(a\) and \(b\) are numbers. They model steady growth or decline, and we have already met them as total cost and profit in terms of the quantity \(x\).</p>
+
+  <div class="problem">
+    <p>The total cost is \(f(x) = 7500 + 20x\). Find the variable cost per unit and the fixed cost.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Variable</span><span class="work">the coefficient of \(x\): \(20\) per unit</span></li>
+        <li><span class="step">Fixed</span><span class="work">the constant term: \(7500\)</span></li>
+        <li><span class="step">Same thing</span><span class="work">\[f(0) = 7500 + 20\cdot 0 = 7500 + 0 = 7500\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>$20 per unit variable, $7,500 fixed</p>
+      <p>The fixed cost is the cost of producing nothing, which is why it equals \(f(0)\). That reading works for any linear model, so you never have to remember which number is which.</p>
+    </div>
+  </details>
+</section>
+
+<section id="piecewise">
+  <h2><span class="marker">Definition</span>Absolute value and piecewise functions</h2>
+
+  <p>The <strong>absolute value</strong> function has its own notation, \(|x|\), and it is defined by two formulas rather than one.</p>
+
+  \[|x| = \begin{cases} x, & \text{if } x \ge 0 \\ -x, & \text{if } x &lt; 0\end{cases}\]
+
+  <p>So \(|-7.4| = 7.4\) and \(|2.3| = 2.3\). The conditions to the right of the formulas are what tell you which formula applies.</p>
+
+  <p>More generally, a <strong>piecewise-defined</strong> function uses a different formula on different parts of its domain, possibly with more than two cases.</p>
+
+  \[f(x) = \begin{cases} 5x, & \text{if } x \le 10 \\ 50, & \text{if } x &gt; 10\end{cases}\]
+
+  <figure class="fig">
+    <svg viewBox="0 0 430 160" role="img" aria-label="A piecewise function drawn as a sorter: the input is tested against a condition and sent to one of two formulas, which then produce the output">
+      <path class="axis" d="M22 80H92"/>
+      <path class="mark" d="M100 80l-9 -5v10z"/>
+      <text class="label-key" x="56" y="70" style="text-anchor:middle">x</text>
+      <rect class="box" x="104" y="58" width="74" height="44" rx="3"/>
+      <text class="label-soft" x="141" y="78" style="text-anchor:middle">which</text>
+      <text class="label-soft" x="141" y="92" style="text-anchor:middle">case?</text>
+      <path class="axis" d="M178 74C206 74 214 44 240 44"/>
+      <path class="mark" d="M248 44l-9 -5v10z"/>
+      <path class="axis" d="M178 86C206 86 214 116 240 116"/>
+      <path class="mark" d="M248 116l-9 -5v10z"/>
+      <rect class="box" x="252" y="24" width="80" height="40" rx="3"/>
+      <text class="label" x="292" y="49" style="text-anchor:middle">5x</text>
+      <rect class="box" x="252" y="96" width="80" height="40" rx="3"/>
+      <text class="label" x="292" y="121" style="text-anchor:middle">50</text>
+      <text class="label-soft" x="215" y="34" style="text-anchor:middle">x &#8804; 10</text>
+      <text class="label-soft" x="215" y="136" style="text-anchor:middle">x &gt; 10</text>
+      <path class="axis" d="M332 44C356 44 356 80 380 80"/>
+      <path class="axis" d="M332 116C356 116 356 80 380 80"/>
+      <path class="mark" d="M392 80l-9 -5v10z"/>
+      <text class="label-key" x="384" y="70">f(x)</text>
+    </svg>
+    <figcaption>The machine from last time, with a sorting step in front. The input is tested first, and only then does a formula get applied.</figcaption>
+  </figure>
+
+  <div class="problem">
+    <p>For the function above, find \(f(3)\) and \(f(13)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">f(3)</span><span class="work">\(3 \le 10\), so use the first formula: \(5 \cdot 3 = 15\)</span></li>
+        <li><span class="step">f(13)</span><span class="work">\(13 &gt; 10\), so use the second formula: \(50\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f(3) = 15 and f(13) = 50</p>
+      <p>Check the condition <em>before</em> substituting. The formula you would have used is irrelevant once the input lands in the other case.</p>
+    </div>
+  </details>
+
+  <h3>Where these come from</h3>
+  <p>Piecewise functions describe contracts and agreements with conditions attached, such as a cap on a total.</p>
+
+  <div class="problem">
+    <p>A company will donate $5 to charity for each sale, up to a total of $10,000. Write the donation as a function of \(x\), the quantity sold.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Two regimes: below the cap the donation grows with sales, and above it the donation is frozen at the cap. The work is finding where the boundary sits.</p>
+      <ol class="ledger">
+        <li><span class="step">Below cap</span><span class="work">\($5\) per unit gives \(5x\)</span></li>
+        <li><span class="step">Boundary</span><span class="work">the cap is reached when \[5x = 10000 \quad\Longrightarrow\quad x = 2000\]</span></li>
+        <li><span class="step">Above cap</span><span class="work">the donation stays at \(10000\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f(x) = 5x if x &le; 2000, and f(x) = 10,000 if x &gt; 2000</p>
+      <p>The $10,000 in the problem is a limit on the <em>donation</em>, not on the quantity. Converting it into a limit on \(x\) is what the middle step does, and it is the only real work in the problem.</p>
+    </div>
+  </details>
+</section>
+
+<section id="salesperson">
+  <h2><span class="marker">Worked example</span>A piecewise word problem</h2>
+
+  <div class="problem">
+    <p>A salesperson is paid $20 for each gadget sold, up to 100 gadgets, and $25 for each sale beyond 100. Find the total income as a function of \(x\), the number of gadgets sold.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Split the \(x\) gadgets into the first 100 and the rest.</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 420 130" role="img" aria-label="A bar showing the x gadgets sold split into the first 100, paid 20 dollars each, and the remainder x minus 100, paid 25 dollars each">
+          <rect class="box" x="40" y="34" width="340" height="44" rx="2"/>
+          <path class="axis" d="M228.9 34V78"/>
+          <text class="label" x="134.4" y="62" style="text-anchor:middle">100</text>
+          <text class="label" x="304.4" y="62" style="text-anchor:middle">x − 100</text>
+          <text class="label-key" x="134.4" y="24" style="text-anchor:middle">$20 each</text>
+          <text class="label-key" x="304.4" y="24" style="text-anchor:middle">$25 each</text>
+          <path class="helper" d="M40 92H380"/>
+          <path class="axis" d="M40 87V97 M380 87V97"/>
+          <text class="label-soft" x="210" y="112" style="text-anchor:middle">x gadgets sold</text>
+        </svg>
+        <figcaption>Drawing the split first is what produces the \(x - 100\). The two pieces are paid at different rates.</figcaption>
+      </figure>
+
+      <ol class="ledger">
+        <li><span class="step">Up to 100</span><span class="work">every gadget pays $20, so the income is \(20x\)</span></li>
+        <li><span class="step">Beyond 100</span><span class="work">the first 100 pay \(20 \cdot 100 = 2000\), and the remaining \(x - 100\) pay $25 each</span></li>
+        <li><span class="step">Second case</span><span class="work">\[20\cdot 100 + 25(x - 100)\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[2000 + 25x - 2500 = 25x - 500\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f(x) = 20x if x &le; 100, and f(x) = 25x &minus; 500 if x &gt; 100</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The $25 applies only to the excess</p>
+    <p>Writing \(25x\) for the second case pays the higher rate on all \(x\) gadgets, including the first 100. The quantity earning $25 is \(x - 100\), the same structure as the commission problem from Aug 28.</p>
+  </div>
+</section>
+
+<section id="polynomials">
+  <h2><span class="marker">Definition</span>Polynomials</h2>
+
+  <p>A <strong>quadratic</strong> polynomial has the form \(f(x) = ax^2 + bx + c\), where \(a\), \(b\), \(c\) are coefficients. It is also called a polynomial of <strong>degree</strong> 2, because 2 is the highest power of the variable. The coefficient of that highest power is the <strong>leading coefficient</strong>.</p>
+
+  <p>Polynomials of other degrees work the same way. In general a polynomial is various powers of \(x\) with coefficients, all added together.</p>
+
+  <div class="card">
+    <p class="card-label">Two things to read off</p>
+    <ul class="keys">
+      <li><strong>Degree</strong>: the highest power the variable is raised to.</li>
+      <li><strong>Leading coefficient</strong>: the number multiplying that highest power, sign included.</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Find the degree and leading coefficient of</p>
+    <p><strong>a)</strong> \(f(x) = 7x + 8 - \dfrac{x^2}{3}\) &nbsp;&nbsp; <strong>b)</strong> \(7x^3 - 4x^5 + 18\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Neither is written with the powers in order, so reorder them first.</p>
+      <ol class="ledger">
+        <li><span class="step">a) Reorder</span><span class="work">\[-\frac{1}{3}x^2 + 7x + 8\]</span></li>
+        <li><span class="step">a) Read off</span><span class="work">degree \(2\), leading coefficient \(-\frac{1}{3}\)</span></li>
+        <li><span class="step">b) Reorder</span><span class="work">\[-4x^5 + 7x^3 + 18\]</span></li>
+        <li><span class="step">b) Read off</span><span class="work">degree \(5\), leading coefficient \(-4\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>degree 2 with &minus;1/3; &nbsp; degree 5 with &minus;4</p>
+      <p>In both cases the highest power carries a minus sign, and the minus sign is part of the leading coefficient. It is <em>not</em> \(\frac{1}{3}\) or \(4\).</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The exponents have to be non-negative integers</p>
+    <p>\(\sqrt{x} = x^{1/2}\) is <strong>not</strong> a polynomial, and neither is \(x^{3.5}\). A fractional power disqualifies the expression no matter how ordinary the rest of it looks. The same goes for a variable in a denominator, which is a negative power.</p>
+  </div>
+</section>
+
+<section id="rational">
+  <h2><span class="marker">Definition</span>Rational functions</h2>
+
+  <p>Sometimes a polynomial is not written in expanded form, and finding the degree means expanding it first.</p>
+
+  <div class="problem">
+    <p>Expand \(f(x) = (1 - 2x^2)(2x - 3x^5)\), then give its degree and leading coefficient.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Multiply each term of the first factor by each term of the second.</p>
+      <ol class="ledger">
+        <li><span class="step">Four products</span><span class="work">\[1\cdot 2x + 1\cdot(-3x^5) + (-2x^2)(2x) + (-2x^2)(-3x^5)\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[2x - 3x^5 - 4x^3 + 6x^7\]</span></li>
+        <li><span class="step">Reorder</span><span class="work">\[6x^7 - 3x^5 - 4x^3 + 2x\]</span></li>
+        <li><span class="step">Read off</span><span class="work">degree \(7\), leading coefficient \(6\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>6x&#8311; &minus; 3x&#8309; &minus; 4x&sup3; + 2x, degree 7, leading coefficient 6</p>
+      <p>Adding exponents is what produces the 7: \(x^2 \cdot x^5 = x^7\), since \(xx \cdot xxxxx\) is seven copies of \(x\). Likewise \(x^2 \cdot x = x^3\).</p>
+    </div>
+  </details>
+
+  <p>So multiplying two polynomials gives another polynomial. <strong>Dividing</strong> one by another gives something new, a <strong>rational function</strong>:</p>
+
+  \[f(x) = \frac{\text{one polynomial}}{\text{another polynomial}}\]
+
+  <p>For example,</p>
+
+  \[f(x) = \frac{5x^3 + 1}{x^2 + 4x}\]
+
+  <p>Polynomials are defined for every value of \(x\). Rational functions may not be: they can have <strong>vertical asymptotes</strong> where the denominator turns to 0 and the function is undefined. These are precisely the numbers excluded from the domain.</p>
+
+  <div class="problem">
+    <p>Find the vertical asymptotes and the domain of \(f(x) = \dfrac{5x^3 + 1}{x^2 + 4x}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Denominator</span><span class="work">\[x^2 + 4x = 0\]</span></li>
+        <li><span class="step">Factor</span><span class="work">\[x(x + 4) = 0\]</span></li>
+        <li><span class="step">Split</span><span class="work">either \(x = 0\) or \(x + 4 = 0\)</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x = 0 \quad\text{or}\quad x = -4\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>asymptotes at x = 0 and x = &minus;4; domain is all x except 0 and &minus;4</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 380 300" role="img" aria-label="Sketch of a rational function with vertical asymptotes at x equals negative 4 and x equals 0: a hump below the axis to the left of negative 4, a falling branch between the asymptotes that crosses the axis once, and a branch to the right of 0 that drops steeply then turns back up">
+          <path class="helper" d="M110 292V14"/>
+          <path class="helper" d="M250 292V14"/>
+          <path class="axis" d="M10 150H366"/>
+          <path class="mark" d="M368 150l-9 -5v10z"/>
+          <text class="label" x="364" y="169" style="text-anchor:end">x</text>
+          <text class="label-soft" x="102" y="176" style="text-anchor:end">x = −4</text>
+          <text class="label-soft" x="258" y="176">x = 0</text>
+          <path class="curve" d="M16 272C30 216 44 202 60 206C80 211 96 242 104 292"/>
+          <path class="curve" d="M116 16C126 92 152 142 196 152C224 164 244 210 246 292"/>
+          <path class="curve" d="M256 16C263 92 273 132 294 136C322 141 350 120 364 96"/>
+          <circle class="dot" cx="196" cy="152" r="4"/>
+        </svg>
+        <figcaption>A sketch, not to scale. The two asymptotes cut the graph into three separate branches, and the curve runs off to infinity as it approaches either dashed line. The marked point is where the graph crosses the axis, at \(x = -\sqrt[3]{1/5} \approx -0.585\). Note, however, that this \(y\)-intercept has nothing to do with the asymptotes or the domain of the function. </figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Factor the denominator, don't use the quadratic formula</p>
+    <p>\(x^2 + 4x\) has no constant term, so \(x\) is a common factor and the roots come out in one line. Reaching for the quadratic formula here works but takes four times as long, and this denominator shape is extremely common.</p>
+  </div>
+</section>
+
+<section id="domain">
+  <h2><span class="marker">Worked example</span>Domain of a rational function</h2>
+
+  <div class="card">
+    <p class="card-label">Recall: how to find a domain</p>
+    <ul class="keys">
+      <li>The content of each square root must be \(\ge 0\).</li>
+      <li>Each denominator must <strong>not</strong> be 0.</li>
+    </ul>
+  </div>
+
+  <p>A rational function has no square roots, so only the second rule applies. It is all about the denominator.</p>
+
+  <div class="problem">
+    <p>Find the domain of \(f(x) = \dfrac{2x - 9}{x^3 + 3x^2 + 2x}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Denominator</span><span class="work">\[x^3 + 3x^2 + 2x = 0\]</span></li>
+        <li><span class="step">Common factor</span><span class="work">\[x(x^2 + 3x + 2) = 0\]</span></li>
+        <li><span class="step">Factor again</span><span class="work">\(1\) and \(2\) multiply to \(2\) and add to \(3\): \[x(x + 1)(x + 2) = 0\]</span></li>
+        <li><span class="step">Split</span><span class="work">\[x = 0, \quad x = -1, \quad x = -2\]</span></li>
+        <li><span class="step">Exclude</span><span class="work">all three are outside the domain</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>all x except 0, &minus;1, and &minus;2</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 420 80" role="img" aria-label="Number line with open circles at negative 2, negative 1 and 0, marking the three numbers excluded from the domain">
+          <path class="band" d="M20 40H398"/>
+          <path class="axis" d="M14 40H402"/>
+          <path class="mark" d="M410 40l-9 -5v10z"/>
+          <circle class="hole" cx="150.7" cy="40" r="5.5"/>
+          <text class="label-key" x="150.7" y="24" style="text-anchor:middle">−2</text>
+          <circle class="hole" cx="209" cy="40" r="5.5"/>
+          <text class="label-key" x="209" y="24" style="text-anchor:middle">−1</text>
+          <circle class="hole" cx="267.3" cy="40" r="5.5"/>
+          <text class="label-key" x="267.3" y="24" style="text-anchor:middle">0</text>
+          <text class="label-soft" x="210" y="64" style="text-anchor:middle">every other number is in the domain</text>
+        </svg>
+        <figcaption>Three punctures in an otherwise complete number line. In interval notation this is \((-\infty,-2)\cup(-2,-1)\cup(-1,0)\cup(0,\infty)\), which is why &ldquo;all except&rdquo; is usually the kinder way to write it.</figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Pull out the common factor first</p>
+    <p>A cubic looks intimidating, but every term here carries an \(x\), so factoring one out leaves a quadratic you can handle. Do that before anything else whenever the polynomial has no constant term.</p>
+    <p>Note also that the numerator plays no part. \(2x - 9\) is zero at \(x = 4.5\), and \(4.5\) is perfectly fine as an input; it just makes the output 0. Only denominators and square roots restrict a domain.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before the exam</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Friday by the end of the day.</li>
+    <li><strong>Monday is the review class.</strong> Bring the questions you want answered; that is what the hour is for.</li>
+    <li>Write out from memory, on a blank page: the four business relations, the slope formula, point-slope, slope-intercept, and the quadratic formula. <strong>There is no formula sheet on the exam.</strong></li>
+    <li>Rework WeBWorK problems with pen on paper, writing every step. Recognizing an answer is not the same as being able to produce it.</li>
+    <li>Only after the regular sets are done, try the optional Exam 1 practice set.</li>
+    <li>Go through Quiz 1 on Gradescope, and Quiz 2 when it is posted. Make sure you know why each lost mark was lost.</li>
+    <li><strong>Exam 1: Wednesday, Sep 16</strong>, covering 1.1, 1.2, A.7, 2.1, 2.2, and 2.4. Closed book, closed notes.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Sections 2.2 and 2.4 &middot; September 11</p>
+</footer>
+
+</div>
+</body>
+</html>

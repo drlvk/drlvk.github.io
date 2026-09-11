@@ -23,6 +23,7 @@ to `/favicon.svg` — on a project site that resolves to the wrong place.
 | `mat284-sep02-section-1-2-part-1.html` | Sep 2 — Graphs and lines |
 | `mat284-sep04-section-1-2-part-2.html` | Sep 4 — Applications of linear equations |
 | `mat284-sep09-section-2-1.html` | Sep 9 — Functions |
+| `mat284-sep11-sections-2-2-and-2-4.html` | Sep 11 — Elementary, polynomial, and rational functions |
 
 ## Adding a lecture
 
@@ -72,6 +73,12 @@ Two rules here as well:
 
 Stroke widths are in user units, so keep every figure's `viewBox` on roughly
 the same scale or the line weights won't match between figures.
+
+Inside a `<text>` element, write special characters as literal UTF-8 — `−`
+(U+2212), `≤`, `∞` — not as HTML entities like `&minus;`. The entity does work
+in the browser, because inline SVG is parsed by the HTML parser, but it breaks
+the moment a figure is opened as a standalone `.svg` file, where only the five
+XML entities exist. The prose outside the figures can use entities freely.
 
 An `aria-label` on the `<svg>` is not optional. It is the only thing a screen
 reader gets, and the `figcaption` should carry the point of the picture rather
