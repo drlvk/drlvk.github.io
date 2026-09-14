@@ -24,6 +24,7 @@ to `/favicon.svg` — on a project site that resolves to the wrong place.
 | `mat284-sep04-section-1-2-part-2.html` | Sep 4 — Applications of linear equations |
 | `mat284-sep09-section-2-1.html` | Sep 9 — Functions |
 | `mat284-sep11-sections-2-2-and-2-4.html` | Sep 11 — Elementary, polynomial, and rational functions |
+| `mat284-sep14-exam-1-review.html` | Sep 14 — Review for Exam 1 |
 
 ## Adding a lecture
 

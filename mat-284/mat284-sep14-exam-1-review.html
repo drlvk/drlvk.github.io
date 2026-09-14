@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Sep 14 &mdash; Review for Exam 1</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Monday, September 14</p>
+  <h1>Review for Exam 1</h1>
+  <p class="standfirst">Nine problems worked in class, one from each corner of the first three weeks. Hide the solutions and try each one cold before reading on.</p>
+</header>
+
+<nav class="jump" aria-label="Problems on this page">
+  <a href="#a">A &middot; Revenue across two months</a>
+  <a href="#b">B &middot; Domain and asymptotes</a>
+  <a href="#c">C &middot; Making a profit</a>
+  <a href="#d">D &middot; Evaluating a piecewise function</a>
+  <a href="#e">E &middot; Writing a piecewise function</a>
+  <a href="#f">F &middot; Degree and leading coefficient</a>
+  <a href="#g">G &middot; Break-even quantity</a>
+  <a href="#h">H &middot; Equilibrium, with a tax</a>
+  <a href="#j">J &middot; Fitting a supply equation</a>
+  <a href="#next">Before the exam</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li><strong>Today is the Drop Deadline</strong>, the last chance to drop a class without any trace on your transcript.</li>
+      <li>Today is also the <strong>last day to opt out</strong> of the textbook purchase, through the Orange Instant Access link.</li>
+      <li>There is <strong>no Concept Check today</strong>, since there are no new concepts.</li>
+      <li><strong>Exam 1 is this Wednesday.</strong> Read the Blackboard announcement carefully.</li>
+      <li>If you missed any classes, at minimum read those lecture notes and work through the examples in them.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">No formula sheet</p>
+    <p>The exam is closed-book and closed-notes. Before Wednesday, write these out on a blank page from memory: the four cost/revenue/profit relations, the slope formula, point-slope, slope-intercept, and the quadratic formula. If any of them will not come, that is what to spend tonight on.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="a">
+  <h2><span class="marker">Problem A</span>Revenue across two months</h2>
+
+  <div class="problem">
+    <p>At present, in September, a manufacturer has 150 units of a product in stock. The product now sells at $15 per unit. In October the unit price will increase to $21. The manufacturer wants the total revenue to be no less than $2,600.</p>
+    <p><strong>(a)</strong> Express this as an inequality in which \(x\) is the number of units sold in September.</p>
+    <p><strong>(b)</strong> Solve it to find the maximum number of units that can be sold in September.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Revenue is price times quantity, but there are two prices here, so there are two pieces of revenue. This is an allocation problem: the 150 units get split between September and October.</p>
+      <ol class="ledger">
+        <li><span class="step">Two variables</span><span class="work">\(x\) units sold in September, \(y\) units sold in October</span></li>
+        <li><span class="step">Two revenues</span><span class="work">September brings \(15x\), October brings \(21y\)</span></li>
+        <li><span class="step">Goal</span><span class="work">&ldquo;no less than&rdquo; is non-strict: \[15x + 21y \ge 2600\]</span></li>
+        <li><span class="step">Relation</span><span class="work">\[x + y = 150 \quad\Longrightarrow\quad y = 150 - x\]</span></li>
+        <li><span class="step">Substitute</span><span class="work">\[15x + 21(150 - x) \ge 2600\]</span></li>
+        <li><span class="step">Expand</span><span class="work">\[15x + 3150 - 21x \ge 2600\]</span></li>
+        <li><span class="step">Collect</span><span class="work">\[-6x \ge -550\]</span></li>
+        <li><span class="step">Divide by &minus;6</span><span class="work">the sign flips: \[x \le \frac{550}{6} = 91.666\ldots\]</span></li>
+        <li><span class="step">Whole units</span><span class="work">the largest whole number at or below \(91.67\) is \(91\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>15x + 21(150 &minus; x) &ge; 2600, giving at most 91 units in September</p>
+      <p>Check: 91 in September and 59 in October give \(15(91) + 21(59) = 1365 + 1239 = 2604 \ge 2600\). &check; And 92 units would give \(2598\), which falls short.</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Why selling less in September raises revenue</p>
+    <p>October pays more per unit, so every unit held back earns an extra $6. That is why the answer is a <em>ceiling</em> on \(x\) rather than a floor, and why the inequality flips when you divide by \(-6\). If your answer came out as \(x \ge 91.67\), the flip went missing.</p>
+    <p>Note also that the whole-number step rounds <em>down</em> here. With \(x \le 91.67\), rounding up to 92 leaves the allowed range.</p>
+  </div>
+</section>
+
+<section id="b">
+  <h2><span class="marker">Problem B</span>Domain and asymptotes</h2>
+
+  <div class="problem">
+    <p>Find the domain of \(f(x) = \dfrac{\sqrt{x + 4}}{x^2 - 3x + 2}\), and find its vertical asymptotes.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Both domain rules apply here: there is a square root <em>and</em> a denominator.</p>
+      <ol class="ledger">
+        <li><span class="step">Root</span><span class="work">\(x + 4 \ge 0\), so \(x \ge -4\)</span></li>
+        <li><span class="step">Denominator</span><span class="work">\[x^2 - 3x + 2 = 0\]</span></li>
+        <li><span class="step">Factor</span><span class="work">\(-1\) and \(-2\) multiply to \(2\) and add to \(-3\): \[(x - 1)(x - 2) = 0\]</span></li>
+        <li><span class="step">Exclude</span><span class="work">\(x = 1\) and \(x = 2\), both of which are above \(-4\), so both matter</span></li>
+        <li><span class="step">Combine</span><span class="work">\(x \ge -4\), excluding \(1\) and \(2\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>domain [&minus;4, 1) &cup; (1, 2) &cup; (2, &infin;); vertical asymptotes at x = 1 and x = 2</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 420 88" role="img" aria-label="Number line shaded from negative 4 rightwards with a filled endpoint at negative 4 and open circles at 1 and 2">
+          <path class="axis" d="M14 46H402"/>
+          <path class="mark" d="M410 46l-9 -5v10z"/>
+          <path class="grid" d="M97.3 42V50 M160.5 42V50 M223.8 42V50 M287.1 42V50 M350.4 42V50"/>
+          <path class="band" d="M97.3 46H398"/>
+          <circle class="dot" cx="97.3" cy="46" r="5"/>
+          <circle class="hole" cx="255.5" cy="46" r="5"/>
+          <circle class="hole" cx="287.1" cy="46" r="5"/>
+          <text class="label-key" x="97.3" y="30" style="text-anchor:middle">−4</text>
+          <text class="label-key" x="255.5" y="30" style="text-anchor:middle">1</text>
+          <text class="label-key" x="287.1" y="30" style="text-anchor:middle">2</text>
+          <text class="label-soft" x="160.5" y="66" style="text-anchor:middle">−2</text>
+          <text class="label-soft" x="223.8" y="66" style="text-anchor:middle">0</text>
+          <text class="label-soft" x="350.4" y="66" style="text-anchor:middle">4</text>
+          <text class="label-soft" x="337.7" y="82" style="text-anchor:middle">continues to the right</text>
+        </svg>
+        <figcaption>Filled dot at \(-4\), where the root allows equality. Open circles at \(1\) and \(2\), where the denominator vanishes.</figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Domain and asymptotes are different questions</p>
+    <p>Both \(1\) and \(2\) are excluded from the domain and both are vertical asymptotes, but that is a coincidence of this problem, not a rule. The endpoint \(-4\) is a domain boundary and is <em>not</em> an asymptote: the function is perfectly finite there, equal to \(\frac{0}{30} = 0\).</p>
+  </div>
+</section>
+
+<section id="c">
+  <h2><span class="marker">Problem C</span>Making a profit</h2>
+
+  <div class="problem">
+    <p>To produce one backpack, a company spends $4.25 on material and $7.75 on labor. Its fixed cost is $2,500, and each backpack sells for $18. What is the smallest number of backpacks that must be sold for the company to realize a profit?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Per unit</span><span class="work">material plus labor: \(4.25 + 7.75 = 12\) per backpack</span></li>
+        <li><span class="step">Revenue</span><span class="work">\[18x\]</span></li>
+        <li><span class="step">Total cost</span><span class="work">\[2500 + 12x\]</span></li>
+        <li><span class="step">Profit</span><span class="work">\[18x - (2500 + 12x) = 18x - 2500 - 12x = 6x - 2500\]</span></li>
+        <li><span class="step">Goal</span><span class="work">&ldquo;realize a profit&rdquo; means strictly positive: \[6x - 2500 &gt; 0\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[6x &gt; 2500 \quad\Longrightarrow\quad x &gt; \frac{2500}{6} = 416.666\ldots\]</span></li>
+        <li><span class="step">Whole units</span><span class="work">the smallest whole number strictly above \(416.67\) is \(417\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>417 backpacks</p>
+      <p>Check: at 417 the profit is \(6(417) - 2500 = 2\) dollars, and at 416 it is \(-4\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Two costs, one rate</p>
+    <p>Material and labor are both <em>variable</em> costs, so add them before doing anything else. The single number 12 then behaves exactly like the variable costs in every earlier problem.</p>
+    <p>And note the rounding direction. Here \(x &gt; 416.67\) rounds <em>up</em> to 417, the opposite of Problem A. The inequality sign decides, not habit.</p>
+  </div>
+</section>
+
+<section id="d">
+  <h2><span class="marker">Problem D</span>Evaluating a piecewise function</h2>
+
+  <div class="problem">
+    <p>Given \[f(x) = \begin{cases} 3x + 2, & \text{if } x &lt; 5 \\ 8 - x, & \text{if } x \ge 5\end{cases}\] compute \(f(-2) + f(0)\) and \(\dfrac{f(6)}{f(2)}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Check each input against the condition before substituting.</p>
+      <ol class="ledger">
+        <li><span class="step">f(&minus;2)</span><span class="work">\(-2 &lt; 5\), so \(3(-2) + 2 = -6 + 2 = -4\)</span></li>
+        <li><span class="step">f(0)</span><span class="work">\(0 &lt; 5\), so \(3(0) + 2 = 2\)</span></li>
+        <li><span class="step">Sum</span><span class="work">\[-4 + 2 = -2\]</span></li>
+        <li><span class="step">f(6)</span><span class="work">\(6 \ge 5\), so the <em>second</em> formula: \(8 - 6 = 2\)</span></li>
+        <li><span class="step">f(2)</span><span class="work">\(2 &lt; 5\), so the first formula: \(3(2) + 2 = 8\)</span></li>
+        <li><span class="step">Quotient</span><span class="work">\[\frac{2}{8} = \frac{1}{4}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f(&minus;2) + f(0) = &minus;2, and f(6)/f(2) = 1/4</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Two things \(\frac{f(6)}{f(2)}\) is not</p>
+    <p>It is <strong>not</strong> \(f(3)\). Function notation is not multiplication, so it does not cancel like a fraction of numbers. For the record \(f(3) = 11\), nothing like \(\frac{1}{4}\).</p>
+    <p>It is also <strong>not</strong> \(3\). The inputs 6 and 2 are in different cases, so the two values come from different formulas entirely.</p>
+  </div>
+</section>
+
+<section id="e">
+  <h2><span class="marker">Problem E</span>Writing a piecewise function</h2>
+
+  <div class="problem">
+    <p>An energy company charges a base charge of $9.00 per month, then $0.0550 per kWh for the first 1000 kWh or less, and $0.0700 per kWh for anything over 1000. Write a piecewise function \(f(x)\) for the monthly charge on \(x\) kWh.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Split the usage at 1000 and note that the $9.00 is charged either way.</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 420 130" role="img" aria-label="A bar showing x kilowatt hours split into the first 1000, billed at 0.055 dollars each, and the remainder x minus 1000, billed at 0.07 dollars each">
+          <rect class="box" x="40" y="34" width="340" height="44" rx="2"/>
+          <path class="axis" d="M240 34V78"/>
+          <text class="label" x="140" y="62" style="text-anchor:middle">1000</text>
+          <text class="label" x="310" y="62" style="text-anchor:middle">x − 1000</text>
+          <text class="label-key" x="140" y="24" style="text-anchor:middle">$0.0550 / kWh</text>
+          <text class="label-key" x="310" y="24" style="text-anchor:middle">$0.0700 / kWh</text>
+          <path class="helper" d="M40 92H380"/>
+          <path class="axis" d="M40 87V97"/>
+          <path class="axis" d="M380 87V97"/>
+          <text class="label-soft" x="210" y="112" style="text-anchor:middle">x kWh used, plus a $9.00 base charge</text>
+        </svg>
+        <figcaption>Only the usage above 1000 is billed at the higher rate.</figcaption>
+      </figure>
+
+      <ol class="ledger">
+        <li><span class="step">Up to 1000</span><span class="work">base charge plus the low rate on all of it: \(9 + 0.055x\)</span></li>
+        <li><span class="step">Above 1000</span><span class="work">base, plus the low rate on the first 1000, plus the high rate on the excess</span></li>
+        <li><span class="step">Second case</span><span class="work">\[9 + 0.055(1000) + 0.07(x - 1000)\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[9 + 55 + 0.07x - 70 = 0.07x - 6\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f(x) = 9 + 0.055x if x &le; 1000, and f(x) = 0.07x &minus; 6 if x &gt; 1000</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The same shape as the salesperson problem</p>
+    <p>Compare this with Friday's gadget problem: a flat rate on the first block, a different rate on the excess, and \(x - 1000\) in place of \(x - 100\). The only new feature is the base charge, which sits in <em>both</em> cases because you pay it no matter how little you use.</p>
+  </div>
+</section>
+
+<section id="f">
+  <h2><span class="marker">Problem F</span>Degree and leading coefficient</h2>
+
+  <div class="problem">
+    <p>Find the degree and leading coefficient of \(f(x) = 6x^5 + (3x^2 - x)(8 - 2x^3)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>It is not in expanded form, so expand first.</p>
+      <ol class="ledger">
+        <li><span class="step">Four products</span><span class="work">\[3x^2(8) + 3x^2(-2x^3) + (-x)(8) + (-x)(-2x^3)\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[24x^2 - 6x^5 - 8x + 2x^4\]</span></li>
+        <li><span class="step">Add the 6x&#8309;</span><span class="work">\[6x^5 + 24x^2 - 6x^5 - 8x + 2x^4\]</span></li>
+        <li><span class="step">Cancel</span><span class="work">\(6x^5 - 6x^5 = 0\), so \[f(x) = 2x^4 + 24x^2 - 8x\]</span></li>
+        <li><span class="step">Read off</span><span class="work">degree \(4\), leading coefficient \(2\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>degree 4, leading coefficient 2</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">This one is built as a trap</p>
+    <p>The obvious but wrong answer is degree 5 with leading coefficient 6, read straight off the \(6x^5\) sitting in front. But \(3x^2 \cdot (-2x^3) = -6x^5\), and the two fifth-power terms cancel exactly. The degree-5 term does not survive.</p>
+  </div>
+</section>
+
+<section id="g">
+  <h2><span class="marker">Problem G</span>Break-even quantity</h2>
+
+  <div class="problem">
+    <p>Given total revenue \(R = 50x\) and total cost \(C = 35x + 3900\), find the break-even quantity.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Goal</span><span class="work">break even means \(\text{revenue} = \text{cost}\)</span></li>
+        <li><span class="step">Equation</span><span class="work">\[50x = 35x + 3900\]</span></li>
+        <li><span class="step">Collect</span><span class="work">\[15x = 3900\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x = \frac{3900}{15} = 260\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>260 units</p>
+      <p>Check: \(R = 50(260) = 13000\) and \(C = 35(260) + 3900 = 9100 + 3900 = 13000\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Break even is an equation, not an inequality</p>
+    <p>Compare with Problem C, where &ldquo;realize a profit&rdquo; gave \(&gt; 0\) and forced a rounding decision. Here the answer comes out a whole number on its own, and nothing needs rounding.</p>
+  </div>
+</section>
+
+<section id="h">
+  <h2><span class="marker">Problem H</span>Equilibrium, with a tax</h2>
+
+  <div class="problem">
+    <p>The price&ndash;supply equation for a product is \(p - 0.06x = 50\), and the price&ndash;demand equation is \(p + 0.02x = 90\).</p>
+    <p><strong>(a)</strong> Find the equilibrium point, both quantity and price.</p>
+    <p><strong>(b)</strong> A tax of $10 per unit is imposed on the supplier. Find the new price&ndash;supply equation, then the new equilibrium.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p><strong>(a)</strong> Both equations solve for \(p\) in one step, so isolate \(p\) in each and set them equal.</p>
+      <ol class="ledger">
+        <li><span class="step">Supply</span><span class="work">\[p = 0.06x + 50\]</span></li>
+        <li><span class="step">Demand</span><span class="work">\[p = 90 - 0.02x\]</span></li>
+        <li><span class="step">Set equal</span><span class="work">\[0.06x + 50 = 90 - 0.02x\]</span></li>
+        <li><span class="step">Collect</span><span class="work">\[0.08x = 40\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x = \frac{40}{0.08} = 500\]</span></li>
+        <li><span class="step">Back for p</span><span class="work">\[p = 0.06(500) + 50 = 30 + 50 = 80\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer (a)</span>the point (500, 80)</p>
+
+      <p><strong>(b)</strong> Replace \(p\) by \((p - 10)\) in the <em>supply</em> equation only. The demand equation does not change.</p>
+      <ol class="ledger">
+        <li><span class="step">Substitute</span><span class="work">\[(p - 10) - 0.06x = 50\]</span></li>
+        <li><span class="step">New supply</span><span class="work">\[p = 0.06x + 60\]</span></li>
+        <li><span class="step">Set equal</span><span class="work">\[60 + 0.06x = 90 - 0.02x\]</span></li>
+        <li><span class="step">Collect</span><span class="work">\[0.08x = 30\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x = \frac{30}{0.08} = 375\]</span></li>
+        <li><span class="step">Back for p</span><span class="work">\[p = 60 + 0.06(375) = 60 + 22.5 = 82.5\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer (b)</span>new supply p = 0.06x + 60; new equilibrium (375, 82.5)</p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 434 250" role="img" aria-label="Price against quantity: supply and demand lines crossing at 500 comma 80, with the supply line raised by the 10 dollar tax and a new crossing at 375 comma 82.5">
+          <path class="grid" d="M90 218V223 M134 218V223 M178 218V223 M222 218V223 M266 218V223 M310 218V223 M354 218V223 M41 185H46 M41 152H46 M41 119H46 M41 86H46 M41 53H46 M41 20H46"/>
+          <path class="axis" d="M46 218H426"/>
+          <path class="axis" d="M46 218V14"/>
+          <text class="label" x="428" y="236" style="text-anchor:end">x</text>
+          <text class="label" x="32" y="10">p</text>
+          <path class="curve" d="M46 53L354 99.2"/>
+          <text class="label-key" x="360" y="103.2">demand</text>
+          <path class="curve-2" d="M46 185L354 46.4"/>
+          <text class="label-soft" x="360" y="50.4">supply</text>
+          <path class="curve" d="M46 152L292.4 41.1"/>
+          <text class="label-key" x="286.4" y="33.1" style="text-anchor:end">supply (+$10)</text>
+          <circle class="dot" cx="266" cy="86" r="5"/>
+          <text class="label-key" x="276" y="106">old</text>
+          <circle class="dot" cx="211" cy="77.8" r="5"/>
+          <text class="label-key" x="177" y="68.8">new</text>
+          <text class="label-soft" x="134" y="236" style="text-anchor:middle">200</text>
+          <text class="label-soft" x="222" y="236" style="text-anchor:middle">400</text>
+          <text class="label-soft" x="310" y="236" style="text-anchor:middle">600</text>
+          <text class="label-soft" x="37" y="189" style="text-anchor:end">50</text>
+          <text class="label-soft" x="37" y="156" style="text-anchor:end">60</text>
+          <text class="label-soft" x="37" y="123" style="text-anchor:end">70</text>
+          <text class="label-soft" x="37" y="90" style="text-anchor:end">80</text>
+          <text class="label-soft" x="37" y="57" style="text-anchor:end">90</text>
+          <text class="label-soft" x="37" y="24" style="text-anchor:end">100</text>
+        </svg>
+        <figcaption>The tax lifts the supply line by $10, and the equilibrium slides up the unchanged demand line from \((500, 80)\) to \((375, 82.5)\).</figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The price rose $2.50, not $10</p>
+    <p>Consumers now pay $82.50 instead of $80.00, while the supplier keeps \(82.50 - 10 = 72.50\), which is $7.50 less than before. If your new price comes out exactly $10 higher, you changed the demand equation too.</p>
+  </div>
+</section>
+
+<section id="j">
+  <h2><span class="marker">Problem J</span>Fitting a supply equation</h2>
+
+  <div class="problem">
+    <p>A supplier will produce 300 units when the price is $20, and 800 units when the price is $40. Find the price&ndash;supply equation, assuming it is linear. Give the answer in slope-intercept form \(p = mx + b\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Quantity is \(x\) and price is \(p\), so the two points are \((300,\ 20)\) and \((800,\ 40)\). Quantity comes first even though the problem states the price second.</p>
+      <ol class="ledger">
+        <li><span class="step">Slope</span><span class="work">\[m = \frac{40 - 20}{800 - 300} = \frac{20}{500} = 0.04\]</span></li>
+        <li><span class="step">Sign check</span><span class="work">positive, as a supply equation should be</span></li>
+        <li><span class="step">Point-slope</span><span class="work">through \((300,\ 20)\): \[p - 20 = 0.04(x - 300)\]</span></li>
+        <li><span class="step">Distribute</span><span class="work">\[p - 20 = 0.04x - 12\]</span></li>
+        <li><span class="step">Add 20</span><span class="work">\[p = 0.04x + 8\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>p = 0.04x + 8</p>
+      <p>Check both points: at \(x = 300\), \(12 + 8 = 20\), and at \(x = 800\), \(32 + 8 = 40\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Read what form is being asked for</p>
+    <p>The question names slope-intercept form, so stopping at the point-slope line leaves the job half done. The same slope \(0.04 = \frac{1}{25}\) can also be written as a fraction if you prefer exact arithmetic.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before the exam</h2>
+  <ul class="checklist">
+    <li>Read the Blackboard announcement about Exam 1 carefully.</li>
+    <li>Write the formulas out from memory on a blank page. <strong>There is no formula sheet.</strong></li>
+    <li>Redo all nine problems above with the solutions hidden. If one goes wrong, find the lecture it came from and rework that section's examples too.</li>
+    <li>Watch the rounding direction on Problems A and C. They round opposite ways, and the inequality sign is what decides.</li>
+    <li>Expand before reading off a degree, as Problem F shows.</li>
+    <li>On every word problem, say in words what \(x\) stands for before writing an equation.</li>
+    <li>Check your answers back against the original conditions. Nearly every problem here has a one-line check.</li>
+    <li>If you missed a class, read those notes and work the examples in them.</li>
+    <li><strong>Exam 1: Wednesday, Sep 16.</strong> Sections 1.1, 1.2, A.7, 2.1, 2.2, 2.4. Closed book, closed notes.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Review for Exam 1 &middot; September 14</p>
+</footer>
+
+</div>
+</body>
+</html>
