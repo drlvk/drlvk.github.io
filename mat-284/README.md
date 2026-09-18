@@ -25,6 +25,7 @@ to `/favicon.svg` — on a project site that resolves to the wrong place.
 | `mat284-sep09-section-2-1.html` | Sep 9 — Functions |
 | `mat284-sep11-sections-2-2-and-2-4.html` | Sep 11 — Elementary, polynomial, and rational functions |
 | `mat284-sep14-exam-1-review.html` | Sep 14 — Review for Exam 1 |
+| `mat284-sep18-section-2-5.html` | Sep 18 — Exponential functions |
 
 ## Adding a lecture
 
@@ -68,6 +69,9 @@ Two rules here as well:
    That is what keeps figures on the palette and working in dark mode.
    `dot` and `hole` are the filled and open endpoints of an interval, `band` is
    the shaded stretch between them, and `box` is a labeled node in a diagram.
+   For an exponent in a label, set a second `<text class="… sup">` just above
+   and after the base text. Don't use `<tspan>`: the flow positioning is right
+   per spec but renders inconsistently outside browsers, so it can't be checked.
 2. **Give the `<svg>` a `viewBox` and no `width` or `height`.** It scales to the
    text column. A portrait figure also wants `class="fig fig-narrow"`, or a tall
    viewBox will stretch to the full column width.

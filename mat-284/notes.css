@@ -381,6 +381,9 @@ th{font-family:var(--f-label);font-weight:600;font-size:.86rem;background:var(--
   fill:var(--ink);
 }
 .fig .label-soft{font-family:var(--f-label);font-size:12px;fill:var(--ink-soft)}
+/* .sup — an exponent in a figure label. Position it with its own x/y just
+   above and after the base text; SVG tspan ordering is not worth the risk. */
+.fig .sup{font-size:9px}
 .fig .label-key{font-family:var(--f-label);font-size:13px;font-weight:600;fill:var(--ledger)}
 
 

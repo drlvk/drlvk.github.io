@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Sep 18 &mdash; Exponential functions</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, September 18</p>
+  <h1>Exponential functions</h1>
+  <p class="standfirst">Section 2.5. The variable moves into the exponent. Two things matter most here: the algebra of exponents, and the shape of the graphs.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#why">Why exponentials</a>
+  <a href="#definition">Definition and base</a>
+  <a href="#readbase">Reading the base off a graph</a>
+  <a href="#laws">The exponent laws</a>
+  <a href="#distribute">What does and does not distribute</a>
+  <a href="#constant">The constant factor</a>
+  <a href="#interest">Compound interest</a>
+  <a href="#population">Three population models</a>
+  <a href="#next">Before next class</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">This week</p>
+    <ul>
+      <li>Complete the <strong>Concept Check</strong> for Friday by the end of the day.</li>
+      <li><strong>Monday, Sep 21</strong>: section 2.6 part 1, logarithmic functions. Wednesday continues with 2.6 part 2.</li>
+      <li><strong>Quiz 4</strong> is <strong>Thursday, Sep 24</strong> in recitation, on this week's material.</li>
+      <li>New WeBWorK: <strong>2.5</strong>.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">Why this section matters later</p>
+    <p>Exponentials and logarithms are the last piece of pre-calculus before limits and derivatives. Many calculus problems require mastery of the formulas in this lecture, so gaps here get expensive.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="why">
+  <h2><span class="marker">Orientation</span>Why exponentials</h2>
+
+  <p>To be ready for calculus we need to understand exponential and logarithmic functions properly. Exponentials have many applications:</p>
+
+  <ul>
+    <li>Compound interest</li>
+    <li>Population growth models, a better fit for bacteria than for humans</li>
+    <li>Epidemics</li>
+    <li>Radioactive decay</li>
+  </ul>
+
+  <p>But for the purposes of this course, two things matter most: the <strong>algebraic properties</strong> of exponential functions, and the <strong>shape of their graphs</strong>. Everything below is one or the other.</p>
+</section>
+
+<section id="definition">
+  <h2><span class="marker">Definition</span>Definition and base</h2>
+
+  <p>An <strong>exponential function</strong> has the form</p>
+
+  \[f(x) = b^x\]
+
+  <p>where \(b\) is a fixed number called the <strong>base</strong>. The variable is in the <em>exponent</em>, and that is where the name comes from.</p>
+
+  <div class="card">
+    <p class="card-label">Exponential or not</p>
+    <ul class="keys">
+      <li>\(2^x\) and \(10^x\) are exponential, with bases 2 and 10. So is \((0.3)^x\).</li>
+      <li>\(x^2\) and \(x^{10}\) are <strong>not</strong>. The variable is in the base, not the exponent. These are <strong>power functions</strong>.</li>
+    </ul>
+  </div>
+
+  <p>The base of an exponential is always positive, and never equal to 1. There is a big difference between the two cases that remain:</p>
+
+  <div class="card">
+    <p class="card-label">Growth against decay</p>
+    <ul class="keys">
+      <li>\(b &gt; 1\) gives exponential <strong>growth</strong></li>
+      <li>\(0 &lt; b &lt; 1\) gives exponential <strong>decay</strong></li>
+    </ul>
+  </div>
+
+  <table>
+    <caption>The same powers for base 10 and base 0.1</caption>
+    <thead>
+      <tr><th scope="col">\(x\)</th><th scope="col">0</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>\(10^x\)</td><td>1</td><td>10</td><td>100</td><td>1000</td><td>10000</td><td>100000</td></tr>
+      <tr><td>\((0.1)^x\)</td><td>1</td><td>0.1</td><td>0.01</td><td>0.001</td><td>0.0001</td><td>0.00001</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\(f(0) = b^0 = 1\), no matter what the base is</li>
+      <li>\(f(1) = b^1 = b\)</li>
+      <li>\(f(-1) = b^{-1} = \dfrac{1}{b}\)</li>
+    </ul>
+  </div>
+
+  <p>That last one is worth a second look. Why is \(b^{-1} = \frac{1}{b}\)? Because \(b^{-1}\cdot b = b^{-1+1} = b^0 = 1\), and the number you multiply \(b\) by to get 1 <em>is</em> \(\frac{1}{b}\). The same reasoning gives \(2^{-3} = \frac{1}{2^3} = \frac{1}{8}\).</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 400 253" role="img" aria-label="The graphs of 10 to the x and 0.1 to the x on the same axes: rising and falling mirror images that both pass through 0 comma 1 and stay above the horizontal axis">
+      <path class="grid" d="M89.3 221.5V226.5 M336.7 221.5V226.5 M208 183.5H213 M208 145.5H213 M208 107.5H213 M208 69.5H213 M208 31.5H213"/>
+      <path class="axis" d="M14 221.5H390"/>
+      <path class="axis" d="M213 229.5V12"/>
+      <text class="label" x="392" y="239.5" style="text-anchor:end">x</text>
+      <text class="label" x="222" y="10">y</text>
+      <path class="curve" d="M46 220.7L50.6 220.6L55.3 220.5L59.9 220.4L64.6 220.3L69.2 220.2L73.8 220.1L78.5 219.9L83.1 219.8L87.7 219.7L92.4 219.5L97 219.3L101.7 219.1L106.3 218.9L110.9 218.7L115.6 218.4L120.2 218.1L124.9 217.8L129.5 217.5L134.1 217.1L138.8 216.7L143.4 216.3L148.1 215.8L152.7 215.3L157.3 214.8L162 214.2L166.6 213.5L171.2 212.8L175.9 212L180.5 211.1L185.2 210.2L189.8 209.2L194.4 208L199.1 206.8L203.7 205.5L208.4 204.1L213 202.5L217.6 200.8L222.3 198.9L226.9 196.9L231.6 194.7L236.2 192.2L240.8 189.6L245.5 186.7L250.1 183.6L254.8 180.2L259.4 176.4L264 172.4L268.7 168L273.3 163.1L277.9 157.9L282.6 152.1L287.2 145.9L291.9 139L296.5 131.6L301.1 123.5L305.8 114.7L310.4 105L315.1 94.5L319.7 83.1L324.3 70.6L329 57L333.6 42.1L338.2 26"/>
+      <path class="curve-2" d="M87.7 26L92.4 42.1L97 57L101.7 70.6L106.3 83.1L110.9 94.5L115.6 105L120.2 114.7L124.9 123.5L129.5 131.6L134.1 139L138.8 145.9L143.4 152.1L148.1 157.9L152.7 163.1L157.3 168L162 172.4L166.6 176.4L171.2 180.2L175.9 183.6L180.5 186.7L185.2 189.6L189.8 192.2L194.4 194.7L199.1 196.9L203.7 198.9L208.4 200.8L213 202.5L217.6 204.1L222.3 205.5L226.9 206.8L231.6 208L236.2 209.2L240.8 210.2L245.5 211.1L250.1 212L254.8 212.8L259.4 213.5L264 214.2L268.7 214.8L273.3 215.3L277.9 215.8L282.6 216.3L287.2 216.7L291.9 217.1L296.5 217.5L301.1 217.8L305.8 218.1L310.4 218.4L315.1 218.7L319.7 218.9L324.3 219.1L329 219.3L333.6 219.5L338.2 219.7L342.9 219.8L347.5 219.9L352.2 220.1L356.8 220.2L361.4 220.3L366.1 220.4L370.7 220.5L375.4 220.6L380 220.7"/>
+      <text class="label-key" x="261.4" y="83.9">10</text>
+      <text class="label-key sup" x="274.4" y="77.9">x</text>
+      <text class="label-soft" x="120.6" y="83.9">(0.1)</text>
+      <text class="label-soft sup" x="143.3" y="77.9">x</text>
+      <circle class="dot" cx="213" cy="202.5" r="4.5"/>
+      <text class="label-key" x="201" y="206.5" style="text-anchor:end">(0, 1)</text>
+      <text class="label-soft" x="89.3" y="239.5" style="text-anchor:middle">−1</text>
+      <text class="label-soft" x="336.7" y="239.5" style="text-anchor:middle">1</text>
+      <text class="label-soft" x="204" y="187.5" style="text-anchor:end">2</text>
+      <text class="label-soft" x="204" y="149.5" style="text-anchor:end">4</text>
+      <text class="label-soft" x="204" y="111.5" style="text-anchor:end">6</text>
+      <text class="label-soft" x="204" y="73.5" style="text-anchor:end">8</text>
+      <text class="label-soft" x="204" y="35.5" style="text-anchor:end">10</text>
+    </svg>
+    <figcaption>Base 10 rises, base 0.1 falls, and each is the mirror image of the other across the vertical axis. Both pass through \((0,1)\) and neither touches the horizontal axis.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Always above the axis</p>
+    <p>In every case the graph lies above the horizontal axis: all values of an exponential function are positive. It flattens toward the axis on one side, getting arbitrarily close without touching, and shoots up on the other. It never crosses.</p>
+  </div>
+</section>
+
+<section id="readbase">
+  <h2><span class="marker">Method</span>Reading the base off a graph</h2>
+
+  <p>Given the graph of \(f(x) = b^x\), how do you recover \(b\)? Use one of the key values above. The point at \(x = 1\) gives \(b\) directly, and the point at \(x = -1\) gives \(\frac{1}{b}\).</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 454 230" role="img" aria-label="Two exponential graphs: a rising one through the point 1 comma 6, and a falling one through the point negative 1 comma 4">
+      <path class="grid" d="M136.8 143.9H140.8 M136.8 113.8H140.8 M136.8 83.7H140.8 M136.8 53.6H140.8 M136.8 23.5H140.8"/>
+      <path class="axis" d="M10 174H206"/>
+      <path class="axis" d="M140.8 180V12"/>
+      <path class="curve" d="M40 173.7L42.2 173.7L44.4 173.7L46.6 173.6L48.8 173.6L51 173.6L53.2 173.5L55.4 173.5L57.6 173.4L59.8 173.4L61.9 173.3L64.1 173.2L66.3 173.2L68.5 173.1L70.7 173L72.9 172.9L75.1 172.8L77.3 172.7L79.5 172.6L81.7 172.5L83.9 172.4L86.1 172.2L88.3 172.1L90.5 171.9L92.7 171.7L94.9 171.5L97.1 171.3L99.3 171L101.4 170.8L103.6 170.5L105.8 170.2L108 169.8L110.2 169.4L112.4 169L114.6 168.6L116.8 168.1L119 167.6L121.2 167L123.4 166.4L125.6 165.7L127.8 164.9L130 164.1L132.2 163.2L134.4 162.3L136.6 161.2L138.8 160.1L140.9 158.8L143.1 157.5L145.3 156L147.5 154.4L149.7 152.6L151.9 150.7L154.1 148.6L156.3 146.3L158.5 143.9L160.7 141.2L162.9 138.2L165.1 135L167.3 131.5L169.5 127.7L171.7 123.6L173.9 119L176.1 114.1L178.2 108.8L180.4 102.9L182.6 96.5L184.8 89.6L187 82L189.2 73.8L191.4 64.8L193.6 55L195.8 44.3L198 32.7"/>
+      <path class="helper" d="M186.6 174V83.7"/>
+      <circle class="dot" cx="186.6" cy="83.7" r="4.5"/>
+      <text class="label-key" x="176.6" y="73.7" style="text-anchor:end">(1, 6)</text>
+      <text class="label-soft" x="107" y="224" style="text-anchor:middle">f(1) = 6, so b = 6</text>
+      <text class="label-soft" x="132.8" y="147.9" style="text-anchor:end">2</text>
+      <text class="label-soft" x="132.8" y="117.8" style="text-anchor:end">4</text>
+      <text class="label-soft" x="132.8" y="87.7" style="text-anchor:end">6</text>
+      <text class="label-soft" x="132.8" y="57.6" style="text-anchor:end">8</text>
+      <text class="label-soft" x="132.8" y="27.5" style="text-anchor:end">10</text>
+      <path class="grid" d="M338.8 143.9H342.8 M338.8 113.8H342.8 M338.8 83.7H342.8 M338.8 53.6H342.8 M338.8 23.5H342.8"/>
+      <path class="axis" d="M250 174H446"/>
+      <path class="axis" d="M342.8 180V12"/>
+      <path class="curve" d="M280 61.7L282.2 69.3L284.4 76.4L286.6 83L288.8 89.2L291 95L293.2 100.3L295.4 105.3L297.6 110L299.8 114.3L301.9 118.4L304.1 122.2L306.3 125.7L308.5 129L310.7 132L312.9 134.9L315.1 137.5L317.3 140L319.5 142.3L321.7 144.5L323.9 146.5L326.1 148.3L328.3 150.1L330.5 151.7L332.7 153.2L334.9 154.6L337.1 155.9L339.2 157.2L341.4 158.3L343.6 159.4L345.8 160.4L348 161.3L350.2 162.1L352.4 163L354.6 163.7L356.8 164.4L359 165.1L361.2 165.7L363.4 166.2L365.6 166.8L367.8 167.2L370 167.7L372.2 168.1L374.4 168.5L376.6 168.9L378.8 169.2L380.9 169.6L383.1 169.9L385.3 170.2L387.5 170.4L389.7 170.7L391.9 170.9L394.1 171.1L396.3 171.3L398.5 171.5L400.7 171.6L402.9 171.8L405.1 172L407.3 172.1L409.5 172.2L411.7 172.3L413.9 172.5L416.1 172.6L418.2 172.7L420.4 172.7L422.6 172.8L424.8 172.9L427 173L429.2 173.1L431.4 173.1L433.6 173.2L435.8 173.2L438 173.3"/>
+      <path class="helper" d="M299.5 174V113.8"/>
+      <circle class="dot" cx="299.5" cy="113.8" r="4.5"/>
+      <text class="label-key" x="309.5" y="103.8">(−1, 4)</text>
+      <text class="label-soft" x="347" y="224" style="text-anchor:middle">f(−1) = 4, so b = 1/4</text>
+      <text class="label-soft" x="334.8" y="147.9" style="text-anchor:end">2</text>
+      <text class="label-soft" x="334.8" y="117.8" style="text-anchor:end">4</text>
+      <text class="label-soft" x="334.8" y="87.7" style="text-anchor:end">6</text>
+      <text class="label-soft" x="334.8" y="57.6" style="text-anchor:end">8</text>
+      <text class="label-soft" x="334.8" y="27.5" style="text-anchor:end">10</text>
+    </svg>
+    <figcaption>Reading the base from a single labelled point. On the left \(f(1)=b\); on the right \(f(-1)=1/b\), so the 4 has to be inverted.</figcaption>
+  </figure>
+
+  <div class="problem">
+    <p>From WeBWorK. <strong>(a)</strong> A graph of \(f(x) = b^x\) passes through \((1, 6)\). What is \(b\)?</p>
+    <p><strong>(b)</strong> Another graph of \(f(x) = b^x\) passes through \((-1, 4)\). What is \(b\)?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a) Read</span><span class="work">\(x = 1\) gives \(f(1) = 6\)</span></li>
+        <li><span class="step">a) But</span><span class="work">\(f(1) = b^1 = b\), so \(b = 6\)</span></li>
+        <li><span class="step">b) Read</span><span class="work">\(x = -1\) gives \(f(-1) = 4\)</span></li>
+        <li><span class="step">b) But</span><span class="work">\(f(-1) = b^{-1} = \dfrac{1}{b}\), so \(\dfrac{1}{b} = 4\)</span></li>
+        <li><span class="step">b) Solve</span><span class="work">\[b = \frac{1}{4}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>b = 6, and b = 1/4</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The answer to (b) is not 4</p>
+    <p>A falling graph must have \(0 &lt; b &lt; 1\), so \(b = 4\) is impossible before you do any algebra. Check the shape against your answer: rising means \(b &gt; 1\), falling means \(b\) between 0 and 1. And the base is never negative.</p>
+  </div>
+</section>
+
+<section id="laws">
+  <h2><span class="marker">Tool</span>The exponent laws</h2>
+
+  <p>To work with exponentials we need the rules for combining exponents. Each one answers the same question: <em>how many copies of \(b\) are being multiplied here?</em></p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\(b^x b^y = b^{x+y}\)</li>
+      <li>\(\dfrac{b^x}{b^y} = b^{x-y}\)</li>
+      <li>\(\left(b^x\right)^y = b^{xy}\)</li>
+    </ul>
+  </div>
+
+  <p>Why the first one is true, in one line: \(3^5 \cdot 3^7\) is five copies of 3 times seven copies of 3, so twelve copies in all, which is \(3^{12}\). The third works the same way: \(\left(3^2\right)^3 = (3\cdot 3)(3\cdot 3)(3\cdot 3) = 3^6\).</p>
+
+  <div class="problem">
+    <p>Write each as a single power.</p>
+    <p><strong>a)</strong> \(3^x \cdot 3^{2x}\) &nbsp;&nbsp; <strong>b)</strong> \(9^x \cdot 3^{5x}\) &nbsp;&nbsp; <strong>c)</strong> \(3 \cdot 3^{4x}\) &nbsp;&nbsp; <strong>d)</strong> \(3^{4x} \cdot \left(\sqrt{3}\right)^x\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a)</span><span class="work">\[3^x \cdot 3^{2x} = 3^{x+2x} = 3^{3x} = \left(3^3\right)^x = 27^x\]</span></li>
+        <li><span class="step">b) First</span><span class="work">get a common base: \(9^x = \left(3^2\right)^x = 3^{2x}\)</span></li>
+        <li><span class="step">b) Then</span><span class="work">\[3^{2x} \cdot 3^{5x} = 3^{7x}\]</span></li>
+        <li><span class="step">c)</span><span class="work">\(3 = 3^1\), so \[3^1 \cdot 3^{4x} = 3^{1 + 4x}\]</span></li>
+        <li><span class="step">d) First</span><span class="work">\(\sqrt{3} = 3^{0.5}\), so \(\left(\sqrt{3}\right)^x = 3^{0.5x}\)</span></li>
+        <li><span class="step">d) Then</span><span class="work">\[3^{4x} \cdot 3^{0.5x} = 3^{4x + 0.5x} = 3^{4.5x}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>27&#739; ; &nbsp; 3&#7823;&#739; ; &nbsp; 3&#185;&#8314;&#8308;&#739; ; &nbsp; 3&#8308;&#903;&#8309;&#739;</p>
+      <p>The move that unlocks (b) and (d) is rewriting everything over one base. Exponents only combine when the bases match.</p>
+    </div>
+  </details>
+
+  <p>These laws matter just as much for <strong>powers of \(x\)</strong>, which are not exponential functions but obey the same rules.</p>
+
+  <div class="problem">
+    <p>Simplify <strong>a)</strong> \(x^2\sqrt{x}\) &nbsp;&nbsp; <strong>b)</strong> \(\left(4x^3\right)^2\) &nbsp;&nbsp; <strong>c)</strong> \(\dfrac{(2x)^3}{\sqrt{x}}\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a)</span><span class="work">\[x^2 \cdot x^{0.5} = x^{2.5} = x^{5/2}\]</span></li>
+        <li><span class="step">b)</span><span class="work">\[4^2 \left(x^3\right)^2 = 16 \cdot x^{6} = 16x^6\]</span></li>
+        <li><span class="step">c) Top</span><span class="work">\[(2x)^3 = 2^3 x^3 = 8x^3\]</span></li>
+        <li><span class="step">c) Divide</span><span class="work">\[\frac{8x^3}{x^{1/2}} = 8x^{3 - 1/2} = 8x^{5/2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x&#8309;&#8725;&#178; ; &nbsp; 16x&#8310; ; &nbsp; 8x&#8309;&#8725;&#178;</p>
+      <p>In (b) and (c) the outside exponent hits the coefficient too: \(4^2 = 16\) and \(2^3 = 8\). Leaving the 4 or the 2 untouched is the usual slip.</p>
+    </div>
+  </details>
+</section>
+
+<section id="distribute">
+  <h2><span class="marker">Method</span>What does and does not distribute</h2>
+
+  <p>Exponentiation distributes over multiplication and division:</p>
+
+  \[(ab)^x = a^x b^x, \qquad \left(\frac{a}{b}\right)^x = \frac{a^x}{b^x}\]
+
+  <div class="note">
+    <p class="card-label">It does not distribute over + or &minus;</p>
+    <p>\[(a + b)^x \ne a^x + b^x\]</p>
+    <p>There is no rule that breaks a sum inside an exponent into separate pieces. This is the single most common error in the section.</p>
+  </div>
+
+  <p>Changing the sign of the exponent turns an expression into its reciprocal, \(b^{-x} = \dfrac{1}{b^x}\). In more detail, using the division law:</p>
+
+  \[\frac{1}{b^x} = \frac{b^0}{b^x} = b^{0-x} = b^{-x}\]
+
+  <p>So the graph of the exponential with base \(\frac{1}{b}\) is the mirror image, across the vertical axis, of the graph with base \(b\). That is exactly the relationship between \(10^x\) and \((0.1)^x\) in the figure above: \((0.1)^x = \left(\frac{1}{10}\right)^x = 10^{-x}\), and replacing \(x\) by \(-x\) flips a graph left to right.</p>
+</section>
+
+<section id="constant">
+  <h2><span class="marker">Definition</span>The constant factor</h2>
+
+  <p>In applications an exponential is often multiplied by a fixed number, for example \(3 \cdot 2^x\).</p>
+
+  <div class="problem">
+    <p>Is \(3 \cdot 2^x\) the same as \(6^x\)?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>No, they are different functions.</p>
+      <ol class="ledger">
+        <li><span class="step">Compare</span><span class="work">\(6^x = (3 \cdot 2)^x = 3^x \cdot 2^x\), which is not \(3 \cdot 2^x\)</span></li>
+        <li><span class="step">The point</span><span class="work">in \(3\cdot 2^x\) the 3 is <em>not</em> raised to the power \(x\); in \(6^x\) it is</span></li>
+        <li><span class="step">Check at x = 2</span><span class="work">\(3 \cdot 2^2 = 12\), but \(6^2 = 36\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>Different. 6&#739; = 3&#739;&#183;2&#739;, not 3&#183;2&#739;.</p>
+    </div>
+  </details>
+
+  <p>In general the function \(f(x) = P\,b^x\) can be recognized from its graph using two values:</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\(f(0) = P\,b^0 = P\)</li>
+      <li>\(f(1) = P\,b\)</li>
+    </ul>
+  </div>
+
+  <p>So \(P\) is the height at which the graph crosses the vertical axis. It describes exponential growth or decay with <strong>initial amount</strong> \(P\).</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 400 241" role="img" aria-label="The graphs of 2 to the x and 3 times 2 to the x: the same shape, but the second starts at 3 on the vertical axis instead of 1">
+      <path class="grid" d="M164.6 164.5H169.6 M164.6 119.5H169.6 M164.6 74.5H169.6 M164.6 29.5H169.6"/>
+      <path class="axis" d="M14 209.5H336"/>
+      <path class="axis" d="M169.6 217.5V12"/>
+      <text class="label" x="338" y="227.5" style="text-anchor:end">x</text>
+      <text class="label" x="178.6" y="10">y</text>
+      <path class="curve" d="M46 194.7L49.9 194.1L53.7 193.6L57.6 193L61.4 192.4L65.3 191.8L69.2 191.2L73 190.6L76.9 189.9L80.7 189.2L84.6 188.5L88.5 187.8L92.3 187L96.2 186.2L100.1 185.4L103.9 184.5L107.8 183.7L111.6 182.7L115.5 181.8L119.4 180.8L123.2 179.8L127.1 178.8L130.9 177.7L134.8 176.6L138.7 175.4L142.5 174.2L146.4 172.9L150.2 171.7L154.1 170.3L158 168.9L161.8 167.5L165.7 166L169.6 164.5L173.4 162.9L177.3 161.3L181.1 159.6L185 157.8L188.9 156L192.7 154.1L196.6 152.1L200.4 150.1L204.3 148L208.2 145.9L212 143.6L215.9 141.3L219.7 138.9L223.6 136.4L227.5 133.8L231.3 131.2L235.2 128.4L239.1 125.5L242.9 122.6L246.8 119.5L250.6 116.3L254.5 113L258.4 109.6L262.2 106.1L266.1 102.5L269.9 98.7L273.8 94.8L277.7 90.7L281.5 86.6L285.4 82.2L289.2 77.7L293.1 73.1L297 68.3L300.8 63.3L304.7 58.1L308.6 52.8L312.4 47.3L316.3 41.6L320.1 35.6L324 29.5"/>
+      <path class="curve-2" d="M46 204.6L49.9 204.4L53.7 204.2L57.6 204L61.4 203.8L65.3 203.6L69.2 203.4L73 203.2L76.9 203L80.7 202.7L84.6 202.5L88.5 202.3L92.3 202L96.2 201.7L100.1 201.5L103.9 201.2L107.8 200.9L111.6 200.6L115.5 200.3L119.4 199.9L123.2 199.6L127.1 199.3L130.9 198.9L134.8 198.5L138.7 198.1L142.5 197.7L146.4 197.3L150.2 196.9L154.1 196.4L158 196L161.8 195.5L165.7 195L169.6 194.5L173.4 194L177.3 193.4L181.1 192.9L185 192.3L188.9 191.7L192.7 191L196.6 190.4L200.4 189.7L204.3 189L208.2 188.3L212 187.5L215.9 186.8L219.7 186L223.6 185.1L227.5 184.3L231.3 183.4L235.2 182.5L239.1 181.5L242.9 180.5L246.8 179.5L250.6 178.4L254.5 177.3L258.4 176.2L262.2 175L266.1 173.8L269.9 172.6L273.8 171.3L277.7 169.9L281.5 168.5L285.4 167.1L289.2 165.6L293.1 164L297 162.4L300.8 160.8L304.7 159L308.6 157.3L312.4 155.4L316.3 153.5L320.1 151.5L324 149.5"/>
+      <text class="label-key" x="332" y="33.5">3·2</text>
+      <text class="label-key sup" x="351.4" y="27.5">x</text>
+      <text class="label-soft" x="332" y="153.5">2</text>
+      <text class="label-soft sup" x="339.6" y="147.5">x</text>
+      <circle class="dot" cx="169.6" cy="164.5" r="4.5"/>
+      <text class="label-key" x="158.6" y="156.5" style="text-anchor:end">(0, 3)</text>
+      <circle class="dot" cx="169.6" cy="194.5" r="4.5"/>
+      <text class="label-key" x="158.6" y="186.5" style="text-anchor:end">(0, 1)</text>
+      <text class="label-soft" x="160.6" y="168.5" style="text-anchor:end">3</text>
+      <text class="label-soft" x="160.6" y="123.5" style="text-anchor:end">6</text>
+      <text class="label-soft" x="160.6" y="78.5" style="text-anchor:end">9</text>
+      <text class="label-soft" x="160.6" y="33.5" style="text-anchor:end">12</text>
+    </svg>
+    <figcaption>Same base, same shape. The constant factor only changes the height at \(x=0\), which is why \(f(0)=P\).</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Reading P and b in that order</p>
+    <p>Read \(P\) off the vertical intercept first, then use \(f(1) = Pb\) to get \(b\) by dividing. Trying to read \(b\) straight off \(f(1)\) only works when \(P = 1\).</p>
+  </div>
+</section>
+
+<section id="interest">
+  <h2><span class="marker">Worked example</span>Compound interest</h2>
+
+  <p>A person deposits \(P\) dollars, the <strong>principal</strong>, into an account earning 2% annually. Each year the balance is multiplied by \(1.02\), so after \(t\) years it is</p>
+
+  \[P \cdot (1.02)^t\]
+
+  <p>If the interest is compounded more often than once a year, each period pays a fraction of the annual rate, and there are more periods.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\[A(t) = P\left(1 + \frac{r}{m}\right)^{mt} \qquad\text{(compound interest)}\]</li>
+      <li>\(r\) is the annual rate, as a decimal: \(0.02\) for 2%</li>
+      <li>\(m\) is the number of compounding periods per year: 12 for monthly</li>
+    </ul>
+  </div>
+
+  <p>For instance, with monthly compounding after 5 years the exponent is \(mt = 12 \cdot 5 = 60\), giving \(P\left(1 + \frac{0.02}{12}\right)^{60}\).</p>
+
+  <p>Now push \(m\) upward: compound every week, every day, every hour, every second. The balance does not run away; it settles on a limit, and that limit is written with the number \(e = 2.718\ldots\)</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\[A(t) = P e^{rt} \qquad\text{(continuous compound interest)}\]</li>
+    </ul>
+  </div>
+
+  <p>Your TI 83/84 has two exponentials on the keypad, \(10^x\) and \(e^x\). Both are second functions, printed in blue above their keys, so press <strong>2nd</strong> first. One has base 10; the other has base \(e\).</p>
+
+  <div class="problem">
+    <p>Start with $1,000 at a 2% annual rate. How much is there after 10 years, with</p>
+    <p><strong>(a)</strong> annual compounding, &nbsp; <strong>(b)</strong> monthly compounding, &nbsp; <strong>(c)</strong> continuous compounding?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a) Annual</span><span class="work">\[1000(1.02)^{10} = 1218.99\]</span></li>
+        <li><span class="step">b) Monthly</span><span class="work">\(m = 12\) and \(mt = 120\): \[1000\left(1 + \frac{0.02}{12}\right)^{120} = 1221.20\]</span></li>
+        <li><span class="step">c) Continuous</span><span class="work">\(rt = 0.02 \cdot 10 = 0.2\): \[1000e^{0.2} = 1221.40\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>$1,218.99 &nbsp;&middot;&nbsp; $1,221.20 &nbsp;&middot;&nbsp; $1,221.40</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">What the three numbers tell you</p>
+    <p>They increase, and they increase by less and less: $1,218.99, then $1,221.20, then $1,221.40. More frequent compounding always pays more, but the gain shrinks fast, and continuous compounding is the ceiling it is heading for. Going from annual to monthly buys $2.21; going from monthly all the way to continuous buys 20 cents more.</p>
+    <p>So the continuous formula is not an exotic special case. It is the simple answer to &ldquo;what if we compounded constantly,&rdquo; and it is close to any frequent compounding.</p>
+  </div>
+
+  <div class="note">
+    <p class="card-label">Two things to get right</p>
+    <p>Use the rate as a <strong>decimal</strong>: \(r = 0.02\), never \(2\). And the exponent in the compound formula is \(mt\), not \(t\): with monthly compounding over 10 years it is \(120\), not \(10\).</p>
+  </div>
+</section>
+
+<section id="population">
+  <h2><span class="marker">Worked example</span>Three population models</h2>
+
+  <div class="problem">
+    <p>From WeBWorK. A town has a population of 1200 people at time \(t = 0\). In each case write a formula for the population as a function of the year.</p>
+    <p><strong>(a)</strong> The population increases by 80 people per year.</p>
+    <p><strong>(b)</strong> The population grows continuously with a relative growth rate of 4%.</p>
+    <p><strong>(c)</strong> The population increases by 4% every year.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Each phrase points at one of the three models. The initial amount is 1200 in all three.</p>
+      <ol class="ledger">
+        <li><span class="step">a)</span><span class="work">a fixed number of people per year is <em>linear</em>: \[P(t) = 1200 + 80t\]</span></li>
+        <li><span class="step">b)</span><span class="work">&ldquo;continuously&rdquo; means \(Pe^{rt}\) with \(r = 0.04\): \[P(t) = 1200e^{0.04t}\]</span></li>
+        <li><span class="step">c)</span><span class="work">a fixed <em>percentage</em> each year is annual compounding: \[P(t) = 1200(1.04)^t\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>1200 + 80t &nbsp;&middot;&nbsp; 1200e&#8304;&#903;&#8304;&#8308;&#7511; &nbsp;&middot;&nbsp; 1200(1.04)&#7511;</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 460 258" role="img" aria-label="Three population models all starting at 1200: a straight line adding 80 people a year, and two four percent exponential curves, continuous and annual, which start below the line and overtake it around year 26">
+      <path class="grid" d="M158.7 224V229 M261.3 224V229 M364 224V229 M51 161.5H56 M51 99H56 M51 36.5H56"/>
+      <path class="axis" d="M56 224H450"/>
+      <path class="axis" d="M56 224V16"/>
+      <text class="label" x="452" y="242" style="text-anchor:end">t</text>
+      <text class="label" x="38" y="14">P</text>
+      <path class="curve-2" d="M56 211.5L60.3 209.4L64.6 207.3L68.8 205.2L73.1 203.2L77.4 201.1L81.7 199L85.9 196.9L90.2 194.8L94.5 192.8L98.8 190.7L103.1 188.6L107.3 186.5L111.6 184.4L115.9 182.3L120.2 180.2L124.4 178.2L128.7 176.1L133 174L137.3 171.9L141.6 169.8L145.8 167.8L150.1 165.7L154.4 163.6L158.7 161.5L162.9 159.4L167.2 157.3L171.5 155.2L175.8 153.2L180.1 151.1L184.3 149L188.6 146.9L192.9 144.8L197.2 142.8L201.4 140.7L205.7 138.6L210 136.5L214.3 134.4L218.6 132.3L222.8 130.2L227.1 128.2L231.4 126.1L235.7 124L239.9 121.9L244.2 119.8L248.5 117.8L252.8 115.7L257.1 113.6L261.3 111.5L265.6 109.4L269.9 107.3L274.2 105.2L278.4 103.2L282.7 101.1L287 99L291.3 96.9L295.6 94.8L299.8 92.8L304.1 90.7L308.4 88.6L312.7 86.5L316.9 84.4L321.2 82.3L325.5 80.2L329.8 78.2L334.1 76.1L338.3 74L342.6 71.9L346.9 69.8L351.2 67.8L355.4 65.7L359.7 63.6L364 61.5"/>
+      <path class="curve" d="M56 211.5L60.3 210.2L64.6 209L68.8 207.7L73.1 206.3L77.4 205L81.7 203.6L85.9 202.2L90.2 200.8L94.5 199.4L98.8 197.9L103.1 196.4L107.3 194.9L111.6 193.4L115.9 191.8L120.2 190.2L124.4 188.6L128.7 186.9L133 185.3L137.3 183.6L141.6 181.8L145.8 180.1L150.1 178.3L154.4 176.5L158.7 174.6L162.9 172.7L167.2 170.8L171.5 168.9L175.8 166.9L180.1 164.9L184.3 162.8L188.6 160.8L192.9 158.7L197.2 156.5L201.4 154.3L205.7 152.1L210 149.8L214.3 147.5L218.6 145.2L222.8 142.8L227.1 140.4L231.4 138L235.7 135.5L239.9 132.9L244.2 130.3L248.5 127.7L252.8 125.1L257.1 122.3L261.3 119.6L265.6 116.8L269.9 113.9L274.2 111L278.4 108.1L282.7 105.1L287 102L291.3 98.9L295.6 95.8L299.8 92.6L304.1 89.3L308.4 86L312.7 82.6L316.9 79.2L321.2 75.7L325.5 72.2L329.8 68.6L334.1 64.9L338.3 61.2L342.6 57.4L346.9 53.6L351.2 49.6L355.4 45.7L359.7 41.6L364 37.5"/>
+      <path class="curve" d="M56 211.5L60.3 210.3L64.6 209L68.8 207.7L73.1 206.4L77.4 205.1L81.7 203.8L85.9 202.4L90.2 201L94.5 199.6L98.8 198.2L103.1 196.7L107.3 195.3L111.6 193.7L115.9 192.2L120.2 190.7L124.4 189.1L128.7 187.5L133 185.9L137.3 184.2L141.6 182.5L145.8 180.8L150.1 179.1L154.4 177.3L158.7 175.5L162.9 173.7L167.2 171.8L171.5 169.9L175.8 168L180.1 166L184.3 164L188.6 162L192.9 160L197.2 157.9L201.4 155.8L205.7 153.6L210 151.4L214.3 149.2L218.6 146.9L222.8 144.6L227.1 142.3L231.4 139.9L235.7 137.5L239.9 135.1L244.2 132.6L248.5 130L252.8 127.5L257.1 124.8L261.3 122.2L265.6 119.5L269.9 116.7L274.2 113.9L278.4 111.1L282.7 108.2L287 105.2L291.3 102.2L295.6 99.2L299.8 96.1L304.1 93L308.4 89.8L312.7 86.6L316.9 83.3L321.2 79.9L325.5 76.5L329.8 73.1L334.1 69.5L338.3 66L342.6 62.3L346.9 58.6L351.2 54.9L355.4 51.1L359.7 47.2L364 43.2"/>
+      <text class="label-soft" x="175.2" y="141.5" style="text-anchor:end">1200 + 80t</text>
+      <text class="label-key" x="372" y="29.5">1200e</text>
+      <text class="label-key sup" x="407.8" y="23.5">0.04t</text>
+      <text class="label-key" x="372" y="61.2">1200(1.04)</text>
+      <text class="label-key sup" x="432.7" y="55.2">t</text>
+      <circle class="dot" cx="56" cy="211.5" r="4.5"/>
+      <text class="label-key" x="69" y="216.5">1200</text>
+      <text class="label-soft" x="158.7" y="242" style="text-anchor:middle">10</text>
+      <text class="label-soft" x="261.3" y="242" style="text-anchor:middle">20</text>
+      <text class="label-soft" x="364" y="242" style="text-anchor:middle">30</text>
+      <text class="label-soft" x="47" y="165.5" style="text-anchor:end">2000</text>
+      <text class="label-soft" x="47" y="103" style="text-anchor:end">3000</text>
+      <text class="label-soft" x="47" y="40.5" style="text-anchor:end">4000</text>
+    </svg>
+    <figcaption>All three start at 1200. The dashed line is the linear model; the two red curves are the 4% exponentials, continuous slightly above annual. The line leads for the first 26 years.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Adding versus multiplying</p>
+    <p>&ldquo;80 people per year&rdquo; is something you <strong>add</strong>, so it gives \(+80t\). &ldquo;4% every year&rdquo; is something you <strong>multiply</strong> by, so it gives \((1.04)^t\). Deciding which of those two the wording describes is the whole problem.</p>
+    <p>And (b) against (c): both are 4% growth, but continuous compounding runs slightly ahead of annual, exactly as in the interest example. After 30 years the town has about 3,984 people under (b) and about 3,892 under (c).</p>
+  </div>
+
+  <div class="note">
+    <p class="card-label">Linear wins early, exponential wins eventually</p>
+    <p>Notice the crossing in the figure. At 10 years the linear model gives the largest population by far, 2,000 against about 1,790 and 1,776. The exponentials only overtake it around year 26. Exponential growth being &ldquo;fast&rdquo; is a statement about the long run, not about every year.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before next class</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Friday by the end of the day.</li>
+    <li>Start the 2.5 WeBWorK set.</li>
+    <li>Memorize the three exponent laws and both interest formulas. Write them from memory, then check.</li>
+    <li>Be able to say instantly why \(x^2\) is not an exponential function and \(2^x\) is.</li>
+    <li>Practice rewriting to a common base: \(9^x\), \(27^x\), \(\left(\sqrt{3}\right)^x\) and \(\frac{1}{3^x}\) as powers of 3.</li>
+    <li>For any exponential graph you meet, read off \(f(0)\) and \(f(1)\) before anything else. Those two values give \(P\) and \(b\).</li>
+    <li>Find \(10^x\) and \(e^x\) on your calculator now, not during the quiz. Both need the <strong>2nd</strong> key.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 2.5 &middot; September 18</p>
+</footer>
+
+</div>
+</body>
+</html>
