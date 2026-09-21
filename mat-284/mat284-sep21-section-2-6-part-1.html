@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Sep 21 &mdash; Logarithmic functions</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Monday, September 21</p>
+  <h1>Logarithmic functions</h1>
+  <p class="standfirst">Section 2.6, part 1. A logarithm runs an exponential backwards: you are given the power and asked for the exponent. That one sentence is the whole section.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Warm-up</a>
+  <a href="#inverse">The inverse of an exponential</a>
+  <a href="#simple">Logarithms without a calculator</a>
+  <a href="#bases">log and ln</a>
+  <a href="#domain">The domain of a logarithm</a>
+  <a href="#logeqs">Solving log equations</a>
+  <a href="#expeqs">Solving exponential equations</a>
+  <a href="#notation">Notation warnings</a>
+  <a href="#next">Before next class</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li><strong>Thursday's quiz</strong> covers only <strong>2.5 Exponential Functions</strong>, the one section from last week.</li>
+      <li>WeBWorK target dates for 2.5: <strong>Sep 21</strong> for extra credit, <strong>Sep 24</strong> for regular credit.</li>
+      <li><strong>Exam 2 is two weeks from today, Monday October 5.</strong> It focuses on four topics: exponential functions, logarithms, limits, and continuity.</li>
+      <li>Complete the <strong>Concept Check</strong> for Monday by the end of the day.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">Extra credit closes tonight</p>
+    <p>The 2.5 set is worth 153% before tonight's deadline and 100% after it. Even a partial pass through the set now is worth more than finishing it on Thursday.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up</span>A continuous growth model</h2>
+
+  <div class="problem">
+    <p>The rat population of a city is given by \(n(t) = 25e^{0.04t}\), where \(t\) is measured in years since 1994 and \(n\) in millions.</p>
+    <p><strong>(a)</strong> What kind of growth model is this? &nbsp; <strong>(b)</strong> What was the population in 1994? &nbsp; <strong>(c)</strong> What was it in 2006?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Match the formula against \(A(t) = Pe^{rt}\) from Friday. Here \(P = 25\) and \(r = 0.04\).</p>
+      <ol class="ledger">
+        <li><span class="step">a)</span><span class="work">the \(e\) marks it as <strong>continuous</strong> growth, with a 4% relative growth rate</span></li>
+        <li><span class="step">b) Year</span><span class="work">1994 is \(t = 0\)</span></li>
+        <li><span class="step">b) Value</span><span class="work">\[n(0) = 25e^0 = 25 \text{ million} = 25{,}000{,}000\]</span></li>
+        <li><span class="step">c) Year</span><span class="work">\(2006 - 1994 = 12\), so \(t = 12\)</span></li>
+        <li><span class="step">c) Substitute</span><span class="work">\[n(12) = 25e^{0.04 \cdot 12} = 25e^{0.48}\]</span></li>
+        <li><span class="step">c) Compute</span><span class="work">\[= 40.40186 \text{ million}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>continuous 4% growth; 25,000,000 rats; about 40,401,860 rats</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Two things this problem is checking</p>
+    <p>That you convert the <em>year</em> into \(t\), the years since 1994, rather than substituting 2006. And that you read the units: \(n\) is in millions, so 40.40186 has to be turned back into animals.</p>
+    <p>Recognizing the model is the (a) part: \(Pe^{rt}\) is continuous, \(P(1+r)^t\) is annual compounding, and \(P + mt\) is linear.</p>
+  </div>
+</section>
+
+<section id="inverse">
+  <h2><span class="marker">Definition</span>The inverse of an exponential</h2>
+
+  <p>Last time we studied exponential functions \(f(x) = b^x\), where the base \(b\) is either \(b &gt; 1\) (growth) or \(0 &lt; b &lt; 1\) (decay). The <em>input</em> to an exponential is the exponent, and the <em>output</em> is what you get by raising \(b\) to that power.</p>
+
+  <p>Logarithmic functions do exactly the opposite: the input is some power of \(b\), and the output is the exponent in that power. This is an example of an <strong>inverse</strong> function.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 430 190" role="img" aria-label="Two machines drawn in sequence: the exponential takes x in and puts b to the x out, and the logarithm takes b to the x in and puts x out, so each undoes the other">
+      <path class="axis" d="M30 48H152"/>
+      <path class="mark" d="M160 48l-9 -5v10z"/>
+      <rect class="box" x="164" y="26" width="96" height="44" rx="3"/>
+      <text class="label" x="208.2" y="54">b</text>
+      <text class="label sup" x="216.8" y="48">x</text>
+      <path class="axis" d="M260 48H352"/>
+      <path class="mark" d="M360 48l-9 -5v10z"/>
+      <text class="label-key" x="95" y="40" style="text-anchor:middle">x</text>
+      <text class="label-key" x="366" y="52">b</text>
+      <text class="label-key sup" x="374.6" y="46">x</text>
+      <text class="label-soft" x="30" y="20">exponential: the input is the exponent</text>
+      <path class="axis" d="M30 140H152"/>
+      <path class="mark" d="M160 140l-9 -5v10z"/>
+      <rect class="box" x="164" y="118" width="96" height="44" rx="3"/>
+      <text class="label" x="200.6" y="146">log</text>
+      <text class="label sub" x="224.4" y="150">b</text>
+      <path class="axis" d="M260 140H352"/>
+      <path class="mark" d="M360 140l-9 -5v10z"/>
+      <text class="label-key" x="74" y="132">b</text>
+      <text class="label-key sup" x="82.6" y="126">x</text>
+      <text class="label-key" x="366" y="144">x</text>
+      <text class="label-soft" x="30" y="112">logarithm: the input is the power, the output is the exponent</text>
+      <text class="label-soft" x="215.0" y="184" style="text-anchor:middle">each machine undoes the other</text>
+    </svg>
+    <figcaption>Feed \(x\) to the exponential and you get \(b^x\); feed \(b^x\) to the logarithm and you get \(x\) back. That is what &ldquo;inverse&rdquo; means.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\(y = \log_b x\) &nbsp; exactly when &nbsp; \(b^y = x\)</li>
+    </ul>
+  </div>
+
+  <p>So taking the logarithm of a number \(x\) answers one question: <strong>to what power should we raise \(b\) to get \(x\)?</strong> Whenever a logarithm confuses you, ask it in those words.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 360 356" role="img" aria-label="Two to the x and log base two of x drawn on equal axes with the dashed line y equals x between them: each curve is the mirror image of the other across that line">
+      <path class="grid" d="M78 215.1V223.1 M203.7 215.1V223.1 M266.6 215.1V223.1 M329.4 215.1V223.1 M136.9 282H144.9 M136.9 156.3H144.9 M136.9 93.4H144.9 M136.9 30.6H144.9"/>
+      <path class="helper" d="M34 326L342 18"/>
+      <path class="axis" d="M10 219.1H352"/>
+      <path class="axis" d="M140.9 348V10"/>
+      <text class="label" x="354" y="237.1" style="text-anchor:end">x</text>
+      <text class="label" x="149.9" y="8">y</text>
+      <path class="curve" d="M34 216.2L36.2 216L38.4 215.9L40.6 215.7L42.8 215.5L45 215.3L47.2 215.2L49.4 215L51.6 214.8L53.8 214.5L56 214.3L58.2 214.1L60.4 213.8L62.6 213.5L64.8 213.3L67 213L69.2 212.7L71.4 212.4L73.6 212L75.8 211.7L78 211.3L80.2 210.9L82.4 210.5L84.6 210.1L86.8 209.6L89 209.1L91.2 208.6L93.4 208.1L95.6 207.6L97.8 207L100 206.4L102.2 205.7L104.4 205.1L106.6 204.4L108.8 203.6L111 202.9L113.2 202.1L115.4 201.2L117.6 200.3L119.8 199.4L122 198.4L124.2 197.4L126.4 196.3L128.6 195.2L130.8 194L133 192.7L135.2 191.4L137.4 190L139.6 188.6L141.8 187.1L144 185.5L146.2 183.8L148.4 182L150.6 180.2L152.8 178.2L155 176.2L157.2 174.1L159.4 171.8L161.6 169.5L163.8 167L166 164.4L168.2 161.7L170.4 158.8L172.6 155.8L174.8 152.7L177 149.4L179.2 145.9L181.4 142.3L183.6 138.5L185.8 134.5L188 130.2L190.2 125.8L192.4 121.2L194.6 116.3L196.8 111.2L199 105.8L201.2 100.2L203.4 94.3L205.6 88.1L207.8 81.6L210 74.7L212.2 67.6L214.4 60L216.6 52.1L218.8 43.8L221 35.1L223.2 25.9"/>
+      <path class="curve-2" d="M144.5 316.9L145.5 305.9L146.5 297L147.5 289.6L148.5 283.2L149.5 277.6L150.5 272.7L151.5 268.2L152.5 264.1L153.5 260.4L154.5 256.9L155.5 253.7L156.5 250.7L157.5 247.9L158.5 245.2L159.5 242.7L160.5 240.4L161.5 238.1L162.5 236L163.5 233.9L164.5 232L165.5 230.1L166.5 228.3L167.6 226.5L168.6 224.9L169.6 223.3L170.6 221.7L171.6 220.2L172.6 218.7L173.6 217.3L174.6 216L175.6 214.6L176.6 213.3L177.6 212.1L178.6 210.9L179.6 209.7L180.6 208.5L181.6 207.4L182.6 206.3L183.6 205.2L184.6 204.2L185.6 203.1L186.6 202.1L187.6 201.1L188.6 200.2L189.6 199.2L190.6 198.3L191.6 197.4L192.6 196.5L193.6 195.7L194.6 194.8L195.6 194L196.6 193.1L197.6 192.3L198.6 191.5L199.6 190.8L200.6 190L201.6 189.2L202.6 188.5L203.6 187.8L204.6 187L205.7 186.3L206.7 185.6L207.7 185L208.7 184.3L209.7 183.6L210.7 183L211.7 182.3L212.7 181.7L213.7 181L214.7 180.4L215.7 179.8L216.7 179.2L217.7 178.6L218.7 178L219.7 177.4L220.7 176.9L221.7 176.3L222.7 175.8L223.7 175.2L224.7 174.7L225.7 174.1L226.7 173.6L227.7 173.1L228.7 172.5L229.7 172L230.7 171.5L231.7 171L232.7 170.5L233.7 170L234.7 169.5L235.7 169L236.7 168.6L237.7 168.1L238.7 167.6L239.7 167.2L240.7 166.7L241.7 166.3L242.7 165.8L243.7 165.4L244.8 164.9L245.8 164.5L246.8 164.1L247.8 163.6L248.8 163.2L249.8 162.8L250.8 162.4L251.8 162L252.8 161.6L253.8 161.2L254.8 160.8L255.8 160.4L256.8 160L257.8 159.6L258.8 159.2L259.8 158.8L260.8 158.4L261.8 158L262.8 157.7L263.8 157.3L264.8 156.9L265.8 156.6L266.8 156.2L267.8 155.8L268.8 155.5L269.8 155.1L270.8 154.8L271.8 154.4L272.8 154.1L273.8 153.7L274.8 153.4L275.8 153.1L276.8 152.7L277.8 152.4L278.8 152.1L279.8 151.7L280.8 151.4L281.8 151.1L282.8 150.8L283.9 150.4L284.9 150.1L285.9 149.8L286.9 149.5L287.9 149.2L288.9 148.9L289.9 148.6L290.9 148.3L291.9 148L292.9 147.7L293.9 147.4L294.9 147.1L295.9 146.8L296.9 146.5L297.9 146.2L298.9 145.9L299.9 145.6L300.9 145.3L301.9 145.1L302.9 144.8L303.9 144.5L304.9 144.2L305.9 143.9L306.9 143.7L307.9 143.4L308.9 143.1L309.9 142.9L310.9 142.6L311.9 142.3L312.9 142.1L313.9 141.8L314.9 141.5L315.9 141.3L316.9 141L317.9 140.8L318.9 140.5L319.9 140.2L320.9 140L321.9 139.7L323 139.5L324 139.2L325 139L326 138.7L327 138.5L328 138.3L329 138L330 137.8L331 137.5L332 137.3L333 137.1L334 136.8L335 136.6L336 136.4L337 136.1L338 135.9L339 135.7L340 135.4L341 135.2L342 135"/>
+      <text class="label-key" x="208.3" y="57.3" style="text-anchor:end">2</text>
+      <text class="label-key sup" x="209.3" y="51.3">x</text>
+      <text class="label-soft" x="298" y="162">log</text>
+      <text class="label-soft sub" x="318.8" y="166">2</text>
+      <text class="label-soft" x="329.8" y="162">x</text>
+      <text class="label-soft" x="293.4" y="78.6">y = x</text>
+      <circle class="dot" cx="140.9" cy="187.7" r="4"/>
+      <circle class="dot" cx="172.3" cy="219.1" r="4"/>
+      <text class="label-key" x="131.9" y="180.7" style="text-anchor:end">(0, 1)</text>
+      <text class="label-key" x="181.3" y="236.1">(1, 0)</text>
+      <text class="label-soft" x="78" y="237.1" style="text-anchor:middle">−2</text>
+      <text class="label-soft" x="203.7" y="237.1" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="266.6" y="237.1" style="text-anchor:middle">4</text>
+      <text class="label-soft" x="329.4" y="237.1" style="text-anchor:middle">6</text>
+      <text class="label-soft" x="131.9" y="286" style="text-anchor:end">−2</text>
+      <text class="label-soft" x="131.9" y="160.3" style="text-anchor:end">2</text>
+      <text class="label-soft" x="131.9" y="97.4" style="text-anchor:end">4</text>
+      <text class="label-soft" x="131.9" y="34.6" style="text-anchor:end">6</text>
+    </svg>
+    <figcaption>The inverse relationship as a picture: \(2^x\) and \(\log_2 x\) are mirror images across the dashed line \(y = x\). The exponential&rsquo;s point \((0,1)\) becomes the logarithm&rsquo;s \((1,0)\).</figcaption>
+  </figure>
+</section>
+
+<section id="simple">
+  <h2><span class="marker">Method</span>Logarithms without a calculator</h2>
+
+  <p>It is worth practising simple logarithms by hand. The exercise makes them less mysterious, and it is what lets you handle logarithms of symbolic expressions later.</p>
+
+  <div class="problem">
+    <p>Evaluate each without a calculator.</p>
+    <p>\(\log_{10} 1000\), &nbsp; \(\log_{10} 10000000\), &nbsp; \(\log_2 32\), &nbsp; \(\log_{10} 0.1\), &nbsp; \(\log_3 9\), &nbsp; \(\log_7 7\), &nbsp; \(\log_7 1\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>In each case, ask what exponent turns the base into the input.</p>
+      <ol class="ledger">
+        <li><span class="step">1000</span><span class="work">\(10^3 = 1000\), so \(\log_{10}1000 = 3\)</span></li>
+        <li><span class="step">10 million</span><span class="work">\(10^7 = 10{,}000{,}000\), so the answer is \(7\)</span></li>
+        <li><span class="step">32</span><span class="work">\(2^5 = 32\), so \(\log_2 32 = 5\)</span></li>
+        <li><span class="step">0.1</span><span class="work">\(10^{-1} = 0.1 = \frac{1}{10}\), so \(\log_{10}0.1 = -1\)</span></li>
+        <li><span class="step">9</span><span class="work">\(3^2 = 9\), so \(\log_3 9 = 2\)</span></li>
+        <li><span class="step">7</span><span class="work">\(7^1 = 7\), so \(\log_7 7 = 1\)</span></li>
+        <li><span class="step">1</span><span class="work">\(7^0 = 1\), so \(\log_7 1 = 0\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>3, 7, 5, &minus;1, 2, 1, 0</p>
+    </div>
+  </details>
+
+  <p>The last two are worth stating in general, because they hold for every base.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>Since \(b^0 = 1\), we get \(\log_b 1 = 0\) no matter what \(b\) is</li>
+      <li>Since \(b^1 = b\), we get \(\log_b b = 1\)</li>
+    </ul>
+  </div>
+
+  <p>Beyond cases like these, logarithms generally require a calculator.</p>
+
+  <div class="problem">
+    <p>A few harder ones, still without a calculator.</p>
+    <p><strong>a)</strong> \(\log_4 2\) &nbsp;&nbsp; <strong>b)</strong> \(\log 0.0001\) &nbsp;&nbsp; <strong>c)</strong> \(\log_5 0.04\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a)</span><span class="work">what power of 4 gives 2? \(4^{1/2} = \sqrt{4} = 2\), so \[\log_4 2 = \frac{1}{2}\]</span></li>
+        <li><span class="step">b)</span><span class="work">\(0.0001 = \frac{1}{10000} = 10^{-4}\), so \[\log 0.0001 = -4\]</span></li>
+        <li><span class="step">c) Rewrite</span><span class="work">\(0.04 = \frac{4}{100} = \frac{1}{25}\)</span></li>
+        <li><span class="step">c) Recognize</span><span class="work">\(\frac{1}{25} = \frac{1}{5^2} = 5^{-2}\), so \[\log_5 0.04 = -2\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>1/2, &nbsp; &minus;4, &nbsp; &minus;2</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Fractions and negatives are allowed answers</p>
+    <p>A logarithm can come out fractional, as in (a), or negative, as in (b) and (c). Only the <em>input</em> to a logarithm has to be positive; the output can be anything.</p>
+    <p>For a decimal input, rewriting it as a fraction and then as a negative power is the move: \(0.04 \to \frac{1}{25} \to 5^{-2}\).</p>
+  </div>
+</section>
+
+<section id="bases">
+  <h2><span class="marker">Notation</span>log and ln</h2>
+
+  <p>Like most calculators, the TI 83/84 has two logarithm buttons, and they cover the two bases that come up constantly.</p>
+
+  <div class="card">
+    <p class="card-label">The two named logarithms</p>
+    <ul class="keys">
+      <li>Base 10 is the <strong>common logarithm</strong>, written \(\log\). So \(\log 17\) means \(\log_{10} 17\).</li>
+      <li>Base \(e = 2.71828\ldots\) is the <strong>natural logarithm</strong>, written \(\ln\). So \(\ln 55\) means \(\log_e 55\).</li>
+    </ul>
+  </div>
+
+  <p>The significance of the number \(e\) will become clear later in calculus. For now it is the base your calculator's <strong>LN</strong> key uses.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 430 254" role="img" aria-label="The graphs of log base ten of x and the natural log of x: both pass through 1 comma 0, both plunge toward the vertical axis on the left, and neither is defined for x less than or equal to zero">
+      <path class="grid" d="M112.7 111.2V119.2 M173.2 111.2V119.2 M233.8 111.2V119.2 M294.3 111.2V119.2 M354.9 111.2V119.2 M48.1 217.2H56.1 M48.1 183.2H56.1 M48.1 149.2H56.1 M48.1 81.2H56.1 M48.1 47.2H56.1"/>
+      <path class="axis" d="M14 115.2H378"/>
+      <path class="axis" d="M52.1 246V10"/>
+      <text class="label" x="380" y="133.2" style="text-anchor:end">x</text>
+      <text class="label" x="61.1" y="8">y</text>
+      <path class="curve" d="M54.3 204.5L55.9 186L57.5 174L59.1 165.2L60.6 158.2L62.2 152.4L63.8 147.5L65.4 143.2L67 139.3L68.6 135.9L70.2 132.8L71.8 129.9L73.3 127.3L74.9 124.8L76.5 122.5L78.1 120.4L79.7 118.4L81.3 116.5L82.9 114.7L84.4 113L86 111.3L87.6 109.8L89.2 108.3L90.8 106.9L92.4 105.5L94 104.2L95.5 102.9L97.1 101.7L98.7 100.5L100.3 99.4L101.9 98.3L103.5 97.2L105.1 96.2L106.7 95.2L108.2 94.2L109.8 93.3L111.4 92.3L113 91.4L114.6 90.6L116.2 89.7L117.8 88.9L119.3 88.1L120.9 87.3L122.5 86.5L124.1 85.7L125.7 85L127.3 84.3L128.9 83.6L130.5 82.9L132 82.2L133.6 81.5L135.2 80.9L136.8 80.2L138.4 79.6L140 79L141.6 78.4L143.1 77.8L144.7 77.2L146.3 76.6L147.9 76L149.5 75.5L151.1 74.9L152.7 74.4L154.2 73.9L155.8 73.3L157.4 72.8L159 72.3L160.6 71.8L162.2 71.3L163.8 70.8L165.4 70.3L166.9 69.9L168.5 69.4L170.1 68.9L171.7 68.5L173.3 68L174.9 67.6L176.5 67.2L178 66.7L179.6 66.3L181.2 65.9L182.8 65.5L184.4 65.1L186 64.7L187.6 64.3L189.1 63.9L190.7 63.5L192.3 63.1L193.9 62.7L195.5 62.3L197.1 61.9L198.7 61.6L200.3 61.2L201.8 60.9L203.4 60.5L205 60.1L206.6 59.8L208.2 59.4L209.8 59.1L211.4 58.8L212.9 58.4L214.5 58.1L216.1 57.8L217.7 57.4L219.3 57.1L220.9 56.8L222.5 56.5L224 56.1L225.6 55.8L227.2 55.5L228.8 55.2L230.4 54.9L232 54.6L233.6 54.3L235.2 54L236.7 53.7L238.3 53.4L239.9 53.1L241.5 52.9L243.1 52.6L244.7 52.3L246.3 52L247.8 51.7L249.4 51.5L251 51.2L252.6 50.9L254.2 50.7L255.8 50.4L257.4 50.1L259 49.9L260.5 49.6L262.1 49.3L263.7 49.1L265.3 48.8L266.9 48.6L268.5 48.3L270.1 48.1L271.6 47.8L273.2 47.6L274.8 47.4L276.4 47.1L278 46.9L279.6 46.6L281.2 46.4L282.7 46.2L284.3 45.9L285.9 45.7L287.5 45.5L289.1 45.2L290.7 45L292.3 44.8L293.9 44.6L295.4 44.3L297 44.1L298.6 43.9L300.2 43.7L301.8 43.5L303.4 43.3L305 43L306.5 42.8L308.1 42.6L309.7 42.4L311.3 42.2L312.9 42L314.5 41.8L316.1 41.6L317.6 41.4L319.2 41.2L320.8 41L322.4 40.8L324 40.6L325.6 40.4L327.2 40.2L328.8 40L330.3 39.8L331.9 39.6L333.5 39.4L335.1 39.2L336.7 39L338.3 38.8L339.9 38.6L341.4 38.5L343 38.3L344.6 38.1L346.2 37.9L347.8 37.7L349.4 37.5L351 37.4L352.5 37.2L354.1 37L355.7 36.8L357.3 36.6L358.9 36.5L360.5 36.3L362.1 36.1L363.7 35.9L365.2 35.8L366.8 35.6L368.4 35.4L370 35.3"/>
+      <path class="curve-2" d="M52.7 173L54.3 154L55.9 145.9L57.5 140.8L59.1 136.9L60.6 133.9L62.2 131.4L63.8 129.2L65.4 127.3L67 125.7L68.6 124.2L70.2 122.8L71.8 121.6L73.3 120.4L74.9 119.4L76.5 118.4L78.1 117.5L79.7 116.6L81.3 115.8L82.9 115L84.4 114.2L86 113.5L87.6 112.8L89.2 112.2L90.8 111.6L92.4 111L94 110.4L95.5 109.9L97.1 109.3L98.7 108.8L100.3 108.3L101.9 107.9L103.5 107.4L105.1 106.9L106.7 106.5L108.2 106.1L109.8 105.7L111.4 105.3L113 104.9L114.6 104.5L116.2 104.1L117.8 103.8L119.3 103.4L120.9 103.1L122.5 102.7L124.1 102.4L125.7 102.1L127.3 101.8L128.9 101.5L130.5 101.2L132 100.9L133.6 100.6L135.2 100.3L136.8 100L138.4 99.7L140 99.5L141.6 99.2L143.1 98.9L144.7 98.7L146.3 98.4L147.9 98.2L149.5 97.9L151.1 97.7L152.7 97.5L154.2 97.2L155.8 97L157.4 96.8L159 96.6L160.6 96.4L162.2 96.1L163.8 95.9L165.4 95.7L166.9 95.5L168.5 95.3L170.1 95.1L171.7 94.9L173.3 94.7L174.9 94.5L176.5 94.3L178 94.2L179.6 94L181.2 93.8L182.8 93.6L184.4 93.4L186 93.3L187.6 93.1L189.1 92.9L190.7 92.7L192.3 92.6L193.9 92.4L195.5 92.2L197.1 92.1L198.7 91.9L200.3 91.8L201.8 91.6L203.4 91.4L205 91.3L206.6 91.1L208.2 91L209.8 90.8L211.4 90.7L212.9 90.5L214.5 90.4L216.1 90.3L217.7 90.1L219.3 90L220.9 89.8L222.5 89.7L224 89.6L225.6 89.4L227.2 89.3L228.8 89.2L230.4 89L232 88.9L233.6 88.8L235.2 88.6L236.7 88.5L238.3 88.4L239.9 88.3L241.5 88.1L243.1 88L244.7 87.9L246.3 87.8L247.8 87.6L249.4 87.5L251 87.4L252.6 87.3L254.2 87.2L255.8 87.1L257.4 86.9L259 86.8L260.5 86.7L262.1 86.6L263.7 86.5L265.3 86.4L266.9 86.3L268.5 86.2L270.1 86.1L271.6 85.9L273.2 85.8L274.8 85.7L276.4 85.6L278 85.5L279.6 85.4L281.2 85.3L282.7 85.2L284.3 85.1L285.9 85L287.5 84.9L289.1 84.8L290.7 84.7L292.3 84.6L293.9 84.5L295.4 84.4L297 84.3L298.6 84.2L300.2 84.1L301.8 84L303.4 84L305 83.9L306.5 83.8L308.1 83.7L309.7 83.6L311.3 83.5L312.9 83.4L314.5 83.3L316.1 83.2L317.6 83.1L319.2 83L320.8 83L322.4 82.9L324 82.8L325.6 82.7L327.2 82.6L328.8 82.5L330.3 82.4L331.9 82.4L333.5 82.3L335.1 82.2L336.7 82.1L338.3 82L339.9 82L341.4 81.9L343 81.8L344.6 81.7L346.2 81.6L347.8 81.5L349.4 81.5L351 81.4L352.5 81.3L354.1 81.2L355.7 81.2L357.3 81.1L358.9 81L360.5 80.9L362.1 80.9L363.7 80.8L365.2 80.7L366.8 80.6L368.4 80.6L370 80.5"/>
+      <text class="label-key" x="376" y="39.3">ln x</text>
+      <text class="label-soft" x="376" y="84.5">log x</text>
+      <circle class="dot" cx="82.4" cy="115.2" r="4.5"/>
+      <text class="label-soft" x="112.7" y="133.2" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="173.2" y="133.2" style="text-anchor:middle">4</text>
+      <text class="label-soft" x="233.8" y="133.2" style="text-anchor:middle">6</text>
+      <text class="label-soft" x="294.3" y="133.2" style="text-anchor:middle">8</text>
+      <text class="label-soft" x="354.9" y="133.2" style="text-anchor:middle">10</text>
+      <text class="label-soft" x="43.1" y="221.2" style="text-anchor:end">−3</text>
+      <text class="label-soft" x="43.1" y="187.2" style="text-anchor:end">−2</text>
+      <text class="label-soft" x="43.1" y="153.2" style="text-anchor:end">−1</text>
+      <text class="label-soft" x="43.1" y="85.2" style="text-anchor:end">1</text>
+      <text class="label-soft" x="43.1" y="51.2" style="text-anchor:end">2</text>
+    </svg>
+    <figcaption>Both logarithms pass through \((1,0)\), both dive toward the vertical axis as the input approaches 0, and neither exists to the left of it. The natural log climbs faster because its base, \(e \approx 2.72\), is smaller than 10.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">A bare log means base 10, in this course</p>
+    <p>Written without a subscript, \(\log\) means base 10 here. Be aware that some fields, and some software, use \(\log\) for the natural logarithm instead. When it matters, write the base.</p>
+  </div>
+</section>
+
+<section id="domain">
+  <h2><span class="marker">Method</span>The domain of a logarithm</h2>
+
+  <p>What is the domain of a logarithmic function, and why?</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>The domain of \(\log_b x\) is \((0, \infty)\): the input must be <strong>positive</strong>.</li>
+    </ul>
+  </div>
+
+  <p>The reason comes straight from the inverse relationship. A logarithm returns the exponent you would feed to \(b^x\), and the output of \(b^x\) is <em>always positive</em>. So there is no exponent that produces zero or a negative number, and \(\log_b 0\) and \(\log_b(-4)\) simply do not exist.</p>
+
+  <div class="problem">
+    <p>What is the domain of \(f(x) = \log_{10}(3x + 5)\)?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>The content of the logarithm has to be positive, so set up an inequality on it.</p>
+      <ol class="ledger">
+        <li><span class="step">Require</span><span class="work">\[3x + 5 &gt; 0\]</span></li>
+        <li><span class="step">Subtract 5</span><span class="work">\[3x &gt; -5\]</span></li>
+        <li><span class="step">Divide by 3</span><span class="work">\[x &gt; -\frac{5}{3}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x &gt; &minus;5/3, that is (&minus;5/3, &infin;)</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">A third rule for domains</p>
+    <p>Add this to the two from section 2.1. A square root needs its content \(\ge 0\); a denominator must not be 0; and now, <strong>the content of a logarithm must be \(&gt; 0\)</strong>, strictly, with no equality allowed.</p>
+  </div>
+</section>
+
+<section id="logeqs">
+  <h2><span class="marker">Method</span>Solving log equations</h2>
+
+  <p>To solve an equation containing a logarithm, rewrite it in exponential form. The two forms say the same thing:</p>
+
+  <div class="card">
+    <p class="card-label">The same statement, two ways</p>
+    <ul class="keys">
+      <li>logarithmic form: \(y = \log_b x\)</li>
+      <li>exponential form: \(b^y = x\)</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Solve <strong>a)</strong> \(\log_2 x = 7\) &nbsp;&nbsp; <strong>b)</strong> \(2\ln(4 - x) - 3 = 0\) &nbsp;&nbsp; <strong>c)</strong> \(\log_3(x + 50) = 4\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Two steps each time: <strong>isolate the logarithm</strong>, then <strong>switch to exponential form</strong>.</p>
+      <ol class="ledger">
+        <li><span class="step">a) Switch</span><span class="work">\(\log_2 x = 7\) means \[2^7 = x\]</span></li>
+        <li><span class="step">a) Compute</span><span class="work">\[x = 128\]</span></li>
+        <li><span class="step">b) Isolate</span><span class="work">\[2\ln(4-x) = 3 \quad\Longrightarrow\quad \ln(4-x) = \frac{3}{2}\]</span></li>
+        <li><span class="step">b) Switch</span><span class="work">the base of \(\ln\) is \(e\): \[e^{3/2} = 4 - x\]</span></li>
+        <li><span class="step">b) Solve</span><span class="work">\[x = 4 - e^{3/2} \approx -0.4817\]</span></li>
+        <li><span class="step">c) Switch</span><span class="work">\[3^4 = x + 50\]</span></li>
+        <li><span class="step">c) Solve</span><span class="work">\[81 = x + 50 \quad\Longrightarrow\quad x = 31\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 128; &nbsp; x = 4 &minus; e&#179;&#8725;&#178; &asymp; &minus;0.482; &nbsp; x = 31</p>
+      <p>Part (c) was the poll question. Note that in (b) you must divide by the 2 and move the 3 <em>before</em> switching forms: the rule applies to \(\log_b(\text{something}) = \text{something}\), with the logarithm alone on one side.</p>
+    </div>
+  </details>
+
+  <h3>When the unknown is the base</h3>
+  <div class="problem">
+    <p>Solve \(\log_x 4 = 2\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Switch</span><span class="work">\[x^2 = 4\]</span></li>
+        <li><span class="step">Square root</span><span class="work">\(x = 2\) or \(x = -2\)</span></li>
+        <li><span class="step">Reject</span><span class="work">a logarithm's base is either \(&gt;1\) (usual) or between 0 and 1 (unusual), never negative</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 2</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Solve \(\log_4(x^2 + 15) = 2\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Switch</span><span class="work">\[4^2 = x^2 + 15\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[16 = x^2 + 15 \quad\Longrightarrow\quad x^2 = 1\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\(x = 1\) or \(x = -1\)</span></li>
+        <li><span class="step">Check both</span><span class="work">at either value the input is \(1 + 15 = 16 &gt; 0\), so both are valid</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 1 or x = &minus;1</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Why one problem rejects a negative root and the other keeps both</p>
+    <p>In \(\log_x 4 = 2\) the unknown is the <strong>base</strong>, and a base can never be negative, so \(-2\) goes. In \(\log_4(x^2+15) = 2\) the unknown sits in the <strong>input</strong>, and what must be positive is the input \(x^2 + 15\), not \(x\) itself. Since \(x^2 + 15\) is positive for every \(x\), nothing is rejected.</p>
+    <p>So do not discard negative solutions by reflex. Check what the restriction actually applies to.</p>
+  </div>
+</section>
+
+<section id="expeqs">
+  <h2><span class="marker">Method</span>Solving exponential equations</h2>
+
+  <p>The relation \(\log_b x = y \Longleftrightarrow b^y = x\) reads in both directions. We used it to solve for \(x\) when the logarithm was given; now use it to solve for the <em>exponent</em>.</p>
+
+  <div class="problem">
+    <p>If \(10^y = 42\), what is \(y\)?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Switch</span><span class="work">\[y = \log_{10} 42\]</span></li>
+        <li><span class="step">Calculator</span><span class="work">\[y \approx 1.62325\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y = log 42 &asymp; 1.6232</p>
+      <p>A sanity check without the calculator: \(10^1 = 10\) and \(10^2 = 100\), and 42 sits between them, so \(y\) must be between 1 and 2.</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Solve \(15e^{1 - x} = 8\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Isolate the exponential first, then switch to log form.</p>
+      <ol class="ledger">
+        <li><span class="step">Divide by 15</span><span class="work">\[e^{1-x} = \frac{8}{15}\]</span></li>
+        <li><span class="step">Switch</span><span class="work">the base is \(e\), so the logarithm is \(\ln\): \[\ln\!\left(\frac{8}{15}\right) = 1 - x\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x = 1 - \ln\!\left(\frac{8}{15}\right) \approx 1.6286\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 1 &minus; ln(8/15) &asymp; 1.629</p>
+      <p>Check: \(15e^{1 - 1.6286} = 15e^{-0.6286} = 8\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Divide before you take the logarithm</p>
+    <p>The 15 is multiplying the exponential, so it comes off by division, not by taking a logarithm of part of the expression. Only once the equation reads \(e^{\text{something}} = \text{number}\) can you switch forms.</p>
+    <p>Note also that \(\ln\frac{8}{15}\) is negative, since \(\frac{8}{15} &lt; 1\). That is why \(1 - \ln\frac{8}{15}\) comes out bigger than 1.</p>
+  </div>
+</section>
+
+<section id="notation">
+  <h2><span class="marker">Notation</span>Notation warnings</h2>
+
+  <p>A logarithm never appears in a formula without an input. There is no such thing as a bare &ldquo;\(\ln\)&rdquo; standing alone, the way a number can stand alone.</p>
+
+  <div class="note">
+    <p class="card-label">Two things you cannot do</p>
+    <p>\(\ln x = 4\) does <strong>not</strong> mean \(x = \frac{4}{\ln}\).</p>
+    <p>\(\sqrt{x} = 4\) does <strong>not</strong> mean \(x = \frac{4}{\sqrt{\phantom{x}}}\).</p>
+    <p>In both cases \(\ln x\) and \(\sqrt{x}\) mean <em>applying a function</em> to \(x\), not multiplying \(x\) by something. There is nothing to divide by.</p>
+  </div>
+
+  <p>This is the same point as \(f(x)\) not meaning \(f\) times \(x\), from section 2.1. To undo a function you apply its inverse: \(\ln x = 4\) gives \(x = e^4\), and \(\sqrt{x} = 4\) gives \(x = 16\).</p>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before next class</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Monday by the end of the day.</li>
+    <li><strong>Finish the 2.5 WeBWorK set tonight</strong> for the extra credit. Thursday's quiz is on 2.5 only.</li>
+    <li>Memorize the one relation everything here rests on: \(y = \log_b x\) exactly when \(b^y = x\).</li>
+    <li>Redo all the simple logarithms above with the solutions hidden, saying &ldquo;what power of the base gives this?&rdquo; each time.</li>
+    <li>Add the new domain rule to your list: the content of a logarithm must be strictly positive.</li>
+    <li>Find the <strong>LOG</strong> and <strong>LN</strong> keys on your calculator and check \(\log 42 \approx 1.6232\).</li>
+    <li>Be able to say why \(\log_x 4 = 2\) rejects \(-2\) but \(\log_4(x^2+15) = 2\) keeps both roots.</li>
+    <li><strong>Exam 2 is Monday, Oct 5</strong>, on exponentials, logarithms, limits, and continuity. </li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 2.6 part 1 &middot; September 21</p>
+</footer>
+
+</div>
+</body>
+</html>
