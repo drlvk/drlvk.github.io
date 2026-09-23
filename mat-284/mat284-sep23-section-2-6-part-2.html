@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Sep 23 &mdash; Properties of logarithms</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, September 23</p>
+  <h1>Properties of logarithms</h1>
+  <p class="standfirst">Section 2.6, part 2. Logarithms were invented to make hard arithmetic easier: they turn multiplication into addition and powers into products. Three laws, and everything today follows from them.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Warm-up: slow growth</a>
+  <a href="#why">Why logarithms exist</a>
+  <a href="#inside">Exponentials: simpler inside</a>
+  <a href="#outside">Logarithms: simpler outside</a>
+  <a href="#expand">Expanding logarithms</a>
+  <a href="#changebase">Change of base</a>
+  <a href="#equations">Solving equations</a>
+  <a href="#next">Before next class</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">This week</p>
+    <ul>
+      <li><strong>Quiz tomorrow, Thursday Sep 24</strong>, in recitation, on section <strong>2.5</strong> only.</li>
+      <li>The <strong>2.5</strong> WeBWorK set closes for regular credit at the end of <strong>Thursday, Sep 24</strong>.</li>
+      <li><strong>Exam 2 is Monday, October 5</strong>, on exponential functions, logarithms, limits, and continuity.</li>
+      <li>Complete the <strong>Concept Check</strong> for Wednesday by the end of the day.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up</span>Logarithms grow very slowly</h2>
+
+  <p>Logarithmic functions grow <em>very slowly</em>, because they are the inverse of exponential functions, which grow very fast. Undoing something explosive gives you something sluggish.</p>
+
+  <div class="problem">
+    <p>An internet company finds that when their website has \(n\) monthly visitors, the cost of keeping it up is</p>
+    \[f(n) = 40\log\!\left(10 + \frac{n}{5000}\right) \text{ dollars per month.}\]
+    <p><strong>(a)</strong> If they spend $80 per month, how many visitors do they get?</p>
+    <p><strong>(b)</strong> How much will they pay with a million monthly visitors?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Part (a) needs solving for \(n\), so isolate the logarithm and switch to exponential form. Part (b) is just substitution.</p>
+      <ol class="ledger">
+        <li><span class="step">a) Set up</span><span class="work">\[80 = 40\log\!\left(10 + \frac{n}{5000}\right)\]</span></li>
+        <li><span class="step">a) Divide by 40</span><span class="work">\[2 = \log\!\left(10 + \frac{n}{5000}\right)\]</span></li>
+        <li><span class="step">a) Switch</span><span class="work">a bare \(\log\) has base 10: \[10^2 = 10 + \frac{n}{5000}\]</span></li>
+        <li><span class="step">a) Simplify</span><span class="work">\[100 = 10 + \frac{n}{5000} \quad\Longrightarrow\quad 90 = \frac{n}{5000}\]</span></li>
+        <li><span class="step">a) Solve</span><span class="work">\[n = 90 \cdot 5000 = 450{,}000\]</span></li>
+        <li><span class="step">b) Substitute</span><span class="work">\[40\log\!\left(10 + \frac{1{,}000{,}000}{5000}\right) = 40\log(10 + 200)\]</span></li>
+        <li><span class="step">b) Compute</span><span class="work">\[= 40\log(210) \approx 92.89\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>450,000 visitors; about $92.89 per month</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 440 250" role="img" aria-label="Monthly cost against monthly visitors: the curve rises steeply at first and then almost flattens, passing through 450 thousand visitors at 80 dollars and one million visitors at about 93 dollars">
+      <path class="grid" d="M172 216V221 M296 216V221 M420 216V221 M43 167H48 M43 118H48 M43 69H48 M43 20H48"/>
+      <path class="axis" d="M48 216H432"/>
+      <path class="axis" d="M48 216V12"/>
+      <text class="label" x="434" y="234" style="text-anchor:end">visitors</text>
+      <text class="label" x="34" y="10">$</text>
+      <path class="curve" d="M48 137.6L49.5 134.4L51.1 131.4L52.6 128.7L54.2 126.1L55.8 123.8L57.3 121.6L58.9 119.5L60.4 117.6L62 115.7L63.5 114L65 112.3L66.6 110.8L68.2 109.2L69.7 107.8L71.2 106.4L72.8 105.1L74.3 103.8L75.9 102.5L77.5 101.3L79 100.2L80.5 99.1L82.1 98L83.7 96.9L85.2 95.9L86.8 94.9L88.3 94L89.8 93.1L91.4 92.1L93 91.3L94.5 90.4L96 89.6L97.6 88.7L99.2 87.9L100.7 87.2L102.2 86.4L103.8 85.6L105.3 84.9L106.9 84.2L108.5 83.5L110 82.8L111.5 82.1L113.1 81.5L114.7 80.8L116.2 80.2L117.8 79.6L119.3 78.9L120.8 78.3L122.4 77.7L124 77.2L125.5 76.6L127 76L128.6 75.5L130.2 74.9L131.7 74.4L133.2 73.9L134.8 73.3L136.3 72.8L137.9 72.3L139.4 71.8L141 71.3L142.6 70.9L144.1 70.4L145.7 69.9L147.2 69.5L148.8 69L150.3 68.5L151.8 68.1L153.4 67.7L154.9 67.2L156.5 66.8L158.1 66.4L159.6 66L161.2 65.5L162.7 65.1L164.2 64.7L165.8 64.3L167.3 63.9L168.9 63.6L170.4 63.2L172 62.8L173.6 62.4L175.1 62L176.7 61.7L178.2 61.3L179.8 60.9L181.3 60.6L182.8 60.2L184.4 59.9L185.9 59.5L187.5 59.2L189.1 58.9L190.6 58.5L192.2 58.2L193.7 57.9L195.2 57.5L196.8 57.2L198.3 56.9L199.9 56.6L201.4 56.3L203 56L204.6 55.6L206.1 55.3L207.7 55L209.2 54.7L210.8 54.4L212.3 54.1L213.8 53.9L215.4 53.6L216.9 53.3L218.5 53L220.1 52.7L221.6 52.4L223.2 52.2L224.7 51.9L226.2 51.6L227.8 51.3L229.3 51.1L230.9 50.8L232.4 50.5L234 50.3L235.6 50L237.1 49.7L238.7 49.5L240.2 49.2L241.8 49L243.3 48.7L244.8 48.5L246.4 48.2L247.9 48L249.5 47.7L251.1 47.5L252.6 47.3L254.2 47L255.7 46.8L257.2 46.5L258.8 46.3L260.4 46.1L261.9 45.9L263.4 45.6L265 45.4L266.6 45.2L268.1 44.9L269.6 44.7L271.2 44.5L272.8 44.3L274.3 44.1L275.9 43.8L277.4 43.6L278.9 43.4L280.5 43.2L282.1 43L283.6 42.8L285.1 42.6L286.7 42.4L288.2 42.1L289.8 41.9L291.4 41.7L292.9 41.5L294.4 41.3L296 41.1L297.6 40.9L299.1 40.7L300.6 40.5L302.2 40.3L303.8 40.1L305.3 40L306.9 39.8L308.4 39.6L309.9 39.4L311.5 39.2L313.1 39L314.6 38.8L316.1 38.6L317.7 38.4L319.2 38.3L320.8 38.1L322.4 37.9L323.9 37.7L325.4 37.5L327 37.3L328.6 37.2L330.1 37L331.6 36.8L333.2 36.6L334.8 36.5L336.3 36.3L337.9 36.1L339.4 35.9L340.9 35.8L342.5 35.6L344.1 35.4L345.6 35.3L347.1 35.1L348.7 34.9L350.2 34.8L351.8 34.6L353.4 34.4L354.9 34.3L356.4 34.1L358 33.9L359.6 33.8L361.1 33.6L362.6 33.5L364.2 33.3L365.8 33.1L367.3 33L368.9 32.8L370.4 32.7L371.9 32.5L373.5 32.4L375.1 32.2L376.6 32L378.1 31.9L379.7 31.7L381.2 31.6L382.8 31.4L384.4 31.3L385.9 31.1L387.4 31L389 30.8L390.6 30.7L392.1 30.5L393.6 30.4L395.2 30.3L396.8 30.1L398.3 30L399.9 29.8L401.4 29.7L402.9 29.5L404.5 29.4L406.1 29.2L407.6 29.1L409.1 29L410.7 28.8L412.2 28.7L413.8 28.6L415.4 28.4L416.9 28.3L418.4 28.1L420 28"/>
+      <path class="helper" d="M187.5 216V59.2"/>
+      <circle class="dot" cx="187.5" cy="59.2" r="4.5"/>
+      <text class="label-key" x="197.5" y="79.2">(450k, $80)</text>
+      <path class="helper" d="M358 216V33.9"/>
+      <circle class="dot" cx="358" cy="33.9" r="4.5"/>
+      <text class="label-key" x="352" y="21.9" style="text-anchor:end">(1M, $92.89)</text>
+      <text class="label-soft" x="172" y="234" style="text-anchor:middle">400k</text>
+      <text class="label-soft" x="296" y="234" style="text-anchor:middle">800k</text>
+      <text class="label-soft" x="39" y="171" style="text-anchor:end">25</text>
+      <text class="label-soft" x="39" y="122" style="text-anchor:end">50</text>
+      <text class="label-soft" x="39" y="73" style="text-anchor:end">75</text>
+      <text class="label-soft" x="39" y="24" style="text-anchor:end">100</text>
+    </svg>
+    <figcaption>The cost curve \(f(n) = 40\log\!\left(10 + \frac{n}{5000}\right)\). It climbs quickly at low traffic and then almost levels off: the second half of the journey to a million visitors costs about $13.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">What those two numbers mean together</p>
+    <p>Going from 450,000 visitors to 1,000,000 <strong>more than doubles</strong> the traffic and adds under $13 to the bill. That is what &ldquo;grows very slowly&rdquo; looks like in practice, and it is why logarithms show up in cost models that are supposed to scale well.</p>
+    <p>Notice the two directions of work: (a) had the unknown <em>inside</em> the logarithm, so it needed the exponential form; (b) had the unknown supplied, so it needed nothing but substitution.</p>
+  </div>
+</section>
+
+<section id="why">
+  <h2><span class="marker">Orientation</span>Why logarithms exist</h2>
+
+  <p>Some arithmetic operations are easier than others.</p>
+
+  <ol>
+    <li><strong>Addition</strong> is the easiest.</li>
+    <li><strong>Multiplication</strong> is harder; it is repeated addition.</li>
+    <li><strong>Raising to a power</strong> is harder still; it is repeated multiplication.</li>
+  </ol>
+
+  <p>Compare the three for the same pair of numbers:</p>
+
+  <table>
+    <caption>The same two numbers, three operations</caption>
+    <thead>
+      <tr><th scope="col">Operation</th><th scope="col">Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>\(12 + 34\)</td><td>46</td></tr>
+      <tr><td>\(12 \cdot 34\)</td><td>408</td></tr>
+      <tr><td>\(12^{34}\)</td><td>4922235242952026704037113243122008064</td></tr>
+    </tbody>
+  </table>
+
+  <p>Logarithms were invented to <strong>reduce the arithmetic complexity</strong>: with them you can replace multiplication by addition, and exponentiation by multiplication.</p>
+
+  <div class="note">
+    <p class="card-label">This does not mean 12 &middot; 34 becomes 12 + 34</p>
+    <p>Logarithms convert the multiplication of two numbers into the addition of two <strong>different</strong> numbers. The product 408 does not turn into 46. What happens is that \(\log 408\) turns into \(\log 12 + \log 34\), and those two logarithms are not 12 and 34.</p>
+  </div>
+</section>
+
+<section id="inside">
+  <h2><span class="marker">Method</span>Exponentials: simpler on the inside</h2>
+
+  <p>Recall the exponent laws from section 2.5, and read each one from left to right, watching which side gets the harder operation.</p>
+
+  <div class="card">
+    <p class="card-label">Multiplication outside becomes addition inside</p>
+    <ul class="keys">
+      <li>\(b^x b^y = b^{x+y}\) &nbsp; &mdash; a <em>product</em> between, an <em>addition</em> in the exponent</li>
+      <li>\(\dfrac{b^x}{b^y} = b^{x-y}\) &nbsp; &mdash; a <em>division</em> between, a <em>subtraction</em> in the exponent</li>
+      <li>\(\left(b^x\right)^y = b^{xy}\) &nbsp; &mdash; a <em>power</em> outside, a <em>multiplication</em> in the exponent</li>
+    </ul>
+  </div>
+
+  <p>For example \(\left(12^{34}\right)^{10} = 12^{340}\): raising to the tenth power outside costs nothing more than multiplying \(34\) by \(10\) inside.</p>
+
+  <p>So for exponential functions, things are <strong>simpler on the inside</strong>. Each operation drops one level of difficulty when it moves into the exponent.</p>
+</section>
+
+<section id="outside">
+  <h2><span class="marker">Tool</span>Logarithms: simpler on the outside</h2>
+
+  <p>A logarithm is the inverse of an exponential, so it turns all of those properties inside out. Every rule above runs backwards.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\(\log_b(mn) = \log_b m + \log_b n\) &nbsp; &mdash; the logarithm of a <strong>product</strong> is the <strong>sum</strong> of logarithms</li>
+      <li>\(\log_b\!\left(\dfrac{m}{n}\right) = \log_b m - \log_b n\) &nbsp; &mdash; the logarithm of a <strong>quotient</strong> is the <strong>difference</strong></li>
+      <li>\(\log_b(m^r) = r\log_b m\) &nbsp; &mdash; an <strong>exponent</strong> inside comes out as a <strong>factor</strong></li>
+    </ul>
+  </div>
+
+  <p>These hold for every base. Some numerical checks:</p>
+
+  <table>
+    <caption>The three laws, verified</caption>
+    <thead>
+      <tr><th scope="col">Law</th><th scope="col">Check</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>product</td><td>\(\log(12 \cdot 34) = \log 408 = 2.61066\), and \(\log 12 + \log 34 = 2.61066\)</td></tr>
+      <tr><td>quotient</td><td>\(\log_2 48 - \log_2 12 = \log_2\frac{48}{12} = \log_2 4 = 2\)</td></tr>
+      <tr><td>power</td><td>\(\log(12^{34}) = 34\log 12 \approx 36.69\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <p class="card-label">The power law as a size estimate</p>
+    <p>From \(\log(12^{34}) \approx 36.69\) you can read off how big \(12^{34}\) is without computing it: since \(36 &lt; 36.69 &lt; 37\), we get \(10^{36} &lt; 12^{34} &lt; 10^{37}\). So it is a 37-digit number.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-label">The duality in one place</p>
+    <ul class="keys">
+      <li>Exponentials are <strong>simpler on the inside</strong>: the hard operation sits outside, the easy one in the exponent.</li>
+      <li>Logarithms are <strong>simpler on the outside</strong>: the hard operation sits inside, the easy one outside.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="expand">
+  <h2><span class="marker">Method</span>Expanding logarithms</h2>
+
+  <p>To <strong>expand</strong> a logarithm means to write it as a combination of simpler logarithms, using the three laws.</p>
+
+  <div class="problem">
+    <p>Express \(\log 30\) in another way, using the arithmetic of the number 30.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Factor 30 and apply the product law. There is more than one right answer.</p>
+      <ol class="ledger">
+        <li><span class="step">Factor</span><span class="work">\[\log 30 = \log(3 \cdot 10) = \log 3 + \log 10\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\(\log 10 = 1\), since \(\log_b b = 1\): \[= \log 3 + 1\]</span></li>
+        <li><span class="step">Or further</span><span class="work">\(10 = 2 \cdot 5\), so \[\log 30 = \log 3 + \log 2 + \log 5\]</span></li>
+        <li><span class="step">Or differently</span><span class="work">\(30 = 5 \cdot 6\), so \[\log 30 = \log 5 + \log 6\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>log 3 + 1, or log 2 + log 3 + log 5, among others</p>
+      <p>The \(\log 10 = 1\) step is the useful one: whenever the base appears inside its own logarithm, it collapses to 1.</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>What can we do with \(\ln 1{,}000{,}000{,}000{,}000\), the natural log of one trillion?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">one trillion is \(10^{12}\)</span></li>
+        <li><span class="step">Power law</span><span class="work">\[\ln\!\left(10^{12}\right) = 12\ln 10 \approx 27.631\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>12 ln 10 &asymp; 27.631</p>
+      <p>Note that \(\ln 10\) does <em>not</em> simplify to 1 here. That collapse only happens when the number inside matches the base, and the base of \(\ln\) is \(e\), not 10.</p>
+    </div>
+  </details>
+
+  <h3>Expanding formulas</h3>
+  <div class="problem">
+    <p>Expand <strong>a)</strong> \(\log(5x^3)\) &nbsp;&nbsp; <strong>b)</strong> \(\ln\dfrac{x+5}{x^3}\) &nbsp;&nbsp; <strong>c)</strong> \(\ln\dfrac{(x+1)^3}{x\sqrt{x+1}}\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a) Product</span><span class="work">\(5x^3\) is \(5\) times \(x^3\): \[\log(5x^3) = \log 5 + \log(x^3)\]</span></li>
+        <li><span class="step">a) Power</span><span class="work">\[= \log 5 + 3\log x\]</span></li>
+        <li><span class="step">b) Quotient</span><span class="work">\[\ln\frac{x+5}{x^3} = \ln(x+5) - \ln(x^3)\]</span></li>
+        <li><span class="step">b) Power</span><span class="work">\[= \ln(x+5) - 3\ln x\]</span></li>
+        <li><span class="step">c) Quotient</span><span class="work">\[\ln\frac{(x+1)^3}{x\sqrt{x+1}} = \ln\!\left((x+1)^3\right) - \ln\!\left(x\sqrt{x+1}\right)\]</span></li>
+        <li><span class="step">c) Product</span><span class="work">the bottom is a product, so it splits: \[= 3\ln(x+1) - \Big(\ln x + \ln\sqrt{x+1}\Big)\]</span></li>
+        <li><span class="step">c) Root</span><span class="work">\(\sqrt{x+1} = (x+1)^{1/2}\): \[= 3\ln(x+1) - \ln x - \tfrac{1}{2}\ln(x+1)\]</span></li>
+        <li><span class="step">c) Collect</span><span class="work">\(3 - \frac{1}{2} = \frac{5}{2}\): \[= \tfrac{5}{2}\ln(x+1) - \ln x\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>log 5 + 3 log x; &nbsp; ln(x+5) &minus; 3 ln x; &nbsp; (5/2) ln(x+1) &minus; ln x</p>
+      <p>Part (b) was the poll question.</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">log(5x&sup3;) is not 3 log(5x)</p>
+    <p>The power law lifts out an exponent on the <em>whole</em> input, and here the cube applies only to the \(x\). Split the product first, then bring down the 3 from \(x^3\) alone.</p>
+  </div>
+
+  <div class="note">
+    <p class="card-label">Three things part (c) is testing</p>
+    <p>That the minus sign in front of the bracket reaches <strong>both</strong> terms of the denominator, giving \(-\ln x - \frac{1}{2}\ln(x+1)\), not \(-\ln x + \frac{1}{2}\ln(x+1)\).</p>
+    <p>That a square root is the power \(\frac{1}{2}\), so it comes out as a coefficient like any other exponent.</p>
+    <p>And that the two \(\ln(x+1)\) terms are <em>like terms</em> and should be combined at the end.</p>
+  </div>
+
+  <div class="problem">
+    <p>Two more. Expand <strong>a)</strong> \(\ln\dfrac{(4-x)\sqrt{x}}{(3x+2)^2}\) &nbsp;&nbsp; <strong>b)</strong> \(\log_2\dfrac{16}{3^x}\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a) Quotient</span><span class="work">\[\ln\!\left((4-x)\sqrt{x}\right) - \ln\!\left((3x+2)^2\right)\]</span></li>
+        <li><span class="step">a) Product</span><span class="work">\[= \ln(4-x) + \ln\sqrt{x} - \ln\!\left((3x+2)^2\right)\]</span></li>
+        <li><span class="step">a) Powers</span><span class="work">\[= \ln(4-x) + \tfrac{1}{2}\ln x - 2\ln(3x+2)\]</span></li>
+        <li><span class="step">b) Quotient</span><span class="work">\[\log_2 16 - \log_2\!\left(3^x\right)\]</span></li>
+        <li><span class="step">b) Evaluate</span><span class="work">\(2^4 = 16\), so \(\log_2 16 = 4\)</span></li>
+        <li><span class="step">b) Power</span><span class="work">\[= 4 - x\log_2 3\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>ln(4 &minus; x) + &frac12; ln x &minus; 2 ln(3x + 2); &nbsp; 4 &minus; x log&#8322; 3</p>
+      <p>In (b) the variable is in the <em>exponent</em>, so the power law brings the whole \(x\) out front as a coefficient. And \(\log_2 16\) is one of the logarithms you can do by hand, so it should be evaluated rather than left standing.</p>
+    </div>
+  </details>
+</section>
+
+<section id="changebase">
+  <h2><span class="marker">Tool</span>Change of base</h2>
+
+  <p>The three laws work with any base: break a base-7 logarithm apart and you still have base-7 logarithms. But sometimes you want to <em>change</em> the base, for two reasons.</p>
+
+  <ul>
+    <li>The TI 83/84 only computes the common logarithm \(\log\) and the natural logarithm \(\ln\).</li>
+    <li>In calculus, the natural logarithm works much better than any other.</li>
+  </ul>
+
+  <p>Because this is a calculus course, we only need the change of base to the natural logarithm.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\[\log_b m = \frac{\ln m}{\ln b}\]</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Express \(\log_2 7\) using natural logarithms, and evaluate it.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Apply</span><span class="work">\[\log_2 7 = \frac{\ln 7}{\ln 2}\]</span></li>
+        <li><span class="step">Compute</span><span class="work">\[\approx 2.80735\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>ln 7 / ln 2 &asymp; 2.8074</p>
+      <p>Sanity check: \(2^2 = 4\) and \(2^3 = 8\), and 7 lies between them, so \(\log_2 7\) must be between 2 and 3.</p>
+    </div>
+  </details>
+
+  <p>The same trick lets you <em>graph</em> a logarithm of any base on a calculator. To see \(y = \log_2 x\), enter</p>
+
+  \[y = \frac{\ln x}{\ln 2}\]
+
+  <figure class="fig">
+    <svg viewBox="0 0 430 265" role="img" aria-label="The graph of log base two of x, rising steeply near zero and then flattening, with the point 32 comma 5 marked">
+      <path class="grid" d="M132.5 152.4V160.4 M223 152.4V160.4 M313.5 152.4V160.4 M404 152.4V160.4 M38 200.4H46 M38 112.4H46 M38 68.4H46 M38 24.4H46"/>
+      <path class="axis" d="M12 156.4H422"/>
+      <path class="axis" d="M42 257V10"/>
+      <text class="label" x="424" y="174.4" style="text-anchor:end">x</text>
+      <text class="label" x="51" y="8">y</text>
+      <path class="curve" d="M43.8 206.9L45.2 189.1L46.6 177.7L48 169.4L49.4 162.8L50.8 157.3L52.2 152.6L53.6 148.6L55 145L56.4 141.8L57.7 138.8L59.1 136.1L60.5 133.7L61.9 131.4L63.3 129.2L64.7 127.2L66.1 125.3L67.5 123.5L68.9 121.9L70.3 120.3L71.7 118.7L73 117.3L74.4 115.9L75.8 114.6L77.2 113.3L78.6 112L80 110.9L81.4 109.7L82.8 108.6L84.2 107.6L85.6 106.5L87 105.5L88.3 104.6L89.7 103.6L91.1 102.7L92.5 101.8L93.9 101L95.3 100.1L96.7 99.3L98.1 98.5L99.5 97.7L100.9 97L102.2 96.2L103.6 95.5L105 94.8L106.4 94.1L107.8 93.4L109.2 92.8L110.6 92.1L112 91.5L113.4 90.9L114.8 90.2L116.2 89.6L117.5 89.1L118.9 88.5L120.3 87.9L121.7 87.3L123.1 86.8L124.5 86.3L125.9 85.7L127.3 85.2L128.7 84.7L130.1 84.2L131.4 83.7L132.8 83.2L134.2 82.7L135.6 82.2L137 81.8L138.4 81.3L139.8 80.9L141.2 80.4L142.6 80L144 79.5L145.4 79.1L146.7 78.7L148.1 78.3L149.5 77.8L150.9 77.4L152.3 77L153.7 76.6L155.1 76.2L156.5 75.9L157.9 75.5L159.3 75.1L160.7 74.7L162 74.4L163.4 74L164.8 73.6L166.2 73.3L167.6 72.9L169 72.6L170.4 72.2L171.8 71.9L173.2 71.5L174.6 71.2L175.9 70.9L177.3 70.5L178.7 70.2L180.1 69.9L181.5 69.6L182.9 69.3L184.3 69L185.7 68.6L187.1 68.3L188.5 68L189.9 67.7L191.2 67.4L192.6 67.1L194 66.9L195.4 66.6L196.8 66.3L198.2 66L199.6 65.7L201 65.4L202.4 65.2L203.8 64.9L205.1 64.6L206.5 64.3L207.9 64.1L209.3 63.8L210.7 63.5L212.1 63.3L213.5 63L214.9 62.8L216.3 62.5L217.7 62.3L219.1 62L220.4 61.8L221.8 61.5L223.2 61.3L224.6 61L226 60.8L227.4 60.6L228.8 60.3L230.2 60.1L231.6 59.8L233 59.6L234.4 59.4L235.7 59.2L237.1 58.9L238.5 58.7L239.9 58.5L241.3 58.3L242.7 58L244.1 57.8L245.5 57.6L246.9 57.4L248.3 57.2L249.6 57L251 56.7L252.4 56.5L253.8 56.3L255.2 56.1L256.6 55.9L258 55.7L259.4 55.5L260.8 55.3L262.2 55.1L263.6 54.9L264.9 54.7L266.3 54.5L267.7 54.3L269.1 54.1L270.5 53.9L271.9 53.7L273.3 53.5L274.7 53.3L276.1 53.2L277.5 53L278.8 52.8L280.2 52.6L281.6 52.4L283 52.2L284.4 52L285.8 51.9L287.2 51.7L288.6 51.5L290 51.3L291.4 51.1L292.8 51L294.1 50.8L295.5 50.6L296.9 50.4L298.3 50.3L299.7 50.1L301.1 49.9L302.5 49.8L303.9 49.6L305.3 49.4L306.7 49.3L308.1 49.1L309.4 48.9L310.8 48.8L312.2 48.6L313.6 48.4L315 48.3L316.4 48.1L317.8 48L319.2 47.8L320.6 47.6L322 47.5L323.3 47.3L324.7 47.2L326.1 47L327.5 46.9L328.9 46.7L330.3 46.5L331.7 46.4L333.1 46.2L334.5 46.1L335.9 45.9L337.3 45.8L338.6 45.6L340 45.5L341.4 45.3L342.8 45.2L344.2 45L345.6 44.9L347 44.8L348.4 44.6L349.8 44.5L351.2 44.3L352.5 44.2L353.9 44L355.3 43.9L356.7 43.8L358.1 43.6L359.5 43.5L360.9 43.3L362.3 43.2L363.7 43.1L365.1 42.9L366.5 42.8L367.8 42.7L369.2 42.5L370.6 42.4L372 42.3L373.4 42.1L374.8 42L376.2 41.9L377.6 41.7L379 41.6L380.4 41.5L381.8 41.3L383.1 41.2L384.5 41.1L385.9 40.9L387.3 40.8L388.7 40.7L390.1 40.6L391.5 40.4L392.9 40.3L394.3 40.2L395.7 40.1L397 39.9L398.4 39.8L399.8 39.7L401.2 39.6L402.6 39.4L404 39.3"/>
+      <path class="helper" d="M331.6 156.4V46.4"/>
+      <path class="helper" d="M42 46.4H331.6"/>
+      <circle class="dot" cx="331.6" cy="46.4" r="4.5"/>
+      <text class="label-key" x="323.6" y="37.4" style="text-anchor:end">(32, 5)</text>
+      <circle class="dot" cx="51" cy="156.4" r="4"/>
+      <text class="label-key" x="59" y="175.4">(1, 0)</text>
+      <text class="label-soft" x="333.6" y="61.3">y = log</text>
+      <text class="label-soft sub" x="380.8" y="65.3">2</text>
+      <text class="label-soft" x="391.8" y="61.3">x</text>
+      <text class="label-soft" x="132.5" y="174.4" style="text-anchor:middle">10</text>
+      <text class="label-soft" x="223" y="174.4" style="text-anchor:middle">20</text>
+      <text class="label-soft" x="313.5" y="174.4" style="text-anchor:middle">30</text>
+      <text class="label-soft" x="404" y="174.4" style="text-anchor:middle">40</text>
+      <text class="label-soft" x="33" y="204.4" style="text-anchor:end">−2</text>
+      <text class="label-soft" x="33" y="116.4" style="text-anchor:end">2</text>
+      <text class="label-soft" x="33" y="72.4" style="text-anchor:end">4</text>
+      <text class="label-soft" x="33" y="28.4" style="text-anchor:end">6</text>
+    </svg>
+    <figcaption>\(y = \log_2 x\), plotted on a calculator as \(\ln x / \ln 2\). It crosses the axis at \((1,0)\) and reaches a height of only 5 by \(x = 32\).</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Reading the graph back</p>
+    <p>The graph says \(\log_2 x = 5\) at \(x = 32\), and that is right: \(2^5 = 32\). Checking a graph against a fact you can verify by hand is the fastest way to catch a mistyped formula.</p>
+    <p>The denominator is \(\ln 2\), a constant. Dividing by it is what rescales the natural logarithm into base 2. The shape of the graph remains the same.</p>
+  </div>
+</section>
+
+<section id="equations">
+  <h2><span class="marker">Worked example</span>Solving equations</h2>
+
+  <div class="problem">
+    <p>Solve \(7 \cdot 5^x = 44\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Two routes get there. The first isolates the exponential; the second applies \(\ln\) to both sides and uses the laws.</p>
+      <ol class="ledger">
+        <li><span class="step">Route 1</span><span class="work">isolate: \[5^x = \frac{44}{7}\]</span></li>
+        <li><span class="step">Switch</span><span class="work">\[x = \log_5\!\left(\frac{44}{7}\right)\]</span></li>
+        <li><span class="step">Route 2</span><span class="work">apply \(\ln\) to both sides: \[\ln\!\left(7 \cdot 5^x\right) = \ln 44\]</span></li>
+        <li><span class="step">Product law</span><span class="work">\[\ln 7 + \ln\!\left(5^x\right) = \ln 44\]</span></li>
+        <li><span class="step">Power law</span><span class="work">\[\ln 7 + x\ln 5 = \ln 44\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x\ln 5 = \ln 44 - \ln 7 \quad\Longrightarrow\quad x = \frac{\ln 44 - \ln 7}{\ln 5}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = log&#8325;(44/7) = (ln 44 &minus; ln 7)/ln 5 &asymp; 1.1422</p>
+      <p>The two answers agree, as they must: change of base turns the first into the second, since \(\log_5\frac{44}{7} = \frac{\ln(44/7)}{\ln 5}\) and \(\ln\frac{44}{7} = \ln 44 - \ln 7\). Route 2 is the one that generalizes, so it is worth being comfortable with.</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Solve \(10^{\log(8x + 7)} = 6\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Again two routes, and the second is almost instant.</p>
+      <ol class="ledger">
+        <li><span class="step">Route 1</span><span class="work">switch to log form: \[\log(8x+7) = \log 6\]</span></li>
+        <li><span class="step">Compare</span><span class="work">same logarithm on both sides, so \[8x + 7 = 6\]</span></li>
+        <li><span class="step">Route 2</span><span class="work">\(10^{\square}\) and \(\log\square\) are inverse functions, so they cancel outright: \[8x + 7 = 6\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[8x = -1 \quad\Longrightarrow\quad x = -\frac{1}{8}\]</span></li>
+        <li><span class="step">Check domain</span><span class="work">\(8\left(-\frac18\right) + 7 = 6 &gt; 0\), so the logarithm is defined</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = &minus;1/8</p>
+      <p>The negative answer is fine here. What has to be positive is the <em>input</em> \(8x+7\), which equals 6, not \(x\) itself.</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Solve \(1550 \cdot (1.07)^t = 3100\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Notice that 3100 is exactly twice 1550, so this asks how long an investment at 7% takes to double.</p>
+      <ol class="ledger">
+        <li><span class="step">Divide</span><span class="work">\[(1.07)^t = \frac{3100}{1550} = 2\]</span></li>
+        <li><span class="step">Apply ln</span><span class="work">\[\ln\!\left(1.07^t\right) = \ln 2\]</span></li>
+        <li><span class="step">Power law</span><span class="work">\[t\ln(1.07) = \ln 2\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[t = \frac{\ln 2}{\ln 1.07} \approx 10.245\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>t = ln 2 / ln 1.07 &asymp; 10.24 years</p>
+      <p>Check: \(1550(1.07)^{10.2448} = 3100\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The pattern in all three</p>
+    <p>Every one of these had the unknown in an <strong>exponent</strong>, and every one was freed the same way: isolate the exponential, then apply a logarithm and use the power law to bring the exponent down to ground level. </p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before next class</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Wednesday by the end of the day.</li>
+    <li><strong>Quiz tomorrow on 2.5.</strong> The 2.5 WeBWorK set also closes for regular credit at the end of Thursday.</li>
+    <li>Memorize the three laws and the change of base formula. They are four short lines and everything today came out of them.</li>
+    <li>Redo every expansion above with the solutions hidden. Say which law you are using at each step.</li>
+    <li>Be able to explain why \(\log(5x^3)\) is not \(3\log(5x)\).</li>
+    <li>Practice the one technique for exponent unknowns: isolate, take a logarithm, bring the exponent down.</li>
+    <li><strong>Exam 2 is Monday, Oct 5</strong>, on exponentials, logarithms, limits, and continuity.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 2.6 part 2 &middot; September 23</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -27,6 +27,7 @@ to `/favicon.svg` — on a project site that resolves to the wrong place.
 | `mat284-sep14-exam-1-review.html` | Sep 14 — Review for Exam 1 |
 | `mat284-sep18-section-2-5.html` | Sep 18 — Exponential functions |
 | `mat284-sep21-section-2-6-part-1.html` | Sep 21 — Logarithmic functions |
+| `mat284-sep23-section-2-6-part-2.html` | Sep 23 — Properties of logarithms |
 
 ## Adding a lecture
 
