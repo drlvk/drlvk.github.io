@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Sep 28 &mdash; Infinite limits and limits at infinity</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Monday, September 28</p>
+  <h1>Infinite limits and limits at infinity</h1>
+  <p class="standfirst">Section 9.2. Two different things with similar names: a function blowing up as \(x\) approaches a number, and a function settling down as \(x\) runs off to infinity. Plus the full strategy for 9.1 and 9.2 in one place.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Warm-up</a>
+  <a href="#infinite">Infinite limits</a>
+  <a href="#sign">Working out the sign</a>
+  <a href="#atinfinity">Limits at infinity</a>
+  <a href="#strategy">The whole strategy</a>
+  <a href="#next">Before next class</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Exam 2</p>
+    <ul>
+      <li><strong>Exam 2 is Monday, October 5.</strong> Same format as the first one.</li>
+      <li>It consists of <strong>5 problems</strong>, based on sections <strong>2.5</strong> (exponential functions), <strong>2.6</strong> (logarithms), <strong>9.1</strong> (limits and one-sided limits), <strong>9.2</strong> (infinite limits and limits at infinity), and <strong>9.3</strong> (continuity).</li>
+      <li><strong>Wednesday, Sep 30</strong>: section 9.3, continuity, the last topic on the exam.</li>
+      <li>Complete the <strong>Concept Check</strong> for Monday by the end of the day.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up</span>A three-piece function</h2>
+
+  <div class="problem">
+    <p>Find the one-sided limits of this function at 4 and at 9.</p>
+    \[f(x) = \begin{cases} 3x + 1, & \text{if } x \le 4 \\ 15 - x, & \text{if } 4 &lt; x &lt; 9 \\ x - \sqrt{x}, & \text{if } x \ge 9\end{cases}\]
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>First sort the number line into its three regions: \(3x+1\) to the left of 4, \(15 - x\) between 4 and 9, and \(x - \sqrt{x}\) from 9 on. Then each one-sided limit uses the piece on its own side.</p>
+      <ol class="ledger">
+        <li><span class="step">At 4, left</span><span class="work">\[\lim_{x\to 4^{-}}(3x+1) = 12 + 1 = 13\]</span></li>
+        <li><span class="step">At 4, right</span><span class="work">\[\lim_{x\to 4^{+}}(15 - x) = 15 - 4 = 11\]</span></li>
+        <li><span class="step">At 4</span><span class="work">13 and 11 are different, so \(\lim_{x\to 4}f(x)\) does not exist</span></li>
+        <li><span class="step">At 9, left</span><span class="work">\[\lim_{x\to 9^{-}}(15 - x) = 15 - 9 = 6\]</span></li>
+        <li><span class="step">At 9, right</span><span class="work">\[\lim_{x\to 9^{+}}\left(x - \sqrt{x}\right) = 9 - \sqrt{9} = 9 - 3 = 6\]</span></li>
+        <li><span class="step">At 9</span><span class="work">both sides give 6, so \(\lim_{x\to 9}f(x) = 6\)</span></li>
+      </ol>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 420 292" role="img" aria-label="A three-piece graph: a rising line up to x equals 4 ending at height 13, a falling line from height 11 at x equals 4 down to height 6 at x equals 9, then a slowly rising curve from height 6. It jumps at 4 and joins up at 9">
+      <path class="grid" d="M136 260V265 M256 260V265 M376 260V265 M35 180H40 M35 100H40 M35 20H40"/>
+      <path class="axis" d="M40 260H412"/>
+      <path class="axis" d="M40 260V12"/>
+      <text class="label" x="414" y="278" style="text-anchor:end">x</text>
+      <text class="label" x="49" y="10">y</text>
+      <path class="helper" d="M136 260V20"/>
+      <path class="helper" d="M256 260V20"/>
+      <path class="curve" d="M40 244L44.8 234.4L49.6 224.8L54.4 215.2L59.2 205.6L64 196L68.8 186.4L73.6 176.8L78.4 167.2L83.2 157.6L88 148L92.8 138.4L97.6 128.8L102.4 119.2L107.2 109.6L112 100L116.8 90.4L121.6 80.8L126.4 71.2L131.2 61.6L136 52"/>
+      <path class="curve" d="M136 84L142 88L148 92L154 96L160 100L166 104L172 108L178 112L184 116L190 120L196 124L202 128L208 132L214 136L220 140L226 144L232 148L238 152L244 156L250 160L256 164"/>
+      <path class="curve" d="M256 164L258.4 162.7L260.8 161.3L263.2 160L265.6 158.7L268 157.3L270.4 156L272.8 154.6L275.2 153.3L277.6 151.9L280 150.6L282.4 149.2L284.8 147.9L287.2 146.5L289.6 145.2L292 143.8L294.4 142.5L296.8 141.1L299.2 139.8L301.6 138.4L304 137.1L306.4 135.7L308.8 134.3L311.2 133L313.6 131.6L316 130.3L318.4 128.9L320.8 127.5L323.2 126.2L325.6 124.8L328 123.4L330.4 122.1L332.8 120.7L335.2 119.3L337.6 117.9L340 116.6L342.4 115.2L344.8 113.8L347.2 112.4L349.6 111.1L352 109.7L354.4 108.3L356.8 106.9L359.2 105.6L361.6 104.2L364 102.8L366.4 101.4L368.8 100L371.2 98.6L373.6 97.3L376 95.9L378.4 94.5L380.8 93.1L383.2 91.7L385.6 90.3L388 88.9L390.4 87.5L392.8 86.1L395.2 84.8L397.6 83.4L400 82"/>
+      <circle class="dot" cx="136" cy="52" r="4.5"/>
+      <text class="label-key" x="127" y="45" style="text-anchor:end">13</text>
+      <circle class="hole" cx="136" cy="84" r="4.5"/>
+      <text class="label-key" x="145" y="88">11</text>
+      <circle class="dot" cx="256" cy="164" r="4.5"/>
+      <text class="label-key" x="266" y="183">6</text>
+      <text class="label-soft" x="136" y="278" style="text-anchor:middle">4</text>
+      <text class="label-soft" x="256" y="278" style="text-anchor:middle">9</text>
+      <text class="label-soft" x="376" y="278" style="text-anchor:middle">14</text>
+      <text class="label-soft" x="31" y="184" style="text-anchor:end">5</text>
+      <text class="label-soft" x="31" y="104" style="text-anchor:end">10</text>
+      <text class="label-soft" x="31" y="24" style="text-anchor:end">15</text>
+    </svg>
+    <figcaption>The warm-up function. At \(x = 4\) the pieces miss each other, 13 against 11, so there is no limit; at \(x = 9\) they meet at 6, so there is. The filled dot at 4 is the actual value, \(f(4) = 13\).</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">The middle piece is used twice</p>
+    <p>\(15 - x\) supplies the <em>right</em> limit at 4 and the <em>left</em> limit at 9. A piece in the middle of a case-defined function always does double duty like this, which is why the number-line sketch is worth drawing before you compute anything.</p>
+  </div>
+</section>
+
+<section id="infinite">
+  <h2><span class="marker">Definition</span>Infinite limits</h2>
+
+  <p>Sometimes you will see a statement of the form</p>
+
+  \[\lim_{x\to c} f(x) = \infty\]
+
+  <p>This says: the limit of \(f(x)\) as \(x \to c\) <strong>does not exist</strong>, but there is a clear pattern in its behavior: \(f(x)\) grows large and positive. If instead \(f(x)\) grows large and negative, we write \(\lim_{x\to c}f(x) = -\infty\).</p>
+
+  <div class="note">
+    <p class="card-label">&ldquo;= ∞&rdquo; is a description, not a number</p>
+    <p>Writing \(\lim f(x) = \infty\) does not mean the limit exists and happens to equal a very large number. It means the limit does not exist, and tells you <em>how</em> it fails to exist.</p>
+  </div>
+
+  <p>On the graph of \(f\), infinite limits show up as <strong>vertical asymptotes</strong>.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>The line \(x = c\) is a <strong>vertical asymptote</strong> for \(f\) if <em>at least one</em> of the one-sided limits at \(c\) is infinite.</li>
+    </ul>
+  </div>
+
+  <p>For example, \(f(x) = \ln x\) has a vertical asymptote at \(x = 0\), since \(\lim_{x\to 0^{+}}\ln x = -\infty\). There is no left-hand limit at all, because \(\ln x\) is not defined for \(x &lt; 0\), but one side is enough.</p>
+
+  <p>When working with infinite limits you must pay careful attention to the <strong>sign</strong> of the function. There are three possibilities.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 436 180" role="img" aria-label="Three sketches of a graph near a vertical asymptote: both sides shooting up, labelled infinity; both sides plunging down, labelled negative infinity; and one side up and one side down, labelled does not exist">
+      <path class="axis" d="M6 81H126"/>
+      <path class="helper" d="M66 150V10"/>
+      <path class="curve" d="M10 71C40 71 60 41.5 60 12"/>
+      <path class="curve" d="M122 71C92 71 72 41.5 72 12"/>
+      <text class="label-key" x="66" y="174" style="text-anchor:middle">∞</text>
+      <path class="axis" d="M158 81H278"/>
+      <path class="helper" d="M218 150V10"/>
+      <path class="curve" d="M162 91C192 91 212 119.5 212 148"/>
+      <path class="curve" d="M274 91C244 91 224 119.5 224 148"/>
+      <text class="label-key" x="218" y="174" style="text-anchor:middle">−∞</text>
+      <path class="axis" d="M310 81H430"/>
+      <path class="helper" d="M370 150V10"/>
+      <path class="curve" d="M314 91C344 91 364 119.5 364 148"/>
+      <path class="curve" d="M426 71C396 71 376 41.5 376 12"/>
+      <text class="label-key" x="370" y="174" style="text-anchor:middle">DNE</text>
+    </svg>
+    <figcaption>The three ways a graph can behave at a vertical asymptote. Only the sign on each side decides which one you have.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="card-label">Three outcomes</p>
+    <ul class="keys">
+      <li>large and <strong>positive</strong> on both sides: \(\infty\)</li>
+      <li>large and <strong>negative</strong> on both sides: \(-\infty\)</li>
+      <li>large and of <strong>variable sign</strong>: neither applies, so the most we can say is that the limit does not exist (DNE)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="sign">
+  <h2><span class="marker">Method</span>Working out the sign</h2>
+
+  <p><strong>General approach.</strong> You may get an infinite limit when the <em>denominator approaches zero but the numerator does not</em>. When that happens, study the sign of each part to decide between \(\infty\) and \(-\infty\).</p>
+
+  <div class="problem">
+    <p>Find \(\displaystyle\lim_{x\to 0}\frac{x - 3}{5x^2}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Numerator</span><span class="work">\(x - 3 \to 0 - 3 = -3\), so it is <strong>negative</strong></span></li>
+        <li><span class="step">Denominator</span><span class="work">\(5x^2 \to 5\cdot 0^2 = 0\), but that alone does not say whether it is positive or negative</span></li>
+        <li><span class="step">Its sign</span><span class="work">\(x^2 &gt; 0\) for every \(x \ne 0\), so the denominator is <strong>positive</strong></span></li>
+        <li><span class="step">Combine</span><span class="work">(negative) / (positive and close to 0)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&minus;&infin;</p>
+      <p>Because \(x^2\) is positive on both sides of 0, the sign does not depend on the direction of approach, and the two-sided statement is fine.</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Find \(\displaystyle\lim_{x\to 0^{-}}\frac{4 - x}{x^3}\) and \(\displaystyle\lim_{x\to 0^{+}}\frac{4 - x}{x^3}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Note that \(x\) approaches 0 from a specified side. That may be important, and here it is.</p>
+      <ol class="ledger">
+        <li><span class="step">Numerator</span><span class="work">\(4 - x \to 4 - 0 = 4\), so it is <strong>positive</strong> and not close to zero</span></li>
+        <li><span class="step">Denominator</span><span class="work">\(x^3 \to 0^3 = 0\), which does not tell us its sign</span></li>
+        <li><span class="step">From the left</span><span class="work">\(x\) is negative, since it is to the left of 0, and that makes \(x^3\) negative as well</span></li>
+        <li><span class="step">Left result</span><span class="work">(positive) / (negative and close to 0) gives \(-\infty\)</span></li>
+        <li><span class="step">From the right</span><span class="work">\(x &gt; 0\), so \(x^3 &gt; 0\): (positive) / (positive and close to 0) gives \(\infty\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&minus;&infin; from the left, &infin; from the right</p>
+      <p>Compare with the first example. There the denominator was \(x^2\), positive on both sides; here it is \(x^3\), which changes sign at 0. An even power hides the direction of approach, an odd power does not.</p>
+    </div>
+  </details>
+
+  <h3>Poll question from class</h3>
+  <div class="problem">
+    <p>Find \(\displaystyle\lim_{x\to 2}\frac{x}{x^2 - 4}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Numerator</span><span class="work">\(x \to 2\): positive, not close to 0</span></li>
+        <li><span class="step">Denominator</span><span class="work">\(x^2 - 4 \to 4 - 4 = 0\), which does not tell us its sign</span></li>
+        <li><span class="step">Its sign</span><span class="work">is \(x^2 - 4\) positive or negative when \(x\) is close to 2? It could be either way: it depends on whether \(x &lt; 2\) or \(x &gt; 2\)</span></li>
+        <li><span class="step">Conclusion</span><span class="work">(positive) / (close to 0, undetermined sign)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>DNE</p>
+      <p>To see the two sides explicitly, factor: \(x^2 - 4 = (x-2)(x+2)\). Near 2 the factor \(x+2\) is about 4, so the sign is the sign of \(x - 2\). For \(x\) slightly below 2 the denominator is negative and the quotient heads to \(-\infty\); slightly above 2 it is positive and the quotient heads to \(\infty\). Opposite signs, so the two-sided limit does not exist.</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The denominator's sign is the whole problem</p>
+    <p>In all three examples the numerator's sign was obvious, and the denominator went to 0. So the work is always the same: decide the sign of the denominator <em>just</em> to the left and <em>just</em> to the right of \(c\). Factoring it usually makes that immediate.</p>
+  </div>
+</section>
+
+<section id="atinfinity">
+  <h2><span class="marker">Definition</span>Limits at infinity</h2>
+
+  <p>Think about what &ldquo;long-term behavior&rdquo; means: what happens as the time variable becomes very large. The notation for this is</p>
+
+  \[\lim_{x\to\infty} f(x) \qquad\text{and, similarly,}\qquad \lim_{x\to -\infty} f(x)\]
+
+  <p>the limit at (positive) infinity and the limit at negative infinity. Read the subscript first: it tells you which kind of limit you are looking at. When these limits exist, they appear on the graph as <strong>horizontal asymptotes</strong>.</p>
+
+  <div class="note">
+    <p class="card-label">Two ideas, two different asymptotes</p>
+    <p>An <strong>infinite limit</strong>, \(\lim_{x\to c}f(x) = \pm\infty\), is about the <em>output</em> blowing up, and gives a <em>vertical</em> asymptote. A <strong>limit at infinity</strong>, \(\lim_{x\to\pm\infty}f(x)\), is about the <em>input</em> running away, and gives a <em>horizontal</em> asymptote. The infinity is on the opposite side of the arrow in each case.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>When \(x\) is large, the <strong>greatest power of \(x\)</strong> dominates all the other powers, and so determines the behavior of \(f(x)\).</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Find \(\displaystyle\lim_{x\to\infty}\frac{2x - x^3}{100 + 3x^3 - x^2}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Top</span><span class="work">the highest power is \(-x^3\)</span></li>
+        <li><span class="step">Bottom</span><span class="work">the highest power is \(3x^3\)</span></li>
+        <li><span class="step">Keep those</span><span class="work">because \(x \to \infty\), ignore the smaller powers: \[\lim_{x\to\infty}\frac{-x^3}{3x^3}\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\(x^3\) cancels: \[= -\frac{1}{3}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&minus;1/3</p>
+      <p>The 100 in the denominator looks large but is irrelevant: once \(x\) is in the thousands, \(3x^3\) is in the billions.</p>
+    </div>
+  </details>
+
+  <p>What happens when the highest powers on top and bottom are <em>not</em> equal?</p>
+
+  <div class="problem">
+    <p>Find <strong>a)</strong> \(\displaystyle\lim_{x\to -\infty}\frac{2x - x^4}{100 + 3x^3 - x^2}\) &nbsp; and &nbsp; <strong>b)</strong> \(\displaystyle\lim_{x\to\infty}\frac{2x - x^4}{100 + 3x^3 - x^5}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a) Keep</span><span class="work">\[\lim_{x\to -\infty}\frac{-x^4}{3x^3}\]</span></li>
+        <li><span class="step">a) Simplify</span><span class="work">\[= \lim_{x\to -\infty}\frac{-x}{3}\]</span></li>
+        <li><span class="step">a) Decide</span><span class="work">\(x\) is large and <em>negative</em>, so \(-x\) is large and <em>positive</em>: the limit is \(\infty\)</span></li>
+        <li><span class="step">b) Keep</span><span class="work">\[\lim_{x\to\infty}\frac{-x^4}{-x^5}\]</span></li>
+        <li><span class="step">b) Simplify</span><span class="work">\[= \lim_{x\to\infty}\frac{1}{x}\]</span></li>
+        <li><span class="step">b) Decide</span><span class="work">a fixed number over a huge one is tiny: at \(x = 1{,}000{,}000\), \(\frac1x = 0.000001\). The limit is \(0\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&infin;; &nbsp; 0</p>
+    </div>
+  </details>
+
+  <div class="card">
+    <p class="card-label">The three cases for a fraction at infinity</p>
+    <ul class="keys">
+      <li><strong>Same</strong> highest power on top and bottom: the limit is the ratio of their coefficients.</li>
+      <li><strong>Bigger</strong> power on top: an \(x\) is left in the numerator, so the limit is \(\infty\) or \(-\infty\). Settle which by the sign.</li>
+      <li><strong>Bigger</strong> power on the bottom: an \(x\) is left in the denominator, so the limit is \(0\).</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <p class="card-label">Watch the sign when x → −∞</p>
+    <p>In (a), the leftover \(\frac{-x}{3}\) has a minus sign, and \(x\) is negative, so the two cancel to give \(+\infty\). Treating \(x\) as positive out of habit gives \(-\infty\), the wrong answer. Always ask what sign \(x\) itself has before concluding.</p>
+  </div>
+</section>
+
+<section id="strategy">
+  <h2><span class="marker">Reference</span>The whole strategy, 9.1 and 9.2</h2>
+
+  <p>Everything from the last two lectures, as one procedure for finding \(\lim_{x\to c}f(x)\).</p>
+
+  <ol>
+    <li>Try to plug in \(x = c\), if \(c\) is a number. For limits as \(x \to \pm\infty\), go to step 7.</li>
+    <li>If \(f(c)\) exists and \(f\) is not case-defined, the limit is \(f(c)\). If \(f\) is case-defined, go to step 6.</li>
+    <li>If \(f(c)\) does not exist, it is because a denominator turns to 0 when \(x = c\). Does the numerator also turn to 0? If yes, go to step 4; if no, go to step 5.</li>
+    <li>Factor both numerator and denominator, and cancel \((x - c)\), or whatever factor is responsible for them being 0. Return to step 1.</li>
+    <li>The limit is \(\infty\), \(-\infty\), or DNE, depending on the <strong>sign</strong> of the expression: consistently positive gives \(\infty\), consistently negative gives \(-\infty\), inconsistent gives DNE. Use the algebra of signs, for example (negative)/(negative) = (positive). Remember that \(x \to c^{+}\) means \(x &gt; c\), approaching from the right, and \(x \to c^{-}\) means \(x &lt; c\), from the left.</li>
+    <li>For case-defined functions, compare the two one-sided limits. If they are the same number, that number is the limit; otherwise the limit does not exist.</li>
+    <li>Limits at infinity are decided by the highest powers of \(x\). If there is a fraction, find the highest power on top and on the bottom, ignore the rest, and simplify. Then use the fact that \(x\) is large and positive, or large and negative, to conclude. \(\lim f(x) = \infty\) means \(f(x)\) gets very large and positive; \(\lim f(x) = -\infty\) means very large and negative.</li>
+  </ol>
+
+  <p>The same procedure as a flowchart:</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 800 712" role="img" aria-label="Flowchart for finding the limit of f of x as x approaches c. First ask whether c is a number. If c is infinite, keep the highest powers of x, simplify, and decide from what is left. If c is a number and f is piecewise, compare the two one-sided limits. Otherwise check whether f of c exists; if not, and the numerator is also zero, factor and cancel x minus c and try again; if only the denominator is zero, the answer is infinity, negative infinity, or does not exist, by the sign of f of x">
+      <rect class="box" x="7" y="17" width="196" height="46" rx="3"/>
+      <text class="node" x="105" y="37" style="text-anchor:middle">To find the limit of</text>
+      <text class="node" x="105" y="51" style="text-anchor:middle">f(x) as x → c</text>
+      <polygon class="box" points="105,104 180,140 105,176 30,140"/>
+      <text class="node" x="105" y="137" style="text-anchor:middle">Is c a</text>
+      <text class="node" x="105" y="151" style="text-anchor:middle">number?</text>
+      <polygon class="box" points="330,104 418,140 330,176 242,140"/>
+      <text class="node" x="330" y="137" style="text-anchor:middle">Is f piecewise-</text>
+      <text class="node" x="330" y="151" style="text-anchor:middle">defined?</text>
+      <polygon class="box" points="575,104 650,140 575,176 500,140"/>
+      <text class="node" x="575" y="137" style="text-anchor:middle">Does f(c)</text>
+      <text class="node" x="575" y="151" style="text-anchor:middle">exist?</text>
+      <rect class="box" x="493" y="20" width="164" height="40" rx="18"/>
+      <text class="node-key" x="575" y="44" style="text-anchor:middle">The limit is f(c)</text>
+      <rect class="box" x="671" y="105" width="118" height="70" rx="3"/>
+      <text class="node" x="730" y="130" style="text-anchor:middle">Factor top and</text>
+      <text class="node" x="730" y="144" style="text-anchor:middle">bottom, cancel</text>
+      <text class="node" x="730" y="158" style="text-anchor:middle">(x − c)</text>
+      <polygon class="box" points="575,221 667,258 575,295 483,258"/>
+      <text class="node" x="575" y="255" style="text-anchor:middle">Do you get 0 in</text>
+      <text class="node" x="575" y="269" style="text-anchor:middle">the numerator too?</text>
+      <rect class="box" x="477" y="442" width="196" height="56" rx="18"/>
+      <text class="node-key" x="575" y="467" style="text-anchor:middle">∞, −∞, or DNE,</text>
+      <text class="node-key" x="575" y="481" style="text-anchor:middle">by the sign of f(x)</text>
+      <rect class="box" x="248" y="233" width="164" height="50" rx="3"/>
+      <text class="node" x="330" y="255" style="text-anchor:middle">Compute both</text>
+      <text class="node" x="330" y="269" style="text-anchor:middle">one-sided limits</text>
+      <polygon class="box" points="330,326 412,362 330,398 248,362"/>
+      <text class="node" x="330" y="359" style="text-anchor:middle">Are they the</text>
+      <text class="node" x="330" y="373" style="text-anchor:middle">same number?</text>
+      <rect class="box" x="429" y="342" width="112" height="40" rx="18"/>
+      <text class="node-key" x="485" y="366" style="text-anchor:middle">The limit DNE</text>
+      <rect class="box" x="248" y="448" width="164" height="44" rx="18"/>
+      <text class="node-key" x="330" y="467" style="text-anchor:middle">That number</text>
+      <text class="node-key" x="330" y="481" style="text-anchor:middle">is the limit</text>
+      <rect class="box" x="7" y="255" width="196" height="70" rx="3"/>
+      <text class="node" x="105" y="280" style="text-anchor:middle">Find the highest powers</text>
+      <text class="node" x="105" y="294" style="text-anchor:middle">of x on top and bottom,</text>
+      <text class="node" x="105" y="308" style="text-anchor:middle">ignore the rest, simplify</text>
+      <polygon class="box" points="105,434 180,470 105,506 30,470"/>
+      <text class="node" x="105" y="467" style="text-anchor:middle">Did you get</text>
+      <text class="node" x="105" y="481" style="text-anchor:middle">a number?</text>
+      <polygon class="box" points="105,550 180,586 105,622 30,586"/>
+      <text class="node" x="105" y="583" style="text-anchor:middle">Where does</text>
+      <text class="node" x="105" y="597" style="text-anchor:middle">x remain?</text>
+      <rect class="box" x="30" y="664" width="150" height="40" rx="18"/>
+      <text class="node-key" x="105" y="688" style="text-anchor:middle">The limit is 0</text>
+      <path class="axis" d="M105 63 L105 104"/>
+      <path class="mark" d="M105 104L100.5 95L109.5 95z"/>
+      <path class="axis" d="M180 140 L242 140"/>
+      <path class="mark" d="M242 140L233 144.5L233 135.5z"/>
+      <text class="label-soft" x="211" y="132" style="text-anchor:middle">yes</text>
+      <path class="axis" d="M418 140 L500 140"/>
+      <path class="mark" d="M500 140L491 144.5L491 135.5z"/>
+      <text class="label-soft" x="459" y="132" style="text-anchor:middle">no</text>
+      <path class="axis" d="M575 104 L575 60"/>
+      <path class="mark" d="M575 60L579.5 69L570.5 69z"/>
+      <text class="label-soft" x="583" y="86">yes</text>
+      <path class="axis" d="M575 176 L575 221"/>
+      <path class="mark" d="M575 221L570.5 212L579.5 212z"/>
+      <text class="label-soft" x="583" y="202">no</text>
+      <path class="axis" d="M667 258 L730 258 L730 175"/>
+      <path class="mark" d="M730 175L734.5 184L725.5 184z"/>
+      <text class="label-soft" x="698" y="250" style="text-anchor:middle">yes</text>
+      <path class="axis" d="M671 140 L650 140"/>
+      <path class="mark" d="M650 140L659 135.5L659 144.5z"/>
+      <path class="axis" d="M575 295 L575 442"/>
+      <path class="mark" d="M575 442L570.5 433L579.5 433z"/>
+      <text class="label-soft" x="583" y="372">no</text>
+      <path class="axis" d="M330 176 L330 233"/>
+      <path class="mark" d="M330 233L325.5 224L334.5 224z"/>
+      <text class="label-soft" x="338" y="208">yes</text>
+      <path class="axis" d="M330 283 L330 326"/>
+      <path class="mark" d="M330 326L325.5 317L334.5 317z"/>
+      <path class="axis" d="M412 362 L429 362"/>
+      <path class="mark" d="M429 362L420 366.5L420 357.5z"/>
+      <text class="label-soft" x="420" y="354" style="text-anchor:middle">no</text>
+      <path class="axis" d="M330 398 L330 448"/>
+      <path class="mark" d="M330 448L325.5 439L334.5 439z"/>
+      <text class="label-soft" x="338" y="426">yes</text>
+      <path class="axis" d="M105 176 L105 255"/>
+      <path class="mark" d="M105 255L100.5 246L109.5 246z"/>
+      <text class="label-soft" x="113" y="218">no, c is ±∞</text>
+      <path class="axis" d="M105 325 L105 434"/>
+      <path class="mark" d="M105 434L100.5 425L109.5 425z"/>
+      <path class="axis" d="M180 470 L248 470"/>
+      <path class="mark" d="M248 470L239 474.5L239 465.5z"/>
+      <text class="label-soft" x="214" y="462" style="text-anchor:middle">yes</text>
+      <path class="axis" d="M105 506 L105 550"/>
+      <path class="mark" d="M105 550L100.5 541L109.5 541z"/>
+      <text class="label-soft" x="113" y="532">no</text>
+      <path class="axis" d="M180 586 L575 586 L575 498"/>
+      <path class="mark" d="M575 498L579.5 507L570.5 507z"/>
+      <text class="label-soft" x="380" y="578" style="text-anchor:middle">numerator</text>
+      <path class="axis" d="M105 622 L105 664"/>
+      <path class="mark" d="M105 664L100.5 655L109.5 655z"/>
+      <text class="label-soft" x="113" y="646">denominator</text>
+    </svg>
+    <figcaption>The strategy for 9.1 and 9.2 as a decision tree. Green boxes are answers. The loop on the right, factor and cancel, is the only step that sends you back to an earlier question.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">How to use this for the exam</p>
+    <p>Take every limit problem from the 9.1 and 9.2 WeBWorK sets and, before solving it, trace which path it takes through the chart. If you can say which box you end in before doing any algebra, the algebra becomes routine.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before next class</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Monday by the end of the day.</li>
+    <li>Start the 9.2 WeBWorK set.</li>
+    <li>Be able to explain, in one sentence each, the difference between \(\lim_{x\to c}f(x) = \infty\) and \(\lim_{x\to\infty}f(x) = L\), and which kind of asymptote each one gives.</li>
+    <li>For every infinite-limit problem, write down the sign of the numerator and the sign of the denominator separately before concluding.</li>
+    <li>Memorize the three cases for a fraction at infinity: same power, bigger on top, bigger on the bottom.</li>
+    <li>Trace a few problems through the flowchart until you can do it without looking.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 9.2 &middot; September 28</p>
+</footer>
+
+</div>
+</body>
+</html>

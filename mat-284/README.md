@@ -28,6 +28,8 @@ to `/favicon.svg` — on a project site that resolves to the wrong place.
 | `mat284-sep18-section-2-5.html` | Sep 18 — Exponential functions |
 | `mat284-sep21-section-2-6-part-1.html` | Sep 21 — Logarithmic functions |
 | `mat284-sep23-section-2-6-part-2.html` | Sep 23 — Properties of logarithms |
+| `mat284-sep25-section-9-1.html` | Sep 25 — Limits and one-sided limits |
+| `mat284-sep28-section-9-2.html` | Sep 28 — Infinite limits and limits at infinity |
 
 ## Adding a lecture
 
@@ -71,6 +73,9 @@ Two rules here as well:
    That is what keeps figures on the palette and working in dark mode.
    `dot` and `hole` are the filled and open endpoints of an interval, `band` is
    the shaded stretch between them, and `box` is a labeled node in a diagram.
+   Text inside a flowchart node is `node`; an outcome node's text is `node-key`,
+   which prints in the answer color. `box` works on `<polygon>` too, for the
+   decision diamonds.
    For an exponent or a log base in a label, set a second `<text>` just after
    the base text, with class `sup` (above the baseline) or `sub` (below it).
    Don't use `<tspan>`: the flow positioning is right per spec but renders
