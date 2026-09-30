@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Sep 30 &mdash; Continuity</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, September 30</p>
+  <h1>Continuity</h1>
+  <p class="standfirst">Section 9.3. The limit of a function and its value are different things, but most of the time they agree. Continuity is the name for when they do, and it turns out to be the key to solving inequalities.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#definition">What continuity means</a>
+  <a href="#graph">Reading it off a graph</a>
+  <a href="#defined">Continuous where defined</a>
+  <a href="#piecewise">Piecewise functions</a>
+  <a href="#signcharts">Sign charts</a>
+  <a href="#next">Before the exam</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>The <strong>2.6</strong> and <strong>9.1</strong> WeBWorK sets close <strong>tomorrow night, Thursday Oct 1</strong>.</li>
+      <li>Complete the <strong>Concept Check</strong> for Wednesday by the end of the day.</li>
+      <li>For exam details, read the <strong>Exam 2 announcement on Blackboard</strong>.</li>
+      <li>Thursday's recitation and Friday's class are both <strong>review for Exam 2</strong>.</li>
+      <li><strong>Exam 2 is Monday, October 5</strong>, on 2.5, 2.6, 9.1, 9.2, and 9.3.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="definition">
+  <h2><span class="marker">Definition</span>What continuity means</h2>
+
+  <p>Recall that the limit of \(f(x)\) as \(x \to c\) is <strong>not</strong> the same concept as plugging \(x = c\) into the function. But very often, these two different concepts produce the same value.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <p>A function is <strong>continuous</strong> at a point \(c\) if it has <em>both</em> a value and a limit there, and they are <em>equal</em>:</p>
+    <ul class="keys">
+      <li>\[\lim_{x\to c} f(x) = f(c)\]</li>
+    </ul>
+  </div>
+
+  <p>A point at which a function is not continuous is called a <strong>point of discontinuity</strong>.</p>
+
+  <p>That one equation is really three conditions at once: \(f(c)\) must exist, the limit must exist, and the two must agree. Failing any of the three makes \(c\) a point of discontinuity.</p>
+
+  <p>On a graph, points of discontinuity are the places where the values of \(f\) change <strong>suddenly</strong>: a jump, a hole, a point floating off by itself, or a vertical asymptote. A continuous stretch of graph is one you could trace without lifting your pen.</p>
+</section>
+
+<section id="graph">
+  <h2><span class="marker">Worked example</span>Reading it off a graph</h2>
+
+  <div class="problem">
+    <p>Use the graph below to find the points of discontinuity.</p>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 460 247" role="img" aria-label="A graph with breaks at x equals negative 2, 2, 4, 6 and 8: a jump at negative 2 with the value floating between the two pieces, a jump at 2 where the value sits on the lower piece, a vertical asymptote at 4, a jump at 6 with the value floating in between, and an open endpoint at 8">
+      <path class="grid" d="M38.2 123V131 M98.8 123V131 M219.9 123V131 M280.5 123V131 M341.1 123V131 M401.7 123V131"/>
+      <path class="axis" d="M8 127H448"/>
+      <path class="mark" d="M452 127l-8 -4.5v9z"/>
+      <path class="axis" d="M159.3 241V12"/>
+      <path class="mark" d="M159.3 8l-4.5 8h9z"/>
+      <text class="label" x="450" y="145" style="text-anchor:end">x</text>
+      <text class="label" x="168.3" y="20">y</text>
+      <path class="helper" d="M280.5 12V131"/>
+      <path class="helper" d="M280.5 151V241"/>
+      <path class="curve" d="M38.2 72.5L38.7 72.5L39.2 72.5L39.7 72.6L40.2 72.6L40.7 72.6L41.2 72.7L41.7 72.7L42.2 72.8L42.7 72.8L43.2 72.9L43.7 72.9L44.2 73L44.7 73L45.2 73.1L45.7 73.2L46.3 73.2L46.8 73.3L47.3 73.4L47.8 73.5L48.3 73.6L48.8 73.6L49.3 73.7L49.8 73.8L50.3 73.9L50.8 74L51.3 74.1L51.8 74.2L52.3 74.3L52.8 74.4L53.3 74.5L53.8 74.6L54.3 74.7L54.8 74.8L55.3 74.9L55.8 75.1L56.3 75.2L56.9 75.3L57.4 75.4L57.9 75.5L58.4 75.7L58.9 75.8L59.4 75.9L59.9 76L60.4 76.2L60.9 76.3L61.4 76.4L61.9 76.6L62.4 76.7L62.9 76.9L63.4 77L63.9 77.1L64.4 77.3L64.9 77.4L65.4 77.6L65.9 77.7L66.4 77.9L66.9 78L67.5 78.2L68 78.4L68.5 78.5L69 78.7L69.5 78.8L70 79L70.5 79.2L71 79.3L71.5 79.5L72 79.7L72.5 79.8L73 80L73.5 80.2L74 80.4L74.5 80.5L75 80.7L75.5 80.9L76 81.1L76.5 81.3L77 81.5L77.6 81.6L78.1 81.8L78.6 82L79.1 82.2L79.6 82.4L80.1 82.6L80.6 82.8L81.1 83L81.6 83.2L82.1 83.4L82.6 83.6L83.1 83.8L83.6 84L84.1 84.2L84.6 84.4L85.1 84.6L85.6 84.8L86.1 85L86.6 85.2L87.1 85.5L87.6 85.7L88.2 85.9L88.7 86.1L89.2 86.3L89.7 86.5L90.2 86.8L90.7 87L91.2 87.2L91.7 87.4L92.2 87.6L92.7 87.9L93.2 88.1L93.7 88.3L94.2 88.6L94.7 88.8L95.2 89L95.7 89.3L96.2 89.5L96.7 89.7L97.2 90L97.7 90.2L98.2 90.5L98.8 90.7"/>
+      <path class="curve" d="M98.8 181.6L99.8 181.5L100.8 181.5L101.8 181.4L102.8 181.3L103.8 181.1L104.8 180.9L105.8 180.7L106.8 180.4L107.8 180.1L108.9 179.7L109.9 179.3L110.9 178.9L111.9 178.4L112.9 177.9L113.9 177.4L114.9 176.9L115.9 176.3L116.9 175.6L117.9 175L118.9 174.3L120 173.5L121 172.8L122 172L123 171.2L124 170.3L125 169.4L126 168.5L127 167.6L128 166.6L129 165.6L130.1 164.6L131.1 163.5L132.1 162.5L133.1 161.4L134.1 160.2L135.1 159.1L136.1 157.9L137.1 156.7L138.1 155.5L139.1 154.3L140.1 153.1L141.2 151.8L142.2 150.5L143.2 149.2L144.2 147.9L145.2 146.6L146.2 145.2L147.2 143.9L148.2 142.5L149.2 141.2L150.2 139.8L151.3 138.4L152.3 137L153.3 135.6L154.3 134.2L155.3 132.7L156.3 131.3L157.3 129.9L158.3 128.5L159.3 127L160.3 125.6L161.4 124.2L162.4 122.8L163.4 121.3L164.4 119.9L165.4 118.5L166.4 117.1L167.4 115.7L168.4 114.3L169.4 112.9L170.4 111.6L171.4 110.2L172.5 108.8L173.5 107.5L174.5 106.2L175.5 104.9L176.5 103.6L177.5 102.3L178.5 101L179.5 99.8L180.5 98.6L181.5 97.3L182.6 96.2L183.6 95L184.6 93.9L185.6 92.7L186.6 91.6L187.6 90.6L188.6 89.5L189.6 88.5L190.6 87.5L191.6 86.5L192.7 85.6L193.7 84.7L194.7 83.8L195.7 82.9L196.7 82.1L197.7 81.3L198.7 80.6L199.7 79.8L200.7 79.1L201.7 78.5L202.7 77.8L203.8 77.2L204.8 76.7L205.8 76.1L206.8 75.6L207.8 75.2L208.8 74.8L209.8 74.4L210.8 74L211.8 73.7L212.8 73.4L213.9 73.2L214.9 73L215.9 72.8L216.9 72.7L217.9 72.6L218.9 72.5L219.9 72.5"/>
+      <path class="curve" d="M219.9 181.6L220.4 181.5L220.9 181.3L221.4 181.2L221.9 181.1L222.3 181L222.8 180.9L223.3 180.8L223.8 180.6L224.3 180.5L224.8 180.4L225.3 180.2L225.8 180.1L226.2 180L226.7 179.8L227.2 179.7L227.7 179.6L228.2 179.4L228.7 179.3L229.2 179.1L229.7 179L230.1 178.8L230.6 178.6L231.1 178.5L231.6 178.3L232.1 178.1L232.6 178L233.1 177.8L233.6 177.6L234 177.4L234.5 177.2L235 177L235.5 176.8L236 176.6L236.5 176.4L237 176.2L237.5 176L237.9 175.8L238.4 175.6L238.9 175.3L239.4 175.1L239.9 174.9L240.4 174.6L240.9 174.4L241.3 174.1L241.8 173.8L242.3 173.6L242.8 173.3L243.3 173L243.8 172.7L244.3 172.4L244.8 172.1L245.2 171.8L245.7 171.4L246.2 171.1L246.7 170.8L247.2 170.4L247.7 170L248.2 169.7L248.7 169.3L249.1 168.9L249.6 168.4L250.1 168L250.6 167.6L251.1 167.1L251.6 166.6L252.1 166.1L252.6 165.6L253 165.1L253.5 164.6L254 164L254.5 163.4L255 162.8L255.5 162.2L256 161.5L256.5 160.9L256.9 160.1L257.4 159.4L257.9 158.6L258.4 157.8L258.9 157L259.4 156.1L259.9 155.2L260.3 154.2L260.8 153.2L261.3 152.1L261.8 151L262.3 149.8L262.8 148.6L263.3 147.3L263.8 145.9L264.2 144.4L264.7 142.8L265.2 141.1L265.7 139.4L266.2 137.4L266.7 135.4L267.2 133.2L267.7 130.9L268.1 128.3L268.6 125.6L269.1 122.6L269.6 119.4L270.1 115.8L270.6 111.9L271.1 107.6L271.6 102.8L272 97.5L272.5 91.5L273 84.8L273.5 77.1L274 68.3L274.5 58L275 45.9L275.4 31.5"/>
+      <path class="curve" d="M289.4 24.8L289.9 35.4L290.4 45L290.9 53.6L291.4 61.5L291.9 68.7L292.4 75.4L292.8 81.5L293.3 87.1L293.8 92.3L294.3 97.2L294.8 101.7L295.3 105.9L295.8 109.9L296.3 113.6L296.7 117.1L297.2 120.4L297.7 123.5L298.2 126.4L298.7 129.2L299.2 131.8L299.7 134.3L300.2 136.7L300.6 138.9L301.1 141.1L301.6 143.1L302.1 145.1L302.6 147L303.1 148.8L303.6 150.5L304 152.1L304.5 153.7L305 155.2L305.5 156.7L306 158.1L306.5 159.4L307 160.7L307.5 162L307.9 163.2L308.4 164.4L308.9 165.5L309.4 166.6L309.9 167.6L310.4 168.6L310.9 169.6L311.4 170.6L311.8 171.5L312.3 172.4L312.8 173.3L313.3 174.1L313.8 174.9L314.3 175.7L314.8 176.5L315.3 177.2L315.7 178L316.2 178.7L316.7 179.4L317.2 180L317.7 180.7L318.2 181.3L318.7 182L319.2 182.6L319.6 183.2L320.1 183.7L320.6 184.3L321.1 184.8L321.6 185.4L322.1 185.9L322.6 186.4L323 186.9L323.5 187.4L324 187.9L324.5 188.3L325 188.8L325.5 189.2L326 189.7L326.5 190.1L326.9 190.5L327.4 190.9L327.9 191.3L328.4 191.7L328.9 192.1L329.4 192.5L329.9 192.9L330.4 193.2L330.8 193.6L331.3 193.9L331.8 194.3L332.3 194.6L332.8 194.9L333.3 195.3L333.8 195.6L334.3 195.9L334.7 196.2L335.2 196.5L335.7 196.8L336.2 197.1L336.7 197.4L337.2 197.7L337.7 197.9L338.1 198.2L338.6 198.5L339.1 198.7L339.6 199L340.1 199.2L340.6 199.5L341.1 199.7"/>
+      <path class="curve" d="M341.1 54.3L341.6 54.4L342.1 54.4L342.6 54.4L343.1 54.5L343.6 54.6L344.1 54.6L344.6 54.7L345.1 54.8L345.6 54.9L346.1 55L346.6 55.1L347.1 55.3L347.6 55.4L348.1 55.5L348.6 55.7L349.1 55.8L349.7 55.9L350.2 56.1L350.7 56.3L351.2 56.4L351.7 56.6L352.2 56.8L352.7 56.9L353.2 57.1L353.7 57.3L354.2 57.5L354.7 57.7L355.2 57.9L355.7 58.1L356.2 58.3L356.7 58.5L357.2 58.7L357.7 59L358.2 59.2L358.7 59.4L359.2 59.6L359.8 59.9L360.3 60.1L360.8 60.4L361.3 60.6L361.8 60.9L362.3 61.1L362.8 61.4L363.3 61.6L363.8 61.9L364.3 62.2L364.8 62.5L365.3 62.7L365.8 63L366.3 63.3L366.8 63.6L367.3 63.9L367.8 64.2L368.3 64.5L368.8 64.8L369.3 65.1L369.8 65.4L370.4 65.7L370.9 66L371.4 66.3L371.9 66.7L372.4 67L372.9 67.3L373.4 67.6L373.9 68L374.4 68.3L374.9 68.7L375.4 69L375.9 69.3L376.4 69.7L376.9 70L377.4 70.4L377.9 70.8L378.4 71.1L378.9 71.5L379.4 71.8L379.9 72.2L380.4 72.6L381 73L381.5 73.3L382 73.7L382.5 74.1L383 74.5L383.5 74.9L384 75.3L384.5 75.7L385 76.1L385.5 76.5L386 76.9L386.5 77.3L387 77.7L387.5 78.1L388 78.5L388.5 78.9L389 79.4L389.5 79.8L390 80.2L390.5 80.6L391.1 81.1L391.6 81.5L392.1 81.9L392.6 82.4L393.1 82.8L393.6 83.3L394.1 83.7L394.6 84.2L395.1 84.6L395.6 85.1L396.1 85.5L396.6 86L397.1 86.4L397.6 86.9L398.1 87.4L398.6 87.8L399.1 88.3L399.6 88.8L400.1 89.3L400.6 89.7L401.1 90.2L401.7 90.7"/>
+      <circle class="dot" cx="38.2" cy="72.5" r="4.2"/>
+      <circle class="hole" cx="98.8" cy="90.7" r="4.2"/>
+      <circle class="dot" cx="98.8" cy="108.9" r="4.2"/>
+      <circle class="hole" cx="98.8" cy="181.6" r="4.2"/>
+      <circle class="hole" cx="219.9" cy="72.5" r="4.2"/>
+      <circle class="dot" cx="219.9" cy="181.6" r="4.2"/>
+      <circle class="hole" cx="341.1" cy="199.7" r="4.2"/>
+      <circle class="dot" cx="341.1" cy="102.8" r="4.2"/>
+      <circle class="hole" cx="341.1" cy="54.3" r="4.2"/>
+      <circle class="hole" cx="401.7" cy="90.7" r="4.2"/>
+      <text class="label-soft" x="38.2" y="145" style="text-anchor:middle">−4</text>
+      <text class="label-soft" x="98.8" y="145" style="text-anchor:middle">−2</text>
+      <text class="label-soft" x="219.9" y="145" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="280.5" y="145" style="text-anchor:middle">4</text>
+      <text class="label-soft" x="341.1" y="145" style="text-anchor:middle">6</text>
+      <text class="label-soft" x="401.7" y="145" style="text-anchor:middle">8</text>
+    </svg>
+    <figcaption>Filled dots are values of \(f\); open circles are points the graph approaches but does not include. The dashed line at \(x = 4\) is a vertical asymptote.</figcaption>
+  </figure>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Look for every place the pen would have to leave the paper, then say which condition fails there.</p>
+      <ol class="ledger">
+        <li><span class="step">x = −2</span><span class="work">the left and right pieces approach different heights, and \(f(-2)\) sits at a third height. The graph is <em>detached</em> from the point at \(x = -2\).</span></li>
+        <li><span class="step">x = 2</span><span class="work">\(f(2)\) is the filled dot at the bottom, where the right-hand piece starts. The left-hand piece approaches a different height, so \(\lim\limits_{x\to 2^-}f(x) \ne f(2)\).</span></li>
+        <li><span class="step">x = 4</span><span class="work">\(f(4)\) is not defined, and the one-sided limits are infinite: a vertical asymptote</span></li>
+        <li><span class="step">x = 6</span><span class="work">again detached from both sides: the two pieces approach different heights, and \(f(6)\) is neither of them</span></li>
+        <li><span class="step">x = 8</span><span class="work">the graph ends in an open circle, so \(f(8)\) is not defined</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = &minus;2, 2, 4, 6, and 8</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Different ways to fail</p>
+    <p>At \(x = 4\) and \(x = 8\) there is no value at all. At \(x = -2\) and \(x = 6\) there is a value but no limit. At \(x = 2\) the function is continuous from the right, since the right-hand piece starts at the filled dot, but not from the left. All five are discontinuities; they fail the definition for different reasons.</p>
+    <p>And why not \(x = -4\)? The graph starts there with a filled dot, so \(f(-4)\) exists and the graph is attached to it from the only side the function has. That is different from \(x = 8\), where the endpoint is an open circle and there is no value.</p>
+  </div>
+</section>
+
+<section id="defined">
+  <h2><span class="marker">Tool</span>Continuous where defined</h2>
+
+  <p>Many functions are continuous at every point where they are defined. And note that a function can <em>never</em> be continuous at a point where it is not defined, since continuity requires a value.</p>
+
+  <div class="card">
+    <p class="card-label">Continuous wherever they are defined</p>
+    <ul class="keys">
+      <li>Polynomials and rational functions</li>
+      <li>Radicals (roots)</li>
+      <li>Exponential functions and logarithms</li>
+      <li>The absolute value function</li>
+      <li>Combinations of everything above</li>
+    </ul>
+  </div>
+
+  <p>For example, \(\sqrt{e^x + x^3} - \ln x\) is continuous wherever it is defined, which is \(x &gt; 0\): the logarithm requires it.</p>
+
+  <p>This list covers almost everything in the course, except <strong>piecewise functions</strong>, which are treated separately below. So if a function is not piecewise, the two questions</p>
+
+  <ul>
+    <li>where is \(f\) not continuous?</li>
+    <li>where is \(f\) not defined?</li>
+  </ul>
+
+  <p>have the <strong>same answer</strong>. Finding discontinuities becomes a domain problem, which you already know how to solve.</p>
+
+  <h3>Poll question from class</h3>
+  <div class="problem">
+    <p>Find all points where \(f(x) = \dfrac{5x - 10}{x^2 - 1}\) is not continuous.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>It is a rational function, not piecewise, so the question is the same as asking where it is not defined.</p>
+      <ol class="ledger">
+        <li><span class="step">Denominator</span><span class="work">\[x^2 - 1 = 0\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\(x = 1\) or \(x = -1\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 1 and x = &minus;1</p>
+      <p>The numerator's zero at \(x = 2\) is irrelevant here. There \(f(2) = 0\), a perfectly good value, and nothing sudden happens.</p>
+    </div>
+  </details>
+</section>
+
+<section id="piecewise">
+  <h2><span class="marker">Method</span>Piecewise functions</h2>
+
+  <p>Piecewise functions need careful investigation at the <strong>points of transition</strong>, where different formulas apply on the two sides. Everywhere else, each piece is a polynomial or similar, and is continuous.</p>
+
+  <div class="card">
+    <p class="card-label">At a point of transition \(c\), find three things</p>
+    <ul class="keys">
+      <li>the limit from the left, \(\lim\limits_ {x\to c^-}f(x)\)</li>
+      <li>the limit from the right, \(\lim\limits_ {x\to c^+}f(x)\)</li>
+      <li>the function value at the point, \(f(c)\)</li>
+    </ul>
+    <p>If all three are equal, the function is continuous at \(c\). Otherwise it is not.</p>
+  </div>
+
+  <p>If \(\lim\limits_ {x\to c^-}f(x) = f(c)\), the graph connects to the point \((c, f(c))\) <strong>from the left</strong>, and we say \(f\) is <em>continuous on the left</em> at \(c\). Similarly, if \(\lim\limits_ {x\to c^+}f(x) = f(c)\), the graph connects to that point <strong>from the right</strong>, and \(f\) is <em>continuous on the right</em>.</p>
+
+  <p>To be continuous, a function must be continuous on the left <strong>and</strong> on the right: both one-sided limits must equal \(f(c)\). The graph has to be attached to the point \((c, f(c))\) from both directions.</p>
+
+  <div class="problem">
+    <p><strong>Example 1.</strong> Find all points of discontinuity of \[f(x) = \begin{cases} 2, & x &lt; 3 \\ 2x - 4, & 3 \le x \le 5 \\ 7 - x, & x &gt; 5\end{cases}\]</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>The pieces are all continuous, so only the transition points 3 and 5 need checking. Mark on a number line which formula applies where: 2 to the left of 3, \(2x - 4\) from 3 to 5, and \(7 - x\) beyond 5.</p>
+      <ol class="ledger">
+        <li><span class="step">f(3)</span><span class="work">\(3\) belongs to the middle case: \(2\cdot 3 - 4 = 2\)</span></li>
+        <li><span class="step">At 3, left</span><span class="work">\[\lim_{x\to 3^-}2 = 2\]</span></li>
+        <li><span class="step">At 3, right</span><span class="work">\[\lim_{x\to 3^+}(2x-4) = 2\cdot 3 - 4 = 2\]</span></li>
+        <li><span class="step">At 3</span><span class="work">all three equal 2, so \(f\) is continuous at \(x = 3\)</span></li>
+        <li><span class="step">f(5)</span><span class="work">\(5\) also belongs to the middle case: \(2\cdot 5 - 4 = 6\)</span></li>
+        <li><span class="step">At 5, left</span><span class="work">\[\lim_{x\to 5^-}(2x-4) = 6\]</span></li>
+        <li><span class="step">At 5, right</span><span class="work">\[\lim_{x\to 5^+}(7-x) = 2\]</span></li>
+        <li><span class="step">At 5</span><span class="work">\(6 \ne 2\), so \(f\) is not continuous at \(x = 5\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 5 is the only point of discontinuity</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>Example 2.</strong> Find all points of discontinuity of \[g(x) = \begin{cases} x/|x|, & x \ne 0 \\ 1, & x = 0\end{cases}\]</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>First make sense of \(x/|x|\). The absolute value is \(x\) itself when \(x &gt; 0\), and \(-x\) when \(x &lt; 0\).</p>
+      <ol class="ledger">
+        <li><span class="step">x &gt; 0</span><span class="work">\(\dfrac{x}{|x|} = \dfrac{x}{x} = 1\)</span></li>
+        <li><span class="step">x &lt; 0</span><span class="work">\(\dfrac{x}{|x|} = \dfrac{x}{-x} = -1\)</span></li>
+        <li><span class="step">Elsewhere</span><span class="work">away from 0 the function is a constant, so continuous; only \(x = 0\) needs checking</span></li>
+        <li><span class="step">g(0)</span><span class="work">given as \(1\)</span></li>
+        <li><span class="step">At 0, left</span><span class="work">\(\lim\limits_ {x\to 0^-}g(x) = -1\)</span></li>
+        <li><span class="step">At 0, right</span><span class="work">\(\lim\limits_ {x\to 0^+}g(x) = 1\)</span></li>
+        <li><span class="step">At 0</span><span class="work">\(-1 \ne 1\), so \(g\) is not continuous at \(x = 0\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 0 is the only point of discontinuity</p>
+      <p>\(g\) is continuous on the <em>right</em> at 0, since the right-hand limit equals \(g(0) = 1\), but not on the left. Choosing \(g(0) = 1\) attached the point to one side; no choice of \(g(0)\) could attach it to both, because the two sides approach different numbers.</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 474 230" role="img" aria-label="Two piecewise graphs. Left: a flat line at height 2, a rising segment from 3 to 5 reaching 6, then a drop to a falling line starting at height 2, so it is continuous at 3 and jumps at 5. Right: a step function at negative 1 for negative x and 1 for x at least 0, with the filled point at 0 comma 1">
+      <path class="grid" d="M109 155.8V163.8 M152.9 155.8V163.8 M39.2 119.3H47.2 M39.2 78.8H47.2 M39.2 38.3H47.2"/>
+      <path class="axis" d="M6 159.8H218"/>
+      <path class="axis" d="M43.2 200V10"/>
+      <path class="curve" d="M30 119.3L32 119.3L34 119.3L35.9 119.3L37.9 119.3L39.9 119.3L41.9 119.3L43.8 119.3L45.8 119.3L47.8 119.3L49.8 119.3L51.7 119.3L53.7 119.3L55.7 119.3L57.7 119.3L59.6 119.3L61.6 119.3L63.6 119.3L65.6 119.3L67.5 119.3L69.5 119.3L71.5 119.3L73.5 119.3L75.4 119.3L77.4 119.3L79.4 119.3L81.4 119.3L83.3 119.3L85.3 119.3L87.3 119.3L89.3 119.3L91.2 119.3L93.2 119.3L95.2 119.3L97.2 119.3L99.1 119.3L101.1 119.3L103.1 119.3L105.1 119.3L107 119.3L109 119.3"/>
+      <path class="curve" d="M109 119.3L110.1 117.3L111.2 115.2L112.3 113.2L113.4 111.2L114.5 109.2L115.6 107.2L116.7 105.1L117.8 103.1L118.9 101.1L120 99.1L121.1 97L122.2 95L123.3 93L124.4 91L125.5 88.9L126.6 86.9L127.7 84.9L128.8 82.9L129.9 80.8L131 78.8L132.1 76.8L133.2 74.8L134.3 72.7L135.4 70.7L136.5 68.7L137.6 66.7L138.7 64.6L139.8 62.6L140.9 60.6L142 58.6L143 56.5L144.1 54.5L145.2 52.5L146.3 50.5L147.4 48.4L148.5 46.4L149.6 44.4L150.7 42.3L151.8 40.3L152.9 38.3"/>
+      <path class="curve" d="M152.9 119.3L154.4 120.6L155.8 121.9L157.2 123.2L158.6 124.6L160.1 125.9L161.5 127.2L162.9 128.5L164.3 129.8L165.8 131.1L167.2 132.5L168.6 133.8L170 135.1L171.5 136.4L172.9 137.7L174.3 139L175.8 140.4L177.2 141.7L178.6 143L180 144.3L181.5 145.6L182.9 146.9L184.3 148.3L185.7 149.6L187.2 150.9L188.6 152.2L190 153.5L191.5 154.8L192.9 156.2L194.3 157.5L195.7 158.8L197.2 160.1L198.6 161.4L200 162.7L201.4 164.1L202.9 165.4L204.3 166.7L205.7 168L207.1 169.3L208.6 170.6L210 172"/>
+      <circle class="dot" cx="109" cy="119.3" r="4.2"/>
+      <circle class="dot" cx="152.9" cy="38.3" r="4.2"/>
+      <circle class="hole" cx="152.9" cy="119.3" r="4.2"/>
+      <text class="label-key" x="143.9" y="42.3" style="text-anchor:end">6</text>
+      <text class="label-key" x="161.9" y="123.3">2</text>
+      <text class="label-key" x="109" y="108.3" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="109" y="175.8" style="text-anchor:middle">3</text>
+      <text class="label-soft" x="152.9" y="175.8" style="text-anchor:middle">5</text>
+      <text class="label-soft" x="112" y="224" style="text-anchor:middle">Example 1: joined at 3, jump at 5</text>
+      <path class="grid" d="M310 91V99 M430 91V99 M366 140H374 M366 50H374"/>
+      <path class="axis" d="M256 95H468"/>
+      <path class="axis" d="M370 200V10"/>
+      <path class="curve" d="M280 140L282.2 140L284.5 140L286.8 140L289 140L291.2 140L293.5 140L295.8 140L298 140L300.2 140L302.5 140L304.8 140L307 140L309.2 140L311.5 140L313.8 140L316 140L318.2 140L320.5 140L322.8 140L325 140L327.2 140L329.5 140L331.8 140L334 140L336.2 140L338.5 140L340.8 140L343 140L345.2 140L347.5 140L349.8 140L352 140L354.2 140L356.5 140L358.8 140L361 140L363.2 140L365.5 140L367.8 140L370 140"/>
+      <path class="curve" d="M370 50L372.2 50L374.5 50L376.8 50L379 50L381.2 50L383.5 50L385.8 50L388 50L390.2 50L392.5 50L394.8 50L397 50L399.2 50L401.5 50L403.8 50L406 50L408.2 50L410.5 50L412.8 50L415 50L417.2 50L419.5 50L421.8 50L424 50L426.2 50L428.5 50L430.8 50L433 50L435.2 50L437.5 50L439.8 50L442 50L444.2 50L446.5 50L448.8 50L451 50L453.2 50L455.5 50L457.8 50L460 50"/>
+      <circle class="dot" cx="370" cy="50" r="4.2"/>
+      <circle class="hole" cx="370" cy="140" r="4.2"/>
+      <text class="label-key" x="360" y="55" style="text-anchor:end">1</text>
+      <text class="label-key" x="380" y="145">−1</text>
+      <text class="label-soft" x="310" y="111" style="text-anchor:middle">−2</text>
+      <text class="label-soft" x="430" y="111" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="362" y="224" style="text-anchor:middle">Example 2: jump at 0</text>
+    </svg>
+    <figcaption>Example 1 is attached at 3 from both sides and torn at 5. Example 2 has its value at 0 on the upper piece, so it is continuous from the right but not from the left.</figcaption>
+  </figure>
+
+</section>
+
+<section id="signcharts">
+  <h2><span class="marker">Method</span>Solving inequalities with sign charts</h2>
+
+  <p>Continuity gives a clean way to find where a function is positive or negative, that is, to solve \(f(x) &gt; 0\) or \(f(x) &lt; 0\). It rests on one observation.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>A continuous function cannot change its sign without being equal to 0 somewhere.</li>
+    </ul>
+  </div>
+
+  <p>So if we find every number where \(f\) is either <strong>discontinuous</strong> or <strong>equal to 0</strong>, then on each interval between those numbers \(f\) has constant sign. Building this picture is called the <strong>sign chart</strong> for \(f\).</p>
+
+  <ol>
+    <li>Find the <strong>partition numbers</strong>, where \(f\) is discontinuous or equal to 0. For a fraction: where the numerator is 0, or the denominator is 0.</li>
+    <li>They divide the number line into intervals.</li>
+    <li>Find the sign of \(f\) on each interval by testing it at a convenient point.</li>
+  </ol>
+
+  <div class="problem">
+    <p><strong>(a)</strong> Solve \(\dfrac{5x - 10}{x^2 - 1} \le 0\). &nbsp;&nbsp; <strong>(b)</strong> Solve \(25x - x^3 &gt; 0\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">a) Partition</span><span class="work">numerator \(5x - 10 = 0\) at \(x = 2\); denominator \(x^2 - 1 = 0\) at \(x = \pm 1\)</span></li>
+        <li><span class="step">a) Test</span><span class="work">\(x = -2\): \(\frac{-10-10}{4-1} &lt; 0\); &nbsp; \(x = 0\): \(\frac{-10}{-1} = 10 &gt; 0\)</span></li>
+        <li><span class="step">a) Test</span><span class="work">\(x = 1.5\): \(\frac{7.5-10}{2.25-1} &lt; 0\); &nbsp; \(x = 3\): \(\frac{15-10}{9-1} &gt; 0\)</span></li>
+        <li><span class="step">a) Read off</span><span class="work">negative on \((-\infty,-1)\) and \((1,2)\); zero at \(x = 2\), which \(\le\) allows; \(\pm 1\) are excluded, since \(f\) is undefined there</span></li>
+        <li><span class="step">b) Partition</span><span class="work">\[25x - x^3 = x(25 - x^2) = 0 \quad\Longrightarrow\quad x = 0,\ 5,\ -5\]</span></li>
+        <li><span class="step">b) Test</span><span class="work">\(x = -10\): \(-250 - (-1000) = 750 &gt; 0\); &nbsp; \(x = -1\): \(-25 - (-1) = -24 &lt; 0\)</span></li>
+        <li><span class="step">b) Test</span><span class="work">\(x = 1\): \(25 - 1 = 24 &gt; 0\); &nbsp; \(x = 10\): \(250 - 1000 &lt; 0\)</span></li>
+        <li><span class="step">b) Read off</span><span class="work">positive on \((-\infty,-5)\) and \((0,5)\); the partition numbers themselves give 0, which \(&gt;\) excludes</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) (&minus;&infin;, &minus;1) &cup; (1, 2] &nbsp;&nbsp; (b) (&minus;&infin;, &minus;5) &cup; (0, 5)</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 440 196" role="img" aria-label="Two sign charts. First, for 5x minus 10 over x squared minus 1: partition numbers negative 1, 1 and 2, with signs minus, plus, minus, plus; the solution of less than or equal to zero is shaded from the far left up to negative 1, open, and from 1, open, to 2, closed. Second, for 25x minus x cubed: partition numbers negative 5, 0 and 5, with signs plus, minus, plus, minus; the solution of greater than zero is shaded from the far left to negative 5 and from 0 to 5, all endpoints open">
+      <text class="label-soft" x="24" y="32">(a)  (5x − 10)/(x² − 1) ≤ 0</text>
+      <path class="axis" d="M24 58H416"/>
+      <path class="band" d="M24 58H136"/>
+      <path class="band" d="M248 58H304"/>
+      <path class="axis" d="M136 51V65"/>
+      <text class="label-soft" x="136" y="80" style="text-anchor:middle">−1</text>
+      <path class="axis" d="M248 51V65"/>
+      <text class="label-soft" x="248" y="80" style="text-anchor:middle">1</text>
+      <path class="axis" d="M304 51V65"/>
+      <text class="label-soft" x="304" y="80" style="text-anchor:middle">2</text>
+      <circle class="hole" cx="136" cy="58" r="4.6"/>
+      <circle class="hole" cx="248" cy="58" r="4.6"/>
+      <circle class="dot" cx="304" cy="58" r="4.6"/>
+      <text class="label-key" x="80" y="48" style="text-anchor:middle">−</text>
+      <text class="label-key" x="192" y="48" style="text-anchor:middle">+</text>
+      <text class="label-key" x="276" y="48" style="text-anchor:middle">−</text>
+      <text class="label-key" x="360" y="48" style="text-anchor:middle">+</text>
+      <text class="label-soft" x="24" y="128">(b)  25x − x³ &gt; 0</text>
+      <path class="axis" d="M24 154H416"/>
+      <path class="band" d="M24 154H97.5"/>
+      <path class="band" d="M220 154H342.5"/>
+      <path class="axis" d="M97.5 147V161"/>
+      <text class="label-soft" x="97.5" y="176" style="text-anchor:middle">−5</text>
+      <path class="axis" d="M220 147V161"/>
+      <text class="label-soft" x="220" y="176" style="text-anchor:middle">0</text>
+      <path class="axis" d="M342.5 147V161"/>
+      <text class="label-soft" x="342.5" y="176" style="text-anchor:middle">5</text>
+      <circle class="hole" cx="97.5" cy="154" r="4.6"/>
+      <circle class="hole" cx="220" cy="154" r="4.6"/>
+      <circle class="hole" cx="342.5" cy="154" r="4.6"/>
+      <text class="label-key" x="60.8" y="144" style="text-anchor:middle">+</text>
+      <text class="label-key" x="158.8" y="144" style="text-anchor:middle">−</text>
+      <text class="label-key" x="281.2" y="144" style="text-anchor:middle">+</text>
+      <text class="label-key" x="379.2" y="144" style="text-anchor:middle">−</text>
+    </svg>
+    <figcaption>Signs between the partition numbers, with the solution shaded. Open circles mark excluded endpoints: points where the function is undefined, or zeros that a strict inequality leaves out.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Which partition numbers get a bracket</p>
+    <p>A zero of the function is included when the inequality allows equality (\(\le\) or \(\ge\)) and excluded when it is strict. A point where the function is <em>undefined</em> is always excluded, whatever the inequality says. That is why (a) has a bracket at 2 but parentheses at \(\pm 1\).</p>
+    <p>And pick test points you can compute in your head. Their exact values do not matter, only their signs.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before the exam</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Wednesday by the end of the day.</li>
+    <li><strong>Finish the 2.6 and 9.1 WeBWorK sets by tomorrow night.</strong></li>
+    <li>Read the Exam 2 announcement on Blackboard.</li>
+    <li>For a piecewise function, find the left limit, right limit, and value at every transition point, and say which case each value comes from.</li>
+    <li>Redo both sign charts with the solutions hidden, including the bracket decisions at the partition numbers.</li>
+    <li><strong>Exam 2: Monday, Oct 5.</strong> Five problems, one per section: 2.5, 2.6, 9.1, 9.2, 9.3.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 9.3 &middot; September 30</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -30,6 +30,7 @@ to `/favicon.svg` — on a project site that resolves to the wrong place.
 | `mat284-sep23-section-2-6-part-2.html` | Sep 23 — Properties of logarithms |
 | `mat284-sep25-section-9-1.html` | Sep 25 — Limits and one-sided limits |
 | `mat284-sep28-section-9-2.html` | Sep 28 — Infinite limits and limits at infinity |
+| `mat284-sep30-section-9-3.html` | Sep 30 — Continuity |
 
 ## Adding a lecture
 
