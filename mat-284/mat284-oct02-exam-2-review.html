@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Oct 2 &mdash; Review for Exam 2</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, October 2</p>
+  <h1>Review for Exam 2</h1>
+  <p class="standfirst">Nine problems worked in class, including exponentials, logarithms, limits, limits at infinity, and continuity. Hide the solutions and try each one cold first.</p>
+</header>
+
+<nav class="jump" aria-label="Problems on this page">
+  <a href="#a">A &middot; Exponent rules</a>
+  <a href="#b">B &middot; A 0/0 limit</a>
+  <a href="#c">C &middot; A log equation</a>
+  <a href="#d">D &middot; Continuous compounding</a>
+  <a href="#e">E &middot; A one-sided infinite limit</a>
+  <a href="#f">F &middot; Expanding a logarithm</a>
+  <a href="#g">G &middot; An exponential equation</a>
+  <a href="#h">H &middot; A limit at infinity</a>
+  <a href="#k">K &middot; Continuity, piecewise</a>
+  <a href="#next">Before the exam</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>There is <strong>no Concept Check today</strong>, since there are no new concepts.</li>
+      <li><strong>Exam 2 is Monday, October 5.</strong> Read the Blackboard announcement carefully.</li>
+      <li>If you missed some classes, at minimum read those lecture notes and work through the examples in them.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">Help is available</p>
+    <p><strong>Zoom office hours</strong> on Friday and Sunday, 6&ndash;7 pm. These are drop-in: no appointment needed. The link is under &ldquo;Office hours of the instructor and TAs&rdquo; on Blackboard.</p>
+    <p>You can also <strong>book an appointment</strong>, in person or on Zoom, outside the regular hours, using the &ldquo;Make an appointment&rdquo; link on Blackboard.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="a">
+  <h2><span class="marker">Problem A &middot; section 2.5</span>Exponent rules</h2>
+
+  <div class="problem">
+    <p>Simplify \(\dfrac{\left(x^6\right)^{3/2}}{x^2\sqrt{x}}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <div class="card">
+        <p class="card-label">The three laws in play</p>
+        <ul class="keys">
+          <li>\(x^a \cdot x^b = x^{a+b}\)</li>
+          <li>\(\dfrac{x^a}{x^b} = x^{a-b}\)</li>
+          <li>\(\left(x^a\right)^b = x^{ab}\)</li>
+        </ul>
+      </div>
+      <ol class="ledger">
+        <li><span class="step">Top</span><span class="work">\(6 \cdot \frac{3}{2} = \frac{6}{1}\cdot\frac{3}{2} = \frac{18}{2} = 9\), so \(\left(x^6\right)^{3/2} = x^9\)</span></li>
+        <li><span class="step">Bottom</span><span class="work">\(\sqrt{x} = x^{1/2}\), so \[x^2\sqrt{x} = x^2 x^{1/2} = x^{2 + 1/2} = x^{5/2}\]</span></li>
+        <li><span class="step">Divide</span><span class="work">\[\frac{x^9}{x^{5/2}} = x^{9 - 5/2} = x^{13/2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x&#185;&#179;&#8725;&#178;</p>
+      <p>\(9 - \frac52 = \frac{18}{2} - \frac{5}{2} = \frac{13}{2}\). Writing every exponent as a fraction over 2 makes this subtraction routine.</p>
+    </div>
+  </details>
+</section>
+
+<section id="b">
+  <h2><span class="marker">Problem B &middot; section 9.1</span>A 0/0 limit</h2>
+
+  <div class="problem">
+    <p>Find \(\displaystyle\lim_{x\to 2}\frac{x^2 + x - 6}{2x^2 - x^3}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Plug in 2</span><span class="work">top \(4 + 2 - 6 = 0\), bottom \(2\cdot 4 - 8 = 0\): the 0/0 form</span></li>
+        <li><span class="step">Factor top</span><span class="work">\[x^2 + x - 6 = (x-2)(x+3)\]</span></li>
+        <li><span class="step">Factor bottom</span><span class="work">\[2x^2 - x^3 = x^2(2 - x) = -x^2(x - 2)\]</span></li>
+        <li><span class="step">Cancel</span><span class="work">\[\lim_{x\to 2}\frac{(x-2)(x+3)}{-x^2(x-2)} = \lim_{x\to 2}\frac{x+3}{-x^2}\]</span></li>
+        <li><span class="step">Plug in 2</span><span class="work">\[\frac{2+3}{-4} = -\frac{5}{4}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&minus;5/4</p>
+    </div>
+  </details>
+
+ 
+</section>
+
+<section id="c">
+  <h2><span class="marker">Problem C &middot; section 2.6</span>A log equation</h2>
+
+  <div class="problem">
+    <p>Solve \(\log_2(x + 1) + \log_2(x - 1) = 3\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Combine</span><span class="work">\(\log_b(XY) = \log_b X + \log_b Y\), read backwards: \[\log_2\big((x+1)(x-1)\big) = 3\]</span></li>
+        <li><span class="step">Switch</span><span class="work">\(\log_b X = Y\) means \(X = b^Y\): \[(x+1)(x-1) = 2^3\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[x^2 - 1 = 8 \quad\Longrightarrow\quad x^2 = 9\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\(x = 3\) or \(x = -3\)</span></li>
+        <li><span class="step">Reject</span><span class="work">at \(x = -3\) both inputs are negative, \(x + 1 = -2\) and \(x - 1 = -4\), and the logarithm of a negative number is undefined</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 3</p>
+      <p>Check: \(\log_2 4 + \log_2 2 = 2 + 1 = 3\). &check;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Always check the original equation</p>
+    <p>Combining the logs into one changed the domain. \(\log_2\big((x+1)(x-1)\big)\) is defined at \(x = -3\), since the product is \(8\), but the original two logarithms are not. Check every candidate in the <em>original</em> equation, not the simplified one.</p>
+  </div>
+</section>
+
+<section id="d">
+  <h2><span class="marker">Problem D &middot; sections 2.5 and 2.6</span>Continuous compounding</h2>
+
+  <div class="problem">
+    <p>An investment of $1,000, compounded continuously, grew to $5,000 in 20 years. Find the annual rate.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>&ldquo;Compounded continuously&rdquo; means the model \(A = Pe^{rt}\), with \(r\) the rate and \(t\) the number of years. Here \(P = 1000\), \(t = 20\), and \(r\) is unknown.</p>
+      <ol class="ledger">
+        <li><span class="step">Equation</span><span class="work">\[1000\,e^{20r} = 5000\]</span></li>
+        <li><span class="step">Divide</span><span class="work">\[e^{20r} = 5\]</span></li>
+        <li><span class="step">Switch</span><span class="work">to log form, base \(e\): \[20r = \ln 5\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[r = \frac{\ln 5}{20} \approx 0.0805\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>r = ln 5 / 20 &asymp; 0.0805, that is 8.05%</p>
+      <p>Alternatively, apply \(\ln\) to both sides of \(e^{20r} = 5\): \(\ln\left(e^{20r}\right) = 20r\ln e = 20r\), since \(\ln e = 1\). Same answer either way.</p>
+    </div>
+  </details>
+ 
+</section>
+
+<section id="e">
+  <h2><span class="marker">Problem E &middot; section 9.2</span>A one-sided infinite limit</h2>
+
+  <div class="problem">
+    <p>Find \(\displaystyle\lim_{x\to 1^-}\frac{2x - 5}{x^2 - 1}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Plug in 1</span><span class="work">\(\dfrac{2 - 5}{1 - 1} = \dfrac{-3}{0}\): the denominator vanishes and the numerator does not, so the answer is \(\infty\), \(-\infty\), or DNE</span></li>
+        <li><span class="step">Numerator</span><span class="work">\(\to -3\): negative</span></li>
+        <li><span class="step">Denominator</span><span class="work">\(x \to 1^-\) means \(x &lt; 1\), so \(x^2 &lt; 1\) and \(x^2 - 1 &lt; 0\): negative. For instance \((0.9)^2 - 1 = -0.19\)</span></li>
+        <li><span class="step">Combine</span><span class="work">(negative) / (negative and close to 0) is large and positive</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&infin;</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 420 270" role="img" aria-label="The graph of 2x minus 5 over x squared minus 1 near x equals 1: to the left of 1 it shoots upward without bound, to the right of 1 it plunges downward, with a vertical asymptote at x equals 1">
+      <path class="grid" d="M180.8 125V133 M281.3 125V133 M381.9 125V133 M76.2 208.3H84.2 M76.2 168.6H84.2 M76.2 89.4H84.2 M76.2 49.7H84.2"/>
+      <path class="axis" d="M14 129H412"/>
+      <path class="axis" d="M80.2 264V10"/>
+      <text class="label" x="414" y="147" style="text-anchor:end">x</text>
+      <text class="label" x="89.2" y="12">y</text>
+      <path class="helper" d="M180.8 14V125"/>
+      <path class="helper" d="M180.8 153V264"/>
+      <path class="curve" d="M40 74.3L40.6 74.7L41.3 75.1L41.9 75.6L42.6 76L43.2 76.4L43.8 76.8L44.5 77.2L45.1 77.5L45.7 77.9L46.4 78.3L47 78.6L47.7 79L48.3 79.3L48.9 79.6L49.6 80L50.2 80.3L50.8 80.6L51.5 80.9L52.1 81.2L52.8 81.5L53.4 81.8L54 82L54.7 82.3L55.3 82.6L55.9 82.8L56.6 83.1L57.2 83.3L57.9 83.6L58.5 83.8L59.1 84.1L59.8 84.3L60.4 84.5L61 84.7L61.7 84.9L62.3 85.1L63 85.3L63.6 85.5L64.2 85.7L64.9 85.9L65.5 86.1L66.1 86.3L66.8 86.5L67.4 86.7L68.1 86.8L68.7 87L69.3 87.1L70 87.3L70.6 87.5L71.2 87.6L71.9 87.8L72.5 87.9L73.2 88L73.8 88.2L74.4 88.3L75.1 88.4L75.7 88.6L76.3 88.7L77 88.8L77.6 88.9L78.3 89L78.9 89.1L79.5 89.2L80.2 89.3L80.8 89.4L81.4 89.5L82.1 89.6L82.7 89.7L83.4 89.8L84 89.9L84.6 90L85.3 90.1L85.9 90.1L86.5 90.2L87.2 90.3L87.8 90.3L88.5 90.4L89.1 90.5L89.7 90.5L90.4 90.6L91 90.6L91.6 90.7L92.3 90.7L92.9 90.7L93.6 90.8L94.2 90.8L94.8 90.9L95.5 90.9L96.1 90.9L96.7 90.9L97.4 91L98 91L98.7 91L99.3 91L99.9 91L100.6 91L101.2 91L101.8 91L102.5 91L103.1 91L103.8 91L104.4 91L105 91L105.7 90.9L106.3 90.9L106.9 90.9L107.6 90.8L108.2 90.8L108.9 90.8L109.5 90.7L110.1 90.7L110.8 90.6L111.4 90.6L112.1 90.5L112.7 90.5L113.3 90.4L114 90.3L114.6 90.2L115.2 90.2L115.9 90.1L116.5 90L117.2 89.9L117.8 89.8L118.4 89.7L119.1 89.6L119.7 89.5L120.3 89.4L121 89.3L121.6 89.1L122.3 89L122.9 88.9L123.5 88.7L124.2 88.6L124.8 88.4L125.4 88.2L126.1 88.1L126.7 87.9L127.4 87.7L128 87.5L128.6 87.3L129.3 87.1L129.9 86.9L130.5 86.7L131.2 86.5L131.8 86.2L132.5 86L133.1 85.7L133.7 85.5L134.4 85.2L135 84.9L135.6 84.6L136.3 84.3L136.9 84L137.6 83.7L138.2 83.3L138.8 83L139.5 82.6L140.1 82.2L140.7 81.8L141.4 81.4L142 81L142.7 80.5L143.3 80L143.9 79.6L144.6 79.1L145.2 78.5L145.8 78L146.5 77.4L147.1 76.8L147.8 76.2L148.4 75.5L149 74.9L149.7 74.1L150.3 73.4L150.9 72.6L151.6 71.8L152.2 71L152.9 70.1L153.5 69.1L154.1 68.1L154.8 67.1L155.4 66L156 64.8L156.7 63.6L157.3 62.3L158 60.9L158.6 59.5L159.2 58L159.9 56.3L160.5 54.6L161.1 52.7L161.8 50.7L162.4 48.6L163.1 46.3L163.7 43.8L164.3 41.2L165 38.3L165.6 35.1L166.2 31.7L166.9 28L167.5 23.9L168.2 19.4"/>
+      <path class="curve" d="M191.3 229.3L192.3 219.5L193.3 211.3L194.3 204.3L195.3 198.3L196.3 193L197.3 188.4L198.3 184.3L199.3 180.7L200.3 177.5L201.3 174.6L202.3 171.9L203.4 169.5L204.4 167.3L205.4 165.3L206.4 163.4L207.4 161.7L208.4 160.1L209.4 158.7L210.4 157.3L211.4 156L212.4 154.8L213.4 153.7L214.4 152.7L215.4 151.7L216.4 150.8L217.4 149.9L218.4 149.1L219.4 148.3L220.4 147.6L221.4 146.9L222.4 146.2L223.4 145.6L224.4 145L225.4 144.4L226.4 143.9L227.4 143.4L228.4 142.9L229.4 142.4L230.4 142L231.4 141.5L232.4 141.1L233.5 140.7L234.5 140.3L235.5 140L236.5 139.6L237.5 139.3L238.5 138.9L239.5 138.6L240.5 138.3L241.5 138L242.5 137.8L243.5 137.5L244.5 137.2L245.5 137L246.5 136.7L247.5 136.5L248.5 136.3L249.5 136.1L250.5 135.8L251.5 135.6L252.5 135.4L253.5 135.3L254.5 135.1L255.5 134.9L256.5 134.7L257.5 134.5L258.5 134.4L259.5 134.2L260.5 134.1L261.5 133.9L262.5 133.8L263.5 133.6L264.6 133.5L265.6 133.3L266.6 133.2L267.6 133.1L268.6 133L269.6 132.8L270.6 132.7L271.6 132.6L272.6 132.5L273.6 132.4L274.6 132.3L275.6 132.2L276.6 132.1L277.6 132L278.6 131.9L279.6 131.8L280.6 131.7L281.6 131.6L282.6 131.5L283.6 131.4L284.6 131.4L285.6 131.3L286.6 131.2L287.6 131.1L288.6 131.1L289.6 131L290.6 130.9L291.6 130.8L292.6 130.8L293.6 130.7L294.7 130.6L295.7 130.6L296.7 130.5L297.7 130.5L298.7 130.4L299.7 130.3L300.7 130.3L301.7 130.2L302.7 130.2L303.7 130.1L304.7 130.1L305.7 130L306.7 130L307.7 129.9L308.7 129.9L309.7 129.8L310.7 129.8L311.7 129.7L312.7 129.7L313.7 129.6L314.7 129.6L315.7 129.6L316.7 129.5L317.7 129.5L318.7 129.4L319.7 129.4L320.7 129.4L321.7 129.3L322.7 129.3L323.7 129.3L324.7 129.2L325.8 129.2L326.8 129.2L327.8 129.1L328.8 129.1L329.8 129.1L330.8 129L331.8 129L332.8 129L333.8 128.9L334.8 128.9L335.8 128.9L336.8 128.9L337.8 128.8L338.8 128.8L339.8 128.8L340.8 128.7L341.8 128.7L342.8 128.7L343.8 128.7L344.8 128.6L345.8 128.6L346.8 128.6L347.8 128.6L348.8 128.6L349.8 128.5L350.8 128.5L351.8 128.5L352.8 128.5L353.8 128.5L354.8 128.4L355.8 128.4L356.9 128.4L357.9 128.4L358.9 128.4L359.9 128.3L360.9 128.3L361.9 128.3L362.9 128.3L363.9 128.3L364.9 128.3L365.9 128.2L366.9 128.2L367.9 128.2L368.9 128.2L369.9 128.2L370.9 128.2L371.9 128.1L372.9 128.1L373.9 128.1L374.9 128.1L375.9 128.1L376.9 128.1L377.9 128.1L378.9 128L379.9 128L380.9 128L381.9 128L382.9 128L383.9 128L384.9 128L385.9 128L387 127.9L388 127.9L389 127.9L390 127.9L391 127.9L392 127.9L393 127.9L394 127.9L395 127.9L396 127.9L397 127.8L398 127.8L399 127.8L400 127.8L401 127.8L402 127.8"/>
+      <text class="label-key" x="166.8" y="26" style="text-anchor:end">∞</text>
+      <text class="label-soft" x="196.8" y="250">−∞</text>
+      <text class="label-soft" x="180.8" y="147" style="text-anchor:middle">1</text>
+      <text class="label-soft" x="281.3" y="147" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="381.9" y="147" style="text-anchor:middle">3</text>
+      <text class="label-soft" x="71.2" y="212.3" style="text-anchor:end">−10</text>
+      <text class="label-soft" x="71.2" y="172.6" style="text-anchor:end">−5</text>
+      <text class="label-soft" x="71.2" y="93.4" style="text-anchor:end">5</text>
+      <text class="label-soft" x="71.2" y="53.7" style="text-anchor:end">10</text>
+    </svg>
+    <figcaption>The graph near \(x = 1\). Approaching from the left it climbs without bound; from the right it plunges. The dashed line is the vertical asymptote.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">The side changes the answer</p>
+    <p>From the right, \(x^2 - 1\) is positive, so the quotient is (negative)/(positive) and heads to \(-\infty\). That is why the problem specifies \(x \to 1^-\). Without the minus sign the two-sided limit would not exist.</p>
+  </div>
+</section>
+
+<section id="f">
+  <h2><span class="marker">Problem F &middot; section 2.6</span>Expanding a logarithm</h2>
+
+  <div class="problem">
+    <p>Write \(\log\left(\dfrac{x^5(x+2)^3}{\sqrt{x^2+4}}\right)\) in terms of \(\log x\), \(\log(x+2)\), and \(\log\left(x^2+4\right)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <div class="card">
+        <p class="card-label">The three laws</p>
+        <ul class="keys">
+          <li>\(\log\frac{X}{Y} = \log X - \log Y\)</li>
+          <li>\(\log(XY) = \log X + \log Y\)</li>
+          <li>\(\log\left(X^r\right) = r\log X\)</li>
+        </ul>
+      </div>
+      <ol class="ledger">
+        <li><span class="step">Quotient</span><span class="work">\[\log\big(x^5(x+2)^3\big) - \log\sqrt{x^2+4}\]</span></li>
+        <li><span class="step">Product</span><span class="work">\[= \log\left(x^5\right) + \log\left((x+2)^3\right) - \log\sqrt{x^2+4}\]</span></li>
+        <li><span class="step">Powers</span><span class="work">\(\sqrt{x^2+4} = (x^2+4)^{1/2}\): \[= 5\log x + 3\log(x+2) - \tfrac{1}{2}\log\left(x^2+4\right)\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>5 log x + 3 log(x + 2) &minus; &frac12; log(x&sup2; + 4)</p>
+      <p>\(\log(x^2+4)\) does not split any further: it is the logarithm of a <em>sum</em>, and there is no law for that.</p>
+    </div>
+  </details>
+</section>
+
+<section id="g">
+  <h2><span class="marker">Problem G &middot; section 2.6</span>An exponential equation</h2>
+
+  <div class="problem">
+    <p>Solve \(4\cdot 7^{2-x} = 12\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Divide by 4</span><span class="work">\[7^{2-x} = 3\]</span></li>
+        <li><span class="step">Apply ln</span><span class="work">\[\ln\left(7^{2-x}\right) = \ln 3\]</span></li>
+        <li><span class="step">Power law</span><span class="work">\[(2 - x)\ln 7 = \ln 3\]</span></li>
+        <li><span class="step">Divide</span><span class="work">\[2 - x = \frac{\ln 3}{\ln 7}\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\[x = 2 - \frac{\ln 3}{\ln 7} \approx 1.435\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 2 &minus; ln 3 / ln 7 &asymp; 1.435</p>
+      <p>Subtracting 2 first gives \(-x = \frac{\ln 3}{\ln 7} - 2\), and flipping signs gives \(x = -\frac{\ln 3}{\ln 7} + 2\). That is the same answer written in a different order.</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Divide before taking the logarithm</p>
+    <p>The 4 multiplies the exponential, so it comes off by division first. Taking \(\ln\) of \(4\cdot 7^{2-x}\) directly also works, using the product law, but it adds a \(\ln 4\) term you then have to carry around.</p>
+  </div>
+</section>
+
+<section id="h">
+  <h2><span class="marker">Problem H &middot; section 9.2</span>A limit at infinity</h2>
+
+  <div class="problem">
+    <p>Find \(\displaystyle\lim_{x\to\infty}\frac{5x^2 - 4x^3}{5x^3 + 1}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Top</span><span class="work">the highest power is \(-4x^3\), even though it is written second</span></li>
+        <li><span class="step">Bottom</span><span class="work">the highest power is \(5x^3\)</span></li>
+        <li><span class="step">Keep those</span><span class="work">\[\lim_{x\to\infty}\frac{-4x^3}{5x^3} = -\frac{4}{5}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&minus;4/5</p>
+      <p>Same highest power on top and bottom, so the limit is the ratio of their coefficients. Grabbing the first term on top, \(5x^2\), instead of the highest power, would give 0.</p>
+    </div>
+  </details>
+</section>
+
+<section id="k">
+  <h2><span class="marker">Problem K &middot; section 9.3</span>Continuity of a piecewise function</h2>
+
+  <div class="problem">
+    <p>Find all \(x\)-values at which the function below is discontinuous. Support your answer by computing the relevant limits and function values.</p>
+    \[f(x) = \begin{cases} x + 3, & \text{if } x &lt; -2 \\ 3 - x^2, & \text{if } -2 \le x \le 1 \\ 2x, & \text{if } x &gt; 1\end{cases}\]
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Each piece is a polynomial, so continuous; only the transition points \(-2\) and \(1\) need checking. All three of the left limit, right limit and value must be equal for \(f\) to be continuous.</p>
+      <ol class="ledger">
+        <li><span class="step">At −2, left</span><span class="work">\[\lim_{x\to -2^-}(x+3) = -2 + 3 = 1\]</span></li>
+        <li><span class="step">At −2, right</span><span class="work">\[\lim_{x\to -2^+}\left(3 - x^2\right) = 3 - 4 = -1\]</span></li>
+        <li><span class="step">f(−2)</span><span class="work">\(-2\) is in the middle case: \(3 - (-2)^2 = -1\)</span></li>
+        <li><span class="step">At −2</span><span class="work">\(1 \ne -1\): not continuous</span></li>
+        <li><span class="step">At 1, left</span><span class="work">\[\lim_{x\to 1^-}\left(3 - x^2\right) = 3 - 1 = 2\]</span></li>
+        <li><span class="step">At 1, right</span><span class="work">\[\lim_{x\to 1^+}2x = 2\]</span></li>
+        <li><span class="step">f(1)</span><span class="work">\(1\) is in the middle case: \(3 - 1 = 2\)</span></li>
+        <li><span class="step">At 1</span><span class="work">all three equal 2: continuous</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>only x = &minus;2</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 420 413" role="img" aria-label="A three-piece graph: a rising line ending at height 1 as x approaches negative 2, a downward parabola from height negative 1 at x equals negative 2 up to 3 at 0 and back down to 2 at x equals 1, then a rising line starting from height 2. It jumps at negative 2 and joins up at 1">
+      <path class="grid" d="M53.1 276.3V284.3 M150 276.3V284.3 M295.4 276.3V284.3 M343.8 276.3V284.3 M242.9 359.8H250.9 M242.9 200.8H250.9 M242.9 121.3H250.9 M242.9 41.8H250.9"/>
+      <path class="axis" d="M8 280.3H412"/>
+      <path class="axis" d="M246.9 407V10"/>
+      <text class="label" x="414" y="298.3" style="text-anchor:end">x</text>
+      <text class="label" x="255.9" y="12">y</text>
+      <path class="helper" d="M150 14V276.3"/>
+      <path class="helper" d="M150 304.3V407"/>
+      <path class="helper" d="M295.4 14V276.3"/>
+      <path class="helper" d="M295.4 304.3V407"/>
+      <path class="curve" d="M24 343.9L25.6 342.6L27.2 341.3L28.7 340L30.3 338.7L31.9 337.4L33.5 336.1L35 334.8L36.6 333.5L38.2 332.2L39.8 330.9L41.3 329.6L42.9 328.4L44.5 327.1L46.1 325.8L47.6 324.5L49.2 323.2L50.8 321.9L52.3 320.6L53.9 319.3L55.5 318L57.1 316.7L58.7 315.4L60.2 314.2L61.8 312.9L63.4 311.6L64.9 310.3L66.5 309L68.1 307.7L69.7 306.4L71.2 305.1L72.8 303.8L74.4 302.5L76 301.2L77.6 299.9L79.1 298.7L80.7 297.4L82.3 296.1L83.8 294.8L85.4 293.5L87 292.2L88.6 290.9L90.2 289.6L91.7 288.3L93.3 287L94.9 285.7L96.4 284.4L98 283.2L99.6 281.9L101.2 280.6L102.7 279.3L104.3 278L105.9 276.7L107.5 275.4L109.1 274.1L110.6 272.8L112.2 271.5L113.8 270.2L115.3 268.9L116.9 267.7L118.5 266.4L120.1 265.1L121.6 263.8L123.2 262.5L124.8 261.2L126.4 259.9L127.9 258.6L129.5 257.3L131.1 256L132.7 254.7L134.2 253.5L135.8 252.2L137.4 250.9L139 249.6L140.6 248.3L142.1 247L143.7 245.7L145.3 244.4L146.8 243.1L148.4 241.8L150 240.5"/>
+      <path class="curve" d="M150 320L151.8 314.1L153.6 308.3L155.5 302.6L157.3 297.1L159.1 291.6L160.9 286.3L162.7 281L164.5 275.9L166.4 270.9L168.2 266L170 261.2L171.8 256.5L173.6 252L175.4 247.5L177.3 243.2L179.1 238.9L180.9 234.8L182.7 230.8L184.5 226.9L186.3 223.1L188.2 219.5L190 215.9L191.8 212.5L193.6 209.1L195.4 205.9L197.2 202.8L199.1 199.8L200.9 196.9L202.7 194.1L204.5 191.5L206.3 188.9L208.2 186.5L210 184.2L211.8 181.9L213.6 179.8L215.4 177.8L217.2 176L219.1 174.2L220.9 172.5L222.7 171L224.5 169.6L226.3 168.2L228.1 167L230 165.9L231.8 164.9L233.6 164.1L235.4 163.3L237.2 162.6L239 162.1L240.9 161.7L242.7 161.4L244.5 161.2L246.3 161.1L248.1 161.1L250 161.2L251.8 161.5L253.6 161.8L255.4 162.3L257.2 162.9L259 163.5L260.9 164.3L262.7 165.3L264.5 166.3L266.3 167.4L268.1 168.7L269.9 170L271.8 171.5L273.6 173.1L275.4 174.8L277.2 176.6L279 178.5L280.8 180.5L282.7 182.7L284.5 184.9L286.3 187.3L288.1 189.8L289.9 192.4L291.8 195.1L293.6 197.9L295.4 200.8"/>
+      <path class="curve" d="M295.4 200.8L296.7 198.6L298 196.4L299.4 194.2L300.7 192.1L302 189.9L303.4 187.7L304.7 185.5L306 183.3L307.4 181.1L308.7 178.9L310 176.8L311.4 174.6L312.7 172.4L314 170.2L315.4 168L316.7 165.8L318 163.6L319.4 161.5L320.7 159.3L322 157.1L323.4 154.9L324.7 152.7L326 150.5L327.4 148.3L328.7 146.2L330 144L331.4 141.8L332.7 139.6L334 137.4L335.4 135.2L336.7 133L338 130.9L339.4 128.7L340.7 126.5L342 124.3L343.4 122.1L344.7 119.9L346 117.7L347.4 115.6L348.7 113.4L350 111.2L351.4 109L352.7 106.8L354 104.6L355.4 102.4L356.7 100.3L358 98.1L359.4 95.9L360.7 93.7L362 91.5L363.4 89.3L364.7 87.1L366 85L367.4 82.8L368.7 80.6L370 78.4L371.3 76.2L372.7 74L374 71.8L375.3 69.7L376.7 67.5L378 65.3L379.3 63.1L380.7 60.9L382 58.7L383.3 56.5L384.7 54.4L386 52.2L387.3 50L388.7 47.8L390 45.6L391.3 43.4L392.7 41.2L394 39.1L395.3 36.9L396.7 34.7L398 32.5L399.3 30.3L400.7 28.1L402 25.9"/>
+      <circle class="hole" cx="150" cy="240.5" r="4.5"/>
+      <circle class="dot" cx="150" cy="320" r="4.5"/>
+      <circle class="dot" cx="295.4" cy="200.8" r="4.5"/>
+      <text class="label-key" x="141" y="233.5" style="text-anchor:end">1</text>
+      <text class="label-key" x="160" y="325">−1</text>
+      <text class="label-key" x="305.4" y="216.8">2</text>
+      <text class="label-soft" x="53.1" y="298.3" style="text-anchor:middle">−4</text>
+      <text class="label-soft" x="150" y="298.3" style="text-anchor:middle">−2</text>
+      <text class="label-soft" x="295.4" y="298.3" style="text-anchor:middle">1</text>
+      <text class="label-soft" x="343.8" y="298.3" style="text-anchor:middle">2</text>
+    </svg>
+    <figcaption>Problem K. The pieces miss each other at \(x = -2\), and the value \(f(-2) = -1\) belongs to the right-hand piece. At \(x = 1\) they meet at height 2 with no break.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">The question asks for supporting work</p>
+    <p>&ldquo;Support your answer by computing the relevant limits and function values&rdquo; means a bare &ldquo;\(x = -2\)&rdquo; is not enough. Show all three numbers at <em>each</em> transition point, including the one where nothing goes wrong. Showing that \(f\) is continuous at 1 is part of the answer.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before the exam</h2>
+  <ul class="checklist">
+    <li>Read the Exam 2 announcement on Blackboard.</li>
+    <li>Redo all nine problems above with the solutions hidden.</li>
+    <li>Rework the examples from the lecture notes for 2.5, 2.6, 9.1, 9.2 and 9.3, especially for any class you missed.</li>
+    <li>Memorize the exponent laws, the three log laws, change of base, and compounding formulas.</li>
+    <li>Use the Zoom office hours, Friday and Sunday 6&ndash;7 pm, or book an appointment through Blackboard.</li>
+    <li><strong>Exam 2: Monday, October 5.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Review for Exam 2 &middot; October 2</p>
+</footer>
+
+</div>
+</body>
+</html>

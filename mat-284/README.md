@@ -31,6 +31,7 @@ to `/favicon.svg` — on a project site that resolves to the wrong place.
 | `mat284-sep25-section-9-1.html` | Sep 25 — Limits and one-sided limits |
 | `mat284-sep28-section-9-2.html` | Sep 28 — Infinite limits and limits at infinity |
 | `mat284-sep30-section-9-3.html` | Sep 30 — Continuity |
+| `mat284-oct02-exam-2-review.html` | Oct 2 — Review for Exam 2 |
 
 ## Adding a lecture
 
