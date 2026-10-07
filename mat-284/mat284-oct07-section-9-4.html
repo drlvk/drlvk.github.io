@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Oct 7 &mdash; The derivative</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, October 7</p>
+  <h1>The derivative</h1>
+  <p class="standfirst">Section 9.4. Draw a line through two nearby points on a graph and let the points merge: the line becomes the tangent line, and its slope is the derivative. The derivative measures how fast a function is changing.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Exact or approximate</a>
+  <a href="#secant">From secant to tangent</a>
+  <a href="#definition">The definition</a>
+  <a href="#examples">Using the definition</a>
+  <a href="#tangent">The tangent line</a>
+  <a href="#nonexistence">When f&prime; does not exist</a>
+  <a href="#next">Before Friday</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>The <strong>9.2</strong> and <strong>9.3</strong> WeBWorK sets close <strong>tomorrow night, Thursday Oct 8</strong>.</li>
+      <li>New this week: <strong>9.4</strong> and <strong>9.5</strong>, the beginning of derivatives.</li>
+      <li>Complete the <strong>Concept Check</strong> for Wednesday by the end of the day.</li>
+      <li>Tomorrow&rsquo;s recitation has <strong>Quiz 5</strong>, on the topics of weeks 5&ndash;6.</li>
+      <li>There is <strong>no class Monday, October 12</strong> (Fall break).</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warmup</span>Exact or approximate?</h2>
+
+  <div class="problem">
+    <p>For the equation \(17x = 5\), what is the exact solution? What is a decimal approximation?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Exact</span><span class="work">divide both sides by 17: \(x = \dfrac{5}{17}\)</span></li>
+        <li><span class="step">Decimal</span><span class="work">\(x \approx 0.2941\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 5/17 exactly; x &asymp; 0.2941</p>
+      <p>Even \(x \approx 0.2941176470588235\), all the digits a calculator shows, is still just an approximation. The decimal expansion of \(5/17\) goes on forever, so any decimal that stops falls short of the exact value.</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The same goes for logarithms</p>
+    <p>The equation \(17^x = 5\) has the exact answer \(x = \dfrac{\ln 5}{\ln 17}\). Anything else, such as \(x \approx 0.5681\), is an approximation.</p>
+  </div>
+</section>
+
+<section id="secant">
+  <h2><span class="marker">Idea</span>From secant to tangent</h2>
+
+  <div class="problem">
+    <p>Recall how to find \(\displaystyle \lim_{x\to 3}\frac{x^2-9}{x-3}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Plug in</span><span class="work">at \(x = 3\) we get \(\frac{9-9}{3-3} = \frac{0}{0}\), so we must factor and cancel</span></li>
+        <li><span class="step">Factor</span><span class="work">\[\frac{(x-3)(x+3)}{x-3} = x + 3\]</span></li>
+        <li><span class="step">Limit</span><span class="work">\(\lim\limits_{x\to 3}(x+3) = 3 + 3 = 6\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>6</p>
+    </div>
+  </details>
+
+  <p>This quotient of two differences is the slope of a line through two points on the graph of \(y = x^2\), namely \((3, 9)\) and \((x, x^2)\):</p>
+  \[\frac{x^2-9}{x-3} = \frac{\text{difference of } y}{\text{difference of } x} = \frac{\text{vertical change}}{\text{horizontal change}} = \text{slope of the line through two points.}\]
+
+  <p>As \(x \to 3\), the second point slides along the graph toward the first. The line through them, called a <strong>secant line</strong>, turns into the <strong>tangent line</strong> to the graph at \((3, 9)\).</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 474 248" role="img" aria-label="Two copies of the parabola y equals x squared. Left: a secant line through the points 3 comma 9 and x comma x squared, with a right triangle whose horizontal side is x minus 3 and whose vertical side is x squared minus 9. Right: the second point has merged into the first, leaving the tangent line at 3 comma 9, with slope 6">
+      <path class="axis" d="M154.1 204.9V212.9"/>
+      <path class="axis" d="M207.7 204.9V212.9"/>
+      <path class="axis" d="M22 208.9H222"/>
+      <path class="mark" d="M226 208.9l-8 -4.5v9z"/>
+      <path class="axis" d="M47 222V16"/>
+      <path class="mark" d="M47 12l-4.5 8h9z"/>
+      <text class="label" x="224" y="226.9" style="text-anchor:end">x</text>
+      <text class="label" x="56" y="24">y</text>
+      <text class="label-soft" x="154.1" y="226.9" style="text-anchor:middle">3</text>
+      <text class="label-soft" x="207.7" y="226.9" style="text-anchor:middle">x</text>
+      <path class="curve" d="M22 204.8L25.9 206L29.8 207L33.8 207.7L37.7 208.3L41.8 208.7L45.8 208.9L49.8 208.8L53.8 208.6L57.9 208.1L61.8 207.5L65.8 206.6L69.7 205.6L73.5 204.3L77.3 203L81 201.4L84.6 199.8L88.2 197.9L91.7 196L95.1 194L98.5 191.8L101.8 189.5L105.1 187.2L108.3 184.7L111.5 182.1L114.6 179.5L117.6 176.8L120.6 174L123.5 171.2L126.3 168.4L129.1 165.5L131.9 162.5L134.6 159.5L137.2 156.5L139.9 153.4L142.4 150.2L145 147.1L147.5 143.9L149.9 140.7L152.4 137.4L154.7 134.2L157.1 130.8L159.4 127.5L161.7 124.2L164 120.8L166.2 117.4L168.4 114L170.6 110.6L172.8 107.1L174.9 103.6L177 100.1L179.1 96.7L181.1 93.2L183.1 89.6L185.1 86.1L187.1 82.6L189.1 79L191 75.4L192.9 71.8L194.8 68.2L196.8 64.6L198.6 61L200.5 57.3L202.3 53.7L204.1 50.1L205.9 46.5L207.7 42.8L209.4 39.1L211.2 35.3L212.9 31.7L214.7 28L216.4 24.3L218.1 20.5L219.8 16.8L220.1 16"/>
+      <path class="curve-2" d="M125.6 184.2L127.6 180.8L129.6 177.3L131.6 173.8L133.6 170.3L135.7 166.8L137.7 163.4L139.7 159.9L141.7 156.4L143.7 152.9L145.8 149.4L147.8 146L149.8 142.5L151.8 139L153.8 135.5L155.9 132L157.9 128.6L159.9 125.1L161.9 121.6L163.9 118.1L166 114.7L168 111.2L170 107.7L172 104.2L174 100.7L176 97.3L178.1 93.8L180.1 90.3L182.1 86.8L184.1 83.3L186.1 79.9L188.2 76.4L190.2 72.9L192.2 69.4L194.2 65.9L196.2 62.5L198.3 59L200.3 55.5L202.3 52L204.3 48.5L206.3 45.1L208.4 41.6L210.4 38.1L212.4 34.6L214.4 31.1L216.4 27.7L218.4 24.2L220.2 21.1"/>
+      <path class="helper" d="M154.1 135L207.7 135"/>
+      <path class="helper" d="M207.7 135L207.7 42.7"/>
+      <circle class="dot" cx="154.1" cy="135" r="4.2"/>
+      <circle class="dot" cx="207.7" cy="42.7" r="4.2"/>
+      <text class="label-soft" x="180.9" y="150" style="text-anchor:middle">x − 3</text>
+      <text class="label-soft" x="214.7" y="93">x</text>
+      <text class="label-soft sup" x="221.7" y="87">2</text>
+      <text class="label-soft" x="228.7" y="93">− 9</text>
+      <text class="label-key" x="146.1" y="129" style="text-anchor:end">(3, 9)</text>
+      <text class="label-key" x="183.7" y="46.7" style="text-anchor:end">(x, x</text>
+      <text class="label-key sup" x="183.7" y="40.7">2</text>
+      <text class="label-key" x="189.7" y="46.7">)</text>
+      <text class="label-soft" x="139.9" y="200.7">secant</text>
+      <path class="axis" d="M394.1 204.9V212.9"/>
+      <path class="axis" d="M262 208.9H462"/>
+      <path class="mark" d="M466 208.9l-8 -4.5v9z"/>
+      <path class="axis" d="M287 222V16"/>
+      <path class="mark" d="M287 12l-4.5 8h9z"/>
+      <text class="label" x="464" y="226.9" style="text-anchor:end">x</text>
+      <text class="label" x="296" y="24">y</text>
+      <text class="label-soft" x="394.1" y="226.9" style="text-anchor:middle">3</text>
+      <path class="curve" d="M262 204.8L265.9 206L269.8 207L273.8 207.7L277.7 208.3L281.8 208.7L285.8 208.9L289.8 208.8L293.8 208.6L297.9 208.1L301.8 207.5L305.8 206.6L309.7 205.6L313.5 204.3L317.3 203L321 201.4L324.6 199.8L328.2 197.9L331.7 196L335.1 194L338.5 191.8L341.8 189.5L345.1 187.2L348.3 184.7L351.5 182.1L354.6 179.5L357.6 176.8L360.6 174L363.5 171.2L366.3 168.4L369.1 165.5L371.9 162.5L374.6 159.5L377.2 156.5L379.9 153.4L382.4 150.2L385 147.1L387.5 143.9L389.9 140.7L392.4 137.4L394.7 134.2L397.1 130.8L399.4 127.5L401.7 124.2L404 120.8L406.2 117.4L408.4 114L410.6 110.6L412.8 107.1L414.9 103.6L417 100.1L419.1 96.7L421.1 93.2L423.1 89.6L425.1 86.1L427.1 82.6L429.1 79L431 75.4L432.9 71.8L434.8 68.2L436.8 64.6L438.6 61L440.5 57.3L442.3 53.7L444.1 50.1L445.9 46.5L447.7 42.8L449.4 39.1L451.2 35.3L452.9 31.7L454.7 28L456.4 24.3L458.1 20.5L459.8 16.8L460.1 16"/>
+      <path class="curve-2" d="M331.6 221.2L334 217.9L336.4 214.7L338.7 211.4L341.1 208.2L343.4 204.9L345.8 201.7L348.1 198.4L350.5 195.2L352.9 191.9L355.2 188.7L357.6 185.4L359.9 182.2L362.3 178.9L364.6 175.7L367 172.4L369.4 169.2L371.7 165.9L374.1 162.7L376.4 159.4L378.8 156.2L381.1 152.9L383.5 149.7L385.9 146.4L388.2 143.2L390.6 139.9L392.9 136.7L395.3 133.4L397.6 130.2L400 126.9L402.4 123.7L404.7 120.4L407.1 117.2L409.4 113.9L411.8 110.7L414.1 107.4L416.5 104.2L418.9 100.9L421.2 97.7L423.6 94.4L425.9 91.2L428.3 87.9L430.6 84.7L433 81.4L435.4 78.2L437.7 74.9L440.1 71.7L442.4 68.4L444.8 65.2L447.1 61.9L449.5 58.7L451.9 55.4L454.2 52.2L456.6 48.9L458.9 45.7L460.2 43.9"/>
+      <circle class="dot" cx="394.1" cy="135" r="4.2"/>
+      <text class="label-key" x="386.1" y="129" style="text-anchor:end">(3, 9)</text>
+      <text class="label-soft" x="360.2" y="200.7">tangent</text>
+      <text class="label-key" x="420.9" y="81.7" style="text-anchor:end">slope 6</text>
+    </svg>
+    <figcaption>Left: the secant line through \((3, 9)\) and \((x, x^2)\) has slope \(\frac{x^2-9}{x-3}\), rise over run. Right: as \(x \to 3\) the two points merge into one, and the secant becomes the tangent line, with slope 6.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>The slope of a line measures the rate of change of \(y\) with respect to \(x\).</li>
+      <li>So the slope of the <strong>tangent line</strong> to the graph of a function measures the <strong>rate of change</strong> of that function.</li>
+    </ul>
+  </div>
+
+  <p>Since \(\lim\limits_{x\to 3}\frac{x^2-9}{x-3} = 6\), the rate of change of \(x^2\) is equal to 6 when \(x = 3\).</p>
+
+  <p>There is nothing special about \(x^2\) here. The same computation works for any function \(y = f(x)\): take two nearby points on the graph, and divide the vertical difference by the horizontal difference. It is usually written like this:</p>
+  \[\lim_{h\to 0}\frac{f(x+h)-f(x)}{h} \qquad \frac{\text{vertical difference}}{\text{horizontal difference}}\]
+
+  <p>Here \(h\) is the difference of the horizontal coordinates, a small number but not zero. The numerator is the difference of the vertical coordinates.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 400 240" role="img" aria-label="A curve y equals f of x with two points on it, above x and above x plus h. The secant line through them is dashed. A right triangle under the secant has horizontal side h and vertical side f of x plus h minus f of x">
+      <path class="axis" d="M107.5 189.5V197.5"/>
+      <path class="axis" d="M227.8 189.5V197.5"/>
+      <path class="axis" d="M20 193.5H370"/>
+      <path class="mark" d="M374 193.5l-8 -4.5v9z"/>
+      <path class="axis" d="M41.9 210V14"/>
+      <path class="mark" d="M41.9 10l-4.5 8h9z"/>
+      <text class="label" x="372" y="211.5" style="text-anchor:end">x</text>
+      <text class="label" x="50.9" y="22">y</text>
+      <path class="curve" d="M20 181.6L22.6 178.5L25.3 175.4L27.9 172.4L30.6 169.3L33.3 166.2L36.1 163.2L38.8 160.2L41.6 157.2L44.3 154.2L47.2 151.2L50.1 148.3L53 145.3L55.8 142.4L58.7 139.6L61.6 136.8L64.6 134L67.5 131.1L70.5 128.4L73.5 125.7L76.5 123L79.6 120.3L82.7 117.6L85.8 115L88.9 112.4L92.1 109.8L95.3 107.3L98.6 104.8L101.8 102.3L105 100L108.3 97.6L111.6 95.2L115 92.9L118.3 90.7L121.8 88.5L125.2 86.3L128.6 84.2L132.1 82.1L135.6 80.1L139.2 78.1L142.8 76.2L146.3 74.3L150 72.5L153.7 70.7L157.4 69L161 67.4L164.8 65.8L168.6 64.3L172.4 62.9L176.2 61.5L180 60.3L183.9 59L187.8 57.9L191.7 56.8L195.6 55.8L199.5 54.9L203.5 54L207.5 53.3L211.6 52.6L215.6 52L219.6 51.5L223.6 51.1L227.6 50.8L231.7 50.5L235.7 50.4L239.7 50.3L243.7 50.3L247.7 50.4L251.8 50.6L255.8 50.9L259.8 51.3L263.8 51.7L267.8 52.3L271.9 52.9L275.9 53.6L279.9 54.4L283.9 55.3L287.8 56.3L291.7 57.3L295.6 58.4L299.5 59.6L303.4 60.9L307.2 62.2L311 63.6L314.8 65.1L318.6 66.6L322.4 68.3L326.1 69.9L329.7 71.6L333.4 73.4L337.1 75.3L340.6 77.2L344.2 79.2L347.8 81.2L351.3 83.3L354.8 85.3L358.2 87.5L361.7 89.7L364.5 91.6"/>
+      <path class="curve-2" d="M50.1 120.8L53.9 119.3L57.6 117.8L61.4 116.3L65.2 114.8L69 113.3L72.7 111.8L76.5 110.4L80.3 108.9L84.1 107.4L87.8 105.9L91.6 104.4L95.4 102.9L99.2 101.4L102.9 99.9L106.7 98.5L110.5 97L114.3 95.5L118 94L121.8 92.5L125.6 91L129.4 89.5L133.1 88L136.9 86.6L140.7 85.1L144.5 83.6L148.2 82.1L152 80.6L155.8 79.1L159.6 77.6L163.3 76.2L167.1 74.7L170.9 73.2L174.7 71.7L178.4 70.2L182.2 68.7L186 67.2L189.8 65.7L193.5 64.3L197.3 62.8L201.1 61.3L204.9 59.8L208.6 58.3L212.4 56.8L216.2 55.3L220 53.8L223.7 52.4L227.5 50.9L231.3 49.4L235.1 47.9L238.8 46.4L242.6 44.9L246.4 43.4L250.2 41.9L253.9 40.5L257.7 39L261.5 37.5L265.3 36L269 34.5L272.8 33L276.6 31.5L280.4 30.1L284.1 28.6L287.9 27.1L291.7 25.6L295.5 24.1L299.2 22.6L303 21.1L306.8 19.6L310.6 18.2L314.3 16.7L318.1 15.2L321.1 14"/>
+      <path class="helper" d="M107.5 193.5L107.5 98.1"/>
+      <path class="helper" d="M227.8 193.5L227.8 98.1"/>
+      <path class="helper" d="M107.5 98.1L227.8 98.1"/>
+      <path class="helper" d="M227.8 98.1L227.8 50.8"/>
+      <circle class="dot" cx="107.5" cy="98.1" r="4.2"/>
+      <circle class="dot" cx="227.8" cy="50.8" r="4.2"/>
+      <text class="label-soft" x="107.5" y="211.5" style="text-anchor:middle">x</text>
+      <text class="label-soft" x="227.8" y="211.5" style="text-anchor:middle">x + h</text>
+      <text class="label-key" x="167.7" y="114.1" style="text-anchor:middle">h</text>
+      <text class="label-key" x="235.8" y="79.4">f(x + h) − f(x)</text>
+      <text class="label-soft" x="50.1" y="61.6">y = f(x)</text>
+    </svg>
+    <figcaption>The two points sit above \(x\) and \(x + h\). As \(h \to 0\) they converge into one point, and the slope of the secant becomes the slope of the tangent line.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Always 0/0</p>
+    <p>This is always a \(\frac{0}{0}\) type of limit: as \(h \to 0\), the numerator and the denominator both tend to 0. So plugging in \(h = 0\) never works directly. The algebra has to cancel the \(h\) first, just as the factoring did for \(x^2\).</p>
+  </div>
+</section>
+
+<section id="definition">
+  <h2><span class="marker">Definition</span>The derivative</h2>
+
+  <p>If this limit exists, it is called the <strong>derivative</strong> of \(f\) at the point \(x\), denoted \(f'(x)\).</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\[f'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\]</li>
+      <li>The fraction \(\dfrac{f(x+h)-f(x)}{h}\) is called the <strong>difference quotient</strong>.</li>
+      <li>If the limit does not exist, then the derivative does not exist.</li>
+    </ul>
+  </div>
+
+  <p>The input variable does not have to be called \(x\).</p>
+  <ul>
+    <li>If the position of an object at time \(t\) is \(g(t)\), then its rate of change, the <strong>velocity</strong> of the object, is
+      \[g'(t) = \lim_{h\to 0}\frac{g(t+h)-g(t)}{h}\]</li>
+    <li>If the price&ndash;demand equation is written as \(x = f(p)\), then
+      \[f'(p) = \lim_{h\to 0}\frac{f(p+h)-f(p)}{h}\]
+      is the rate of change of the demand with respect to price. This quantity will be important when we measure the <strong>elasticity of demand</strong> later.</li>
+  </ul>
+
+  <div class="note">
+    <p class="card-label">Difference of arguments</p>
+    <p>The denominator \(h\) is the difference of the two inputs: \((t + h) - t = h\). The numerator is the difference of the outputs at those same two inputs.</p>
+  </div>
+</section>
+
+<section id="examples">
+  <h2><span class="marker">Method</span>Using the definition</h2>
+
+  <p>The textbook describes finding \(f'(x)\) as a four-step process:</p>
+  <ol>
+    <li>Find \(f(x+h)\).</li>
+    <li>Find \(f(x+h) - f(x)\).</li>
+    <li>Find \(\dfrac{f(x+h)-f(x)}{h}\).</li>
+    <li>Find \(\lim\limits_{h\to 0}\dfrac{f(x+h)-f(x)}{h}\). This is \(f'(x)\).</li>
+  </ol>
+  <p>In short: <strong>substitute, subtract, simplify, let \(h \to 0\).</strong></p>
+
+  <div class="card">
+    <p class="card-label">Most important step</p>
+    <p>Understand what \(f(x+h)\) means. It does <strong>not</strong> mean adding \(h\). It means <strong>replacing \(x\) with \(x + h\)</strong> in the formula for \(f\).</p>
+  </div>
+
+  <div class="problem">
+    <p><strong>Example 1.</strong> Using the definition of derivative, find \(f'(x)\) for \(f(x) = 5x - 3\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Substitute</span><span class="work">\(f(x+h) = 5(x+h) - 3 = 5x + 5h - 3\)</span></li>
+        <li><span class="step">Subtract</span><span class="work">\[f(x+h) - f(x) = 5x + 5h - 3 - (5x - 3) = 5x + 5h - 3 - 5x + 3 = 5h\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\(\dfrac{f(x+h)-f(x)}{h} = \dfrac{5h}{h} = 5\)</span></li>
+        <li><span class="step">Let h &rarr; 0</span><span class="work">\(\lim\limits_{h\to 0} 5 = 5\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = 5</p>
+      <p>The rate of change of \(f(x) = 5x - 3\) is always equal to 5: it grows at the constant rate 5. That is also the slope of the line \(y = 5x - 3\).</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>Example 2.</strong> Using the definition of derivative, find \(f'(x)\) for \(f(x) = 2x - 3x^2\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Substitute</span><span class="work">replace both \(x\)&rsquo;s: \(f(x+h) = 2(x+h) - 3(x+h)^2\)</span></li>
+        <li><span class="step">Expand</span><span class="work">with \((x+h)(x+h) = x^2 + 2xh + h^2\),
+          \[f(x+h) = 2x + 2h - 3(x^2 + 2xh + h^2) = 2x + 2h - 3x^2 - 6xh - 3h^2\]</span></li>
+        <li><span class="step">Subtract</span><span class="work">\[f(x+h) - f(x) = 2x + 2h - 3x^2 - 6xh - 3h^2 - (2x - 3x^2) = 2h - 6xh - 3h^2\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[\frac{2h - 6xh - 3h^2}{h} = \frac{h(2 - 6x - 3h)}{h} = 2 - 6x - 3h\]</span></li>
+        <li><span class="step">Let h &rarr; 0</span><span class="work">\(\lim\limits_{h\to 0}(2 - 6x - 3h) = 2 - 6x\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = 2 &minus; 6x</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Two places to slip</p>
+    <p>\((x+h)^2\) is <strong>not</strong> \(x^2 + h^2\). The middle term \(2xh\) is the one that survives to the end.</p>
+    <p>Put parentheses around \(f(x)\) when you subtract it, so that every one of its terms changes sign. A built-in check: after subtracting, every term without an \(h\) must cancel. If one is left over, look for the mistake in the first two steps.</p>
+  </div>
+</section>
+
+<section id="tangent">
+  <h2><span class="marker">Application</span>The tangent line</h2>
+
+  <div class="card">
+    <p class="card-label">Key concept</p>
+    <ul class="keys">
+      <li>The slope of the tangent line is the value of the derivative at the given \(x\).</li>
+    </ul>
+    <p>For Example 2, the two formulas have different jobs. \(f(x) = 2x - 3x^2\) gives the \(y\)-coordinate of a point on the graph; \(f'(x) = 2 - 6x\) gives the slope of the tangent line there.</p>
+  </div>
+
+  <div class="problem">
+    <p>For \(f(x) = 2x - 3x^2\) from Example 2, find the tangent line at the point with \(x = 2\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Point</span><span class="work">\(y = f(2) = 2(2) - 3(2)^2 = 4 - 12 = -8\)</span></li>
+        <li><span class="step">Slope</span><span class="work">\(f'(2) = 2 - 6(2) = -10\)</span></li>
+        <li><span class="step">Line</span><span class="work">point-slope form \(y - y_1 = m(x - x_1)\) with the point \((2, -8)\) and slope \(-10\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y &minus; (&minus;8) = &minus;10(x &minus; 2), or y = &minus;10x + 12</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 390 296" role="img" aria-label="The parabola y equals 2x minus 3x squared, opening downward with its top just above the origin, and the dashed tangent line at the point 2 comma negative 8, falling with slope negative 10">
+      <path class="axis" d="M187.1 45.8V53.8"/>
+      <path class="axis" d="M265.7 45.8V53.8"/>
+      <path class="axis" d="M344.3 45.8V53.8"/>
+      <path class="axis" d="M104.6 102.5H112.6"/>
+      <path class="axis" d="M104.6 155.2H112.6"/>
+      <path class="axis" d="M104.6 208H112.6"/>
+      <path class="axis" d="M104.6 260.7H112.6"/>
+      <path class="axis" d="M30 49.8H360"/>
+      <path class="mark" d="M364 49.8l-8 -4.5v9z"/>
+      <path class="axis" d="M108.6 266V16"/>
+      <path class="mark" d="M108.6 12l-4.5 8h9z"/>
+      <text class="label" x="362" y="67.8" style="text-anchor:end">x</text>
+      <text class="label" x="117.6" y="24">y</text>
+      <text class="label-soft" x="187.1" y="67.8" style="text-anchor:middle">1</text>
+      <text class="label-soft" x="265.7" y="67.8" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="344.3" y="67.8" style="text-anchor:middle">3</text>
+      <text class="label-soft" x="100.6" y="106.5" style="text-anchor:end">−5</text>
+      <text class="label-soft" x="100.6" y="159.2" style="text-anchor:end">−10</text>
+      <text class="label-soft" x="100.6" y="212" style="text-anchor:end">−15</text>
+      <text class="label-soft" x="100.6" y="264.7" style="text-anchor:end">−20</text>
+      <path class="curve" d="M30 102.5L32.8 99.6L35.6 96.6L38.5 93.8L41.4 90.9L44.4 88.1L47.4 85.4L50.5 82.7L53.5 80.1L56.7 77.5L59.9 75L63.2 72.5L66.5 70.1L69.9 67.8L73.3 65.6L76.9 63.4L80.4 61.4L84 59.4L87.6 57.6L91.3 55.9L95 54.3L98.8 52.9L102.6 51.5L106.5 50.3L110.4 49.3L114.4 48.4L118.3 47.6L122.3 47L126.4 46.6L130.4 46.3L134.5 46.2L138.6 46.3L142.6 46.6L146.7 47L150.7 47.5L154.6 48.3L158.6 49.1L162.6 50.2L166.4 51.4L170.2 52.7L174 54.1L177.7 55.7L181.5 57.4L185.1 59.2L188.7 61.2L192.2 63.2L195.8 65.3L199.2 67.5L202.6 69.8L205.9 72.2L209.2 74.6L212.4 77.1L215.6 79.7L218.6 82.3L221.7 85L224.7 87.7L227.7 90.5L230.6 93.4L233.5 96.2L236.4 99.2L239.2 102.2L242 105.2L244.7 108.2L247.4 111.2L250 114.3L252.6 117.5L255.3 120.7L257.8 123.9L260.3 127.1L262.9 130.4L265.3 133.6L267.7 136.8L270.1 140.2L272.5 143.6L274.9 146.9L277.2 150.2L279.5 153.6L281.8 157.1L284 160.4L286.2 163.8L288.4 167.2L290.6 170.7L292.8 174.3L295 177.8L297.1 181.3L299.2 184.8L301.3 188.3L303.4 191.9L305.4 195.6L307.4 199.1L309.4 202.6L311.4 206.1L313.4 209.7L315.3 213.4L317.3 217.1L319.3 220.8L321.2 224.4L323 228L324.9 231.6L326.8 235.2L328.7 238.9L330.5 242.7L332.4 246.4L334.3 250.3L336 253.9L337.8 257.5L339.5 261.2L341.3 264.9L341.8 266"/>
+      <path class="curve-2" d="M177.7 16L180.2 19.3L182.6 22.5L185 25.7L187.4 28.9L189.8 32.2L192.2 35.4L194.6 38.6L197 41.8L199.4 45.1L201.8 48.3L204.2 51.5L206.6 54.7L209 58L211.4 61.2L213.8 64.4L216.2 67.6L218.6 70.8L221 74.1L223.4 77.3L225.8 80.5L228.2 83.7L230.6 87L233 90.2L235.4 93.4L237.8 96.6L240.2 99.8L242.6 103.1L245 106.3L247.4 109.5L249.8 112.7L252.2 116L254.6 119.2L257 122.4L259.4 125.6L261.8 128.8L264.2 132.1L266.6 135.3L269 138.5L271.4 141.7L273.8 145L276.2 148.2L278.6 151.4L281 154.6L283.4 157.9L285.8 161.1L288.2 164.3L290.6 167.5L293 170.7L295.4 174L297.8 177.2L300.2 180.4L302.6 183.6L305 186.9L307.4 190.1L309.8 193.3L312.2 196.5L314.6 199.7L317 203L319.4 206.2L321.8 209.4L324.2 212.6L326.6 215.9L329 219.1L331.4 222.3L333.8 225.5L336.2 228.7L338.6 232L341 235.2L343.4 238.4L345.8 241.6L348.2 244.9L350.6 248.1L353 251.3L355.4 254.5L357.8 257.8L360 260.7"/>
+      <circle class="dot" cx="265.7" cy="134.1" r="4.2"/>
+      <text class="label-key" x="255.7" y="139.1" style="text-anchor:end">(2, −8)</text>
+      <text class="label-key" x="261.8" y="94.1">slope −10</text>
+      <text class="label-soft" x="33.9" y="37.1">y = 2x − 3x</text>
+      <text class="label-soft sup" x="91.9" y="31.1">2</text>
+    </svg>
+    <figcaption>The tangent line touches the parabola at \((2, -8)\) and has the same slope there as the curve, \(f'(2) = -10\).</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Y value, slope, x value</p>
+    <p>In \(y - (-8) = -10(x - 2)\), the \(-8\) is the \(y\) value of the point, the \(-10\) is the slope, and the 2 is the \(x\) value. Plug \(x = 2\) into \(f\) for the point and into \(f'\) for the slope, not the other way around.</p>
+  </div>
+</section>
+
+<section id="nonexistence">
+  <h2><span class="marker">Graphs</span>When the derivative does not exist</h2>
+
+  <p>Recall that</p>
+  \[f'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\]
+  <p>provided this limit exists. But when does it exist?</p>
+
+  <div class="card">
+    <p class="card-label">Three situations when \(f'(x)\) does not exist</p>
+    <ul class="keys">
+      <li>\(f\) is <strong>not continuous</strong> at \(x\). This includes not being defined there.</li>
+      <li>The graph of \(f\) has a <strong>corner</strong> at \(x\).</li>
+      <li>The graph of \(f\) has a <strong>vertical tangent line</strong> at \(x\). A vertical line has no slope: its slope is undefined.</li>
+    </ul>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 474 160" role="img" aria-label="Three sketches. First, a graph that jumps: the left piece ends at a filled dot and the right piece starts higher at an open circle. Second, a graph with a corner, a sharp V-shaped point. Third, a graph that turns vertical at one point, with the vertical tangent line dashed">
+      <path class="curve" d="M14 115.7L17.8 114.3L21.5 112.9L25.3 111.5L29.1 110.1L32.9 108.7L36.6 107.3L40.4 105.9L44.2 104.5L47.9 103.1L51.7 101.7L55.5 100.3L59.2 98.9L63 97.5L66.8 96.1L70.5 94.8L74.3 93.4L78.1 92L79 91.6"/>
+      <path class="curve" d="M79 45.2L83 44.6L86.9 44L90.9 43.3L94.9 42.7L98.8 42.1L102.8 41.4L106.8 40.8L110.7 40.2L114.7 39.6L118.6 38.9L122.6 38.3L126.6 37.7L130.5 37L134.5 36.4L138.5 35.8L142.4 35.2L144 34.9"/>
+      <path class="helper" d="M79 91.6L79 45.2"/>
+      <circle class="dot" cx="79" cy="91.6" r="4.2"/>
+      <circle class="hole" cx="79" cy="45.2" r="4.2"/>
+      <text class="label" x="79" y="148" style="text-anchor:middle">1. not continuous</text>
+      <path class="curve" d="M172 57.2L175.4 59.4L178.8 61.6L182.1 63.8L185.4 66.1L188.8 68.4L192.1 70.6L195.4 73L198.7 75.3L201.9 77.7L205.2 80.1L208.4 82.5L211.6 84.9L214.8 87.4L217.9 89.8L221.1 92.3L224.3 94.9L227.4 97.4L230.5 99.9L233.6 102.5L236.7 105.1L240.3 103.4L243.8 101.3L247.1 99.1L250.5 96.9L253.9 94.6L257.1 92.3L260.4 90L263.6 87.6L266.9 85.1L270 82.6L273.1 80.1L276.3 77.5L279.3 74.9L282.4 72.3L285.4 69.6L288.4 66.9L291.3 64.2L294.3 61.4L297.2 58.6L300.1 55.8L302 53.8"/>
+      <circle class="dot" cx="237" cy="105.4" r="4.2"/>
+      <text class="label" x="237" y="148" style="text-anchor:middle">2. corner</text>
+      <path class="curve" d="M330 25.5L333.9 26.5L337.8 27.4L341.7 28.4L345.6 29.5L349.5 30.6L353.3 31.8L357.1 33L360.9 34.3L364.7 35.7L368.4 37.3L372.1 38.9L375.7 40.7L379.2 42.6L382.6 44.8L385.8 47.3L388.7 50.1L391.1 53.3L393.1 56.9L394.3 60.8L394.9 65.3L395 71L395.1 76L395.5 80.1L396.5 84L398.2 87.7L400.5 91L403.3 93.9L406.4 96.5L409.7 98.7L413.2 100.8L416.8 102.6L420.4 104.3L424.2 105.8L427.9 107.3L431.7 108.6L435.6 109.9L439.4 111.1L443.3 112.2L447.1 113.3L451 114.3L454.9 115.3L458.8 116.2L460 116.5"/>
+      <path class="helper" d="M395 16L395 126"/>
+      <circle class="dot" cx="395" cy="71" r="4.2"/>
+      <text class="label" x="395" y="148" style="text-anchor:middle">3. vertical tangent</text>
+    </svg>
+    <figcaption>Three ways a derivative can fail to exist: a break in the graph, a sharp corner, and a tangent line that is vertical.</figcaption>
+  </figure>
+
+  <div class="problem">
+    <p><strong>A.</strong> Find all numbers \(x\) such that \(f'(x)\) does not exist, based on the graph below. State the reasons.</p>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 452 250" role="img" aria-label="Graph for problem A. A curve rises from the lower left to an open circle at x equals negative 1, height about 2.4. A second piece starts at an open circle at x equals negative 1, height about negative 2.9, rises to a smooth peak near x equals 1, and comes down to touch the x-axis at x equals 2 in a sharp point, then rises again to the right">
+      <path class="axis" d="M73.9 117.7V125.7"/>
+      <path class="axis" d="M122.2 117.7V125.7"/>
+      <path class="axis" d="M170.5 117.7V125.7"/>
+      <path class="axis" d="M267 117.7V125.7"/>
+      <path class="axis" d="M315.3 117.7V125.7"/>
+      <path class="axis" d="M363.6 117.7V125.7"/>
+      <path class="axis" d="M214.8 188.5H222.8"/>
+      <path class="axis" d="M214.8 155.1H222.8"/>
+      <path class="axis" d="M214.8 88.2H222.8"/>
+      <path class="axis" d="M214.8 54.8H222.8"/>
+      <path class="axis" d="M16 121.7H436"/>
+      <path class="mark" d="M440 121.7l-8 -4.5v9z"/>
+      <path class="axis" d="M218.8 232V18"/>
+      <path class="mark" d="M218.8 14l-4.5 8h9z"/>
+      <text class="label" x="438" y="139.7" style="text-anchor:end">x</text>
+      <text class="label" x="227.8" y="26">y</text>
+      <text class="label-soft" x="122.2" y="139.7" style="text-anchor:middle">−2</text>
+      <text class="label-soft" x="315.3" y="139.7" style="text-anchor:middle">2</text>
+      <path class="curve" d="M16 190.5L19.2 188.1L22.4 185.6L25.6 183.1L28.7 180.5L31.7 177.8L34.7 175.1L37.6 172.3L40.5 169.5L43.4 166.6L46.2 163.7L49 160.9L51.8 157.9L54.5 155L57.2 152L60 149L62.7 145.9L65.3 142.9L68 139.8L70.6 136.8L73.3 133.8L75.9 130.7L78.5 127.6L81.1 124.5L83.8 121.4L86.4 118.4L89 115.3L91.6 112.2L94.3 109.1L96.9 106.1L99.5 103.1L102.2 100L104.9 97L107.6 94L110.3 90.9L113 88L115.7 85L118.5 82.1L121.3 79.2L124.1 76.3L127 73.5L129.9 70.7L132.8 67.9L135.8 65.2L138.9 62.5L142 59.9L145.1 57.4L148.3 54.9L151.5 52.5L154.8 50.3L158.2 48.1L161.7 46L165.2 44L168.8 42.2L170.5 41.4"/>
+      <path class="curve" d="M170.5 217.6L171.8 213.7L173.1 209.9L174.4 206L175.8 202.1L177.1 198.3L178.5 194.4L179.9 190.6L181.4 186.8L182.8 183L184.3 179.2L185.8 175.4L187.3 171.7L188.8 168L190.4 164.2L192 160.5L193.7 156.7L195.3 153.1L197 149.4L198.7 145.7L200.5 142.1L202.3 138.4L204.2 134.8L206.1 131.3L208 127.8L210 124.3L212 120.8L214.2 117.3L216.3 113.9L218.6 110.6L220.9 107.3L223.3 104.1L225.9 101L228.5 97.9L231.2 94.9L234.1 92.1L237.1 89.4L240.2 86.9L243.5 84.6L247 82.6L250.6 80.8L254.4 79.5L258.3 78.6L262.3 78.2L266.3 78.3L270.3 78.9L274.1 80L277.8 81.6L281.4 83.4L284.8 85.6L288 88L291.1 90.6L294.1 93.4L296.9 96.3L299.6 99.3L302.1 102.4L304.6 105.6L307 108.8L309.3 112.1L311.5 115.5L313.7 119L315.3 121.7"/>
+      <path class="curve" d="M315.3 121.7L318 118.7L320.8 115.7L323.5 112.8L326.3 109.9L329.1 107L332 104.2L334.9 101.4L337.8 98.6L340.7 95.8L343.7 93.1L346.7 90.4L349.7 87.8L352.8 85.2L355.9 82.6L359 80L362.2 77.6L365.4 75.2L368.6 72.8L371.9 70.5L375.2 68.2L378.5 66L381.9 63.8L385.3 61.7L388.7 59.6L392.2 57.6L395.8 55.7L399.3 53.9L403 52.1L406.6 50.4L410.3 48.7L414 47.2L417.8 45.7L421.6 44.4L423.9 43.6"/>
+      <circle class="hole" cx="170.5" cy="41.4" r="4.2"/>
+      <circle class="hole" cx="170.5" cy="217.6" r="4.2"/>
+    </svg>
+    <figcaption>Graph for problem A. Open circles are points the graph approaches but does not include.</figcaption>
+  </figure>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">x = &minus;1</span><span class="work">a jump: \(f\) is not continuous here. Both pieces end in open circles, so \(f(-1)\) is not even defined.</span></li>
+        <li><span class="step">x = 2</span><span class="work">a corner: the graph comes down to \((2, 0)\) and leaves going up, with a sharp point in between</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = &minus;1 and x = 2</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>B.</strong> Find all numbers \(x\) such that \(f'(x)\) does not exist, based on the graph below. State the reasons.</p>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 452 250" role="img" aria-label="Graph for problem B. A curve falls from the upper left and turns vertical as it crosses the x-axis at x equals negative 1, continues down to a smooth minimum just right of the y-axis, rises through the x-axis near x equals 2.5 to a sharp peak at x equals 4, and falls again to the right">
+      <path class="axis" d="M64.1 126.5V134.5"/>
+      <path class="axis" d="M107.9 126.5V134.5"/>
+      <path class="axis" d="M151.6 126.5V134.5"/>
+      <path class="axis" d="M239.1 126.5V134.5"/>
+      <path class="axis" d="M282.9 126.5V134.5"/>
+      <path class="axis" d="M326.6 126.5V134.5"/>
+      <path class="axis" d="M370.4 126.5V134.5"/>
+      <path class="axis" d="M16 130.5H436"/>
+      <path class="mark" d="M440 130.5l-8 -4.5v9z"/>
+      <path class="axis" d="M195.4 232V18"/>
+      <path class="mark" d="M195.4 14l-4.5 8h9z"/>
+      <text class="label" x="438" y="148.5" style="text-anchor:end">x</text>
+      <text class="label" x="204.4" y="26">y</text>
+      <text class="label-soft" x="107.9" y="148.5" style="text-anchor:middle">−2</text>
+      <text class="label-soft" x="282.9" y="148.5" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="370.4" y="148.5" style="text-anchor:middle">4</text>
+      <path class="curve" d="M20.4 29.1L24.3 30.1L28.3 31.2L32.3 32.2L36.2 33.3L40.2 34.5L44.1 35.6L48.1 36.8L51.9 38L55.7 39.2L59.6 40.4L63.4 41.7L67.2 43L71.1 44.3L74.9 45.7L78.7 47.1L82.5 48.6L86.4 50.2L90.1 51.7L93.8 53.3L97.5 55L101.1 56.7L104.8 58.6L108.4 60.5L112 62.4L115.5 64.5L119 66.7L122.4 69L125.7 71.4L128.9 73.9L131.9 76.6L134.8 79.4L137.6 82.3L140.2 85.6L142.6 88.9L144.7 92.4L146.5 96.2L148.1 100.2L149.3 104.1L150.2 108.2L150.9 112.6L151.3 116.7L151.6 122.5L151.7 141.5L151.8 146.3L152.1 151.4L152.5 156.1L153 160.5L153.7 164.7L154.6 169.2L155.7 173.3L157 177.5L158.4 181.3L160.1 185.1L162 188.7L164.1 192.2L166.5 195.6L169 198.7L171.8 201.8L174.8 204.6L178 207.2L181.3 209.5L184.8 211.6L188.5 213.4L192.3 214.9L196.2 216.1L200.1 217L204.1 217.6L208.2 217.9L212.3 217.9L216.4 217.5L220.3 216.6L224.2 215.4L228 213.9L231.7 212L235.2 209.9L238.7 207.6L242 205.2L245.1 202.6L248.2 200L251.2 197.2L254.1 194.4L257 191.4L259.8 188.5L262.6 185.4L265.2 182.3L267.8 179.2L270.5 175.9L273 172.8L275.5 169.6L278 166.2L280.5 162.9L282.9 159.6L285.3 156.3L287.6 153L290 149.6L292.4 146.1L294.8 142.7L297 139.3L299.2 136L301.5 132.6L303.7 129.2L306 125.8L308.2 122.4L310.5 119L312.7 115.5L315 112.1L317.2 108.6L319.4 105.2L321.7 101.7L323.9 98.3L326.2 94.9L328.4 91.4L330.7 88L332.9 84.6L335.1 81.3L337.4 77.9L339.6 74.6L342 71.1L344.4 67.7L346.8 64.3L349.1 61L351.5 57.7L353.9 54.4L356.4 51L358.9 47.7L361.4 44.5L363.9 41.4L366.6 38.1L369.2 35L373 36.4L375.9 39.4L378.8 42.2L381.9 45.1L384.9 47.8L387.9 50.4L391.1 53L394.3 55.5L397.6 57.9L400.9 60.2L404.3 62.4L407.7 64.5L411.3 66.5L414.9 68.3L416.3 69"/>
+    </svg>
+    <figcaption>Graph for problem B.</figcaption>
+  </figure>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">x = &minus;1</span><span class="work">a vertical tangent line: the graph turns straight down as it crosses the \(x\)-axis</span></li>
+        <li><span class="step">x = 4</span><span class="work">a corner: the peak is a sharp point</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = &minus;1 and x = 4</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>C.</strong> Find all numbers \(x\) such that \(f'(x)\) does not exist, based on the graph below. State the reasons.</p>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 452 250" role="img" aria-label="Graph for problem C. On the left of the y-axis, a curve falls from the upper left, crosses the x-axis near negative 0.6 and plunges downward along the y-axis. On the right of the y-axis, a curve comes up from far below, crosses the x-axis at 1, rises to a sharp peak at x equals 3, then falls, crossing the x-axis at 5 and plunging downward near x equals 6">
+      <path class="axis" d="M70.4 125.5V133.5"/>
+      <path class="axis" d="M169.2 125.5V133.5"/>
+      <path class="axis" d="M218.6 125.5V133.5"/>
+      <path class="axis" d="M268 125.5V133.5"/>
+      <path class="axis" d="M317.4 125.5V133.5"/>
+      <path class="axis" d="M366.8 125.5V133.5"/>
+      <path class="axis" d="M16 129.5H436"/>
+      <path class="mark" d="M440 129.5l-8 -4.5v9z"/>
+      <path class="axis" d="M119.8 232V18"/>
+      <path class="mark" d="M119.8 14l-4.5 8h9z"/>
+      <text class="label" x="438" y="147.5" style="text-anchor:end">x</text>
+      <text class="label" x="128.8" y="26">y</text>
+      <text class="label-soft" x="218.6" y="147.5" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="317.4" y="147.5" style="text-anchor:middle">4</text>
+      <path class="curve" d="M20.9 33.5L24 36L27.1 38.6L30.1 41.2L33.1 43.9L36 46.7L38.9 49.5L41.7 52.3L44.5 55.2L47.3 58.1L49.9 61.1L52.5 64.2L55.1 67.3L57.6 70.4L60 73.6L62.4 76.8L64.7 80.1L67 83.5L69.2 86.8L71.3 90.3L73.3 93.7L75.3 97.2L77.3 100.8L79.1 104.3L80.9 107.9L82.6 111.6L84.3 115.2L85.9 118.9L87.4 122.6L88.9 126.4L90.3 130.1L91.7 133.9L93 137.7L94.3 141.5L95.5 145.4L96.6 149.3L97.7 153.1L98.8 157.1L99.8 161L100.7 164.9L101.7 168.8L102.5 172.8L103.4 176.8L104.2 180.7L104.9 184.7L105.6 188.7L106.3 192.7L107 196.7L107.6 200.7L108.2 204.7L108.8 208.7L109.3 212.7L109.8 216.7L110.3 220.8L110.8 224.8L111.2 228.8L111.6 232"/>
+      <path class="curve" d="M123.5 232L124 227.8L124.5 223.8L125 219.8L125.6 215.7L126.3 211.7L127.1 207.8L127.9 203.8L128.8 199.9L129.8 196L130.9 192.1L132 188.2L133.3 184.4L134.7 180.6L136.2 176.9L137.9 173.2L139.6 169.6L141.5 166L143.4 162.5L145.5 159.1L147.7 155.7L149.9 152.3L152.3 149.1L154.7 145.9L157.2 142.8L159.8 139.7L162.5 136.7L165.2 133.7L168 130.8L170.8 127.9L173.6 125L176.5 122.2L179.4 119.5L182.4 116.7L185.3 114L188.3 111.4L191.3 108.7L194.3 106.1L197.4 103.4L200.4 100.8L203.5 98.2L206.5 95.6L209.6 93L212.7 90.5L215.8 87.9L218.8 85.3L221.9 82.7L225 80.1L228.1 77.5L231.2 74.9L234.3 72.4L237.3 69.8L240.4 67.2L243.4 64.6L246.5 62L249.5 59.4L252.6 56.7L255.6 54.1L258.7 51.5L261.7 48.8L264.7 46.2L267.7 43.5L268 43.2"/>
+      <path class="curve" d="M268 43.2L270.9 46L273.9 48.7L276.9 51.4L279.8 54.1L282.8 56.8L285.8 59.4L288.8 62.1L291.8 64.8L294.9 67.4L297.9 70L301 72.7L304 75.3L307.1 77.9L310.1 80.5L313.2 83.1L316.3 85.6L319.4 88.2L322.5 90.8L325.6 93.4L328.6 96L331.7 98.5L334.8 101.1L337.9 103.7L341 106.3L344 108.9L347.1 111.5L350.1 114.1L353.1 116.8L356.1 119.5L359.1 122.2L362 124.9L364.9 127.7L367.8 130.5L370.6 133.3L373.4 136.2L376.1 139.1L378.8 142.2L381.4 145.3L383.9 148.4L386.3 151.6L388.6 154.9L390.8 158.2L392.9 161.7L394.9 165.2L396.8 168.7L398.6 172.4L400.2 176L401.7 179.7L403.1 183.5L404.4 187.4L405.6 191.3L406.7 195.1L407.6 199L408.5 203L409.3 206.9L410 210.9L410.7 214.8L411.2 218.9L411.8 222.9L412.2 226.9L412.7 230.9L412.8 232"/>
+    </svg>
+    <figcaption>Graph for problem C.</figcaption>
+  </figure>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">x = 0</span><span class="work">not continuous: both pieces plunge downward along the \(y\)-axis, a vertical asymptote, and \(f(0)\) is not defined</span></li>
+        <li><span class="step">x = 3</span><span class="work">a corner: the peak is a sharp point</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 0 and x = 3</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Smooth turning points are fine</p>
+    <p>The top of the hump in graph A, near \(x = 1\), and the bottom of graph B, just right of the \(y\)-axis, are smooth. The tangent line there is horizontal, so the derivative is 0, and 0 is a perfectly good value. Only breaks, sharp points, and vertical tangents make the derivative fail to exist.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before Friday</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Wednesday by the end of the day.</li>
+    <li><strong>Finish the 9.2 and 9.3 WeBWorK sets by tomorrow night.</strong></li>
+    <li>Quiz 5 is in recitation tomorrow, on the topics of weeks 5&ndash;6.</li>
+    <li>Redo Example 2 with the solution hidden. Write out \(f(x+h)\) in full before simplifying anything.</li>
+    <li>For the tangent line, say out loud which formula gives the point and which gives the slope.</li>
+    <li>For graphs A, B, and C, name the reason at each point before opening the solutions.</li>
+    <li><strong>Friday: 9.5, basic differentiation properties.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 9.4 &middot; October 7</p>
+</footer>
+
+</div>
+</body>
+</html>

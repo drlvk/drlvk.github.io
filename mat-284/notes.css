@@ -381,15 +381,16 @@ th{font-family:var(--f-label);font-weight:600;font-size:.86rem;background:var(--
   fill:var(--ink);
 }
 .fig .label-soft{font-family:var(--f-label);font-size:12px;fill:var(--ink-soft)}
-/* .sup and .sub — an exponent or a base in a figure label. Position each with
-   its own x/y just after the base text, above or below the baseline; SVG tspan
-   ordering is not worth the risk. */
-.fig .sup,
-.fig .sub{font-size:9px}
 .fig .label-key{font-family:var(--f-label);font-size:13px;font-weight:600;fill:var(--ledger)}
 /* .node and .node-key — text inside flowchart boxes; -key marks an outcome. */
 .fig .node{font-family:var(--f-label);font-size:12px;fill:var(--ink)}
 .fig .node-key{font-family:var(--f-label);font-size:12px;font-weight:600;fill:var(--ledger)}
+/* .sup and .sub — an exponent or a base in a figure label. Position each with
+   its own x/y just after the base text, above or below the baseline; SVG tspan
+   ordering is not worth the risk. Keep this rule after every text class above:
+   it wins on source order, so a text class defined later would override it. */
+.fig .sup,
+.fig .sub{font-size:9px}
 
 
 /* ---------- 10. Footer, motion, print --------------------- */
