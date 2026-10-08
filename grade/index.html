@@ -1,36 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>MAT 284 Grade Calculator</title>
-  </head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Grade calculator</title>
 
-  <body>
-    <div class="container">
-      <h1>MAT 284 Fall 2025 Grade Calculator<br>(enter the % scores from Blackboard)</h1>
-      <forn class="input">
-        <input type="text" name="Homework" placeholder="Homework Average" id="homework" />
-        <input type="text" name="Quiz" placeholder="Quiz Average" id="quiz" />
-        <input type="text" name="Participation" placeholder="Participation Rate" id="participation" />
-        <input type="text" name="Exam1" placeholder="Exam 1" id="exam1" />
-        <input type="text" name="Exam2" placeholder="Exam 2" id="exam2" />
-        <input type="text" name="Exam3" placeholder="Exam 3" id="exam3" />
-        <input type="text" name="Exam4" placeholder="Exam 4" id="exam4" />
-        <input type="text" name="FinalExam" placeholder="Final Exam" id="finalexam" />
-        <button type="submit" class="btn">Result</button>
-      </forn>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-      <div class="result">
-        <!-- <div class="output">
-            <p> Final Grade: </p>
-        </div> -->
-      </div>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; <span id="term">Fall 2026</span></p>
+  <h1>Grade calculator</h1>
+  <p class="standfirst">Enter your percentage scores from Blackboard. Leave a box empty if that grade doesn&rsquo;t exist yet: the calculator works with whatever you&rsquo;ve entered.</p>
+</header>
+
+<main class="layout">
+
+  <!-- The fieldsets are built by script.js from the COURSE settings at the top
+       of that file. Change weights, dates, and the letter scale there. -->
+  <form id="calc" class="calc" novalidate autocomplete="off">
+    <noscript><p class="warn">This calculator needs JavaScript. Turn it on and reload the page.</p></noscript>
+    <div id="fields"></div>
+    <div class="actions">
+      <button type="reset" class="btn">Clear all</button>
+      <p class="saved" id="saved" hidden>Your entries are saved in this browser only.</p>
     </div>
+  </form>
 
-    <script src="./script.js"></script>
-  </body>
+  <aside class="result" id="result" aria-labelledby="result-label">
+    <div aria-live="polite">
+      <p class="card-label" id="result-label">Your grade</p>
+      <p class="score"><span class="pct" id="pct">&mdash;</span><span class="letter" id="letter"></span></p>
+      <p class="basis" id="basis">Enter at least one score to see your grade.</p>
+    </div>
+    <div class="bar" aria-hidden="true"><span id="bar-fill"></span></div>
+    <div id="needs"></div>
+  </aside>
+
+</main>
+
+<!-- On phones the result panel sits below the form, so this strip keeps the
+     grade in view while typing. Visual only: the panel above is the live
+     region screen readers hear. -->
+<div class="peek" id="peek" aria-hidden="true">
+  <span class="peek-label" id="peek-label">Grade so far</span>
+  <span class="peek-score"><span id="peek-pct"></span><span class="peek-letter" id="peek-letter"></span></span>
+</div>
+
+<section class="about" aria-label="How the grade is computed">
+  <details>
+    <summary>Letter grade scale</summary>
+    <div id="scale"></div>
+  </details>
+  <details>
+    <summary>How the calculator works</summary>
+    <div class="about-body">
+      <p>Each score is multiplied by its weight from the syllabus, and the results are added up. When some boxes are empty, the total is divided by the weight of the boxes you did fill in, so the grade so far is on the same 0&ndash;100 scale as the final one.</p>
+      <p>The table of averages needed assumes the averages you entered stay where they are. It tells you what you would need, on average, across everything that is still empty.</p>
+      <p>The homework average can be above 100%: correct answers submitted before the first target date in WeBWorK count as 153% on Blackboard.</p>
+      <p>The syllabus drops the lowest quiz, the two lowest WeBWorK sets, the three lowest Concept Checks, and the five lowest polls. Your Blackboard averages may not include all of these drops yet, so the final numbers can come out a little higher.</p>
+      <p>This is an estimate for planning. Your official grade is the one in Blackboard.</p>
+    </div>
+  </details>
+</section>
+
+<footer>
+  <p>MAT 284 &middot; Grade calculator &middot; weights from the <span id="term-foot">Fall 2026</span> syllabus</p>
+</footer>
+
+</div>
+</body>
 </html>
-

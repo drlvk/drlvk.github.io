@@ -1,64 +1,325 @@
-* {
-  margin: 0;
-  padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+/* ============================================================
+   MAT 284 grade calculator — stylesheet
+   Same palette and type as notes.css, so the calculator reads as
+   part of the same site. Kept separate so the two can change
+   independently.
+   ============================================================ */
+
+
+/* ---------- 1. Tokens ------------------------------------- */
+
+:root{
+  /* Every text color clears WCAG AAA (7:1) against both --paper and
+     --sheet, in light and dark mode. Input borders use --ink-soft,
+     which is well above the 3:1 needed for form controls. */
+  --paper:#eef1ed;
+  --sheet:#ffffff;
+  --ink:#0a1620;
+  --ink-soft:#3a4a52;
+  --pen-red:#8f1a12;
+  --ledger:#0a3d2a;
+  --rule:#b0bfb1;
+  --rule-soft:#d0dad1;
+
+  --f-body:"Source Serif 4",Charter,Georgia,"Times New Roman",serif;
+  --f-label:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-num:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 
-body {
-  min-width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#101815;
+    --sheet:#18211c;
+    --ink:#f0f5ef;
+    --ink-soft:#bccbbe;
+    --pen-red:#ff9d92;
+    --ledger:#8ee5b6;
+    --rule:#3a4a40;
+    --rule-soft:#2a352e;
+  }
 }
 
-.container {
-  width: 80%;
-  max-width: 600px;
-  /* height: 50%; */
-  padding: 1em;
-  background-color: #cccccc;
-  border-top: 1px solid #fcf8ff;
-  border-left: 1px solid #fcf8ff;
-  box-shadow: 20px 20px 50px #07000cfd;
-  color: #000000;
-  border-radius: 1rem;
-  text-align: center;
+
+/* ---------- 2. Base --------------------------------------- */
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:clamp(1rem,0.97rem + 0.2vw,1.09rem);
+  line-height:1.55;
 }
-.container h1 {
-  font-size: 1.5rem;
-  font-weight: normal;
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.15rem 4rem}
+p{margin:0 0 1rem}
+a{color:var(--pen-red)}
+:focus-visible{outline:3px solid var(--pen-red);outline-offset:2px}
+[hidden]{display:none !important}
+
+
+/* ---------- 3. Masthead ----------------------------------- */
+
+.masthead{
+  border-bottom:2px solid var(--ink);
+  padding:2.6rem 0 1.1rem;
+  margin-bottom:1.8rem;
+}
+.eyebrow{
+  font-family:var(--f-label);
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:.74rem;
+  color:var(--pen-red);
+  margin:0 0 .5rem;
+}
+h1{
+  font-family:var(--f-label);
+  font-weight:700;
+  font-size:clamp(1.65rem,1.25rem + 1.9vw,2.5rem);
+  line-height:1.1;
+  margin:0 0 .55rem;
+}
+.standfirst{margin:0;color:var(--ink-soft);max-width:36rem}
+
+
+/* ---------- 4. Layout ------------------------------------- */
+
+.layout{display:grid;gap:1.6rem;align-items:start}
+@media (min-width:52rem){
+  .layout{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:2.2rem}
+  .result{position:sticky;top:1.25rem}
 }
 
-.input {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+
+/* ---------- 5. The form ----------------------------------- */
+
+.group{
+  margin:0 0 1.3rem;
+  padding:0 1.15rem .2rem;
+  background:var(--sheet);
+  border:1px solid var(--rule);
+  border-radius:3px;
+}
+/* A floated legend sits inside the box instead of on its border. */
+.group legend{
+  float:left;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:1rem;
+  padding:.9rem 0 .55rem;
+  border-bottom:2px solid var(--ink);
+  font-family:var(--f-label);
+  font-weight:700;
+  font-size:.8rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.group legend + *{clear:both}
+.group-weight{font-family:var(--f-num);font-weight:600;letter-spacing:0;text-transform:none;font-size:.82rem;color:var(--ink-soft)}
+
+.row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  column-gap:1rem;
+  align-items:center;
+  padding:.8rem 0;
+  border-bottom:1px solid var(--rule-soft);
+}
+.row:last-child{border-bottom:0}
+.row label{cursor:pointer}
+.name{display:block;font-family:var(--f-label);font-weight:600;font-size:1.05rem;line-height:1.25}
+.note{display:block;font-family:var(--f-label);font-size:.86rem;color:var(--ink-soft);line-height:1.35;margin-top:.15rem}
+.weight{font-weight:600}
+
+.box{position:relative;display:block}
+.box input{
+  width:7.2rem;
+  font-family:var(--f-num);
+  font-size:1.08rem;
+  text-align:right;
+  color:var(--ink);
+  background:var(--sheet);
+  border:2px solid var(--ink-soft);
+  border-radius:4px;
+  padding:.5rem 1.8rem .5rem .6rem;
+  margin:0;
+}
+.box input:hover{border-color:var(--ink)}
+.box input:focus-visible{border-color:var(--ink);outline:3px solid var(--pen-red);outline-offset:2px}
+.unit{
+  position:absolute;
+  right:.65rem;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:var(--f-num);
+  color:var(--ink-soft);
+  pointer-events:none;
 }
 
-.input input,
-button {
-  font-size: 1rem;
-  margin: 0.5rem;
-  padding: 0.3rem;
-  padding-left: 1rem;
-  border: none;
-  outline: none;
-  background-color: #ffffff;
-  border-radius: 0.5rem;
+.err{grid-column:1 / -1;margin:.45rem 0 0;font-family:var(--f-label);font-weight:600;font-size:.88rem;color:var(--pen-red)}
+.err:empty{display:none}
+.has-error .box input{border-color:var(--pen-red);border-width:3px;padding:.44rem 1.74rem .44rem .54rem}
+
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.1rem}
+.btn{
+  font-family:var(--f-label);
+  font-weight:600;
+  font-size:.98rem;
+  color:var(--ink);
+  background:var(--sheet);
+  border:2px solid var(--ink);
+  border-radius:4px;
+  padding:.5rem 1.15rem;
+  cursor:pointer;
+}
+.btn:hover{background:var(--ink);color:var(--sheet)}
+.saved{margin:0;font-family:var(--f-label);font-size:.86rem;color:var(--ink-soft)}
+
+.warn{
+  margin:0 0 1.2rem;
+  padding:.75rem 1rem;
+  background:var(--sheet);
+  border:2px solid var(--pen-red);
+  border-radius:3px;
+  color:var(--pen-red);
+  font-family:var(--f-label);
+  font-weight:600;
 }
 
-button {
-  padding: 0.5rem 1rem;
+
+/* ---------- 6. The result --------------------------------- */
+
+.result{
+  background:var(--sheet);
+  border:1px solid var(--rule);
+  border-top:5px solid var(--ledger);
+  border-radius:3px;
+  padding:1.05rem 1.25rem 1.2rem;
+}
+.card-label{
+  font-family:var(--f-label);
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:.74rem;
+  color:var(--pen-red);
+  margin:0 0 .35rem;
+}
+.score{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .9rem;margin:0 0 .3rem}
+.pct{
+  font-family:var(--f-num);
+  font-weight:600;
+  font-size:clamp(2.3rem,1.8rem + 2vw,3rem);
+  line-height:1.1;
+  color:var(--ledger);
+  font-variant-numeric:tabular-nums;
+}
+.letter{
+  font-family:var(--f-label);
+  font-weight:700;
+  font-size:1.9rem;
+  line-height:1;
+  color:var(--ink);
+  border:2px solid var(--ink);
+  border-radius:4px;
+  padding:.18rem .55rem .22rem;
+  min-width:3.2rem;
+  text-align:center;
+}
+.letter:empty{display:none}
+.basis{font-family:var(--f-label);font-size:.95rem;color:var(--ink-soft);margin:0 0 .75rem}
+
+/* How much of the course is entered. Decorative: the sentence above
+   carries the same number for screen readers. */
+.bar{height:.7rem;border:1px solid var(--ink-soft);border-radius:4px;overflow:hidden;background:var(--paper);margin:0 0 1.3rem}
+.bar span{display:block;height:100%;width:0;background:var(--ledger);transition:width .25s ease}
+
+.needs{width:100%;border-collapse:collapse;font-size:.98rem}
+.needs caption{text-align:left;font-family:var(--f-label);font-weight:700;font-size:1.02rem;margin-bottom:.35rem}
+.needs th,.needs td{padding:.36rem .15rem;border-bottom:1px solid var(--rule-soft);vertical-align:baseline}
+.needs thead th{
+  font-family:var(--f-label);
+  font-weight:600;
+  font-size:.82rem;
+  color:var(--ink-soft);
+  text-align:left;
+  border-bottom:2px solid var(--ink);
+}
+.needs thead th:last-child{text-align:right}
+.needs tbody th{font-family:var(--f-label);font-weight:700;text-align:left;width:3.5rem}
+.needs td{font-family:var(--f-num);text-align:right;font-variant-numeric:tabular-nums}
+.needs .is-secured td{font-family:var(--f-label);font-weight:700;color:var(--ledger)}
+.needs .is-out th,.needs .is-out td{color:var(--ink-soft);font-family:var(--f-label)}
+.fine{font-family:var(--f-label);font-size:.86rem;color:var(--ink-soft);margin:.7rem 0 0}
+
+/* Phone strip: the grade, pinned to the bottom while the panel is off
+   screen. Inverted colors, so it stays high contrast in both modes. */
+.peek{display:none}
+@media (max-width:51.99rem){
+  .peek.is-on{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+    position:fixed;
+    left:0;right:0;bottom:0;
+    z-index:10;
+    padding:.6rem 1.15rem calc(.6rem + env(safe-area-inset-bottom));
+    background:var(--ink);
+    color:var(--sheet);
+    border-top:4px solid var(--ledger);
+    font-family:var(--f-label);
+  }
+  .wrap{padding-bottom:6rem}
+}
+.peek-label{font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.peek-score{display:flex;align-items:center;gap:.7rem;font-family:var(--f-num);font-weight:600;font-size:1.35rem}
+.peek-letter{font-family:var(--f-label);font-weight:700;font-size:1.15rem;border:2px solid var(--sheet);border-radius:4px;padding:.05rem .45rem;min-width:2.6rem;text-align:center}
+
+
+/* ---------- 7. Details below ------------------------------ */
+
+.about{margin:2.6rem 0 0}
+.about details{border-top:1px solid var(--rule);padding:.85rem 0}
+.about details:last-child{border-bottom:1px solid var(--rule)}
+.about summary{font-family:var(--f-label);font-weight:600;font-size:1.05rem;cursor:pointer}
+.about summary:hover{color:var(--pen-red)}
+.about-body{max-width:40rem;margin-top:.8rem}
+.about-body p:last-child{margin-bottom:0}
+
+.scale{border-collapse:collapse;margin-top:.8rem;background:var(--sheet);border:1px solid var(--rule)}
+.scale th,.scale td{padding:.35rem 1rem;border-bottom:1px solid var(--rule-soft);text-align:left}
+.scale thead th{font-family:var(--f-label);font-weight:600;font-size:.82rem;color:var(--ink-soft);border-bottom:2px solid var(--ink)}
+.scale tbody th{font-family:var(--f-label);font-weight:700;min-width:3.5rem}
+.scale td{font-family:var(--f-num);font-size:.95rem}
+
+
+/* ---------- 8. Footer, motion, print ---------------------- */
+
+footer{
+  margin-top:2.4rem;
+  padding-top:.8rem;
+  border-top:2px solid var(--ink);
+  font-family:var(--f-label);
+  font-size:.84rem;
+  color:var(--ink-soft);
+}
+footer p{margin:0}
+
+@media (prefers-reduced-motion: reduce){
+  .bar span{transition:none}
 }
 
-button:hover {
-  background-color: #934fca;
-  cursor: pointer;
-}
-
-.output p {
-  font-size: 2rem;
-  margin: 0.5rem;
+@media print{
+  body{background:#fff;color:#000}
+  .actions,.bar,.peek{display:none !important}
+  .result{position:static;border-color:#666}
+  .about details{border-color:#666}
 }
