@@ -234,12 +234,7 @@ h1{
   text-align:center;
 }
 .letter:empty{display:none}
-.basis{font-family:var(--f-label);font-size:.95rem;color:var(--ink-soft);margin:0 0 .75rem}
-
-/* How much of the course is entered. Decorative: the sentence above
-   carries the same number for screen readers. */
-.bar{height:.7rem;border:1px solid var(--ink-soft);border-radius:4px;overflow:hidden;background:var(--paper);margin:0}
-.bar span{display:block;height:100%;width:0;background:var(--ledger);transition:width .25s ease}
+.basis{font-family:var(--f-label);font-size:.95rem;color:var(--ink-soft);margin:0}
 
 /* Phone strip: the grade, pinned to the bottom while the panel is off
    screen. Inverted colors, so it stays high contrast in both modes. */
@@ -293,13 +288,9 @@ footer{
 }
 footer p{margin:0}
 
-@media (prefers-reduced-motion: reduce){
-  .bar span{transition:none}
-}
-
 @media print{
   body{background:#fff;color:#000}
-  .actions,.bar,.peek{display:none !important}
+  .actions,.peek{display:none !important}
   .result{position:static;border-color:#666}
   .about details{border-color:#666}
 }
