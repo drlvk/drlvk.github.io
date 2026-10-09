@@ -238,26 +238,8 @@ h1{
 
 /* How much of the course is entered. Decorative: the sentence above
    carries the same number for screen readers. */
-.bar{height:.7rem;border:1px solid var(--ink-soft);border-radius:4px;overflow:hidden;background:var(--paper);margin:0 0 1.3rem}
+.bar{height:.7rem;border:1px solid var(--ink-soft);border-radius:4px;overflow:hidden;background:var(--paper);margin:0}
 .bar span{display:block;height:100%;width:0;background:var(--ledger);transition:width .25s ease}
-
-.needs{width:100%;border-collapse:collapse;font-size:.98rem}
-.needs caption{text-align:left;font-family:var(--f-label);font-weight:700;font-size:1.02rem;margin-bottom:.35rem}
-.needs th,.needs td{padding:.36rem .15rem;border-bottom:1px solid var(--rule-soft);vertical-align:baseline}
-.needs thead th{
-  font-family:var(--f-label);
-  font-weight:600;
-  font-size:.82rem;
-  color:var(--ink-soft);
-  text-align:left;
-  border-bottom:2px solid var(--ink);
-}
-.needs thead th:last-child{text-align:right}
-.needs tbody th{font-family:var(--f-label);font-weight:700;text-align:left;width:3.5rem}
-.needs td{font-family:var(--f-num);text-align:right;font-variant-numeric:tabular-nums}
-.needs .is-secured td{font-family:var(--f-label);font-weight:700;color:var(--ledger)}
-.needs .is-out th,.needs .is-out td{color:var(--ink-soft);font-family:var(--f-label)}
-.fine{font-family:var(--f-label);font-size:.86rem;color:var(--ink-soft);margin:.7rem 0 0}
 
 /* Phone strip: the grade, pinned to the bottom while the panel is off
    screen. Inverted colors, so it stays high contrast in both modes. */
@@ -291,8 +273,6 @@ h1{
 .about details:last-child{border-bottom:1px solid var(--rule)}
 .about summary{font-family:var(--f-label);font-weight:600;font-size:1.05rem;cursor:pointer}
 .about summary:hover{color:var(--pen-red)}
-.about-body{max-width:40rem;margin-top:.8rem}
-.about-body p:last-child{margin-bottom:0}
 
 .scale{border-collapse:collapse;margin-top:.8rem;background:var(--sheet);border:1px solid var(--rule)}
 .scale th,.scale td{padding:.35rem 1rem;border-bottom:1px solid var(--rule-soft);text-align:left}

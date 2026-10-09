@@ -42,7 +42,6 @@
       <p class="basis" id="basis">Enter at least one score to see your grade.</p>
     </div>
     <div class="bar" aria-hidden="true"><span id="bar-fill"></span></div>
-    <div id="needs"></div>
   </aside>
 
 </main>
@@ -55,20 +54,10 @@
   <span class="peek-score"><span id="peek-pct"></span><span class="peek-letter" id="peek-letter"></span></span>
 </div>
 
-<section class="about" aria-label="How the grade is computed">
+<section class="about" aria-label="Letter grade scale">
   <details>
     <summary>Letter grade scale</summary>
     <div id="scale"></div>
-  </details>
-  <details>
-    <summary>How the calculator works</summary>
-    <div class="about-body">
-      <p>Each score is multiplied by its weight from the syllabus, and the results are added up. When some boxes are empty, the total is divided by the weight of the boxes you did fill in, so the grade so far is on the same 0&ndash;100 scale as the final one.</p>
-      <p>The table of averages needed assumes the averages you entered stay where they are. It tells you what you would need, on average, across everything that is still empty.</p>
-      <p>The homework average can be above 100%: correct answers submitted before the first target date in WeBWorK count as 153% on Blackboard.</p>
-      <p>The syllabus drops the lowest quiz, the two lowest WeBWorK sets, the three lowest Concept Checks, and the five lowest polls. Your Blackboard averages may not include all of these drops yet, so the final numbers can come out a little higher.</p>
-      <p>This is an estimate for planning. Your official grade is the one in Blackboard.</p>
-    </div>
   </details>
 </section>
 
