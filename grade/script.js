@@ -9,18 +9,22 @@ const COURSE = {
   term: "Fall 2026",
 
   // weight: percent of the course grade (must add up to 100)
-  // max:    largest score accepted in the box
   // note:   shown under the name; keep it short
+  //
+  // The weights in each group add up to that group's fixed share of the
+  // grade (Coursework 32, Exams 68). The group's average is taken over the
+  // boxes filled in so far, weighted by these numbers, and always counts
+  // for that share, however many of the group's boxes are filled in.
   categories: [
-    { id: "homework", group: "Coursework", name: "Homework",       weight: 10, max: 153, note: "WeBWorK average; can exceed 100% with early-completion credit" },
-    { id: "quizzes",  group: "Coursework", name: "Quizzes",        weight: 15, max: 100, note: "Recitation quiz average" },
-    { id: "ccq",      group: "Coursework", name: "Concept Checks", weight: 4,  max: 100, note: "Average on Blackboard" },
-    { id: "polls",    group: "Coursework", name: "Polls",          weight: 3,  max: 100, note: "In-class participation rate" },
-    { id: "exam1",    group: "Exams",      name: "Exam 1",         weight: 12, max: 100, note: "Sep 16" },
-    { id: "exam2",    group: "Exams",      name: "Exam 2",         weight: 12, max: 100, note: "Oct 5" },
-    { id: "exam3",    group: "Exams",      name: "Exam 3",         weight: 12, max: 100, note: "Oct 26" },
-    { id: "exam4",    group: "Exams",      name: "Exam 4",         weight: 12, max: 100, note: "Nov 16" },
-    { id: "final",    group: "Exams",      name: "Final exam",     weight: 20, max: 100, note: "Dec 11, cumulative" },
+    { id: "homework", group: "Coursework", name: "Homework",       weight: 10, note: "WeBWorK average; can exceed 100% with early-completion credit" },
+    { id: "quizzes",  group: "Coursework", name: "Quizzes",        weight: 15, note: "Recitation quiz average" },
+    { id: "ccq",      group: "Coursework", name: "Concept Checks", weight: 4,  note: "Average on Blackboard" },
+    { id: "polls",    group: "Coursework", name: "Polls",          weight: 3,  note: "In-class participation rate" },
+    { id: "exam1",    group: "Exams",      name: "Exam 1",         weight: 12, note: "Sep 16" },
+    { id: "exam2",    group: "Exams",      name: "Exam 2",         weight: 12, note: "Oct 5" },
+    { id: "exam3",    group: "Exams",      name: "Exam 3",         weight: 12, note: "Oct 26" },
+    { id: "exam4",    group: "Exams",      name: "Exam 4",         weight: 12, note: "Nov 16" },
+    { id: "final",    group: "Exams",      name: "Final exam",     weight: 20, note: "Dec 11, cumulative" },
   ],
 
   // [lowest score for the letter, letter], highest first
@@ -35,10 +39,15 @@ const COURSE = {
 const $ = (id) => document.getElementById(id);
 const STORE = "mat284-grade-calculator-" + COURSE.term.toLowerCase().replace(/\s+/g, "-");
 
-// Grades are shown rounded DOWN and needed averages rounded UP, so the page
-// never shows 93.00 for a 92.996 that is still an A-minus.
+// Groups in the order they first appear, each with its share of the grade.
+const GROUPS = [...new Set(COURSE.categories.map((c) => c.group))].map((name) => ({
+  name,
+  weight: COURSE.categories.filter((c) => c.group === name).reduce((s, c) => s + c.weight, 0),
+}));
+
+// Grades are shown rounded DOWN, so the page never shows 93.00 for a
+// 92.996 that is still an A-minus.
 const floor2 = (x) => (Math.floor(x * 100 + 1e-9) / 100).toFixed(2);
-const ceil1  = (x) => (Math.ceil(x * 10 - 1e-9) / 10).toFixed(1);
 
 function letterFor(x) {
   for (const [min, letter] of COURSE.scale) if (x >= min) return letter;
@@ -55,6 +64,11 @@ function el(tag, attrs = {}, ...kids) {
   return node;
 }
 
+// "a", "a and b", "a, b and c"
+function joinAnd(items) {
+  return items.length < 2 ? items.join("") : items.slice(0, -1).join(", ") + " and " + items[items.length - 1];
+}
+
 let storage = null;
 try {
   localStorage.setItem(STORE + "-test", "1");
@@ -66,13 +80,11 @@ try {
 
 function buildForm() {
   const fields = $("fields");
-  const groups = [...new Set(COURSE.categories.map((c) => c.group))];
 
-  for (const g of groups) {
-    const cats = COURSE.categories.filter((c) => c.group === g);
-    const total = cats.reduce((s, c) => s + c.weight, 0);
+  for (const g of GROUPS) {
+    const cats = COURSE.categories.filter((c) => c.group === g.name);
     const fs = el("fieldset", { class: "group" },
-      el("legend", {}, el("span", { text: g }), el("span", { class: "group-weight", text: total + "% of grade" })));
+      el("legend", {}, el("span", { text: g.name }), el("span", { class: "group-weight", text: g.weight + "% of grade" })));
 
     for (const c of cats) {
       const input = el("input", {
@@ -111,6 +123,7 @@ function buildScale() {
 
 /* ---------- read, validate, compute ------------------------ */
 
+// Only checks that each entry is a number. Any value is accepted.
 function readScores() {
   const entered = [];
   for (const c of COURSE.categories) {
@@ -120,11 +133,8 @@ function readScores() {
     let msg = "";
 
     if (raw !== "") {
-      const ok = /^\d+(\.\d*)?$|^\.\d+$/.test(raw);
-      const v = ok ? parseFloat(raw) : NaN;
-      if (!ok) msg = "Enter a number, like 87.5";
-      else if (v > c.max) msg = "Enter a number from 0 to " + c.max;
-      else entered.push({ c, v });
+      if (/^-?(\d+(\.\d*)?|\.\d+)$/.test(raw)) entered.push({ c, v: parseFloat(raw) });
+      else msg = "Enter a number, like 87.5";
     }
     err.textContent = msg;
     if (msg) input.setAttribute("aria-invalid", "true");
@@ -134,11 +144,21 @@ function readScores() {
   return entered;
 }
 
+// Each group's average is weighted over its entered boxes only, then the
+// group averages are combined with the fixed group shares (32 and 68).
+// A group with nothing entered yet is left out until it has a score.
 function compute(entered) {
   const done = entered.reduce((s, e) => s + e.c.weight, 0);   // percent of course entered
-  const points = entered.reduce((s, e) => s + e.c.weight * e.v / 100, 0);  // points earned out of 100
-  const remaining = 100 - done;
-  return { done, points, remaining, grade: done > 0 ? (points / done) * 100 : null };
+  const groups = GROUPS.map((g) => {
+    const mine = entered.filter((e) => e.c.group === g.name);
+    const w = mine.reduce((s, e) => s + e.c.weight, 0);
+    const avg = w > 0 ? mine.reduce((s, e) => s + e.c.weight * e.v, 0) / w : null;
+    return { ...g, avg };
+  });
+  const present = groups.filter((g) => g.avg !== null);
+  const share = present.reduce((s, g) => s + g.weight, 0);
+  const grade = share > 0 ? present.reduce((s, g) => s + g.weight * g.avg, 0) / share : null;
+  return { done, groups, grade, complete: entered.length === COURSE.categories.length };
 }
 
 /* ---------- render ----------------------------------------- */
@@ -156,10 +176,8 @@ function setLabel(text) {
 
 function render() {
   const entered = readScores();
-  const { done, points, remaining, grade } = compute(entered);
-  const needs = $("needs");
-  needs.replaceChildren();
-  $("bar-fill").style.width = Math.min(done, 100) + "%";
+  const { done, groups, grade, complete } = compute(entered);
+  $("bar-fill").style.width = Math.min(Math.max(done, 0), 100) + "%";
   hasGrade = grade !== null;
   updatePeek();
 
@@ -175,35 +193,21 @@ function render() {
   $("pct").textContent = $("peek-pct").textContent = floor2(grade) + "%";
   $("letter").textContent = $("peek-letter").textContent = letter;
 
-  if (remaining <= 1e-9) {
+  if (complete) {
     setLabel("Course grade");
     $("basis").textContent = "Every category is entered, so this is the full course grade.";
     return;
   }
 
   setLabel("Grade so far");
-  $("basis").textContent = "Based on the " + fmtPct(done) + " of the course grade you have entered.";
-
-  // Average needed on everything still empty to finish at each letter.
-  const rows = [];
-  for (const [min, l] of COURSE.scale) {
-    if (min <= 0) continue;
-    const need = (min - points) / remaining * 100;
-    let cell, cls;
-    if (need <= 0)       { cell = "secured";          cls = "is-secured"; }
-    else if (need > 100) { cell = "above 100%";      cls = "is-out"; }
-    else                 { cell = ceil1(need) + "%";  cls = ""; }
-    rows.push(el("tr", { class: cls }, el("th", { scope: "row", text: l }), el("td", { text: cell })));
-  }
-
-  needs.append(
-    el("table", { class: "needs" },
-      el("caption", { text: "To finish with at least…" }),
-      el("thead", {}, el("tr", {},
-        el("th", { scope: "col", text: "Grade" }),
-        el("th", { scope: "col", text: "Average needed on the remaining " + fmtPct(remaining) }))),
-      el("tbody", {}, ...rows)),
-    el("p", { class: "fine", text: "Assumes the averages you entered stay where they are." }));
+  const missing = groups.filter((g) => g.avg === null);
+  const present = groups.filter((g) => g.avg !== null);
+  const split = missing.length
+    ? "Nothing entered under " + joinAnd(missing.map((g) => g.name)) + " yet, so this is your " +
+      joinAnd(present.map((g) => g.name)) + " average alone."
+    : "The " + joinAnd(groups.map((g) => g.name)) + " averages count for " +
+      joinAnd(groups.map((g) => fmtPct(g.weight))) + " of the grade.";
+  $("basis").textContent = "Based on the " + fmtPct(done) + " of the course grade you have entered. " + split;
 }
 
 function fmtPct(x) {
