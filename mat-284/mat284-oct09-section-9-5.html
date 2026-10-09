@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Oct 9 &mdash; Basic rules for derivatives</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, October 9</p>
+  <h1>Basic rules for derivatives</h1>
+  <p class="standfirst">Section 9.5. The definition of the derivative always works, but it takes algebra. A few rules for constants, powers, constant multiples, and sums turn most derivatives into a one-line computation.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Warm-up from WeBWorK</a>
+  <a href="#recap">Notation</a>
+  <a href="#constant">Constants</a>
+  <a href="#power">Power rule</a>
+  <a href="#multiple">Constant multiples</a>
+  <a href="#sums">Sums and differences</a>
+  <a href="#tangent">Tangent lines</a>
+  <a href="#next">Before Wednesday</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li><strong>Fall break is October 12&ndash;13.</strong> No class on Monday.</li>
+      <li>The WeBWorK sets for this week (<strong>9.4</strong> and <strong>9.5</strong>) have their <strong>extra-credit period ending Wednesday</strong> instead of Monday. The regular credit period still ends <strong>Thursday</strong>.</li>
+      <li>Complete the <strong>Concept Check</strong> for Friday by the end of the day. There is one on every lecture day, as always.</li>
+      <li>Next class is <strong>Wednesday, October 14</strong>: 9.7, marginal analysis.</li>
+      <li>Thursday&rsquo;s recitation has <strong>Quiz 6</strong>, on the topics of week 7 (9.4 and 9.5).</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up</span>Two problems from WeBWorK</h2>
+
+  <div class="problem">
+    <p><strong>1.</strong> If the tangent line to \(y = f(x)\) at \((-1, -7)\) passes through the point \((6, -2)\), find \(f(-1)\) and \(f'(-1)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">f(&minus;1)</span><span class="work">the point \((-1, -7)\) is on the graph, with \(x = -1\) and \(y = -7\). So \(f(-1) = -7\).</span></li>
+        <li><span class="step">f&prime;(&minus;1)</span><span class="work">the slope of the tangent line at \(x = -1\), which we find from the two points on that line:
+          \[\frac{-2 - (-7)}{6 - (-1)} = \frac{5}{7}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f(&minus;1) = &minus;7 &nbsp;&middot;&nbsp; f&prime;(&minus;1) = 5/7</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 432 256" role="img" aria-label="A wavy curve y equals f of x with a low point near x equals negative 1. The dashed tangent line touches the curve at negative 1 comma negative 7 and passes through the point 6 comma negative 2, which lies below the curve">
+      <path class="axis" d="M16 76.8H416"/>
+      <path class="mark" d="M420 76.8l-8 -4.5v9z"/>
+      <path class="axis" d="M183.2 240V16"/>
+      <path class="mark" d="M183.2 12l-4.5 8h9z"/>
+      <text class="label" x="418" y="94.8" style="text-anchor:end">x</text>
+      <text class="label" x="192.2" y="24">y</text>
+      <path class="curve" d="M25.6 16L26.6 19.9L27.8 24.1L29 28.3L30.2 32.5L31.4 36.5L32.5 40.5L33.7 44.5L34.9 48.4L36.1 52.2L37.4 56.4L38.7 60.5L40 64.5L41.3 68.5L42.7 72.3L44 76.2L45.4 80.3L46.9 84.3L48.3 88.2L49.8 92.1L51.2 95.9L52.8 99.9L54.4 103.8L55.9 107.6L57.5 111.3L59.2 115.3L60.9 119.1L62.6 122.8L64.5 126.6L66.3 130.4L68.1 134L70.1 137.7L72.1 141.3L74.2 145L76.3 148.5L78.5 152.1L80.8 155.5L83.1 159L85.5 162.2L88 165.4L90.6 168.6L93.4 171.7L96.3 174.7L99.3 177.6L102.4 180.3L105.7 182.8L109.1 185.1L112.7 187.1L116.3 188.9L120.2 190.3L124.1 191.4L128 192.2L132.1 192.5L136.2 192.5L140.3 192.2L144.3 191.5L148.3 190.5L152.1 189.3L155.9 187.8L159.6 186.1L163.2 184.2L166.8 182.1L170.2 180L173.6 177.6L176.9 175.3L180.2 172.7L183.3 170.2L186.5 167.5L189.5 164.9L192.5 162.2L195.5 159.3L198.4 156.6L201.3 153.7L204.2 150.8L207.1 147.8L210 144.8L212.8 141.9L215.5 138.9L218.3 135.9L221 132.9L223.8 129.9L226.5 126.8L229.3 123.7L232.1 120.6L234.8 117.5L237.6 114.4L240.3 111.3L243.1 108.2L245.9 105.1L248.6 102L251.4 99L254.1 95.9L256.9 92.9L259.6 90L262.4 87L265.3 84L268.2 81.1L271.1 78.2L274 75.3L276.8 72.5L279.9 69.7L282.9 67L285.9 64.3L289.1 61.7L292.2 59.1L295.5 56.6L298.8 54.2L302.2 51.9L305.6 49.7L309.2 47.7L312.7 45.8L316.4 44.1L320.2 42.6L324 41.4L327.9 40.4L331.9 39.7L336 39.3L340 39.3L344.1 39.6L348 40.3L352 41.4L355.8 42.8L359.5 44.5L363 46.5L366.4 48.8L369.7 51.3L372.9 53.9L375.9 56.8L378.8 59.7L381.5 62.8L384.2 66L386.7 69.2L389.1 72.6L391.5 76L393.7 79.4L396 82.9L398.1 86.5L400.2 90.1L402.1 93.7L404.1 97.4L406 101L407.8 104.8L409.6 108.6L410 109.4"/>
+      <path class="curve-2" d="M45.9 229.9L49.6 228.5L53.4 227.1L57.1 225.6L60.9 224.2L64.7 222.7L68.4 221.3L72.2 219.9L76 218.4L79.7 217L83.5 215.5L87.2 214.1L91 212.7L94.8 211.2L98.5 209.8L102.3 208.3L106.1 206.9L109.8 205.4L113.6 204L117.4 202.6L121.1 201.1L124.9 199.7L128.6 198.2L132.4 196.8L136.2 195.4L139.9 193.9L143.7 192.5L147.5 191L151.2 189.6L155 188.2L158.7 186.7L162.5 185.3L166.3 183.8L170 182.4L173.8 181L177.6 179.5L181.3 178.1L185.1 176.6L188.9 175.2L192.6 173.8L196.4 172.3L200.1 170.9L203.9 169.4L207.7 168L211.4 166.5L215.2 165.1L219 163.7L222.7 162.2L226.5 160.8L230.2 159.3L234 157.9L237.8 156.5L241.5 155L245.3 153.6L249.1 152.1L252.8 150.7L256.6 149.3L260.4 147.8L264.1 146.4L267.9 144.9L271.6 143.5L275.4 142.1L279.2 140.6L282.9 139.2L286.7 137.7L290.5 136.3L294.2 134.9L298 133.4L301.7 132L305.5 130.5L309.3 129.1L313 127.6L316.8 126.2L320.6 124.8L324.3 123.3L328.1 121.9L331.9 120.4L335.6 119L339.4 117.6L343.1 116.1L346.9 114.7L350.7 113.2L354.4 111.8L358.2 110.4L362 108.9L365.7 107.5L369.5 106L373.2 104.6L377 103.2L380.8 101.7L384.5 100.3L388.3 98.8L392.1 97.4L395.8 96L399.6 94.5L403.4 93.1L407.1 91.6L410 90.5"/>
+      <circle class="dot" cx="153.3" cy="188.8" r="4.2"/>
+      <circle class="dot" cx="362.3" cy="108.8" r="4.2"/>
+      <text class="label-key" x="151.8" y="210.8" style="text-anchor:middle">(−1, −7)</text>
+      <text class="label-key" x="354.3" y="99.8" style="text-anchor:end">(6, −2)</text>
+      <text class="label-soft" x="248.8" y="193.6">tangent line</text>
+      <text class="label-soft" x="251.8" y="35.2" style="text-anchor:end">y = f(x)</text>
+    </svg>
+    <figcaption>The point \((6, -2)\) is on the tangent line, not on the graph. Two points on the line are all it takes to find its slope, and that slope is \(f'(-1)\).</figcaption>
+  </figure>
+
+  <div class="problem">
+    <p><strong>2.</strong> Using the definition of derivative, find \(f'(x)\) for \(f(x) = \dfrac{3}{x+1}\).</p>
+  </div>
+
+  <p>Remember the four steps: <strong>substitute, subtract, simplify, let \(h \to 0\).</strong></p>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Substitute</span><span class="work">replace \(x\) with \(x + h\):
+          \[f(x+h) = \frac{3}{(x+h)+1} = \frac{3}{x+h+1}\]</span></li>
+        <li><span class="step">Subtract</span><span class="work">combine over the common denominator:
+          \[f(x+h) - f(x) = \frac{3}{x+h+1} - \frac{3}{x+1} = \frac{3(x+1) - 3(x+h+1)}{(x+h+1)(x+1)}\]</span></li>
+        <li><span class="step">Expand</span><span class="work">\[\frac{3x + 3 - 3x - 3h - 3}{(x+h+1)(x+1)} = \frac{-3h}{(x+h+1)(x+1)}\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">dividing by \(h\) is the same as multiplying by \(\frac{1}{h}\):
+          \[\frac{-3h}{(x+h+1)(x+1)} \cdot \frac{1}{h} = \frac{-3}{(x+h+1)(x+1)}\]</span></li>
+        <li><span class="step">Let h &rarr; 0</span><span class="work">\[f'(x) = \frac{-3}{(x+1)(x+1)} = \frac{-3}{(x+1)^2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = &minus;3/(x + 1)&sup2;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Keep the denominator factored</p>
+    <p>The subtraction is a difference of two fractions, so combine them over the common denominator \((x+h+1)(x+1)\) first. Then leave that denominator alone. The \(h\) you need to cancel is in the numerator, and multiplying out the denominator only makes it harder to see.</p>
+  </div>
+</section>
+
+<section id="recap">
+  <h2><span class="marker">Recap</span>What derivatives do, and how to write them</h2>
+
+  <div class="card">
+    <p class="card-label">So far</p>
+    <p>Derivatives:</p>
+    <ul class="keys">
+      <li>measure the rate of change of some quantity described by a function \(y = f(x)\);</li>
+      <li>can be computed by the definition as \(f'(x) = \lim\limits_{h\to 0}\dfrac{f(x+h)-f(x)}{h}\);</li>
+      <li>measure the slope of the tangent line to the graph of \(f\).</li>
+    </ul>
+  </div>
+
+  <p>Instead of \(f'(x)\), there are other ways to write the derivative.</p>
+
+  <table>
+    <caption>Notation for the derivative</caption>
+    <thead>
+      <tr><th scope="col">Notation</th><th scope="col">What it emphasizes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>\(f'(x)\)</td><td>the function \(f\) and its input</td></tr>
+      <tr><td>\(y'\)</td><td>the output variable \(y\)</td></tr>
+      <tr><td>\(\dfrac{dy}{dx}\)</td><td>the difference quotient idea: a difference of \(y\) over a difference of \(x\)</td></tr>
+      <tr><td>\(\dfrac{df}{dx}\)</td><td>the same idea, but naming the function \(f\) instead of the output \(y\)</td></tr>
+    </tbody>
+  </table>
+
+  <p>To <strong>differentiate</strong> something means to find its derivative. <strong>Differentiation</strong> is the process of finding a derivative.</p>
+
+  <p>Instead of using the definition each time we need a derivative, we can use the rules below. There will be more later.</p>
+</section>
+
+<section id="constant">
+  <h2><span class="marker">Rule 1</span>Constants</h2>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>The derivative of a <strong>constant function</strong> is zero: \((c)' = 0\).</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Take \(f(x) = 17\). Does \(f'(x) = 0\) make sense intuitively? How does it follow from the definition?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Intuition</span><span class="work">\(f'(x)\) is the rate of change of \(f(x)\). But \(f(x)\) never changes, so its rate of change is zero.</span></li>
+        <li><span class="step">Definition</span><span class="work">whatever goes in, 17 comes out, so \(f(x+h) = 17\) as well:
+          \[\lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = \lim_{h\to 0}\frac{17-17}{h} = \lim_{h\to 0}\frac{0}{h} = 0\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(17)&prime; = 0</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 474 140" role="img" aria-label="Two input-output diagrams. Left: x goes into a box labeled f and y comes out. Right, for the constant function f of x equals 17: x goes in and 17 comes out, and x plus h goes in and 17 comes out again">
+      <text class="label-soft" x="20" y="24">a function</text>
+      <text class="label" x="52" y="87" style="text-anchor:end">x</text>
+      <path class="axis" d="M58 82H98"/>
+      <path class="mark" d="M104 82l-8 -4.5v9z"/>
+      <rect class="box" x="108" y="65" width="44" height="34" rx="3"/>
+      <text class="label" x="130" y="87" style="text-anchor:middle">f</text>
+      <path class="axis" d="M156 82H196"/>
+      <path class="mark" d="M202 82l-8 -4.5v9z"/>
+      <text class="label" x="208" y="87">y</text>
+      <text class="label-soft" x="236" y="24">the constant function f(x) = 17</text>
+      <text class="label" x="286" y="65" style="text-anchor:end">x</text>
+      <path class="axis" d="M292 60H332"/>
+      <path class="mark" d="M338 60l-8 -4.5v9z"/>
+      <rect class="box" x="342" y="43" width="44" height="34" rx="3"/>
+      <text class="label" x="364" y="65" style="text-anchor:middle">f</text>
+      <path class="axis" d="M390 60H430"/>
+      <path class="mark" d="M436 60l-8 -4.5v9z"/>
+      <text class="label-key" x="442" y="65">17</text>
+      <text class="label" x="286" y="117" style="text-anchor:end">x + h</text>
+      <path class="axis" d="M292 112H332"/>
+      <path class="mark" d="M338 112l-8 -4.5v9z"/>
+      <rect class="box" x="342" y="95" width="44" height="34" rx="3"/>
+      <text class="label" x="364" y="117" style="text-anchor:middle">f</text>
+      <path class="axis" d="M390 112H430"/>
+      <path class="mark" d="M436 112l-8 -4.5v9z"/>
+      <text class="label-key" x="442" y="117">17</text>
+    </svg>
+    <figcaption>A function takes an input \(x\) and produces an output \(y\). The constant function \(f(x) = 17\) produces 17 whatever goes in, so \(f(x+h)\) and \(f(x)\) are both 17.</figcaption>
+  </figure>
+</section>
+
+<section id="power">
+  <h2><span class="marker">Rule 2</span>The power rule</h2>
+
+  <p>The derivatives of \(x\) and \(x^2\) can be found using the definition of \(f'(x)\), and we essentially did this last time, while solving the example with \(f(x) = 2x - 3x^2\). These derivatives are \((x)' = 1\) and \((x^2)' = 2x\).</p>
+
+  <p>Similarly, we could use the definition to find the derivatives of \(x^3\), \(x^4\), and so on, but it takes more and more algebra: expanding \(\dfrac{(x+h)^3 - x^3}{h}\) already produces a bunch of terms. Instead, we record (and remember) one formula for the derivative of \(x^n\). It works for any power \(n\), which could be fractional or negative, or both.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\[(x^n)' = nx^{n-1}\]</li>
+      <li><strong>Power rule:</strong> the old exponent is now a coefficient; the new exponent is 1 less.</li>
+    </ul>
+  </div>
+
+  <p>The power rule can also handle some things that do not look like powers. Rewrite them as powers of \(x\) first.</p>
+
+  <div class="problem">
+    <p>Find the derivatives of the following functions.</p>
+    <p><strong>(a)</strong> \(f(x) = x^5\) &nbsp;&nbsp; <strong>(b)</strong> \(f(x) = \dfrac{1}{x}\) &nbsp;&nbsp; <strong>(c)</strong> \(f(x) = \sqrt{x}\) &nbsp;&nbsp; <strong>(d)</strong> \(f(x) = \dfrac{1}{x^2}\) &nbsp;&nbsp; <strong>(e)</strong> \(f(x) = x^2\sqrt{x}\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a)</span><span class="work">\(f'(x) = 5x^4\)</span></li>
+        <li><span class="step">(b)</span><span class="work">rewrite as \(f(x) = x^{-1}\), then use the power rule:
+          \[f'(x) = (-1)x^{-1-1} = (-1)x^{-2} = -\frac{1}{x^2}\]</span></li>
+        <li><span class="step">(c)</span><span class="work">rewrite as \(f(x) = x^{1/2}\), then
+          \[f'(x) = \frac{1}{2}x^{\frac12 - 1} = \frac{1}{2}x^{-1/2} = \frac{1}{2x^{1/2}} = \frac{1}{2\sqrt{x}}\]</span></li>
+        <li><span class="step">(d)</span><span class="work">rewrite as \(f(x) = x^{-2}\), so the power rule applies:
+          \[f'(x) = (-2)x^{-2-1} = -2x^{-3} = -\frac{2}{x^3}\]</span></li>
+        <li><span class="step">(e)</span><span class="work">rewrite as \(x^2 \cdot x^{1/2} = x^{2 + \frac12} = x^{5/2}\), then
+          \[f'(x) = \frac{5}{2}x^{\frac52 - 1} = \frac{5}{2}x^{3/2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) 5x&#8308; &nbsp; (b) &minus;1/x&sup2; &nbsp; (c) 1/(2&radic;x) &nbsp; (d) &minus;2/x&sup3; &nbsp; (e) (5/2)x&sup3;&#8725;&sup2;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Rewrite first, then differentiate</p>
+    <p>Parts (b) through (e) all start by writing the function as \(x\) to a power, using \(\frac{1}{x^n} = x^{-n}\), \(\sqrt{x} = x^{1/2}\), and \(x^a \cdot x^b = x^{a+b}\).</p>
+    <p>Watch negative exponents: subtracting 1 makes them <em>more</em> negative. In (b), \(-1 - 1 = -2\), not 0.</p>
+  </div>
+</section>
+
+<section id="multiple">
+  <h2><span class="marker">Rule 3</span>Constant multiples</h2>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>The <strong>constant multiple rule</strong>: for any function \(f\) and any number \(k\), the derivative of \(kf\) is \(kf'\).</li>
+    </ul>
+    <p>That is, we simply pull a constant factor out of the derivative.</p>
+  </div>
+
+  <div class="problem">
+    <p>Find \((3x^2)'\), \((3)'\), and \((3x)'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(3x&sup2;)&prime;</span><span class="work">\(3x^2\) is \(3 \cdot x^2\), so we get \(3 \cdot (x^2)'\):
+          \[(3x^2)' = 3(x^2)' = 3(2x) = 6x\]</span></li>
+        <li><span class="step">(3)&prime;</span><span class="work">a stand-alone constant: \((3)' = 0\)</span></li>
+        <li><span class="step">(3x)&prime;</span><span class="work">a constant attached by multiplication: \((3x)' = 3(x)' = 3 \cdot 1 = 3\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>6x &nbsp;&middot;&nbsp; 0 &nbsp;&middot;&nbsp; 3</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">When does a constant disappear?</p>
+    <p>How does the constant multiple rule square with the derivative of a constant being 0? It all depends on how the constant is involved. A <strong>stand-alone</strong> constant simply disappears in the derivative. A constant that is <strong>attached to a function by multiplication</strong> survives.</p>
+  </div>
+
+  <div class="problem">
+    <p>Find \(f'(x)\) for \(f(x) = \dfrac{5}{x}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">\(f(x) = 5x^{-1}\)</span></li>
+        <li><span class="step">Differentiate</span><span class="work">so \(f'(x) = 5(-1)x^{-2} = -\dfrac{5}{x^2}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = &minus;5/x&sup2;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Don&rsquo;t chain f and f&prime; with equal signs</p>
+    <p>It is tempting to write \(\frac{5}{x} = 5x^{-1} = 5(-1)x^{-2} = \frac{-5}{x^2}\) in one line. But the first two expressions are \(f(x)\) and the last two are \(f'(x)\), and those are not equal. Write \(f(x) = 5x^{-1}\), then start a new line: \(f'(x) = \dots\)</p>
+  </div>
+
+  <h3>Division by a constant</h3>
+
+  <p>What if a formula is <strong>divided</strong> by a constant? Division by a constant is multiplication by its reciprocal: for example, division by 3 is the same as multiplication by \(\frac13\). So when you are looking for the derivative of \(\dfrac{x^3}{7}\), think of it as \(\dfrac{1}{7}x^3\) and use the constant multiple rule.</p>
+
+  <div class="problem">
+    <p>Find \(\left(\dfrac{x^3}{7}\right)'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Constant out</span><span class="work">\[\left(\frac{x^3}{7}\right)' = \frac{1}{7}(x^3)' = \frac{1}{7} \cdot 3x^2 = \frac{3}{7}x^2\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(3/7)x&sup2;</p>
+    </div>
+  </details>
+</section>
+
+<section id="sums">
+  <h2><span class="marker">Rule 4</span>Sums and differences</h2>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <p>The derivative can be distributed over \(+\) and \(-\) signs:</p>
+    <ul class="keys">
+      <li>\((f + g)' = f' + g'\)</li>
+      <li>\((f - g)' = f' - g'\)</li>
+    </ul>
+    <p>This <strong>does not</strong> work for products and quotients. We will get to those later.</p>
+  </div>
+
+  <p>With these rules we can handle any function that is a sum or difference of powers of \(x\), with any constant coefficients.</p>
+
+  <div class="problem">
+    <p><strong>A.</strong> Find \(\left(5x^3 + 7x^2 - \dfrac{x}{3} + 24\right)'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Distribute</span><span class="work">the \(+\) and \(-\) signs between the terms are why the derivative distributes:
+          \[(5x^3)' + (7x^2)' - \left(\frac{x}{3}\right)' + (24)'\]</span></li>
+        <li><span class="step">Each term</span><span class="work">\(5 \cdot 3x^2 = 15x^2\); &nbsp; \(7 \cdot 2x = 14x\); &nbsp; \(\frac{1}{3} \cdot 1 = \frac13\); &nbsp; \((24)' = 0\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>15x&sup2; + 14x &minus; 1/3</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>B.</strong> Find \(\left(\dfrac{4x - x^5}{x^2}\right)'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Be careful: the derivative does <strong>not</strong> distribute over quotients. The answer is <em>not</em> \(\dfrac{(4x - x^5)'}{(x^2)'}\).</p>
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">split the fraction:
+          \[\frac{4x}{x^2} - \frac{x^5}{x^2} = 4x^{-1} - x^3\]</span></li>
+        <li><span class="step">Differentiate</span><span class="work">\[f'(x) = (4x^{-1})' - (x^3)' = 4(-1)x^{-2} - 3x^2 = -\frac{4}{x^2} - 3x^2\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&minus;4/x&sup2; &minus; 3x&sup2;</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>C.</strong> If \(f(x) = (6x^2 + 5x)\sqrt{x}\), what is \(f'(x)\)?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Be careful: the derivative does <strong>not</strong> distribute over products. The answer is <em>not</em> \((6x^2 + 5x)'(\sqrt{x})'\).</p>
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">multiply out, with \(\sqrt{x} = x^{1/2} = x^{0.5}\):
+          \[f(x) = 6x^2 \cdot x^{0.5} + 5x \cdot x^{0.5} = 6x^{2.5} + 5x^{1.5}\]</span></li>
+        <li><span class="step">Differentiate</span><span class="work">\[f'(x) = 6 \cdot 2.5x^{1.5} + 5 \cdot 1.5x^{0.5} = 15x^{1.5} + 7.5x^{0.5}\]</span></li>
+        <li><span class="step">Tidy</span><span class="work">\(15x^{1.5} + 7.5x^{0.5} = 15x^{3/2} + 7.5\sqrt{x}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = 15x&sup3;&#8725;&sup2; + 7.5&radic;x</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Products and quotients: rewrite first</p>
+    <p>For now, when you meet a product or a quotient, multiply it out or split the fraction until it is a sum of powers of \(x\). Then the four rules on this page are enough. Section 10.3 has rules for differentiating products and quotients directly.</p>
+  </div>
+</section>
+
+<section id="tangent">
+  <h2><span class="marker">Application</span>Tangent lines</h2>
+
+  <p>Some problems involving derivatives ask for the equation of a tangent line to the graph of some function \(y = f(x)\). Remember: you need <strong>the slope and a point</strong>.</p>
+
+  <p>Having the \(x\)-coordinate is enough information, because:</p>
+  <ul>
+    <li>we can find the \(y\)-coordinate from the \(x\)-coordinate, using \(y = f(x)\);</li>
+    <li>the <strong>slope</strong> is the <strong>derivative</strong> \(f'(x)\) <strong>evaluated</strong> at the given point.</li>
+  </ul>
+
+  <div class="problem">
+    <p>Find the tangent line to the graph \(y = 6x - x^3\) at the point with \(x = 2\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Point</span><span class="work">\(y = 6(2) - 2^3 = 12 - 8 = 4\), so the point is \((2, 4)\)</span></li>
+        <li><span class="step">Derivative</span><span class="work">\(y' = (6x)' - (x^3)' = 6 - 3x^2\)</span></li>
+        <li><span class="step">Slope</span><span class="work">at \(x = 2\): \(6 - 3(2)^2 = 6 - 12 = -6\)</span></li>
+        <li><span class="step">Line</span><span class="work">point-slope form with the point \((2, 4)\) and slope \(-6\): \(y - 4 = -6(x - 2)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y &minus; 4 = &minus;6(x &minus; 2), or y = &minus;6x + 16</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 400 290" role="img" aria-label="The cubic y equals 6x minus x cubed, rising from the lower right of the origin to a peak near x equals 1.4 and then falling steeply. The dashed tangent line touches it at 2 comma 4 and falls with slope negative 6">
+      <path class="axis" d="M35.9 143.7V151.7"/>
+      <path class="axis" d="M85.1 143.7V151.7"/>
+      <path class="axis" d="M134.4 143.7V151.7"/>
+      <path class="axis" d="M233 143.7V151.7"/>
+      <path class="axis" d="M282.2 143.7V151.7"/>
+      <path class="axis" d="M331.5 143.7V151.7"/>
+      <path class="axis" d="M179.7 262.3H187.7"/>
+      <path class="axis" d="M179.7 205H187.7"/>
+      <path class="axis" d="M179.7 90.5H187.7"/>
+      <path class="axis" d="M179.7 33.2H187.7"/>
+      <path class="axis" d="M26 147.7H366"/>
+      <path class="mark" d="M370 147.7l-8 -4.5v9z"/>
+      <path class="axis" d="M183.7 268V16"/>
+      <path class="mark" d="M183.7 12l-4.5 8h9z"/>
+      <text class="label" x="368" y="165.7" style="text-anchor:end">x</text>
+      <text class="label" x="192.7" y="24">y</text>
+      <text class="label-soft" x="85.1" y="165.7" style="text-anchor:middle">−2</text>
+      <text class="label-soft" x="282.2" y="165.7" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="175.7" y="209" style="text-anchor:end">−5</text>
+      <text class="label-soft" x="175.7" y="94.5" style="text-anchor:end">5</text>
+      <text class="label-soft" x="175.7" y="37.2" style="text-anchor:end">10</text>
+      <path class="curve" d="M30.3 16L31.1 20.3L31.8 24.3L32.6 28.3L33.4 32.3L34.3 36.7L35.1 41.1L36 45.4L36.9 49.7L37.8 53.9L38.7 58L39.5 62L40.4 66L41.3 70L42.3 74.3L43.3 78.6L44.3 82.8L45.3 86.9L46.2 90.9L47.2 94.8L48.2 98.7L49.3 102.9L50.4 107.1L51.5 111.1L52.6 115L53.7 118.9L54.9 123L56.2 127L57.4 130.9L58.7 135.1L60 139.1L61.3 143L62.8 147.1L64.2 151L65.6 154.8L67.2 158.8L68.7 162.6L70.3 166.4L72 170.1L73.8 173.9L75.6 177.7L77.5 181.2L79.5 184.7L81.6 188.2L83.8 191.6L86.2 195L88.7 198.2L91.5 201.3L94.5 204.2L97.6 206.8L101.1 209L104.7 210.7L108.5 211.9L112.5 212.5L116.6 212.4L120.5 211.7L124.4 210.5L128.1 208.8L131.6 206.8L135.1 204.5L138.2 202.1L141.3 199.5L144.3 196.8L147.2 194L150 191L152.8 188L155.4 185L158.1 181.9L160.6 178.8L163.1 175.6L165.7 172.3L168.2 169L170.6 165.8L173 162.5L175.4 159.2L177.9 155.8L180.3 152.5L182.7 149.1L185.1 145.7L187.6 142.3L190 139L192.4 135.6L194.8 132.3L197.2 129.1L199.7 125.8L202.2 122.5L204.7 119.3L207.2 116.1L209.9 112.9L212.5 109.8L215.3 106.7L218 103.7L220.9 100.8L223.9 97.9L226.9 95.1L230.1 92.5L233.4 90.1L236.9 88L240.5 86L244.2 84.5L248.2 83.5L252.3 83L256.3 83.1L260.3 83.9L264.1 85.4L267.7 87.3L271 89.7L274 92.3L276.9 95.3L279.6 98.4L282.1 101.7L284.4 105.1L286.6 108.5L288.7 112.1L290.7 115.7L292.5 119.4L294.3 123L296.1 126.9L297.7 130.6L299.4 134.6L300.9 138.4L302.4 142.4L303.9 146.3L305.3 150.3L306.6 154.2L307.9 158.1L309.3 162.2L310.5 166L311.7 170L312.9 174.1L314.1 178.2L315.2 182.1L316.3 186.1L317.4 190.2L318.5 194.3L319.6 198.6L320.6 202.5L321.6 206.5L322.6 210.6L323.6 214.7L324.6 218.9L325.6 223.2L326.5 227.6L327.4 231.6L328.3 235.6L329.2 239.7L330.1 243.9L330.9 248.1L331.8 252.4L332.7 256.7L333.6 261.1L334.5 265.6L334.9 268"/>
+      <path class="curve-2" d="M220.6 16L223 19.3L225.3 22.5L227.7 25.8L230 29.1L232.3 32.3L234.7 35.6L237 38.9L239.4 42.1L241.7 45.4L244.1 48.7L246.4 51.9L248.7 55.2L251.1 58.5L253.4 61.7L255.8 65L258.1 68.3L260.4 71.5L262.8 74.8L265.1 78.1L267.5 81.3L269.8 84.6L272.2 87.9L274.5 91.1L276.8 94.4L279.2 97.7L281.5 100.9L283.9 104.2L286.2 107.5L288.6 110.7L290.9 114L293.2 117.3L295.6 120.5L297.9 123.8L300.3 127.1L302.6 130.3L304.9 133.6L307.3 136.9L309.6 140.1L312 143.4L314.3 146.7L316.7 149.9L319 153.2L321.3 156.5L323.7 159.7L326 163L328.4 166.3L330.7 169.5L333.1 172.8L335.4 176.1L337.7 179.3L340.1 182.6L342.4 185.9L344.8 189.1L347.1 192.4L349.5 195.7L351.8 198.9L354.1 202.2L356.5 205.5L358.8 208.7L361.2 212L363.5 215.3L365.8 218.5L366 218.7"/>
+      <circle class="dot" cx="282.2" cy="101.9" r="4.2"/>
+      <text class="label-key" x="291.2" y="93.9">(2, 4)</text>
+      <text class="label-key" x="324.1" y="130.5">slope −6</text>
+      <text class="label-soft" x="40.8" y="246.2">y = 6x − x</text>
+      <text class="label-soft sup" x="92.8" y="240.2">3</text>
+    </svg>
+    <figcaption>The tangent line at \((2, 4)\) has slope \(-6\), the value of the derivative \(6 - 3x^2\) at \(x = 2\).</figcaption>
+  </figure>
+
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before Wednesday</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Friday by the end of the day.</li>
+    <li><strong>Earn the extra credit on the 9.4 and 9.5 WeBWorK sets by Wednesday.</strong> The regular credit period ends Thursday.</li>
+    <li>Redo the five power-rule examples with the solutions hidden, rewriting each one as a power of \(x\) first.</li>
+    <li>Redo problems B and C, and say why the derivative does not distribute over a quotient or a product.</li>
+    <li>Quiz 6 is in recitation Thursday, October 15, on 9.4 and 9.5.</li>
+    <li><strong>Wednesday: 9.7, marginal analysis.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 9.5 &middot; October 9</p>
+</footer>
+
+</div>
+</body>
+</html>
