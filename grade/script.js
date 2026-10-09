@@ -9,17 +9,17 @@ const COURSE = {
   term: "Fall 2026",
 
   // weight: percent of the course grade (must add up to 100)
-  // note:   shown under the name; keep it short
+  // note:   optional; shown under the name; keep it short
   //
   // The weights in each group add up to that group's fixed share of the
   // grade (Coursework 32, Exams 68). The group's average is taken over the
   // boxes filled in so far, weighted by these numbers, and always counts
   // for that share, however many of the group's boxes are filled in.
   categories: [
-    { id: "homework", group: "Coursework", name: "Homework",       weight: 10, note: "WeBWorK average; can exceed 100% with early-completion credit" },
-    { id: "quizzes",  group: "Coursework", name: "Quizzes",        weight: 15, note: "Recitation quiz average" },
-    { id: "ccq",      group: "Coursework", name: "Concept Checks", weight: 4,  note: "Average on Blackboard" },
-    { id: "polls",    group: "Coursework", name: "Polls",          weight: 3,  note: "In-class participation rate" },
+    { id: "homework", group: "Coursework", name: "Homework",       weight: 10 },
+    { id: "quizzes",  group: "Coursework", name: "Quizzes",        weight: 15 },
+    { id: "ccq",      group: "Coursework", name: "Concept Checks", weight: 4  },
+    { id: "polls",    group: "Coursework", name: "Polls",          weight: 3  },
     { id: "exam1",    group: "Exams",      name: "Exam 1",         weight: 12, note: "Sep 16" },
     { id: "exam2",    group: "Exams",      name: "Exam 2",         weight: 12, note: "Oct 5" },
     { id: "exam3",    group: "Exams",      name: "Exam 3",         weight: 12, note: "Oct 26" },
@@ -148,7 +148,6 @@ function readScores() {
 // group averages are combined with the fixed group shares (32 and 68).
 // A group with nothing entered yet is left out until it has a score.
 function compute(entered) {
-  const done = entered.reduce((s, e) => s + e.c.weight, 0);   // percent of course entered
   const groups = GROUPS.map((g) => {
     const mine = entered.filter((e) => e.c.group === g.name);
     const w = mine.reduce((s, e) => s + e.c.weight, 0);
@@ -158,7 +157,7 @@ function compute(entered) {
   const present = groups.filter((g) => g.avg !== null);
   const share = present.reduce((s, g) => s + g.weight, 0);
   const grade = share > 0 ? present.reduce((s, g) => s + g.weight * g.avg, 0) / share : null;
-  return { done, groups, grade, complete: entered.length === COURSE.categories.length };
+  return { groups, grade, complete: entered.length === COURSE.categories.length };
 }
 
 /* ---------- render ----------------------------------------- */
@@ -176,8 +175,7 @@ function setLabel(text) {
 
 function render() {
   const entered = readScores();
-  const { done, groups, grade, complete } = compute(entered);
-  $("bar-fill").style.width = Math.min(Math.max(done, 0), 100) + "%";
+  const { groups, grade, complete } = compute(entered);
   hasGrade = grade !== null;
   updatePeek();
 
@@ -202,12 +200,11 @@ function render() {
   setLabel("Grade so far");
   const missing = groups.filter((g) => g.avg === null);
   const present = groups.filter((g) => g.avg !== null);
-  const split = missing.length
+  $("basis").textContent = missing.length
     ? "Nothing entered under " + joinAnd(missing.map((g) => g.name)) + " yet, so this is your " +
       joinAnd(present.map((g) => g.name)) + " average alone."
     : "The " + joinAnd(groups.map((g) => g.name)) + " averages count for " +
       joinAnd(groups.map((g) => fmtPct(g.weight))) + " of the grade.";
-  $("basis").textContent = "Based on the " + fmtPct(done) + " of the course grade you have entered. " + split;
 }
 
 function fmtPct(x) {
