@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Oct 14 &mdash; Marginal analysis</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, October 14</p>
+  <h1>Marginal analysis</h1>
+  <p class="standfirst">Section 9.7, with a warm-up from 9.5. Use derivatives to estimate the cost, revenue, and profit from one additional unit, and distinguish marginal quantities from averages.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#reminders">Reminders</a>
+  <a href="#warmup">Power-rule warm-up</a>
+  <a href="#tangent">Tangent lines</a>
+  <a href="#cost">Marginal cost</a>
+  <a href="#revenue">Marginal revenue</a>
+  <a href="#profit">Marginal profit</a>
+  <a href="#averages">Averages</a>
+  <a href="#average-to-marginal">From average to marginal</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines for Fall 2026. Delete or update each semester. ===== -->
+<section id="reminders" aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <p>Make sure that all the remaining exams are on your calendar. <strong>All three are in HBC Gifford.</strong></p>
+    <ul>
+      <li><strong>Exam 3:</strong> Monday, October 26, 11:40 a.m.&ndash;12:35 p.m.</li>
+      <li><strong>Exam 4:</strong> Monday, November 16, 11:40 a.m.&ndash;12:35 p.m.</li>
+      <li><strong>Final Exam:</strong> Friday, December 11, <strong>12:30&ndash;2:30 p.m.</strong></li>
+    </ul>
+    <p>For last week&rsquo;s WeBWorK sets, <strong>9.4</strong> (definition of derivative) and <strong>9.5</strong> (rules for derivatives):</p>
+    <ul>
+      <li>The <strong>extra-credit period ends tonight, Wednesday, October 14</strong>.</li>
+      <li>The <strong>regular-credit period ends tomorrow night, Thursday, October 15</strong>.</li>
+      <li>There is a <strong>quiz tomorrow, Thursday, October 15, on 9.4 and 9.5</strong>.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up &middot; Section 9.5</span>Combine exponents first</h2>
+  <p>We use the power rule extensively in these WeBWorK problems:</p>
+  <div class="card">
+    <p class="card-label">Power rule</p>
+    <ul class="keys">
+      <li>\(\displaystyle (x^n)' = nx^{n-1}\)</li>
+      <li>For example, \((x^4)' = 4x^3\), and \((x)' = 1\cdot x^0 = 1\).</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Find the derivative of
+      \[f(x) = 3x^6\sqrt{x} + \frac{3}{x^2\sqrt{x}}.\]</p>
+  </div>
+  <p><strong>Algebra:</strong> rewrite \(f(x)\), combining exponents. <strong>Calculus:</strong> find \(f'(x)\) using the rules from 9.5.</p>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">First term</span><span class="work">Replace the square root by a power and add exponents:
+          \[3x^6x^{1/2} = 3x^{6+1/2} = 3x^{13/2}.\]</span></li>
+        <li><span class="step">Second term</span><span class="work">Combine the powers in the denominator, then use a negative exponent:
+          \[\frac{3}{x^2x^{1/2}} = \frac{3}{x^{5/2}} = 3x^{-5/2}.\]</span></li>
+        <li><span class="step">Rewrite</span><span class="work">\(f(x) = 3x^{13/2} + 3x^{-5/2}\).</span></li>
+        <li><span class="step">Differentiate</span><span class="work">Apply the sum rule and constant-multiple rule:
+          \[f'(x) = 3(x^{13/2})' + 3(x^{-5/2})'.\]
+          Then use the power rule on each term:
+          \[f'(x) = 3\cdot\frac{13}{2}x^{11/2}
+            + 3\cdot\left(-\frac{5}{2}\right)x^{-7/2}.\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>\(\displaystyle f'(x) = \frac{39}{2}x^{11/2} - \frac{15}{2}x^{-7/2}\)</p>
+      <div class="note">
+        <p>Subtract 1 from the exponent: \(\displaystyle -\frac{5}{2}-1 = -\frac{5}{2}-\frac{2}{2} = -\frac{7}{2}\).</p>
+      </div>
+    </div>
+  </details>
+</section>
+
+<section id="tangent">
+  <h2><span class="marker">Warm-up continued</span>The derivative gives the slope</h2>
+  <div class="problem">
+    <p>Suppose \(f(x) = 7x^2 - 2x\).</p>
+    <ol type="a">
+      <li>Find \(f'(x)\).</li>
+      <li>Find the slope of the graph at \(x = 3\).</li>
+      <li>Find an equation of the tangent line at \(x = 3\).</li>
+      <li>Find all values of \(x\) where the tangent line is horizontal.</li>
+    </ol>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a) Derivative</span><span class="work">\(f'(x) = 7\cdot 2x - 2\cdot 1 = 14x - 2\).</span></li>
+        <li><span class="step">(b) Slope</span><span class="work">Evaluate the derivative at \(x=3\):
+          \[f'(3) = 14\cdot 3 - 2 = 40.\]</span></li>
+        <li><span class="step">(c) Point</span><span class="work">The original function gives the \(y\)-coordinate:
+          \[f(3) = 7\cdot 3^2 - 2\cdot 3 = 63 - 6 = 57.\]
+          The tangent line passes through \((3,57)\).</span></li>
+        <li><span class="step">Tangent line</span><span class="work">Use point-slope form with slope 40:
+          \[y - 57 = 40(x - 3).\]</span></li>
+        <li><span class="step">(d) Horizontal</span><span class="work">A horizontal tangent has slope zero. Solve
+          \[14x - 2 = 0,\qquad x = \frac{1}{7}.\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Tangent at x = 3</span>\(y - 57 = 40(x - 3)\)</p>
+      <p class="answer"><span class="tag">Horizontal tangent</span>\(\displaystyle x = \frac{1}{7}\)</p>
+      <div class="note">
+        <p><strong>Keep the roles separate:</strong> \(f(3)\) gives the height; \(f'(3)\) gives the slope.</p>
+        <p>\(\frac{1}{7}\) is exact. The decimal \(0.1429\) is only an approximation.</p>
+      </div>
+    </div>
+  </details>
+</section>
+
+<section id="cost">
+  <h2><span class="marker">Section 9.7</span>Marginal cost: estimating one more unit</h2>
+  <p>We now put the derivative in the context of cost and revenue analysis. The <strong>total cost function</strong> \(C(x)\) measures the cost of producing \(x\) units.</p>
+  <p>Once \(x\) units are already made, the <strong>exact cost of one additional unit</strong> is</p>
+  \[C(x+1)-C(x).\]
+
+  <figure class="fig">
+    <svg viewBox="0 0 420 150" role="img" aria-label="Seven completed units have total cost C of 7. Adding an eighth unit changes the total to C of 8. The eighth unit alone costs C of 8 minus C of 7.">
+      <path class="curve" d="M35 37V26H385V37"/>
+      <text class="label" x="210" y="17" text-anchor="middle">C(8): total cost of eight units</text>
+      <path class="axis" d="M41 63l6 7 12 -18 M86 63l6 7 12 -18 M131 63l6 7 12 -18 M176 63l6 7 12 -18 M221 63l6 7 12 -18 M266 63l6 7 12 -18 M311 63l6 7 12 -18"/>
+      <path class="band" d="M356 63l6 7 12 -18"/>
+      <path class="axis" d="M35 82V93H338V82"/>
+      <text class="label-soft" x="186" y="114" text-anchor="middle">C(7): first seven units</text>
+      <text class="label-key" x="365" y="101" text-anchor="middle">one more</text>
+      <text class="label-key" x="210" y="141" text-anchor="middle">Cost of the eighth unit = C(8) − C(7)</text>
+    </svg>
+    <figcaption>Total cost includes all the units made so far. Subtracting two totals isolates the cost of the additional unit.</figcaption>
+  </figure>
+
+  <p>Working with this difference can be awkward. For example, if \(C(x)=50\sqrt{x}\), then</p>
+  \[C(x+1)-C(x)=50\sqrt{x+1}-50\sqrt{x}.\]
+  <p>This form does not make it immediately clear how the additional cost changes as production increases.</p>
+
+  <h3>Why use a derivative?</h3>
+  <p>By definition,</p>
+  \[C'(x)=\lim_{h\to 0}\frac{C(x+h)-C(x)}{h}.\]
+  <p>Putting \(h=1\) into the difference quotient gives \(C(x+1)-C(x)\), the exact cost of the next unit. If the rate of change varies little over that one-unit interval, the derivative is a useful estimate:</p>
+  \[C(x+1)-C(x)\approx C'(x).\]
+
+  <div class="card">
+    <p class="card-label">Marginal means derivative</p>
+    <p>The derivative of the total cost function is the <strong>marginal cost function</strong> \(C'(x)\). It estimates the cost of one additional unit at production level \(x\).</p>
+  </div>
+
+  <div class="problem">
+    <p>Given \(C(x)=50\sqrt{x}\):</p>
+    <ol>
+      <li>Find the marginal cost function.</li>
+      <li>Compare marginal cost at \(x=100\) and \(x=400\).</li>
+      <li>Find the exact cost of the 101st unit and compare it with the marginal estimate.</li>
+    </ol>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">\(C(x)=50x^{1/2}\).</span></li>
+        <li><span class="step">Differentiate</span><span class="work">\(\displaystyle C'(x)=50\cdot\frac12 x^{-1/2}=\frac{25}{\sqrt{x}}\).</span></li>
+        <li><span class="step">At 100 units</span><span class="work">\(\displaystyle C'(100)=\frac{25}{\sqrt{100}}=2.50\). The next unit costs approximately <strong>$2.50</strong>.</span></li>
+        <li><span class="step">At 400 units</span><span class="work">\(\displaystyle C'(400)=\frac{25}{\sqrt{400}}=1.25\). The next unit costs approximately <strong>$1.25</strong>.</span></li>
+        <li><span class="step">Exact increase</span><span class="work">The 101st unit changes production from 100 to 101:
+          \[\begin{aligned}
+            C(101)-C(100)&=50\sqrt{101}-50\sqrt{100}\\
+            &=50(\sqrt{101}-10)\\
+            &\approx 2.493781056.
+          \end{aligned}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Marginal cost</span>\(\displaystyle C'(x)=\frac{25}{\sqrt{x}}\)</p>
+      <p>The exact expression for the cost of the 101st unit is \(50(\sqrt{101}-10)\) dollars, or <strong>$2.49 to the nearest cent</strong>. The derivative gives the close estimate <strong>$2.50</strong>.</p>
+    </div>
+  </details>
+</section>
+
+<section id="revenue">
+  <h2><span class="marker">Revenue</span>Differentiate total revenue</h2>
+  <p>The <strong>total revenue function</strong> \(R(x)\) is the revenue from selling \(x\) units. Its derivative \(R'(x)\) is the <strong>marginal revenue function</strong>.</p>
+
+  <div class="problem">
+    <p>Find the marginal revenue at \(x=12\), given
+      \[R(x)=x\left(30-\frac{x}{5}\right).\]</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Expand first</span><span class="work">\(\displaystyle R(x)=30x-\frac15x^2\). Multiplying out lets us use the rules from 9.5; the product rule from 10.3 is not needed here.</span></li>
+        <li><span class="step">Differentiate</span><span class="work">\(\displaystyle R'(x)=30-\frac15\cdot 2x=30-\frac25x\).</span></li>
+        <li><span class="step">At x = 12</span><span class="work">\(\displaystyle R'(12)=30-\frac25\cdot12=30-4.8=25.2\).</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>\(R'(12)=25.2\), or $25.20 per unit</p>
+      <p>At a sales level of 12 units, selling one additional unit increases revenue by approximately $25.20.</p>
+    </div>
+  </details>
+</section>
+
+<section id="profit">
+  <h2><span class="marker">Profit</span>Revenue minus cost</h2>
+  <p>The <strong>total profit function</strong> \(P(x)\) is the profit from producing and selling \(x\) units:</p>
+  \[P(x)=R(x)-C(x).\]
+  <p>Its derivative \(P'(x)\) is the <strong>marginal profit function</strong>.</p>
+
+  <div class="problem">
+    <p>Use the revenue function from the preceding example. Assume a <strong>fixed cost of $500</strong> and a <strong>variable cost of $5 per unit</strong>. Find the total profit function and the marginal profit function. Compare marginal profit at \(x=40\) and \(x=80\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Total revenue</span><span class="work">\(\displaystyle R(x)=30x-\frac15x^2\).</span></li>
+        <li><span class="step">Total cost</span><span class="work">\(C(x)=500+5x\).</span></li>
+        <li><span class="step">Subtract</span><span class="work">Subtract the entire cost expression:
+          \[\begin{aligned}
+            P(x)&=\left(30x-\frac15x^2\right)-(500+5x)\\
+            &=30x-\frac15x^2-500-5x\\
+            &=25x-\frac15x^2-500.
+          \end{aligned}\]</span></li>
+        <li><span class="step">Differentiate</span><span class="work">\(\displaystyle P'(x)=25-\frac15\cdot2x-0=25-\frac25x\). The fixed cost is constant, so its derivative is zero.</span></li>
+        <li><span class="step">At 40 units</span><span class="work">\(\displaystyle P'(40)=25-\frac25\cdot40=9>0\).</span></li>
+        <li><span class="step">At 80 units</span><span class="work">\(\displaystyle P'(80)=25-\frac25\cdot80=-7<0\).</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Total profit</span>\(\displaystyle P(x)=25x-\frac15x^2-500\)</p>
+      <p class="answer"><span class="tag">Marginal profit</span>\(\displaystyle P'(x)=25-\frac25x\)</p>
+      <p>At 40 units, one additional unit increases profit by approximately $9. At 80 units, one additional unit decreases profit by approximately $7.</p>
+    </div>
+  </details>
+</section>
+
+<section id="averages">
+  <h2><span class="marker">Averages</span>Divide by the number of units</h2>
+  <p><strong>Average cost per unit = total cost / number of units.</strong> We write</p>
+  \[\overline{C}(x)=\frac{C(x)}{x},\qquad x>0.\]
+  <p>The line over \(C\) stands for &ldquo;average.&rdquo; When the argument \(x\) is understood, we can write \(\overline{C}=C/x\). Similarly, we can compute average revenue \(\overline{R}\) and average profit \(\overline{P}\).</p>
+
+  <div class="work" role="region" aria-label="Comparison of total, marginal, and average quantities" tabindex="0">
+  <table>
+    <caption>Total, marginal, and average quantities</caption>
+    <thead>
+      <tr><th scope="col">Quantity</th><th scope="col">Total</th><th scope="col">Marginal</th><th scope="col">Average</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Cost</th><td>\(C(x)\)</td><td>\(C'(x)\)</td><td>\(C(x)/x\)</td></tr>
+      <tr><th scope="row">Revenue</th><td>\(R(x)\)</td><td>\(R'(x)\)</td><td>\(R(x)/x\)</td></tr>
+      <tr><th scope="row">Profit</th><td>\(P(x)\)</td><td>\(P'(x)\)</td><td>\(P(x)/x\)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note">
+    <p><strong>Marginal:</strong> differentiate the total. <strong>Average:</strong> divide the total by \(x\). Computing an average requires algebra, not calculus.</p>
+  </div>
+
+  <div class="problem">
+    <p>If \(C(x)=5000+20x\), find the marginal cost and the average cost.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Marginal</span><span class="work">\(C'(x)=0+20=20\).</span></li>
+        <li><span class="step">Average</span><span class="work">\(\displaystyle \overline{C}(x)=\frac{5000+20x}{x}=\frac{5000}{x}+20\).</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Marginal cost</span>\(C'(x)=20\)</p>
+      <p class="answer"><span class="tag">Average cost</span>\(\displaystyle \overline{C}(x)=\frac{5000}{x}+20\)</p>
+      <p>The fixed cost contributes \(5000/x\) to the average cost of each unit, but contributes zero to marginal cost.</p>
+    </div>
+  </details>
+</section>
+
+<section id="average-to-marginal">
+  <h2><span class="marker">Connecting the quantities</span>Average cost &rarr; total cost &rarr; marginal cost</h2>
+  <p>To find marginal cost from average cost, first recover total cost. Differentiating average cost directly does <em>not</em> give marginal cost.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 420 170" role="img" aria-label="Average cost C bar is multiplied by x to recover total cost C. Total cost C is differentiated to obtain marginal cost C prime. Dividing total cost by x returns average cost.">
+      <rect class="box" x="8" y="65" width="112" height="55" rx="2"/>
+      <rect class="box" x="154" y="65" width="112" height="55" rx="2"/>
+      <rect class="box" x="300" y="65" width="112" height="55" rx="2"/>
+      <text class="node" x="64" y="86" text-anchor="middle">Average cost</text>
+      <text class="node-key" x="64" y="108" text-anchor="middle">C̄</text>
+      <text class="node" x="210" y="86" text-anchor="middle">Total cost</text>
+      <text class="node-key" x="210" y="108" text-anchor="middle">C</text>
+      <text class="node" x="356" y="86" text-anchor="middle">Marginal cost</text>
+      <text class="node-key" x="356" y="108" text-anchor="middle">C′</text>
+      <path class="axis" d="M64 65V35H210V59"/>
+      <path class="mark" d="M210 65l-4 -8h8z"/>
+      <text class="label" x="137" y="25" text-anchor="middle">multiply by x</text>
+      <path class="axis" d="M210 120V144H64V126"/>
+      <path class="mark" d="M64 120l-4 8h8z"/>
+      <text class="label-soft" x="137" y="163" text-anchor="middle">divide by x</text>
+      <path class="axis" d="M210 65V35H356V59"/>
+      <path class="mark" d="M356 65l-4 -8h8z"/>
+      <text class="label" x="283" y="25" text-anchor="middle">differentiate</text>
+    </svg>
+    <figcaption>Use total cost as the intermediate step: multiply the average by \(x\), then differentiate.</figcaption>
+  </figure>
+
+  <div class="problem">
+    <p>Given
+      \[\overline{C}(x)=5+\frac{40}{x}+\frac{100}{x^2},\]
+      find \(C'(x)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Plan</span><span class="work">\(\overline{C}\longrightarrow C\longrightarrow C'\).</span></li>
+        <li><span class="step">Recover total</span><span class="work">Since \(\overline{C}=C/x\), multiply by \(x\):
+          \[\begin{aligned}
+            C(x)&=x\overline{C}(x)\\
+            &=5x+40+\frac{100}{x}\\
+            &=5x+40+100x^{-1}.
+          \end{aligned}\]</span></li>
+        <li><span class="step">Differentiate</span><span class="work">\(\displaystyle C'(x)=5+0+100(-1)x^{-2}=5-\frac{100}{x^2}\).</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>\(\displaystyle C'(x)=5-\frac{100}{x^2}\)</p>
+    </div>
+  </details>
+
+  <p><strong>Course scope:</strong> we skip &ldquo;marginal average&rdquo; at the end of Section 9.7.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 9.7, with a review of 9.5 &middot; October 14</p>
+</footer>
+
+</div>
+</body>
+</html>
