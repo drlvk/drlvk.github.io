@@ -12,6 +12,9 @@ Static HTML lecture notes. No build step — edit a file, commit, push.
 | `favicon.svg` | Tab icon: an integral sign in pen red. Carries its own dark-mode variant. |
 | `favicon.ico` | Same mark at 16/32/48 px, for browsers that don't take SVG icons. |
 | `apple-touch-icon.png` | 180×180, full bleed, for iOS home screens. |
+| `index.html` | Grade calculator. As `index.html`, it is also the page at the site root. |
+| `style.css` | Calculator stylesheet: the palette and type of `notes.css`, kept separate. |
+| `script.js` | Calculator logic. Weights, exam dates, and the letter scale for the semester are in the `COURSE` block at the top; the form is built from it. |
 
 Every `href` in these pages is relative, which is what makes the site work at
 `user.github.io/repo/` as well as at a domain root. Don't switch the icon links
@@ -33,6 +36,7 @@ to `/favicon.svg` — on a project site that resolves to the wrong place.
 | `mat284-sep30-section-9-3.html` | Sep 30 — Continuity |
 | `mat284-oct02-exam-2-review.html` | Oct 2 — Review for Exam 2 |
 | `mat284-oct07-section-9-4.html` | Oct 7 — The derivative |
+| `mat284-oct09-section-9-5.html` | Oct 9 — Basic rules for derivatives |
 
 ## Adding a lecture
 
