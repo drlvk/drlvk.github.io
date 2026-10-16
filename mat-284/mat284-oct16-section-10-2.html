@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Oct 16 &mdash; Derivatives of exponential and logarithmic functions</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, October 16</p>
+  <h1>Derivatives of exponential and logarithmic functions</h1>
+  <p class="standfirst">Section 10.2, with a warm-up from 9.7. Distinguish powers from exponentials, learn the derivative rules for exponential and logarithmic functions, and use them to find tangent lines.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Marginal-profit warm-up</a>
+  <a href="#powers">Powers or exponentials?</a>
+  <a href="#natural-exponential">The exponential with base e</a>
+  <a href="#other-exponentials">Other exponential bases</a>
+  <a href="#natural-logarithm">Natural logarithms</a>
+  <a href="#log-properties">Expand logarithms first</a>
+  <a href="#other-logarithms">Other logarithmic bases</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up &middot; Section 9.7</span>From demand to marginal profit</h2>
+
+  <div class="problem">
+    <p>For a new toaster model, a company expects weekly demand of <strong>100 toasters at $25 each</strong> and <strong>200 toasters at $20 each</strong>. Fixed weekly costs are <strong>$4000</strong>, and variable costs are <strong>$9 per toaster</strong>.</p>
+    <ol type="A">
+      <li>Assume that price \(p\) and demand \(x\) have a linear relationship. Express \(p\) as a function of \(x\).</li>
+      <li>Find the revenue function.</li>
+      <li>Find the cost function.</li>
+      <li>Find the profit function.</li>
+      <li>Find the marginal profit function.</li>
+    </ol>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <table>
+        <caption>Data for the price-demand line</caption>
+        <thead><tr><th scope="col">Weekly demand \(x\) (toasters)</th><th scope="col">Price \(p\) (dollars per toaster)</th></tr></thead>
+        <tbody>
+          <tr><td>100</td><td>25</td></tr>
+          <tr><td>200</td><td>20</td></tr>
+        </tbody>
+      </table>
+      <ol class="ledger">
+        <li><span class="step">A. Slope</span><span class="work">Treat \(x\) as the input and \(p\) as the output:
+          \[\frac{20-25}{200-100}=\frac{-5}{100}=-0.05.\]</span></li>
+        <li><span class="step">Price</span><span class="work">Use point-slope form through \((100,25)\):
+          \[\begin{aligned}
+            p-25&=-0.05(x-100),\\
+            p&=25-0.05x+5\\
+             &=30-0.05x.
+          \end{aligned}\]</span></li>
+        <li><span class="step">B. Revenue</span><span class="work">Revenue is price times quantity:
+          \[R(x)=p(x)\,x=(30-0.05x)x=30x-0.05x^2.\]</span></li>
+        <li><span class="step">C. Cost</span><span class="work">Add fixed and variable costs:
+          \[C(x)=4000+9x.\]</span></li>
+        <li><span class="step">D. Profit</span><span class="work">Subtract the entire cost function:
+          \[\begin{aligned}
+            P(x)&=R(x)-C(x)\\
+                &=30x-0.05x^2-(4000+9x)\\
+                &=21x-0.05x^2-4000.
+          \end{aligned}\]</span></li>
+        <li><span class="step">E. Marginal</span><span class="work">Differentiate total profit:
+          \[P'(x)=21-0.05\cdot 2x-0=21-0.1x.\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Marginal profit</span>\(P'(x)=21-0.1x\)</p>
+      <div class="note">
+        <p><strong>Marginal means derivative.</strong> Find total profit first, then differentiate it.</p>
+      </div>
+    </div>
+  </details>
+</section>
+
+<section id="powers">
+  <h2><span class="marker">Section 10.2</span>Where is the variable?</h2>
+
+  <p>Before choosing a derivative rule, distinguish these two kinds of functions.</p>
+  <div class="work" role="region" aria-label="Comparison of power and exponential functions" tabindex="0">
+    <table>
+      <caption>Power functions versus exponential functions</caption>
+      <thead><tr><th scope="col">Type</th><th scope="col">Variable and constant</th><th scope="col">Examples</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Power</th><td>The base is \(x\); the exponent is constant.</td><td>\(x^3,\quad x^{-1/2}\)</td></tr>
+        <tr><th scope="row">Exponential</th><td>The base is constant; the exponent is \(x\).</td><td>\(3^x,\quad e^x\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <p>The power rule \((x^a)'=ax^{a-1}\) applies to a <strong>constant exponent</strong> \(a\). It does not give the derivative of \(3^x\): the expression \(x3^{x-1}\) is <strong>not</strong> the answer.</p>
+  </div>
+
+  <div class="problem">
+    <p>Classify each function as a power function or an exponential function:</p>
+    \[\sqrt{x},\qquad 2^x,\qquad x^{3/2},\qquad (\sqrt{2})^x,\qquad e^x.\]
+  </div>
+
+  <details class="sol" open>
+    <summary>Show classification</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Square root</span><span class="work">\(\sqrt{x}=x^{1/2}\) is a <strong>power function</strong>: the exponent \(1/2\) is constant.</span></li>
+        <li><span class="step">Base 2</span><span class="work">\(2^x\) is an <strong>exponential function</strong>: \(x\) is in the exponent.</span></li>
+        <li><span class="step">Power 3/2</span><span class="work">\(x^{3/2}\) is a <strong>power function</strong>: the exponent \(3/2\) is constant.</span></li>
+        <li><span class="step">Base √2</span><span class="work">\((\sqrt{2})^x\) is an <strong>exponential function</strong>: its base \(\sqrt{2}\) is constant.</span></li>
+        <li><span class="step">Base e</span><span class="work">\(e^x\) is an <strong>exponential function</strong>: its base \(e\) is constant.</span></li>
+      </ol>
+    </div>
+  </details>
+</section>
+
+<section id="natural-exponential">
+  <h2><span class="marker">Exponential functions</span>Base e gives the simplest derivative</h2>
+
+  <p>Recall the base of the natural logarithm, \(e=2.71828\ldots\). It often appears as the base of an exponential function as well; \(e^x\) has its own button on a calculator.</p>
+  <p>The base \(e\) is especially convenient for calculus because its exponential function is its own derivative:</p>
+
+  <div class="card">
+    <p class="card-label">Derivative of the natural exponential</p>
+    \[(e^x)'=e^x.\]
+    <p>The slope of the graph at any \(x\) is the same as its height \(e^x\).</p>
+  </div>
+
+  <p>No other positive base has this property. The explanation is beyond this course; here we use the rule.</p>
+
+  <div class="problem">
+    <p>Find the tangent line to \(y=e^x\) at the point \((0,1)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Derivative</span><span class="work">\(y'=(e^x)'=e^x\).</span></li>
+        <li><span class="step">Slope at 0</span><span class="work">\(e^0=1\).</span></li>
+        <li><span class="step">Tangent line</span><span class="work">Use the point \((0,1)\) and slope 1:
+          \[y-1=1(x-0).\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>\(y=x+1\)</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 400 285" role="img" aria-label="The graph of y equals e to the x and its tangent y equals x plus 1 at zero comma one. Equal scales on the axes show that the tangent has slope one.">
+      <path class="axis" d="M35.00 244.00L365.00 244.00"/><path class="axis" d="M155.00 269.00L155.00 29.00"/><path class="mark" d="M369.0 244l-8 -4v8z"/><path class="mark" d="M155 25.0l-4 8h8z"/><text class="label" x="363.0" y="264">x</text><text class="label" x="164" y="37.0">y</text><path class="axis" d="M55 241v6"/><text class="label-soft" x="55" y="262" text-anchor="middle">-2</text><path class="axis" d="M105 241v6"/><text class="label-soft" x="105" y="262" text-anchor="middle">-1</text><path class="axis" d="M205 241v6"/><text class="label-soft" x="205" y="262" text-anchor="middle">1</text><path class="axis" d="M255 241v6"/><text class="label-soft" x="255" y="262" text-anchor="middle">2</text><path class="axis" d="M305 241v6"/><text class="label-soft" x="305" y="262" text-anchor="middle">3</text><path class="axis" d="M152 194h6"/><text class="label-soft" x="147" y="198" text-anchor="end">1</text><path class="axis" d="M152 144h6"/><text class="label-soft" x="147" y="148" text-anchor="end">2</text><path class="axis" d="M152 94h6"/><text class="label-soft" x="147" y="98" text-anchor="end">3</text><path class="axis" d="M152 44h6"/><text class="label-soft" x="147" y="48" text-anchor="end">4</text><path class="curve" d="M35.00 239.46 L36.07 239.37 L37.14 239.27 L38.22 239.16 L39.29 239.06 L40.36 238.95 L41.43 238.84 L42.50 238.73 L43.57 238.62 L44.65 238.50 L45.72 238.38 L46.79 238.26 L47.86 238.13 L48.93 238.01 L50.01 237.88 L51.08 237.74 L52.15 237.61 L53.22 237.47 L54.29 237.33 L55.36 237.18 L56.44 237.04 L57.51 236.89 L58.58 236.73 L59.65 236.57 L60.72 236.41 L61.80 236.25 L62.87 236.08 L63.94 235.91 L65.01 235.73 L66.08 235.55 L67.16 235.37 L68.23 235.18 L69.30 234.99 L70.37 234.80 L71.44 234.60 L72.51 234.39 L73.59 234.19 L74.66 233.97 L75.73 233.76 L76.80 233.53 L77.87 233.31 L78.95 233.08 L80.02 232.84 L81.09 232.60 L82.16 232.35 L83.23 232.10 L84.30 231.84 L85.38 231.58 L86.45 231.31 L87.52 231.03 L88.59 230.75 L89.66 230.46 L90.74 230.17 L91.81 229.87 L92.88 229.57 L93.95 229.25 L95.02 228.93 L96.09 228.61 L97.17 228.27 L98.24 227.93 L99.31 227.58 L100.38 227.23 L101.45 226.87 L102.53 226.49 L103.60 226.11 L104.67 225.73 L105.74 225.33 L106.81 224.93 L107.88 224.51 L108.96 224.09 L110.03 223.66 L111.10 223.22 L112.17 222.77 L113.24 222.31 L114.32 221.84 L115.39 221.36 L116.46 220.87 L117.53 220.37 L118.60 219.85 L119.68 219.33 L120.75 218.80 L121.82 218.25 L122.89 217.69 L123.96 217.12 L125.03 216.54 L126.11 215.95 L127.18 215.34 L128.25 214.72 L129.32 214.08 L130.39 213.43 L131.47 212.77 L132.54 212.09 L133.61 211.40 L134.68 210.70 L135.75 209.98 L136.82 209.24 L137.90 208.49 L138.97 207.72 L140.04 206.93 L141.11 206.13 L142.18 205.31 L143.26 204.47 L144.33 203.61 L145.40 202.74 L146.47 201.84 L147.54 200.93 L148.61 199.99 L149.69 199.04 L150.76 198.07 L151.83 197.07 L152.90 196.05 L153.97 195.02 L155.05 193.95 L156.12 192.87 L157.19 191.76 L158.26 190.63 L159.33 189.47 L160.40 188.29 L161.48 187.08 L162.55 185.85 L163.62 184.59 L164.69 183.30 L165.76 181.99 L166.84 180.65 L167.91 179.27 L168.98 177.87 L170.05 176.44 L171.12 174.97 L172.20 173.48 L173.27 171.95 L174.34 170.39 L175.41 168.79 L176.48 167.16 L177.55 165.50 L178.63 163.80 L179.70 162.06 L180.77 160.28 L181.84 158.47 L182.91 156.62 L183.99 154.72 L185.06 152.79 L186.13 150.81 L187.20 148.79 L188.27 146.73 L189.34 144.62 L190.42 142.47 L191.49 140.27 L192.56 138.02 L193.63 135.73 L194.70 133.38 L195.78 130.98 L196.85 128.53 L197.92 126.03 L198.99 123.48 L200.06 120.86 L201.13 118.20 L202.21 115.47 L203.28 112.69 L204.35 109.84 L205.42 106.93 L206.49 103.96 L207.57 100.93 L208.64 97.83 L209.71 94.66 L210.78 91.43 L211.85 88.12 L212.93 84.74 L214.00 81.29 L215.07 77.77 L216.14 74.16 L217.21 70.48 L218.28 66.72 L219.36 62.88 L220.43 58.96 L221.50 54.95 L222.57 50.85 L223.64 46.67 L224.72 42.39 L225.79 38.02 L226.86 33.56 L227.93 29.00"/><path class="curve-2" d="M80.00 269.00 L320.00 29.00"/><circle class="dot" cx="155" cy="194" r="4.2"/><text class="label-key" x="143" y="181" text-anchor="end">(0, 1)</text><text class="label" x="228" y="30">y = e</text><text class="label sup" x="268" y="20">x</text><text class="label-soft" x="291" y="73">y = x + 1</text>
+    </svg>
+    <figcaption>The height and the slope are both \(e^0=1\) at \(x=0\). The dashed line is the tangent \(y=x+1\).</figcaption>
+  </figure>
+
+  <p>With equal scales on the axes, this tangent makes a \(45^\circ\) angle with the positive \(x\)-axis. Its slope of 1 at the \(y\)-intercept distinguishes \(e^x\) from exponentials with other bases.</p>
+</section>
+
+<section id="other-exponentials">
+  <h2><span class="marker">Other exponential bases</span>Multiply by the logarithm of the base</h2>
+
+  <p>Although \(e\) is the most common base in calculus, we also encounter functions such as \(2^x\) and \(1.05^x\). Their derivative has one extra constant factor:</p>
+
+  <div class="card">
+    <p class="card-label">Exponential derivative rule</p>
+    \[(b^x)'=b^x\ln b,\qquad b>0.\]
+    <p>The base \(b\) is constant. For \(b=e\), the extra factor is \(\ln e=1\), giving the rule above.</p>
+  </div>
+
+  <p>For example,</p>
+  \[(10^x)'=10^x\ln 10,\qquad \ln 10\approx 2.302585093.\]
+
+  <div class="problem">
+    <p>Given \(f(x)=2^x\):</p>
+    <ol type="a">
+      <li>Find \(f'(3)\).</li>
+      <li>Find the tangent line to the graph at \((3,8)\).</li>
+    </ol>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Differentiate</span><span class="work">\(f'(x)=2^x\ln 2\).</span></li>
+        <li><span class="step">Evaluate</span><span class="work">\(f'(3)=2^3\ln 2=8\ln 2\).</span></li>
+        <li><span class="step">Point and slope</span><span class="work">Use the point \((3,8)\) and slope \(f'(3)=8\ln 2\):
+          \[y-8=(8\ln 2)(x-3).\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Derivative at 3</span>\(f'(3)=8\ln 2\)</p>
+      <p class="answer"><span class="tag">Tangent line</span>\(y=8+(8\ln 2)(x-3)\)</p>
+      <div class="note">
+        <p><strong>Differentiate first; substitute second.</strong> The slope of a tangent line is the derivative evaluated at the given \(x\)-coordinate.</p>
+      </div>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 410 278" role="img" aria-label="The graph of y equals 2 to the x and the tangent at three comma eight. The tangent has slope eight times the natural logarithm of two.">
+      <path class="axis" d="M30.00 240.00L380.00 240.00"/><path class="axis" d="M100.00 253.00L100.00 32.00"/><path class="mark" d="M384 240l-8 -4v8z"/><path class="mark" d="M100 28l-4 8h8z"/><text class="label" x="378" y="260">x</text><text class="label" x="109" y="40">y</text><path class="axis" d="M170 237v6"/><text class="label-soft" x="170" y="258" text-anchor="middle">1</text><path class="axis" d="M240 237v6"/><text class="label-soft" x="240" y="258" text-anchor="middle">2</text><path class="axis" d="M310 237v6"/><text class="label-soft" x="310" y="258" text-anchor="middle">3</text><path class="axis" d="M97 188h6"/><text class="label-soft" x="92" y="192" text-anchor="end">4</text><path class="axis" d="M97 136h6"/><text class="label-soft" x="92" y="140" text-anchor="end">8</text><path class="axis" d="M97 84h6"/><text class="label-soft" x="92" y="88" text-anchor="end">12</text><path class="axis" d="M97 32h6"/><text class="label-soft" x="92" y="36" text-anchor="end">16</text><path class="curve" d="M30.00 233.50 L31.94 233.37 L33.89 233.24 L35.83 233.11 L37.78 232.98 L39.72 232.84 L41.67 232.70 L43.61 232.56 L45.56 232.42 L47.50 232.27 L49.44 232.12 L51.39 231.97 L53.33 231.81 L55.28 231.65 L57.22 231.49 L59.17 231.32 L61.11 231.15 L63.06 230.98 L65.00 230.81 L66.94 230.63 L68.89 230.45 L70.83 230.26 L72.78 230.07 L74.72 229.88 L76.67 229.68 L78.61 229.48 L80.56 229.28 L82.50 229.07 L84.44 228.86 L86.39 228.64 L88.33 228.42 L90.28 228.19 L92.22 227.96 L94.17 227.73 L96.11 227.49 L98.06 227.25 L100.00 227.00 L101.94 226.75 L103.89 226.49 L105.83 226.23 L107.78 225.96 L109.72 225.69 L111.67 225.41 L113.61 225.12 L115.56 224.84 L117.50 224.54 L119.44 224.24 L121.39 223.93 L123.33 223.62 L125.28 223.30 L127.22 222.98 L129.17 222.65 L131.11 222.31 L133.06 221.97 L135.00 221.62 L136.94 221.26 L138.89 220.89 L140.83 220.52 L142.78 220.14 L144.72 219.76 L146.67 219.36 L148.61 218.96 L150.56 218.55 L152.50 218.14 L154.44 217.71 L156.39 217.28 L158.33 216.84 L160.28 216.39 L162.22 215.93 L164.17 215.46 L166.11 214.98 L168.06 214.50 L170.00 214.00 L171.94 213.49 L173.89 212.98 L175.83 212.45 L177.78 211.92 L179.72 211.37 L181.67 210.82 L183.61 210.25 L185.56 209.67 L187.50 209.08 L189.44 208.48 L191.39 207.87 L193.33 207.24 L195.28 206.61 L197.22 205.96 L199.17 205.29 L201.11 204.62 L203.06 203.93 L205.00 203.23 L206.94 202.52 L208.89 201.79 L210.83 201.04 L212.78 200.29 L214.72 199.51 L216.67 198.73 L218.61 197.93 L220.56 197.11 L222.50 196.27 L224.44 195.42 L226.39 194.56 L228.33 193.67 L230.28 192.77 L232.22 191.85 L234.17 190.92 L236.11 189.96 L238.06 188.99 L240.00 188.00 L241.94 186.99 L243.89 185.96 L245.83 184.91 L247.78 183.84 L249.72 182.75 L251.67 181.63 L253.61 180.50 L255.56 179.34 L257.50 178.16 L259.44 176.96 L261.39 175.73 L263.33 174.48 L265.28 173.21 L267.22 171.91 L269.17 170.59 L271.11 169.24 L273.06 167.86 L275.00 166.46 L276.94 165.03 L278.89 163.57 L280.83 162.09 L282.78 160.57 L284.72 159.03 L286.67 157.46 L288.61 155.85 L290.56 154.21 L292.50 152.55 L294.44 150.85 L296.39 149.11 L298.33 147.35 L300.28 145.55 L302.22 143.71 L304.17 141.84 L306.11 139.93 L308.06 137.98 L310.00 136.00 L311.94 133.98 L313.89 131.92 L315.83 129.82 L317.78 127.67 L319.72 125.49 L321.67 123.26 L323.61 120.99 L325.56 118.68 L327.50 116.32 L329.44 113.92 L331.39 111.47 L333.33 108.97 L335.28 106.42 L337.22 103.82 L339.17 101.18 L341.11 98.48 L343.06 95.73 L345.00 92.92 L346.94 90.06 L348.89 87.15 L350.83 84.18 L352.78 81.15 L354.72 78.06 L356.67 74.91 L358.61 71.70 L360.56 68.43 L362.50 65.09 L364.44 61.69 L366.39 58.23 L368.33 54.69 L370.28 51.09 L372.22 47.42 L374.17 43.67 L376.11 39.86 L378.06 35.97 L380.00 32.00"/><path class="curve-2" d="M196.39 253.00 L380.00 63.91"/><circle class="dot" cx="310" cy="136" r="4.2"/><text class="label-key" x="323" y="164">(3, 8)</text><text class="label" x="247" y="29">y = 2</text><text class="label sup" x="287" y="19">x</text><text class="label-soft" x="240" y="225">slope 8 ln 2</text>
+    </svg>
+    <figcaption>The point supplies the height 8; the derivative supplies the slope \(8\ln 2\).</figcaption>
+  </figure>
+</section>
+
+<section id="natural-logarithm">
+  <h2><span class="marker">Logarithmic functions</span>The natural logarithm</h2>
+
+  <p>The logarithm with base \(e\) has its own name and notation: the <strong>natural logarithm</strong>, written \(\ln x\). Think of the letters as &ldquo;logarithm&rdquo; and &ldquo;natural.&rdquo; Its derivative is particularly simple:</p>
+
+  <div class="card">
+    <p class="card-label">Derivative of the natural logarithm</p>
+    \[(\ln x)'=\frac{1}{x},\qquad x>0.\]
+  </div>
+
+  <p>The derivation of this formula is beyond this course. We will use it to compute slopes and tangent lines.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 440 244" role="img" aria-label="Two graphs: y equals the natural logarithm of x on the left, passing through one comma zero; and its derivative y equals one over x on the right, positive and decreasing for positive x.">
+      <text class="label" x="120" y="19" text-anchor="middle">Function</text><path class="axis" d="M26.00 185.00L202.00 185.00"/><path class="axis" d="M48.00 233.40L48.00 44.20"/><path class="mark" d="M206.0 185l-8 -4v8z"/><path class="mark" d="M48 40.19999999999999l-4 8h8z"/><text class="label" x="200.0" y="205">x</text><text class="label" x="57" y="52.19999999999999">y</text><path class="axis" d="M136 182v6"/><text class="label-soft" x="136" y="203" text-anchor="middle">2</text><path class="curve" d="M62.65 233.40 L63.42 231.13 L64.19 228.98 L64.97 226.92 L65.74 224.96 L66.52 223.08 L67.29 221.28 L68.07 219.55 L68.84 217.88 L69.61 216.28 L70.39 214.73 L71.16 213.23 L71.94 211.79 L72.71 210.39 L73.48 209.03 L74.26 207.71 L75.03 206.43 L75.81 205.19 L76.58 203.98 L77.36 202.81 L78.13 201.66 L78.90 200.55 L79.68 199.46 L80.45 198.39 L81.23 197.36 L82.00 196.34 L82.78 195.35 L83.55 194.38 L84.32 193.44 L85.10 192.51 L85.87 191.60 L86.65 190.71 L87.42 189.84 L88.19 188.98 L88.97 188.14 L89.74 187.32 L90.52 186.51 L91.29 185.71 L92.07 184.93 L92.84 184.17 L93.61 183.42 L94.39 182.67 L95.16 181.95 L95.94 181.23 L96.71 180.52 L97.48 179.83 L98.26 179.15 L99.03 178.48 L99.81 177.81 L100.58 177.16 L101.36 176.52 L102.13 175.88 L102.90 175.26 L103.68 174.64 L104.45 174.03 L105.23 173.44 L106.00 172.84 L106.77 172.26 L107.55 171.69 L108.32 171.12 L109.10 170.56 L109.87 170.00 L110.65 169.45 L111.42 168.91 L112.19 168.38 L112.97 167.85 L113.74 167.33 L114.52 166.82 L115.29 166.31 L116.07 165.80 L116.84 165.31 L117.61 164.81 L118.39 164.33 L119.16 163.85 L119.94 163.37 L120.71 162.90 L121.48 162.43 L122.26 161.97 L123.03 161.52 L123.81 161.06 L124.58 160.62 L125.36 160.17 L126.13 159.74 L126.90 159.30 L127.68 158.87 L128.45 158.45 L129.23 158.03 L130.00 157.61 L130.77 157.19 L131.55 156.79 L132.32 156.38 L133.10 155.98 L133.87 155.58 L134.65 155.18 L135.42 154.79 L136.19 154.40 L136.97 154.02 L137.74 153.64 L138.52 153.26 L139.29 152.89 L140.07 152.51 L140.84 152.15 L141.61 151.78 L142.39 151.42 L143.16 151.06 L143.94 150.70 L144.71 150.35 L145.48 150.00 L146.26 149.65 L147.03 149.30 L147.81 148.96 L148.58 148.62 L149.36 148.28 L150.13 147.95 L150.90 147.62 L151.68 147.29 L152.45 146.96 L153.23 146.64 L154.00 146.31 L154.77 145.99 L155.55 145.67 L156.32 145.36 L157.10 145.05 L157.87 144.73 L158.65 144.43 L159.42 144.12 L160.19 143.81 L160.97 143.51 L161.74 143.21 L162.52 142.91 L163.29 142.62 L164.06 142.32 L164.84 142.03 L165.61 141.74 L166.39 141.45 L167.16 141.16 L167.94 140.88 L168.71 140.60 L169.48 140.31 L170.26 140.03 L171.03 139.76 L171.81 139.48 L172.58 139.21 L173.36 138.93 L174.13 138.66 L174.90 138.39 L175.68 138.13 L176.45 137.86 L177.23 137.60 L178.00 137.33 L178.77 137.07 L179.55 136.81 L180.32 136.55 L181.10 136.30 L181.87 136.04 L182.65 135.79 L183.42 135.54 L184.19 135.28 L184.97 135.04 L185.74 134.79 L186.52 134.54 L187.29 134.30 L188.06 134.05 L188.84 133.81 L189.61 133.57 L190.39 133.33 L191.16 133.09 L191.94 132.85 L192.71 132.62 L193.48 132.38 L194.26 132.15 L195.03 131.92 L195.81 131.68 L196.58 131.45 L197.35 131.23 L198.13 131.00 L198.90 130.77 L199.68 130.55 L200.45 130.32 L201.23 130.10 L202.00 129.88"/><circle class="dot" cx="92" cy="185" r="4.2"/><text class="label" x="124" y="114">y = ln x</text><text class="label-key" x="112" y="225">(1, 0)</text><text class="label" x="335" y="19" text-anchor="middle">Derivative</text><path class="axis" d="M244.00 185.00L420.00 185.00"/><path class="axis" d="M266.00 233.40L266.00 44.20"/><path class="mark" d="M424.0 185l-8 -4v8z"/><path class="mark" d="M266 40.19999999999999l-4 8h8z"/><text class="label" x="418.0" y="205">x</text><text class="label" x="252" y="52.19999999999999">y</text><path class="axis" d="M310 182v6"/><text class="label-soft" x="310" y="203" text-anchor="middle">1</text><path class="axis" d="M354 182v6"/><text class="label-soft" x="354" y="203" text-anchor="middle">2</text><path class="curve" d="M279.75 44.20 L280.53 51.75 L281.31 58.53 L282.09 64.66 L282.87 70.22 L283.65 75.29 L284.43 79.93 L285.20 84.19 L285.98 88.12 L286.76 91.75 L287.54 95.13 L288.32 98.26 L289.10 101.19 L289.88 103.93 L290.66 106.49 L291.44 108.89 L292.22 111.15 L293.00 113.29 L293.77 115.30 L294.55 117.20 L295.33 119.00 L296.11 120.71 L296.89 122.33 L297.67 123.87 L298.45 125.34 L299.23 126.74 L300.01 128.07 L300.79 129.35 L301.57 130.57 L302.35 131.73 L303.12 132.85 L303.90 133.92 L304.68 134.95 L305.46 135.94 L306.24 136.89 L307.02 137.80 L307.80 138.68 L308.58 139.53 L309.36 140.35 L310.14 141.14 L310.92 141.90 L311.70 142.63 L312.48 143.34 L313.25 144.03 L314.03 144.69 L314.81 145.34 L315.59 145.96 L316.37 146.57 L317.15 147.15 L317.93 147.72 L318.71 148.27 L319.49 148.80 L320.27 149.32 L321.05 149.83 L321.82 150.32 L322.60 150.80 L323.38 151.26 L324.16 151.71 L324.94 152.15 L325.72 152.58 L326.50 153.00 L327.28 153.41 L328.06 153.80 L328.84 154.19 L329.62 154.57 L330.40 154.94 L331.18 155.30 L331.95 155.65 L332.73 155.99 L333.51 156.32 L334.29 156.65 L335.07 156.97 L335.85 157.28 L336.63 157.59 L337.41 157.89 L338.19 158.18 L338.97 158.47 L339.75 158.75 L340.52 159.02 L341.30 159.29 L342.08 159.55 L342.86 159.81 L343.64 160.06 L344.42 160.31 L345.20 160.56 L345.98 160.79 L346.76 161.03 L347.54 161.26 L348.32 161.48 L349.10 161.70 L349.88 161.92 L350.65 162.13 L351.43 162.34 L352.21 162.54 L352.99 162.74 L353.77 162.94 L354.55 163.14 L355.33 163.33 L356.11 163.51 L356.89 163.70 L357.67 163.88 L358.45 164.06 L359.23 164.23 L360.00 164.41 L360.78 164.57 L361.56 164.74 L362.34 164.90 L363.12 165.07 L363.90 165.22 L364.68 165.38 L365.46 165.53 L366.24 165.69 L367.02 165.83 L367.80 165.98 L368.57 166.13 L369.35 166.27 L370.13 166.41 L370.91 166.55 L371.69 166.68 L372.47 166.82 L373.25 166.95 L374.03 167.08 L374.81 167.21 L375.59 167.33 L376.37 167.46 L377.15 167.58 L377.93 167.70 L378.70 167.82 L379.48 167.94 L380.26 168.06 L381.04 168.17 L381.82 168.28 L382.60 168.40 L383.38 168.51 L384.16 168.62 L384.94 168.72 L385.72 168.83 L386.50 168.93 L387.27 169.04 L388.05 169.14 L388.83 169.24 L389.61 169.34 L390.39 169.44 L391.17 169.53 L391.95 169.63 L392.73 169.72 L393.51 169.82 L394.29 169.91 L395.07 170.00 L395.85 170.09 L396.62 170.18 L397.40 170.27 L398.18 170.35 L398.96 170.44 L399.74 170.52 L400.52 170.61 L401.30 170.69 L402.08 170.77 L402.86 170.85 L403.64 170.93 L404.42 171.01 L405.20 171.09 L405.98 171.17 L406.75 171.25 L407.53 171.32 L408.31 171.40 L409.09 171.47 L409.87 171.54 L410.65 171.62 L411.43 171.69 L412.21 171.76 L412.99 171.83 L413.77 171.90 L414.55 171.97 L415.32 172.03 L416.10 172.10 L416.88 172.17 L417.66 172.23 L418.44 172.30 L419.22 172.36 L420.00 172.43"/><text class="label" x="322" y="85">y = 1/x</text>
+    </svg>
+    <figcaption>For \(x>0\), the slope of \(\ln x\) is \(1/x\): positive, and smaller at larger values of \(x\).</figcaption>
+  </figure>
+
+  <div class="problem">
+    <p>Find the tangent line to \(y=\ln x\) at the point \((1,0)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Derivative</span><span class="work">\(\displaystyle y'=\frac{1}{x}\).</span></li>
+        <li><span class="step">Slope at 1</span><span class="work">\(\displaystyle \frac{1}{1}=1\).</span></li>
+        <li><span class="step">Tangent line</span><span class="work">Use the point \((1,0)\) and slope 1:
+          \[y-0=1(x-1).\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>\(y=x-1\)</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 400 310" role="img" aria-label="The graphs of e to the x and the natural logarithm of x, with their intercepts zero comma one and one comma zero marked. The tangent at each intercept has slope one; the two dashed tangent lines are parallel.">
+      <path class="axis" d="M37.60 220.00L360.00 220.00"/><path class="axis" d="M100.00 298.00L100.00 27.60"/><path class="mark" d="M364 220l-8 -4v8z"/><path class="mark" d="M100 23.599999999999994l-4 8h8z"/><text class="label" x="358" y="240">x</text><text class="label" x="109" y="35.599999999999994">y</text><path class="axis" d="M204 217v6"/><text class="label-soft" x="204" y="238" text-anchor="middle">2</text><path class="axis" d="M256 217v6"/><text class="label-soft" x="256" y="238" text-anchor="middle">3</text><path class="axis" d="M308 217v6"/><text class="label-soft" x="308" y="238" text-anchor="middle">4</text><path class="axis" d="M97 168h6"/><text class="label-soft" x="92" y="172" text-anchor="end">1</text><path class="axis" d="M97 116h6"/><text class="label-soft" x="92" y="120" text-anchor="end">2</text><path class="axis" d="M97 64h6"/><text class="label-soft" x="92" y="68" text-anchor="end">3</text><path class="curve" d="M37.60 204.34 L38.32 204.12 L39.05 203.90 L39.77 203.67 L40.50 203.44 L41.22 203.21 L41.95 202.97 L42.67 202.73 L43.40 202.49 L44.12 202.25 L44.85 202.00 L45.57 201.74 L46.30 201.49 L47.02 201.23 L47.74 200.96 L48.47 200.70 L49.19 200.43 L49.92 200.15 L50.64 199.87 L51.37 199.59 L52.09 199.30 L52.82 199.01 L53.54 198.72 L54.27 198.42 L54.99 198.12 L55.72 197.81 L56.44 197.50 L57.16 197.18 L57.89 196.86 L58.61 196.54 L59.34 196.21 L60.06 195.88 L60.79 195.54 L61.51 195.19 L62.24 194.85 L62.96 194.49 L63.69 194.13 L64.41 193.77 L65.14 193.40 L65.86 193.03 L66.59 192.65 L67.31 192.27 L68.03 191.88 L68.76 191.48 L69.48 191.08 L70.21 190.68 L70.93 190.27 L71.66 189.85 L72.38 189.43 L73.11 189.00 L73.83 188.56 L74.56 188.12 L75.28 187.67 L76.01 187.22 L76.73 186.76 L77.45 186.29 L78.18 185.82 L78.90 185.34 L79.63 184.85 L80.35 184.36 L81.08 183.86 L81.80 183.35 L82.53 182.84 L83.25 182.32 L83.98 181.79 L84.70 181.25 L85.43 180.71 L86.15 180.16 L86.87 179.60 L87.60 179.03 L88.32 178.46 L89.05 177.87 L89.77 177.28 L90.50 176.68 L91.22 176.08 L91.95 175.46 L92.67 174.84 L93.40 174.20 L94.12 173.56 L94.85 172.91 L95.57 172.25 L96.29 171.58 L97.02 170.90 L97.74 170.21 L98.47 169.51 L99.19 168.80 L99.92 168.08 L100.64 167.35 L101.37 166.61 L102.09 165.87 L102.82 165.11 L103.54 164.34 L104.27 163.55 L104.99 162.76 L105.72 161.96 L106.44 161.14 L107.16 160.32 L107.89 159.48 L108.61 158.63 L109.34 157.77 L110.06 156.90 L110.79 156.01 L111.51 155.11 L112.24 154.20 L112.96 153.28 L113.69 152.34 L114.41 151.39 L115.14 150.43 L115.86 149.46 L116.58 148.47 L117.31 147.46 L118.03 146.44 L118.76 145.41 L119.48 144.36 L120.21 143.30 L120.93 142.23 L121.66 141.14 L122.38 140.03 L123.11 138.91 L123.83 137.77 L124.56 136.62 L125.28 135.45 L126.00 134.26 L126.73 133.06 L127.45 131.84 L128.18 130.60 L128.90 129.34 L129.63 128.07 L130.35 126.78 L131.08 125.47 L131.80 124.15 L132.53 122.80 L133.25 121.44 L133.98 120.05 L134.70 118.65 L135.42 117.23 L136.15 115.79 L136.87 114.33 L137.60 112.84 L138.32 111.34 L139.05 109.81 L139.77 108.27 L140.50 106.70 L141.22 105.11 L141.95 103.50 L142.67 101.86 L143.40 100.21 L144.12 98.52 L144.85 96.82 L145.57 95.09 L146.29 93.34 L147.02 91.56 L147.74 89.76 L148.47 87.93 L149.19 86.08 L149.92 84.20 L150.64 82.29 L151.37 80.36 L152.09 78.40 L152.82 76.41 L153.54 74.40 L154.27 72.36 L154.99 70.28 L155.71 68.18 L156.44 66.05 L157.16 63.89 L157.89 61.70 L158.61 59.48 L159.34 57.23 L160.06 54.94 L160.79 52.63 L161.51 50.28 L162.24 47.90 L162.96 45.48 L163.69 43.03 L164.41 40.55 L165.13 38.03 L165.86 35.48 L166.58 32.89 L167.31 30.26 L168.03 27.60"/><path class="curve" d="M111.60 298.00 L112.98 292.16 L114.36 286.90 L115.74 282.13 L117.12 277.76 L118.50 273.73 L119.88 269.99 L121.26 266.50 L122.64 263.23 L124.02 260.16 L125.40 257.25 L126.78 254.50 L128.16 251.89 L129.54 249.40 L130.92 247.03 L132.30 244.76 L133.68 242.58 L135.06 240.49 L136.44 238.49 L137.82 236.55 L139.20 234.69 L140.58 232.89 L141.96 231.15 L143.34 229.47 L144.72 227.84 L146.10 226.26 L147.48 224.73 L148.86 223.24 L150.24 221.79 L151.62 220.38 L153.00 219.01 L154.38 217.67 L155.76 216.37 L157.14 215.10 L158.52 213.86 L159.90 212.64 L161.28 211.46 L162.66 210.30 L164.04 209.17 L165.42 208.06 L166.80 206.97 L168.18 205.91 L169.56 204.87 L170.94 203.85 L172.32 202.85 L173.70 201.86 L175.08 200.90 L176.46 199.95 L177.84 199.02 L179.22 198.11 L180.60 197.21 L181.98 196.33 L183.36 195.46 L184.74 194.60 L186.12 193.76 L187.50 192.94 L188.88 192.12 L190.26 191.32 L191.64 190.53 L193.02 189.76 L194.40 188.99 L195.78 188.24 L197.16 187.49 L198.54 186.76 L199.92 186.04 L201.30 185.32 L202.68 184.62 L204.06 183.93 L205.44 183.24 L206.82 182.56 L208.20 181.90 L209.58 181.24 L210.96 180.59 L212.34 179.94 L213.72 179.31 L215.10 178.68 L216.48 178.06 L217.86 177.45 L219.24 176.84 L220.62 176.25 L222.00 175.65 L223.38 175.07 L224.76 174.49 L226.14 173.92 L227.52 173.35 L228.90 172.79 L230.28 172.24 L231.66 171.69 L233.04 171.15 L234.42 170.61 L235.80 170.08 L237.18 169.56 L238.56 169.04 L239.94 168.52 L241.32 168.01 L242.70 167.51 L244.08 167.01 L245.46 166.51 L246.84 166.02 L248.22 165.53 L249.60 165.05 L250.98 164.57 L252.36 164.10 L253.74 163.63 L255.12 163.17 L256.50 162.71 L257.88 162.25 L259.26 161.80 L260.64 161.35 L262.02 160.90 L263.40 160.46 L264.78 160.02 L266.16 159.59 L267.54 159.16 L268.92 158.73 L270.30 158.31 L271.68 157.89 L273.06 157.48 L274.44 157.06 L275.82 156.65 L277.20 156.25 L278.58 155.84 L279.96 155.44 L281.34 155.04 L282.72 154.65 L284.10 154.26 L285.48 153.87 L286.86 153.49 L288.24 153.10 L289.62 152.72 L291.00 152.35 L292.38 151.97 L293.76 151.60 L295.14 151.23 L296.52 150.86 L297.90 150.50 L299.28 150.14 L300.66 149.78 L302.04 149.42 L303.42 149.07 L304.80 148.72 L306.18 148.37 L307.56 148.02 L308.94 147.68 L310.32 147.34 L311.70 147.00 L313.08 146.66 L314.46 146.32 L315.84 145.99 L317.22 145.66 L318.60 145.33 L319.98 145.00 L321.36 144.68 L322.74 144.35 L324.12 144.03 L325.50 143.71 L326.88 143.39 L328.26 143.08 L329.64 142.77 L331.02 142.45 L332.40 142.14 L333.78 141.84 L335.16 141.53 L336.54 141.23 L337.92 140.92 L339.30 140.62 L340.68 140.32 L342.06 140.03 L343.44 139.73 L344.82 139.44 L346.20 139.15 L347.58 138.85 L348.96 138.57 L350.34 138.28 L351.72 137.99 L353.10 137.71 L354.48 137.43 L355.86 137.14 L357.24 136.86 L358.62 136.59 L360.00 136.31"/><path class="curve-2" d="M37.60 230.40 L240.40 27.60"/><path class="curve-2" d="M74.00 298.00 L344.40 27.60"/><circle class="dot" cx="100" cy="168" r="4.2"/><circle class="dot" cx="152" cy="220" r="4.2"/><text class="label" x="171" y="33">y = e</text><text class="label sup" x="211" y="23">x</text><text class="label" x="297" y="123">y = ln x</text><text class="label-key" x="70" y="156" text-anchor="end">(0, 1)</text><text class="label-key" x="167" y="259">(1, 0)</text><text class="label-soft" x="223" y="69">slope 1</text><text class="label-soft" x="315" y="87">slope 1</text>
+    </svg>
+    <figcaption>At their respective intercepts, \(e^x\) and \(\ln x\) both have slope 1. Their tangent lines, \(y=x+1\) and \(y=x-1\), are parallel.</figcaption>
+  </figure>
+
+  <p>With equal scales on the axes, the tangent to \(\ln x\) at its \(x\)-intercept also makes a \(45^\circ\) angle with the positive \(x\)-axis. Among logarithmic functions, base \(e\) is the one with slope 1 at \((1,0)\).</p>
+</section>
+
+<section id="log-properties">
+  <h2><span class="marker">Algebra before calculus</span>Expand logarithms first</h2>
+
+  <p>Sometimes the properties of logarithms let us rewrite a function before taking its derivative.</p>
+
+  <div class="card">
+    <p class="card-label">Logarithm properties</p>
+    <ul class="keys">
+      <li>\(\ln(AB)=\ln A+\ln B\)</li>
+      <li>\(\ln(A/B)=\ln A-\ln B\)</li>
+      <li>\(\ln(A^r)=r\ln A\)</li>
+    </ul>
+  </div>
+
+  <ol class="ledger">
+    <li><span class="step">1. Algebra</span><span class="work">Simplify the expression and expand the logarithm.</span></li>
+    <li><span class="step">2. Calculus</span><span class="work">Differentiate the resulting sum, remembering that constants have derivative zero.</span></li>
+  </ol>
+
+  <div class="problem">
+    <p>Find the derivative of \(y=\ln(5x^3)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Expand</span><span class="work">\(\displaystyle y=\ln 5+\ln(x^3)=\ln 5+3\ln x\).</span></li>
+        <li><span class="step">Differentiate</span><span class="work">\(\displaystyle y'=(\ln 5)'+(3\ln x)'=0+3\cdot\frac1x\).</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>\(\displaystyle y'=\frac{3}{x}\)</p>
+
+      <div class="note">
+        <p class="card-label">Common mistake</p>
+        <p>The expression \(\displaystyle \frac15+\frac{1}{3x}\) is <strong>incorrect</strong>.</p>
+        <ul>
+          <li>\((\ln 5)'=0\), because \(\ln 5\) is a constant: there is no \(x\) in it.</li>
+          <li>\(\displaystyle (3\ln x)'=3(\ln x)'=\frac3x\), not \(\displaystyle \frac{1}{3x}\).</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Next, find \(f'(x)\) for
+      \[f(x)=3\ln\left(\frac{4x^2}{\sqrt{x}}\right).\]</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Combine powers</span><span class="work">\(\displaystyle \frac{x^2}{\sqrt{x}}=\frac{x^2}{x^{1/2}}=x^{2-1/2}=x^{3/2}\).</span></li>
+        <li><span class="step">Expand</span><span class="work">
+          \[\begin{aligned}
+            f(x)&=3\ln(4x^{3/2})\\
+                &=3\left(\ln 4+\ln(x^{3/2})\right)\\
+                &=3\left(\ln 4+\frac32\ln x\right)\\
+                &=3\ln 4+\frac92\ln x.
+          \end{aligned}\]</span></li>
+        <li><span class="step">Differentiate</span><span class="work">\(\displaystyle f'(x)=0+\frac92\cdot\frac1x=\frac{9}{2x}\).</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>\(\displaystyle f'(x)=\frac{9}{2x}\)</p>
+    </div>
+  </details>
+</section>
+
+<section id="other-logarithms">
+  <h2><span class="marker">Other logarithmic bases</span>Divide by the logarithm of the base</h2>
+
+  <p>To differentiate a logarithm with another base \(b\), start with the change-of-base formula:</p>
+  \[\log_b x=\frac{\ln x}{\ln b}.\]
+  <p>The denominator is constant: there is no \(x\) in \(\ln b\). Therefore,</p>
+  \[(\log_b x)'=\frac{1}{\ln b}(\ln x)'=\frac{1}{x\ln b}.\]
+
+  <div class="card">
+    <p class="card-label">Compare the two rules</p>
+    <ul class="keys">
+      <li>\(\displaystyle (b^x)'=b^x\ln b\): <strong>multiply</strong> by the logarithm of the base.</li>
+      <li>\(\displaystyle (\log_b x)'=\frac{1}{x\ln b}\): <strong>divide</strong> by the logarithm of the base.</li>
+    </ul>
+  </div>
+
+  <p>For bases \(b>1\), increasing the base makes \(\ln b\) larger. The factor \(\ln b\) increases the exponential&rsquo;s relative rate of change, while the factor \(1/\ln b\) decreases the logarithm&rsquo;s slope at a fixed positive \(x\).</p>
+
+  <div class="problem">
+    <p>Here \(\log x\) means \(\log_{10}x\), the common logarithm.</p>
+    <ol type="a">
+      <li>Find the derivative of \(y=\log x\).</li>
+      <li>Find the tangent line at \((100,2)\).</li>
+    </ol>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Derivative</span><span class="work">\(\displaystyle y'=\frac{1}{x\ln 10}\), equivalently \(\displaystyle \frac{1}{(\ln 10)x}\).</span></li>
+        <li><span class="step">Slope at 100</span><span class="work">Substitute \(x=100\) into the derivative:
+          \[\frac{1}{100\ln 10}.\]</span></li>
+        <li><span class="step">Tangent line</span><span class="work">Use the point \((100,2)\) and this slope:
+          \[y-2=\frac{1}{100\ln 10}(x-100).\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Derivative</span>\(\displaystyle y'=\frac{1}{x\ln 10}\)</p>
+      <p class="answer"><span class="tag">Tangent line</span>\(\displaystyle y-2=\frac{x-100}{100\ln 10}\)</p>
+    </div>
+  </details>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 10.2, with a review of 9.7 &middot; October 16</p>
+</footer>
+
+</div>
+</body>
+</html>
