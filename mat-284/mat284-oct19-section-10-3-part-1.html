@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Oct 19 &mdash; The product rule</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Monday, October 19</p>
+  <h1>The product rule</h1>
+  <p class="standfirst">Section 10.3, part 1. The derivative distributes over sums but not over products. For a product of two functions, the derivative falls on each factor in turn, and the two results are added.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#recall">Sums yes, products no</a>
+  <a href="#rule">The product rule</a>
+  <a href="#why">Why it works</a>
+  <a href="#unknown">Unknown factors</a>
+  <a href="#when">When (not) to use it</a>
+  <a href="#bigpicture">Which rule to use?</a>
+  <a href="#next">Before Wednesday</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li><strong>Exam 3 is next Monday, October 26</strong>, 11:40&ndash;12:35 in HBC Gifford. It will consist of 5 problems based on sections:
+        <ul>
+          <li>9.4 (definition of derivative)</li>
+          <li>9.5 (basic derivative rules)</li>
+          <li>9.7 (marginal analysis)</li>
+          <li>10.2 (derivatives of exponential and logarithmic functions)</li>
+          <li>10.3 (derivatives of products, today, and quotients, on Wednesday)</li>
+        </ul>
+      </li>
+      <li>There is an <strong>optional practice set for Exam 3</strong> on WeBWorK.</li>
+      <li>Complete the <strong>Concept Check</strong> for Monday by the end of the day.</li>
+      <li>Thursday&rsquo;s recitation and Friday&rsquo;s class are both <strong>review for Exam 3</strong>.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="recall">
+  <h2><span class="marker">Recall</span>Sums yes, products no</h2>
+
+  <p>Recall that the derivative can be distributed over \(+\) and \(-\) signs:</p>
+  \[(f + g)' = f' + g' \qquad\qquad (f - g)' = f' - g'\]
+
+  <div class="problem">
+    <p>Find \(\left(x^5 - x^3 + \dfrac{5}{x}\right)'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">\(\dfrac{5}{x} = 5x^{-1}\)</span></li>
+        <li><span class="step">Distribute</span><span class="work">\[(x^5)' - (x^3)' + 5(x^{-1})' = 5x^4 - 3x^2 + 5(-1)x^{-2} = 5x^4 - 3x^2 - \frac{5}{x^2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>5x&#8308; &minus; 3x&sup2; &minus; 5/x&sup2;</p>
+    </div>
+  </details>
+
+  <p>But the derivative <strong>does not</strong> distribute over products.</p>
+
+  <div class="problem">
+    <p>Consider \(f(x) = x^5\) and \(g(x) = x^3\). Find the derivative of the product \(fg\) and compare it to \(f'g'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(fg)&prime;</span><span class="work">the product is \(x^5 \cdot x^3 = x^8\), so its derivative is \(8x^7\)</span></li>
+        <li><span class="step">f&prime;g&prime;</span><span class="work">\((x^5)' \cdot (x^3)' = 5x^4 \cdot 3x^2 = 15x^6\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(fg)&prime; = 8x&#8311;, but f&prime;g&prime; = 15x&#8310;. Not the same.</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The wrong step</p>
+    <p>Writing \((x^5 \cdot x^3)' = (x^5)' \cdot (x^3)'\) is incorrect: \((f \cdot g)' \ne f' \cdot g'\). And this example was easy only because \(x^5 \cdot x^3\) simplifies to \(x^8\). We need to find \((f \cdot g)'\) even when the product does not simplify like that.</p>
+  </div>
+</section>
+
+<section id="rule">
+  <h2><span class="marker">Rule</span>The product rule</h2>
+
+  <p>The <strong>product rule</strong> applies when we have a function that is a product of two other functions. The textbook calls these two factors \(F\) and \(S\), F for &ldquo;first&rdquo; and S for &ldquo;second.&rdquo;</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\[(FS)' = F'S + FS'\]</li>
+      <li>In words: <strong>first &middot; (derivative of second) + second &middot; (derivative of first)</strong>.</li>
+    </ul>
+    <p>It could be written in other orders, like \((FS)' = FS' + SF'\), since the order of terms does not matter for addition or multiplication.</p>
+  </div>
+
+  <p>A way to remember this without a formula is to focus on the process: &ldquo;the derivative falls on the first factor only, then on the second one only.&rdquo;</p>
+
+  <div class="problem">
+    <p>Check that the product rule gives the right answer for \(x^5 \cdot x^3\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Product rule</span><span class="work">\((x^5 \cdot x^3)' = (x^5)'x^3 + x^5(x^3)'\)</span></li>
+        <li><span class="step">Compute</span><span class="work">\(= 5x^4 \cdot x^3 + x^5 \cdot 3x^2 = 5x^7 + 3x^7 = 8x^7\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>8x&#8311;, which matches (x&#8312;)&prime;</p>
+    </div>
+  </details>
+</section>
+
+<section id="why">
+  <h2><span class="marker">Intuition</span>Why it works</h2>
+
+  <p>Think of \(F(x)\) as the quantity sold and \(S(x)\) as the price per unit. Then the product \(F(x)S(x)\) is the total revenue.</p>
+
+  <p>If both \(F\) and \(S\) are increasing, the revenue will grow for two reasons:</p>
+  <ul>
+    <li>the greater sales volume contributes \(F'S\);</li>
+    <li>the higher price contributes \(FS'\).</li>
+  </ul>
+
+  <figure class="fig">
+    <svg viewBox="0 0 420 226" role="img" aria-label="A rectangle with width F, the quantity sold, and height S, the price, so its area is the revenue F times S. A strip added on the right, from selling more units, has area F prime S. A strip added on top, from the higher price, has area F S prime. The tiny corner where the two strips would meet is left empty">
+      <rect class="box" x="70" y="56" width="230" height="124"/>
+      <rect class="dot" x="300" y="56" width="30" height="124"/>
+      <rect class="dot" x="70" y="34" width="230" height="22"/>
+      <path class="helper" d="M300 34H330V56"/>
+      <text class="label" x="185" y="123" style="text-anchor:middle">revenue F · S</text>
+      <text class="label" x="185" y="200" style="text-anchor:middle">F</text>
+      <text class="label-soft" x="185" y="216" style="text-anchor:middle">quantity sold</text>
+      <text class="label" x="58" y="119" style="text-anchor:end">S</text>
+      <text class="label-soft" x="58" y="135" style="text-anchor:end">price</text>
+      <text class="label-key" x="340" y="119">F′S</text>
+      <text class="label-soft" x="340" y="135">more units</text>
+      <text class="label-key" x="185" y="24" style="text-anchor:middle">FS′</text>
+      <text class="label-soft" x="211" y="24">higher price</text>
+    </svg>
+    <figcaption>Revenue is the area \(F \cdot S\). Selling more units adds a strip on the right, about \(F'S\); a higher price adds a strip on top, about \(FS'\). The corner where both change at once is a small change times a small change, and it disappears in the limit.</figcaption>
+  </figure>
+</section>
+
+<section id="unknown">
+  <h2><span class="marker">Practice</span>When a factor is unknown</h2>
+
+  <p>The product rule works even when we don&rsquo;t know a formula for one of the factors.</p>
+
+  <div class="problem">
+    <p>Suppose that \(f(x) = x^2 h(x)\), where \(h\) is some function we don&rsquo;t know. Find \(f'(x)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Factors</span><span class="work">the first factor is \(x^2\) and the second is \(h(x)\)</span></li>
+        <li><span class="step">Product rule</span><span class="work">\((x^2 \cdot h(x))' = (x^2)' \cdot h(x) + x^2 \cdot h'(x) = 2x \cdot h(x) + x^2 \cdot h'(x)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = 2x&middot;h(x) + x&sup2;&middot;h&prime;(x)</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Let&rsquo;s try another: \(f(x) = \sqrt{x}\, g(x)\). Find \(f'(x)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Product rule</span><span class="work">\(f'(x) = (\sqrt{x})'\, g(x) + \sqrt{x}\, (g(x))'\)</span></li>
+        <li><span class="step">Compute</span><span class="work">\(= \dfrac12 x^{-1/2}\, g(x) + \sqrt{x}\, g'(x)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = (1/2)x&#8315;&sup1;&#8725;&sup2;g(x) + &radic;x&middot;g&prime;(x)</p>
+    </div>
+  </details>
+</section>
+
+<section id="when">
+  <h2><span class="marker">Judgment</span>When (not) to use the product rule</h2>
+
+  <p>Not every derivative of a product needs the product rule. Here are two situations when it is unnecessary.</p>
+
+  <div class="problem">
+    <p><strong>1.</strong> A constant factor can simply be pulled out: find \((7x^5)'\). &nbsp;&nbsp; <strong>2.</strong> Two powers with the same base can be combined: find \((x^7\sqrt{x})'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">1</span><span class="work">\((7x^5)' = 7(x^5)' = 7 \cdot 5x^4 = 35x^4\)</span></li>
+        <li><span class="step">2</span><span class="work">\(x^7 \cdot x^{1/2} = x^{7 + \frac12} = x^{7.5}\), so \((x^{7.5})' = 7.5x^{6.5}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>35x&#8308; &nbsp;&middot;&nbsp; 7.5x&#8310;&#903;&#8309;</p>
+    </div>
+  </details>
+
+  <p>In other cases, when we need the derivative of a product, we use the product rule even if the product could be expanded. For the next function, would you rather find \(f'(t)\) with the product rule, or multiply out all the terms first?</p>
+
+  <div class="problem">
+    <p>Find \(f'(t)\) for \(f(t) = (t^2 + 3t - 7)(2t^3 - 4)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Product rule</span><span class="work">\[f'(t) = (t^2 + 3t - 7)'(2t^3 - 4) + (t^2 + 3t - 7)(2t^3 - 4)'\]</span></li>
+        <li><span class="step">Compute</span><span class="work">\[= (2t + 3)(2t^3 - 4) + (t^2 + 3t - 7)(6t^2)\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(t) = (2t + 3)(2t&sup3; &minus; 4) + (t&sup2; + 3t &minus; 7)(6t&sup2;)</p>
+    </div>
+  </details>
+
+  <p>And then there are examples where we absolutely cannot avoid the product rule: products with an exponential or logarithmic function. Recall from Friday that \((\ln x)' = \dfrac{1}{x}\) and \((e^x)' = e^x\).</p>
+
+  <div class="problem">
+    <p><strong>(a)</strong> Find the derivative of \(y = x^5 \ln x\). &nbsp;&nbsp; <strong>(b)</strong> Find the derivative of \(g(w) = e^w \sqrt{w}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a)</span><span class="work">first factor \(x^5\), second factor \(\ln x\):
+          \[y' = (x^5)'\ln x + x^5(\ln x)' = 5x^4 \ln x + x^5 \cdot \frac{1}{x} = 5x^4 \ln x + x^4\]</span></li>
+        <li><span class="step">(b)</span><span class="work">first factor \(e^w\), second factor \(\sqrt{w} = w^{1/2}\):
+          \[g'(w) = (e^w)'\sqrt{w} + e^w(\sqrt{w})' = e^w\sqrt{w} + e^w\left(\frac12\right)w^{-1/2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) 5x&#8308; ln x + x&#8308; &nbsp; (b) e&#695;&radic;w + (1/2)e&#695;w&#8315;&sup1;&#8725;&sup2;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Two small details</p>
+    <p>In (a), \(x^5 \cdot \frac{1}{x} = x^4\): one power of \(x\) cancels. In (b), \((w^{1/2})' = \frac12 w^{-1/2}\), since \(\frac12 - 1 = -\frac12\).</p>
+  </div>
+</section>
+
+<section id="bigpicture">
+  <h2><span class="marker">Big picture</span>Which rule to use?</h2>
+
+  <p>The key to finding derivatives is the correct identification of a given function.</p>
+
+  <table>
+    <caption>Rules so far</caption>
+    <thead>
+      <tr><th scope="col">The function is</th><th scope="col">Its derivative is</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Sum or difference: \((\square) \pm (\square)\)</td><td>\((\square)' \pm (\square)'\)</td></tr>
+      <tr><td>Something with a constant factor, like \(7 \cdot (\square)\)</td><td>\(7 \cdot (\square)'\)</td></tr>
+      <tr><td>Just a constant, like \(7\) or \(\ln 7\) or \(e^7\) or \(\sqrt{7}\)</td><td>\(0\)</td></tr>
+      <tr><td>Power of the variable: \(x^a\)</td><td>\(a x^{a-1}\)</td></tr>
+      <tr><td>Product: \((\square) \cdot (\blacksquare)\)</td><td>\((\square)' \cdot (\blacksquare) + (\square) \cdot (\blacksquare)'\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <p class="card-label">In short</p>
+    <ul class="keys">
+      <li><strong>Sum or difference:</strong> distribute the derivative.</li>
+      <li><strong>Constant factor:</strong> pull it out of the derivative.</li>
+      <li><strong>Power of \(x\)</strong>, or something that can be written as a power of \(x\): \((x^a)' = ax^{a-1}\).</li>
+      <li><strong>Product:</strong> use \(F'S + FS'\).</li>
+    </ul>
+    <p>We&rsquo;ll deal with quotients next time.</p>
+  </div>
+
+  <div class="problem">
+    <p>Find \(\left(x^7 \log_5 x - 3 \cdot 10^x\right)'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Structure</span><span class="work">a difference, so distribute: \((x^7 \log_5 x)' - (3 \cdot 10^x)'\)</span></li>
+        <li><span class="step">Rules</span><span class="work">product rule on the first term, constant factor on the second:
+          \[(x^7)'\log_5 x + x^7(\log_5 x)' - 3(10^x)'\]</span></li>
+        <li><span class="step">Compute</span><span class="work">with \((\log_5 x)' = \dfrac{1}{x\ln 5}\) and \((10^x)' = 10^x \ln 10\):
+          \[7x^6 \log_5 x + x^7 \cdot \frac{1}{x\ln 5} - 3 \cdot 10^x \ln 10\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>7x&#8310; log&#8325; x + x&#8311;/(x ln 5) &minus; 3&middot;10&#739; ln 10</p>
+      <p>The middle term simplifies to \(\dfrac{x^6}{\ln 5}\), if you like.</p>
+    </div>
+  </details>
+
+  <p>One has to recognize the overall structure of a formula without getting lost in the details. Some WeBWorK problems help by hiding the details.</p>
+
+  <div class="problem">
+    <p><strong>1.</strong> Given that \(f(x) = x^4 h(x)\), where \(h(2) = 3\) and \(h'(2) = 6\), find \(f'(2)\).</p>
+    <p><strong>2.</strong> Suppose \(H(x) = f(x)g(x)\), where \(g(4) = -9\), \(g'(4) = -2\), \(f(4) = 3\), \(f'(4) = -1\). Find \(H'(4)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">1. Rule</span><span class="work">\(f'(x) = (x^4)'h(x) + x^4 h'(x) = 4x^3 h(x) + x^4 h'(x)\)</span></li>
+        <li><span class="step">1. Plug in 2</span><span class="work">\(f'(2) = 4 \cdot 2^3 \cdot h(2) + 2^4 \cdot h'(2) = 4 \cdot 8 \cdot 3 + 16 \cdot 6 = 96 + 96 = 192\)</span></li>
+        <li><span class="step">2. Rule</span><span class="work">\(H'(x) = f'(x)g(x) + f(x)g'(x)\)</span></li>
+        <li><span class="step">2. Plug in 4</span><span class="work">\(H'(4) = f'(4)g(4) + f(4)g'(4) = (-1)(-9) + 3(-2) = 9 - 6 = 3\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(2) = 192 &nbsp;&middot;&nbsp; H&prime;(4) = 3</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Differentiate first, then plug in</p>
+    <p>Apply the product rule to the formula with \(x\) in it, and only then substitute the number. Plugging in first turns \(f(2)\) into a single number, \(2^4 \cdot 3 = 48\), whose derivative is 0, which is not the answer.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before Wednesday</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Monday by the end of the day.</li>
+    <li>Start 10.3 Part 1 set on WeBWorK.</li>
+    <li>For each row of the &ldquo;which rule&rdquo; table, write down one example of your own and its derivative.</li>
+    <li><strong>Exam 3: Monday, October 26</strong>, on 9.4, 9.5, 9.7, 10.2, and 10.3.</li>
+    <li><strong>Wednesday: 10.3 part 2, the quotient rule.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 10.3 (part 1) &middot; October 19</p>
+</footer>
+
+</div>
+</body>
+</html>
