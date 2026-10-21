@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Oct 21 &mdash; The quotient rule</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, October 21</p>
+  <h1>The quotient rule</h1>
+  <p class="standfirst">Section 10.3, part 2. The derivative of a quotient has one more piece than the product rule: a minus sign and a square in the denominator. Just as useful is knowing when a quotient can be rewritten so that no quotient rule is needed.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Warm-up</a>
+  <a href="#rule">The quotient rule</a>
+  <a href="#when">When (not) to use it</a>
+  <a href="#bigpicture">Which rule to use?</a>
+  <a href="#practice">More practice</a>
+  <a href="#next">Before the exam</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li><strong>Exam 3 is next Monday, October 26</strong>, 11:40&ndash;12:35 in HBC Gifford, on 9.4, 9.5, 9.7, 10.2, and 10.3.</li>
+      <li><strong>Review this Friday</strong>, and in Thursday&rsquo;s recitation.</li>
+      <li>There is an optional practice set for Exam 3 on WeBWorK.</li>
+      <li>Complete the <strong>Concept Check</strong> for Wednesday by the end of the day.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up</span>Marginal revenue from a price-demand equation</h2>
+
+  <div class="problem">
+    <p>Given the price-demand equation \(p = 300 \cdot 0.9^x\), find the marginal revenue function.</p>
+  </div>
+
+  <p>This is a two-step problem:</p>
+  <ol>
+    <li>Find the total revenue: price &middot; quantity.</li>
+    <li>Marginal revenue = derivative of total revenue.</li>
+  </ol>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Revenue</span><span class="work">\(R(x) = p \cdot x = 300 \cdot 0.9^x \cdot x = 300x \cdot (0.9)^x\)</span></li>
+        <li><span class="step">Structure</span><span class="work">a product of \(300x\) and \((0.9)^x\), so use the product rule:
+          \[R'(x) = (300x)' \cdot (0.9)^x + (300x)\left((0.9)^x\right)'\]</span></li>
+        <li><span class="step">Compute</span><span class="work">with \((b^x)' = b^x \ln b\):
+          \[R'(x) = 300 \cdot (0.9)^x + (300x)(0.9)^x \ln(0.9)\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>R&prime;(x) = 300(0.9)&#739; + 300x(0.9)&#739; ln(0.9)</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Variable exponent</p>
+    <p>The derivative of \((0.9)^x\) is \((0.9)^x \ln(0.9)\), <strong>not</strong> \(x \cdot 0.9^{x-1}\). That is the power rule, which is for a constant exponent. Here the exponent is the variable.</p>
+  </div>
+</section>
+
+<section id="rule">
+  <h2><span class="marker">Rule</span>The quotient rule</h2>
+
+  <p>The rule for the derivative of a quotient is a bit more complicated than for products. As in the book, it is stated here using \(T\) and \(B\) for the top and bottom terms.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>\[\left(\frac{T}{B}\right)' = \frac{T'B - TB'}{B^2}\]</li>
+    </ul>
+    <p>Compare with the product rule, \((TB)' = T'B + TB'\). Some people like to write the quotient rule as \(\left(\dfrac{T}{B}\right)' = \dfrac{BT' - TB'}{B^2}\), which is the same thing. Remember that <strong>the term with (bottom)&prime; is subtracted</strong>.</p>
+  </div>
+
+  <p>To remember this minus sign, it may help to consider that the growth of the denominator \(B\) contributes <strong>negatively</strong> to the growth of the quotient.</p>
+
+  <div class="problem">
+    <p>How does the GDP per capita change if <strong>(a)</strong> GDP grows with constant population; <strong>(b)</strong> population grows with constant GDP?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>GDP per capita is a quotient, and the quotient rule says</p>
+      \[\left(\frac{\text{GDP}}{\text{population}}\right)' = \frac{(\text{GDP})' \cdot \text{population} - \text{GDP} \cdot (\text{population})'}{(\text{population})^2}\]
+      <ol class="ledger">
+        <li><span class="step">(a)</span><span class="work">only the first term of the numerator is nonzero, and it is positive: GDP per capita goes <strong>up</strong></span></li>
+        <li><span class="step">(b)</span><span class="work">only the subtracted term is nonzero: GDP per capita goes <strong>down</strong></span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) increases &nbsp;&middot;&nbsp; (b) decreases</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Try the quotient rule on the function \(y = \dfrac{15}{x}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Quotient rule</span><span class="work">\[\left(\frac{15}{x}\right)' = \frac{(15)' \cdot x - 15 \cdot (x)'}{x^2} = \frac{0 \cdot x - 15 \cdot 1}{x^2} = -\frac{15}{x^2}\]</span></li>
+        <li><span class="step">Shortcut</span><span class="work">because \(\dfrac{15}{x} = 15x^{-1}\): \((15x^{-1})' = 15(-1)x^{-2} = -\dfrac{15}{x^2}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&minus;15/x&sup2;</p>
+      <p>In this example the quotient rule was unnecessary. Note that \(0 \cdot \text{anything} = 0\), so a constant on top always loses the first term.</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>A more reasonable example: find the derivative of \(y = \dfrac{5x}{x^2 + 4}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Top, bottom</span><span class="work">\(T = 5x\) and \(B = x^2 + 4\)</span></li>
+        <li><span class="step">Quotient rule</span><span class="work">\[y' = \frac{(5x)'(x^2+4) - 5x(x^2+4)'}{(x^2+4)^2} = \frac{5(x^2+4) - 5x(2x)}{(x^2+4)^2}\]</span></li>
+        <li><span class="step">If needed</span><span class="work">simplify the numerator:
+          \[\frac{5x^2 + 20 - 10x^2}{(x^2+4)^2} = \frac{20 - 5x^2}{(x^2+4)^2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y&prime; = (20 &minus; 5x&sup2;)/(x&sup2; + 4)&sup2;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Leave the denominator alone</p>
+    <p>\((x^2 + 4)^2 \ne x^4 + 16\). Multiplying out the denominator would be useless anyway: it does not make the answer any simpler.</p>
+  </div>
+</section>
+
+<section id="when">
+  <h2><span class="marker">Judgment</span>When (not) to use the quotient rule</h2>
+
+  <p>Division by a constant does not need the quotient rule.</p>
+
+  <div class="problem">
+    <p>Find \(\left(\dfrac{x^7}{5}\right)'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">\(\dfrac{x^7}{5}\) is really \(\dfrac15 x^7\), so \(\left(\dfrac15 x^7\right)' = \dfrac15 (x^7)' = \dfrac15 \cdot 7x^6 = \dfrac75 x^6\)</span></li>
+        <li><span class="step">Shorter</span><span class="work">\(\left(\dfrac{x^7}{5}\right)' = \dfrac{(x^7)'}{5} = \dfrac{7x^6}{5}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(7/5)x&#8310;</p>
+    </div>
+  </details>
+
+  <p>There is also no need for the quotient rule when the quotient can easily be rewritten as a product. Remember how negative exponents work: division by \(x^n\) is multiplication by \(x^{-n}\).</p>
+
+  <div class="problem">
+    <p>Find the derivatives of <strong>(a)</strong> \(\dfrac{e^x}{x^2}\) and <strong>(b)</strong> \(\dfrac{3}{x^4}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a)</span><span class="work">\(\dfrac{e^x}{x^2} = x^{-2}e^x\), so by the product rule
+          \[(x^{-2}e^x)' = (x^{-2})'e^x + x^{-2}(e^x)' = -2x^{-3}e^x + x^{-2}e^x\]</span></li>
+        <li><span class="step">(b)</span><span class="work">\(\dfrac{3}{x^4} = 3x^{-4}\), so the derivative is \((3x^{-4})' = 3(-4)x^{-5} = -12x^{-5}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) &minus;2x&#8315;&sup3;e&#739; + x&#8315;&sup2;e&#739; &nbsp; (b) &minus;12x&#8315;&#8309;</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p>Can we avoid the quotient rule in the following problems? <strong>(a)</strong> \(\left(\dfrac{x^5 + 3}{x^2}\right)'\) &nbsp;&nbsp; <strong>(b)</strong> \(\left(\dfrac{x^2}{x^5 + 3}\right)'\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a) yes</span><span class="work">split the fraction, since \(\dfrac{A + B}{C} = \dfrac{A}{C} + \dfrac{B}{C}\):
+          \[\left(\frac{x^5}{x^2} + \frac{3}{x^2}\right)' = (x^3 + 3x^{-2})' = 3x^2 + 3(-2)x^{-3} = 3x^2 - 6x^{-3}\]</span></li>
+        <li><span class="step">(b) no</span><span class="work">unfortunately, \(\dfrac{A}{B + C} \ne \dfrac{A}{B} + \dfrac{A}{C}\). So use the quotient rule:
+          \[\frac{(x^2)'(x^5+3) - (x^2)(x^5+3)'}{(x^5+3)^2} = \frac{(2x)(x^5+3) - (x^2)(5x^4)}{(x^5+3)^2}\]</span></li>
+        <li><span class="step">(b) or</span><span class="work">\[\frac{2x^6 + 6x - 5x^6}{(x^5+3)^2} = \frac{6x - 3x^6}{(x^5+3)^2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) 3x&sup2; &minus; 6x&#8315;&sup3; &nbsp; (b) (6x &minus; 3x&#8310;)/(x&#8309; + 3)&sup2;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Which fractions split</p>
+    <p>A sum on <strong>top</strong> splits over a single term on the bottom. A sum on the <strong>bottom</strong> does not split. That one difference decides whether you need the quotient rule.</p>
+  </div>
+
+  <p>If a quotient contains another quotient, it&rsquo;s better to do some algebra first to simplify the function. You don&rsquo;t want to use the quotient rule multiple times.</p>
+
+  <div class="problem">
+    <p>Find \(f'(x)\) for \(f(x) = \dfrac{x + 3x^2}{3 - 4/x}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">\(f(x) = \dfrac{x + 3x^2}{3 - 4x^{-1}}\): now only one quotient rule is needed</span></li>
+        <li><span class="step">Quotient rule</span><span class="work">\[f'(x) = \frac{(x + 3x^2)'(3 - 4x^{-1}) - (x + 3x^2)(3 - 4x^{-1})'}{(3 - 4x^{-1})^2}\]</span></li>
+        <li><span class="step">Compute</span><span class="work">\[= \frac{(1 + 6x)(3 - 4x^{-1}) - (x + 3x^2)(-4)(-1)x^{-2}}{(3 - 4x^{-1})^2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = [(1 + 6x)(3 &minus; 4x&#8315;&sup1;) &minus; 4x&#8315;&sup2;(x + 3x&sup2;)] / (3 &minus; 4x&#8315;&sup1;)&sup2;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Another way to do the algebra</p>
+    <p>You can also clear the inner fraction by multiplying the top and the bottom by \(x\): \(f(x) = \dfrac{x^2 + 3x^3}{3x - 4}\). The quotient rule then gives \(\dfrac{(2x + 9x^2)(3x - 4) - 3(x^2 + 3x^3)}{(3x - 4)^2} = \dfrac{18x^3 - 33x^2 - 8x}{(3x - 4)^2}\), the same derivative in a tidier form.</p>
+  </div>
+</section>
+
+<section id="bigpicture">
+  <h2><span class="marker">Big picture</span>Which rule to use?</h2>
+
+  <p>The key to finding derivatives is the correct identification of a given function.</p>
+
+  <table>
+    <caption>Rules so far</caption>
+    <thead>
+      <tr><th scope="col">The function is</th><th scope="col">Its derivative is</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Sum or difference: \((\square) \pm (\square)\)</td><td>\((\square)' \pm (\square)'\)</td></tr>
+      <tr><td>Something with a constant factor, like \(7 \cdot (\square)\)</td><td>\(7 \cdot (\square)'\)</td></tr>
+      <tr><td>Just a constant, like \(7\)</td><td>\(0\)</td></tr>
+      <tr><td>Power of the variable: \(x^a\)</td><td>\(a x^{a-1}\)</td></tr>
+      <tr><td>Product: \((\square) \cdot (\blacksquare)\)</td><td>\((\square)' \cdot (\blacksquare) + (\square) \cdot (\blacksquare)'\)</td></tr>
+      <tr><td>Quotient: \((\square) / (\blacksquare)\)</td><td>\(\big((\square)' \cdot (\blacksquare) - (\square) \cdot (\blacksquare)'\big) / (\blacksquare)^2\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <p class="card-label">In short</p>
+    <ul class="keys">
+      <li><strong>Sum or difference:</strong> distribute the derivative.</li>
+      <li><strong>Constant factor:</strong> pull it out of the derivative.</li>
+      <li><strong>Power of \(x\)</strong>, or something that can be written as a power of \(x\): \((x^a)' = ax^{a-1}\).</li>
+      <li><strong>Product:</strong> use \(F'S + FS'\).</li>
+      <li><strong>Quotient:</strong> use \((T'B - TB')/B^2\), with the minus in front of the term with \(B'\).</li>
+    </ul>
+    <p>Other structures will appear in 10.4 (the chain rule), but that will be after Exam 3.</p>
+  </div>
+
+  <p>One has to recognize the overall structure of a formula without getting lost in the details. Some WeBWorK problems help by hiding the details.</p>
+
+  <div class="problem">
+    <p>Suppose that \(H(x) = f(x)/g(x)\), where \(g(4) = -9\), \(g'(4) = -2\), \(f(4) = 3\), \(f'(4) = -1\). Find \(H'(4)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rule</span><span class="work">\(H'(x) = \dfrac{f'(x)g(x) - f(x)g'(x)}{(g(x))^2}\)</span></li>
+        <li><span class="step">Plug in 4</span><span class="work">\[H'(4) = \frac{f'(4)g(4) - f(4)g'(4)}{(g(4))^2} = \frac{(-1)(-9) - (3)(-2)}{(-9)^2} = \frac{9 + 6}{81} = \frac{15}{81} = \frac{5}{27}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>H&prime;(4) = 5/27</p>
+    </div>
+  </details>
+
+</section>
+
+<section id="practice">
+  <h2><span class="marker">Practice</span>More practice on derivative rules</h2>
+
+  <div class="problem">
+    <p>Find the derivative of <strong>(a)</strong> \(f(x) = \dfrac{x}{2x + 1}\) and <strong>(b)</strong> \(h(z) = \dfrac{\ln z}{z^2 + 4}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a)</span><span class="work">\[f'(x) = \frac{(x)'(2x+1) - (x)(2x+1)'}{(2x+1)^2} = \frac{1(2x+1) - x(2)}{(2x+1)^2} = \frac{1}{(2x+1)^2}\]</span></li>
+        <li><span class="step">(b)</span><span class="work">with \((\ln z)' = \dfrac{1}{z}\):
+          \[h'(z) = \frac{(\ln z)'(z^2+4) - (\ln z)(z^2+4)'}{(z^2+4)^2} = \frac{\frac{1}{z}(z^2+4) - (\ln z)(2z)}{(z^2+4)^2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) 1/(2x + 1)&sup2; &nbsp; (b) [(z&sup2; + 4)/z &minus; 2z ln z] / (z&sup2; + 4)&sup2;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">The tempting shortcut</p>
+    <p>In (a), the answer is <strong>not</strong> \(\dfrac{(x)'}{(2x+1)'} = \dfrac12\). The derivative does not distribute over quotients, just as it does not distribute over products. And for logarithms with other bases, recall \((\log_b x)' = \dfrac{1}{x \ln b}\).</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before the exam</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Wednesday by the end of the day.</li>
+    <li>Work through the optional Exam 3 practice set on WeBWorK.</li>
+    <li>Write the quotient rule from memory, with the minus sign and the square in the right places.</li>
+    <li>For each function in &ldquo;When (not) to use the quotient rule,&rdquo; decide first whether you need the rule at all.</li>
+    <li>Come to the review in Thursday&rsquo;s recitation and in Friday&rsquo;s class.</li>
+    <li><strong>Exam 3: Monday, October 26</strong>, 11:40&ndash;12:35 in HBC Gifford, on 9.4, 9.5, 9.7, 10.2, and 10.3.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 10.3 (part 2) &middot; October 21</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -37,6 +37,10 @@ to `/favicon.svg` — on a project site that resolves to the wrong place.
 | `mat284-oct02-exam-2-review.html` | Oct 2 — Review for Exam 2 |
 | `mat284-oct07-section-9-4.html` | Oct 7 — The derivative |
 | `mat284-oct09-section-9-5.html` | Oct 9 — Basic rules for derivatives |
+| `mat284-oct14-section-9-7.html` | Oct 14 — Marginal analysis |
+| `mat284-oct16-section-10-2.html` | Oct 16 — Derivatives of exponential and logarithmic functions |
+| `mat284-oct19-section-10-3-part-1.html` | Oct 19 — The product rule |
+| `mat284-oct21-section-10-3-part-2.html` | Oct 21 — The quotient rule |
 
 ## Adding a lecture
 
