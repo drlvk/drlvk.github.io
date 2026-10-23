@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Oct 23 &mdash; Review for Exam 3</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, October 23</p>
+  <h1>Review for Exam 3</h1>
+  <p class="standfirst">Six problems worked in class, covering the definition of derivative, the derivative rules, exponentials and logarithms, and marginal analysis. Hide the solutions and try each one cold first.</p>
+</header>
+
+<nav class="jump" aria-label="Problems on this page">
+  <a href="#toolkit">The rules</a>
+  <a href="#a">A &middot; Hidden details</a>
+  <a href="#b">B &middot; Choose your approach</a>
+  <a href="#c">C &middot; The definition</a>
+  <a href="#d">D &middot; Toasters</a>
+  <a href="#e">E &middot; A tangent line</a>
+  <a href="#f">F &middot; Three more derivatives</a>
+  <a href="#next">Before the exam</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>There is <strong>no Concept Check today</strong>.</li>
+      <li><strong>Exam 3 is Monday, October 26</strong>, 11:40&ndash;12:35 in HBC Gifford. It will consist of 5 problems based on sections:
+        <ul>
+          <li>9.4 (definition of derivative)</li>
+          <li>9.5 (basic derivative rules)</li>
+          <li>9.7 (marginal analysis)</li>
+          <li>10.2 (derivatives of exponential and logarithmic functions)</li>
+          <li>10.3 (derivatives of products and quotients)</li>
+        </ul>
+      </li>
+      <li>There is an optional practice set for Exam 3 on WeBWorK.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">Help is available</p>
+    <p><strong>Zoom office hours</strong> on Friday and Sunday, 6&ndash;7 pm. These are drop-in: no appointment needed. The link is under &ldquo;Office hours of the instructor and TAs&rdquo; on Blackboard.</p>
+    <p>You can also <strong>book an appointment</strong>, in person or on Zoom, outside the regular hours, using the &ldquo;Make an appointment&rdquo; link on Blackboard.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="toolkit">
+  <h2><span class="marker">Toolkit</span>The rules</h2>
+
+  <p>The key to finding derivatives is the correct identification of the <strong>structure</strong> of a function.</p>
+
+  <table>
+    <caption>Which rule to use</caption>
+    <thead>
+      <tr><th scope="col">The function is</th><th scope="col">Its derivative is</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Sum or difference: \((\square) \pm (\square)\)</td><td>\((\square)' \pm (\square)'\)</td></tr>
+      <tr><td>Something with a constant factor, like \(7 \cdot (\square)\)</td><td>\(7 \cdot (\square)'\)</td></tr>
+      <tr><td>Just a constant, like \(7\)</td><td>\(0\)</td></tr>
+      <tr><td>Power of the variable: \(x^n\)</td><td>\(n x^{n-1}\)</td></tr>
+      <tr><td>Product: \((\square) \cdot (\blacksquare)\)</td><td>\((\square)' \cdot (\blacksquare) + (\square) \cdot (\blacksquare)'\)</td></tr>
+      <tr><td>Quotient: \(\dfrac{(\square)}{(\blacksquare)}\)</td><td>\(\dfrac{(\square)' \cdot (\blacksquare) - (\square) \cdot (\blacksquare)'}{(\blacksquare)^2}\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <p class="card-label">Also need to remember</p>
+    <ul class="keys">
+      <li>\((e^x)' = e^x\), which becomes \((b^x)' = b^x \ln b\) for other bases</li>
+      <li>\((\ln x)' = \dfrac{1}{x}\), which becomes \((\log_b x)' = \dfrac{1}{x \ln b}\) for other bases</li>
+    </ul>
+    <p><strong>Marginal</strong> cost, revenue, and profit: these are just derivatives of the totals.</p>
+  </div>
+</section>
+
+<section id="a">
+  <h2><span class="marker">Problem A &middot; section 10.3</span>Hidden details</h2>
+
+  <p>One has to recognize the overall structure of a formula without getting lost in details. Some WeBWorK problems help by hiding the details.</p>
+
+  <div class="problem">
+    <p>Suppose that \(H(x) = f(x)/g(x)\), where \(g(4) = -9\), \(g'(4) = -2\), \(f(4) = 3\), \(f'(4) = -1\). Find \(H'(4)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Structure</span><span class="work">a quotient, top \(f\) and bottom \(g\):
+          \[H'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}\]</span></li>
+        <li><span class="step">Put 4 for x</span><span class="work">\[H'(4) = \frac{f'(4)g(4) - f(4)g'(4)}{g(4)^2} = \frac{(-1)(-9) - (3)(-2)}{(-9)^2} = \frac{9 + 6}{81} = \frac{15}{81}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>H&prime;(4) = 15/81 = 5/27</p>
+    </div>
+  </details>
+</section>
+
+<section id="b">
+  <h2><span class="marker">Problem B &middot; sections 9.5, 10.2, 10.3</span>Choose your approach</h2>
+
+  <p>Find the derivative of each of the following functions. Choose your approach carefully: some need algebra first, and some need the product or quotient rule.</p>
+
+  <div class="problem">
+    <p><strong>(a)</strong> \(y = \dfrac{3x^5 - 6x}{5x}\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Split</span><span class="work">a single term on the bottom, so the fraction splits:
+          \[\frac{3x^5}{5x} - \frac{6x}{5x} = \frac35 x^4 - \frac65\]</span></li>
+        <li><span class="step">Differentiate</span><span class="work">\(y' = \dfrac35 \cdot 4x^3 - 0 = \dfrac{12}{5}x^3\), since \(\dfrac35 \cdot 4 = \dfrac35 \cdot \dfrac41 = \dfrac{12}{5}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y&prime; = (12/5)x&sup3;</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>(b)</strong> \(f(x) = \dfrac{\ln(x^3)}{3\sqrt{x}} + \dfrac{5}{x}\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <div class="card">
+        <p class="card-label">Properties of logarithms</p>
+        <ul class="keys">
+          <li>\(\ln(AB) = \ln A + \ln B\)</li>
+          <li>\(\ln(A/B) = \ln A - \ln B\)</li>
+          <li>\(\ln(A^r) = r\ln A\)</li>
+        </ul>
+      </div>
+      <ol class="ledger">
+        <li><span class="step">Algebra</span><span class="work">\(\dfrac{5}{x} = 5x^{-1}\): no need for the quotient rule</span></li>
+        <li><span class="step">Algebra</span><span class="work">\(\dfrac{\ln(x^3)}{3\sqrt{x}} = \dfrac{\ln(x^3)}{3x^{1/2}} = \dfrac13 x^{-1/2}\ln(x^3)\): no quotient. And \(\ln(x^3) = 3\ln x\), so this is \(\dfrac13 x^{-1/2} \cdot 3\ln x = x^{-1/2}\ln x\).</span></li>
+        <li><span class="step">So far</span><span class="work">\(f(x) = x^{-1/2}\ln x + 5x^{-1}\)</span></li>
+        <li><span class="step">Calculus</span><span class="work">product rule on the first term:
+          \[f'(x) = (x^{-1/2})'\ln x + x^{-1/2}(\ln x)' + 5(-1)x^{-2} = -\frac12 x^{-3/2}\ln x + x^{-1/2} \cdot \frac1x - \frac{5}{x^2}\]</span></li>
+        <li><span class="step">Tidy</span><span class="work">since \(x^{-1/2} \cdot \frac1x = x^{-3/2}\), this is also \(\dfrac{1 - \frac12 \ln x}{x^{3/2}} - \dfrac{5}{x^2}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = &minus;(1/2)x&#8315;&sup3;&#8725;&sup2; ln x + x&#8315;&sup3;&#8725;&sup2; &minus; 5/x&sup2;</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>(c)</strong> \(g(t) = (2^t + 1)(2t + 1)\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Structure</span><span class="work">a product</span></li>
+        <li><span class="step">Product rule</span><span class="work">\(g'(t) = (2^t + 1)'(2t + 1) + (2^t + 1)(2t + 1)'\)</span></li>
+        <li><span class="step">Compute</span><span class="work">with \((2^t)' = 2^t \ln 2\), just as \((e^t)' = e^t\):
+          \[g'(t) = (2^t \ln 2)(2t + 1) + (2^t + 1)(2)\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>g&prime;(t) = (2&#7511; ln 2)(2t + 1) + 2(2&#7511; + 1)</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>(d)</strong> \(y = \dfrac{4 - e^x}{2x^2 + 3}\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Structure</span><span class="work">a sum on the bottom, so this one needs the quotient rule</span></li>
+        <li><span class="step">Quotient rule</span><span class="work">\[y' = \frac{(4 - e^x)'(2x^2 + 3) - (4 - e^x)(2x^2 + 3)'}{(2x^2 + 3)^2}\]</span></li>
+        <li><span class="step">Compute</span><span class="work">with \((2x^2)' = 2 \cdot 2x = 4x\):
+          \[y' = \frac{(-e^x)(2x^2 + 3) - (4 - e^x)(4x)}{(2x^2 + 3)^2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y&prime; = [&minus;e&#739;(2x&sup2; + 3) &minus; 4x(4 &minus; e&#739;)] / (2x&sup2; + 3)&sup2;</p>
+    </div>
+  </details>
+</section>
+
+<section id="c">
+  <h2><span class="marker">Problem C &middot; section 9.4</span>The definition of derivative</h2>
+
+  <div class="problem">
+    <p>Using the definition of derivative, find \(f'(x)\) for \(f(x) = \dfrac{3}{4 - x}\).</p>
+  </div>
+
+  <p>This is a four-step process: <strong>substitute, subtract, simplify and divide by \(h\), let \(h \to 0\).</strong></p>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Substitute</span><span class="work">replace \(x\) with \(x + h\), in parentheses:
+          \[f(x+h) = \frac{3}{4 - (x+h)} = \frac{3}{4 - x - h}\]
+          Not \(\dfrac{3}{4-x} + h\), which adds \(h\), and not \(\dfrac{3}{4 - x + h}\), which loses the parentheses.</span></li>
+        <li><span class="step">Subtract</span><span class="work">over the common denominator, as in \(\dfrac{A}{B} - \dfrac{C}{D} = \dfrac{AD - BC}{BD}\):
+          \[\frac{3}{4-x-h} - \frac{3}{4-x} = \frac{3(4-x) - 3(4-x-h)}{(4-x-h)(4-x)}\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[= \frac{12 - 3x - 12 + 3x + 3h}{(4-x-h)(4-x)} = \frac{3h}{(4-x-h)(4-x)}\]</span></li>
+        <li><span class="step">Divide by h</span><span class="work">multiply by \(\frac1h\) instead, if this helps, and cancel \(h\) correctly:
+          \[\frac{3h}{(4-x-h)(4-x)} \cdot \frac{1}{h} = \frac{3}{(4-x-h)(4-x)}\]</span></li>
+        <li><span class="step">Let h &rarr; 0</span><span class="work">\[\lim_{h\to 0}\frac{3}{(4-x-h)(4-x)} = \frac{3}{(4-x)(4-x)} = \frac{3}{(4-x)^2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = 3/(4 &minus; x)&sup2;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Cancel only what multiplies</p>
+    <p>The \(h\) cancels because it is a factor of the whole numerator, \(3h\). In the denominator, \(4 - x - h\) has \(h\) as a term, not a factor, so it stays until the last step, when \(h \to 0\) turns it into \(4 - x\).</p>
+  </div>
+</section>
+
+<section id="d">
+  <h2><span class="marker">Problem D &middot; section 9.7</span>Marginal analysis: toasters</h2>
+
+  <div class="problem">
+    <p>The total cost and the total revenue (in dollars) for the production and sale of \(x\) toasters are given, respectively, by \(C(x) = 8x + 2360\) and \(R(x) = 56x - 0.2x^2\).</p>
+    <p><strong>(a)</strong> Find the marginal cost. &nbsp; <strong>(b)</strong> Find the marginal revenue. &nbsp; <strong>(c)</strong> Find the marginal profit. &nbsp; <strong>(d)</strong> Find the value of \(x\) at which the marginal profit is 0. &nbsp; <strong>(e)</strong> Find the average cost at the level of production from (d).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a)</span><span class="work">(total cost)&prime; \(= (8x + 2360)' = 8\)</span></li>
+        <li><span class="step">(b)</span><span class="work">(total revenue)&prime; \(= (56x - 0.2x^2)' = 56 - 0.4x\)</span></li>
+        <li><span class="step">(c) profit</span><span class="work">unlike (a) and (b), we are not given the total profit function \(P(x)\), so we need to find it. Profit = revenue &minus; cost:
+          \[P(x) = (56x - 0.2x^2) - (8x + 2360) = 56x - 0.2x^2 - 8x - 2360 = 48x - 0.2x^2 - 2360\]</span></li>
+        <li><span class="step">(c) marginal</span><span class="work">\(P'(x) = (48x)' - (0.2x^2)' - (2360)' = 48 - 0.4x\)</span></li>
+        <li><span class="step">(d)</span><span class="work">solve \(P'(x) = 0\): \(48 - 0.4x = 0\), so \(x = \dfrac{48}{0.4} = 120\)</span></li>
+        <li><span class="step">(e)</span><span class="work">average cost = \(\dfrac{\text{total}}{x} = \dfrac{8x + 2360}{x} = 8 + \dfrac{2360}{x}\). Plug 120 for \(x\): \(8 + \dfrac{2360}{120} \approx 27.67\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) 8 &nbsp; (b) 56 &minus; 0.4x &nbsp; (c) 48 &minus; 0.4x &nbsp; (d) x = 120 &nbsp; (e) about $27.67 per toaster</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Average is not marginal</p>
+    <p>At 120 toasters, the marginal cost is still $8: that is what one more toaster costs to make. The average cost is $27.67 because the fixed $2360 is spread over all 120 toasters. Part (e) needs no derivative at all.</p>
+  </div>
+</section>
+
+<section id="e">
+  <h2><span class="marker">Problem E &middot; section 9.5</span>A tangent line from f and f&prime;</h2>
+
+  <div class="problem">
+    <p>Suppose \(f(1) = -8\) and \(f'(1) = 6\). Find the equation of the tangent line to the graph of \(y = f(x)\) at \(x = 1\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Read</span><span class="work">\(f(1) = -8\) gives the point: \(x = 1\), \(y = -8\). \(f'(1) = 6\) gives the slope at \(x = 1\).</span></li>
+        <li><span class="step">Line</span><span class="work">point-slope form, \(y - (\text{y value}) = (\text{slope})(x - (\text{x value}))\): \(y - (-8) = 6(x - 1)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y &minus; (&minus;8) = 6(x &minus; 1), or y = 6x &minus; 14</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Two machines</p>
+    <p>Feed \(x\) into \(f\) and out comes the \(y\)-coordinate. Feed \(x\) into \(f'\) and out comes the slope.</p>
+  </div>
+</section>
+
+<section id="f">
+  <h2><span class="marker">Problem F &middot; sections 9.5, 10.2, 10.3</span>Three more derivatives</h2>
+
+  <div class="problem">
+    <p>Find the derivative of <strong>(a)</strong> \(h(x) = \dfrac{x^2}{2^x + 10^x}\), &nbsp; <strong>(b)</strong> \(g(x) = 4\log_5 x + 3\log_5 2\), &nbsp; <strong>(c)</strong> \(f(x) = \dfrac{6x^3}{\sqrt{x}}\) (simplify first!).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a) rule</span><span class="work">a quotient:
+          \[h'(x) = \frac{(x^2)'(2^x + 10^x) - x^2(2^x + 10^x)'}{(2^x + 10^x)^2}\]</span></li>
+        <li><span class="step">(a) compute</span><span class="work">\[h'(x) = \frac{2x(2^x + 10^x) - x^2(2^x \ln 2 + 10^x \ln 10)}{(2^x + 10^x)^2}\]</span></li>
+        <li><span class="step">(b)</span><span class="work">\(3\log_5 2\) has no \(x\) in it, so its derivative is 0:
+          \(g'(x) = 4 \cdot \dfrac{1}{x\ln 5} + 0 = \dfrac{4}{x \ln 5}\)</span></li>
+        <li><span class="step">(c) simplify</span><span class="work">\(f(x) = 6x^3 x^{-1/2} = 6x^{5/2}\)</span></li>
+        <li><span class="step">(c) power rule</span><span class="work">\(f'(x) = 6 \cdot \dfrac52 x^{3/2} = 15x^{3/2}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) see above &nbsp; (b) 4/(x ln 5) &nbsp; (c) 15x&sup3;&#8725;&sup2;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Constants in disguise</p>
+    <p>\(3\log_5 2\), \(\ln 7\), \(e^7\), and \(\sqrt{7}\) are all just numbers. Their derivative is 0, however complicated they look.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before the exam</h2>
+  <ul class="checklist">
+    <li>Redo all six problems above with the solutions hidden.</li>
+    <li>For every derivative, name the structure first (sum, constant factor, power, product, or quotient), then pick the rule.</li>
+    <li>Memorize the rules table, plus the derivatives of \(b^x\) and \(\log_b x\).</li>
+    <li>Work through the optional Exam 3 practice set on WeBWorK.</li>
+    <li>Use the Zoom office hours, Friday and Sunday 6&ndash;7 pm, or book an appointment through Blackboard.</li>
+    <li><strong>Exam 3: Monday, October 26</strong>, 11:40&ndash;12:35 in HBC Gifford.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Review for Exam 3 &middot; October 23</p>
+</footer>
+
+</div>
+</body>
+</html>
