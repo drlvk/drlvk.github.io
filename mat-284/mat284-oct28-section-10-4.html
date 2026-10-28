@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Oct 28 &mdash; The chain rule</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, October 28</p>
+  <h1>The chain rule</h1>
+  <p class="standfirst">Section 10.4. There are five ways to combine functions: addition, subtraction, multiplication, division, and composition. We have derivative rules for the first four. The chain rule is for the fifth.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#composition">Composition</a>
+  <a href="#chain">The chain rule</a>
+  <a href="#identify">Finding the inner function</a>
+  <a href="#power">The power chain rule</a>
+  <a href="#abstract">An unknown function</a>
+  <a href="#next">Before Friday</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>Read the <strong>homework announcement</strong> on Blackboard about the transition from WeBWorK to Blackboard.</li>
+      <li>The <strong>Chain Rule homework</strong> will have parts (a) and (b), <strong>both due November 5</strong>.</li>
+      <li>Concept Check questions continue as before: complete the <strong>Concept Check</strong> for Wednesday by the end of the day.</li>
+      <li>Tomorrow&rsquo;s recitation has <strong>Quiz 7</strong>, on the topics of weeks 8&ndash;9 (9.7, 10.2, and 10.3).</li>
+      <li>Friday: more of 10.4, the chain rule.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="composition">
+  <h2><span class="marker">Idea</span>Composing functions</h2>
+
+  <p>To <strong>compose</strong> two functions means to use the output of one function as the input for another.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 474 168" role="img" aria-label="Two chains of machines. Top: x goes into the inner function g, its output g of x goes into the outer function f, and f of g of x comes out. Bottom, for y equals the square root of x squared plus 4: x goes into the inner function x squared plus 4, the intermediate product u comes out and goes into the outer function square root of u, and y comes out">
+      <text class="label-soft" x="129" y="20" style="text-anchor:middle">inner function</text>
+      <text class="label-soft" x="309" y="20" style="text-anchor:middle">outer function</text>
+      <text class="label" x="36" y="57" style="text-anchor:end">x</text>
+      <path class="axis" d="M42 52H74"/>
+      <path class="mark" d="M80 52l-8 -4.5v9z"/>
+      <rect class="box" x="84" y="35" width="90" height="34" rx="3"/>
+      <path class="axis" d="M178 52H200"/>
+      <path class="mark" d="M206 52l-8 -4.5v9z"/>
+      <path class="axis" d="M250 52H274"/>
+      <path class="mark" d="M280 52l-8 -4.5v9z"/>
+      <rect class="box" x="284" y="35" width="50" height="34" rx="3"/>
+      <path class="axis" d="M338 52H364"/>
+      <path class="mark" d="M370 52l-8 -4.5v9z"/>
+      <text class="label" x="36" y="133" style="text-anchor:end">x</text>
+      <path class="axis" d="M42 128H74"/>
+      <path class="mark" d="M80 128l-8 -4.5v9z"/>
+      <rect class="box" x="84" y="111" width="90" height="34" rx="3"/>
+      <path class="axis" d="M178 128H200"/>
+      <path class="mark" d="M206 128l-8 -4.5v9z"/>
+      <path class="axis" d="M250 128H274"/>
+      <path class="mark" d="M280 128l-8 -4.5v9z"/>
+      <rect class="box" x="284" y="111" width="50" height="34" rx="3"/>
+      <path class="axis" d="M338 128H364"/>
+      <path class="mark" d="M370 128l-8 -4.5v9z"/>
+      <text class="label" x="129" y="57" style="text-anchor:middle">g</text>
+      <text class="label" x="228" y="57" style="text-anchor:middle">g(x)</text>
+      <text class="label" x="309" y="57" style="text-anchor:middle">f</text>
+      <text class="label-key" x="376" y="57">f(g(x))</text>
+      <text class="node" x="110" y="133">x</text>
+      <text class="node sup" x="118" y="127">2</text>
+      <text class="node" x="128" y="133">+ 4</text>
+      <text class="label" x="228" y="133" style="text-anchor:middle">u</text>
+      <text class="node" x="309" y="133" style="text-anchor:middle">√u</text>
+      <text class="label-key" x="376" y="133">y</text>
+      <text class="label-soft" x="228" y="158" style="text-anchor:middle">intermediate product</text>
+    </svg>
+    <figcaption>Composition is a chain of machines: the output of the inner function is the input of the outer one. For \(y = \sqrt{x^2 + 4}\), the intermediate product is \(u = x^2 + 4\).</figcaption>
+  </figure>
+
+  <p>For example, given the functions \(f(x) = 3x - x^2\) and \(g(x) = 2x + \sqrt{x}\), we may decide to use the output of \(g\) as the input for \(f\). This creates a new function, read &ldquo;f of g of x&rdquo;:</p>
+  \[f(g(x)) = 3\left(2x + \sqrt{x}\right) - \left(2x + \sqrt{x}\right)^2\]
+
+  <p>We may say that \(f\) is the <strong>outer</strong> function here, and \(g\) is the <strong>inner</strong> function. (The textbook says &ldquo;exterior&rdquo; and &ldquo;interior.&rdquo;) Notice that every appearance of the variable in \(f\) is replaced by the formula for \(g(x)\).</p>
+
+  <p>Composition can also be done in the opposite order, plugging \(f\) into \(g\): fill each \(x\) in \(g(x) = 2x + \sqrt{x}\) with the inner function \(3x - x^2\).</p>
+  \[g(f(x)) = 2\left(3x - x^2\right) + \sqrt{3x - x^2}\]
+
+  <p>Now \(g\) is the outer function, and \(f\) is the inner function.</p>
+
+  <p>We will also need to <strong>recognize</strong> a given function as a composition of two simpler functions.</p>
+
+  <div class="problem">
+    <p>For each composition, what is the inner function, and what is the outer one? &nbsp; \((5x+1)^3\), &nbsp; \(5^{4x-3}\), &nbsp; \(\sqrt{x^2 + 9}\), &nbsp; \(\ln(x^3 + e^x)\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <table>
+        <caption>Inner and outer functions</caption>
+        <thead>
+          <tr><th scope="col">Composition</th><th scope="col">Inner function</th><th scope="col">Outer function</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>\((5x+1)^3\)</td><td>\(5x + 1\)</td><td>\(x^3\)</td></tr>
+          <tr><td>\(5^{4x-3}\)</td><td>\(4x - 3\)</td><td>\(5^x\)</td></tr>
+          <tr><td>\(\sqrt{x^2 + 9}\)</td><td>\(x^2 + 9\)</td><td>\(\sqrt{x}\)</td></tr>
+          <tr><td>\(\ln(x^3 + e^x)\)</td><td>\(x^3 + e^x\)</td><td>\(\ln x\)</td></tr>
+        </tbody>
+      </table>
+      <p>The inner function is what you would compute first; the outer function is the last thing done to it.</p>
+    </div>
+  </details>
+</section>
+
+<section id="chain">
+  <h2><span class="marker">Rule</span>The derivative of a composite function</h2>
+
+  <p>How do we find the derivative of a function built by composition, such as \(y = \sqrt{x^2 + 4}\)? (No, this does not simplify to \(x + 2\).) Here the inner function is \(x^2 + 4\) and the outer one is the square root.</p>
+
+  <p>Think of the formula \(y = \sqrt{x^2 + 4}\) as a chain of production: the variable \(x\) is the raw material, from which an intermediate product \(x^2 + 4\) is made, and then the final product is made from the intermediate by taking the square root.</p>
+
+  <div class="problem">
+    <p>Let&rsquo;s give a name to the intermediate product: \(u = x^2 + 4\). Then \(y = \sqrt{u}\) where \(u = x^2 + 4\). Find \(\dfrac{dy}{du}\), \(\dfrac{du}{dx}\), and then \(\dfrac{dy}{dx}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">dy/du</span><span class="work">\(y = u^{1/2}\), so \(\dfrac{dy}{du} = \dfrac12 u^{-1/2} = \dfrac{1}{2\sqrt{u}}\)</span></li>
+        <li><span class="step">du/dx</span><span class="work">\(\dfrac{du}{dx} = 2x\)</span></li>
+        <li><span class="step">Chain rule</span><span class="work">multiply them:
+          \[\frac{dy}{dx} = \frac{dy}{du}\,\frac{du}{dx} = \frac{1}{2\sqrt{u}} \cdot (2x) = \frac{1}{2\sqrt{x^2+4}} \cdot 2x = \frac{x}{\sqrt{x^2+4}}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>dy/dx = x/&radic;(x&sup2; + 4)</p>
+    </div>
+  </details>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <p>The <strong>chain rule</strong> says that the derivative of the composite function is the product of the derivatives we just found:</p>
+    <ul class="keys">
+      <li>\[\frac{dy}{dx} = \frac{dy}{du}\,\frac{du}{dx}\]</li>
+      <li>In words: (composition)&prime; = (outer)&prime; &middot; (inner)&prime;</li>
+    </ul>
+    <p>&ldquo;Derivative of \(y\) with respect to \(x\)&rdquo; = &ldquo;derivative of \(y\) with respect to \(u\)&rdquo; times &ldquo;derivative of \(u\) with respect to \(x\).&rdquo; The fraction-like notation helps remember this: imagine canceling \(du\) on the right.</p>
+  </div>
+
+  <p>But it may be easier to remember the chain rule in words: the derivative of a composition is the product of two derivatives, of the outer function and of the inner function. Contrast this with the product rule, which does <strong>not</strong> actually have a product of two derivatives. The chain rule does.</p>
+
+  <p>The same computation can be written without naming \(u\). The outer function is \(y = \sqrt{u}\), and the inner function is \(u = x^2 + 4\):</p>
+  \[\left(\sqrt{x^2+4}\right)' = \left((x^2+4)^{1/2}\right)' = \underbrace{\tfrac12 (x^2+4)^{-1/2}}_{\text{power rule}} \cdot \underbrace{(x^2+4)'}_{\text{chain rule}} = \frac12 (x^2+4)^{-1/2}(2x)\]
+
+  <div class="note">
+    <p class="card-label">Multiply, don&rsquo;t plug in</p>
+    <p>When finding the derivative of a composite like \(f(g(x))\), we do not plug one derivative into another, like \(f'(g'(x))\). That is not what the chain rule says. The chain rule involves multiplication: \(f'(g(x))\) is <strong>multiplied</strong> by \(g'(x)\).</p>
+    \[\big(f(g(x))\big)' = f'(g(x)) \cdot g'(x)\]
+  </div>
+</section>
+
+<section id="identify">
+  <h2><span class="marker">Practice</span>Identifying the intermediate expression</h2>
+
+  <p>We can use the chain rule to find the derivative of any composition of two functions. The main step is to <strong>recognize</strong> that the formula we have is a composition.</p>
+
+  <div class="problem">
+    <p><strong>1.</strong> A relatively simple example: find the derivative of \(y = (3x + 2)^5\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Structure</span><span class="work">outer: raising to the 5th power; inner: \(3x + 2\)</span></li>
+        <li><span class="step">Chain rule</span><span class="work">(outer)&prime; times (inner)&prime;:
+          \[y' = 5(3x+2)^{5-1} \cdot (3x+2)' = 5(3x+2)^4 \cdot 3 = 15(3x+2)^4\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y&prime; = 15(3x + 2)&#8308;</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">A very common mistake</p>
+    <p>Writing \(y' = 5(3x+2)^4\). That is only the derivative of the outer function. The correct solution uses the chain rule, which multiplies by the inner derivative, 3.</p>
+  </div>
+
+  <div class="problem">
+    <p><strong>2.</strong> Find the derivative of the function \(y = \left(3 - \sqrt{x}\right)^8\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Structure</span><span class="work">outer: the 8th power; inner: \(3 - \sqrt{x}\)</span></li>
+        <li><span class="step">Chain rule</span><span class="work">\[y' = 8\left(3 - \sqrt{x}\right)^7 \cdot \left(3 - \sqrt{x}\right)' = 8\left(3 - \sqrt{x}\right)^7\left(-\frac12 x^{-1/2}\right)\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\(8 \cdot \left(-\frac12\right) = -4\), and \(x^{-1/2} = \dfrac{1}{\sqrt{x}}\):
+          \[y' = \frac{-4\left(3 - \sqrt{x}\right)^7}{\sqrt{x}}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y&prime; = &minus;4(3 &minus; &radic;x)&#8311;/&radic;x</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>3.</strong> A more complicated example: find \(f'(x)\) for \(f(x) = \dfrac{1}{\left(x^3 + \frac{2}{x}\right)^4}\). Try to avoid the quotient rule if possible. Recall \(\dfrac{1}{a^b} = a^{-b}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">\(f(x) = \left(x^3 + \dfrac{2}{x}\right)^{-4} = \left(x^3 + 2x^{-1}\right)^{-4}\). Outer: the \(-4\) power; inner: \(x^3 + 2x^{-1}\).</span></li>
+        <li><span class="step">Chain rule</span><span class="work">\[f'(x) = (-4)\left(x^3 + 2x^{-1}\right)^{-5} \cdot \left(x^3 + 2x^{-1}\right)'\]</span></li>
+        <li><span class="step">Inner</span><span class="work">\(\left(x^3 + 2x^{-1}\right)' = 3x^2 - 2x^{-2}\), so
+          \[f'(x) = (-4)\left(x^3 + 2x^{-1}\right)^{-5}\left(3x^2 - 2x^{-2}\right)\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = &minus;4(x&sup3; + 2x&#8315;&sup1;)&#8315;&#8309;(3x&sup2; &minus; 2x&#8315;&sup2;)</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Copy the inner function unchanged</p>
+    <p>The outer derivative keeps the inner function exactly as it was: \(\left(x^3 + 2x^{-1}\right)^{-5}\), still with \(x^3\). Only the last factor, the inner derivative, has the \(3x^2\). And note that \(-4 - 1 = -5\): the exponent moves away from zero.</p>
+  </div>
+</section>
+
+<section id="power">
+  <h2><span class="marker">Special case</span>The power chain rule</h2>
+
+  <p>In the previous examples the outer function is just raising to a power. This happens often, so for convenience we isolate this case.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <p><strong>Power chain rule:</strong> when \(u\) is some expression and \(a\) is a number,</p>
+    <ul class="keys">
+      <li>\[(u^a)' = a u^{a-1} u'\]</li>
+      <li>\(\big((\square)^a\big)' = a(\square)^{a-1} \cdot (\square)'\)</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Find \(\left((x^3 - 2)^5\right)'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Power chain</span><span class="work">with \(u = x^3 - 2\) and \(a = 5\): \(5(x^3 - 2)^4 \cdot (x^3 - 2)'\)</span></li>
+        <li><span class="step">Compute</span><span class="work">\(= 5(x^3 - 2)^4(3x^2) = 15x^2(x^3 - 2)^4\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>15x&sup2;(x&sup3; &minus; 2)&#8308;</p>
+    </div>
+  </details>
+
+  <p>How is this different from the power rule that we started with, \((x^a)' = ax^{a-1}\)? There the inner function is just \(x\), whose derivative is 1, and we do not need to include the inner derivative when it&rsquo;s just 1. If we have some expression (an inner function) raised to a power, the derivative of that inner function will appear at the end.</p>
+
+  <div class="problem">
+    <p>A few examples to try: find \(y'\) in each. &nbsp; <strong>(a)</strong> \(y = \left(2x^3 - 8x\right)^{-12}\) &nbsp;&nbsp; <strong>(b)</strong> \(y = \dfrac{1}{(3 + 5x)^3}\)</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a)</span><span class="work">\(u = 2x^3 - 8x\), \(a = -12\), and \(u' = 6x^2 - 8\):
+          \[y' = -12\left(2x^3 - 8x\right)^{-13}\left(6x^2 - 8\right)\]</span></li>
+        <li><span class="step">(b) rewrite</span><span class="work">we don&rsquo;t need the quotient rule here: \(y = (3 + 5x)^{-3}\)</span></li>
+        <li><span class="step">(b) chain</span><span class="work">\(u = 3 + 5x\), \(a = -3\), and \(u' = 5\):
+          \[y' = -3(3 + 5x)^{-4} \cdot 5 = -15(3 + 5x)^{-4} = -\frac{15}{(3 + 5x)^4}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) &minus;12(2x&sup3; &minus; 8x)&#8315;&sup1;&sup3;(6x&sup2; &minus; 8) &nbsp; (b) &minus;15/(3 + 5x)&#8308;</p>
+    </div>
+  </details>
+</section>
+
+<section id="abstract">
+  <h2><span class="marker">Hidden details</span>Composition with an unknown function</h2>
+
+  <div class="problem">
+    <p>Suppose \(h\) is a function such that \(h(2) = 3\), \(h'(2) = -5\), \(h(8) = -2\), \(h'(8) = 7\).</p>
+    <p><strong>(a)</strong> Let \(f(x) = h(x)^3\). Find the derivative \(f'(2)\). &nbsp;&nbsp; <strong>(b)</strong> Let \(g(x) = h(x^3)\). Find the derivative \(g'(2)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a) structure</span><span class="work">\(h(x)^3\) means \(\big(h(x)\big)^3\): outer is the cube, inner is \(h(x)\)</span></li>
+        <li><span class="step">(a) chain</span><span class="work">\(f'(x) = 3h(x)^2 \cdot h'(x)\), the last factor being (inner)&prime;</span></li>
+        <li><span class="step">(a) at 2</span><span class="work">\(f'(2) = 3h(2)^2 \cdot h'(2) = 3 \cdot (3)^2 \cdot (-5) = -27 \cdot 5 = -135\)</span></li>
+        <li><span class="step">(b) structure</span><span class="work">\(h(x^3)\): outer is \(h\), inner is \(x^3\)</span></li>
+        <li><span class="step">(b) chain</span><span class="work">\(g'(x) = h'(x^3) \cdot (x^3)' = h'(x^3) \cdot 3x^2\)</span></li>
+        <li><span class="step">(b) at 2</span><span class="work">\(g'(2) = h'(2^3) \cdot 3 \cdot 2^2 = h'(8) \cdot 12 = 7 \cdot 12 = 84\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) f&prime;(2) = &minus;135 &nbsp; (b) g&prime;(2) = 84</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Order matters</p>
+    <p>\(h(x)^3\) and \(h(x^3)\) are different functions, in the same way that \((\ln x)^2 \ne \ln(x^2)\). Part (a) uses \(h(2)\) and \(h'(2)\); part (b) needs \(h'(8)\), because the inner function sends 2 to \(2^3 = 8\). The value \(h(8) = -2\) is not used at all.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before Friday</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Wednesday by the end of the day.</li>
+    <li>Read the Blackboard announcement about homework moving from WeBWorK to Blackboard.</li>
+    <li><strong>Chain Rule homework, parts (a) and (b): both due November 5.</strong></li>
+    <li>Quiz 7 is in recitation tomorrow, on 9.7, 10.2, and 10.3.</li>
+    <li>For each function in the inner/outer table, find its derivative with the chain rule.</li>
+    <li>Redo the two &ldquo;examples to try&rdquo; with the solutions hidden.</li>
+    <li><strong>Friday: more of 10.4, the chain rule.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 10.4 &middot; October 28</p>
+</footer>
+
+</div>
+</body>
+</html>
