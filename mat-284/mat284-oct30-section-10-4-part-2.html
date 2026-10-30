@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Oct 30 &mdash; The chain rule, continued</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, October 30</p>
+  <h1>The chain rule, continued</h1>
+  <p class="standfirst">Section 10.4. Two more special cases of the chain rule, for exponentials and logarithms, complete the list of derivative rules for this course. Then practice combining them, and a trick for logarithms that saves a lot of work.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#recap">The chain rule so far</a>
+  <a href="#exponential">Exponential chain rule</a>
+  <a href="#logarithmic">Logarithmic chain rule</a>
+  <a href="#strategy">Strategy, final version</a>
+  <a href="#combinations">Combining rules</a>
+  <a href="#logprops">Logarithm properties help</a>
+  <a href="#next">Before Monday</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>The <strong>quiz next week</strong> is specifically on the chain rule (10.4).</li>
+      <li>The Chain Rule homework has parts (a) and (b), <strong>both due November 5</strong>.</li>
+      <li>Complete the <strong>Concept Check</strong> for Friday by the end of the day.</li>
+      <li><strong>Exam 4: Monday, November 16</strong>, the Monday before the break. Same format as Exam 3.</li>
+      <li>Monday: 10.7, elasticity of demand.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="recap">
+  <h2><span class="marker">Recap</span>The chain rule so far</h2>
+
+  <p>The chain rule says that the derivative of a composite function (say, \(y\) is a function of \(u\), which is a function of \(x\)) is the product of two intermediate derivatives:</p>
+  \[(\text{outer})' \cdot (\text{inner})'\]
+
+  <div class="problem">
+    <p>Find \(f'(x)\) for \(f(x) = (x^2 + 7)^4\), a composition with inner function \(x^2 + 7\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Inner</span><span class="work">\(x^2 + 7\) has derivative \(2x\)</span></li>
+        <li><span class="step">Chain rule</span><span class="work">\(f'(x) = 4(x^2 + 7)^3 \cdot (2x) = 8x(x^2 + 7)^3\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = 8x(x&sup2; + 7)&sup3;</p>
+    </div>
+  </details>
+
+  <div class="card">
+    <p class="card-label">Power chain rule</p>
+    <p>An often-used special case, when the outer function is raising to a power, as in the example above:</p>
+    <ul class="keys">
+      <li>\((u^a)' = a u^{a-1} \cdot u'\), &nbsp; that is, \(\big((\square)^a\big)' = a(\square)^{a-1} \cdot (\square)'\)</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <p class="card-label">Common mistakes, on \(f(x) = (x^2 + 7)^4\)</p>
+    <p><strong>(1) Forgetting \(u'\)</strong>, which leads to \(f'(x) = 4(x^2 + 7)^3\). The factor \((2x)\) is missing.</p>
+    <p><strong>(2) Plugging \(u'\) into the outer derivative:</strong> \(f'(x) = 4(2x)^3\). The \(2x\) should be multiplied by, not plugged in.</p>
+    <p>Compare to the correct form: \(f'(x) = 4(x^2 + 7)^3 \cdot (2x)\). In the correct formula, the inner function is unchanged in the first part, where the derivative is applied only to the outer function. The second part is just the derivative of the inner function. The two parts are multiplied together.</p>
+  </div>
+</section>
+
+<section id="exponential">
+  <h2><span class="marker">Special case</span>The exponential chain rule</h2>
+
+  <p>When the exponential function is composed with another, for example \(y = e^{3x^2 + 2}\), we need the chain rule to find its derivative. The order of operations is \(x \to 3x^2 + 2 \to e^{3x^2+2}\), so the inner function is \(3x^2 + 2\).</p>
+
+  <div class="problem">
+    <p>Find \(\dfrac{dy}{dx}\) for \(y = e^{3x^2 + 2}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Name it</span><span class="work">\(y = e^u\), where \(u = 3x^2 + 2\)</span></li>
+        <li><span class="step">Chain rule</span><span class="work">\[\frac{dy}{dx} = \frac{dy}{du}\,\frac{du}{dx} = e^{3x^2+2} \cdot (3x^2 + 2)' = e^{3x^2+2} \cdot (6x) = 6x\,e^{3x^2+2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>6x&middot;e^(3x&sup2; + 2)</p>
+    </div>
+  </details>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <p>It may be easier to remember this as the <strong>exponential chain rule</strong>. The outer part is \(e^u\) again, since \(e^u\) is its own derivative:</p>
+    <ul class="keys">
+      <li>\((e^u)' = e^u \cdot u'\), &nbsp; that is, \(\left(e^{\square}\right)' = e^{\square} \cdot (\square)'\)</li>
+      <li>for other bases: \((b^u)' = b^u (\ln b) \cdot u'\)</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <p class="card-label">Contrast</p>
+    <p>\((2^x)' = 2^x \ln 2\): no chain rule, because the exponent is just \(x\). But \(\left(2^{7-x^2}\right)' = 2^{7-x^2} \cdot \ln 2 \cdot (-2x)\): the same power of 2, then \(\ln(\text{base})\), then \((\text{inner})'\).</p>
+  </div>
+
+  <div class="problem">
+    <p>Some examples: find <strong>(a)</strong> \(\left(3^{4-5x}\right)'\) and <strong>(b)</strong> \(\left(e^{\sqrt{x}}\right)'\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a)</span><span class="work">\(4 - 5x\) is the inner function:
+          \[3^{4-5x} \ln 3 \cdot (4 - 5x)' = -5\ln 3 \cdot 3^{4-5x}\]</span></li>
+        <li><span class="step">(b)</span><span class="work">\(\left(e^{\square}\right)' = e^{\square} \cdot (\square)'\) with \(\square = \sqrt{x}\):
+          \[e^{\sqrt{x}} \cdot (\sqrt{x})' = e^{\sqrt{x}} \cdot \frac12 x^{-1/2} = \frac{e^{\sqrt{x}}}{2\sqrt{x}}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) &minus;5 ln 3 &middot; 3&#8308;&#8315;&#8309;&#739; &nbsp; (b) e^&radic;x / (2&radic;x)</p>
+    </div>
+  </details>
+</section>
+
+<section id="logarithmic">
+  <h2><span class="marker">Special case</span>The logarithmic chain rule</h2>
+
+  <p>When the logarithm is composed with another function, for example \(y = \ln(x^2 + 3)\), we need the chain rule to find its derivative. The inner function is \(x^2 + 3\).</p>
+
+  <div class="problem">
+    <p>Find \(\dfrac{dy}{dx}\) for \(y = \ln(x^2 + 3)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Name it</span><span class="work">\(y = \ln u\), where \(u = x^2 + 3\)</span></li>
+        <li><span class="step">Chain rule</span><span class="work">(outer)&prime; is \(\frac1u\), (inner)&prime; is \(u'\):
+          \[\frac{dy}{dx} = \frac{1}{u} \cdot u' = \frac{1}{x^2 + 3} \cdot (x^2 + 3)' = \frac{2x}{x^2 + 3}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>2x/(x&sup2; + 3)</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">An aside: ln is not multiplication</p>
+    <p>\(17(x^2 + 3) = 17x^2 + 51\) is multiplication, so the 17 distributes. But \(\ln(x^2 + 3)\) is the function &ldquo;ln&rdquo; applied to \(x^2 + 3\). Nothing distributes: \(\ln(x^2 + 3) \ne \ln x^2 + \ln 3\).</p>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <p>It may be easier to remember this as the <strong>logarithmic chain rule</strong>:</p>
+    <ul class="keys">
+      <li>\((\ln u)' = \dfrac{1}{u} \cdot u' = \dfrac{u'}{u}\), &nbsp; that is, \((\ln \square)' = \dfrac{1}{\square} \cdot (\square)'\)</li>
+      <li>for other bases: \((\log_b u)' = \dfrac{1}{u \ln b} \cdot u'\)</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Find \(\left(\log(x^2 + 3)\right)'\). Here \(\log\) with no base written means base 10.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Chain rule</span><span class="work">\[\left(\log(x^2+3)\right)' = \underbrace{\frac{1}{(x^2 + 3)\ln 10}}_{(\text{outer})'} \cdot \underbrace{(2x)}_{(\text{inner})'}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>2x / ((x&sup2; + 3) ln 10)</p>
+    </div>
+  </details>
+</section>
+
+<section id="strategy">
+  <h2><span class="marker">Big picture</span>Strategy for derivatives, final version</h2>
+
+  <p>The key to finding derivatives is the correct identification of a given function. The rows marked <strong>chain</strong> are the ones that use the chain rule.</p>
+
+  <table>
+    <caption>Which rule to use</caption>
+    <thead>
+      <tr><th scope="col">The function is</th><th scope="col">Its derivative is</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Sum or difference: \((\square) \pm (\square)\)</td><td>\((\square)' \pm (\square)'\)</td></tr>
+      <tr><td>Something with a constant factor, like \(7 \cdot (\square)\)</td><td>\(7 \cdot (\square)'\)</td></tr>
+      <tr><td>Just a constant, like \(7\)</td><td>\(0\)</td></tr>
+      <tr><td>Power of the variable: \(x^a\) (\(a\) is a number)</td><td>\(a x^{a-1}\)</td></tr>
+      <tr><td>Power of an expression: \((\square)^a\) &nbsp;<strong>chain</strong></td><td>\(a(\square)^{a-1}(\square)'\)</td></tr>
+      <tr><td>Product: \((\square) \cdot (\blacksquare)\)</td><td>\((\square)' \cdot (\blacksquare) + (\square) \cdot (\blacksquare)'\)</td></tr>
+      <tr><td>Quotient: \((\square) / (\blacksquare)\)</td><td>\(\dfrac{(\square)' \cdot (\blacksquare) - (\square) \cdot (\blacksquare)'}{(\blacksquare)^2}\)</td></tr>
+      <tr><td>Logarithm of the variable: \(\ln x\)</td><td>\(\dfrac{1}{x}\)</td></tr>
+      <tr><td>Logarithm of an expression: \(\ln(\square)\) &nbsp;<strong>chain</strong></td><td>\(\dfrac{1}{(\square)} \cdot (\square)'\)</td></tr>
+      <tr><td>Exponential function: \(e^x\)</td><td>\(e^x\)</td></tr>
+      <tr><td>Exponential of an expression: \(e^{\square}\) &nbsp;<strong>chain</strong></td><td>\(e^{\square} \cdot (\square)'\)</td></tr>
+      <tr><td>General composition: \(f(\square)\) &nbsp;<strong>chain</strong></td><td>\(f'(\square) \cdot (\square)'\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <p class="card-label">Other bases</p>
+    <p>For bases \(b\) different from \(e\), include the logarithm of the base:</p>
+    <ul class="keys">
+      <li>\((\log_b x)' = \dfrac{1}{x \ln b}\) &nbsp;&nbsp;&nbsp; \((b^x)' = b^x \ln b\)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="combinations">
+  <h2><span class="marker">Practice</span>Combinations with other derivative rules</h2>
+
+  <p>Examples to practice multiple derivative rules. In each one, decide on the outermost structure first.</p>
+
+  <div class="problem">
+    <p><strong>1.</strong> If \(f(x) = x^3 e^{5x}\), find \(f'(x)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Structure</span><span class="work">a product! \(x^3\) times \(e^{5x}\)</span></li>
+        <li><span class="step">Product rule</span><span class="work">\(f'(x) = (x^3)'e^{5x} + x^3\left(e^{5x}\right)'\)</span></li>
+        <li><span class="step">Chain inside</span><span class="work">\(\left(e^{\square}\right)' = e^{\square} \cdot (\square)'\), so \(\left(e^{5x}\right)' = e^{5x} \cdot 5\):
+          \[f'(x) = 3x^2 e^{5x} + x^3 e^{5x} \cdot 5 = (3x^2 + 5x^3)e^{5x}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(3x&sup2; + 5x&sup3;)e&#8309;&#739;, or (3 + 5x)x&sup2;e&#8309;&#739;</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>2.</strong> Find the derivative of \(f(x) = \dfrac{\log(4 - 3x)}{x + 2}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Structure</span><span class="work">this is a quotient</span></li>
+        <li><span class="step">Quotient rule</span><span class="work">\[f'(x) = \frac{\left(\log(4-3x)\right)'(x+2) - \log(4-3x)\,(x+2)'}{(x+2)^2}\]</span></li>
+        <li><span class="step">Chain inside</span><span class="work">\((\log \square)' = \dfrac{1}{\square \ln 10} \cdot (\square)'\) with \(\square = 4 - 3x\) and \((\square)' = -3\):
+          \[f'(x) = \frac{\dfrac{1}{(4-3x)\ln 10} \cdot (-3)(x+2) - \log(4-3x) \cdot 1}{(x+2)^2}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = [&minus;3(x + 2)/((4 &minus; 3x) ln 10) &minus; log(4 &minus; 3x)] / (x + 2)&sup2;</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>3.</strong> Find the derivative of \(y = \left(2x^3 - 8x\right)^{-12}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Power chain</span><span class="work">the inner function is \(2x^3 - 8x\):
+          \[y' = (-12)\left(2x^3 - 8x\right)^{-13} \cdot \left(2x^3 - 8x\right)' = (-12)\left(2x^3 - 8x\right)^{-13}\left(6x^2 - 8\right)\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&minus;12(2x&sup3; &minus; 8x)&#8315;&sup1;&sup3;(6x&sup2; &minus; 8)</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>4.</strong> Find the derivative of \(f(x) = 5^{\sqrt{x^2 + 1}}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Outer</span><span class="work">\(\left(5^{\square}\right)' = 5^{\square} \cdot \ln 5 \cdot (\square)'\), with inner \(\square = \sqrt{x^2 + 1}\):
+          \[f'(x) = 5^{\sqrt{x^2+1}} \cdot \ln 5 \cdot \left(\sqrt{x^2+1}\right)'\]</span></li>
+        <li><span class="step">2nd chain rule</span><span class="work">the inner function is itself a composition: \(\left(\sqrt{x^2+1}\right)' = \frac12 (x^2+1)^{-1/2} \cdot (2x)\), so
+          \[f'(x) = 5^{\sqrt{x^2+1}} \cdot \ln 5 \cdot \frac12 (x^2+1)^{-1/2} \cdot (2x)\]</span></li>
+        <li><span class="step">Tidy</span><span class="work">\(\frac12 \cdot 2x = x\), so this is also \(\dfrac{x \ln 5 \cdot 5^{\sqrt{x^2+1}}}{\sqrt{x^2+1}}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = x ln 5 &middot; 5^&radic;(x&sup2; + 1) / &radic;(x&sup2; + 1)</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>5.</strong> Find the derivative of \(y = \dfrac{1}{(3 + 5x)^3}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">no quotient rule needed: \(y = (3 + 5x)^{-3}\)</span></li>
+        <li><span class="step">Power chain</span><span class="work">\(y' = -3(3 + 5x)^{-4} \cdot (3 + 5x)' = -3(3 + 5x)^{-4} \cdot 5 = -\dfrac{15}{(3 + 5x)^4}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y&prime; = &minus;15/(3 + 5x)&#8308;</p>
+    </div>
+  </details>
+</section>
+
+<section id="logprops">
+  <h2><span class="marker">Algebra first</span>Properties of logarithms can help</h2>
+
+  <p>When the expression inside a logarithm is a product, quotient, or power, it is best to use the properties of logarithms <strong>before</strong> taking the derivative.</p>
+  <ol>
+    <li><strong>Step 1, algebra:</strong> simplify the logarithm.</li>
+    <li><strong>Step 2, calculus:</strong> find its derivative.</li>
+  </ol>
+
+  <div class="card">
+    <p class="card-label">Properties of logarithms</p>
+    <ul class="keys">
+      <li>\(\ln\dfrac{A}{B} = \ln A - \ln B\)</li>
+      <li>\(\ln(A \cdot B) = \ln A + \ln B\)</li>
+      <li>\(\ln(A^r) = r\ln A\)</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Find the derivative of \(y = \ln\left(\dfrac{\sqrt{x}\,(9 - x)^3}{(5x + 3)^2}\right)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">1. Expand</span><span class="work">quotient first, then product:
+          \[y = \ln\left(\sqrt{x}\,(9-x)^3\right) - \ln\left((5x+3)^2\right) = \ln\sqrt{x} + \ln\left((9-x)^3\right) - \ln\left((5x+3)^2\right)\]</span></li>
+        <li><span class="step">1. Powers</span><span class="work">\[y = \frac12 \ln x + 3\ln(9 - x) - 2\ln(5x + 3)\]</span></li>
+        <li><span class="step">2. Derivative</span><span class="work">logarithmic chain rule on each term:
+          \[y' = \frac12 \cdot \frac1x + 3 \cdot \frac{1}{9-x} \cdot (9-x)' - 2 \cdot \frac{1}{5x+3} \cdot (5x+3)'\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">with \((9 - x)' = -1\) and \((5x + 3)' = 5\):
+          \[y' = \frac{1}{2x} - \frac{3}{9-x} - \frac{10}{5x+3}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y&prime; = 1/(2x) &minus; 3/(9 &minus; x) &minus; 10/(5x + 3)</p>
+    </div>
+  </details>
+
+  <p>Trying to do this directly, without algebraic preparation, would produce a mess: a logarithmic chain rule wrapped around a quotient rule wrapped around a product rule.</p>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before Monday</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Friday by the end of the day.</li>
+    <li><strong>Chain Rule homework, parts (a) and (b): both due November 5.</strong></li>
+    <li>The quiz next week is on the chain rule (10.4).</li>
+    <li>Check your current grade on Blackboard, which now includes Exam 3. The <a href="index.html">grade calculator</a> shows what you would need on the rest of the course.</li>
+    <li>Redo the five combination problems with the solutions hidden, naming the outermost structure first.</li>
+    <li>Exam 4 is Monday, November 16, in the same format as Exam 3.</li>
+    <li><strong>Monday: 10.7, elasticity of demand.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 10.4 (continued) &middot; October 30</p>
+</footer>
+
+</div>
+</body>
+</html>
