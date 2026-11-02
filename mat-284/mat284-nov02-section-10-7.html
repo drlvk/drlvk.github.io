@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Nov 2 &mdash; Elasticity of demand</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Monday, November 2</p>
+  <h1>Elasticity of demand</h1>
+  <p class="standfirst">Section 10.7. Raising the price does not always raise the revenue, because fewer units may sell. Elasticity measures how strongly demand responds to price, and tells us which way revenue will move.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Warm-up</a>
+  <a href="#scenarios">Price, demand, revenue</a>
+  <a href="#relative">Relative rate of change</a>
+  <a href="#elasticity">Elasticity of demand</a>
+  <a href="#examples">Examples</a>
+  <a href="#next">Before Wednesday</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li><strong>Homework 10.4</strong> (chain rule) is due <strong>Thursday</strong>, on Blackboard.</li>
+      <li>The <strong>quiz this Thursday</strong> is also on the chain rule.</li>
+      <li>Complete the <strong>Concept Check</strong> for Monday by the end of the day.</li>
+      <li>Wednesday: 11.1, the first derivative and graphs.</li>
+      <li><strong>Exam 4</strong> is Monday, November 16.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p class="card-label">A note on numeric answers</p>
+    <ul>
+      <li>WeBWorK accepts arithmetic expressions, like 3/8.</li>
+      <li>Blackboard requires <strong>decimal input</strong>, like 0.375.</li>
+    </ul>
+    <p>Most Blackboard problems are not numeric, though: they are either multiple choice or &ldquo;fill in the blank,&rdquo; like the Concept Check questions.</p>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up</span>Two chain rule problems</h2>
+
+  <div class="card">
+    <p class="card-label">Chain rules in play</p>
+    <ul class="keys">
+      <li>\(\left((\square)^r\right)' = r(\square)^{r-1} \cdot (\square)'\)</li>
+      <li>\(\left(e^{\square}\right)' = e^{\square} \cdot (\square)'\)</li>
+      <li>\((\ln \square)' = \dfrac{1}{\square} \cdot (\square)'\), or \(\dfrac{(\square)'}{\square}\)</li>
+    </ul>
+  </div>
+
+  <p>A tip for the first one: when the denominator is raised to some power, we can turn the quotient into a product, \(\dfrac{T}{B^p} = T \cdot B^{-p}\). This costs nothing, and the product rule is simpler.</p>
+
+  <div class="problem">
+    <p><strong>1.</strong> Find the derivative of \(y = \dfrac{e^{2x}}{(x^4 - 1)^3}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">a product instead of a quotient: \(y = (x^4 - 1)^{-3} \cdot e^{2x}\)</span></li>
+        <li><span class="step">Product rule</span><span class="work">\(y' = \left((x^4-1)^{-3}\right)' \cdot e^{2x} + (x^4-1)^{-3} \cdot \left(e^{2x}\right)'\)</span></li>
+        <li><span class="step">Chain rules</span><span class="work">(outer)&prime; times (inner)&prime; in each factor:
+          \[y' = (-3)(x^4-1)^{-4} \cdot (4x^3) \cdot e^{2x} + (x^4-1)^{-3} \cdot e^{2x} \cdot 2\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y&prime; = &minus;12x&sup3;(x&#8308; &minus; 1)&#8315;&#8308;e&sup2;&#739; + 2(x&#8308; &minus; 1)&#8315;&sup3;e&sup2;&#739;</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>2.</strong> Find the derivative of \(f(x) = \ln\left(e^{3x} + 7\right)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Log chain</span><span class="work">the inner function is \(e^{3x} + 7\):
+          \[f'(x) = \frac{1}{e^{3x} + 7} \cdot \left(e^{3x} + 7\right)'\]</span></li>
+        <li><span class="step">Exp chain</span><span class="work">\(\left(e^{3x}\right)' = e^{3x} \cdot (3x)' = 3e^{3x}\), so
+          \[f'(x) = \frac{1}{e^{3x} + 7} \cdot e^{3x} \cdot 3 = \frac{3e^{3x}}{e^{3x} + 7}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = 3e&sup3;&#739;/(e&sup3;&#739; + 7)</p>
+    </div>
+  </details>
+</section>
+
+<section id="scenarios">
+  <h2><span class="marker">Idea</span>Price, demand, and revenue</h2>
+
+  <p>The new topic for today: using calculus to study the relation between price, demand, and revenue. We know that revenue is (price) &middot; (quantity), but this does not mean that raising the price will increase the revenue, because the demand (quantity sold) may drop.</p>
+
+  <div class="problem">
+    <p>Consider two scenarios. <strong>(A)</strong> The price went up by 5% and the demand dropped by 2%. <strong>(B)</strong> The price went up by 5% and the demand dropped by 9%. What will happen to the revenue in each scenario?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Up by 5% means new = old + 5% of old = (1.05)(old). Dropped by 2% means new = (0.98)(old).</p>
+      <ol class="ledger">
+        <li><span class="step">(A)</span><span class="work">\[\frac{\text{new } R}{\text{old } R} = \frac{(\text{new } p)(\text{new } x)}{(\text{old } p)(\text{old } x)} = (1.05)(0.98) \approx 1.029\]
+          so revenue is up by 2.9%</span></li>
+        <li><span class="step">(B)</span><span class="work">\[\frac{\text{new } R}{\text{old } R} = (1.05)(0.91) = 0.9555\]
+          so revenue is down by about 4.45%, since \((0.9555 - 1) \cdot 100 = -4.45\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(A) revenue up 2.9% &nbsp;&middot;&nbsp; (B) revenue down about 4.45%</p>
+    </div>
+  </details>
+
+  <p>The terms &ldquo;elastic demand&rdquo; (B) and &ldquo;inelastic demand&rdquo; (A) should make intuitive sense in this context. Some products are easier to go without than others.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li><strong>Elastic</strong> demand &hArr; sensitive to changes of price &hArr; increasing the price will <strong>decrease</strong> revenue</li>
+      <li><strong>Inelastic</strong> demand &hArr; not as sensitive &hArr; increasing the price will <strong>increase</strong> revenue</li>
+    </ul>
+    <p>The borderline case is called <strong>unit elasticity</strong>: as the price goes up by 1%, the demand also drops by 1%.</p>
+  </div>
+</section>
+
+<section id="relative">
+  <h2><span class="marker">Tool</span>Relative rate of change</h2>
+
+  <p>When discussing changes in prices or quantities, we often use percentages, which make such changes easier to grasp. Compare two statements:</p>
+  <ul>
+    <li>Annual sales are up by 2,571,500 dollars.</li>
+    <li>Annual sales are up by 3.7%.</li>
+  </ul>
+
+  <p>However, percentage changes are not as convenient in complex computations, because they add a lot of steps like &ldquo;multiply by 100 to convert to %.&rdquo; In this section, we will consider <strong>relative</strong> changes instead: dividing the amount of change by the original amount, but without multiplying by 100%. So in the example above one could say &ldquo;the relative change is 0.037.&rdquo; A relative change is a percent change without the factor of 100.</p>
+
+  <div class="card">
+    <p class="card-label">Definition</p>
+    <p>The <strong>relative rate of change</strong> of a function \(f(x)\) is</p>
+    <ul class="keys">
+      <li>\[\frac{f'(x)}{f(x)}\]</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Find the relative rate of change of <strong>(a)</strong> \(f(x) = x^2 + 10x + 70\) and <strong>(b)</strong> \(f(x) = x\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a)</span><span class="work">\[\frac{f'(x)}{f(x)} = \frac{(x^2 + 10x + 70)'}{x^2 + 10x + 70} = \frac{2x + 10}{x^2 + 10x + 70}\]</span></li>
+        <li><span class="step">(b)</span><span class="work">\(f'(x) = 1\), so the relative rate of change is \(\dfrac{1}{x}\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) (2x + 10)/(x&sup2; + 10x + 70) &nbsp; (b) 1/x</p>
+    </div>
+  </details>
+
+  <p>The relative rate of change is also known as the <strong>logarithmic derivative</strong>, because by the logarithmic chain rule</p>
+  \[\frac{f'(x)}{f(x)} = \big(\ln f(x)\big)'\]
+  <p>This is occasionally useful, when \(f\) is an exponential function or a product. Exponential functions have a very simple relative rate of change.</p>
+
+  <div class="problem">
+    <p>Find the relative rate of change of \(f(x) = 30e^{-2x}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Either find \(f'/f\) directly, or find \(\ln f\) and take the derivative of that.</p>
+      <ol class="ledger">
+        <li><span class="step">ln f</span><span class="work">\(\ln f(x) = \ln\left(30e^{-2x}\right) = \ln(30) + \ln\left(e^{-2x}\right) = \ln(30) - 2x\)</span></li>
+        <li><span class="step">Derivative</span><span class="work">\(\dfrac{f'}{f} = (\ln 30 - 2x)' = -2\), since \(\ln 30\) is a constant</span></li>
+        <li><span class="step">Check</span><span class="work">directly: \(f'(x) = 30e^{-2x} \cdot (-2) = -60e^{-2x}\), and \(\dfrac{-60e^{-2x}}{30e^{-2x}} = -2\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&minus;2</p>
+    </div>
+  </details>
+</section>
+
+<section id="elasticity">
+  <h2><span class="marker">Definition</span>Elasticity of demand</h2>
+
+  <div class="card">
+    <p class="card-label">Definition</p>
+    <p>The <strong>elasticity of demand</strong> is</p>
+    <ul class="keys">
+      <li>\[E = -\frac{\text{relative rate of change of demand}}{\text{relative rate of change of price}} = -\frac{dx/x}{dp/p} = -\frac{p}{x}\,\frac{dx}{dp}\]</li>
+    </ul>
+    <p>Here \(\dfrac{dx}{dp}\) is the derivative of \(x\) with respect to \(p\).</p>
+  </div>
+
+  <p>The numerator and denominator have opposite signs, so the minus sign is included in the formula to make elasticity positive. Why opposite signs? When the price goes up, the demand goes down: the two relative changes always move in opposite directions.</p>
+
+  <p>To compute the elasticity of demand, we need the price-demand equation, which relates the price \(p\) and the demand \(x\). We solve the price-demand equation <strong>for \(x\)</strong>, so it takes the form \(x = f(p)\). This means we use \(p\) as the input (variable) and \(x\) as the output. Then:</p>
+  <ul>
+    <li>the relative rate of change of demand is \(f'(p)/f(p)\);</li>
+    <li>the relative rate of change of price is \(1/p\), as we found for \(f(x) = x\).</li>
+  </ul>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <p>And thus we get the main formula of this section:</p>
+    <ul class="keys">
+      <li>\[E = -\frac{p\,f'(p)}{f(p)}\]</li>
+    </ul>
+    <p>In other places you may see it written as \(E = -\dfrac{p}{x}\,\dfrac{dx}{dp}\), which is the same thing in different notation. There are other versions as well.</p>
+  </div>
+
+  <p>Based on the function \(f\) and the price level, we get one of three outcomes:</p>
+  <table>
+    <caption>Reading the elasticity</caption>
+    <thead>
+      <tr><th scope="col">Value</th><th scope="col">Demand is</th><th scope="col">Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>\(E &lt; 1\)</td><td><strong>inelastic</strong></td><td>demand changes less than the price; a price increase will increase revenue</td></tr>
+      <tr><td>\(E &gt; 1\)</td><td><strong>elastic</strong></td><td>demand changes more than the price; a price increase will decrease revenue</td></tr>
+      <tr><td>\(E = 1\)</td><td><strong>unit elasticity</strong></td><td>the same relative change</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="examples">
+  <h2><span class="marker">Practice</span>Computing elasticity</h2>
+
+  <p>The method: write the price-demand equation as \(x = f(p)\), then use \(E = -\dfrac{p f'}{f}\).</p>
+
+  <div class="problem">
+    <p><strong>1.</strong> Find the elasticity of demand at price \(p = 30\), given the price-demand equation \(2x + p = 40\). Interpret the answer as elastic, inelastic, or unit elasticity.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Solve for x</span><span class="work">\(2x = 40 - p\), so \(x = 20 - \frac12 p = f(p)\), and \(f'(p) = -\frac12\)</span></li>
+        <li><span class="step">Formula</span><span class="work">\(-p\) times the derivative, over the formula for \(x\):
+          \[E = \frac{-p\left(-\frac12\right)}{20 - \frac12 p} = \frac{p/2}{20 - p/2} = \frac{p}{40 - p}\]</span></li>
+        <li><span class="step">At p = 30</span><span class="work">\(E = \dfrac{30}{40 - 30} = 3 &gt; 1\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>E = 3: demand is elastic</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 430 256" role="img" aria-label="The elasticity E of p equals p over 40 minus p, for prices from 0 to 40. It starts at 0, crosses the dashed line E equals 1 at p equals 20, passes through 30 comma 3, and shoots up near p equals 40. Below p equals 20 demand is inelastic; above it, elastic">
+      <path class="axis" d="M125.7 222V230"/>
+      <path class="axis" d="M211.4 222V230"/>
+      <path class="axis" d="M297.1 222V230"/>
+      <path class="axis" d="M382.9 222V230"/>
+      <path class="axis" d="M36 193.2H44"/>
+      <path class="axis" d="M36 160.4H44"/>
+      <path class="axis" d="M36 127.6H44"/>
+      <path class="axis" d="M36 94.8H44"/>
+      <path class="axis" d="M36 61.9H44"/>
+      <path class="axis" d="M36 29.1H44"/>
+      <path class="axis" d="M40 226H400"/>
+      <path class="mark" d="M404 226l-8 -4.5v9z"/>
+      <path class="axis" d="M40 226V16"/>
+      <path class="mark" d="M40 12l-4.5 8h9z"/>
+      <text class="label" x="402" y="244" style="text-anchor:end">p</text>
+      <text class="label" x="49" y="24">E</text>
+      <text class="label-soft" x="125.7" y="244" style="text-anchor:middle">10</text>
+      <text class="label-soft" x="211.4" y="244" style="text-anchor:middle">20</text>
+      <text class="label-soft" x="297.1" y="244" style="text-anchor:middle">30</text>
+      <text class="label-soft" x="382.9" y="244" style="text-anchor:middle">40</text>
+      <text class="label-soft" x="32" y="197.2" style="text-anchor:end">1</text>
+      <text class="label-soft" x="32" y="131.6" style="text-anchor:end">3</text>
+      <text class="label-soft" x="32" y="65.9" style="text-anchor:end">5</text>
+      <path class="helper" d="M40 193.2L400 193.2"/>
+      <path class="helper" d="M211.4 226L211.4 193.2"/>
+      <path class="helper" d="M382.9 226L382.9 16"/>
+      <path class="curve" d="M40 226L44 225.6L48 225.2L52.1 224.8L56.1 224.4L60.1 224L64.1 223.5L68.1 223.1L72.1 222.6L76.2 222.1L80.2 221.6L84.2 221.1L88.2 220.6L92.2 220.1L96.3 219.6L100.3 219L104.3 218.4L108.3 217.8L112.3 217.2L116.4 216.6L120.4 216L124.4 215.3L128.4 214.6L132.4 213.9L136.4 213.2L140.4 212.4L144.3 211.7L148.2 210.9L152.2 210L156.1 209.2L160 208.3L164 207.4L167.9 206.5L171.8 205.5L175.8 204.5L179.7 203.4L183.6 202.3L187.5 201.2L191.3 200.1L195.2 198.9L199 197.6L202.9 196.3L206.7 194.9L210.5 193.5L214.2 192.1L218 190.6L221.8 189L225.4 187.3L229.1 185.6L232.8 183.8L236.4 182L240 180.1L243.5 178.1L247 176L250.4 173.9L253.8 171.6L257.2 169.3L260.4 166.9L263.7 164.4L266.8 161.9L269.9 159.2L272.9 156.5L275.8 153.7L278.6 150.9L281.5 147.9L284.2 144.8L286.8 141.6L289.4 138.4L291.9 135.2L294.3 131.8L296.6 128.4L298.8 125L300.9 121.5L303 117.9L305 114.4L306.8 110.8L308.6 107.2L310.4 103.5L312.1 99.7L313.8 96L315.3 92.3L316.8 88.4L318.3 84.5L319.7 80.8L321 76.8L322.3 73L323.6 69L324.8 65L326 61L327.1 57L328.2 52.9L329.2 49L330.3 44.9L331.2 41L332.2 36.9L333.1 32.7L333.9 28.8L334.8 24.7L335.7 20.5L336.4 16.5L336.5 16"/>
+      <circle class="dot" cx="211.4" cy="193.2" r="4.2"/>
+      <circle class="dot" cx="297.1" cy="127.6" r="4.2"/>
+      <text class="label-key" x="287.1" y="123.6" style="text-anchor:end">(30, 3)</text>
+      <text class="label-soft" x="125.7" y="183.2" style="text-anchor:middle">inelastic</text>
+      <text class="label-soft" x="305.7" y="48.8" style="text-anchor:end">elastic</text>
+      <text class="label-soft" x="219.4" y="209.2">unit elasticity at p = 20</text>
+    </svg>
+    <figcaption>For the demand equation \(2x + p = 40\), the elasticity \(E = \frac{p}{40 - p}\) depends on the price. Demand is inelastic below \(p = 20\), has unit elasticity at \(p = 20\), and is elastic above it, as at \(p = 30\).</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">What E = 3 says</p>
+    <p>At \(p = 30\), a 1% increase in price cuts demand by about 3%, so raising the price would lower the revenue. Elasticity depends on the price: for this demand equation it is below 1 at low prices and above 1 at high ones.</p>
+  </div>
+
+  <div class="problem">
+    <p><strong>2.</strong> The price-demand equation is \(x = p^{-3}e^{-2p}\). Find the formula for the elasticity \(E\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">f(p)</span><span class="work">\(f(p) = p^{-3}e^{-2p}\), a product</span></li>
+        <li><span class="step">f&prime;(p)</span><span class="work">\[f'(p) = (p^{-3})'(e^{-2p}) + p^{-3}\left(e^{-2p}\right)' = -3p^{-4}e^{-2p} + p^{-3}e^{-2p}(-2)\]</span></li>
+        <li><span class="step">Formula</span><span class="work">\(-p\) times the derivative, over the formula for \(x\):
+          \[E = \frac{-p\left(-3p^{-4}e^{-2p} - 2p^{-3}e^{-2p}\right)}{p^{-3}e^{-2p}} = \frac{p\left(3p^{-4} + 2p^{-3}\right)e^{-2p}}{p^{-3}e^{-2p}}\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\(e^{-2p}\) cancels, and dividing by \(p^{-3}\) multiplies by \(p^3\):
+          \[E = p^4\left(3p^{-4} + 2p^{-3}\right) = 3 + 2p\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>E = 3 + 2p</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">A shortcut with the logarithmic derivative</p>
+    <p>Since \(f\) is a product with an exponential, \(\dfrac{f'}{f} = (\ln f)'\) is quicker: \(\ln f(p) = -3\ln p - 2p\), so \(\dfrac{f'}{f} = -\dfrac{3}{p} - 2\), and \(E = -p\left(-\dfrac{3}{p} - 2\right) = 3 + 2p\). Here \(E &gt; 1\) at every positive price, so this demand is always elastic.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before Wednesday</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Monday by the end of the day.</li>
+    <li><strong>Homework 10.4 (chain rule) is due Thursday on Blackboard.</strong> Enter numeric answers as decimals.</li>
+    <li>The quiz on Thursday is on the chain rule.</li>
+    <li>Redo both elasticity examples with the solutions hidden.</li>
+    <li>For \(E = \dfrac{p}{40 - p}\), solve \(E = 1\) algebraically and check your answer against the graph.</li>
+    <li><strong>Wednesday: 11.1, the first derivative and graphs.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 10.7 &middot; November 2</p>
+</footer>
+
+</div>
+</body>
+</html>
