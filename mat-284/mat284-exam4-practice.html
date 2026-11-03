@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 Exam 4 practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f6f9f5; --ink: #1e2b24; --muted: #5d6c63; --rule: #d3e0d6;
+  --grid: #dce7de; --grid-major: #c5d6c9; --accent: #2e6b4e; --reveal-bg: #edf3ee;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #111714; --ink: #e2eae4; --muted: #9baaa1; --rule: #26342c;
+    --grid: #1b2520; --grid-major: #26342c; --accent: #86c7a6; --reveal-bg: #18211c;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  font-size: 1.0625rem; line-height: 1.6;
+}
+.masthead {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem; }
+.masthead .wrap { padding-top: 2.75rem; padding-bottom: 1.75rem; }
+.course { margin: 0; color: var(--muted); font-size: 1rem; }
+h1 { margin: 0.15rem 0 0.75rem; font-weight: 600; font-size: clamp(2.1rem, 6vw, 3.1rem);
+     line-height: 1.1; letter-spacing: -0.01em; }
+.scope { margin: 0 0 1.25rem; max-width: 38rem; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+button {
+  font: inherit; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem;
+  color: var(--accent); background: var(--paper); border: 1px solid var(--accent);
+  border-radius: 3px; padding: 0.35rem 0.8rem; cursor: pointer;
+}
+button:hover { background: var(--reveal-bg); }
+button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+ol.problems { list-style: none; margin: 0; padding: 0; counter-reset: prob; }
+li.problem {
+  counter-increment: prob; position: relative;
+  padding: 1.4rem 0 1.4rem 3.25rem; border-bottom: 1px solid var(--rule);
+}
+li.problem::before {
+  content: counter(prob); position: absolute; left: 0; top: 1.2rem; width: 2.4rem; text-align: right;
+  font-size: 1.6rem; font-weight: 600; color: var(--accent); line-height: 1.2;
+}
+.statement { margin: 0; }
+ol.parts { list-style: none; margin: 0.4rem 0 0; padding: 0; counter-reset: part; }
+ol.parts li { counter-increment: part; padding-left: 2rem; text-indent: -2rem; margin: 0.15rem 0; }
+ol.parts li::before { content: "(" counter(part, lower-alpha) ")"; display: inline-block; width: 2rem; text-indent: 0; }
+details.reveal { margin-top: 0.6rem; }
+details.reveal + details.reveal { margin-top: 0.35rem; }
+summary {
+  display: inline-block; cursor: pointer; list-style: none; color: var(--accent);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem;
+}
+summary::-webkit-details-marker { display: none; }
+summary::before { content: "\25B8"; display: inline-block; width: 1.1em; }
+details[open] > summary::before { content: "\25BE"; }
+.reveal .body {
+  margin-top: 0.4rem; padding: 0.6rem 0.9rem; background: var(--reveal-bg);
+  border-left: 3px solid var(--accent); overflow-x: auto;
+}
+.reveal .body p { margin: 0.35rem 0; }
+mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 3rem; }
+@media (max-width: 34rem) {
+  li.problem { padding-left: 0; }
+  li.problem::before { position: static; display: block; width: auto; text-align: left; margin-bottom: 0.25rem; }
+}
+@media print {
+  .toolbar, details.reveal { display: none; }
+  .masthead { background: none; }
+  li.problem { break-inside: avoid; }
+}
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="course">MAT 284 Business Calculus</p>
+    <h1>Exam 4 practice</h1>
+    <p class="scope">Twenty problems from Sections 10.4, 10.7, 11.1 and 11.2, in mixed order. Work each
+    one on paper first, then open the answer to check it, or the solution to see the steps. Give
+    intervals in interval notation, and write “none” where something does not exist.</p>
+    <div class="toolbar" role="group" aria-label="Show or hide answers and solutions">
+      <button type="button" data-act="answers">Show all answers</button>
+      <button type="button" data-act="solutions">Show all solutions</button>
+      <button type="button" data-act="hide">Hide all</button>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <ol class="problems">
+    <li class="problem" id="problem-1">
+      <p class="statement">Find the derivative of \(f(x)=(7+2\ln x)^5\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(f'(x)=\dfrac{10(7+2\ln x)^4}{x}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Use the chain rule with outer function \(u^5\) and inner function \(u=7+2\ln x\), whose
+  derivative is \(u'=\dfrac{2}{x}\):</p>
+  \[f'(x)=5(7+2\ln x)^4\cdot\frac{2}{x}=\frac{10(7+2\ln x)^4}{x}.\]</div></details>
+    </li>
+    <li class="problem" id="problem-2">
+      <p class="statement">The price-demand equation of a certain item is \(x=500e^{-0.04p}\), where \(p\) is the price and
+  \(x\) is the number of items sold at that price. Evaluate the elasticity of demand \(E\) when
+  \(p=30\), and describe the demand.</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(E(30)=1.2\); demand is elastic.</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Here \(x'(p)=500e^{-0.04p}\cdot(-0.04)=-20e^{-0.04p}\), so</p>
+  \[E(p)=-\frac{p\,x'(p)}{x(p)}=-\frac{p\,(-20e^{-0.04p})}{500e^{-0.04p}}=0.04p.\]
+  <p>So \(E(30)=1.2\). Since \(E\gt 1\), demand is elastic.</p></div></details>
+    </li>
+    <li class="problem" id="problem-3">
+      <p class="statement">Find \(y'\), given \(y=5^{2x^2+x}\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(y'=5^{2x^2+x}\ln 5\cdot(4x+1)\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Since \(\dfrac{d}{du}5^u=5^u\ln 5\), the chain rule with \(u=2x^2+x\) and \(u'=4x+1\) gives</p>
+  \[y'=5^{2x^2+x}\ln 5\cdot(4x+1).\]</div></details>
+    </li>
+    <li class="problem" id="problem-4">
+      <p class="statement">Let \(f(x)=8x^2-x^4\). Find the open intervals on which \(f\) is increasing (decreasing). Then determine the \(x\)-coordinates of all local maxima (minima).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>Increasing on \((-\infty,-2)\) and \((0,2)\); decreasing on \((-2,0)\) and \((2,\infty)\).
+  Local maxima at \(x=-2\) and \(x=2\); local minimum at \(x=0\).</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>\(f'(x)=16x-4x^3=-4x(x-2)(x+2)\), so the critical numbers are \(x=-2\), \(0\), \(2\).
+  Test a point in each interval: \(f'(-3)=60\gt 0\), \(f'(-1)=-12\lt 0\), \(f'(1)=12\gt 0\),
+  \(f'(3)=-60\lt 0\).</p>
+  <p>So \(f\) increases on \((-\infty,-2)\) and \((0,2)\), and decreases on \((-2,0)\) and
+  \((2,\infty)\). The derivative changes from positive to negative at \(x=\pm 2\), giving local
+  maxima, and from negative to positive at \(x=0\), giving a local minimum.</p></div></details>
+    </li>
+    <li class="problem" id="problem-5">
+      <p class="statement">Recall that the relative rate of change of \(f\) is \(\dfrac{f'(x)}{f(x)}\). Find the relative
+  rate of change of each function.</p>
+      <ol class="parts">
+        <li>\(f(x)=5+2e^{-3x}\)</li>
+        <li>\(f(x)=40-5x\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(\dfrac{-6e^{-3x}}{5+2e^{-3x}}\), equivalently \(-\dfrac{6}{5e^{3x}+2}\)
+  &nbsp;&nbsp; (b) \(\dfrac{-5}{40-5x}\), equivalently \(\dfrac{1}{x-8}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(f'(x)=-6e^{-3x}\), so \(\dfrac{f'(x)}{f(x)}=\dfrac{-6e^{-3x}}{5+2e^{-3x}}\).
+  Multiplying the numerator and denominator by \(e^{3x}\) gives the equivalent form
+  \(-\dfrac{6}{5e^{3x}+2}\).</p>
+  <p>(b) \(f'(x)=-5\), so \(\dfrac{f'(x)}{f(x)}=\dfrac{-5}{40-5x}\), which simplifies to
+  \(\dfrac{1}{x-8}\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-6">
+      <p class="statement">Let \(f(x)=x^{-3}e^{4x}\). Find \(f'(x)\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(f'(x)=-3x^{-4}e^{4x}+4x^{-3}e^{4x}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Use the product rule, with \(\dfrac{d}{dx}x^{-3}=-3x^{-4}\) and, by the chain rule,
+  \(\dfrac{d}{dx}e^{4x}=4e^{4x}\):</p>
+  \[f'(x)=-3x^{-4}e^{4x}+x^{-3}\cdot 4e^{4x}=-3x^{-4}e^{4x}+4x^{-3}e^{4x}.\]</div></details>
+    </li>
+    <li class="problem" id="problem-7">
+      <p class="statement">The price-demand equation \(x=600-12p\) relates the price \(p\) and the demand \(x\). Find the
+  elasticity of demand at each price, and describe the demand as elastic, inelastic, or unit
+  elastic.</p>
+      <ol class="parts">
+        <li>\(p=20\)</li>
+        <li>\(p=25\)</li>
+        <li>\(p=30\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(E(p)=\dfrac{p}{50-p}\). (a) \(E=\tfrac23\), inelastic &nbsp;&nbsp; (b) \(E=1\), unit elastic
+  &nbsp;&nbsp; (c) \(E=\tfrac32\), elastic</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>\(x'(p)=-12\), so</p>
+  \[E(p)=-\frac{p\,x'(p)}{x(p)}=\frac{12p}{600-12p}=\frac{p}{50-p}.\]
+  <p>(a) \(E(20)=\dfrac{20}{30}=\dfrac23\lt 1\): inelastic.
+  (b) \(E(25)=\dfrac{25}{25}=1\): unit elastic.
+  (c) \(E(30)=\dfrac{30}{20}=\dfrac32\gt 1\): elastic.</p></div></details>
+    </li>
+    <li class="problem" id="problem-8">
+      <p class="statement">Let \(f(x)=5e^{-2x^2}\). Identify the locations of the local extrema and of the inflection
+  points of \(f\). Write “none” if any of these do not exist.</p>
+      <ol class="parts">
+        <li>Local minimum</li>
+        <li>Local maximum</li>
+        <li>Inflection points</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) none &nbsp;&nbsp; (b) \(x=0\) &nbsp;&nbsp; (c) \(x=-\tfrac12\) and \(x=\tfrac12\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>By the chain rule, \(f'(x)=5e^{-2x^2}\cdot(-4x)=-20xe^{-2x^2}\). Since \(e^{-2x^2}\gt 0\),
+  \(f'(x)=0\) only at \(x=0\). Also \(f'(x)\gt 0\) for \(x\lt 0\) and \(f'(x)\lt 0\) for \(x\gt 0\),
+  so there is a local maximum at \(x=0\) and no local minimum.</p>
+  <p>By the product rule,</p>
+  \[f''(x)=-20e^{-2x^2}+(-20x)(-4x)e^{-2x^2}=20e^{-2x^2}(4x^2-1).\]
+  <p>This is zero at \(x=\pm\tfrac12\), and \(4x^2-1\) changes sign at each of these points, so both
+  are inflection points.</p></div></details>
+    </li>
+    <li class="problem" id="problem-9">
+      <p class="statement">Find \(y'\), given \(y=\log_3(4x^2-1)\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(y'=\dfrac{8x}{(4x^2-1)\ln 3}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Since \(\dfrac{d}{du}\log_3 u=\dfrac{1}{u\ln 3}\), the chain rule with \(u=4x^2-1\) and
+  \(u'=8x\) gives</p>
+  \[y'=\frac{1}{(4x^2-1)\ln 3}\cdot 8x=\frac{8x}{(4x^2-1)\ln 3}.\]</div></details>
+    </li>
+    <li class="problem" id="problem-10">
+      <p class="statement">Use the price-demand equation \(p+0.002x=60\), where \(0\le p\le 60\), for both parts.</p>
+      <ol class="parts">
+        <li>Find the elasticity of demand when \(p=\$15\). If the $15 price is increased by 6%, what is the
+   approximate percentage change in demand?</li>
+        <li>Find the elasticity of demand when \(p=\$45\). If the $45 price is decreased by 4%, what is the
+   approximate percentage change in demand?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(E(p)=\dfrac{p}{60-p}\). (a) \(E=\tfrac13\); demand changes by about \(-2\%\)
+  &nbsp;&nbsp; (b) \(E=3\); demand changes by about \(+12\%\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Solve for \(x\): \(x=\dfrac{60-p}{0.002}=500(60-p)\), so \(x'(p)=-500\) and</p>
+  \[E(p)=-\frac{p\,x'(p)}{x(p)}=\frac{500p}{500(60-p)}=\frac{p}{60-p}.\]
+  <p>The percentage change in demand is approximately \(-E\) times the percentage change in price.</p>
+  <p>(a) \(E(15)=\dfrac{15}{45}=\dfrac13\), so a 6% price increase changes demand by about
+  \(-\tfrac13\cdot 6\%=-2\%\).</p>
+  <p>(b) \(E(45)=\dfrac{45}{15}=3\), so a 4% price decrease changes demand by about
+  \(-3\cdot(-4\%)=+12\%\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-11">
+      <p class="statement">Let \(f(x)=\ln\left[\dfrac{x^6(x+5)^4}{(x^2+1)^3}\right]\). Differentiate \(f\).
+  (Suggestion: rewrite before differentiating.)</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(f'(x)=\dfrac6x+\dfrac{4}{x+5}-\dfrac{6x}{x^2+1}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>By the properties of logarithms,</p>
+  \[f(x)=6\ln x+4\ln(x+5)-3\ln(x^2+1).\]
+  <p>Differentiate term by term, using the chain rule on the last term:</p>
+  \[f'(x)=\frac6x+\frac{4}{x+5}-3\cdot\frac{2x}{x^2+1}=\frac6x+\frac{4}{x+5}-\frac{6x}{x^2+1}.\]</div></details>
+    </li>
+    <li class="problem" id="problem-12">
+      <p class="statement">Let \(f(x)=-x^4+2x^3+5x-1\). Find the open intervals on which \(f\) is concave up (down). Then determine the \(x\)-coordinates of all inflection points of \(f\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>Concave up on \((0,1)\); concave down on \((-\infty,0)\) and \((1,\infty)\). Inflection
+  points at \(x=0\) and \(x=1\).</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>\(f'(x)=-4x^3+6x^2+5\) and \(f''(x)=-12x^2+12x=-12x(x-1)\), which is zero at \(x=0\) and
+  \(x=1\). Test points: \(f''(-1)=-24\lt 0\), \(f''(\tfrac12)=3\gt 0\), \(f''(2)=-24\lt 0\).</p>
+  <p>So \(f\) is concave down on \((-\infty,0)\), concave up on \((0,1)\), and concave down on
+  \((1,\infty)\). Concavity changes at \(x=0\) and at \(x=1\), so both are inflection points.</p></div></details>
+    </li>
+    <li class="problem" id="problem-13">
+      <p class="statement">Find \(\dfrac{d}{dx}\left[\dfrac{\ln(5+x^2)}{3x}\right]\). (Suggestion: rewrite this quotient as a
+  product.)</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(\dfrac{2}{3(5+x^2)}-\dfrac{\ln(5+x^2)}{3x^2}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Write the function as \(\tfrac13\,x^{-1}\ln(5+x^2)\). By the chain rule,
+  \(\dfrac{d}{dx}\ln(5+x^2)=\dfrac{2x}{5+x^2}\). The product rule then gives</p>
+  \[\frac{d}{dx}\left[\frac13\,x^{-1}\ln(5+x^2)\right]
+    =\frac13\left[-x^{-2}\ln(5+x^2)+x^{-1}\cdot\frac{2x}{5+x^2}\right]
+    =\frac{2}{3(5+x^2)}-\frac{\ln(5+x^2)}{3x^2}.\]</div></details>
+    </li>
+    <li class="problem" id="problem-14">
+      <p class="statement">Let \(f(x)=12\sqrt{x}-3x\) for \(x\gt 0\). Find the open intervals on which \(f\) is increasing (decreasing). Then determine the \(x\)-coordinates of all local maxima (minima).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>Increasing on \((0,4)\); decreasing on \((4,\infty)\). Local maximum at \(x=4\); no local minimum.</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>\(f'(x)=12\cdot\dfrac{1}{2\sqrt{x}}-3=\dfrac{6}{\sqrt{x}}-3\). Setting \(f'(x)=0\) gives
+  \(\sqrt{x}=2\), so \(x=4\).</p>
+  <p>For \(0\lt x\lt 4\), \(\sqrt{x}\lt 2\), so \(f'(x)\gt 0\); for \(x\gt 4\), \(f'(x)\lt 0\).
+  So \(f\) increases on \((0,4)\) and decreases on \((4,\infty)\), with a local maximum at \(x=4\)
+  and no local minimum.</p></div></details>
+    </li>
+    <li class="problem" id="problem-15">
+      <p class="statement">Given the price-demand equation \(p=\dfrac{3200}{x^2}\), find the elasticity of demand when
+  \(x=40\), and describe the demand. (Hint: first, solve the equation for \(x\).)</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(E=\tfrac12\); demand is inelastic.</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Solve for \(x\), with \(x\gt 0\): \(x^2=\dfrac{3200}{p}\), so \(x=\sqrt{3200}\,p^{-1/2}\).
+  Then \(x'(p)=-\tfrac12\sqrt{3200}\,p^{-3/2}\) and</p>
+  \[E(p)=-\frac{p\,x'(p)}{x(p)}=\frac{\tfrac12\sqrt{3200}\,p^{-1/2}}{\sqrt{3200}\,p^{-1/2}}=\frac12.\]
+  <p>When \(x=40\), \(p=\dfrac{3200}{1600}=2\), and \(E=\tfrac12\lt 1\): demand is inelastic.
+  In fact \(E=\tfrac12\) at every price.</p></div></details>
+    </li>
+    <li class="problem" id="problem-16">
+      <p class="statement">Let \(f(x)=\dfrac{3x+2}{x-1}\). Find the open intervals on which \(f\) is concave up (down). Then determine the \(x\)-coordinates of all inflection points of \(f\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>Concave up on \((1,\infty)\); concave down on \((-\infty,1)\). No inflection points.</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>By the quotient rule,
+  \(f'(x)=\dfrac{3(x-1)-(3x+2)}{(x-1)^2}=\dfrac{-5}{(x-1)^2}=-5(x-1)^{-2}\), so
+  \(f''(x)=10(x-1)^{-3}=\dfrac{10}{(x-1)^3}\).</p>
+  <p>This is positive for \(x\gt 1\) and negative for \(x\lt 1\): \(f\) is concave up on
+  \((1,\infty)\) and concave down on \((-\infty,1)\). Concavity changes at \(x=1\), but \(f\) is not
+  defined there, so there are no inflection points.</p></div></details>
+    </li>
+    <li class="problem" id="problem-17">
+      <p class="statement">Let \(f(x)=4+12x-x^3\). Find the open intervals on which \(f\) is increasing (decreasing). Then determine the \(x\)-coordinates of all local maxima (minima).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>Increasing on \((-2,2)\); decreasing on \((-\infty,-2)\) and \((2,\infty)\). Local maximum at
+  \(x=2\); local minimum at \(x=-2\).</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>\(f'(x)=12-3x^2=-3(x-2)(x+2)\), which is zero at \(x=\pm 2\). Test points:
+  \(f'(-3)=-15\lt 0\), \(f'(0)=12\gt 0\), \(f'(3)=-15\lt 0\).</p>
+  <p>So \(f\) decreases on \((-\infty,-2)\), increases on \((-2,2)\), and decreases on
+  \((2,\infty)\): a local minimum at \(x=-2\) and a local maximum at \(x=2\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-18">
+      <p class="statement"><em>Revenue.</em> A dairy finds that the demand for a new line of ice cream is given approximately
+  by \(p=12e^{-x/4}\), \(x\gt 0\), where \(x\) thousand quarts are sold per week at a price of \(p\)
+  dollars each.</p>
+      <ol class="parts">
+        <li>Find the revenue \(R(x)\), in thousands of dollars.</li>
+        <li>On which interval is the graph of the revenue function concave upward? On which interval is it concave downward?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(R(x)=12xe^{-x/4}\) &nbsp;&nbsp; (b) Concave upward on \((8,\infty)\); concave downward on \((0,8)\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(R(x)=xp=12xe^{-x/4}\).</p>
+  <p>(b) By the product and chain rules, \(R'(x)=12e^{-x/4}-3xe^{-x/4}=e^{-x/4}(12-3x)\).
+  Differentiating again,</p>
+  \[R''(x)=-\tfrac14e^{-x/4}(12-3x)+e^{-x/4}(-3)=e^{-x/4}\left(\tfrac34x-6\right)=\tfrac34e^{-x/4}(x-8).\]
+  <p>Since \(e^{-x/4}\gt 0\), \(R''(x)\lt 0\) on \((0,8)\) and \(R''(x)\gt 0\) on \((8,\infty)\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-19">
+      <p class="statement">Find \(\dfrac{dy}{dx}\) for \(y=\dfrac{1}{(4x^3+5)^5}\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(\dfrac{dy}{dx}=-\dfrac{60x^2}{(4x^3+5)^6}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Write \(y=(4x^3+5)^{-5}\). By the chain rule,</p>
+  \[\frac{dy}{dx}=-5(4x^3+5)^{-6}\cdot 12x^2=-\frac{60x^2}{(4x^3+5)^6}.\]</div></details>
+    </li>
+    <li class="problem" id="problem-20">
+      <p class="statement">Let \(f(x)=-\left(2x+\dfrac{18}{x}\right)\). Find the open intervals on which \(f\) is increasing (decreasing). Then determine the \(x\)-coordinates of all local maxima (minima).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>Increasing on \((-3,0)\) and \((0,3)\); decreasing on \((-\infty,-3)\) and \((3,\infty)\).
+  Local maximum at \(x=3\); local minimum at \(x=-3\).</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>\(f(x)=-2x-18x^{-1}\), so \(f'(x)=-2+18x^{-2}=\dfrac{18-2x^2}{x^2}=-\dfrac{2(x-3)(x+3)}{x^2}\).
+  The critical numbers are \(x=\pm 3\). Since \(f\) is not defined at \(x=0\), the intervals are split
+  there too.</p>
+  <p>Test points: \(f'(-4)=-\tfrac78\lt 0\), \(f'(-1)=16\gt 0\), \(f'(1)=16\gt 0\),
+  \(f'(4)=-\tfrac78\lt 0\). So \(f\) decreases on \((-\infty,-3)\) and \((3,\infty)\), and increases
+  on \((-3,0)\) and \((0,3)\): a local minimum at \(x=-3\) and a local maximum at \(x=3\).</p></div></details>
+    </li>
+  </ol>
+</main>
+<script>
+document.querySelectorAll('.toolbar button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var act = b.getAttribute('data-act');
+    document.querySelectorAll('details.reveal').forEach(function (d) {
+      if (act === 'hide') d.open = false;
+      else if (act === 'answers' && d.classList.contains('answer')) d.open = true;
+      else if (act === 'solutions' && d.classList.contains('solution')) d.open = true;
+    });
+  });
+});
+</script>
+</body>
+</html>
