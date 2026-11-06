@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Nov 6 &mdash; First derivative and graphs, continued</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, November 6</p>
+  <h1>First derivative and graphs, continued</h1>
+  <p class="standfirst">Section 11.1. Three more functions, each taken through the same steps: find \(f'\), find the partition numbers, test the signs, and read off where \(f\) rises, falls, and has its local extrema.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Warm-up</a>
+  <a href="#recap">Main points</a>
+  <a href="#first">Example 1: a cubic</a>
+  <a href="#second">Example 2: a quotient</a>
+  <a href="#third">Example 3: a product</a>
+  <a href="#next">Before Monday</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li><strong>Exam 4 is Monday, November 16.</strong> It will consist of 5 problems based on sections 10.4 (chain rule), 10.7 (elasticity of demand), 11.1 (first derivative and graphs), and 11.2 (second derivative and graphs).</li>
+      <li>The total number of points on Exam 4 will be <strong>55</strong> instead of the usual 50, so the maximum possible score will be 110%.</li>
+      <li>Review sessions for the exam: in recitation on <strong>Thursday, November 12</strong>, and in class on <strong>Friday, November 13</strong>. There will be no quiz on November 12.</li>
+      <li>The <a href="https://drlvk.github.io/mat-284/mat284-exam4-practice.html">Exam 4 practice set</a> is available.</li>
+      <li>The written part of HW 10.4 (extra credit) will be graded later today.</li>
+      <li>Complete the <strong>Concept Check</strong> for Friday by the end of the day.</li>
+      <li>Monday: 11.2, the second derivative and graphs.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up</span>Finding derivatives</h2>
+
+  <div class="card">
+    <p class="card-label">Rules in play</p>
+    <ul class="keys">
+      <li>\((\square \cdot \blacksquare)' = (\square)' \cdot \blacksquare + \square \cdot (\blacksquare)'\)</li>
+      <li>\(\left(e^{\square}\right)' = e^{\square} \cdot (\square)'\)</li>
+      <li>\((\ln \square)' = \dfrac{1}{\square} \cdot (\square)'\), or \(\dfrac{(\square)'}{\square}\)</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p><strong>1.</strong> Find \(y'\) given \(y = t^2 e^{-3t}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Product rule</span><span class="work">\(y' = (t^2)'e^{-3t} + t^2\left(e^{-3t}\right)'\)</span></li>
+        <li><span class="step">Chain inside</span><span class="work">the inner function of \(e^{-3t}\) is \(-3t\):
+          \[y' = 2t\,e^{-3t} + t^2 e^{-3t} \cdot (-3t)' = 2t\,e^{-3t} + t^2 e^{-3t} \cdot (-3)\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>y&prime; = 2te&#8315;&sup3;&#7511; &minus; 3t&sup2;e&#8315;&sup3;&#7511;</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>2.</strong> Find the derivative of \(y = \ln(1 - x^3)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Log chain</span><span class="work">the inner function is \(1 - x^3\):
+          \[y' = \frac{1}{1 - x^3} \cdot (1 - x^3)' = \frac{1}{1 - x^3} \cdot (-3x^2) = \frac{-3x^2}{1 - x^3}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>&minus;3x&sup2;/(1 &minus; x&sup3;), or 3x&sup2;/(x&sup3; &minus; 1)</p>
+    </div>
+  </details>
+
+  <div class="problem">
+    <p><strong>3.</strong> Find \(f'(x)\) where \(f(x) = \log\left(\dfrac{(3x - 2)^2}{x^4 + 1}\right)\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Should we use \((\log_{10} \square)' = \dfrac{1}{\square \ln 10} \cdot (\square)'\) right away? Better to expand the logarithm first.</p>
+      <ol class="ledger">
+        <li><span class="step">Quotient</span><span class="work">\(\log\dfrac{A}{B} = \log A - \log B\): \(f(x) = \log\left((3x - 2)^2\right) - \log(x^4 + 1)\)</span></li>
+        <li><span class="step">Power</span><span class="work">\(\log(A^r) = r\log A\): \(f(x) = 2\log(3x - 2) - \log(x^4 + 1)\), a simpler way of writing \(f(x)\)</span></li>
+        <li><span class="step">Now f&prime;</span><span class="work">the inner functions are \(3x - 2\) and \(x^4 + 1\):
+          \[f'(x) = 2 \cdot \frac{1}{(3x-2)\ln 10} \cdot \underbrace{(3x-2)'}_{3} - \frac{1}{(x^4+1)\ln 10} \cdot \underbrace{(x^4+1)'}_{4x^3}\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">\[f'(x) = \frac{6}{(3x-2)\ln 10} - \frac{4x^3}{(x^4+1)\ln 10}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f&prime;(x) = 6/((3x &minus; 2) ln 10) &minus; 4x&sup3;/((x&#8308; + 1) ln 10)</p>
+    </div>
+  </details>
+</section>
+
+<section id="recap">
+  <h2><span class="marker">Recap</span>Main points from last time</h2>
+
+  <div class="card">
+    <p class="card-label">Partition numbers</p>
+    <p><strong>Partition numbers</strong> for \(f'\) are where \(f' = 0\), or \(f'\) is undefined, or \(f\) is undefined.</p>
+    <p>Why we need them: they divide the number line into intervals where \(f\) is increasing or decreasing. We then find the sign of \(f'\) in each interval by plugging in some test number.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Critical numbers</p>
+    <p><strong>Critical numbers</strong> are the partition numbers of the first two kinds: \(f' = 0\) or \(f'\) is undefined (with \(f\) defined).</p>
+    <p>Why we need them: they are candidates for local extrema. To find what kind of extremum we have, consider the signs of \(f'\) to the left and to the right:</p>
+    <ul class="keys">
+      <li>The sign change \((+\ -)\) indicates a local maximum.</li>
+      <li>The sign change \((-\ +)\) indicates a local minimum.</li>
+      <li>No sign change \((+\ +\) or \(-\ -)\) indicates it&rsquo;s not an extremum at all.</li>
+    </ul>
+  </div>
+
+  <p>Each example below asks where the function is <strong>(a)</strong> increasing, <strong>(b)</strong> decreasing, and <strong>(c)</strong> has local maxima and minima. All three questions are answered by one sign chart for \(f'\).</p>
+</section>
+
+<section id="first">
+  <h2><span class="marker">Example 1</span>A cubic</h2>
+
+  <div class="problem">
+    <p>For the function \(f(x) = 2x^3 - 3x^2 - 36x\), determine where it is (a) increasing; (b) decreasing; (c) has local maxima and minima.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">f&prime; first</span><span class="work">\(f'(x) = 2 \cdot 3x^2 - 3 \cdot 2x - 36 = 6x^2 - 6x - 36 = 6(x^2 - x - 6) = 6(x - 3)(x + 2)\)</span></li>
+        <li><span class="step">Partition</span><span class="work">\(f' = 0\) when \(x = 3\) or \(x = -2\); \(f'\) is never undefined</span></li>
+        <li><span class="step">Test &minus;3</span><span class="work">\(f'(-3) = 6(-3 - 3)(-3 + 2) = 6(-6)(-1) &gt; 0\)</span></li>
+        <li><span class="step">Test 0</span><span class="work">\(f'(0) = 6(-3)(2) &lt; 0\)</span></li>
+        <li><span class="step">Test 4</span><span class="work">\(f'(4) = 6(4 - 3)(4 + 2) = 6 \cdot 1 \cdot 6 &gt; 0\)</span></li>
+        <li><span class="step">Values</span><span class="work">\(f(-2) = -16 - 12 + 72 = 44\); &nbsp; \(f(3) = 54 - 27 - 108 = -81\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) increasing on (&minus;&infin;, &minus;2) and (3, &infin;) &nbsp; (b) decreasing on (&minus;2, 3) &nbsp; (c) local max at x = &minus;2, local min at x = 3</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 460 116" role="img" aria-label="Sign chart for f prime of x equals 6 times x minus 3 times x plus 2. Partition numbers negative 2 and 3. Signs plus, minus, plus: f rises, falls, rises, with a maximum at negative 2 and a minimum at 3">
+      <text class="label" x="14" y="38">f′</text>
+      <text class="label" x="14" y="84">f</text>
+      <path class="axis" d="M40 44H450"/>
+      <path class="axis" d="M175 37V51"/>
+      <text class="label-soft" x="175" y="64" style="text-anchor:middle">−2</text>
+      <text class="label-key" x="175" y="106" style="text-anchor:middle">max</text>
+      <path class="axis" d="M315 37V51"/>
+      <text class="label-soft" x="315" y="64" style="text-anchor:middle">3</text>
+      <text class="label-key" x="315" y="106" style="text-anchor:middle">min</text>
+      <text class="label-key" x="107.5" y="36" style="text-anchor:middle">+</text>
+      <path class="axis" d="M87.5 94L127.5 78"/>
+      <path class="mark" d="M130.5 76.8L123.8 84.3L120.5 76z"/>
+      <text class="label-key" x="245" y="36" style="text-anchor:middle">−</text>
+      <path class="axis" d="M225 78L265 94"/>
+      <path class="mark" d="M268 95.2L258 96L261.3 87.7z"/>
+      <text class="label-key" x="382.5" y="36" style="text-anchor:middle">+</text>
+      <path class="axis" d="M362.5 94L402.5 78"/>
+      <path class="mark" d="M405.5 76.8L398.8 84.3L395.5 76z"/>
+    </svg>
+    <figcaption>Sign chart for \(f'(x) = 6(x - 3)(x + 2)\), with test numbers \(-3\), 0, and 4.</figcaption>
+  </figure>
+  <figure class="fig">
+    <svg viewBox="0 0 430 250" role="img" aria-label="The cubic f of x equals 2x cubed minus 3x squared minus 36x. It rises to a local maximum at negative 2 comma 44, falls to a local minimum at 3 comma negative 81, then rises again">
+      <path class="axis" d="M50.5 99.5V107.5"/>
+      <path class="axis" d="M86.8 99.5V107.5"/>
+      <path class="axis" d="M123.1 99.5V107.5"/>
+      <path class="axis" d="M159.3 99.5V107.5"/>
+      <path class="axis" d="M231.9 99.5V107.5"/>
+      <path class="axis" d="M268.2 99.5V107.5"/>
+      <path class="axis" d="M304.4 99.5V107.5"/>
+      <path class="axis" d="M340.7 99.5V107.5"/>
+      <path class="axis" d="M377 99.5V107.5"/>
+      <path class="axis" d="M191.6 202.9H199.6"/>
+      <path class="axis" d="M191.6 153.2H199.6"/>
+      <path class="axis" d="M191.6 53.8H199.6"/>
+      <path class="axis" d="M36 103.5H406"/>
+      <path class="mark" d="M410 103.5l-8 -4.5v9z"/>
+      <path class="axis" d="M195.6 234V14"/>
+      <path class="mark" d="M195.6 10l-4.5 8h9z"/>
+      <text class="label" x="408" y="121.5" style="text-anchor:end">x</text>
+      <text class="label" x="204.6" y="22">y</text>
+      <text class="label-soft" x="123.1" y="121.5" style="text-anchor:middle">−2</text>
+      <text class="label-soft" x="187.6" y="206.9" style="text-anchor:end">−80</text>
+      <text class="label-soft" x="187.6" y="157.2" style="text-anchor:end">−40</text>
+      <text class="label-soft" x="187.6" y="57.8" style="text-anchor:end">40</text>
+      <text class="label-soft" x="312.4" y="95.5">3</text>
+      <path class="curve" d="M36 190.6L37.1 186.5L38.2 182.6L39.3 178.7L40.6 174.5L41.8 170.3L43 166.2L44.3 162.3L45.5 158.3L46.7 154.5L48.1 150.4L49.4 146.4L50.8 142.4L52.2 138.6L53.6 134.5L55.1 130.5L56.6 126.7L58.1 122.9L59.7 119L61.3 115.2L62.9 111.5L64.6 107.6L66.3 103.9L68.2 100.1L70 96.4L72 92.6L74 89.1L76.1 85.5L78.2 82L80.4 78.6L82.7 75.2L85.2 71.9L87.8 68.7L90.5 65.6L93.3 62.7L96.3 59.9L99.5 57.3L102.8 55L106.4 53L110.1 51.3L113.9 50L117.9 49.2L122 48.8L126 48.9L130.1 49.5L134.1 50.4L137.9 51.7L141.6 53.3L145.1 55.2L148.6 57.2L152.1 59.4L155.4 61.9L158.6 64.4L161.7 66.9L164.8 69.7L167.7 72.4L170.7 75.3L173.5 78.2L176.4 81.2L179.2 84.2L181.9 87.3L184.6 90.3L187.3 93.5L189.9 96.6L192.5 99.7L195.1 102.9L197.7 106.1L200.3 109.3L202.9 112.6L205.5 115.9L207.9 119L210.4 122.2L212.9 125.3L215.3 128.5L217.8 131.7L220.3 134.8L222.8 138.1L225.4 141.4L228 144.7L230.6 147.9L233.2 151.1L235.8 154.3L238.4 157.4L241 160.4L243.7 163.6L246.4 166.6L249.1 169.6L252 172.7L254.8 175.6L257.6 178.5L260.6 181.3L263.5 184L266.6 186.7L269.8 189.4L273 191.8L276.4 194.2L279.8 196.4L283.4 198.4L287.1 200.2L290.9 201.7L294.9 202.9L298.8 203.7L302.9 204.1L307 204.1L311 203.5L315 202.5L318.8 201.1L322.5 199.2L326 197.1L329.3 194.6L332.4 192L335.3 189.1L338.2 186L340.8 183L343.2 179.8L345.7 176.4L348 172.9L350.3 169.4L352.3 165.9L354.4 162.2L356.4 158.6L358.3 155L360.1 151.2L361.8 147.6L363.6 143.8L365.3 139.9L366.9 136.2L368.5 132.3L370.1 128.3L371.6 124.5L373.1 120.6L374.5 116.6L375.9 112.8L377.3 108.9L378.6 104.9L380 100.9L381.3 96.7L382.6 92.8L383.8 88.9L385 84.8L386.3 80.7L387.5 76.5L388.6 72.7L389.7 68.8L390.8 64.8L391.9 60.8L393 56.7L394.2 52.5L395.3 48.2L396.4 43.9L397.4 40L398.4 36L399.3 32L400.3 27.9L401.3 23.8L402.3 19.6L403.3 15.4L403.6 14"/>
+      <path class="helper" d="M123.1 103.5L123.1 48.8"/>
+      <path class="helper" d="M304.4 103.5L304.4 204.2"/>
+      <circle class="dot" cx="123.1" cy="48.8" r="4.2"/>
+      <circle class="dot" cx="304.4" cy="204.2" r="4.2"/>
+      <text class="label-key" x="123.1" y="38.8" style="text-anchor:middle">(−2, 44) max</text>
+      <text class="label-key" x="314.4" y="220.2">(3, −81) min</text>
+    </svg>
+    <figcaption>The graph of \(2x^3 - 3x^2 - 36x\): rising to the local maximum at \((-2, 44)\), falling to the local minimum at \((3, -81)\), then rising.</figcaption>
+  </figure>
+</section>
+
+<section id="second">
+  <h2><span class="marker">Example 2</span>A quotient</h2>
+
+  <div class="problem">
+    <p>Same questions for \(f(x) = \dfrac{x^2}{3 - x}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Quotient rule</span><span class="work">\[f'(x) = \frac{(x^2)'(3 - x) - x^2(3 - x)'}{(3 - x)^2} = \frac{2x(3 - x) - x^2(-1)}{(3 - x)^2}\]</span></li>
+        <li><span class="step">Simplify</span><span class="work">simplify, so that we can solve \(f' = 0\):
+          \[f'(x) = \frac{6x - 2x^2 + x^2}{(3 - x)^2} = \frac{6x - x^2}{(3 - x)^2} = \frac{x(6 - x)}{(3 - x)^2}\]</span></li>
+        <li><span class="step">f&prime; = 0</span><span class="work">numerator = 0: \(x(6 - x) = 0\), so \(x = 0\) or \(x = 6\)</span></li>
+        <li><span class="step">Undefined</span><span class="work">denominator = 0: \((3 - x)^2 = 0\), so \(x = 3\). There \(f\) is undefined too.</span></li>
+        <li><span class="step">Test</span><span class="work">\(f'(-1) = \frac{(-1)(7)}{+} &lt; 0\); &nbsp; \(f'(1) = \frac{1(6-1)}{+} &gt; 0\); &nbsp; \(f'(4) = \frac{4(6-4)}{+} &gt; 0\); &nbsp; \(f'(7) = \frac{7(6-7)}{+} &lt; 0\). The denominator is a square, so it is always positive.</span></li>
+        <li><span class="step">Values</span><span class="work">\(f(0) = 0\); &nbsp; \(f(6) = \dfrac{36}{-3} = -12\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) increasing on (0, 3) and (3, 6) &nbsp; (b) decreasing on (&minus;&infin;, 0) and (6, &infin;) &nbsp; (c) local max at x = 6, local min at x = 0</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 460 116" role="img" aria-label="Sign chart for f prime of x equals x times 6 minus x over 3 minus x squared. Partition numbers 0, 3, and 6. Signs minus, plus, plus, minus: f falls, rises, rises, falls, with a minimum at 0, undefined at 3, and a maximum at 6">
+      <text class="label" x="14" y="38">f′</text>
+      <text class="label" x="14" y="84">f</text>
+      <path class="axis" d="M40 44H450"/>
+      <path class="axis" d="M140 37V51"/>
+      <text class="label-soft" x="140" y="64" style="text-anchor:middle">0</text>
+      <text class="label-key" x="140" y="106" style="text-anchor:middle">min</text>
+      <path class="axis" d="M245 37V51"/>
+      <text class="label-soft" x="245" y="64" style="text-anchor:middle">3</text>
+      <text class="label-soft" x="245" y="106" style="text-anchor:middle">f undefined</text>
+      <path class="axis" d="M350 37V51"/>
+      <text class="label-soft" x="350" y="64" style="text-anchor:middle">6</text>
+      <text class="label-key" x="350" y="106" style="text-anchor:middle">max</text>
+      <text class="label-key" x="90" y="36" style="text-anchor:middle">−</text>
+      <path class="axis" d="M70 78L110 94"/>
+      <path class="mark" d="M113 95.2L103 96L106.3 87.7z"/>
+      <text class="label-key" x="192.5" y="36" style="text-anchor:middle">+</text>
+      <path class="axis" d="M172.5 94L212.5 78"/>
+      <path class="mark" d="M215.5 76.8L208.8 84.3L205.5 76z"/>
+      <text class="label-key" x="297.5" y="36" style="text-anchor:middle">+</text>
+      <path class="axis" d="M277.5 94L317.5 78"/>
+      <path class="mark" d="M320.5 76.8L313.8 84.3L310.5 76z"/>
+      <text class="label-key" x="400" y="36" style="text-anchor:middle">−</text>
+      <path class="axis" d="M380 78L420 94"/>
+      <path class="mark" d="M423 95.2L413 96L416.3 87.7z"/>
+    </svg>
+    <figcaption>Sign chart for \(f'(x) = \dfrac{x(6 - x)}{(3 - x)^2}\). The partition number 3 is not a critical number: \(f\) is undefined there.</figcaption>
+  </figure>
+  <figure class="fig">
+    <svg viewBox="0 0 430 260" role="img" aria-label="The graph of x squared over 3 minus x. Left of the vertical asymptote x equals 3, it falls to a local minimum at the origin and then rises toward plus infinity. Right of the asymptote, it rises from minus infinity to a local maximum at 6 comma negative 12 and then falls">
+      <path class="axis" d="M45.5 103.7V111.7"/>
+      <path class="axis" d="M102.4 103.7V111.7"/>
+      <path class="axis" d="M216.3 103.7V111.7"/>
+      <path class="axis" d="M273.2 103.7V111.7"/>
+      <path class="axis" d="M330.1 103.7V111.7"/>
+      <path class="axis" d="M387 103.7V111.7"/>
+      <path class="axis" d="M155.3 235.5H163.3"/>
+      <path class="axis" d="M155.3 192.9H163.3"/>
+      <path class="axis" d="M155.3 150.3H163.3"/>
+      <path class="axis" d="M155.3 65.1H163.3"/>
+      <path class="axis" d="M155.3 22.5H163.3"/>
+      <path class="axis" d="M36 107.7H406"/>
+      <path class="mark" d="M410 107.7l-8 -4.5v9z"/>
+      <path class="axis" d="M159.3 244V14"/>
+      <path class="mark" d="M159.3 10l-4.5 8h9z"/>
+      <text class="label" x="408" y="125.7" style="text-anchor:end">x</text>
+      <text class="label" x="168.3" y="22">y</text>
+      <text class="label-soft" x="273.2" y="125.7" style="text-anchor:middle">6</text>
+      <text class="label-soft" x="330.1" y="125.7" style="text-anchor:middle">9</text>
+      <text class="label-soft" x="387" y="125.7" style="text-anchor:middle">12</text>
+      <text class="label-soft" x="151.3" y="196.9" style="text-anchor:end">−20</text>
+      <text class="label-soft" x="151.3" y="154.3" style="text-anchor:end">−10</text>
+      <text class="label-soft" x="151.3" y="69.1" style="text-anchor:end">10</text>
+      <text class="label-soft" x="151.3" y="26.5" style="text-anchor:end">20</text>
+      <path class="helper" d="M216.3 14L216.3 244"/>
+      <path class="curve" d="M36 88.8L39.9 89.6L43.9 90.3L47.8 91.1L51.7 91.9L55.6 92.7L59.6 93.4L63.5 94.2L67.4 95L71.4 95.7L75.3 96.5L79.3 97.2L83.3 97.9L87.2 98.7L91.2 99.4L95.2 100.1L99.1 100.8L103.1 101.4L107 102.1L111 102.7L115 103.3L118.9 103.9L122.9 104.5L126.9 105.1L130.9 105.6L134.9 106.1L138.9 106.5L142.9 106.9L146.9 107.2L150.9 107.5L154.9 107.6L158.9 107.7L162.9 107.7L166.9 107.4L170.9 107L174.9 106.4L178.7 105.4L182.5 104.1L186.1 102.3L189.5 100.1L192.4 97.4L195 94.3L197.1 90.9L199 87.3L200.5 83.5L201.8 79.6L202.9 75.7L203.9 71.7L204.7 67.7L205.4 63.7L206.1 59.6L206.6 55.4L207.2 51.3L207.6 47.1L208.1 42.7L208.4 38.7L208.8 34.4L209.1 30L209.4 25.8L209.7 21.2L209.9 16.9L210.1 14"/>
+      <path class="curve" d="M222.9 244L223.2 239.8L223.5 235.5L223.8 231L224.2 227L224.5 222.8L225 218.7L225.4 214.7L226 210.5L226.5 206.4L227.2 202.4L227.9 198.4L228.7 194.4L229.7 190.5L230.8 186.6L232.1 182.8L233.6 179.1L235.4 175.5L237.6 172.1L240.2 169L243.2 166.3L246.6 164.1L250.2 162.3L254 161L257.9 160.1L261.8 159.4L265.8 159.1L269.9 158.9L273.9 158.8L277.9 158.9L281.9 159.1L285.9 159.3L290 159.7L293.9 160.1L297.9 160.5L301.9 161L305.9 161.5L309.9 162L313.9 162.6L317.9 163.2L321.8 163.8L325.8 164.5L329.8 165.1L333.7 165.8L337.7 166.5L341.6 167.2L345.6 167.9L349.5 168.6L353.4 169.4L357.4 170.1L361.3 170.8L365.3 171.6L369.2 172.4L373.2 173.1L377.1 173.9L381.1 174.7L385 175.5L389 176.2L392.9 177L396.9 177.8L400.8 178.6L404.7 179.4L406 179.7"/>
+      <circle class="dot" cx="159.3" cy="107.7" r="4.2"/>
+      <circle class="dot" cx="273.2" cy="158.8" r="4.2"/>
+      <text class="label-key" x="151.3" y="125.7" style="text-anchor:end">(0, 0) min</text>
+      <text class="label-key" x="273.2" y="146.8" style="text-anchor:middle">(6, −12) max</text>
+      <text class="label-soft" x="222.3" y="26.8">x = 3</text>
+    </svg>
+    <figcaption>The graph of \(\dfrac{x^2}{3 - x}\), with its vertical asymptote at \(x = 3\). The local maximum at \((6, -12)\) is lower than the local minimum at \((0, 0)\).</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Two intervals, not one</p>
+    <p>\(f\) is increasing on \((0, 3)\) and on \((3, 6)\), but not on \((0, 6)\): the function is undefined at 3, and it jumps from \(+\infty\) down to \(-\infty\) there. That is also why the local maximum value, \(-12\), is lower than the local minimum value, 0.</p>
+  </div>
+</section>
+
+<section id="third">
+  <h2><span class="marker">Example 3</span>A product</h2>
+
+  <div class="problem">
+    <p>Same questions for \(f(x) = x^3 e^x\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Product rule</span><span class="work">\(f'(x) = (x^3)'e^x + x^3(e^x)' = 3x^2 e^x + x^3 e^x = (3x^2 + x^3)e^x = x^2(3 + x)e^x\)</span></li>
+        <li><span class="step">f&prime; = 0</span><span class="work">\(x^2 \cdot (3 + x) \cdot e^x = 0\): either \(x^2 = 0\), so \(x = 0\); or \(3 + x = 0\), so \(x = -3\); or \(e^x = 0\), which never happens, since \(e^x\) is always \(&gt; 0\)</span></li>
+        <li><span class="step">Test</span><span class="work">\(f'(-4) = 16(-1)e^{-4} &lt; 0\); &nbsp; \(f'(-1) = 1 \cdot 2 \cdot e^{-1} &gt; 0\); &nbsp; \(f'(1) = 1 \cdot 4 \cdot e &gt; 0\)</span></li>
+        <li><span class="step">Classify</span><span class="work">\(x = -3\): \((-\ +)\), a local min, with \(f(-3) = -27e^{-3} \approx -1.34\). &nbsp; \(x = 0\): \((+\ +)\), no extremum.</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) increasing on (&minus;3, 0) and (0, &infin;) &nbsp; (b) decreasing on (&minus;&infin;, &minus;3) &nbsp; (c) local max: none; local min at x = &minus;3</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 460 116" role="img" aria-label="Sign chart for f prime of x equals x squared times 3 plus x times e to the x. Partition numbers negative 3 and 0. Signs minus, plus, plus: f falls, then rises, with a minimum at negative 3 and no extremum at 0">
+      <text class="label" x="14" y="38">f′</text>
+      <text class="label" x="14" y="84">f</text>
+      <path class="axis" d="M40 44H450"/>
+      <path class="axis" d="M175 37V51"/>
+      <text class="label-soft" x="175" y="64" style="text-anchor:middle">−3</text>
+      <text class="label-key" x="175" y="106" style="text-anchor:middle">min</text>
+      <path class="axis" d="M315 37V51"/>
+      <text class="label-soft" x="315" y="64" style="text-anchor:middle">0</text>
+      <text class="label-soft" x="315" y="106" style="text-anchor:middle">no extremum</text>
+      <text class="label-key" x="107.5" y="36" style="text-anchor:middle">−</text>
+      <path class="axis" d="M87.5 78L127.5 94"/>
+      <path class="mark" d="M130.5 95.2L120.5 96L123.8 87.7z"/>
+      <text class="label-key" x="245" y="36" style="text-anchor:middle">+</text>
+      <path class="axis" d="M225 94L265 78"/>
+      <path class="mark" d="M268 76.8L261.3 84.3L258 76z"/>
+      <text class="label-key" x="382.5" y="36" style="text-anchor:middle">+</text>
+      <path class="axis" d="M362.5 94L402.5 78"/>
+      <path class="mark" d="M405.5 76.8L398.8 84.3L395.5 76z"/>
+    </svg>
+    <figcaption>Sign chart for \(f'(x) = x^2(3 + x)e^x\). The sign does not change at 0, so there is no extremum there.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">A critical number that is not an extremum</p>
+    <p>At \(x = 0\), \(f'(0) = 0\), so the tangent line is horizontal, but \(f'\) is positive on both sides: the graph keeps rising through it. The factor \(x^2\) is the reason, because a square does not change sign.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before Monday</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Friday by the end of the day.</li>
+    <li>Redo the three sign charts with the solutions hidden, including the test numbers.</li>
+    <li>For each example, check that the local extrema you found are where the sign of \(f'\) changes.</li>
+    <li>Exam 4 review: Thursday, November 12 in recitation, and Friday, November 13 in class.</li>
+    <li><strong>Monday: 11.2, the second derivative and graphs.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 11.1 (continued) &middot; November 6</p>
+</footer>
+
+</div>
+</body>
+</html>
