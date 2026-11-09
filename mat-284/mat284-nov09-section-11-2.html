@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Nov 9 &mdash; Second derivative and graphs</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Monday, November 9</p>
+  <h1>Second derivative and graphs</h1>
+  <p class="standfirst">Section 11.2. The first derivative says whether a graph rises or falls. The second derivative, the derivative of the derivative, says which way it bends, and where the bending changes direction.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#warmup">Warm-up: elasticity</a>
+  <a href="#concavity">Concavity</a>
+  <a href="#second">The second derivative</a>
+  <a href="#inflection">Inflection points</a>
+  <a href="#chart">Sign chart for f&Prime;</a>
+  <a href="#next">Before Wednesday</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li><strong>Exam 4 (Monday, November 16)</strong> is based on 10.4 (chain rule), 10.7 (elasticity of demand), 11.1 (sign chart of \(f'\)), and 11.2 (sign chart of \(f''\), today&rsquo;s topic). It is out of 55 points, so the maximum possible score is 110%.</li>
+      <li>Review for the exam: in recitation on Thursday, November 12 (no quiz that day), and in class on Friday, November 13.</li>
+      <li>The <a href="https://drlvk.github.io/mat-284/mat284-exam4-practice.html">Exam 4 practice set</a> is available.</li>
+      <li>Complete the <strong>Concept Check</strong> for Monday by the end of the day.</li>
+      <li>Wednesday: more of 11.2.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="warmup">
+  <h2><span class="marker">Warm-up</span>An elasticity example from 10.7</h2>
+
+  <div class="card">
+    <p class="card-label">Recall</p>
+    <p>If \(x = f(p)\), the demand equation solved for \(x\), then</p>
+    <ul class="keys">
+      <li>\[E = -\frac{p\,f'(p)}{f(p)}, \quad\text{which is the same as}\quad E = -\frac{p}{x}\,\frac{dx}{dp}\]</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>The price-demand equation is \(9x^2 + 4p^2 = 160\). Find the elasticity of demand at price level \(p = 5\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Solve for x</span><span class="work">\(9x^2 = 160 - 4p^2\), so \(x^2 = \dfrac{160 - 4p^2}{9}\) and
+          \[x = \sqrt{\frac{160 - 4p^2}{9}} = \frac{\sqrt{160 - 4p^2}}{\sqrt 9} = \frac13\sqrt{160 - 4p^2}\]
+          So \(f(p) = \frac13\sqrt{160 - 4p^2}\).</span></li>
+        <li><span class="step">f&prime;(p)</span><span class="work">we need the chain rule (multiply by the inner derivative). The inner function is \(160 - 4p^2\), with derivative \(0 - 4(2p) = -8p\):
+          \[\left[\tfrac13\left(160 - 4p^2\right)^{1/2}\right]' = \frac13 \cdot \frac12\left(160 - 4p^2\right)^{-1/2} \cdot (-8p) = -\frac86\,p\left(160 - 4p^2\right)^{-1/2}\]</span></li>
+        <li><span class="step">E</span><span class="work">dividing by \(\frac13\) is multiplying by 3, and \(-\frac12 - \frac12 = -1\):
+          \[E = -\frac{p\left(-\frac86\right)p\left(160 - 4p^2\right)^{-1/2}}{\frac13\left(160 - 4p^2\right)^{1/2}} = \frac86 \cdot \frac31 \cdot p^2\left(160 - 4p^2\right)^{-1} = \frac{4p^2}{160 - 4p^2}\]</span></li>
+        <li><span class="step">Cancel 4</span><span class="work">correctly, as a factor of the whole denominator: \(\dfrac{4 \cdot p^2}{4 \cdot (40 - p^2)} = \dfrac{p^2}{40 - p^2}\)</span></li>
+        <li><span class="step">At p = 5</span><span class="work">\(E = \dfrac{25}{40 - 25} = \dfrac{25}{15} = \dfrac53 &gt; 1\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>E = 5/3, so demand is elastic</p>
+      <p>Recall the three outcomes: \(E &gt; 1\) elastic, \(E &lt; 1\) inelastic, \(E = 1\) unit elasticity.</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Exponent rule used</p>
+    <p>\(\dfrac{b^p}{b^r} = b^{p-r}\). Here \(\dfrac{(160 - 4p^2)^{-1/2}}{(160 - 4p^2)^{1/2}} = (160 - 4p^2)^{-1/2 - 1/2} = (160 - 4p^2)^{-1}\).</p>
+  </div>
+</section>
+
+<section id="concavity">
+  <h2><span class="marker">Idea</span>Concavity</h2>
+
+  <p>The first derivative of a function \(f\) tells us if the graph of \(f\) is rising or falling. There are other ways to describe a graph, by how it is curved.</p>
+
+  <div class="card">
+    <p class="card-label">Definition</p>
+    <ul class="keys">
+      <li><strong>Concave up</strong> means the curve bends upward.</li>
+      <li><strong>Concave down</strong> means the curve bends downward.</li>
+    </ul>
+    <p>Concavity is related to the change of slope: concave up = the slope is increasing; concave down = the slope is decreasing.</p>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 474 176" role="img" aria-label="Two curves with three tangent lines each. Left, a curve bending upward: from left to right the tangent lines go from falling to flat to rising, so the slope increases. Right, a curve bending downward: the tangent lines go from rising to flat to falling, so the slope decreases">
+      <path class="curve" d="M28.6 18.2L30.5 21.8L32.4 25.4L34.4 29L36.4 32.5L38.4 36L40.5 39.6L42.6 43L44.8 46.5L47 49.9L49.2 53.2L51.5 56.5L53.8 59.8L56.2 63.1L58.7 66.3L61.2 69.4L63.8 72.5L66.5 75.6L69.2 78.5L72 81.4L75 84.2L78 86.9L81.1 89.5L84.3 92L87.6 94.3L91 96.4L94.6 98.3L98.2 100.1L102 101.5L105.8 102.7L109.8 103.6L113.8 104.2L117.8 104.4L121.9 104.3L125.9 103.9L129.8 103.1L133.7 102L137.5 100.6L141.2 99L144.8 97.1L148.2 95L151.6 92.8L154.8 90.4L158 87.8L161 85.2L163.9 82.4L166.8 79.5L169.6 76.6L172.3 73.6L174.9 70.5L177.5 67.3L180 64.2L182.4 61L184.8 57.6L187.1 54.3L189.4 50.9L191.6 47.5L193.7 44.1L195.8 40.7L197.9 37.2L200 33.7L202 30.2L203.9 26.6L205.9 23.1L207.8 19.5L208.4 18.2"/>
+      <path class="curve-2" d="M24.3 19.4L84.2 101.5"/>
+      <circle class="dot" cx="54.3" cy="60.4" r="4.2"/>
+      <path class="curve-2" d="M88.5 104.4L148.5 104.4"/>
+      <circle class="dot" cx="118.5" cy="104.4" r="4.2"/>
+      <path class="curve-2" d="M152.8 101.5L212.7 19.4"/>
+      <circle class="dot" cx="182.7" cy="60.4" r="4.2"/>
+      <text class="label" x="118" y="148" style="text-anchor:middle">concave up</text>
+      <text class="label-soft" x="118" y="166" style="text-anchor:middle">the slope is increasing</text>
+      <path class="curve" d="M265.6 119.8L267.5 116.2L269.4 112.6L271.4 109L273.4 105.5L275.4 102L277.5 98.4L279.6 95L281.8 91.5L284 88.1L286.2 84.8L288.5 81.5L290.8 78.2L293.2 74.9L295.7 71.7L298.2 68.6L300.8 65.5L303.5 62.4L306.2 59.5L309 56.6L312 53.8L315 51.1L318.1 48.5L321.3 46L324.6 43.7L328 41.6L331.6 39.7L335.2 37.9L339 36.5L342.8 35.3L346.8 34.4L350.8 33.8L354.8 33.6L358.9 33.7L362.9 34.1L366.8 34.9L370.7 36L374.5 37.4L378.2 39L381.8 40.9L385.2 43L388.6 45.2L391.8 47.6L395 50.2L398 52.8L400.9 55.6L403.8 58.5L406.6 61.4L409.3 64.4L411.9 67.5L414.5 70.7L417 73.8L419.4 77L421.8 80.4L424.1 83.7L426.4 87.1L428.6 90.5L430.7 93.9L432.8 97.3L434.9 100.8L437 104.3L439 107.8L440.9 111.4L442.9 114.9L444.8 118.5L445.4 119.8"/>
+      <path class="curve-2" d="M261.3 118.6L321.2 36.5"/>
+      <circle class="dot" cx="291.3" cy="77.6" r="4.2"/>
+      <path class="curve-2" d="M325.5 33.6L385.5 33.6"/>
+      <circle class="dot" cx="355.5" cy="33.6" r="4.2"/>
+      <path class="curve-2" d="M389.8 36.5L449.7 118.6"/>
+      <circle class="dot" cx="419.7" cy="77.6" r="4.2"/>
+      <text class="label" x="355" y="148" style="text-anchor:middle">concave down</text>
+      <text class="label-soft" x="355" y="166" style="text-anchor:middle">the slope is decreasing</text>
+    </svg>
+    <figcaption>Concave up: the tangent lines get steeper from left to right, so the slope is increasing. Concave down: the slope is decreasing.</figcaption>
+  </figure>
+
+  <p>Since the slope is the derivative \(f'(x)\), to determine the direction of concavity we need to find the rate of change of \(f'(x)\). That is, we need to find the <strong>derivative of the derivative</strong>: \((f')' = f''\).</p>
+</section>
+
+<section id="second">
+  <h2><span class="marker">Definition</span>The second derivative</h2>
+
+  <p>The derivative of the derivative could be written as \(\left(f'(x)\right)'\), but there is better notation: \(f''(x)\). It is called the <strong>second derivative</strong> of \(f(x)\). If \(y = f(x)\), the second derivative can be written as \(y''\). Sometimes (rarely) the quotient notation is also used: \(y'' = \dfrac{d^2y}{dx^2}\). The forms \(y''\) and \(f''(x)\) are the most common.</p>
+
+  <div class="problem">
+    <p>Some examples of computing the second derivative. <strong>(a)</strong> Find the second derivative of \(f(x) = x^2 \ln x\). &nbsp; <strong>(b)</strong> Given \(y = 2^{-5x}\), find \(y''\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">(a) f&prime; first</span><span class="work">\(f'(x) = (x^2 \ln x)' = (x^2)'\ln x + x^2(\ln x)' = 2x\ln x + x^2 \cdot \dfrac1x = 2x\ln x + x\)</span></li>
+        <li><span class="step">(a) f&Prime;</span><span class="work">\[f''(x) = (2x\ln x + x)' = (2x)'\ln x + 2x(\ln x)' + 1 = 2\ln x + 2x \cdot \frac1x + 1 = 2\ln x + 3\]</span></li>
+        <li><span class="step">(b) y&prime;</span><span class="work">outer: \((2^x)' = 2^x \ln 2\); inner: \(-5x\), with derivative \(-5\):
+          \(y' = 2^{-5x}(\ln 2)(-5)\)</span></li>
+        <li><span class="step">(b) y&Prime;</span><span class="work">\((\ln 2)(-5)\) is a constant factor, inherited from \(y'\):
+          \[y'' = \left(2^{-5x}\right)' \cdot (\ln 2)(-5) = 2^{-5x}(\ln 2)(-5) \cdot (\ln 2)(-5) = 25(\ln 2)^2\, 2^{-5x}\]</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>(a) f&Prime;(x) = 2 ln x + 3 &nbsp; (b) y&Prime; = 25(ln 2)&sup2; &middot; 2&#8315;&#8309;&#739;</p>
+    </div>
+  </details>
+
+  <p>The second derivative tells us how the rate of change of \(f(x)\) changes with time. For example, if \(f(t)\) is the <strong>position</strong> of an object at time \(t\), then \(f'(t)\) is its <strong>speed</strong> and \(f''(t)\) is its <strong>acceleration</strong>.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <p>For us, a geometric interpretation is more important: the sign of \(f''(x)\) determines the concavity of the graph \(y = f(x)\). The graph is:</p>
+    <ul class="keys">
+      <li><strong>concave up</strong> where \(f''(x) &gt; 0\);</li>
+      <li><strong>concave down</strong> where \(f''(x) &lt; 0\).</li>
+    </ul>
+    <p>So we are going to need the sign chart of \(f''\).</p>
+  </div>
+</section>
+
+<section id="inflection">
+  <h2><span class="marker">Definition</span>Inflection points</h2>
+
+  <div class="card">
+    <p class="card-label">Definition</p>
+    <p><strong>Inflection points</strong> are those points on the graph of \(f\) where its concavity changes. This means two things:</p>
+    <ul class="keys">
+      <li>\(f''\) changes its sign;</li>
+      <li>\(f(x)\) is defined at the place where the sign changes.</li>
+    </ul>
+  </div>
+
+  <p>For example, the function \(f(x) = \dfrac1x\) does <strong>not</strong> have an inflection point at \(x = 0\). Its concavity changes there, but there is no inflection point, since \(f\) is not defined.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 440 232" role="img" aria-label="The graph of 1 over x. For negative x it is below the axis and concave down; for positive x it is above the axis and concave up. The concavity changes at x equals 0, but the function is not defined there">
+      <path class="axis" d="M77.5 110V118"/>
+      <path class="axis" d="M125 110V118"/>
+      <path class="axis" d="M172.5 110V118"/>
+      <path class="axis" d="M267.5 110V118"/>
+      <path class="axis" d="M315 110V118"/>
+      <path class="axis" d="M362.5 110V118"/>
+      <path class="axis" d="M216 189H224"/>
+      <path class="axis" d="M216 164H224"/>
+      <path class="axis" d="M216 139H224"/>
+      <path class="axis" d="M216 89H224"/>
+      <path class="axis" d="M216 64H224"/>
+      <path class="axis" d="M216 39H224"/>
+      <path class="axis" d="M30 114H410"/>
+      <path class="mark" d="M414 114l-8 -4.5v9z"/>
+      <path class="axis" d="M220 214V14"/>
+      <path class="mark" d="M220 10l-4.5 8h9z"/>
+      <text class="label" x="412" y="132" style="text-anchor:end">x</text>
+      <text class="label" x="229" y="22">y</text>
+      <path class="curve" d="M30 120.2L34 120.4L38.1 120.5L42.1 120.7L46.2 120.8L50.2 121L54.3 121.2L58.3 121.3L62.3 121.5L66.4 121.7L70.4 121.9L74.5 122.2L78.5 122.4L82.5 122.6L86.6 122.9L90.6 123.2L94.7 123.5L98.7 123.8L102.8 124.1L106.8 124.5L110.8 124.9L114.8 125.3L118.8 125.7L122.7 126.2L126.7 126.7L130.7 127.3L134.7 127.9L138.7 128.6L142.7 129.4L146.6 130.2L150.5 131.1L154.4 132.1L158.3 133.2L162.1 134.5L165.9 135.9L169.5 137.5L173.2 139.4L176.6 141.4L180 143.7L183.1 146.2L186.1 149L188.8 152L191.2 155.3L193.4 158.7L195.4 162.2L197.1 165.9L198.7 169.7L200.1 173.6L201.3 177.5L202.4 181.5L203.4 185.6L204.3 189.6L205.1 193.7L205.8 197.3"/>
+      <path class="curve" d="M234.2 30.7L235 34.9L235.8 39L236.7 42.9L237.7 46.9L238.8 50.9L240 54.8L241.5 58.7L243 62.5L244.8 66.1L246.8 69.7L249 73.1L251.5 76.3L254.2 79.2L257.1 82L260.3 84.5L263.6 86.8L267.1 88.8L270.7 90.6L274.4 92.2L278.2 93.6L282 94.8L285.9 96L289.8 97L293.7 97.9L297.6 98.7L301.6 99.5L305.6 100.1L309.6 100.7L313.6 101.3L317.6 101.8L321.5 102.3L325.5 102.7L329.5 103.2L333.5 103.5L337.5 103.9L341.6 104.2L345.6 104.5L349.7 104.8L353.7 105.1L357.7 105.4L361.8 105.6L365.8 105.9L369.9 106.1L373.9 106.3L378 106.5L382 106.7L386 106.8L390.1 107L394.1 107.2L398.2 107.3L402.2 107.5L406.3 107.6L410 107.8"/>
+      <text class="label-soft" x="96.5" y="145.2" style="text-anchor:middle">concave down</text>
+      <text class="label-soft" x="343.5" y="81.5" style="text-anchor:middle">concave up</text>
+    </svg>
+    <figcaption>\(f(x) = \dfrac1x\) is concave down for \(x &lt; 0\) and concave up for \(x &gt; 0\), but there is no inflection point at 0, because \(f\) is not defined there.</figcaption>
+  </figure>
+
+  <p>Note that having \(f'' = 0\) does not always indicate an inflection point: we also need \(f''\) to <strong>change its sign</strong>.</p>
+
+  <div class="note">
+    <p class="card-label">An example of \(f'' = 0\) without inflection</p>
+    <p>For \(f(x) = x^4\), \(f''(x) = 12x^2\), which is 0 at \(x = 0\). But \(12x^2\) is positive on both sides of 0, so the graph is concave up on both sides: no inflection point.</p>
+  </div>
+</section>
+
+<section id="chart">
+  <h2><span class="marker">Method</span>Sign chart for the second derivative</h2>
+
+  <div class="card">
+    <p class="card-label">To construct the sign chart of \(f''(x)\)</p>
+    <ol>
+      <li>Find \(f''(x)\). Simplify and factor if possible.</li>
+      <li>Mark the points where \(f'' = 0\) (or is undefined) on the number line. Construct a sign chart that shows, for each interval between the marked values, whether \(f''(x) &gt; 0\) or \(f''(x) &lt; 0\).</li>
+    </ol>
+    <p>To determine the sign of \(f''\) for each interval, pick some number from it and plug it into \(f''\). The inflection points are those where the sign of \(f''\) changes and \(f\) is defined.</p>
+  </div>
+
+  <p>Compare this process with what we did earlier in section 11.1:</p>
+  <table>
+    <caption>Which sign chart to use</caption>
+    <thead>
+      <tr><th scope="col">To find&hellip;</th><th scope="col">We use&hellip;</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Increasing/decreasing</strong> intervals, <strong>local maxima and minima</strong></td><td>Sign chart for the <strong>first</strong> derivative</td></tr>
+      <tr><td><strong>Concave</strong> up/down intervals, <strong>inflection</strong> points</td><td>Sign chart for the <strong>second</strong> derivative</td></tr>
+    </tbody>
+  </table>
+
+  <div class="problem">
+    <p>For the function \(f(x) = x^3 - 3x\), find its concavity and inflection points.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Need f&Prime;</span><span class="work">\(f'(x) = 3x^2 - 3\), so \(f''(x) = 3 \cdot 2x - 0 = 6x\)</span></li>
+        <li><span class="step">Mark</span><span class="work">mark where \(f'' = 0\) or undefined: \(6x = 0\) when \(x = 0\)</span></li>
+        <li><span class="step">Test</span><span class="work">\(f''(-1) = 6(-1) &lt; 0\); &nbsp; \(f''(1) = 6 \cdot 1 = 6 &gt; 0\)</span></li>
+        <li><span class="step">Inflection</span><span class="work">the sign changes at \(x = 0\), and \(f(0) = 0\) is defined: a point of inflection at \((0, 0)\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>concave up on (0, &infin;); concave down on (&minus;&infin;, 0); inflection at x = 0</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 460 116" role="img" aria-label="Sign chart for f double prime of x equals 6x. The only partition number is 0. f double prime is negative on the left and positive on the right, so f is concave down, then concave up, with an inflection point at 0">
+      <text class="label" x="14" y="38">f″</text>
+      <text class="label" x="14" y="84">f</text>
+      <path class="axis" d="M40 44H450"/>
+      <path class="axis" d="M245 37V51"/>
+      <text class="label-soft" x="245" y="64" style="text-anchor:middle">0</text>
+      <text class="label-key" x="245" y="106" style="text-anchor:middle">inflection</text>
+      <text class="label-key" x="142.5" y="36" style="text-anchor:middle">−</text>
+      <path class="curve" d="M120.5 94Q142.5 72 164.5 94"/>
+      <text class="label-key" x="347.5" y="36" style="text-anchor:middle">+</text>
+      <path class="curve" d="M325.5 78Q347.5 100 369.5 78"/>
+    </svg>
+    <figcaption>Sign chart for \(f''(x) = 6x\). Below the line, the arcs show the shape of the graph: concave down, then concave up.</figcaption>
+  </figure>
+  <figure class="fig">
+    <svg viewBox="0 0 440 252" role="img" aria-label="The graph of x cubed minus 3x. Left of the origin it is concave down, with a peak at negative 1; right of the origin it is concave up, with a low point at 1. The concavity changes at the inflection point 0 comma 0">
+      <path class="axis" d="M61.7 120V128"/>
+      <path class="axis" d="M140.8 120V128"/>
+      <path class="axis" d="M299.2 120V128"/>
+      <path class="axis" d="M378.3 120V128"/>
+      <path class="axis" d="M216 228.8H224"/>
+      <path class="axis" d="M216 176.4H224"/>
+      <path class="axis" d="M216 71.6H224"/>
+      <path class="axis" d="M216 19.2H224"/>
+      <path class="axis" d="M30 124H410"/>
+      <path class="mark" d="M414 124l-8 -4.5v9z"/>
+      <path class="axis" d="M220 234V14"/>
+      <path class="mark" d="M220 10l-4.5 8h9z"/>
+      <text class="label" x="412" y="142" style="text-anchor:end">x</text>
+      <text class="label" x="229" y="22">y</text>
+      <text class="label-soft" x="61.7" y="142" style="text-anchor:middle">−2</text>
+      <text class="label-soft" x="140.8" y="142" style="text-anchor:middle">−1</text>
+      <text class="label-soft" x="299.2" y="142" style="text-anchor:middle">1</text>
+      <text class="label-soft" x="378.3" y="142" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="212" y="180.4" style="text-anchor:end">−2</text>
+      <text class="label-soft" x="212" y="75.6" style="text-anchor:end">2</text>
+      <path class="curve" d="M44.8 234L45.8 230L47 225.7L48.1 221.5L49.3 217.3L50.4 213.2L51.5 209.2L52.7 205.2L53.8 201.3L55.1 197.1L56.3 192.9L57.6 188.9L58.9 184.9L60.1 181L61.4 177.1L62.8 173L64.2 169L65.6 165.1L67 161.2L68.5 157.2L70 153.2L71.5 149.4L73.1 145.6L74.7 141.7L76.4 137.9L78 134.2L79.8 130.4L81.6 126.7L83.5 122.9L85.4 119.2L87.4 115.5L89.4 112L91.6 108.4L93.7 105L96 101.6L98.4 98.2L100.9 94.9L103.6 91.7L106.4 88.7L109.3 85.7L112.3 83L115.5 80.5L118.9 78.2L122.5 76.2L126.1 74.5L129.9 73.2L133.9 72.2L137.9 71.7L142 71.6L146 71.9L150.1 72.6L154 73.7L157.8 75L161.6 76.6L165.3 78.3L168.8 80.3L172.4 82.4L175.8 84.7L179.1 87L182.4 89.5L185.5 92L188.7 94.6L191.9 97.3L194.9 99.9L198 102.7L201 105.5L203.9 108.3L206.8 111L209.7 113.9L212.7 116.7L215.6 119.6L218.5 122.5L221.4 125.4L224.3 128.3L227.2 131.1L230.1 134L233 136.8L236 139.6L238.9 142.4L241.9 145.2L245 147.9L248 150.6L251.2 153.3L254.3 155.9L257.5 158.4L260.8 160.9L264.1 163.2L267.5 165.5L270.9 167.6L274.5 169.5L278.1 171.3L281.9 172.9L285.7 174.2L289.7 175.3L293.7 176L297.8 176.4L301.8 176.3L305.9 175.8L309.8 174.9L313.6 173.6L317.3 172L320.8 170L324.2 167.7L327.4 165.2L330.5 162.5L333.4 159.6L336.2 156.6L338.8 153.4L341.3 150.1L343.8 146.8L346 143.4L348.2 140L350.3 136.5L352.4 133L354.4 129.3L356.3 125.6L358.2 121.8L360 118.2L361.7 114.4L363.4 110.7L365 106.9L366.7 103L368.2 99.3L369.7 95.4L371.2 91.5L372.8 87.4L374.2 83.6L375.5 79.7L376.9 75.7L378.3 71.6L379.6 67.8L380.9 63.9L382.1 59.9L383.4 55.9L384.7 51.7L385.9 47.5L387.1 43.6L388.2 39.7L389.4 35.7L390.5 31.6L391.6 27.5L392.8 23.2L393.9 18.9L394.9 15.1L395.2 14"/>
+      <circle class="dot" cx="220" cy="124" r="4.2"/>
+      <text class="label-key" x="230" y="114">(0, 0) inflection point</text>
+      <text class="label-soft" x="85.4" y="40.2" style="text-anchor:middle">concave down</text>
+      <text class="label-soft" x="354.6" y="213" style="text-anchor:middle">concave up</text>
+    </svg>
+    <figcaption>The graph of \(x^3 - 3x\) changes from concave down to concave up at its inflection point \((0, 0)\).</figcaption>
+  </figure>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before Wednesday</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Monday by the end of the day.</li>
+    <li>Work on the <a href="mat284-exam4-practice.html">Exam 4 practice set</a>.</li>
+    <li>Make both sign charts for \(f(x) = x^3 - 3x\): the one for \(f'\) (Friday&rsquo;s method) and the one for \(f''\). Say what each one tells you about the graph.</li>
+    <li><strong>Exam 4: Monday, November 16.</strong> Review on Thursday and Friday.</li>
+    <li><strong>Wednesday: more of 11.2.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 11.2 &middot; November 9</p>
+</footer>
+
+</div>
+</body>
+</html>
