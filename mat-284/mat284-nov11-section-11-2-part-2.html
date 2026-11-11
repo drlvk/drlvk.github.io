@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Nov 11 &mdash; Second derivative and graphs, continued</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, November 11</p>
+  <h1>Second derivative and graphs, continued</h1>
+  <p class="standfirst">Section 11.2. Finishing concavity and inflection points: when \(f'' = 0\) is not enough, and what to do with partition numbers where \(f\) is not defined.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#recap">Two sign charts</a>
+  <a href="#inflection">What counts as inflection</a>
+  <a href="#polynomial">A polynomial example</a>
+  <a href="#undefined">Not-defined partition points</a>
+  <a href="#next">Before the exam</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li><strong>Exam 4 is Monday, November 16</strong>, on sections 10.4, 10.7, 11.1, and 11.2. </li>
+      <li>Today we finish 11.2 (concavity, inflection). <strong>Friday: review for the exam</strong>, and Thursday&rsquo;s recitation is review too (no quiz).</li>
+      <li>Complete the <strong>homework for 11.2 before Exam 4</strong>.</li>
+      <li>The <a href="https://drlvk.github.io/mat-284/mat284-exam4-practice.html">Exam 4 practice set</a> is available.</li>
+      <li>Complete the <strong>Concept Check</strong> for Wednesday by the end of the day.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="recap">
+  <h2><span class="marker">Recap</span>Two sign charts</h2>
+
+  <table>
+    <caption>Which sign chart to use</caption>
+    <thead>
+      <tr><th scope="col">To find&hellip;</th><th scope="col">We use&hellip;</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Increasing/decreasing</strong> intervals, <strong>local maxima and minima</strong></td><td>Sign chart for the <strong>first</strong> derivative</td></tr>
+      <tr><td><strong>Concave</strong> up/down intervals, <strong>inflection</strong> points</td><td>Sign chart for the <strong>second</strong> derivative</td></tr>
+    </tbody>
+  </table>
+
+  <p>Both charts are built the same way. For \(f'\), mark where \(f' = 0\) or is undefined; a change \((+\ -)\) is a max and \((-\ +)\) is a min. For \(f''\), mark where \(f'' = 0\) or is undefined; each sign change is an inflection point, if \(f\) is defined there.</p>
+</section>
+
+<section id="inflection">
+  <h2><span class="marker">Definition</span>What counts as an inflection point</h2>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>A <strong>point of inflection</strong> is where \(f''\) <strong>changes sign</strong> and \(f\) is <strong>defined</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="problem">
+    <p>Does \(f(x) = x^4\) have an inflection point at \(x = 0\)? Note that \(f''(x) = 12x^2\), which is 0 at \(x = 0\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Mark</span><span class="work">\(f''(x) = 12x^2 = 0\) only at \(x = 0\)</span></li>
+        <li><span class="step">Test</span><span class="work">\(f''(-1) = 12 &gt; 0\); &nbsp; \(f''(1) = 12 &gt; 0\)</span></li>
+        <li><span class="step">Read off</span><span class="work">\(f''\) does not change its sign at 0, so it is not a point of inflection</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>f is concave up on (&minus;&infin;, 0) and (0, &infin;); no points of inflection</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 440 250" role="img" aria-label="The graph of y equals x to the fourth. It is very flat near the origin and concave up on both sides of it, so although f double prime is 0 at x equals 0, there is no inflection point there">
+      <path class="axis" d="M73.8 190V198"/>
+      <path class="axis" d="M146.9 190V198"/>
+      <path class="axis" d="M293.1 190V198"/>
+      <path class="axis" d="M366.2 190V198"/>
+      <path class="axis" d="M216 144H224"/>
+      <path class="axis" d="M216 94H224"/>
+      <path class="axis" d="M216 44H224"/>
+      <path class="axis" d="M30 194H410"/>
+      <path class="mark" d="M414 194l-8 -4.5v9z"/>
+      <path class="axis" d="M220 214V14"/>
+      <path class="mark" d="M220 10l-4.5 8h9z"/>
+      <text class="label" x="412" y="212" style="text-anchor:end">x</text>
+      <text class="label" x="229" y="22">y</text>
+      <text class="label-soft" x="73.8" y="212" style="text-anchor:middle">−2</text>
+      <text class="label-soft" x="146.9" y="212" style="text-anchor:middle">−1</text>
+      <text class="label-soft" x="293.1" y="212" style="text-anchor:middle">1</text>
+      <text class="label-soft" x="366.2" y="212" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="212" y="148" style="text-anchor:end">2</text>
+      <text class="label-soft" x="212" y="98" style="text-anchor:end">4</text>
+      <text class="label-soft" x="212" y="48" style="text-anchor:end">6</text>
+      <path class="curve" d="M100.3 14L101 18.1L101.7 22.5L102.5 26.8L103.2 31L104 35.1L104.7 39.1L105.5 43.1L106.3 47.4L107.1 51.7L107.9 55.8L108.8 59.8L109.6 63.8L110.5 68L111.4 72.2L112.3 76.2L113.2 80.1L114.2 84.3L115.2 88.4L116.2 92.3L117.3 96.5L118.4 100.5L119.5 104.4L120.6 108.5L121.8 112.4L123 116.4L124.3 120.3L125.6 124.3L126.9 128.2L128.3 132.1L129.8 136L131.3 139.7L132.9 143.5L134.5 147.2L136.3 150.9L138.1 154.5L140 158.1L142.1 161.7L144.2 165.1L146.5 168.5L149 171.8L151.7 174.9L154.5 177.9L157.5 180.6L160.6 183.1L164 185.4L167.6 187.4L171.2 189L175 190.4L178.9 191.5L182.9 192.3L186.9 192.9L190.9 193.4L195 193.7L199 193.8L203.1 193.9L207.2 194L211.2 194L215.3 194L219.3 194L223.4 194L227.5 194L231.5 194L235.6 193.9L239.6 193.9L243.7 193.7L247.7 193.5L251.8 193.1L255.8 192.6L259.8 191.8L263.6 190.8L267.5 189.6L271.2 188L274.7 186.1L278.1 184L281.4 181.6L284.4 178.9L287.3 176L290 173L292.5 169.8L294.9 166.5L297.1 163L299.2 159.5L301.2 156L303.1 152.3L304.8 148.7L306.5 145L308.1 141.1L309.7 137.3L311.2 133.4L312.6 129.6L314 125.6L315.3 121.6L316.6 117.8L317.8 113.8L319 109.9L320.1 105.9L321.3 101.7L322.4 97.7L323.4 93.6L324.4 89.7L325.4 85.7L326.4 81.5L327.3 77.6L328.2 73.6L329.2 69.5L330.1 65.3L330.9 61.4L331.7 57.4L332.6 53.3L333.4 49.1L334.2 44.8L335 40.9L335.7 36.9L336.4 32.8L337.2 28.7L337.9 24.4L338.7 20.1L339.4 15.7L339.7 14"/>
+      <circle class="dot" cx="220" cy="194" r="4.2"/>
+      <text class="label-key" x="220" y="234" style="text-anchor:middle">f″(0) = 0, but no inflection</text>
+      <text class="label-soft" x="81.2" y="39" style="text-anchor:end">y = x</text>
+      <text class="label-soft sup" x="82.2" y="33">4</text>
+    </svg>
+    <figcaption>The graph of \(x^4\) is very flat at the origin but bends upward on both sides of it.</figcaption>
+  </figure>
+  <figure class="fig">
+    <svg viewBox="0 0 460 116" role="img" aria-label="Sign chart for f double prime of x equals 12 x squared. The only partition number is 0, and the sign is plus on both sides, so f is concave up on both sides and 0 is not an inflection point">
+      <text class="label" x="14" y="38">f″</text>
+      <text class="label" x="14" y="84">f</text>
+      <path class="axis" d="M40 44H450"/>
+      <path class="axis" d="M245 37V51"/>
+      <text class="label-soft" x="245" y="64" style="text-anchor:middle">0</text>
+      <text class="label-soft" x="245" y="106" style="text-anchor:middle">no inflection</text>
+      <text class="label-key" x="142.5" y="36" style="text-anchor:middle">+</text>
+      <path class="curve" d="M120.5 78Q142.5 100 164.5 78"/>
+      <text class="label-key" x="347.5" y="36" style="text-anchor:middle">+</text>
+      <path class="curve" d="M325.5 78Q347.5 100 369.5 78"/>
+    </svg>
+    <figcaption>Sign chart for \(f''(x) = 12x^2\): positive on both sides of 0, so the concavity does not change there.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Vertical asymptotes do not count</p>
+    <p>Derivatives can also change sign at a point with a vertical asymptote, but these do not count as points of inflection, maximum, or minimum. All these concepts require an actual point on the graph of \(f\).</p>
+  </div>
+</section>
+
+<section id="polynomial">
+  <h2><span class="marker">Example</span>A polynomial</h2>
+
+  <p>The example below is similar to a homework 11.2 problem.</p>
+
+  <div class="problem">
+    <p>Let \(f(x) = -x^4 - 2x^3 + 36x^2 - 10x\). Find the intervals on which \(f\) is concave up or down. Then determine the \(x\)-coordinates of all inflection points of \(f\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>We need a sign chart for \(f''\).</p>
+      <ol class="ledger">
+        <li><span class="step">f&prime;</span><span class="work">\(f'(x) = -4x^3 - 2 \cdot 3x^2 + 36 \cdot 2x - 10 \cdot 1 = -4x^3 - 6x^2 + 72x - 10\)</span></li>
+        <li><span class="step">f&Prime;</span><span class="work">\(f''(x) = -4 \cdot 3x^2 - 6 \cdot 2x + 72 \cdot 1 - 0 = -12x^2 - 12x + 72\)</span></li>
+        <li><span class="step">Factor</span><span class="work">factor out \(-12\): \(f''(x) = -12(x^2 + x - 6) = -12(x + 3)(x - 2)\)</span></li>
+        <li><span class="step">Mark</span><span class="work">\(f'' = 0\) at \(x = -3\) or \(x = 2\); \(f''\) is never undefined, since there is no denominator</span></li>
+        <li><span class="step">Test</span><span class="work">\(f''(-4) = (-12)(-1)(-6) &lt; 0\); &nbsp; \(f''(0) = (-12)(3)(-2) &gt; 0\); &nbsp; \(f''(3) = (-12)(6)(1) &lt; 0\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>concave up on (&minus;3, 2); concave down on (&minus;&infin;, &minus;3) and (2, &infin;); points of inflection at x = &minus;3 and x = 2</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 460 116" role="img" aria-label="Sign chart for f double prime of x equals negative 12 times x plus 3 times x minus 2. Partition numbers negative 3 and 2. Signs minus, plus, minus: concave down, up, down, with inflection points at negative 3 and 2">
+      <text class="label" x="14" y="38">f″</text>
+      <text class="label" x="14" y="84">f</text>
+      <path class="axis" d="M40 44H450"/>
+      <path class="axis" d="M175 37V51"/>
+      <text class="label-soft" x="175" y="64" style="text-anchor:middle">−3</text>
+      <text class="label-key" x="175" y="106" style="text-anchor:middle">inflection</text>
+      <path class="axis" d="M315 37V51"/>
+      <text class="label-soft" x="315" y="64" style="text-anchor:middle">2</text>
+      <text class="label-key" x="315" y="106" style="text-anchor:middle">inflection</text>
+      <text class="label-key" x="107.5" y="36" style="text-anchor:middle">−</text>
+      <path class="curve" d="M85.5 94Q107.5 72 129.5 94"/>
+      <text class="label-key" x="245" y="36" style="text-anchor:middle">+</text>
+      <path class="curve" d="M223 78Q245 100 267 78"/>
+      <text class="label-key" x="382.5" y="36" style="text-anchor:middle">−</text>
+      <path class="curve" d="M360.5 94Q382.5 72 404.5 94"/>
+    </svg>
+    <figcaption>Sign chart for \(f''(x) = -12(x + 3)(x - 2)\), with test numbers \(-4\), 0, and 3.</figcaption>
+  </figure>
+</section>
+
+<section id="undefined">
+  <h2><span class="marker">Examples</span>Examples with &ldquo;not defined&rdquo; partition points</h2>
+
+  <div class="problem">
+    <p><strong>1.</strong> Let \(f(x) = x^2 - \dfrac{8}{x}\). Find the open intervals on which \(f\) is concave up or down. Then determine the \(x\)-coordinates of all inflection points of \(f\).</p>
+  </div>
+
+  <p>We need the second derivative. Remember that \(\dfrac8x = 8x^{-1}\), which makes the quotient rule unnecessary.</p>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">\(f(x) = x^2 - 8x^{-1}\)</span></li>
+        <li><span class="step">f&prime;</span><span class="work">\(f'(x) = 2x - 8(-1)x^{-2} = 2x + 8x^{-2}\)</span></li>
+        <li><span class="step">f&Prime;</span><span class="work">\(f''(x) = 2 + 8(-2)x^{-3} = 2 - \dfrac{16}{x^3}\)</span></li>
+        <li><span class="step">f&Prime; = 0</span><span class="work">\(2 - \dfrac{16}{x^3} = 0\), so \(2 = \dfrac{16}{x^3}\), \(2x^3 = 16\), \(x^3 = 8\), so \(x = 2\) (since \(8^{1/3} = 2\))</span></li>
+        <li><span class="step">Undefined</span><span class="work">\(f''\) is undefined at \(x = 0\), and so is \(f\)</span></li>
+        <li><span class="step">Test</span><span class="work">\(f''(-1) = 2 - \dfrac{16}{(-1)^3} = 18 &gt; 0\); &nbsp; \(f''(1) = 2 - \dfrac{16}{1^3} = -14 &lt; 0\); &nbsp; \(f''(3) = 2 - \dfrac{16}{3^3} &gt; 0\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>concave up on (&minus;&infin;, 0) and (2, &infin;); concave down on (0, 2); inflection at x = 2</p>
+      <p>The sign also changes at \(x = 0\), but \(f\) is not defined there, so 0 is not an inflection point.</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 460 116" role="img" aria-label="Sign chart for f double prime of x equals 2 minus 16 over x cubed. Partition numbers 0 and 2. Signs plus, minus, plus: concave up, down, up. At 0 the function is not defined, so only 2 is an inflection point">
+      <text class="label" x="14" y="38">f″</text>
+      <text class="label" x="14" y="84">f</text>
+      <path class="axis" d="M40 44H450"/>
+      <path class="axis" d="M175 37V51"/>
+      <text class="label-soft" x="175" y="64" style="text-anchor:middle">0</text>
+      <text class="label-soft" x="175" y="106" style="text-anchor:middle">f not defined</text>
+      <path class="axis" d="M315 37V51"/>
+      <text class="label-soft" x="315" y="64" style="text-anchor:middle">2</text>
+      <text class="label-key" x="315" y="106" style="text-anchor:middle">inflection</text>
+      <text class="label-key" x="107.5" y="36" style="text-anchor:middle">+</text>
+      <path class="curve" d="M85.5 78Q107.5 100 129.5 78"/>
+      <text class="label-key" x="245" y="36" style="text-anchor:middle">−</text>
+      <path class="curve" d="M223 94Q245 72 267 94"/>
+      <text class="label-key" x="382.5" y="36" style="text-anchor:middle">+</text>
+      <path class="curve" d="M360.5 78Q382.5 100 404.5 78"/>
+    </svg>
+    <figcaption>Sign chart for \(f''(x) = 2 - \dfrac{16}{x^3}\), with test numbers \(-1\), 1, and 3.</figcaption>
+  </figure>
+
+  <div class="problem">
+    <p><strong>2.</strong> One more such example. Let \(f(x) = \dfrac{3x - 2}{2x + 1}\). Find the open intervals on which \(f\) is concave up or down. Then determine the \(x\)-coordinates of all inflection points of \(f\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">f&prime;</span><span class="work">quotient rule; do not expand the denominator:
+          \[f'(x) = \frac{(3x-2)'(2x+1) - (3x-2)(2x+1)'}{(2x+1)^2} = \frac{3(2x+1) - (3x-2) \cdot 2}{(2x+1)^2} = \frac{6x + 3 - 6x + 4}{(2x+1)^2} = \frac{7}{(2x+1)^2}\]</span></li>
+        <li><span class="step">f&Prime;</span><span class="work">power chain rule on \(7(2x+1)^{-2}\), with inner function \(2x + 1\) and inner derivative 2:
+          \[f''(x) = 7(-2)(2x+1)^{-3}(2) = -28(2x+1)^{-3} = \frac{-28}{(2x+1)^3}\]</span></li>
+        <li><span class="step">Mark</span><span class="work">for a fraction \(\frac{T}{B}\), \(T = 0\) makes it 0 and \(B = 0\) makes it undefined. Here \(-28 \ne 0\), and \((2x+1)^3 = 0\) when \(2x + 1 = 0\), \(x = -\frac12\).</span></li>
+        <li><span class="step">Test</span><span class="work">\(f''(-1) = \dfrac{-28}{(-2+1)^3} = \dfrac{-28}{-1} = 28 &gt; 0\); &nbsp; \(f''(0) = \dfrac{-28}{1^3} = -28 &lt; 0\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>concave up on (&minus;&infin;, &minus;1/2); concave down on (&minus;1/2, &infin;); no inflection points</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 460 116" role="img" aria-label="Sign chart for f double prime of x equals negative 28 over 2x plus 1 cubed. The only partition number is negative one half, where f is not defined. Signs plus then minus: concave up, then concave down, with no inflection point">
+      <text class="label" x="14" y="38">f″</text>
+      <text class="label" x="14" y="84">f</text>
+      <path class="axis" d="M40 44H450"/>
+      <path class="axis" d="M245 37V51"/>
+      <text class="label-soft" x="245" y="64" style="text-anchor:middle">−1/2</text>
+      <text class="label-soft" x="245" y="106" style="text-anchor:middle">f not defined</text>
+      <text class="label-key" x="142.5" y="36" style="text-anchor:middle">+</text>
+      <path class="curve" d="M120.5 78Q142.5 100 164.5 78"/>
+      <text class="label-key" x="347.5" y="36" style="text-anchor:middle">−</text>
+      <path class="curve" d="M325.5 94Q347.5 72 369.5 94"/>
+    </svg>
+    <figcaption>Sign chart for \(f''(x) = \dfrac{-28}{(2x+1)^3}\), with test numbers \(-1\) and 0.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">A sign change is not enough</p>
+    <p>In both examples the concavity changes at the point where \(f\) is undefined. That is a vertical asymptote, not a point on the graph, so it is never an inflection point.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before the exam</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Wednesday by the end of the day.</li>
+    <li><strong>Finish the 11.2 homework before Exam 4.</strong></li>
+    <li>Work through the <a href="mat284-exam4-practice.html">Exam 4 practice set</a>.</li>
+    <li>Redo the four sign charts on this page with the solutions hidden, including the test numbers.</li>
+    <li>For each partition number, decide: inflection point, or not defined?</li>
+    <li>Review in recitation on Thursday and in class on Friday.</li>
+    <li><strong>Exam 4: Monday, November 16</strong>, on 10.4, 10.7, 11.1, and 11.2.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 11.2 (continued) &middot; November 11</p>
+</footer>
+
+</div>
+</body>
+</html>
