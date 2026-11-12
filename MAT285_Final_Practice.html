@@ -145,19 +145,20 @@ window.MathJax = {
   occurs at \(x=\tfrac43\).</p></div></details>
     </li>
     <li class="problem" id="problem-3">
-      <p class="statement">Find the derivatives in (a)–(c), and answer (d).</p>
+      <p class="statement">Find the derivative of each function.</p>
       <ol class="parts">
         <li>\(y=4x\sec 6x\)</li>
         <li>\(y=6e^{\cos 4x}\)</li>
-        <li>\(y=\cos^7x\)</li>
-        <li>Find the slope of the tangent line to \(y=6\cos x-5\) at the point with \(x=-\tfrac{\pi}{4}\).</li>
+        <li>\(y=\sqrt{1+\cos^2x}\)</li>
+        <li>\(y=\tan(x^2)\)</li>
       </ol>
-      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(4\sec 6x+24x\sec 6x\tan 6x\) &nbsp;&nbsp; (b) \(-24\sin 4x\,e^{\cos 4x}\) &nbsp;&nbsp; (c) \(-7\cos^6x\sin x\) &nbsp;&nbsp; (d) \(3\sqrt2\approx 4.24\)</p></div></details>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(4\sec 6x+24x\sec 6x\tan 6x\) &nbsp;&nbsp; (b) \(-24\sin 4x\,e^{\cos 4x}\) &nbsp;&nbsp; (c) \(-\dfrac{\sin x\cos x}{\sqrt{1+\cos^2x}}\) &nbsp;&nbsp; (d) \(2x\sec^2(x^2)\)</p></div></details>
       <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Use the product rule, with \(\dfrac{d}{dx}\sec 6x=6\sec 6x\tan 6x\): \(y'=4\sec 6x+4x\cdot 6\sec 6x\tan 6x\).</p>
   <p>(b) By the chain rule, \(y'=6e^{\cos 4x}\cdot(-\sin 4x)\cdot 4=-24\sin 4x\,e^{\cos 4x}\).</p>
-  <p>(c) \(y=(\cos x)^7\), so \(y'=7(\cos x)^6\cdot(-\sin x)=-7\cos^6x\sin x\).</p>
-  <p>(d) \(y'=-6\sin x\) and \(\sin\left(-\tfrac{\pi}{4}\right)=-\tfrac{\sqrt2}{2}\), so the slope is
-  \(-6\cdot\left(-\tfrac{\sqrt2}{2}\right)=3\sqrt2\).</p></div></details>
+  <p>(c) Write \(y=\left(1+(\cos x)^2\right)^{1/2}\) and use the chain rule twice, with \(\dfrac{d}{dx}(\cos x)^2=2\cos x\cdot(-\sin x)\):</p>
+  \[y'=\tfrac12\left(1+\cos^2x\right)^{-1/2}\cdot 2\cos x\cdot(-\sin x)=-\frac{\sin x\cos x}{\sqrt{1+\cos^2x}}.\]
+  <p>(d) Since \(\dfrac{d}{du}\tan u=\sec^2u\), the chain rule with \(u=x^2\) and \(u'=2x\) gives
+  \(y'=\sec^2(x^2)\cdot 2x=2x\sec^2(x^2)\).</p></div></details>
     </li>
     <li class="problem" id="problem-4">
       <p class="statement">Find the indefinite integrals, using substitution.</p>
@@ -459,17 +460,11 @@ window.MathJax = {
   \(f''(2)=-2e^{-2}\lt 0\), so there is a relative maximum at \(x=2\), with \(f(2)=4e^{-2}\approx 0.541\).</p></div></details>
     </li>
     <li class="problem" id="problem-27">
-      <p class="statement">Use the properties of logarithms.</p>
-      <ol class="parts">
-        <li>Write \(\ln\dfrac{x^3\sqrt{x+2}}{(x+5)^4}\) in terms of \(\ln x\), \(\ln(x+2)\), and \(\ln(x+5)\).</li>
-        <li>Let \(\ln 2=a\), \(\ln 3=b\), and \(\ln 5=c\). Express \(\ln 360\) and \(\ln 0.12\) in terms of \(a\), \(b\), and \(c\).</li>
-      </ol>
-      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(3\ln x+\tfrac12\ln(x+2)-4\ln(x+5)\) &nbsp;&nbsp; (b) \(\ln 360=3a+2b+c\), \(\ln 0.12=b-2c\)</p></div></details>
-      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Use \(\ln(AB)=\ln A+\ln B\), \(\ln(A/B)=\ln A-\ln B\), and \(\ln A^r=r\ln A\), with
+      <p class="statement">Write \(\ln\dfrac{x^3\sqrt{x+2}}{(x+5)^4}\) in terms of \(\ln x\), \(\ln(x+2)\), and \(\ln(x+5)\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(3\ln x+\tfrac12\ln(x+2)-4\ln(x+5)\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Use \(\ln(AB)=\ln A+\ln B\), \(\ln(A/B)=\ln A-\ln B\), and \(\ln A^r=r\ln A\), with
   \(\sqrt{x+2}=(x+2)^{1/2}\):</p>
-  \[\ln\frac{x^3\sqrt{x+2}}{(x+5)^4}=3\ln x+\tfrac12\ln(x+2)-4\ln(x+5).\]
-  <p>(b) \(360=2^3\cdot 3^2\cdot 5\), so \(\ln 360=3\ln 2+2\ln 3+\ln 5=3a+2b+c\). Also
-  \(0.12=\dfrac{12}{100}=\dfrac{3}{25}=\dfrac{3}{5^2}\), so \(\ln 0.12=\ln 3-2\ln 5=b-2c\).</p></div></details>
+  \[\ln\frac{x^3\sqrt{x+2}}{(x+5)^4}=3\ln x+\tfrac12\ln(x+2)-4\ln(x+5).\]</div></details>
     </li>
     <li class="problem" id="problem-28">
       <p class="statement">Find the indefinite integrals, using substitution.</p>
