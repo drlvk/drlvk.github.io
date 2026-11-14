@@ -133,35 +133,27 @@ window.MathJax = {
   defined for every \(x\), so it adds no restriction. The domain is \((-\infty,4)\); the endpoint 4 is excluded.</p></div></details>
     </li>
     <li class="problem" id="problem-2">
-      <p class="statement">An open box will be made by cutting a square from each corner of a 6 ft by 16 ft piece of cardboard
+      <p class="statement">An open box will be made by cutting a square from each corner of a 12 in by 12 in piece of cardboard
   and then folding up the sides. What size square should be cut from each corner to produce a box of maximum
   volume? What is the maximum volume?</p>
-      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>Squares with side \(\tfrac43\) ft; maximum volume \(\tfrac{1600}{27}\approx 59.3\) ft³</p></div></details>
-      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>If squares of side \(x\) are cut out, the box has height \(x\) and a base of \(16-2x\) by \(6-2x\), so</p>
-  \[V(x)=x(16-2x)(6-2x)=4x^3-44x^2+96x,\qquad 0\le x\le 3.\]
-  <p>\(V'(x)=12x^2-88x+96=4(3x-4)(x-6)\) is zero at \(x=\tfrac43\) and \(x=6\); only \(x=\tfrac43\) is in
-  \([0,3]\). Since \(V(0)=V(3)=0\) and
-  \(V\left(\tfrac43\right)=\tfrac43\cdot\tfrac{40}{3}\cdot\tfrac{10}{3}=\tfrac{1600}{27}\), the maximum volume
-  occurs at \(x=\tfrac43\).</p></div></details>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>Squares with side 2 in; maximum volume 128 in³</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>If squares of side \(x\) are cut out, the box has height \(x\) and a square base of side \(12-2x\), so</p>
+  \[V(x)=x(12-2x)^2=4x^3-48x^2+144x,\qquad 0\le x\le 6.\]
+  <p>\(V'(x)=12x^2-96x+144=12(x-2)(x-6)\) is zero at \(x=2\) and \(x=6\). Since \(V(0)=V(6)=0\) and
+  \(V(2)=2\cdot 8^2=128\), the maximum volume is 128 in³, when \(x=2\).</p></div></details>
     </li>
     <li class="problem" id="problem-3">
       <p class="statement">Find the derivative of each function.</p>
       <ol class="parts">
-        <li>\(y=4x\sec 6x\)</li>
+        <li>\(y=4x\sin 6x\)</li>
         <li>\(y=6e^{\cos 4x}\)</li>
-        <li>\(y=\sqrt{1+\cos^2x}\)</li>
-        <li>\(y=\tan(x^2)\)</li>
       </ol>
-      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(4\sec 6x+24x\sec 6x\tan 6x\) &nbsp;&nbsp; (b) \(-24\sin 4x\,e^{\cos 4x}\) &nbsp;&nbsp; (c) \(-\dfrac{\sin x\cos x}{\sqrt{1+\cos^2x}}\) &nbsp;&nbsp; (d) \(2x\sec^2(x^2)\)</p></div></details>
-      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Use the product rule, with \(\dfrac{d}{dx}\sec 6x=6\sec 6x\tan 6x\): \(y'=4\sec 6x+4x\cdot 6\sec 6x\tan 6x\).</p>
-  <p>(b) By the chain rule, \(y'=6e^{\cos 4x}\cdot(-\sin 4x)\cdot 4=-24\sin 4x\,e^{\cos 4x}\).</p>
-  <p>(c) Write \(y=\left(1+(\cos x)^2\right)^{1/2}\) and use the chain rule twice, with \(\dfrac{d}{dx}(\cos x)^2=2\cos x\cdot(-\sin x)\):</p>
-  \[y'=\tfrac12\left(1+\cos^2x\right)^{-1/2}\cdot 2\cos x\cdot(-\sin x)=-\frac{\sin x\cos x}{\sqrt{1+\cos^2x}}.\]
-  <p>(d) Since \(\dfrac{d}{du}\tan u=\sec^2u\), the chain rule with \(u=x^2\) and \(u'=2x\) gives
-  \(y'=\sec^2(x^2)\cdot 2x=2x\sec^2(x^2)\).</p></div></details>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(4\sin 6x+24x\cos 6x\) &nbsp;&nbsp; (b) \(-24\sin 4x\,e^{\cos 4x}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Use the product rule, with \(\dfrac{d}{dx}\sin 6x=6\cos 6x\): \(y'=4\sin 6x+4x\cdot 6\cos 6x\).</p>
+  <p>(b) By the chain rule, \(y'=6e^{\cos 4x}\cdot(-\sin 4x)\cdot 4=-24\sin 4x\,e^{\cos 4x}\).</p></div></details>
     </li>
     <li class="problem" id="problem-4">
-      <p class="statement">Find the indefinite integrals, using substitution.</p>
+      <p class="statement">Find the indefinite integrals.</p>
       <ol class="parts">
         <li>\(\displaystyle\int 9(3x+6)^4\,dx\)</li>
         <li>\(\displaystyle\int\frac{x^3}{x^4+2}\,dx\)</li>
@@ -217,13 +209,14 @@ window.MathJax = {
     <li class="problem" id="problem-8">
       <p class="statement">Use the product and quotient rules.</p>
       <ol class="parts">
-        <li>Let \(f(t)=(t^2+3t+4)(3t^2+5)\). Find \(f'(t)\).</li>
+        <li>Let \(f(t)=(t^2+3t+4)e^{-4t}\). Find \(f'(t)\).</li>
         <li>Find \(f'(x)\) for \(f(x)=\dfrac{x^2-1}{x^2+3}\).</li>
         <li>Find an equation of the tangent line to \(y=\dfrac{2x+1}{x+2}\) at the point \((1,1)\).</li>
       </ol>
-      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \((2t+3)(3t^2+5)+6t(t^2+3t+4)\), or \(12t^3+27t^2+34t+15\) &nbsp;&nbsp; (b) \(\dfrac{8x}{(x^2+3)^2}\) &nbsp;&nbsp; (c) \(y=\tfrac13x+\tfrac23\)</p></div></details>
-      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) By the product rule, \(f'(t)=(2t+3)(3t^2+5)+(t^2+3t+4)(6t)\). Expanding gives
-  \((6t^3+9t^2+10t+15)+(6t^3+18t^2+24t)=12t^3+27t^2+34t+15\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \((2t+3)e^{-4t}-4(t^2+3t+4)e^{-4t}\), or \(-(4t^2+10t+13)e^{-4t}\) &nbsp;&nbsp; (b) \(\dfrac{8x}{(x^2+3)^2}\) &nbsp;&nbsp; (c) \(y=\tfrac13x+\tfrac23\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) By the product rule, with \(\dfrac{d}{dt}e^{-4t}=-4e^{-4t}\):
+  \(f'(t)=(2t+3)e^{-4t}+(t^2+3t+4)(-4e^{-4t})\). Factoring out \(e^{-4t}\) gives
+  \(e^{-4t}(2t+3-4t^2-12t-16)=-(4t^2+10t+13)e^{-4t}\).</p>
   <p>(b) By the quotient rule,</p>
   \[f'(x)=\frac{2x(x^2+3)-(x^2-1)(2x)}{(x^2+3)^2}=\frac{2x^3+6x-2x^3+2x}{(x^2+3)^2}=\frac{8x}{(x^2+3)^2}.\]
   <p>(c) \(y'=\dfrac{2(x+2)-(2x+1)(1)}{(x+2)^2}=\dfrac{3}{(x+2)^2}\), so the slope at \(x=1\) is
@@ -315,12 +308,16 @@ window.MathJax = {
   <p>The largest value is 6, attained at two points; the smallest is \(-14\).</p></div></details>
     </li>
     <li class="problem" id="problem-16">
-      <p class="statement">The number \(x\) of speakers a retail chain is willing to sell per week at a price of \(p\) dollars is \(x=78\sqrt{p+26}-370\). Find the supply and the instantaneous rate of change of supply when the price is $74.</p>
-      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>Supply: 410 speakers per week. Rate of change: 3.9 speakers per dollar.</p></div></details>
-      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>When \(p=74\), \(\sqrt{p+26}=\sqrt{100}=10\), so \(x=78\cdot 10-370=410\).</p>
-  <p>By the chain rule, \(\dfrac{dx}{dp}=78\cdot\dfrac{1}{2\sqrt{p+26}}=\dfrac{39}{\sqrt{p+26}}\), which equals
-  \(\dfrac{39}{10}=3.9\) when \(p=74\). So supply increases by about 3.9 speakers per week for each dollar of
-  price increase.</p></div></details>
+      <p class="statement">Find the derivative of each function.</p>
+      <ol class="parts">
+        <li>\(y=\sqrt{1+\cos^2x}\)</li>
+        <li>\(y=\tan(x^2)\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(-\dfrac{\sin x\cos x}{\sqrt{1+\cos^2x}}\) &nbsp;&nbsp; (b) \(2x\sec^2(x^2)\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Write \(y=\left(1+(\cos x)^2\right)^{1/2}\) and use the chain rule twice, with \(\dfrac{d}{dx}(\cos x)^2=2\cos x\cdot(-\sin x)\):</p>
+  \[y'=\tfrac12\left(1+\cos^2x\right)^{-1/2}\cdot 2\cos x\cdot(-\sin x)=-\frac{\sin x\cos x}{\sqrt{1+\cos^2x}}.\]
+  <p>(b) Since \(\dfrac{d}{du}\tan u=\sec^2u\), the chain rule with \(u=x^2\) and \(u'=2x\) gives
+  \(y'=\sec^2(x^2)\cdot 2x=2x\sec^2(x^2)\).</p></div></details>
     </li>
     <li class="problem" id="problem-17">
       <p class="statement">Let \(f(x)=3x^2-5x\).</p>
@@ -374,21 +371,19 @@ window.MathJax = {
   \[y'=\frac{(8e^x-5e^{-x})\cdot x-(8e^x+5e^{-x})\cdot 1}{x^2}.\]</div></details>
     </li>
     <li class="problem" id="problem-21">
-      <p class="statement">Find the indefinite integrals in (a)–(c), and solve (d).</p>
+      <p class="statement">Find the indefinite integrals.</p>
       <ol class="parts">
         <li>\(\displaystyle\int\frac{5x^3-9}{\sqrt{x}}\,dx\)</li>
         <li>\(\displaystyle\int\left(\frac4x-9e^{-0.3x}\right)dx\)</li>
         <li>\(\displaystyle\int\left(6\cos x+4\sec^2x\right)dx\)</li>
-        <li>Find the function \(f(x)\) such that \(f'(x)=9x^2-4x+5\) and \(f(2)=24\).</li>
       </ol>
       <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(\tfrac{10}{7}x^{7/2}-18x^{1/2}+C\) &nbsp;&nbsp; (b) \(4\ln|x|+30e^{-0.3x}+C\) &nbsp;&nbsp;
-  (c) \(6\sin x+4\tan x+C\) &nbsp;&nbsp; (d) \(f(x)=3x^3-2x^2+5x-2\)</p></div></details>
+  (c) \(6\sin x+4\tan x+C\)</p></div></details>
       <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Divide first: \(\dfrac{5x^3-9}{x^{1/2}}=5x^{5/2}-9x^{-1/2}\). Then
   \(\displaystyle\int\left(5x^{5/2}-9x^{-1/2}\right)dx=5\cdot\frac{x^{7/2}}{7/2}-9\cdot\frac{x^{1/2}}{1/2}+C=\tfrac{10}{7}x^{7/2}-18x^{1/2}+C\).</p>
   <p>(b) \(\displaystyle\int\frac4x\,dx=4\ln|x|\) and \(\displaystyle\int e^{-0.3x}\,dx=\frac{e^{-0.3x}}{-0.3}\), so
   the integral is \(4\ln|x|-\dfrac{9}{-0.3}e^{-0.3x}+C=4\ln|x|+30e^{-0.3x}+C\).</p>
-  <p>(c) Since \((\sin x)'=\cos x\) and \((\tan x)'=\sec^2x\), the integral is \(6\sin x+4\tan x+C\).</p>
-  <p>(d) \(f(x)=3x^3-2x^2+5x+C\). Then \(f(2)=24-8+10+C=26+C=24\) gives \(C=-2\).</p></div></details>
+  <p>(c) Since \((\sin x)'=\cos x\) and \((\tan x)'=\sec^2x\), the integral is \(6\sin x+4\tan x+C\).</p></div></details>
     </li>
     <li class="problem" id="problem-22">
       <p class="statement">A 13-foot ladder is leaning against a vertical wall. The top of the ladder slides down the wall at a
@@ -405,16 +400,16 @@ window.MathJax = {
       <ol class="parts">
         <li>\(\displaystyle\lim_{x\to\infty}\frac{(2-x)(3+4x)}{(1-2x)(5+x)}\)</li>
         <li>\(\displaystyle\lim_{x\to\infty}\frac{x^3-4x+2}{x^4+3x^2}\)</li>
-        <li>\(\displaystyle\lim_{x\to 4^-}\frac{x}{x^2-16}\)</li>
+        <li>\(\displaystyle\lim_{x\to 4^-}\frac{x}{x-4}\)</li>
       </ol>
       <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(2\) &nbsp;&nbsp; (b) \(0\) &nbsp;&nbsp; (c) \(-\infty\)</p></div></details>
       <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) The numerator and denominator both have degree 2. Their leading terms are
   \((-x)(4x)=-4x^2\) and \((-2x)(x)=-2x^2\), so the limit is \(\dfrac{-4}{-2}=2\).</p>
   <p>(b) Divide the numerator and denominator by \(x^4\):
   \(\dfrac{1/x-4/x^3+2/x^4}{1+3/x^2}\to\dfrac{0}{1}=0\). (The denominator has the higher degree.)</p>
-  <p>(c) As \(x\to 4^-\), the numerator approaches 4, while \(x^2-16\to 0\) through negative values
-  (\(x^2\lt 16\) for \(x\) slightly less than 4). A positive number divided by a small negative number is
-  large and negative, so the limit is \(-\infty\).</p></div></details>
+  <p>(c) As \(x\to 4^-\), the numerator approaches 4, while \(x-4\to 0\) through negative values
+  (\(x\lt 4\)). A positive number divided by a small negative number is large and negative, so the limit
+  is \(-\infty\).</p></div></details>
     </li>
     <li class="problem" id="problem-24">
       <p class="statement">Find the derivative of each function.</p>
@@ -467,17 +462,14 @@ window.MathJax = {
   \[\ln\frac{x^3\sqrt{x+2}}{(x+5)^4}=3\ln x+\tfrac12\ln(x+2)-4\ln(x+5).\]</div></details>
     </li>
     <li class="problem" id="problem-28">
-      <p class="statement">Find the indefinite integrals, using substitution.</p>
+      <p class="statement">Find the indefinite integrals.</p>
       <ol class="parts">
         <li>\(\displaystyle\int 6x^2e^{2x^3}\,dx\)</li>
         <li>\(\displaystyle\int\frac{\sqrt{4+\ln z}}{z}\,dz\)</li>
-        <li>\(\displaystyle\int x(x+3)^4\,dx\) (Hint: if \(u=x+3\), what is \(x\)?)</li>
       </ol>
-      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(e^{2x^3}+C\) &nbsp;&nbsp; (b) \(\tfrac23(4+\ln z)^{3/2}+C\) &nbsp;&nbsp; (c) \(\tfrac16(x+3)^6-\tfrac35(x+3)^5+C\)</p></div></details>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(e^{2x^3}+C\) &nbsp;&nbsp; (b) \(\tfrac23(4+\ln z)^{3/2}+C\)</p></div></details>
       <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Let \(u=2x^3\), so \(du=6x^2\,dx\): \(\displaystyle\int e^u\,du=e^u+C\).</p>
-  <p>(b) Let \(u=4+\ln z\), so \(du=\tfrac1z\,dz\): \(\displaystyle\int u^{1/2}\,du=\tfrac23u^{3/2}+C\).</p>
-  <p>(c) Let \(u=x+3\), so \(du=dx\) and \(x=u-3\):
-  \(\displaystyle\int(u-3)u^4\,du=\int\left(u^5-3u^4\right)du=\tfrac16u^6-\tfrac35u^5+C\).</p></div></details>
+  <p>(b) Let \(u=4+\ln z\), so \(du=\tfrac1z\,dz\): \(\displaystyle\int u^{1/2}\,du=\tfrac23u^{3/2}+C\).</p></div></details>
     </li>
     <li class="problem" id="problem-29">
       <p class="statement">Answer each question about a piecewise-defined function.</p>
@@ -523,7 +515,7 @@ window.MathJax = {
   \[\frac{\sqrt{x+4}-3}{x-5}\cdot\frac{\sqrt{x+4}+3}{\sqrt{x+4}+3}=\frac{(x+4)-9}{(x-5)(\sqrt{x+4}+3)}=\frac{1}{\sqrt{x+4}+3}\to\frac{1}{3+3}=\frac16.\]</div></details>
     </li>
     <li class="problem" id="problem-32">
-      <p class="statement">Evaluate the definite integrals, using substitution.</p>
+      <p class="statement">Evaluate the definite integrals.</p>
       <ol class="parts">
         <li>\(\displaystyle\int_0^1x(x^2+1)^3\,dx\)</li>
         <li>\(\displaystyle\int_1^5\sqrt{2x-1}\,dx\)</li>
@@ -551,17 +543,10 @@ window.MathJax = {
   \(x^2-15x-100=(x-20)(x+5)=0\). Reject \(x=-5\), because \(\log_{10}(-5)\) is undefined. So \(x=20\).</p></div></details>
     </li>
     <li class="problem" id="problem-34">
-      <p class="statement">A table of values for \(f\), \(g\), \(f'\), and \(g'\) is given below.</p>
-      <table class="vals"><tr><th>\(x\)</th><th>\(f(x)\)</th><th>\(g(x)\)</th><th>\(f'(x)\)</th><th>\(g'(x)\)</th></tr><tr><td>1</td><td>3</td><td>2</td><td>4</td><td>−1</td></tr><tr><td>2</td><td>5</td><td>3</td><td>−2</td><td>6</td></tr><tr><td>3</td><td>1</td><td>1</td><td>7</td><td>2</td></tr></table>
-      <ol class="parts">
-        <li>If \(h(x)=f(g(x))\), find \(h'(1)\).</li>
-        <li>If \(k(x)=g(f(x))\), find \(k'(3)\).</li>
-        <li>If \(P(x)=f(x)\,g(x)\), find \(P'(2)\).</li>
-      </ol>
-      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(2\) &nbsp;&nbsp; (b) \(-7\) &nbsp;&nbsp; (c) \(24\)</p></div></details>
-      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) By the chain rule, \(h'(1)=f'(g(1))\,g'(1)=f'(2)\cdot(-1)=(-2)(-1)=2\).</p>
-  <p>(b) \(k'(3)=g'(f(3))\,f'(3)=g'(1)\cdot 7=(-1)(7)=-7\).</p>
-  <p>(c) By the product rule, \(P'(2)=f'(2)\,g(2)+f(2)\,g'(2)=(-2)(3)+(5)(6)=24\).</p></div></details>
+      <p class="statement">Find the function \(f(x)\) such that \(f'(x)=9x^2-4x+5\) and \(f(2)=24\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(f(x)=3x^3-2x^2+5x-2\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Antidifferentiate: \(f(x)=3x^3-2x^2+5x+C\). Then \(f(2)=24-8+10+C=26+C\), and \(f(2)=24\) gives
+  \(C=-2\).</p></div></details>
     </li>
     <li class="problem" id="problem-35">
       <p class="statement">The graph of a function \(f\) is shown below. Find the indicated limits and function values. Write DNE if a value or limit does not exist.</p>
