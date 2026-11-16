@@ -98,9 +98,19 @@ table.vals th { font-weight: 400; background: var(--reveal-bg); }
   table.vals th, table.vals td { padding: 0.2rem 0.55rem; }
 }
 @media print {
-  .toolbar, details.reveal { display: none; }
+  :root {
+    --paper: #f7faf6; --ink: #101a14; --muted: #45534a; --rule: #bfd0c3;
+    --grid: #d6e2d8; --grid-major: #b6c9ba; --accent: #1f5a3e; --reveal-bg: #e8f0ea;
+    color-scheme: light;
+  }
+  .toolbar, details.reveal:not([open]) { display: none; }
   .masthead { background: none; }
+  summary { cursor: auto; font-weight: 600; break-after: avoid; }
+  details.reveal[open] > summary::before { content: none; }
+  .reveal .body { overflow: visible; }
   li.problem { break-inside: avoid; }
+  li.problem:has(details[open]) { break-inside: auto; }
+  .reveal .body p { break-inside: avoid; }
 }
 </style>
 <script>
