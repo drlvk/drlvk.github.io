@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Nov 18 &mdash; Second derivative test and absolute extrema</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Wednesday, November 18</p>
+  <h1>Second derivative test and absolute extrema</h1>
+  <p class="standfirst">Section 11.5. Two new ideas about maxima and minima: the sign of \(f''\) can classify a critical number without a sign chart, and on a closed interval the greatest and smallest values are found by checking a short list of candidates.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#second">Second derivative test</a>
+  <a href="#absolute">Absolute extrema</a>
+  <a href="#abs1">Example 1</a>
+  <a href="#compare">Four tools</a>
+  <a href="#abs2">Example 2</a>
+  <a href="#next">Before Friday</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>Exam 4 grading will be finished this afternoon.</li>
+      <li><strong>Final exam: Friday, December 11, 12:30&ndash;2:30 PM in HBC Gifford.</strong> It is cumulative and about twice as long as the midterms, and it will have 110 points instead of 100.</li>
+      <li>Sections 11.5, 11.6, and 12.1 appear on the final exam only, not on a midterm.</li>
+      <li><strong>Quiz tomorrow</strong>, the last quiz of the semester. <strong>Homework 11.2 is due tomorrow.</strong></li>
+      <li>Yes, there is a class on Friday, on section 11.6. Friday is also the <strong>withdrawal deadline</strong>.</li>
+      <li>Complete the <strong>Concept Check</strong> for Wednesday by the end of the day.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="second">
+  <h2><span class="marker">Test</span>The second derivative test</h2>
+
+  <p>One new idea in section 11.5 is the <strong>second derivative test</strong>: the sign of \(f''\) can help us distinguish between a local maximum and a local minimum. So far, we only used \(f'\) for that.</p>
+
+  <div class="card">
+    <p class="card-label">Worth memorizing</p>
+    <ul class="keys">
+      <li>If \(f'(x) = 0\) and \(f''(x) &lt; 0\) at some point, then it is a local <strong>maximum</strong>.</li>
+      <li>If \(f'(x) = 0\) and \(f''(x) &gt; 0\) at some point, then it is a local <strong>minimum</strong>.</li>
+    </ul>
+    <p>If you don&rsquo;t remember which sign means what, just sketch a concave curve.</p>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 474 166" role="img" aria-label="Two curves with a horizontal tangent line at the marked point, where f prime is 0. Left, a curve bending downward, so f double prime is negative: the point is a local maximum. Right, a curve bending upward, so f double prime is positive: the point is a local minimum">
+      <path class="curve" d="M20 101.5L22.4 98.2L24.8 95L27.2 91.8L29.7 88.6L32.3 85.4L34.8 82.3L37.5 79.3L40.2 76.2L42.9 73.2L45.7 70.3L48.5 67.5L51.4 64.7L54.3 61.9L57.4 59.2L60.5 56.6L63.6 54.1L66.8 51.7L70.1 49.3L73.5 47.1L76.9 45L80.4 43L84 41.2L87.7 39.5L91.4 37.9L95.3 36.6L99.1 35.4L103.1 34.4L107 33.7L111 33.1L115 32.8L119 32.8L123 32.9L127 33.3L131 33.9L135 34.7L138.9 35.7L142.7 36.9L146.5 38.3L150.3 39.9L154 41.7L157.5 43.5L161 45.5L164.4 47.7L167.8 49.9L171 52.3L174.3 54.8L177.4 57.3L180.5 60L183.5 62.7L186.5 65.5L189.4 68.3L192.2 71.2L194.9 74.1L197.6 77.1L200.3 80.2L202.9 83.3L205.5 86.4L208.1 89.6L210.6 92.8L213 96L215.4 99.3L217 101.5"/>
+      <path class="curve-2" d="M64.3 32.8L172.7 32.8"/>
+      <circle class="dot" cx="118.5" cy="32.8" r="4.2"/>
+      <text class="label" x="118" y="138" style="text-anchor:middle">local maximum</text>
+      <text class="label-soft" x="118" y="156" style="text-anchor:middle">concave down: f″ negative</text>
+      <text class="label-soft" x="180" y="24.8">f′ = 0</text>
+      <path class="curve" d="M257 26.5L259.4 29.8L261.8 33L264.2 36.2L266.7 39.4L269.3 42.6L271.8 45.7L274.5 48.7L277.2 51.8L279.9 54.8L282.7 57.7L285.5 60.5L288.4 63.3L291.3 66.1L294.4 68.8L297.5 71.4L300.6 73.9L303.8 76.3L307.1 78.7L310.5 80.9L313.9 83L317.4 85L321 86.8L324.7 88.5L328.4 90.1L332.3 91.4L336.1 92.6L340.1 93.6L344 94.3L348 94.9L352 95.2L356 95.2L360 95.1L364 94.7L368 94.1L372 93.3L375.9 92.3L379.7 91.1L383.5 89.7L387.3 88.1L391 86.3L394.5 84.5L398 82.5L401.4 80.3L404.8 78.1L408 75.7L411.3 73.2L414.4 70.7L417.5 68L420.5 65.3L423.5 62.5L426.4 59.7L429.2 56.8L431.9 53.9L434.6 50.9L437.3 47.8L439.9 44.7L442.5 41.6L445.1 38.4L447.6 35.2L450 32L452.4 28.7L454 26.5"/>
+      <path class="curve-2" d="M301.3 95.2L409.7 95.2"/>
+      <circle class="dot" cx="355.5" cy="95.2" r="4.2"/>
+      <text class="label" x="355" y="138" style="text-anchor:middle">local minimum</text>
+      <text class="label-soft" x="355" y="156" style="text-anchor:middle">concave up: f″ positive</text>
+      <text class="label-soft" x="417" y="111.2">f′ = 0</text>
+    </svg>
+    <figcaption>At a critical number with a horizontal tangent, concave down (\(f'' &lt; 0\)) means a local maximum and concave up (\(f'' &gt; 0\)) means a local minimum.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="card-label">How to use the second derivative test</p>
+    <ol>
+      <li>Find \(f'(x)\).</li>
+      <li>Solve \(f'(x) = 0\) to find the critical numbers of \(f\).</li>
+      <li>Find \(f''(x)\).</li>
+      <li>Plug each critical number from step 2 into \(f''(x)\), and make a conclusion based on the sign of the result.</li>
+    </ol>
+    <p>This test does <strong>not</strong> involve making a sign chart.</p>
+  </div>
+
+  <div class="problem">
+    <p><strong>Example 1.</strong> Use the second derivative test to find the local maxima and minima of the function \(f(x) = x^3 - 75x\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">1. f&prime;</span><span class="work">\(f'(x) = 3x^2 - 75\)</span></li>
+        <li><span class="step">2. Solve</span><span class="work">\(3x^2 - 75 = 0\); divide by 3: \(x^2 - 25 = 0\), \(x^2 = 25\), so \(x = 5\) or \(x = -5\). These are the critical numbers to test.</span></li>
+        <li><span class="step">3. f&Prime;</span><span class="work">\(f''(x) = (3x^2 - 75)' = 3 \cdot 2x - 0 = 6x\)</span></li>
+        <li><span class="step">4. Plug 5</span><span class="work">\(f''(5) = 6 \cdot 5 = 30 &gt; 0\): concave up, a <strong>local minimum</strong></span></li>
+        <li><span class="step">4. Plug &minus;5</span><span class="work">\(f''(-5) = 6(-5) = -30 &lt; 0\): concave down, a <strong>local maximum</strong></span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>local max at x = &minus;5; local min at x = 5</p>
+      <p>The values are \(f(-5) = -125 + 375 = 250\) and \(f(5) = -250\).</p>
+    </div>
+  </details>
+
+  <div class="note">
+    <p class="card-label">Do not set f&Prime; = 0</p>
+    <p>In this test, \(f''\) is never set equal to 0: that is not what the second derivative test is. Solve \(f' = 0\) for the critical numbers, then only <em>evaluate</em> \(f''\) at them. (Setting \(f'' = 0\) is for inflection points.)</p>
+  </div>
+
+  <p>Note that the second derivative test tells us nothing when \(f''(x)\) is 0 or undefined at a critical point. At such points the function may have a local maximum, minimum, or no extremum at all: we cannot determine this from this test. Fortunately, this inconclusive case rarely occurs in practice. When it does, go back to the sign chart for \(f'\).</p>
+
+  <div class="problem">
+    <p><strong>Example 2.</strong> Use the second derivative test to find the local maxima and minima of the function \(f(x) = \dfrac{2x^2 + 72}{x}\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Find \(f'\), solve \(f' = 0\), find \(f''\), and plug the critical numbers into \(f''\).</p>
+      <ol class="ledger">
+        <li><span class="step">Rewrite</span><span class="work">\(f(x) = 2x + \dfrac{72}{x} = 2x + 72x^{-1}\)</span></li>
+        <li><span class="step">f&prime;</span><span class="work">\(f'(x) = 2 + 72(-1)x^{-2} = 2 - \dfrac{72}{x^2}\)</span></li>
+        <li><span class="step">Solve</span><span class="work">\(2 - \dfrac{72}{x^2} = 0\): \(2 = \dfrac{72}{x^2}\), \(2x^2 = 72\), \(x^2 = 36\), so \(x = 6\) or \(x = -6\), the critical numbers to plug into \(f''\)</span></li>
+        <li><span class="step">f&Prime;</span><span class="work">\(f''(x) = \left(2 - 72x^{-2}\right)' = -72(-2)x^{-3} = \dfrac{144}{x^3}\)</span></li>
+        <li><span class="step">Plug in</span><span class="work">\(f''(6) = \dfrac{144}{6^3} &gt; 0\) (min); &nbsp; \(f''(-6) = \dfrac{144}{-6^3} &lt; 0\) (max)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>local max at x = &minus;6; local min at x = 6</p>
+      <p>The values are \(f(-6) = -24\) and \(f(6) = 24\): once again a local maximum below a local minimum, on opposite sides of the asymptote at \(x = 0\).</p>
+    </div>
+  </details>
+</section>
+
+<section id="absolute">
+  <h2><span class="marker">Definition</span>Absolute extrema on a closed interval</h2>
+
+  <p>Earlier we studied the process of finding <strong>local</strong> maxima (where \(f\) is greater than at nearby points) and <strong>local</strong> minima (where \(f\) is smaller than at nearby points). But it may be of more interest to find the greatest (or smallest) values of a function <strong>overall</strong>: on the entire domain of the function, or on some interval.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 474 222" role="img" aria-label="A wavy curve over the interval from A to B with several hills. The highest point, at the top of the tallest hill inside the interval, is the absolute maximum. The lowest point is at the right endpoint B, which is the absolute minimum">
+      <path class="curve" d="M30 114.4L30.7 113.9L31.5 113.2L32.5 112.5L33.5 111.7L34.6 110.9L35.8 110L37 109L38.3 108L39.7 106.9L41.1 105.8L42.6 104.7L44.1 103.5L45.6 102.4L47.1 101.2L48.7 100L50.2 98.9L51.7 97.7L53.2 96.5L54.7 95.4L56.1 94.3L57.5 93.2L58.9 92.2L60.2 91.2L61.4 90.3L62.6 89.4L63.8 88.5L65 87.5L66.1 86.5L67.2 85.4L68.4 84.4L69.5 83.3L70.6 82.3L71.6 81.2L72.7 80.2L73.8 79.2L74.9 78.3L75.9 77.3L77 76.5L78 75.6L79.1 74.8L80.2 74.1L81.2 73.5L82.3 72.9L83.3 72.5L84.4 72.1L85.5 71.8L86.6 71.6L87.6 71.6L88.7 71.7L89.8 72L90.9 72.5L91.9 73.2L93 74L94.1 74.9L95.1 76L96.2 77.1L97.2 78.3L98.3 79.6L99.4 80.8L100.4 82.1L101.5 83.4L102.6 84.6L103.6 85.8L104.7 86.8L105.8 87.8L106.9 88.7L108 89.4L109.2 90L110.3 90.4L111.5 90.6L112.6 90.6L113.8 90.3L115.1 89.8L116.3 89L117.6 87.9L118.8 86.7L120.1 85.2L121.5 83.6L122.8 81.8L124.1 79.9L125.5 77.9L126.8 75.8L128.2 73.7L129.6 71.6L130.9 69.4L132.3 67.3L133.6 65.2L135 63.2L136.3 61.3L137.7 59.6L139 57.9L140.3 56.5L141.6 55.2L142.8 54.2L144.1 53.4L145.3 52.8L146.5 52.6L147.6 52.6L148.7 52.9L149.8 53.4L150.9 54.1L152 54.9L153 55.9L154 57.1L155 58.3L156 59.6L157 61L158.1 62.4L159.1 63.7L160.1 65.1L161.1 66.4L162.2 67.6L163.2 68.7L164.3 69.7L165.4 70.5L166.6 71.2L167.7 71.7L168.9 71.9L170.2 71.9L171.5 71.6L172.8 70.9L174.2 70L175.5 68.7L177 67.2L178.4 65.5L179.9 63.5L181.3 61.4L182.8 59.2L184.4 56.8L185.9 54.4L187.4 51.9L189 49.5L190.6 47L192.2 44.7L193.8 42.4L195.4 40.2L197 38.2L198.6 36.4L200.2 34.8L201.8 33.5L203.4 32.5L205 31.7L206.6 31.4L208.2 31.4L209.7 31.8L211.3 32.4L212.9 33.3L214.5 34.5L216.1 35.9L217.7 37.5L219.3 39.3L220.9 41.2L222.5 43.3L224.1 45.6L225.7 48L227.3 50.5L228.9 53.1L230.6 55.7L232.2 58.4L233.9 61.2L235.5 63.9L237.2 66.7L238.9 69.4L240.6 72.1L242.3 74.8L244 77.4L245.7 79.9L247.5 82.3L249.3 84.7L251.1 87.2L253.1 89.9L255.1 92.6L257.2 95.5L259.3 98.4L261.4 101.3L263.6 104.3L265.7 107.3L267.9 110.3L270.1 113.3L272.2 116.3L274.3 119.2L276.3 122L278.3 124.8L280.3 127.5L282.1 130.1L283.9 132.6L285.5 134.9L287.1 137.1L288.5 139.1L289.8 140.9L291 142.5L292 143.9"/>
+      <path class="helper" d="M19.5 31.4L307.7 31.4"/>
+      <path class="helper" d="M19.5 143.9L307.7 143.9"/>
+      <circle class="dot" cx="206.6" cy="31.4" r="4.2"/>
+      <circle class="dot" cx="292" cy="143.9" r="4.2"/>
+      <circle class="dot" cx="30" cy="114.4" r="4.2"/>
+      <path class="axis" d="M30 182H292"/>
+      <path class="axis" d="M30 176V188M292 176V188"/>
+      <text class="label" x="30" y="202" style="text-anchor:middle">A</text>
+      <text class="label" x="292" y="202" style="text-anchor:middle">B</text>
+      <text class="label-key" x="310.3" y="35.4">absolute maximum</text>
+      <text class="label-key" x="310.3" y="147.9">absolute minimum</text>
+      <text class="label-soft" x="255.3" y="50.1">y = f(x)</text>
+    </svg>
+    <figcaption>On the interval \([A, B]\), the absolute maximum is the highest point of the graph and the absolute minimum is the lowest. Here the absolute minimum is at the endpoint \(B\).</figcaption>
+  </figure>
+
+  <p>A natural reason to focus on some interval is that the range of reasonable actions is limited. For example, if one considers the monthly price \(p\) of a digital subscription, it is unlikely to be less than $5 or more than $20, so one considers the interval \([5, 20]\) and looks for the maximum of some function (revenue? profit?) on that interval.</p>
+
+  <div class="card">
+    <p class="card-label">Definition</p>
+    <p>Given a function \(f\) and some interval \([A, B]\):</p>
+    <ul class="keys">
+      <li>\(f\) has an <strong>absolute maximum</strong> at \(a\) if \(f(a) \ge f(x)\) for all \(x\) in the interval;</li>
+      <li>\(f\) has an <strong>absolute minimum</strong> at \(a\) if \(f(a) \le f(x)\) for all \(x\) in the interval.</li>
+    </ul>
+    <p>An <strong>absolute extremum</strong> is either an absolute maximum or an absolute minimum.</p>
+  </div>
+
+  <p>Usually we are given a formula for \(f\), not its graph. To find the absolute max and min, we follow the steps below.</p>
+
+  <div class="card">
+    <p class="card-label">How to find absolute extrema on an interval [A, B]</p>
+    <ol>
+      <li>Find the derivative \(f'\).</li>
+      <li>Solve \(f' = 0\) to find the critical numbers of \(f\) that lie between \(A\) and \(B\).</li>
+      <li>Plug the endpoints \(A\), \(B\) <strong>and</strong> the critical numbers into \(f\). (Not into its derivative! We are not making a sign chart here.)</li>
+      <li>Pick the greatest and smallest of the values found in step 3.</li>
+    </ol>
+    <p>Unlike in the search for local extrema, we <strong>do not need a sign chart</strong> for \(f'\). The endpoints and critical numbers form a &ldquo;list of candidates,&rdquo; and the answer is among them.</p>
+  </div>
+</section>
+
+<section id="abs1">
+  <h2><span class="marker">Example 1</span>Absolute max and min of a quotient</h2>
+
+  <div class="problem">
+    <p>Find the absolute maximum and minimum of the function \(f(x) = \dfrac{x}{x^2 + 1}\) on the interval \([0, 2]\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>The endpoints 0 and 2 are among the candidates.</p>
+      <ol class="ledger">
+        <li><span class="step">1. f&prime;</span><span class="work">\[f'(x) = \frac{(x)'(x^2+1) - (x)(x^2+1)'}{(x^2+1)^2} = \frac{x^2 + 1 - 2x^2}{(x^2+1)^2} = \frac{1 - x^2}{(x^2+1)^2}\]</span></li>
+        <li><span class="step">2. Solve</span><span class="work">\(f' = 0\) when \(1 - x^2 = 0\), so the critical numbers are 1 and \(-1\). But \(-1\) is not in \([0, 2]\): disregard it.</span></li>
+        <li><span class="step">3. Plug in</span><span class="work">three candidates, 0, 2, and 1; plug each into \(f\), not \(f'\):
+          \(f(0) = \frac{0}{0+1} = 0\), &nbsp; \(f(1) = \frac{1}{1+1} = \frac12 = 0.5\), &nbsp; \(f(2) = \frac{2}{4+1} = 0.4\)</span></li>
+        <li><span class="step">4. Pick</span><span class="work">the greatest and smallest of the \(y\) values found</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>absolute max 0.5 at x = 1; absolute min 0 at x = 0</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 400 230" role="img" aria-label="The graph of x over x squared plus 1 on the interval from 0 to 2. It starts at 0, rises to its highest value 0.5 at x equals 1, and comes down to 0.4 at x equals 2. The three candidates are marked">
+      <path class="axis" d="M132.7 180.3V188.3"/>
+      <path class="axis" d="M194.5 180.3V188.3"/>
+      <path class="axis" d="M256.4 180.3V188.3"/>
+      <path class="axis" d="M318.2 180.3V188.3"/>
+      <path class="axis" d="M66.9 157.1H74.9"/>
+      <path class="axis" d="M66.9 130H74.9"/>
+      <path class="axis" d="M66.9 102.9H74.9"/>
+      <path class="axis" d="M66.9 75.7H74.9"/>
+      <path class="axis" d="M66.9 48.6H74.9"/>
+      <path class="axis" d="M40 184.3H380"/>
+      <path class="mark" d="M384 184.3l-8 -4.5v9z"/>
+      <path class="axis" d="M70.9 206V16"/>
+      <path class="mark" d="M70.9 12l-4.5 8h9z"/>
+      <text class="label" x="382" y="202.3" style="text-anchor:end">x</text>
+      <text class="label" x="79.9" y="24">y</text>
+      <text class="label-soft" x="194.5" y="202.3" style="text-anchor:middle">1</text>
+      <text class="label-soft" x="318.2" y="202.3" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="62.9" y="134" style="text-anchor:end">0.2</text>
+      <text class="label-soft" x="62.9" y="79.7" style="text-anchor:end">0.4</text>
+      <path class="curve" d="M70.9 184.3L72.6 180.5L74.4 176.7L76.1 172.9L77.8 169.1L79.6 165.4L81.3 161.6L83 157.9L84.8 154.3L86.5 150.6L88.3 146.8L90.1 143.1L91.9 139.4L93.7 135.8L95.6 132.2L97.4 128.6L99.3 125L101.3 121.3L103.3 117.7L105.3 114.2L107.3 110.7L109.4 107.2L111.5 103.8L113.8 100.3L116 96.9L118.3 93.6L120.7 90.2L123.2 87L125.7 83.7L128.4 80.6L131.1 77.5L133.9 74.5L136.8 71.7L139.7 68.9L142.9 66.3L146.1 63.8L149.4 61.5L152.8 59.3L156.4 57.3L160 55.5L163.7 54L167.5 52.6L171.4 51.4L175.3 50.5L179.3 49.7L183.3 49.2L187.4 48.8L191.4 48.6L195.5 48.6L199.5 48.7L203.5 48.9L207.6 49.2L211.6 49.7L215.6 50.2L219.6 50.8L223.6 51.5L227.5 52.3L231.5 53.1L235.4 53.9L239.4 54.8L243.3 55.7L247.3 56.7L251.3 57.7L255.2 58.7L259.1 59.7L263 60.7L266.8 61.8L270.7 62.8L274.6 63.9L278.5 64.9L282.3 66L286.2 67.1L290.1 68.1L293.9 69.2L297.8 70.2L301.7 71.3L305.6 72.4L309.4 73.4L313.3 74.4L317.2 75.5L318.2 75.7"/>
+      <circle class="dot" cx="70.9" cy="184.3" r="4.2"/>
+      <circle class="dot" cx="194.5" cy="48.6" r="4.2"/>
+      <circle class="dot" cx="318.2" cy="75.7" r="4.2"/>
+      <text class="label-key" x="74.9" y="220.3">f(0) = 0: abs min</text>
+      <text class="label-key" x="194.5" y="36.6" style="text-anchor:middle">f(1) = 0.5: abs max</text>
+      <text class="label-soft" x="324.2" y="63.7" style="text-anchor:middle">f(2) = 0.4</text>
+    </svg>
+    <figcaption>\(f(x) = \dfrac{x}{x^2 + 1}\) on \([0, 2]\). The three candidates are the endpoints 0 and 2 and the critical number 1.</figcaption>
+  </figure>
+</section>
+
+<section id="compare">
+  <h2><span class="marker">Big picture</span>Comparison of Chapter 11 topics</h2>
+
+  <p>Four different tools for different tasks:</p>
+
+  <table>
+    <caption>Which tool to use</caption>
+    <thead>
+      <tr><th scope="col">To find&hellip;</th><th scope="col">We use&hellip;</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Increasing/decreasing</strong> intervals, <strong>local</strong> maxima and minima</td><td>Sign chart for the first derivative</td></tr>
+      <tr><td><strong>Concave</strong> up/down intervals, <strong>inflection</strong> points</td><td>Sign chart for the second derivative</td></tr>
+      <tr><td><strong>Absolute</strong> maxima and minima on an interval</td><td>Plug the critical numbers and boundaries of the interval into \(f\). No sign chart needed.</td></tr>
+      <tr><td><strong>Local</strong> maxima and minima</td><td>Second derivative test. No sign chart needed.</td></tr>
+    </tbody>
+  </table>
+
+  <p>There are relations between these.</p>
+  <ul>
+    <li>The second derivative test gives the same kind of information that we get from the sign chart for \(f'\), which is known as the <strong>first derivative test</strong>.</li>
+    <li>When a function has just <strong>one</strong> local extremum, that extremum is also absolute: one local max is the absolute max, one local min is the absolute min. This fact often simplifies the search for an absolute extremum.</li>
+  </ul>
+</section>
+
+<section id="abs2">
+  <h2><span class="marker">Example 2</span>Absolute max and min of a cubic</h2>
+
+  <div class="problem">
+    <p>Find the absolute maximum and absolute minimum values of the function \(f(x) = x^3 - 3x^2 - 9x\) on the interval \([0, 4]\).</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">1. f&prime;</span><span class="work">\(f'(x) = 3x^2 - 6x - 9 = 3(x^2 - 2x - 3) = 3(x - 3)(x + 1)\)</span></li>
+        <li><span class="step">2. Solve</span><span class="work">\(3(x - 3)(x + 1) = 0\) when \(x = 3\) or \(x = -1\). But \(-1\) is not in \([0, 4]\): disregard it.</span></li>
+        <li><span class="step">3. Plug in</span><span class="work">candidates 0, 4, and 3: &nbsp; \(f(0) = 0\), &nbsp; \(f(4) = 64 - 48 - 36 = -20\), &nbsp; \(f(3) = 27 - 27 - 27 = -27\)</span></li>
+        <li><span class="step">4. Pick</span><span class="work">the greatest is 0, the smallest is \(-27\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>absolute max 0 at x = 0; absolute min &minus;27 at x = 3</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 400 250" role="img" aria-label="The graph of x cubed minus 3 x squared minus 9x on the interval from 0 to 4. It starts at 0, falls to its lowest value negative 27 at x equals 3, and rises to negative 20 at x equals 4. The three candidates are marked">
+      <path class="axis" d="M132.1 67V75"/>
+      <path class="axis" d="M202.9 67V75"/>
+      <path class="axis" d="M273.8 67V75"/>
+      <path class="axis" d="M344.6 67V75"/>
+      <path class="axis" d="M57.2 221H65.2"/>
+      <path class="axis" d="M57.2 171H65.2"/>
+      <path class="axis" d="M57.2 121H65.2"/>
+      <path class="axis" d="M40 71H380"/>
+      <path class="mark" d="M384 71l-8 -4.5v9z"/>
+      <path class="axis" d="M61.2 226V16"/>
+      <path class="mark" d="M61.2 12l-4.5 8h9z"/>
+      <text class="label" x="382" y="89" style="text-anchor:end">x</text>
+      <text class="label" x="70.2" y="24">y</text>
+      <text class="label-soft" x="132.1" y="89" style="text-anchor:middle">1</text>
+      <text class="label-soft" x="202.9" y="89" style="text-anchor:middle">2</text>
+      <text class="label-soft" x="53.2" y="225" style="text-anchor:end">−30</text>
+      <text class="label-soft" x="53.2" y="175" style="text-anchor:end">−20</text>
+      <text class="label-soft" x="53.2" y="125" style="text-anchor:end">−10</text>
+      <path class="curve" d="M61.2 71L64.7 73.2L68 75.5L71.4 77.7L74.7 80L78 82.4L81.3 84.8L84.5 87.2L87.7 89.6L90.9 92.1L94.1 94.6L97.3 97.2L100.5 99.7L103.7 102.2L106.8 104.8L109.9 107.4L113 109.9L116.1 112.5L119.2 115.1L122.4 117.8L125.5 120.4L128.6 123L131.7 125.7L134.8 128.3L137.9 131L141.1 133.6L144.2 136.2L147.3 138.8L150.4 141.4L153.5 144L156.6 146.6L159.8 149.1L162.9 151.7L166.1 154.2L169.3 156.8L172.5 159.3L175.7 161.8L178.9 164.2L182.1 166.6L185.4 169.1L188.8 171.4L192.1 173.8L195.4 176L198.8 178.3L202.2 180.5L205.6 182.7L209.1 184.8L212.6 186.8L216 188.8L219.6 190.7L223.2 192.5L226.9 194.3L230.6 196L234.4 197.6L238.1 199.1L241.9 200.4L245.8 201.6L249.7 202.7L253.6 203.7L257.6 204.5L261.6 205.1L265.6 205.6L269.7 205.9L273.8 206L277.8 205.9L281.9 205.6L285.9 205.1L289.9 204.4L293.9 203.5L297.7 202.4L301.6 201.1L305.4 199.6L309.1 197.9L312.7 196.1L316.2 194.1L319.7 192L323.1 189.7L326.5 187.3L329.7 184.8L332.8 182.3L335.8 179.6L338.8 176.8L341.8 173.9L344.6 171"/>
+      <circle class="dot" cx="61.2" cy="71" r="4.2"/>
+      <circle class="dot" cx="273.8" cy="206" r="4.2"/>
+      <circle class="dot" cx="344.6" cy="171" r="4.2"/>
+      <text class="label-soft" x="273.8" y="63" style="text-anchor:middle">3</text>
+      <text class="label-soft" x="344.6" y="63" style="text-anchor:middle">4</text>
+      <text class="label-key" x="71.2" y="61">f(0) = 0: abs max</text>
+      <text class="label-key" x="273.8" y="226" style="text-anchor:middle">f(3) = −27: abs min</text>
+      <text class="label-soft" x="336.6" y="175" style="text-anchor:end">f(4) = −20</text>
+    </svg>
+    <figcaption>\(f(x) = x^3 - 3x^2 - 9x\) on \([0, 4]\). The candidates are 0, 3, and 4; the absolute maximum is at the endpoint 0.</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Endpoints can win</p>
+    <p>Here the absolute maximum is at an endpoint, \(x = 0\), where \(f'\) is not 0. That is why the endpoints are always on the list of candidates.</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before Friday</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Wednesday by the end of the day.</li>
+    <li><strong>Homework 11.2 is due tomorrow.</strong> The last quiz of the semester is tomorrow.</li>
+    <li>Redo both second derivative test examples with the solutions hidden.</li>
+    <li>For both absolute extremum examples, list the candidates first, then plug each one into \(f\).</li>
+    <li>Friday is the withdrawal deadline.</li>
+    <li><strong>Friday: 11.6, optimization.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 11.5 &middot; November 18</p>
+</footer>
+
+</div>
+</body>
+</html>
