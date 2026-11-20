@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 &mdash; Nov 20 &mdash; Optimization</title>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="notes.css">
+<script src="notes.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">MAT 284 &middot; Business calculus &middot; Friday, November 20</p>
+  <h1>Optimization</h1>
+  <p class="standfirst">Section 11.6. Word problems that ask for the best price, the cheapest level of production, or the largest revenue. The calculus is what we already know; the new work is building the right function and checking that the answer is a maximum, or a minimum, as asked.</p>
+</header>
+
+<nav class="jump" aria-label="Sections on this page">
+  <a href="#plan">The plan</a>
+  <a href="#profit">Maximizing profit</a>
+  <a href="#cost">Minimizing average cost</a>
+  <a href="#revenue">Maximizing revenue</a>
+  <a href="#next">Before November 30</a>
+</nav>
+
+<div class="controls">
+  <button type="button" id="toggle-all" aria-controls="content">Hide all solutions</button>
+</div>
+
+<main id="content">
+
+<!-- ===== PERISHABLE: dates and deadlines. Delete or update each semester. ===== -->
+<section aria-labelledby="admin">
+  <div class="card">
+    <p class="card-label" id="admin">Reminders</p>
+    <ul>
+      <li>Today is the <strong>withdrawal deadline</strong>.</li>
+      <li>Complete the <strong>Concept Check</strong> for Friday by the end of the day.</li>
+      <li>There are no classes next week. The next class is <strong>Monday, November 30</strong>: more of 11.6.</li>
+      <li><strong>Final exam: Friday, December 11, 12:30&ndash;2:30 PM in HBC Gifford.</strong> Sections 11.5, 11.6, and 12.1 appear on the final exam only.</li>
+    </ul>
+  </div>
+</section>
+<!-- ===== end perishable block ===== -->
+
+<section id="plan">
+  <h2><span class="marker">Method</span>Optimization word problems</h2>
+
+  <p>Goal: learn to solve word problems involving maximization or minimization. We already have the mathematical tools we need to find the maximum or minimum of a function \(f\), but there are a few other considerations.</p>
+
+  <ol type="a">
+    <li>We may have to <strong>construct the function</strong> \(f\) first: the formula stated in the problem might not be exactly the thing to maximize or minimize.</li>
+    <li>The variable of \(f\) may be <strong>constrained</strong> because of what it represents. For example, if the variable is a quantity (or a price), then it must be positive, \(x &gt; 0\).</li>
+    <li>Often we do not have a finite interval \([A, B]\) for the variable, like we did in section 11.5. Then the method of plugging all the candidates for extrema into \(f\) does not work, and we need either the sign chart for \(f'\) or the second derivative test.</li>
+  </ol>
+
+  <p>Fortunately, such word problems often have just <strong>one</strong> critical number, once we discard irrelevant ones per item (b). This implies that the local extremum we get at that point is also the absolute extremum. We just need to make sure it matches our objective: to maximize or to minimize.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 474 162" role="img" aria-label="Left, a single hill over the positive numbers: its only critical number is a local maximum, and so it is the absolute maximum. Right, a single valley: its only critical number is a local minimum, and so it is the absolute minimum">
+      <path class="curve" d="M22.5 99L24.8 95.6L27.1 92.3L29.5 89.1L31.9 85.8L34.4 82.6L36.9 79.4L39.5 76.3L42.1 73.2L44.8 70.1L47.5 67.1L50.2 64.2L53.1 61.4L55.9 58.6L58.9 55.8L61.9 53.2L65 50.6L68.2 48L71.4 45.6L74.8 43.3L78.2 41.2L81.6 39.1L85.2 37.2L88.9 35.5L92.6 33.9L96.3 32.5L100.2 31.3L104.1 30.3L108.1 29.6L112 29.1L116.1 28.8L120.1 28.8L124.1 29L128.2 29.5L132.1 30.2L136 31.1L139.9 32.2L143.7 33.6L147.4 35.1L151 36.8L154.6 38.7L158.1 40.7L161.5 42.9L164.9 45.1L168.1 47.5L171.3 50L174.5 52.6L177.5 55.3L180.5 58L183.4 60.8L186.2 63.6L189 66.6L191.7 69.6L194.4 72.7L197.1 75.7L199.6 78.9L202.1 82L204.6 85.2L207 88.4L209.4 91.7L211.8 95L214.1 98.3L214.5 99"/>
+      <circle class="dot" cx="118.5" cy="28.8" r="4.2"/>
+      <text class="label" x="118" y="134" style="text-anchor:middle">one critical number, a local max</text>
+      <text class="label-soft" x="118" y="152" style="text-anchor:middle">so it is the absolute max</text>
+      <path class="curve" d="M259.5 25L261.8 28.4L264.1 31.7L266.5 34.9L268.9 38.2L271.4 41.4L273.9 44.6L276.5 47.7L279.1 50.8L281.8 53.9L284.5 56.9L287.2 59.8L290.1 62.6L292.9 65.4L295.9 68.2L298.9 70.8L302 73.4L305.2 76L308.4 78.4L311.8 80.7L315.2 82.8L318.6 84.9L322.2 86.8L325.9 88.5L329.6 90.1L333.3 91.5L337.2 92.7L341.1 93.7L345.1 94.4L349 94.9L353.1 95.2L357.1 95.2L361.1 95L365.2 94.5L369.1 93.8L373 92.9L376.9 91.8L380.7 90.4L384.4 88.9L388 87.2L391.6 85.3L395.1 83.3L398.5 81.1L401.9 78.9L405.1 76.5L408.3 74L411.5 71.4L414.5 68.7L417.5 66L420.4 63.2L423.2 60.4L426 57.4L428.7 54.4L431.4 51.3L434.1 48.3L436.6 45.1L439.1 42L441.6 38.8L444 35.6L446.4 32.3L448.8 29L451.1 25.7L451.5 25"/>
+      <circle class="dot" cx="355.5" cy="95.2" r="4.2"/>
+      <text class="label" x="355" y="134" style="text-anchor:middle">one critical number, a local min</text>
+      <text class="label-soft" x="355" y="152" style="text-anchor:middle">so it is the absolute min</text>
+    </svg>
+    <figcaption>When there is only one critical number, the local extremum there is also the absolute one. We still need to check whether it is a maximum or a minimum.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="card-label">Plan of solution</p>
+    <ol>
+      <li>Find the function to maximize (or minimize).</li>
+      <li>Determine the constraints on its variable, if any. (Usually it&rsquo;s positive.)</li>
+      <li>Find the critical numbers.</li>
+      <li>Even if there is just one critical number, we must check that it is a maximum of the function, rather than a minimum. We can use either the <strong>first derivative test</strong> (a sign chart for \(f'\)) or the <strong>second derivative test</strong> (plug the critical number into \(f''\)).</li>
+    </ol>
+    <p>The textbook prefers the second derivative test in this section, but you can choose. At the end, check the problem statement again to make sure you answered the question(s) asked.</p>
+  </div>
+
+  <div class="note">
+    <p class="card-label">Either test works</p>
+    <p>Say 10 is the only critical number on \((0, \infty)\). A sign chart with \(+\) on \((0, 10)\) and \(-\) on \((10, \infty)\) shows a maximum. So does the second derivative test, if \(f''(10) &lt; 0\): concave down.</p>
+  </div>
+</section>
+
+<section id="profit">
+  <h2><span class="marker">Example 1</span>Maximizing profit</h2>
+
+  <div class="problem">
+    <p>The price-demand equation for some product is \(p = 30/\sqrt{x}\). The cost is $3 per unit. Find the price that will maximize the profit. Also find the maximal possible profit.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>Our goal is to maximize the profit function, which is <strong>not</strong> given to us: profit = revenue &minus; cost.</p>
+      <ol class="ledger">
+        <li><span class="step">Revenue</span><span class="work">quantity &middot; price \(= x \cdot \dfrac{30}{\sqrt{x}} = 30\sqrt{x}\)</span></li>
+        <li><span class="step">Cost</span><span class="work">\(3 \cdot \text{quantity} = 3x\)</span></li>
+        <li><span class="step">Profit</span><span class="work">revenue &minus; cost \(= 30\sqrt{x} - 3x\). This is \(f(x)\), the function to maximize.</span></li>
+        <li><span class="step">Constraint</span><span class="work">since \(x\) is a quantity, \(x &gt; 0\)</span></li>
+        <li><span class="step">f&prime;</span><span class="work">\(f'(x) = 30 \cdot \frac12 x^{-1/2} - 3 = \dfrac{15}{\sqrt{x}} - 3\)</span></li>
+        <li><span class="step">Solve</span><span class="work">\(\dfrac{15}{\sqrt{x}} - 3 = 0\), so \(15 - 3\sqrt{x} = 0\), \(15 = 3\sqrt{x}\), \(\sqrt{x} = 5\), so \(x = 25\)</span></li>
+        <li><span class="step">Check</span><span class="work">first derivative test: \(f'(1) = \frac{15}{1} - 3 = 12 &gt; 0\) and \(f'(100) = \frac{15}{10} - 3 = -1.5 &lt; 0\). Signs \((+\ -)\): a maximum.</span></li>
+        <li><span class="step">Price</span><span class="work">re-read the question: it asks for the price. \(p = \dfrac{30}{\sqrt{25}} = \dfrac{30}{5} = 6\)</span></li>
+        <li><span class="step">Profit</span><span class="work">\(30\sqrt{25} - 3 \cdot 25 = 30 \cdot 5 - 75 = 75\)</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>price $6; maximal profit $75</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 420 230" role="img" aria-label="The profit 30 square root of x minus 3x for quantities from 0 to about 100. It rises to a single peak at x equals 25, where the profit is 75, and then falls">
+      <path class="axis" d="M125 183.4V191.4"/>
+      <path class="axis" d="M205.9 183.4V191.4"/>
+      <path class="axis" d="M286.9 183.4V191.4"/>
+      <path class="axis" d="M367.8 183.4V191.4"/>
+      <path class="axis" d="M40 140.8H48"/>
+      <path class="axis" d="M40 94.2H48"/>
+      <path class="axis" d="M40 47.7H48"/>
+      <path class="axis" d="M44 187.4H384"/>
+      <path class="mark" d="M388 187.4l-8 -4.5v9z"/>
+      <path class="axis" d="M44 206V16"/>
+      <path class="mark" d="M44 12l-4.5 8h9z"/>
+      <text class="label" x="386" y="205.4" style="text-anchor:end">x</text>
+      <text class="label" x="53" y="24">P</text>
+      <text class="label-soft" x="125" y="205.4" style="text-anchor:middle">25</text>
+      <text class="label-soft" x="205.9" y="205.4" style="text-anchor:middle">50</text>
+      <text class="label-soft" x="286.9" y="205.4" style="text-anchor:middle">75</text>
+      <text class="label-soft" x="36" y="144.8" style="text-anchor:end">25</text>
+      <text class="label-soft" x="36" y="98.2" style="text-anchor:end">50</text>
+      <text class="label-soft" x="36" y="51.7" style="text-anchor:end">75</text>
+      <path class="curve" d="M44 187.4L44.1 177.2L44.2 173L44.4 167.3L44.7 163L45 157.9L45.3 153.7L45.8 148.9L46.2 144.7L46.8 140.2L47.4 136.2L48 131.9L48.8 127.5L49.6 123.5L50.5 119.4L51.5 115.2L52.6 111L53.9 106.8L55.2 102.7L56.7 98.7L58.3 94.7L59.9 90.9L61.7 87.2L63.6 83.6L65.8 80L68 76.6L70.5 73.3L73.1 70.1L75.9 67L78.8 64.2L81.9 61.6L85.2 59.1L88.6 57L92.2 55L95.9 53.2L99.7 51.7L103.5 50.5L107.4 49.5L111.4 48.7L115.4 48.2L119.4 47.8L123.5 47.7L127.5 47.7L131.6 47.9L135.6 48.2L139.6 48.7L143.7 49.3L147.7 50.1L151.7 50.9L155.6 51.9L159.5 53L163.4 54.1L167.3 55.3L171.1 56.6L174.9 58L178.7 59.4L182.5 60.9L186.2 62.5L189.9 64.1L193.6 65.7L197.3 67.4L201 69.2L204.6 71L208.2 72.8L211.8 74.7L215.4 76.6L219 78.6L222.6 80.6L226.1 82.6L229.6 84.6L233 86.6L236.5 88.7L240 90.9L243.5 93L247 95.2L250.4 97.4L253.8 99.6L257.2 101.8L260.5 104.1L263.9 106.4L267.3 108.7L270.6 111L274 113.3L277.4 115.7L280.7 118.1L284 120.5L287.3 122.8L290.5 125.2L293.8 127.6L297 130.1L300.3 132.5L303.5 135L306.8 137.5L310 140L313.3 142.5L316.6 145L319.7 147.5L322.8 150L326 152.5L329.1 155.1L332.3 157.6L335.4 160.2L338.6 162.7L341.7 165.3L344.8 167.9L348 170.5L351.1 173.2L354.3 175.8L357.4 178.5L360.6 181.1L363.7 183.8L366.8 186.5L369.9 189.2L372.9 191.8L375.9 194.4L379 197.1L380.8 198.7"/>
+      <path class="helper" d="M125 187.4L125 47.7"/>
+      <circle class="dot" cx="125" cy="47.7" r="4.2"/>
+      <text class="label-key" x="135" y="39.7">(25, 75): maximum profit</text>
+    </svg>
+    <figcaption>The profit \(30\sqrt{x} - 3x\) has a single peak, at \(x = 25\), where the price is \(p = 30/\sqrt{25} = 6\).</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">The variable does not have to be the price</p>
+    <p>Even though the question asks for the price, it need not be our variable. We can find the optimal \(x\), and then use the demand equation to find \(p\).</p>
+  </div>
+</section>
+
+<section id="cost">
+  <h2><span class="marker">Example 2</span>Minimizing average cost</h2>
+
+  <p>Minimizing the <strong>total</strong> cost is usually not an interesting problem: producing nothing (quantity = 0) probably achieves that. Minimizing the <strong>average</strong> cost (total/quantity) is more interesting.</p>
+
+  <div class="problem">
+    <p>The total cost is \(C(x) = x^2 + 12x + 1600\). What quantity \(x\) will minimize the average cost?</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <p>First decide what our function \(f(x)\) should be: the <strong>average</strong> cost, not the total.</p>
+      <ol class="ledger">
+        <li><span class="step">Function</span><span class="work">\(f(x) = \dfrac{\text{total}}{x} = \dfrac{x^2 + 12x + 1600}{x} = x + 12 + 1600x^{-1}\)</span></li>
+        <li><span class="step">Constraint</span><span class="work">we consider \(x &gt; 0\), since \(x\) is a quantity</span></li>
+        <li><span class="step">f&prime;</span><span class="work">\(f'(x) = 1 + 0 + 1600(-1)x^{-2} = 1 - \dfrac{1600}{x^2}\)</span></li>
+        <li><span class="step">Solve</span><span class="work">\(1 - \dfrac{1600}{x^2} = 0\), so \(x^2 = 1600\): \(x = 40\), or \(x = -40\), which is disregarded since we only need \(x &gt; 0\)</span></li>
+        <li><span class="step">Check</span><span class="work">second derivative test: \(f''(x) = 0 - 1600(-2)x^{-3} = \dfrac{3200}{x^3}\), and \(f''(40) = \dfrac{3200}{40^3} &gt; 0\): concave up, a minimum</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>x = 40 minimizes the average cost</p>
+      <p>The minimal average cost itself is \(f(40) = 40 + 12 + \frac{1600}{40} = 92\).</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 420 230" role="img" aria-label="The average cost x plus 12 plus 1600 over x. It falls steeply from the left, reaches a single lowest point at x equals 40 with value 92, then rises slowly">
+      <path class="axis" d="M129 202V210"/>
+      <path class="axis" d="M214 202V210"/>
+      <path class="axis" d="M299 202V210"/>
+      <path class="axis" d="M384 202V210"/>
+      <path class="axis" d="M40 158.5H48"/>
+      <path class="axis" d="M40 111H48"/>
+      <path class="axis" d="M40 63.5H48"/>
+      <path class="axis" d="M44 206H384"/>
+      <path class="mark" d="M388 206l-8 -4.5v9z"/>
+      <path class="axis" d="M44 206V16"/>
+      <path class="mark" d="M44 12l-4.5 8h9z"/>
+      <text class="label" x="386" y="224" style="text-anchor:end">x</text>
+      <text class="label" x="53" y="24">C̄</text>
+      <text class="label-soft" x="129" y="224" style="text-anchor:middle">40</text>
+      <text class="label-soft" x="214" y="224" style="text-anchor:middle">80</text>
+      <text class="label-soft" x="299" y="224" style="text-anchor:middle">120</text>
+      <text class="label-soft" x="36" y="162.5" style="text-anchor:end">50</text>
+      <text class="label-soft" x="36" y="115" style="text-anchor:end">100</text>
+      <text class="label-soft" x="36" y="67.5" style="text-anchor:end">150</text>
+      <path class="curve" d="M67.4 46L68.2 50.4L69 54.4L70 58.7L70.9 62.6L72 66.6L73.1 70.6L74.4 74.6L75.7 78.5L77.2 82.4L78.7 86.1L80.5 89.8L82.5 93.4L84.7 97L87.1 100.3L89.7 103.4L92.5 106.3L95.6 108.9L98.9 111.2L102.5 113.2L106.2 114.9L110.1 116.2L114 117.2L118 117.9L122 118.3L126.1 118.6L130.2 118.6L134.2 118.5L138.3 118.2L142.3 117.8L146.4 117.3L150.4 116.7L154.3 116L158.3 115.2L162.2 114.4L166.2 113.5L170.1 112.6L174.1 111.6L178.1 110.6L182 109.5L185.9 108.4L189.7 107.3L193.6 106.1L197.4 105L201.3 103.8L205.1 102.5L209 101.3L212.8 100L216.7 98.7L220.5 97.4L224.4 96L228.2 94.7L232.1 93.3L236 92L239.8 90.6L243.7 89.2L247.5 87.7L251.4 86.3L255.1 84.9L258.9 83.5L262.6 82.1L266.4 80.7L270.1 79.2L273.9 77.8L277.6 76.3L281.4 74.9L285.1 73.4L288.8 71.9L292.6 70.5L296.3 69L300.1 67.5L303.8 66L307.6 64.5L311.3 63L315.1 61.5L318.8 60L322.6 58.5L326.3 56.9L330.1 55.4L333.8 53.9L337.6 52.4L341.3 50.8L345.1 49.3L348.8 47.7L352.6 46.2L356.3 44.6L360.1 43.1L363.8 41.5L367.6 40L371.3 38.4L375.1 36.8L378.8 35.3L379.8 34.9"/>
+      <path class="helper" d="M129 206L129 118.6"/>
+      <circle class="dot" cx="129" cy="118.6" r="4.2"/>
+      <text class="label-key" x="139" y="138.6">(40, 92): minimum average cost</text>
+    </svg>
+    <figcaption>The average cost \(x + 12 + 1600/x\) is lowest at \(x = 40\).</figcaption>
+  </figure>
+</section>
+
+<section id="revenue">
+  <h2><span class="marker">Example 3</span>Maximizing revenue</h2>
+
+  <div class="problem">
+    <p>The price-demand equation for some product is \(x = 60e^{-0.02p}\). Find the price that will maximize the revenue.</p>
+  </div>
+
+  <details class="sol" open>
+    <summary>Show solution</summary>
+    <div class="sol-body">
+      <ol class="ledger">
+        <li><span class="step">Function</span><span class="work">\(f(p) = \text{revenue} = x \cdot p = 60p\,e^{-0.02p}\)</span></li>
+        <li><span class="step">Constraint</span><span class="work">consider only \(p &gt; 0\)</span></li>
+        <li><span class="step">f&prime;</span><span class="work">product rule, with \(\left(e^{\square}\right)' = e^{\square} \cdot \square'\) and (inner)&prime; \(= -0.02\):
+          \[f'(p) = (60p)'e^{-0.02p} + 60p\left(e^{-0.02p}\right)' = 60e^{-0.02p} + 60p \cdot e^{-0.02p} \cdot (-0.02) = e^{-0.02p}(60 - 1.2p)\]</span></li>
+        <li><span class="step">Solve</span><span class="work">\(e^{\square} &gt; 0\), so \(f' = 0\) only when \(60 - 1.2p = 0\): \(p = \dfrac{60}{1.2} = 50\)</span></li>
+        <li><span class="step">Check</span><span class="work">the first derivative test is much better here, since \(f''\) is hard to find: \(f'(10) = e^{\square}(60 - 12) &gt; 0\) and \(f'(100) = e^{\square}(60 - 120) &lt; 0\). Signs \((+\ -)\): a maximum.</span></li>
+      </ol>
+      <p class="answer"><span class="tag">Answer</span>p = $50 will maximize the revenue</p>
+      <p>The maximal revenue itself is \(60 \cdot 50 \cdot e^{-1} = 3000/e \approx \$1103.64\).</p>
+    </div>
+  </details>
+
+  <figure class="fig">
+    <svg viewBox="0 0 420 230" role="img" aria-label="The revenue 60 p e to the minus 0.02 p for prices from 0 to 200. It rises to a single peak at p equals 50, about 1104, then slowly decreases">
+      <path class="axis" d="M130.6 191V199"/>
+      <path class="axis" d="M209.1 191V199"/>
+      <path class="axis" d="M287.7 191V199"/>
+      <path class="axis" d="M366.3 191V199"/>
+      <path class="axis" d="M48 126.1H56"/>
+      <path class="axis" d="M48 57.3H56"/>
+      <path class="axis" d="M52 195H382"/>
+      <path class="mark" d="M386 195l-8 -4.5v9z"/>
+      <path class="axis" d="M52 206V16"/>
+      <path class="mark" d="M52 12l-4.5 8h9z"/>
+      <text class="label" x="384" y="213" style="text-anchor:end">p</text>
+      <text class="label" x="61" y="24">R</text>
+      <text class="label-soft" x="130.6" y="213" style="text-anchor:middle">50</text>
+      <text class="label-soft" x="209.1" y="213" style="text-anchor:middle">100</text>
+      <text class="label-soft" x="287.7" y="213" style="text-anchor:middle">150</text>
+      <text class="label-soft" x="44" y="130.1" style="text-anchor:end">500</text>
+      <text class="label-soft" x="44" y="61.3" style="text-anchor:end">1000</text>
+      <path class="curve" d="M52 195L52.8 191L53.6 186.6L54.5 182.2L55.4 178L56.2 173.8L57.1 169.8L58 165.8L59 161.4L60 157.2L60.9 153.1L61.9 149L62.9 145.1L64 140.9L65.1 136.8L66.2 132.8L67.3 128.9L68.5 124.8L69.7 120.9L70.8 117L72.2 113L73.5 109.1L74.9 105.1L76.3 101.2L77.8 97.3L79.3 93.5L81 89.6L82.7 85.7L84.5 82.1L86.3 78.4L88.3 74.8L90.4 71.2L92.5 67.8L94.8 64.5L97.3 61.2L99.9 58.1L102.8 55.1L105.8 52.4L109.1 49.9L112.6 47.7L116.2 45.9L120 44.5L123.9 43.6L127.9 43.1L132 43.1L136 43.4L140 44.1L144 45L147.9 46.2L151.7 47.6L155.4 49.2L159.1 50.9L162.7 52.8L166.3 54.7L169.8 56.7L173.3 58.8L176.8 60.9L180.1 63.1L183.5 65.3L186.9 67.6L190.3 69.9L193.6 72.2L197 74.6L200.4 77L203.7 79.3L206.9 81.6L210.2 83.9L213.5 86.3L216.7 88.6L220 90.9L223.4 93.3L226.8 95.6L230.1 98L233.5 100.3L236.9 102.6L240.3 104.9L243.6 107.1L247 109.3L250.4 111.5L253.8 113.6L257.3 115.8L260.8 118L264.2 120.1L267.7 122.2L271.2 124.2L274.7 126.2L278.3 128.2L281.9 130.2L285.5 132.1L289.1 134L292.7 135.8L296.3 137.7L299.9 139.4L303.6 141.2L307.3 142.9L311 144.6L314.7 146.2L318.4 147.8L322.1 149.3L325.9 150.9L329.7 152.4L333.5 153.9L337.3 155.3L341.2 156.7L345 158L348.8 159.3L352.6 160.5L356.4 161.8L360.3 163L364.3 164.1L368.2 165.3L372.1 166.4L376 167.4L378.9 168.2"/>
+      <path class="helper" d="M130.6 195L130.6 43"/>
+      <circle class="dot" cx="130.6" cy="43" r="4.2"/>
+      <text class="label-key" x="140.6" y="35">p = 50: maximum revenue</text>
+    </svg>
+    <figcaption>The revenue \(60p\,e^{-0.02p}\) is largest at the price \(p = 50\).</figcaption>
+  </figure>
+
+  <div class="note">
+    <p class="card-label">Sign of a factored derivative</p>
+    <p>Writing \(f'(p) = e^{-0.02p}(60 - 1.2p)\) makes the test easy: the exponential factor is always positive, so the sign of \(f'\) is the sign of \(60 - 1.2p\).</p>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="marker">Follow-up</span>Before November 30</h2>
+  <ul class="checklist">
+    <li>Complete the Concept Check for Friday by the end of the day.</li>
+    <li>Redo the three examples with the solutions hidden. For each one, write down the function to optimize and its constraint before taking any derivative.</li>
+    <li>For Example 1, check the maximum with the second derivative test instead of the sign chart.</li>
+    <li>After answering, re-read each question: did it ask for \(x\), the price, or the optimal value?</li>
+    <li><strong>Monday, November 30: more of 11.6.</strong></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>MAT 284 &middot; Section 11.6 &middot; November 20</p>
+</footer>
+
+</div>
+</body>
+</html>
