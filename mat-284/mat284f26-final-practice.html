@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 284 Final exam practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f7faf6; --ink: #101a14; --muted: #45534a; --rule: #bfd0c3;
+  --grid: #d6e2d8; --grid-major: #b6c9ba; --accent: #1f5a3e; --reveal-bg: #e8f0ea;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0c110e; --ink: #f1f6f2; --muted: #b6c4bb; --rule: #33463a;
+    --grid: #1a241e; --grid-major: #30433a; --accent: #9edbbb; --reveal-bg: #16201a;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  font-size: 1.0625rem; line-height: 1.6;
+}
+.masthead {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem; }
+.masthead .wrap { padding-top: 2.75rem; padding-bottom: 1.75rem; }
+.course { margin: 0; color: var(--muted); font-size: 1rem; }
+h1 { margin: 0.15rem 0 0.75rem; font-weight: 600; font-size: clamp(2.1rem, 6vw, 3.1rem);
+     line-height: 1.1; letter-spacing: -0.01em; }
+.scope { margin: 0 0 1.25rem; max-width: 38rem; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+button {
+  font: inherit; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem;
+  color: var(--accent); background: var(--paper); border: 1px solid var(--accent);
+  border-radius: 3px; padding: 0.35rem 0.8rem; cursor: pointer;
+}
+button:hover { background: var(--reveal-bg); }
+button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+ol.problems { list-style: none; margin: 0; padding: 0; counter-reset: prob; }
+li.problem {
+  counter-increment: prob; position: relative;
+  padding: 1.4rem 0 1.4rem 3.25rem; border-bottom: 1px solid var(--rule);
+}
+li.problem::before {
+  content: counter(prob); position: absolute; left: 0; top: 1.2rem; width: 2.4rem; text-align: right;
+  font-size: 1.6rem; font-weight: 600; color: var(--accent); line-height: 1.2;
+}
+.statement { margin: 0; }
+ol.parts { list-style: none; margin: 0.4rem 0 0; padding: 0; counter-reset: part; }
+ol.parts li { counter-increment: part; padding-left: 2rem; text-indent: -2rem; margin: 0.15rem 0; }
+ol.parts li::before { content: "(" counter(part, lower-alpha) ")"; display: inline-block; width: 2rem; text-indent: 0; }
+details.reveal { margin-top: 0.6rem; }
+details.reveal + details.reveal { margin-top: 0.35rem; }
+summary {
+  display: inline-block; cursor: pointer; list-style: none; color: var(--accent);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem;
+}
+summary::-webkit-details-marker { display: none; }
+summary::before { content: "\25B8"; display: inline-block; width: 1.1em; }
+details[open] > summary::before { content: "\25BE"; }
+.reveal .body {
+  margin-top: 0.4rem; padding: 0.6rem 0.9rem; background: var(--reveal-bg);
+  border-left: 3px solid var(--accent); overflow-x: auto;
+}
+.reveal .body p { margin: 0.35rem 0; }
+mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.fig { margin: 0.75rem 0 0.35rem; }
+.fig svg { display: block; width: 100%; height: auto; }
+.fig .grid { stroke: var(--grid-major); stroke-width: 1; }
+.fig .axis { stroke: var(--muted); stroke-width: 1.4; }
+.fig .arrow { fill: var(--muted); }
+.fig .curve { stroke: var(--accent); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.fig .dot { fill: var(--accent); }
+.fig .hole { fill: var(--paper); stroke: var(--accent); stroke-width: 2; }
+.fig text { paint-order: stroke; stroke: var(--paper); stroke-width: 3px; stroke-linejoin: round; fill: var(--muted); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 12px; }
+.fig text.var { fill: var(--ink); font-family: "Source Serif 4", Georgia, serif; font-style: italic; font-size: 15px; }
+table.vals { border-collapse: collapse; margin: 0.75rem 0 0.35rem; font-variant-numeric: tabular-nums; }
+table.vals th, table.vals td { border: 1px solid var(--rule); padding: 0.2rem 0.9rem; text-align: center; }
+table.vals th { font-weight: 400; background: var(--reveal-bg); }
+@media (max-width: 34rem) {
+  li.problem { padding-left: 0; }
+  li.problem::before { position: static; display: block; width: auto; text-align: left; margin-bottom: 0.25rem; }
+  table.vals th, table.vals td { padding: 0.2rem 0.55rem; }
+}
+@media print {
+  :root {
+    --paper: #f7faf6; --ink: #101a14; --muted: #45534a; --rule: #bfd0c3;
+    --grid: #d6e2d8; --grid-major: #b6c9ba; --accent: #1f5a3e; --reveal-bg: #e8f0ea;
+    color-scheme: light;
+  }
+  .toolbar, details.reveal:not([open]) { display: none; }
+  .masthead { background: none; }
+  summary { cursor: auto; font-weight: 600; break-after: avoid; }
+  details.reveal[open] > summary::before { content: none; }
+  .reveal .body { overflow: visible; }
+  li.problem { break-inside: avoid; }
+  li.problem:has(details[open]) { break-inside: auto; }
+  .reveal .body p { break-inside: avoid; }
+}
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="course">MAT 284 Business Calculus</p>
+    <h1>Final exam practice</h1>
+    <div class="toolbar" role="group" aria-label="Show or hide answers and solutions">
+      <button type="button" data-act="answers">Show all answers</button>
+      <button type="button" data-act="solutions">Show all solutions</button>
+      <button type="button" data-act="hide">Hide all</button>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <ol class="problems">
+    <li class="problem" id="problem-1">
+      <p class="statement">Suppose that \(f(2)=8\), \(f'(2)=3\), \(g(2)=4\), and \(g'(2)=-2\).</p>
+      <ol class="parts">
+        <li>Let \(H(x)=f(x)\,g(x)\). Find \(H'(2)\).</li>
+        <li>Let \(Q(x)=\dfrac{f(x)}{g(x)}\). Find \(Q'(2)\).</li>
+        <li>Find the equation of the line tangent to the graph of \(y=Q(x)\) at \(x=2\).</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(-4\) &nbsp;&nbsp; (b) \(\tfrac74\) &nbsp;&nbsp; (c) \(y=\tfrac74x-\tfrac32\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Product rule: \(H'(2)=f'(2)g(2)+f(2)g'(2)=3\cdot 4+8\cdot(-2)=-4\).</p>
+  <p>(b) Quotient rule:</p>
+  \[Q'(2)=\frac{f'(2)g(2)-f(2)g'(2)}{g(2)^2}=\frac{3\cdot 4-8\cdot(-2)}{4^2}=\frac{28}{16}=\frac74.\]
+  <p>(c) \(Q(2)=\dfrac84=2\), so the tangent line is \(y-2=\tfrac74(x-2)\), that is,
+  \(y=\tfrac74x-\tfrac32\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-2">
+      <p class="statement">Answer each question about continuous compounding.</p>
+      <ol class="parts">
+        <li>$6,000 is invested at 4.5% compounded continuously. Find its value after 10 years, to the nearest dollar.</li>
+        <li>How long does it take the investment in (a) to double? Round to the nearest tenth of a year.</li>
+        <li>An investment of $5,000 grows to $15,000 in 20 years with continuous compounding. Find the annual rate, to the
+   nearest hundredth of a percent.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) $9,410 &nbsp;&nbsp; (b) 15.4 years &nbsp;&nbsp; (c) \(r=\dfrac{\ln 3}{20}\approx 5.49\%\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(A=Pe^{rt}=6000e^{0.045\cdot 10}=6000e^{0.45}\approx 9409.87\).</p>
+  <p>(b) Solve \(6000e^{0.045t}=12000\): \(e^{0.045t}=2\), so \(t=\dfrac{\ln 2}{0.045}\approx 15.4\) years.</p>
+  <p>(c) \(15000=5000e^{20r}\) gives \(e^{20r}=3\), so \(r=\dfrac{\ln 3}{20}\approx 0.0549=5.49\%\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-3">
+      <p class="statement">The marginal revenue function for a product is \(R'(x)=80+6x-0.3x^2\), where \(x\) is the number of units sold.
+  Find the revenue function \(R(x)\), and then the price-demand equation.</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(R(x)=80x+3x^2-0.1x^3\); price-demand equation \(p=80+3x-0.1x^2\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Antidifferentiate: \(R(x)=80x+3x^2-0.1x^3+K\). Since \(R(0)=0\), \(K=0\).</p>
+  <p>Revenue is price times quantity, \(R=xp\), so \(p=\dfrac{R(x)}{x}=80+3x-0.1x^2\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-4">
+      <p class="statement">Let \(f(x)=\dfrac{2x-4}{x+3}\).</p>
+      <ol class="parts">
+        <li>Find the equation of the vertical asymptote of \(f\).</li>
+        <li>Find and simplify \(f(x+2)\).</li>
+        <li>Find \(\displaystyle\lim_{x\to\infty}f(x)\).</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(x=-3\) &nbsp;&nbsp; (b) \(\dfrac{2x}{x+5}\) &nbsp;&nbsp; (c) \(2\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) The denominator is zero at \(x=-3\), and the numerator is not (it equals \(-10\) there), so the
+  vertical asymptote is \(x=-3\).</p>
+  <p>(b) \(f(x+2)=\dfrac{2(x+2)-4}{(x+2)+3}=\dfrac{2x}{x+5}\).</p>
+  <p>(c) The numerator and denominator have the same degree, so the limit is the ratio of the leading
+  coefficients: \(\tfrac21=2\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-5">
+      <p class="statement">Use a sign chart to solve each inequality. Write the answer in interval notation.</p>
+      <ol class="parts">
+        <li>\(x^2-2x-15\lt 0\)</li>
+        <li>\(\dfrac{x^2-4}{x-3}\ge 0\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \((-3,5)\) &nbsp;&nbsp; (b) \([-2,2]\cup(3,\infty)\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(x^2-2x-15=(x-5)(x+3)\), with partition numbers \(-3\) and \(5\). Test points: \(x=-4\) gives
+  \(9\gt 0\), \(x=0\) gives \(-15\lt 0\), \(x=6\) gives \(9\gt 0\). The expression is negative on \((-3,5)\); the
+  endpoints are excluded because the inequality is strict.</p>
+  <p>(b) The numerator is zero at \(x=\pm2\) (included, since the inequality is \(\ge\)); the denominator is zero
+  at \(x=3\) (excluded). Test points: \(x=-3\) gives \(-\tfrac56\lt 0\); \(x=0\) gives \(\tfrac43\gt 0\);
+  \(x=2.5\) gives \(-4.5\lt 0\); \(x=4\) gives \(12\gt 0\). So the solution set is \([-2,2]\cup(3,\infty)\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-6">
+      <p class="statement">Answer each question about tangent lines.</p>
+      <ol class="parts">
+        <li>Find the equation of the line tangent to \(y=3\ln x+x^2\) at \(x=1\).</li>
+        <li>Let \(f(x)=2x^3+3x^2-12x+5\). Find the equation of the tangent line at \(x=2\), and find all values of \(x\)
+   where the tangent line is horizontal.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(y=5x-4\) &nbsp;&nbsp; (b) \(y=24x-39\); horizontal at \(x=-2\) and \(x=1\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) At \(x=1\), \(y=3\ln 1+1=1\). Since \(y'=\dfrac3x+2x\), the slope is \(3+2=5\). The tangent line is
+  \(y-1=5(x-1)\), that is, \(y=5x-4\).</p>
+  <p>(b) \(f'(x)=6x^2+6x-12\). At \(x=2\): \(f(2)=16+12-24+5=9\) and \(f'(2)=24+12-12=24\), so the tangent line is
+  \(y-9=24(x-2)\), that is, \(y=24x-39\). The tangent line is horizontal where \(f'(x)=0\):
+  \(6(x^2+x-2)=6(x+2)(x-1)=0\), so \(x=-2\) or \(x=1\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-7">
+      <p class="statement">Solve each equation for \(x\). Give exact answers.</p>
+      <ol class="parts">
+        <li>\(3\cdot 10^{2x}-5=40\)</li>
+        <li>\(4e^{3x-1}=20\)</li>
+        <li>\(\log_3x+\log_3(x-8)=2\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(x=\dfrac{\log 15}{2}\approx 0.588\) &nbsp;&nbsp; (b) \(x=\dfrac{1+\ln 5}{3}\approx 0.870\)
+  &nbsp;&nbsp; (c) \(x=9\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(3\cdot 10^{2x}=45\), so \(10^{2x}=15\). Taking the common logarithm, \(2x=\log 15\), so
+  \(x=\tfrac12\log 15\).</p>
+  <p>(b) \(e^{3x-1}=5\). Taking \(\ln\), \(3x-1=\ln 5\), so \(x=\dfrac{1+\ln 5}{3}\).</p>
+  <p>(c) Combine the logarithms: \(\log_3\bigl(x(x-8)\bigr)=2\), so \(x(x-8)=3^2=9\). Then
+  \(x^2-8x-9=(x-9)(x+1)=0\). Reject \(x=-1\), because \(\log_3(-1)\) is undefined. So \(x=9\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-8">
+      <p class="statement">Let
+  \[f(x)=\begin{cases}6, & x\lt 2\\ 3x, & 2\le x\le 4\\ x^2-2, & x\gt 4.\end{cases}\]
+  Find \(\displaystyle\lim_{x\to 2^-}f(x)\), \(\displaystyle\lim_{x\to 2^+}f(x)\), \(\displaystyle\lim_{x\to 4^-}f(x)\),
+  and \(\displaystyle\lim_{x\to 4^+}f(x)\). Then find all points of discontinuity of \(f\), and explain.</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(6\), \(6\), \(12\), \(14\); \(f\) is discontinuous only at \(x=4\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Near \(x=2\): from the left \(f(x)=6\), and from the right \(3x\to 6\). Both one-sided limits equal
+  \(f(2)=6\), so \(f\) is continuous at \(x=2\). Near \(x=4\): from the left \(3x\to 12\), and from the right
+  \(x^2-2\to 14\). The one-sided limits differ, so \(f\) is discontinuous at \(x=4\). Each formula is continuous on
+  its own interval, so there are no other discontinuities.</p></div></details>
+    </li>
+    <li class="problem" id="problem-9">
+      <p class="statement">A store has 120 units of a product in stock. The product now sells for $15 per unit; next month the price
+  will rise to $18 per unit. The store wants the total revenue from all 120 units to be at least $1,956. What is
+  the largest number of units it can sell this month? (State an inequality, then solve it.)</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>68 units</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>If \(x\) units are sold this month at $15, the remaining \(120-x\) units are sold next month at $18. The
+  revenue condition is</p>
+  \[15x+18(120-x)\ge 1956,\qquad\text{that is,}\qquad 2160-3x\ge 1956.\]
+  <p>So \(-3x\ge -204\). Dividing by \(-3\) reverses the inequality: \(x\le 68\). At most 68 units can be sold this
+  month.</p></div></details>
+    </li>
+    <li class="problem" id="problem-10">
+      <p class="statement">Let \(f(x)=x^4-4x^3-18x^2+7\).</p>
+      <ol class="parts">
+        <li>Find the second derivative \(f''(x)\).</li>
+        <li>Find the intervals on which \(f\) is concave up and the intervals on which it is concave down. Then find the
+   \(x\)-coordinates of the inflection points of \(f\).</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(f''(x)=12x^2-24x-36\) &nbsp;&nbsp; (b) Concave up on \((-\infty,-1)\) and \((3,\infty)\); concave down on
+  \((-1,3)\). Inflection points at \(x=-1\) and \(x=3\).</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(f'(x)=4x^3-12x^2-36x\) and \(f''(x)=12x^2-24x-36\).</p>
+  <p>(b) \(f''(x)=12(x^2-2x-3)=12(x-3)(x+1)\), which is zero at \(x=-1\) and \(x=3\). Test points:
+  \(f''(-2)=60\gt 0\), \(f''(0)=-36\lt 0\), \(f''(4)=60\gt 0\). The concavity changes at both points, so both are
+  inflection points.</p></div></details>
+    </li>
+    <li class="problem" id="problem-11">
+      <p class="statement">The total cost and the total revenue, in dollars, for producing and selling \(x\) toasters are
+  \[C(x)=10x+3000\qquad\text{and}\qquad R(x)=50x-0.1x^2.\]</p>
+      <ol class="parts">
+        <li>Find the value of \(x\) where the graph of \(R\) has a horizontal tangent line.</li>
+        <li>Find the profit function \(P(x)\).</li>
+        <li>Find the marginal profit at \(x=150\).</li>
+        <li>Find the value of \(x\) where the graph of \(P\) has a horizontal tangent line.</li>
+        <li>Find the break-even points.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(x=250\) &nbsp;&nbsp; (b) \(P(x)=-0.1x^2+40x-3000\) &nbsp;&nbsp; (c) $10 &nbsp;&nbsp; (d) \(x=200\)
+  &nbsp;&nbsp; (e) \(x=100\) and \(x=300\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(R'(x)=50-0.2x=0\) gives \(x=250\).</p>
+  <p>(b) \(P(x)=R(x)-C(x)=50x-0.1x^2-10x-3000=-0.1x^2+40x-3000\).</p>
+  <p>(c) \(P'(x)=40-0.2x\), so \(P'(150)=10\): selling the 151st toaster adds about $10 to the profit.</p>
+  <p>(d) \(P'(x)=0\) gives \(x=200\).</p>
+  <p>(e) \(P(x)=0\): multiply by \(-10\) to get \(x^2-400x+30000=0\), which factors as \((x-100)(x-300)=0\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-12">
+      <p class="statement">Find the derivative of each function. You do not need to simplify the answers.</p>
+      <ol class="parts">
+        <li>\(y=(5x-2)^7\)</li>
+        <li>\(y=\sqrt{2x^3+5x}\)</li>
+        <li>\(y=\left(x^2+\dfrac{3}{x}\right)^5\)</li>
+        <li>\(y=\dfrac{1}{(x^2+2x+3)^3}\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(35(5x-2)^6\) &nbsp;&nbsp; (b) \(\dfrac{6x^2+5}{2\sqrt{2x^3+5x}}\) &nbsp;&nbsp;
+  (c) \(5\left(x^2+\dfrac3x\right)^4\left(2x-\dfrac{3}{x^2}\right)\) &nbsp;&nbsp;
+  (d) \(-\dfrac{3(2x+2)}{(x^2+2x+3)^4}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Each function is a power of an inner function \(u\), so \(\dfrac{d}{dx}\left[u^n\right]=nu^{n-1}u'\).</p>
+  <p>(a) \(y'=7(5x-2)^6\cdot 5=35(5x-2)^6\).</p>
+  <p>(b) \(y=(2x^3+5x)^{1/2}\), so \(y'=\tfrac12(2x^3+5x)^{-1/2}(6x^2+5)=\dfrac{6x^2+5}{2\sqrt{2x^3+5x}}\).</p>
+  <p>(c) The inner function is \(x^2+3x^{-1}\), with derivative \(2x-3x^{-2}\):
+  \(y'=5\left(x^2+\tfrac3x\right)^4\left(2x-\tfrac{3}{x^2}\right)\).</p>
+  <p>(d) \(y=(x^2+2x+3)^{-3}\), so \(y'=-3(x^2+2x+3)^{-4}(2x+2)\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-13">
+      <p class="statement">Find the indefinite integrals.</p>
+      <ol class="parts">
+        <li>\(\displaystyle\int\left(12x^3-6e^x+\frac12\right)dx\)</li>
+        <li>\(\displaystyle\int\left(\frac4x+9e^x-7\right)dx\)</li>
+        <li>\(\displaystyle\int\left(5\sqrt{x}+\frac{2}{x^3}-\frac3x\right)dx\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(3x^4-6e^x+\tfrac12x+C\) &nbsp;&nbsp; (b) \(4\ln|x|+9e^x-7x+C\) &nbsp;&nbsp;
+  (c) \(\tfrac{10}{3}x^{3/2}-x^{-2}-3\ln|x|+C\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Use \(\displaystyle\int x^n\,dx=\frac{x^{n+1}}{n+1}+C\) for \(n\ne-1\),
+  \(\displaystyle\int\frac1x\,dx=\ln|x|+C\), and \(\displaystyle\int e^x\,dx=e^x+C\).</p>
+  <p>(a) \(12\cdot\dfrac{x^4}{4}-6e^x+\dfrac12x+C=3x^4-6e^x+\tfrac12x+C\).</p>
+  <p>(b) \(4\ln|x|+9e^x-7x+C\).</p>
+  <p>(c) Write the integrand as \(5x^{1/2}+2x^{-3}-3x^{-1}\):
+  \(5\cdot\dfrac{x^{3/2}}{3/2}+2\cdot\dfrac{x^{-2}}{-2}-3\ln|x|+C=\tfrac{10}{3}x^{3/2}-x^{-2}-3\ln|x|+C\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-14">
+      <p class="statement">The total cost of producing \(x\) coffee machines is \(C(x)=1800+50x-0.25x^2\) dollars.</p>
+      <ol class="parts">
+        <li>Find the exact cost of producing the 41st machine.</li>
+        <li>Use marginal cost to approximate the cost of producing the 41st machine.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) $29.75 &nbsp;&nbsp; (b) $30</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) The 41st machine raises production from 40 to 41, so its exact cost is</p>
+  \[C(41)-C(40)=(1800+2050-420.25)-(1800+2000-400)=3429.75-3400=29.75.\]
+  <p>(b) \(C'(x)=50-0.5x\). The marginal cost when 40 machines have already been made approximates the cost of the
+  next one: \(C'(40)=50-20=30\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-15">
+      <p class="statement">Find the derivative of each function. You do not need to simplify the answers.</p>
+      <ol class="parts">
+        <li>\(y=(2x^2+5)(x^3-4x)\)</li>
+        <li>\(f(z)=\dfrac{3z+2}{z^2+4}\)</li>
+        <li>\(g(x)=\dfrac{x^4-3x}{2x-e^x}\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(4x(x^3-4x)+(2x^2+5)(3x^2-4)\), or \(10x^4-9x^2-20\) &nbsp;&nbsp;
+  (b) \(\dfrac{3(z^2+4)-(3z+2)(2z)}{(z^2+4)^2}\), or \(\dfrac{-3z^2-4z+12}{(z^2+4)^2}\) &nbsp;&nbsp;
+  (c) \(\dfrac{(4x^3-3)(2x-e^x)-(x^4-3x)(2-e^x)}{(2x-e^x)^2}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Product rule: \(y'=4x(x^3-4x)+(2x^2+5)(3x^2-4)\). (Expanding first also works:
+  \(y=2x^5-3x^3-20x\), so \(y'=10x^4-9x^2-20\).)</p>
+  <p>(b) Quotient rule:</p>
+  \[f'(z)=\frac{3(z^2+4)-(3z+2)(2z)}{(z^2+4)^2}=\frac{-3z^2-4z+12}{(z^2+4)^2}.\]
+  <p>(c) Quotient rule, with \(\dfrac{d}{dx}(2x-e^x)=2-e^x\):</p>
+  \[g'(x)=\frac{(4x^3-3)(2x-e^x)-(x^4-3x)(2-e^x)}{(2x-e^x)^2}.\]</div></details>
+    </li>
+    <li class="problem" id="problem-16">
+      <p class="statement">Find the domain of each function. Give your answer in interval notation.</p>
+      <ol class="parts">
+        <li>\(g(x)=\dfrac{\sqrt{x+4}}{3x^2-15x}\)</li>
+        <li>\(f(x)=\sqrt{6-2x}+\dfrac{x+1}{x-1}\)</li>
+        <li>\(h(x)=\dfrac{\sqrt{x^2+9}}{2x^2-7x}\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \([-4,0)\cup(0,5)\cup(5,\infty)\) &nbsp;&nbsp; (b) \((-\infty,1)\cup(1,3]\) &nbsp;&nbsp;
+  (c) \((-\infty,0)\cup\left(0,\tfrac72\right)\cup\left(\tfrac72,\infty\right)\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>A square root needs a nonnegative radicand, and a denominator cannot be 0.</p>
+  <p>(a) \(x+4\ge 0\) gives \(x\ge -4\). The denominator \(3x(x-5)\) is zero at \(x=0\) and \(x=5\), so these are
+  removed.</p>
+  <p>(b) \(6-2x\ge 0\) gives \(x\le 3\), and the fraction needs \(x\ne 1\).</p>
+  <p>(c) \(x^2+9\gt 0\) for every \(x\), so the square root adds no restriction. The denominator \(x(2x-7)\) is zero
+  at \(x=0\) and \(x=\tfrac72\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-17">
+      <p class="statement">For each price-demand equation, find the elasticity of demand at the given price, and describe the demand as
+  elastic, inelastic, or having unit elasticity.</p>
+      <ol class="parts">
+        <li>\(x=\dfrac{5000}{p^{3/2}}\), at \(p=25\)</li>
+        <li>\(x=100\left(64-p^2\right)\), at \(p=4\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(E=\tfrac32\), elastic &nbsp;&nbsp; (b) \(E=\tfrac23\), inelastic</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Use \(E(p)=-\dfrac{p\,x'(p)}{x(p)}\).</p>
+  <p>(a) \(x=5000p^{-3/2}\), so \(x'(p)=-7500p^{-5/2}\) and
+  \(E(p)=\dfrac{7500p^{-3/2}}{5000p^{-3/2}}=\dfrac32\) at every price. Since \(\tfrac32\gt 1\), the demand is
+  elastic.</p>
+  <p>(b) \(x'(p)=-200p\), so \(E(p)=\dfrac{200p^2}{100\left(64-p^2\right)}=\dfrac{2p^2}{64-p^2}\). Then
+  \(E(4)=\dfrac{32}{48}=\dfrac23\lt 1\): inelastic.</p></div></details>
+    </li>
+    <li class="problem" id="problem-18">
+      <p class="statement">Find the derivative of each function.</p>
+      <ol class="parts">
+        <li>\(y=6x\sqrt{x}\)</li>
+        <li>\(y=\dfrac{2}{x^4}-\dfrac{5}{\sqrt{x}}+\sqrt[3]{x}\)</li>
+        <li>\(y=\dfrac{3x^2+4}{2x}\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(9\sqrt{x}\) &nbsp;&nbsp; (b) \(-8x^{-5}+\tfrac52x^{-3/2}+\tfrac13x^{-2/3}\) &nbsp;&nbsp;
+  (c) \(\tfrac32-\dfrac{2}{x^2}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Rewrite each function as a sum of powers of \(x\), then use the power rule.</p>
+  <p>(a) \(y=6x^{3/2}\), so \(y'=6\cdot\tfrac32x^{1/2}=9\sqrt{x}\).</p>
+  <p>(b) \(y=2x^{-4}-5x^{-1/2}+x^{1/3}\), so
+  \(y'=-8x^{-5}+\tfrac52x^{-3/2}+\tfrac13x^{-2/3}\).</p>
+  <p>(c) Divide each term by \(2x\): \(y=\tfrac32x+2x^{-1}\), so \(y'=\tfrac32-2x^{-2}\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-19">
+      <p class="statement">Let \(f(x)=-x^3+3x^2+9x-4\). Answer the questions using calculus.</p>
+      <ol class="parts">
+        <li>Find \(f'(x)\) and the critical numbers of \(f\).</li>
+        <li>Find the intervals on which \(f\) is increasing and the intervals on which it is decreasing.</li>
+        <li>Find the \(x\)-coordinates of all local maxima and local minima.</li>
+        <li>Find \(f''(x)\), the intervals on which \(f\) is concave up and concave down, and the \(x\)-coordinates of all inflection points.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(f'(x)=-3x^2+6x+9\); critical numbers \(x=-1\) and \(x=3\)<br>
+  (b) Increasing on \((-1,3)\); decreasing on \((-\infty,-1)\) and \((3,\infty)\)<br>
+  (c) Local minimum at \(x=-1\); local maximum at \(x=3\)<br>
+  (d) \(f''(x)=-6x+6\); concave up on \((-\infty,1)\), concave down on \((1,\infty)\); inflection point at \(x=1\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(f'(x)=-3x^2+6x+9=-3(x^2-2x-3)=-3(x-3)(x+1)\), which is zero at \(x=-1\) and \(x=3\).</p>
+  <p>(b) Test points: \(f'(-2)=-15\lt 0\), \(f'(0)=9\gt 0\), \(f'(4)=-15\lt 0\).</p>
+  <p>(c) \(f'\) changes from negative to positive at \(x=-1\) (local minimum), and from positive to negative at
+  \(x=3\) (local maximum).</p>
+  <p>(d) \(f''(x)=-6x+6\) is positive for \(x\lt 1\) and negative for \(x\gt 1\), so the concavity changes at
+  \(x=1\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-20">
+      <p class="statement">Find the indefinite integrals.</p>
+      <ol class="parts">
+        <li>\(\displaystyle\int 6x\left(2-x^3\right)dx\)</li>
+        <li>\(\displaystyle\int\frac{4x+3}{x^2}\,dx\)</li>
+        <li>\(\displaystyle\int\frac{3x-4}{2x^3}\,dx\)</li>
+        <li>\(\displaystyle\int x^2\left(3x+5x^3\right)dx\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(6x^2-\tfrac65x^5+C\) &nbsp;&nbsp; (b) \(4\ln|x|-\dfrac3x+C\) &nbsp;&nbsp;
+  (c) \(-\dfrac{3}{2x}+\dfrac{1}{x^2}+C\) &nbsp;&nbsp; (d) \(\tfrac34x^4+\tfrac56x^6+C\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>There is no product or quotient rule for integrals, so multiply out or divide first.</p>
+  <p>(a) \(6x(2-x^3)=12x-6x^4\), with antiderivative \(6x^2-\tfrac65x^5\).</p>
+  <p>(b) \(\dfrac{4x+3}{x^2}=\dfrac4x+3x^{-2}\), with antiderivative \(4\ln|x|-3x^{-1}\).</p>
+  <p>(c) \(\dfrac{3x-4}{2x^3}=\tfrac32x^{-2}-2x^{-3}\), with antiderivative
+  \(\tfrac32\cdot\dfrac{x^{-1}}{-1}-2\cdot\dfrac{x^{-2}}{-2}=-\tfrac32x^{-1}+x^{-2}\).</p>
+  <p>(d) \(x^2(3x+5x^3)=3x^3+5x^5\), with antiderivative \(\tfrac34x^4+\tfrac56x^6\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-21">
+      <p class="statement">Write \(\log\left(\dfrac{\sqrt{x^5}}{(x^2-9)^3}\right)\) in terms of \(\log x\), \(\log(x+3)\), and
+  \(\log(x-3)\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(\tfrac52\log x-3\log(x+3)-3\log(x-3)\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Write \(\sqrt{x^5}=x^{5/2}\) and factor \(x^2-9=(x+3)(x-3)\). Then use the quotient, product, and power
+  rules:</p>
+  \[\log\frac{x^{5/2}}{(x+3)^3(x-3)^3}=\tfrac52\log x-3\log(x+3)-3\log(x-3).\]</div></details>
+    </li>
+    <li class="problem" id="problem-22">
+      <p class="statement">Let \(f(x)=3x+\dfrac{48}{x}\).</p>
+      <ol class="parts">
+        <li>Find \(f'(x)\).</li>
+        <li>Find the intervals on which \(f\) is increasing and the intervals on which it is decreasing. Then find the \(x\)-coordinates of all local maxima and local minima.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(f'(x)=3-\dfrac{48}{x^2}\) &nbsp;&nbsp; (b) Increasing on \((-\infty,-4)\) and \((4,\infty)\); decreasing on
+  \((-4,0)\) and \((0,4)\). Local maximum at \(x=-4\); local minimum at \(x=4\).</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>\(f(x)=3x+48x^{-1}\), so \(f'(x)=3-48x^{-2}=\dfrac{3(x^2-16)}{x^2}\). This is zero at \(x=\pm 4\), and
+  undefined at \(x=0\), where \(f\) itself is undefined; the sign chart must be split there too.</p>
+  <p>Test points: \(f'(-5)=1.08\gt 0\), \(f'(-1)=-45\lt 0\), \(f'(1)=-45\lt 0\), \(f'(5)=1.08\gt 0\). So \(f\)
+  increases on \((-\infty,-4)\) and \((4,\infty)\), and decreases on \((-4,0)\) and \((0,4)\). There is a local
+  maximum at \(x=-4\) and a local minimum at \(x=4\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-23">
+      <p class="statement">The marginal cost function for a product is
+  \(\dfrac{dC}{dx}=50+12x^{-1/2}+4e^x\), and the fixed cost is $800. Find the total cost function \(C(x)\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(C(x)=50x+24\sqrt{x}+4e^x+796\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Antidifferentiate: \(C(x)=50x+12\cdot\dfrac{x^{1/2}}{1/2}+4e^x+K=50x+24\sqrt{x}+4e^x+K\).</p>
+  <p>The fixed cost is \(C(0)=0+0+4e^0+K=4+K\). Setting \(4+K=800\) gives \(K=796\). (Note that the constant is
+  not 800, because \(4e^x\) is not zero at \(x=0\).)</p></div></details>
+    </li>
+    <li class="problem" id="problem-24">
+      <p class="statement">The price-demand equation for a product is \(p=200-x^2\), and the price-supply equation is \(p=10x+56\), where
+  \(x\ge 0\). Find the equilibrium quantity and the equilibrium price.</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(x=8\), \(p=\$136\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Set supply equal to demand: \(200-x^2=10x+56\), so \(x^2+10x-144=0\), which factors as
+  \((x+18)(x-8)=0\). The root \(x=-18\) is rejected because \(x\ge 0\). So \(x=8\) and \(p=10(8)+56=136\).
+  (Check: \(200-8^2=136\).)</p></div></details>
+    </li>
+    <li class="problem" id="problem-25">
+      <p class="statement">Each unit of a product sells for a fixed price. For each cost function, find the quantity \(x\) that maximizes
+  the profit, and the maximum profit. Your answer must be supported by calculus.</p>
+      <ol class="parts">
+        <li>\(C(x)=2x^{3/2}+14x+300\) dollars, and each unit sells for $50.</li>
+        <li>\(C(x)=\dfrac{x^2}{4}+40x+800\) dollars, and each unit sells for $140.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(x=144\); maximum profit $1,428 &nbsp;&nbsp; (b) \(x=200\); maximum profit $9,200</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(P(x)=50x-\left(2x^{3/2}+14x+300\right)=36x-2x^{3/2}-300\). Then \(P'(x)=36-3x^{1/2}\), which is zero
+  when \(\sqrt{x}=12\), that is, \(x=144\). Since \(P''(x)=-\tfrac32x^{-1/2}\lt 0\) for \(x\gt 0\), this is a
+  maximum. \(P(144)=36(144)-2(1728)-300=5184-3456-300=1428\).</p>
+  <p>(b) \(P(x)=140x-\left(\tfrac{x^2}{4}+40x+800\right)=100x-\tfrac{x^2}{4}-800\). Then
+  \(P'(x)=100-\tfrac{x}{2}=0\) gives \(x=200\), and \(P''(x)=-\tfrac12\lt 0\), so this is a maximum.
+  \(P(200)=20000-10000-800=9200\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-26">
+      <p class="statement">Evaluate each limit. Use \(\infty\) or \(-\infty\) where appropriate.</p>
+      <ol class="parts">
+        <li>\(\displaystyle\lim_{x\to 2^+}\frac{4-3x}{x^2-4}\)</li>
+        <li>\(\displaystyle\lim_{x\to 1^-}\frac{x+3}{1-x}\)</li>
+        <li>\(\displaystyle\lim_{x\to\infty}\frac{3x^4-5x^3+2}{7+2x^2-6x^4}\)</li>
+        <li>\(\displaystyle\lim_{x\to-\infty}\frac{2x^5-x+1}{4-3x^2}\)</li>
+        <li>\(\displaystyle\lim_{x\to\infty}\frac{x^2+4}{x^3-1}\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(-\infty\) &nbsp;&nbsp; (b) \(\infty\) &nbsp;&nbsp; (c) \(-\tfrac12\) &nbsp;&nbsp; (d) \(\infty\) &nbsp;&nbsp; (e) \(0\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) The numerator approaches \(4-6=-2\). For \(x\gt 2\), \(x^2-4\gt 0\), so the denominator approaches 0
+  through positive values. A negative number divided by a small positive number gives \(-\infty\).</p>
+  <p>(b) The numerator approaches 4. For \(x\lt 1\), \(1-x\gt 0\), so the quotient grows without bound: \(\infty\).</p>
+  <p>(c) Equal degrees: the ratio of leading terms is \(\dfrac{3x^4}{-6x^4}=-\dfrac12\).</p>
+  <p>(d) The ratio of leading terms is \(\dfrac{2x^5}{-3x^2}=-\tfrac23x^3\). As \(x\to-\infty\), \(x^3\to-\infty\),
+  so \(-\tfrac23x^3\to\infty\).</p>
+  <p>(e) The denominator has the higher degree: the ratio of leading terms is \(\dfrac{x^2}{x^3}=\dfrac1x\to 0\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-27">
+      <p class="statement">Find the derivative of each function. You do not need to simplify the answers.</p>
+      <ol class="parts">
+        <li>\(y=3e^x-4\log_2x+e^3\)</li>
+        <li>\(g(x)=\dfrac{2^x-1}{x^3+1}\)</li>
+        <li>\(y=6^{x^2+1}\)</li>
+        <li>\(y=\log_5\left(3x^2+1\right)\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(3e^x-\dfrac{4}{x\ln 2}\) &nbsp;&nbsp; (b) \(\dfrac{2^x\ln 2\cdot(x^3+1)-(2^x-1)\cdot 3x^2}{(x^3+1)^2}\)
+  &nbsp;&nbsp; (c) \(6^{x^2+1}\ln 6\cdot 2x\) &nbsp;&nbsp; (d) \(\dfrac{6x}{\left(3x^2+1\right)\ln 5}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Use \(\dfrac{d}{dx}a^x=a^x\ln a\) and \(\dfrac{d}{dx}\log_bx=\dfrac{1}{x\ln b}\).</p>
+  <p>(a) \(e^3\) is a constant, so its derivative is 0: \(y'=3e^x-\dfrac{4}{x\ln 2}\).</p>
+  <p>(b) Quotient rule: \(g'(x)=\dfrac{2^x\ln 2\cdot(x^3+1)-(2^x-1)\cdot 3x^2}{(x^3+1)^2}\).</p>
+  <p>(c) Chain rule with \(u=x^2+1\): \(y'=6^{x^2+1}\ln 6\cdot 2x\).</p>
+  <p>(d) Chain rule with \(u=3x^2+1\): \(y'=\dfrac{1}{\left(3x^2+1\right)\ln 5}\cdot 6x\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-28">
+      <p class="statement">To produce one desk lamp, a manufacturer spends $6.50 on materials and $4.00 on labor. The fixed cost is
+  $14,000, and each lamp sells for $14. Let \(x\) be the number of lamps made and sold.</p>
+      <ol class="parts">
+        <li>Find the revenue function \(R(x)\), the cost function \(C(x)\), and the profit function \(P(x)\).</li>
+        <li>Find the break-even quantity and the revenue at that quantity.</li>
+        <li>How many lamps must be sold to make a profit of $9,100?</li>
+        <li>A competitor has the same costs but breaks even at 3,500 lamps. What price does the competitor charge?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(R(x)=14x\), \(C(x)=14000+10.5x\), \(P(x)=3.5x-14000\) &nbsp;&nbsp; (b) 4,000 lamps; revenue $56,000
+  &nbsp;&nbsp; (c) 6,600 lamps &nbsp;&nbsp; (d) $14.50</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) The variable cost per lamp is \(6.50+4.00=10.50\) dollars. So \(R(x)=14x\), \(C(x)=14000+10.5x\), and
+  \(P(x)=R(x)-C(x)=3.5x-14000\).</p>
+  <p>(b) Break-even means \(P(x)=0\): \(3.5x=14000\), so \(x=4000\). The revenue is \(R(4000)=\$56{,}000\).</p>
+  <p>(c) \(3.5x-14000=9100\) gives \(3.5x=23100\), so \(x=6600\).</p>
+  <p>(d) At break-even, revenue equals cost: \(3500p=14000+10.5(3500)=50750\), so \(p=\$14.50\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-29">
+      <p class="statement">The price-demand equation for a product is \(x=1200-30p\).</p>
+      <ol class="parts">
+        <li>Find the elasticity of demand \(E(p)\).</li>
+        <li>Find \(E(10)\) and describe the demand as elastic, inelastic, or having unit elasticity. If the price of $10
+   is increased by 6%, what is the approximate percentage change in demand?</li>
+        <li>Find \(E(30)\) and describe the demand.</li>
+        <li>At what price does the demand have unit elasticity?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(E(p)=\dfrac{p}{40-p}\) &nbsp;&nbsp; (b) \(E(10)=\tfrac13\), inelastic; demand decreases by about 2%
+  &nbsp;&nbsp; (c) \(E(30)=3\), elastic &nbsp;&nbsp; (d) \(p=\$20\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(x'(p)=-30\), so
+  \(E(p)=-\dfrac{p\,x'(p)}{x(p)}=\dfrac{30p}{1200-30p}=\dfrac{p}{40-p}\).</p>
+  <p>(b) \(E(10)=\dfrac{10}{30}=\dfrac13\lt 1\): inelastic. The percentage change in demand is approximately
+  \(-E\) times the percentage change in price: \(-\tfrac13\cdot 6\%=-2\%\).</p>
+  <p>(c) \(E(30)=\dfrac{30}{10}=3\gt 1\): elastic.</p>
+  <p>(d) \(\dfrac{p}{40-p}=1\) gives \(p=40-p\), so \(p=20\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-30">
+      <p class="statement">The average cost per unit of producing \(x\) units of a product is
+  \(\overline{C}(x)=0.02x+40+\dfrac{3000}{x}\) dollars.</p>
+      <ol class="parts">
+        <li>Find the total cost function \(C(x)\).</li>
+        <li>Find the marginal cost function.</li>
+        <li>Find the average cost and the marginal cost at the production level \(x=500\).</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(C(x)=0.02x^2+40x+3000\) &nbsp;&nbsp; (b) \(C'(x)=0.04x+40\) &nbsp;&nbsp; (c) average cost $56 per
+  unit; marginal cost $60 per unit</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) The total cost is the average cost times the number of units:
+  \(C(x)=x\,\overline{C}(x)=0.02x^2+40x+3000\).</p>
+  <p>(b) \(C'(x)=0.04x+40\).</p>
+  <p>(c) \(\overline{C}(500)=10+40+6=56\) and \(C'(500)=20+40=60\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-31">
+      <p class="statement">Find the derivative of \(f(x)=\dfrac{3}{x-2}\) using the definition, as follows.</p>
+      <ol class="parts">
+        <li>Find \(f(x+h)\).</li>
+        <li>Find \(f(x+h)-f(x)\). Write it as a single fraction and simplify.</li>
+        <li>Find \(\dfrac{f(x+h)-f(x)}{h}\).</li>
+        <li>Find \(f'(x)\).</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(\dfrac{3}{x+h-2}\) &nbsp;&nbsp; (b) \(\dfrac{-3h}{(x+h-2)(x-2)}\) &nbsp;&nbsp;
+  (c) \(\dfrac{-3}{(x+h-2)(x-2)}\) &nbsp;&nbsp; (d) \(-\dfrac{3}{(x-2)^2}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Replace \(x\) by \(x+h\): \(f(x+h)=\dfrac{3}{x+h-2}\).</p>
+  <p>(b) Over the common denominator \((x+h-2)(x-2)\):</p>
+  \[f(x+h)-f(x)=\frac{3(x-2)-3(x+h-2)}{(x+h-2)(x-2)}=\frac{-3h}{(x+h-2)(x-2)}.\]
+  <p>(c) Dividing by \(h\) cancels the factor \(h\): \(\dfrac{-3}{(x+h-2)(x-2)}\).</p>
+  <p>(d) Let \(h\to 0\): \(f'(x)=\dfrac{-3}{(x-2)(x-2)}=-\dfrac{3}{(x-2)^2}\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-32">
+      <p class="statement">Let \(f(x)=3x^5-5x^4\).</p>
+      <ol class="parts">
+        <li>Find the second derivative \(f''(x)\).</li>
+        <li>Find the intervals on which \(f\) is concave up and the intervals on which it is concave down. Then find the
+   \(x\)-coordinates of the inflection points of \(f\).</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(f''(x)=60x^3-60x^2\) &nbsp;&nbsp; (b) Concave down on \((-\infty,0)\) and \((0,1)\), that is, on
+  \((-\infty,1)\); concave up on \((1,\infty)\). The only inflection point is at \(x=1\).</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(f'(x)=15x^4-20x^3\) and \(f''(x)=60x^3-60x^2\).</p>
+  <p>(b) \(f''(x)=60x^2(x-1)\), which is zero at \(x=0\) and \(x=1\). Test points: \(f''(-1)=-120\lt 0\),
+  \(f''\left(\tfrac12\right)=-7.5\lt 0\), \(f''(2)=240\gt 0\).</p>
+  <p>The concavity changes at \(x=1\), so that is an inflection point. At \(x=0\), \(f''=0\) but \(f''\) is negative
+  on both sides (the factor \(x^2\) does not change sign), so \(x=0\) is <em>not</em> an inflection point.</p></div></details>
+    </li>
+    <li class="problem" id="problem-33">
+      <p class="statement">The demand for a product is given by \(p=300-x^2\), where \(x\) is the number of units demanded at the price
+  \(p\). Find the elasticity of demand when \(x=8\), and describe the demand.</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(E=\tfrac{59}{32}\approx 1.84\); the demand is elastic</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Solve for \(x\), with \(x\ge 0\): \(x=\sqrt{300-p}=(300-p)^{1/2}\). Then
+  \(x'(p)=-\tfrac12(300-p)^{-1/2}\), and</p>
+  \[E(p)=-\frac{p\,x'(p)}{x(p)}=\frac{\tfrac12p\,(300-p)^{-1/2}}{(300-p)^{1/2}}=\frac{p}{2(300-p)}.\]
+  <p>When \(x=8\), the price is \(p=300-64=236\), so \(E(236)=\dfrac{236}{2\cdot 64}=\dfrac{59}{32}\approx 1.84\gt 1\):
+  elastic.</p></div></details>
+    </li>
+    <li class="problem" id="problem-34">
+      <p class="statement">Evaluate each limit.</p>
+      <ol class="parts">
+        <li>\(\displaystyle\lim_{x\to 4}\frac{x^2-16}{3x^2-12x}\)</li>
+        <li>\(\displaystyle\lim_{x\to 5}\frac{2x^2-50}{x^2-3x-10}\)</li>
+        <li>\(\displaystyle\lim_{x\to -2}\frac{x^2+x-2}{x^2+4}\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(\tfrac23\) &nbsp;&nbsp; (b) \(\tfrac{20}{7}\) &nbsp;&nbsp; (c) \(0\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Direct substitution gives \(\tfrac00\), so factor and cancel:
+  \(\dfrac{(x-4)(x+4)}{3x(x-4)}=\dfrac{x+4}{3x}\to\dfrac{8}{12}=\dfrac23\).</p>
+  <p>(b) Again \(\tfrac00\): \(\dfrac{2(x-5)(x+5)}{(x-5)(x+2)}=\dfrac{2(x+5)}{x+2}\to\dfrac{20}{7}\).</p>
+  <p>(c) Here the denominator is not zero at \(x=-2\), so substitute directly:
+  \(\dfrac{4-2-2}{4+4}=\dfrac08=0\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-35">
+      <p class="statement">Let \(f(x)=108x-x^3\).</p>
+      <ol class="parts">
+        <li>Find \(f'(x)\).</li>
+        <li>Find the intervals on which \(f\) is increasing and the intervals on which it is decreasing. Then find the \(x\)-coordinates of all local maxima and local minima.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(f'(x)=108-3x^2\) &nbsp;&nbsp; (b) Increasing on \((-6,6)\); decreasing on \((-\infty,-6)\) and
+  \((6,\infty)\). Local maximum at \(x=6\); local minimum at \(x=-6\).</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>\(f'(x)=108-3x^2=3(36-x^2)=3(6-x)(6+x)\), which is zero at \(x=\pm 6\). Test points: \(f'(-7)=-39\lt 0\),
+  \(f'(0)=108\gt 0\), \(f'(7)=-39\lt 0\).</p>
+  <p>So \(f\) decreases on \((-\infty,-6)\), increases on \((-6,6)\), and decreases on \((6,\infty)\). The sign of
+  \(f'\) changes from negative to positive at \(x=-6\) (local minimum) and from positive to negative at \(x=6\)
+  (local maximum).</p></div></details>
+    </li>
+    <li class="problem" id="problem-36">
+      <p class="statement">Consumers will buy 900 units of a product when the price is $40, and 700 units when the price is $45. Let
+  \(x\) be the number of units and \(p\) the price in dollars.</p>
+      <ol class="parts">
+        <li>Find the price-demand equation, assuming it is linear. Write it in the form \(p=mx+b\).</li>
+        <li>At what price does the demand drop to zero?</li>
+        <li>How many units will consumers buy at a price of $50?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(p=-0.025x+62.5\) &nbsp;&nbsp; (b) $62.50 &nbsp;&nbsp; (c) 500 units</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) The line passes through \((900,40)\) and \((700,45)\), so its slope is
+  \(m=\dfrac{45-40}{700-900}=\dfrac{5}{-200}=-0.025\). Then \(p-40=-0.025(x-900)\), that is,
+  \(p=-0.025x+62.5\).</p>
+  <p>(b) Demand is zero when \(x=0\): \(p=62.5\).</p>
+  <p>(c) \(50=-0.025x+62.5\) gives \(0.025x=12.5\), so \(x=500\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-37">
+      <p class="statement">Find the derivative of each function. You do not need to simplify the answers.</p>
+      <ol class="parts">
+        <li>\(y=x^3e^{-2x}\)</li>
+        <li>\(H(x)=e^{4x}\ln(3x+2)\)</li>
+        <li>\(f(x)=x^2\ln\left(x^9\right)\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(3x^2e^{-2x}-2x^3e^{-2x}\) &nbsp;&nbsp; (b) \(4e^{4x}\ln(3x+2)+\dfrac{3e^{4x}}{3x+2}\) &nbsp;&nbsp;
+  (c) \(2x\ln\left(x^9\right)+9x\), or \(18x\ln x+9x\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Each is a product, and each factor with an inner function needs the chain rule.</p>
+  <p>(a) \(\dfrac{d}{dx}e^{-2x}=-2e^{-2x}\), so \(y'=3x^2e^{-2x}+x^3(-2e^{-2x})\).</p>
+  <p>(b) \(\dfrac{d}{dx}e^{4x}=4e^{4x}\) and \(\dfrac{d}{dx}\ln(3x+2)=\dfrac{3}{3x+2}\), so
+  \(H'(x)=4e^{4x}\ln(3x+2)+e^{4x}\cdot\dfrac{3}{3x+2}\).</p>
+  <p>(c) \(\dfrac{d}{dx}\ln\left(x^9\right)=\dfrac{9x^8}{x^9}=\dfrac9x\), so
+  \(f'(x)=2x\ln\left(x^9\right)+x^2\cdot\dfrac9x=2x\ln\left(x^9\right)+9x\). (Alternatively, write
+  \(\ln\left(x^9\right)=9\ln x\) first.)</p></div></details>
+    </li>
+    <li class="problem" id="problem-38">
+      <p class="statement">The price-demand equation for a product is \(p=30-0.05x\), and the average cost of producing it is
+  \(\overline{C}(x)=0.03x+6+\dfrac{500}{x}\) dollars per unit.</p>
+      <ol class="parts">
+        <li>Find the profit \(P(x)\) as a function of the number of units \(x\).</li>
+        <li>Find the quantity \(x\) that maximizes the profit. Support your answer with calculus. What is the price at this
+   quantity, and what is the maximum profit?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(P(x)=-0.08x^2+24x-500\) &nbsp;&nbsp; (b) \(x=150\); price $22.50; maximum profit $1,300</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(R(x)=xp=30x-0.05x^2\) and \(C(x)=x\,\overline{C}(x)=0.03x^2+6x+500\), so</p>
+  \[P(x)=R(x)-C(x)=-0.08x^2+24x-500.\]
+  <p>(b) \(P'(x)=24-0.16x=0\) gives \(x=150\). Since \(P''(x)=-0.16\lt 0\), this is a maximum. The price is
+  \(p=30-0.05(150)=22.50\), and \(P(150)=-1800+3600-500=1300\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-39">
+      <p class="statement">The supply and demand equations for a product are
+  \[p=0.004x+30\qquad\text{and}\qquad p=-0.006x+80,\]
+  where \(x\) is the number of units and \(p\) is the price per unit in dollars.</p>
+      <ol class="parts">
+        <li>Find the equilibrium point (the quantity \(x\) and the price \(p\)).</li>
+        <li>A tax of $2 per unit is imposed on the supplier. Find the new equilibrium point.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(x=5000\), \(p=\$50\) &nbsp;&nbsp; (b) \(x=4800\), \(p=\$51.20\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Set supply equal to demand: \(0.004x+30=-0.006x+80\), so \(0.01x=50\) and \(x=5000\). Then
+  \(p=0.004(5000)+30=50\).</p>
+  <p>(b) The supplier now needs $2 more per unit, so the supply equation becomes \(p=0.004x+32\). Then
+  \(0.004x+32=-0.006x+80\) gives \(0.01x=48\), so \(x=4800\) and \(p=0.004(4800)+32=51.20\). (Check with the demand
+  equation: \(-0.006(4800)+80=51.20\).)</p></div></details>
+    </li>
+    <li class="problem" id="problem-40">
+      <p class="statement">Find the derivative of each function.</p>
+      <ol class="parts">
+        <li>\(f(x)=\ln\left[\dfrac{x^4(x-3)^5}{(x^2+1)^2}\right]\)</li>
+        <li>\(y=\ln\left(x^3\sqrt{2x+5}\right)\)</li>
+        <li>\(y=\sqrt{1+2\ln x}\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(\dfrac4x+\dfrac{5}{x-3}-\dfrac{4x}{x^2+1}\) &nbsp;&nbsp; (b) \(\dfrac3x+\dfrac{1}{2x+5}\) &nbsp;&nbsp;
+  (c) \(\dfrac{1}{x\sqrt{1+2\ln x}}\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) By the properties of logarithms, \(f(x)=4\ln x+5\ln(x-3)-2\ln(x^2+1)\). Then</p>
+  \[f'(x)=\frac4x+\frac{5}{x-3}-2\cdot\frac{2x}{x^2+1}=\frac4x+\frac{5}{x-3}-\frac{4x}{x^2+1}.\]
+  <p>(b) \(y=3\ln x+\tfrac12\ln(2x+5)\), so \(y'=\dfrac3x+\dfrac12\cdot\dfrac{2}{2x+5}=\dfrac3x+\dfrac{1}{2x+5}\).</p>
+  <p>(c) Write \(y=(1+2\ln x)^{1/2}\). By the chain rule,
+  \(y'=\tfrac12(1+2\ln x)^{-1/2}\cdot\dfrac2x=\dfrac{1}{x\sqrt{1+2\ln x}}\).</p></div></details>
+    </li>
+  </ol>
+</main>
+<script>
+document.querySelectorAll('.toolbar button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var act = b.getAttribute('data-act');
+    document.querySelectorAll('details.reveal').forEach(function (d) {
+      if (act === 'hide') d.open = false;
+      else if (act === 'answers' && d.classList.contains('answer')) d.open = true;
+      else if (act === 'solutions' && d.classList.contains('solution')) d.open = true;
+    });
+  });
+});
+</script>
+</body>
+</html>
