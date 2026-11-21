@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 121 Final exam practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f7faf6; --ink: #101a14; --muted: #45534a; --rule: #bfd0c3;
+  --grid: #d6e2d8; --grid-major: #b6c9ba; --accent: #1f5a3e; --reveal-bg: #e8f0ea;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0c110e; --ink: #f1f6f2; --muted: #b6c4bb; --rule: #33463a;
+    --grid: #1a241e; --grid-major: #30433a; --accent: #9edbbb; --reveal-bg: #16201a;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  font-size: 1.0625rem; line-height: 1.6;
+}
+.masthead {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem; }
+.masthead .wrap { padding-top: 2.75rem; padding-bottom: 1.75rem; }
+.course { margin: 0; color: var(--muted); font-size: 1rem; }
+h1 { margin: 0.15rem 0 0.75rem; font-weight: 600; font-size: clamp(2.1rem, 6vw, 3.1rem);
+     line-height: 1.1; letter-spacing: -0.01em; }
+.scope { margin: 0 0 1.25rem; max-width: 38rem; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+button {
+  font: inherit; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem;
+  color: var(--accent); background: var(--paper); border: 1px solid var(--accent);
+  border-radius: 3px; padding: 0.35rem 0.8rem; cursor: pointer;
+}
+button:hover { background: var(--reveal-bg); }
+button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+ol.problems { list-style: none; margin: 0; padding: 0; counter-reset: prob; }
+li.problem {
+  counter-increment: prob; position: relative;
+  padding: 1.4rem 0 1.4rem 3.25rem; border-bottom: 1px solid var(--rule);
+}
+li.problem::before {
+  content: counter(prob); position: absolute; left: 0; top: 1.2rem; width: 2.4rem; text-align: right;
+  font-size: 1.6rem; font-weight: 600; color: var(--accent); line-height: 1.2;
+}
+.statement { margin: 0; }
+.statement + .statement { margin-top: 0.6rem; }
+ol.parts { list-style: none; margin: 0.4rem 0 0; padding: 0; counter-reset: part; }
+ol.parts li { counter-increment: part; padding-left: 2rem; text-indent: -2rem; margin: 0.15rem 0; }
+ol.parts li::before { content: "(" counter(part, lower-alpha) ")"; display: inline-block; width: 2rem; text-indent: 0; }
+ol.parts + .statement { margin-top: 0.75rem; }
+p.note { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.95rem; }
+details.reveal { margin-top: 0.6rem; }
+details.reveal + details.reveal { margin-top: 0.35rem; }
+summary {
+  display: inline-block; cursor: pointer; list-style: none; color: var(--accent);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem;
+}
+summary::-webkit-details-marker { display: none; }
+summary::before { content: "\25B8"; display: inline-block; width: 1.1em; }
+details[open] > summary::before { content: "\25BE"; }
+.reveal .body {
+  margin-top: 0.4rem; padding: 0.6rem 0.9rem; background: var(--reveal-bg);
+  border-left: 3px solid var(--accent); overflow-x: auto;
+}
+.reveal .body p { margin: 0.35rem 0; }
+mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.tablewrap { max-width: 100%; overflow-x: auto; }
+table.vals { border-collapse: collapse; margin: 0.75rem 0 0.35rem; font-variant-numeric: tabular-nums; }
+table.vals th, table.vals td { border: 1px solid var(--rule); padding: 0.2rem 0.9rem; text-align: center; }
+table.vals th { font-weight: 400; background: var(--reveal-bg); }
+table.vals tr > th:first-child { white-space: nowrap; }
+.nb { white-space: nowrap; }
+.reveal table.vals th { background: var(--paper); }
+table.vals td.leaves { text-align: left; letter-spacing: 0.12em; }
+table.data { border-collapse: collapse; margin: 0.6rem 0 0.35rem; font-variant-numeric: tabular-nums; }
+table.data td { padding: 0.05rem 0.55rem; text-align: right; }
+@media (max-width: 34rem) {
+  li.problem { padding-left: 0; }
+  li.problem::before { position: static; display: block; width: auto; text-align: left; margin-bottom: 0.25rem; }
+  table.vals { font-size: 0.92rem; }
+  table.vals th, table.vals td { padding: 0.2rem 0.4rem; }
+  table.data { font-size: 0.95rem; }
+  table.data td { padding: 0.05rem 0.2rem; }
+}
+@media print {
+  :root {
+    --paper: #f7faf6; --ink: #101a14; --muted: #45534a; --rule: #bfd0c3;
+    --grid: #d6e2d8; --grid-major: #b6c9ba; --accent: #1f5a3e; --reveal-bg: #e8f0ea;
+    color-scheme: light;
+  }
+  .toolbar, details.reveal:not([open]) { display: none; }
+  .masthead { background: none; }
+  summary { cursor: auto; font-weight: 600; break-after: avoid; }
+  details.reveal[open] > summary::before { content: none; }
+  .reveal .body { overflow: visible; }
+  .tablewrap { overflow: visible; }
+  li.problem { break-inside: avoid; }
+  li.problem:has(details[open]) { break-inside: auto; }
+  .reveal .body p { break-inside: avoid; }
+}
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="course">MAT 121 Probability and Statistics</p>
+    <h1>Final exam practice</h1>
+    <div class="toolbar" role="group" aria-label="Show or hide answers and solutions">
+      <button type="button" data-act="answers">Show all answers</button>
+      <button type="button" data-act="solutions">Show all solutions</button>
+      <button type="button" data-act="hide">Hide all</button>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <ol class="problems">
+    <li class="problem" id="problem-1">
+      <p class="statement">One hundred people were surveyed, and one question was about their educational background. The results, together with their genders, are given in the table below. If a person is selected at random from those surveyed, find the probability of each of the following events.</p>
+      <div class="tablewrap"><table class="vals"><tr><th></th><th>Female \(F\)</th><th>Male \(\overline{F}\)</th><th>Total</th></tr><tr><th>College degree \(D\)</th><td>23</td><td>27</td><td>50</td></tr><tr><th>No college degree \(\overline{D}\)</th><td>15</td><td>35</td><td>50</td></tr><tr><th>Total</th><td>38</td><td>62</td><td>100</td></tr></table></div>
+      <ol class="parts">
+        <li>The person is female or has a college degree.</li>
+        <li>The person is male or does not have a college degree.</li>
+        <li>The person is female or does not have a college degree.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(0.65\)</span> &nbsp;&nbsp; <span class="nb">(b) \(0.77\)</span> &nbsp;&nbsp; <span class="nb">(c) \(0.73\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Use the addition rule \(P(A\text{ or }B)\) \(=P(A)+P(B)-P(A\text{ and }B)\); the last term keeps the
+  people who belong to both groups from being counted twice.</p>
+  <p>(a) \(P(F\text{ or }D)\) \(=\dfrac{38}{100}+\dfrac{50}{100}-\dfrac{23}{100}\) \(=\dfrac{65}{100}\) \(=0.65\). Check: the only
+  people who are neither female nor college graduates are the 35 men without a degree, and \(1-\tfrac{35}{100}=0.65\).</p>
+  <p>(b) \(P(\overline{F}\text{ or }\overline{D})\) \(=\dfrac{62+50-35}{100}\) \(=\dfrac{77}{100}\) \(=0.77\). This is everyone except
+  the 23 women with a degree.</p>
+  <p>(c) \(P(F\text{ or }\overline{D})\) \(=\dfrac{38+50-15}{100}\) \(=\dfrac{73}{100}\) \(=0.73\). This is everyone except the 27 men
+  with a degree.</p></div></details>
+    </li>
+    <li class="problem" id="problem-2">
+      <p class="statement">If \(A\) and \(B\) are mutually exclusive events with \(P(A)=0.4\) and \(P(B)=0.5\), find the following probabilities.</p>
+      <ol class="parts">
+        <li>\(P(A\text{ and }B)\)</li>
+        <li>\(P(A\text{ or }B)\)</li>
+        <li>\(P(\overline{A})\)</li>
+        <li>\(P(\overline{B})\)</li>
+        <li>\(P(\overline{A\text{ or }B})\)</li>
+        <li>\(P(A\text{ and }\overline{B})\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(0\)</span> &nbsp;&nbsp; <span class="nb">(b) \(0.9\)</span> &nbsp;&nbsp; <span class="nb">(c) \(0.6\)</span> &nbsp;&nbsp; <span class="nb">(d) \(0.5\)</span> &nbsp;&nbsp; <span class="nb">(e) \(0.1\)</span> &nbsp;&nbsp; <span class="nb">(f) \(0.4\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Mutually exclusive events cannot happen together, so \(P(A\text{ and }B)=0\).</p>
+  <p>(b) By the addition rule, \(P(A\text{ or }B)\) \(=0.4+0.5-0\) \(=0.9\).</p>
+  <p>(c), (d) By the complement rule, \(P(\overline{A})\) \(=1-0.4\) \(=0.6\) and \(P(\overline{B})\) \(=1-0.5\) \(=0.5\).</p>
+  <p>(e) This is the complement of the event in (b): \(1-0.9=0.1\).</p>
+  <p>(f) Whenever \(A\) happens, \(B\) does not, so \(P(A\text{ and }\overline{B})\) \(=P(A)-P(A\text{ and }B)\) \(=0.4-0\) \(=0.4\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-3">
+      <p class="statement">The letters in the word MATHEMATICS are arranged randomly.</p>
+      <ol class="parts">
+        <li>What is the probability that the first letter is E?</li>
+        <li>What is the probability that the first letter is M?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(\tfrac{1}{11}\approx 0.0909\)</span> &nbsp;&nbsp; <span class="nb">(b) \(\tfrac{2}{11}\approx 0.1818\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>MATHEMATICS has 11 letters, and each of the 11 letter positions is equally likely to come first.</p>
+  <p>(a) E appears once, so the probability is \(\tfrac{1}{11}\) \(\approx 0.0909\).</p>
+  <p>(b) M appears twice, so the probability is \(\tfrac{2}{11}\) \(\approx 0.1818\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-4">
+      <p class="statement">In a survey of 258 people, the following data were obtained relating gender to political orientation. A person is randomly selected. Find the probability that the person is:</p>
+      <div class="tablewrap"><table class="vals"><tr><th></th><th>Republican (R)</th><th>Democrat (D)</th><th>Independent (I)</th><th>Total</th></tr><tr><th>Male (M)</th><td>88</td><td>30</td><td>11</td><td>129</td></tr><tr><th>Female (F)</th><td>81</td><td>36</td><td>12</td><td>129</td></tr><tr><th>Total</th><td>169</td><td>66</td><td>23</td><td>258</td></tr></table></div>
+      <ol class="parts">
+        <li>Male.</li>
+        <li>Male and a Democrat.</li>
+        <li>Male, given that the person is a Democrat.</li>
+        <li>Republican, given that the person is male.</li>
+        <li>Female, given that the person is an Independent.</li>
+        <li>Are the events “Female” and “Independent” independent? Answer yes or no.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(0.5\)</span> &nbsp;&nbsp; <span class="nb">(b) \(\tfrac{30}{258}=\tfrac{5}{43}\approx 0.1163\)</span> &nbsp;&nbsp; <span class="nb">(c) \(\tfrac{30}{66}=\tfrac{5}{11}\approx 0.4545\)</span> &nbsp;&nbsp; <span class="nb">(d) \(\tfrac{88}{129}\approx 0.6822\)</span> &nbsp;&nbsp; <span class="nb">(e) \(\tfrac{12}{23}\approx 0.5217\)</span> &nbsp;&nbsp; <span class="nb">(f) no</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(P(M)\) \(=\tfrac{129}{258}\) \(=0.5\).</p>
+  <p>(b) There are 30 male Democrats out of 258 people: \(\tfrac{30}{258}\) \(\approx 0.1163\).</p>
+  <p>(c) For a conditional probability, restrict to the given group. Among the 66 Democrats, 30 are male:
+  \(P(M\mid D)\) \(=\tfrac{30}{66}\) \(\approx 0.4545\).</p>
+  <p>(d) Among the 129 males, 88 are Republicans: \(P(R\mid M)\) \(=\tfrac{88}{129}\) \(\approx 0.6822\).</p>
+  <p>(e) Among the 23 Independents, 12 are female: \(P(F\mid I)\) \(=\tfrac{12}{23}\) \(\approx 0.5217\).</p>
+  <p>(f) The events would be independent if \(P(F\mid I)=P(F)\). But \(P(F)\) \(=\tfrac{129}{258}\) \(=0.5\), while
+  \(P(F\mid I)\approx 0.5217\). These differ, so the events are not independent.</p></div></details>
+    </li>
+    <li class="problem" id="problem-5">
+      <p class="statement">Consider the following data (already in increasing order):</p>
+      <div class="tablewrap"><table class="data"><tr><td>38</td><td>39</td><td>42</td><td>45</td><td>49</td><td>54</td><td>58</td><td>61</td><td>65</td><td>68</td><td>70</td></tr><tr><td>71</td><td>75</td><td>76</td><td>79</td><td>84</td><td>85</td><td>89</td><td>91</td><td>92</td><td>93</td><td>162</td></tr></table></div>
+      <ol class="parts">
+        <li>Find the five-number summary: the minimum, \(Q_1\), \(Q_2\), \(Q_3\), and the maximum.</li>
+        <li>Find the interquartile range IQR, \(Q_3+1.5\,\text{IQR}\), and \(Q_1-1.5\,\text{IQR}\). Give your answers to two decimal places.</li>
+        <li>Are there any outliers in this data set?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) Min \(=38\), \(Q_1=54\), \(Q_2=70.5\), \(Q_3=85\), Max \(=162\)<br>
+  (b) \(\text{IQR}=31.00\), \(Q_3+1.5\,\text{IQR}=131.50\), \(Q_1-1.5\,\text{IQR}=7.50\)<br>
+  (c) Yes: \(162\) is an outlier.</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>There are \(n=22\) values. To find the \(k\)th percentile, compute the locator
+  \(L=\tfrac{k}{100}\cdot n\). If \(L\) is not a whole number, round it up and take that value; if it is a
+  whole number, average the \(L\)th and \((L+1)\)st values.</p>
+  <p>(a) \(Q_2\) is the median: the average of the 11th and 12th values, \(\tfrac{70+71}{2}=70.5\).
+  For \(Q_1\), the locator is \(L=0.25\cdot 22=5.5\), so take the 6th value, \(54\). For \(Q_3\), the
+  locator is \(L=0.75\cdot 22=16.5\), so take the 17th value, \(85\).</p>
+  <p>(b) \(\text{IQR}=85-54=31\), so \(1.5\,\text{IQR}=46.5\). Then \(Q_3+1.5\,\text{IQR}\) \(=131.5\) and
+  \(Q_1-1.5\,\text{IQR}=7.5\).</p>
+  <p>(c) Values above 131.5 or below 7.5 are outliers. The maximum, 162, is above 131.5; nothing is below 7.5.</p></div></details>
+    </li>
+    <li class="problem" id="problem-6">
+      <p class="statement">Consider the sample \(12,\ 16,\ 20,\ 24,\ 34\). Do not round any answers until part (d).</p>
+      <ol class="parts">
+        <li>Find the sample size \(n\) and the sample mean \(\bar{x}\).</li>
+        <li>Complete a table with the columns \(x\), \((x-\bar{x})^2\), and \(x^2\), and find the column sums \(\sum x\), \(\sum(x-\bar{x})^2\), and \(\sum x^2\).</li>
+        <li>Evaluate \(\dfrac{n\sum x^2-\left(\sum x\right)^2}{n(n-1)}\) and \(\dfrac{\sum(x-\bar{x})^2}{n-1}\).</li>
+        <li>Find the sample standard deviation \(s\), rounded to 4 decimal places.</li>
+        <li>Is the value 34 significantly high, significantly low, or not significant (usual)?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(n=5\), \(\bar{x}=21.2\)</p>
+  <div class="tablewrap"><table class="vals"><tr><th>\(x\)</th><th>\((x-\bar{x})^2\)</th><th>\(x^2\)</th></tr><tr><td>12</td><td>84.64</td><td>144</td></tr><tr><td>16</td><td>27.04</td><td>256</td></tr><tr><td>20</td><td>1.44</td><td>400</td></tr><tr><td>24</td><td>7.84</td><td>576</td></tr><tr><td>34</td><td>163.84</td><td>1156</td></tr></table></div>
+  <p>(b) \(\sum x=106\), \(\sum(x-\bar{x})^2=284.8\), \(\sum x^2=2532\)</p>
+  <p><span class="nb">(c) Both equal \(71.2\)</span> &nbsp;&nbsp; <span class="nb">(d) \(s\approx 8.4380\)</span> &nbsp;&nbsp; (e) not significant (usual)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(n=5\) and \(\bar{x}\) \(=\dfrac{\sum x}{n}\) \(=\dfrac{106}{5}\) \(=21.2\).</p>
+  <p>(b) For example, in the first row \((12-21.2)^2\) \(=(-9.2)^2\) \(=84.64\) and \(12^2=144\).</p>
+  <p>(c) Both expressions give the sample variance \(s^2\):</p>
+  \[\frac{5(2532)-106^2}{5\cdot 4}=\frac{12660-11236}{20}=\frac{1424}{20}=71.2,\qquad \frac{284.8}{4}=71.2.\]
+  <p>(d) \(s\) \(=\sqrt{71.2}\) \(\approx 8.4380\).</p>
+  <p>(e) By the range rule of thumb, values more than 2 standard deviations from the mean are significant.
+  Here \(\bar{x}\pm 2s\) \(\approx 21.2\pm 16.876\), that is, from 4.324 to 38.076. The value 34 lies in this
+  range, so it is not significant. (Equivalently, its \(z\)-score \(\tfrac{34-21.2}{8.4380}\) \(\approx 1.52\)
+  is between \(-2\) and \(2\).)</p></div></details>
+    </li>
+    <li class="problem" id="problem-7">
+      <p class="statement">Consider the following data set:</p>
+      <div class="tablewrap"><table class="data"><tr><td>14</td><td>16</td><td>17</td><td>19</td><td>19</td><td>20</td><td>22</td><td>23</td></tr><tr><td>23</td><td>24</td><td>25</td><td>26</td><td>28</td><td>28</td><td>31</td><td>31</td></tr></table></div>
+      <ol class="parts">
+        <li>Use the classes 14–17, 18–21, 22–25, 26–29, and 30–33 to make a frequency table with the frequency, relative frequency (as a decimal with four decimal places), cumulative frequency, and class midpoint of each class.</li>
+        <li>Find the class boundary that lies between the first and the second classes.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><div class="tablewrap"><table class="vals"><tr><th>Class</th><th>Frequency</th><th>Relative frequency</th><th>Cumulative frequency</th><th>Class midpoint</th></tr><tr><th>14–17</th><td>3</td><td>0.1875</td><td>3</td><td>15.5</td></tr><tr><th>18–21</th><td>3</td><td>0.1875</td><td>6</td><td>19.5</td></tr><tr><th>22–25</th><td>5</td><td>0.3125</td><td>11</td><td>23.5</td></tr><tr><th>26–29</th><td>3</td><td>0.1875</td><td>14</td><td>27.5</td></tr><tr><th>30–33</th><td>2</td><td>0.1250</td><td>16</td><td>31.5</td></tr></table></div>
+  <p>(b) \(17.5\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Count the values in each class; there are 16 values in all. For example, the class 22–25 contains
+  22, 23, 23, 24, 25, so its frequency is 5 and its relative frequency is \(\tfrac{5}{16}=0.3125\). The cumulative
+  frequency adds up the frequencies of that class and all classes before it: \(3+3+5=11\). The class midpoint is the
+  average of the class limits: \(\tfrac{22+25}{2}=23.5\).</p>
+  <p>(b) The boundary is halfway between the upper limit of the first class and the lower limit of the second:
+  \(\tfrac{17+18}{2}=17.5\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-8">
+      <p class="statement">The table below gives a frequency distribution.</p>
+      <div class="tablewrap"><table class="vals"><tr><th>Class</th><th>Frequency \(f\)</th></tr><tr><th>12–20</th><td>12</td></tr><tr><th>22–30</th><td>12</td></tr><tr><th>32–40</th><td>2</td></tr><tr><th>42–50</th><td>6</td></tr><tr><th>52–60</th><td>2</td></tr></table></div>
+      <ol class="parts">
+        <li>Find the class midpoint \(x\) and the product \(xf\) for each class.</li>
+        <li>Find \(\sum f\), the sum of all frequencies, and \(\sum xf\), the sum of all products \(xf\).</li>
+        <li>Use the previous results to find the mean. Give it as a fraction or round it to four decimal places.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><div class="tablewrap"><table class="vals"><tr><th>Class</th><th>\(f\)</th><th>Midpoint \(x\)</th><th>\(xf\)</th></tr><tr><th>12–20</th><td>12</td><td>16</td><td>192</td></tr><tr><th>22–30</th><td>12</td><td>26</td><td>312</td></tr><tr><th>32–40</th><td>2</td><td>36</td><td>72</td></tr><tr><th>42–50</th><td>6</td><td>46</td><td>276</td></tr><tr><th>52–60</th><td>2</td><td>56</td><td>112</td></tr></table></div>
+  <p><span class="nb">(b) \(\sum f=34\), \(\sum xf=964\)</span> &nbsp;&nbsp; <span class="nb">(c) \(\bar{x}=\tfrac{964}{34}=\tfrac{482}{17}\approx 28.3529\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) The midpoint is the average of the class limits, for example \(\tfrac{12+20}{2}=16\), and then
+  \(xf=16\cdot 12=192\).</p>
+  <p>(b) \(\sum f=12+12+2+6+2=34\) and \(\sum xf\) \(=192+312+72+276+112\) \(=964\).</p>
+  <p>(c) For a frequency distribution, \(\bar{x}\) \(=\dfrac{\sum xf}{\sum f}\) \(=\dfrac{964}{34}\) \(\approx 28.3529\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-9">
+      <p class="statement">Consider the following data set (already in increasing order):</p>
+      <div class="tablewrap"><table class="data"><tr><td>26</td><td>27</td><td>33</td><td>38</td><td>41</td><td>46</td><td>48</td><td>53</td><td>58</td><td>62</td></tr><tr><td>65</td><td>70</td><td>76</td><td>81</td><td>82</td><td>85</td><td>90</td><td>94</td><td>98</td><td>102</td></tr><tr><td>106</td><td>109</td><td>114</td><td>115</td><td>118</td><td>121</td><td>125</td><td>126</td><td>129</td><td>129</td></tr><tr><td>133</td><td>138</td><td>144</td><td>146</td><td>146</td><td>149</td><td>151</td><td>156</td><td>157</td><td>162</td></tr></table></div>
+      <ol class="parts">
+        <li>Find \(P_{28}\), \(P_{81}\), and \(P_{55}\), the 28th, 81st, and 55th percentiles.</li>
+        <li>Find the percentile of the data value 48, and the percentile of the data value 94.</li>
+      </ol>
+      <p class="note">There is no universal method for percentiles and quartiles: different textbooks, calculators, and software can give slightly different results. Use the method from class and the textbook.</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(P_{28}=70\), \(P_{81}=144\), \(P_{55}=111.5\)</span> &nbsp;&nbsp; (b) 48 is at the 15th percentile; 94 is at the 43rd percentile</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) With \(n=40\), the locator for the \(k\)th percentile is \(L=\tfrac{k}{100}\cdot 40\).</p>
+  <p>\(P_{28}\): \(L=11.2\) is not a whole number, so round up to 12; the 12th value is \(70\).<br>
+  \(P_{81}\): \(L=32.4\), round up to 33; the 33rd value is \(144\).<br>
+  \(P_{55}\): \(L=22\) is a whole number, so average the 22nd and 23rd values: \(\tfrac{109+114}{2}=111.5\).</p>
+  <p>(b) The percentile of a value \(x\) is \(\dfrac{\text{number of values less than }x}{40}\cdot 100\),
+  rounded to the nearest whole number. There are 6 values less than 48, giving \(\tfrac{6}{40}\cdot 100\) \(=15\).
+  There are 17 values less than 94, giving \(\tfrac{17}{40}\cdot 100\) \(=42.5\), which rounds to 43.</p></div></details>
+    </li>
+    <li class="problem" id="problem-10">
+      <p class="statement">Make a stemplot of the following data set, with stems 1, 2, 3, 4. Do not leave any space between leaves.</p>
+      <div class="tablewrap"><table class="data"><tr><td>46</td><td>33</td><td>27</td><td>46</td><td>16</td><td>36</td><td>13</td><td>23</td><td>19</td><td>18</td><td>36</td></tr><tr><td>37</td><td>29</td><td>37</td><td>16</td><td>43</td><td>23</td><td>29</td><td>23</td><td>36</td><td>23</td><td>46</td></tr></table></div>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><div class="tablewrap"><table class="vals"><tr><th>Stem</th><th>Leaves</th></tr><tr><td class="leaves">1</td><td class="leaves">36689</td></tr><tr><td class="leaves">2</td><td class="leaves">3333799</td></tr><tr><td class="leaves">3</td><td class="leaves">366677</td></tr><tr><td class="leaves">4</td><td class="leaves">3666</td></tr></table></div></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>The stem is the tens digit and the leaf is the units digit; for example, 46 has stem 4 and leaf 6.
+  List the leaves of each stem in increasing order. As a check, the four rows have \(5+7+6+4=22\) leaves, one for each
+  data value.</p></div></details>
+    </li>
+    <li class="problem" id="problem-11">
+      <p class="statement">A random variable \(X\) has the probability distribution below. Give each answer to 2 decimal places unless told otherwise.</p>
+      <div class="tablewrap"><table class="vals"><tr><th>\(X\)</th><th>\(P(X)\)</th></tr><tr><td>3</td><td>0.12</td></tr><tr><td>4</td><td>0.11</td></tr><tr><td>5</td><td>0.26</td></tr><tr><td>6</td><td>0.48</td></tr><tr><td>7</td><td>0.01</td></tr><tr><td>8</td><td>0.02</td></tr></table></div>
+      <ol class="parts">
+        <li>Complete the table by adding the columns \(XP(X)\) and \(X^2P(X)\), and find the sums \(\sum P(X)\), \(\sum XP(X)\), and \(\sum X^2P(X)\).</li>
+        <li>Find the expected value \(E(X)\).</li>
+        <li>Find the variance \(\sigma^2\), to 4 decimal places.</li>
+        <li>Find the standard deviation \(\sigma\), to 4 decimal places.</li>
+        <li>Find \(P(\text{at least }7)\).</li>
+        <li>Find \(P(\text{at most }5)\).</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><div class="tablewrap"><table class="vals"><tr><th>\(X\)</th><th>\(P(X)\)</th><th>\(XP(X)\)</th><th>\(X^2P(X)\)</th></tr><tr><td>3</td><td>0.12</td><td>0.36</td><td>1.08</td></tr><tr><td>4</td><td>0.11</td><td>0.44</td><td>1.76</td></tr><tr><td>5</td><td>0.26</td><td>1.3</td><td>6.5</td></tr><tr><td>6</td><td>0.48</td><td>2.88</td><td>17.28</td></tr><tr><td>7</td><td>0.01</td><td>0.07</td><td>0.49</td></tr><tr><td>8</td><td>0.02</td><td>0.16</td><td>1.28</td></tr><tr><th>Sum</th><td>\(1\)</td><td>\(5.21\)</td><td>\(28.39\)</td></tr></table></div>
+  <p><span class="nb">(b) \(E(X)=5.21\)</span> &nbsp;&nbsp; <span class="nb">(c) \(\sigma^2=1.2459\)</span> &nbsp;&nbsp; <span class="nb">(d) \(\sigma\approx 1.1162\)</span> &nbsp;&nbsp; <span class="nb">(e) \(0.03\)</span> &nbsp;&nbsp; <span class="nb">(f) \(0.49\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) Multiply across each row; for example, for \(X=6\): \(6(0.48)=2.88\) and \(6^2(0.48)=17.28\).</p>
+  <p>(b) \(E(X)=\mu=\sum XP(X)=5.21\).</p>
+  <p>(c) \(\sigma^2\) \(=\sum X^2P(X)-\mu^2\) \(=28.39-5.21^2\) \(=28.39-27.1441\) \(=1.2459\).</p>
+  <p>(d) \(\sigma\) \(=\sqrt{1.2459}\) \(\approx 1.1162\).</p>
+  <p>(e) \(P(X\ge 7)\) \(=P(7)+P(8)\) \(=0.01+0.02\) \(=0.03\).</p>
+  <p>(f) \(P(X\le 5)\) \(=P(3)+P(4)+P(5)\) \(=0.12+0.11+0.26\) \(=0.49\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-12">
+      <p class="statement">This problem has two independent parts.</p>
+      <p class="statement"><strong>Part A.</strong> Standard automobile license plates in a country (using the English alphabet) display 5 digits followed by 4 letters.</p>
+      <ol class="parts">
+        <li>How many different plates are possible if repetition of letters and digits is allowed?</li>
+        <li>How many different plates are possible if repetition is not allowed?</li>
+      </ol>
+      <p class="statement"><strong>Part B.</strong> A middle school class has 12 students.</p>
+      <ol class="parts" style="counter-reset: part 2">
+        <li>In how many ways can all 12 students be arranged in a row for a photo?</li>
+        <li>How many different groups of 6 students can be formed?</li>
+        <li>The teacher selects 4 students: the first will be Media Helper, the second Pledge/Flag Helper, the third Pencil Sharpener, and the fourth Attendance Taker. In how many ways can this be done?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(45{,}697{,}600{,}000\)</span> &nbsp;&nbsp; <span class="nb">(b) \(10{,}850{,}112{,}000\)</span> &nbsp;&nbsp; <span class="nb">(c) \(479{,}001{,}600\)</span> &nbsp;&nbsp; <span class="nb">(d) \(924\)</span> &nbsp;&nbsp; <span class="nb">(e) \(11{,}880\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) By the multiplication rule, each of the 5 digit positions has 10 choices and each of the 4 letter positions
+  has 26: \(10^5\cdot 26^4\) \(=45{,}697{,}600{,}000\).</p>
+  <p>(b) Without repetition, each position has one fewer choice than the one before:
+  \((10\cdot 9\cdot 8\cdot 7\cdot 6)(26\cdot 25\cdot 24\cdot 23)\) \(=30{,}240\cdot 358{,}800\) \(=10{,}850{,}112{,}000\).</p>
+  <p>(c) Arranging all 12 students in order: \(12!=479{,}001{,}600\).</p>
+  <p>(d) A group has no order, so count combinations: \({}_{12}C_6\) \(=\dfrac{12!}{6!\,6!}\) \(=924\).</p>
+  <p>(e) The four jobs are different, so order matters; count permutations:
+  \({}_{12}P_4\) \(=12\cdot 11\cdot 10\cdot 9\) \(=11{,}880\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-13">
+      <p class="statement">The table below gives the counts of students in a large lecture, cross-tabulated by gender and major. There are 433 students in all. Give each answer as a fraction or rounded to four decimal places.</p>
+      <div class="tablewrap"><table class="vals"><tr><th></th><th>Communication (C)</th><th>Sociology (S)</th><th>Biology (B)</th><th>Political Science (PS)</th></tr><tr><th>Male (M)</th><td>37</td><td>69</td><td>66</td><td>65</td></tr><tr><th>Female (F)</th><td>27</td><td>68</td><td>43</td><td>58</td></tr></table></div>
+      <ol class="parts">
+        <li>A student is selected at random. Find \(P(B)\), the probability that the student’s major is Biology.</li>
+        <li>A female student is selected at random. Find \(P(C\mid F)\), the probability that her major is Communication.</li>
+        <li>Find \(P(C\text{ and }M)\), the probability that a randomly selected student is a male majoring in Communication.</li>
+        <li>Find \(P(S\text{ or }M)\), the probability that a randomly selected student is male or majoring in Sociology.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(\tfrac{109}{433}\approx 0.2517\)</span> &nbsp;&nbsp; <span class="nb">(b) \(\tfrac{27}{196}\approx 0.1378\)</span> &nbsp;&nbsp; <span class="nb">(c) \(\tfrac{37}{433}\approx 0.0855\)</span> &nbsp;&nbsp; <span class="nb">(d) \(\tfrac{305}{433}\approx 0.7044\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>First find the totals: there are 237 males and 196 females; the Biology column has
+  \(66+43=109\) students and the Sociology column has \(69+68=137\).</p>
+  <p>(a) \(P(B)\) \(=\tfrac{109}{433}\) \(\approx 0.2517\).</p>
+  <p>(b) Restrict to the 196 females, of whom 27 major in Communication: \(P(C\mid F)\) \(=\tfrac{27}{196}\) \(\approx 0.1378\).</p>
+  <p>(c) \(P(C\text{ and }M)\) \(=\tfrac{37}{433}\) \(\approx 0.0855\).</p>
+  <p>(d) By the addition rule,</p>
+  \[P(S\text{ or }M)=P(S)+P(M)-P(S\text{ and }M)\]
+  \[=\frac{137+237-69}{433}=\frac{305}{433}\approx 0.7044.\]</div></details>
+    </li>
+    <li class="problem" id="problem-14">
+      <p class="statement">A test consists of 5 multiple-choice questions, each with 5 possible answers. An unprepared student guesses at random on every question. Give each answer as a fraction or rounded to 5 decimal places.</p>
+      <ol class="parts">
+        <li>Find the probability that all 5 answers are wrong.</li>
+        <li>Find the probability that all 5 answers are correct.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(\left(\tfrac45\right)^5=0.32768\)</span> &nbsp;&nbsp; <span class="nb">(b) \(\left(\tfrac15\right)^5=0.00032\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>On each question the probability of a correct guess is \(\tfrac15\) and of a wrong guess is \(\tfrac45\).
+  The guesses are independent, so multiply.</p>
+  <p>(a) \(\left(\tfrac45\right)^5\) \(=0.8^5\) \(=0.32768\).</p>
+  <p>(b) \(\left(\tfrac15\right)^5\) \(=\tfrac{1}{3125}\) \(=0.00032\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-15">
+      <p class="statement">A bag contains 5 red, 6 white, 9 yellow, and 10 blue marbles. Two marbles are selected at random, one after the other. Give each answer as a fraction or rounded to 4 decimal places.</p>
+      <ol class="parts">
+        <li>The selection is done <strong>without replacement</strong>. Find the probability that both marbles are blue.</li>
+        <li>The selection is done <strong>without replacement</strong>. Find the probability that the first marble is yellow and the second is blue.</li>
+        <li>The selection is done <strong>with replacement</strong>. Find the probability that both marbles are yellow.</li>
+        <li>The selection is done <strong>with replacement</strong>. Find the probability that the first marble is white and the second is red.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(\tfrac{3}{29}\approx 0.1034\)</span> &nbsp;&nbsp; <span class="nb">(b) \(\tfrac{3}{29}\approx 0.1034\)</span> &nbsp;&nbsp; <span class="nb">(c) \(0.09\)</span> &nbsp;&nbsp; <span class="nb">(d) \(\tfrac{1}{30}\approx 0.0333\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>There are \(5+6+9+10=30\) marbles. Without replacement, the second draw is from the 29 marbles that are left.</p>
+  <p>(a) \(\dfrac{10}{30}\cdot\dfrac{9}{29}\) \(=\dfrac{90}{870}\) \(=\dfrac{3}{29}\) \(\approx 0.1034\).</p>
+  <p>(b) \(\dfrac{9}{30}\cdot\dfrac{10}{29}\) \(=\dfrac{90}{870}\) \(=\dfrac{3}{29}\) \(\approx 0.1034\). (All 10 blue marbles are still in
+  the bag for the second draw.)</p>
+  <p>(c) With replacement, the draws are independent: \(\left(\dfrac{9}{30}\right)^2\) \(=0.3^2\) \(=0.09\).</p>
+  <p>(d) \(\dfrac{6}{30}\cdot\dfrac{5}{30}\) \(=\dfrac{30}{900}\) \(=\dfrac{1}{30}\) \(\approx 0.0333\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-16">
+      <p class="statement">In a large population, 60% of workers are employed full time. If 10 workers are randomly selected from this population, find the probability of each event. Round your answers to 3 decimal places.</p>
+      <ol class="parts">
+        <li>At least 5 of them are employed full time.</li>
+        <li>None of them is employed full time.</li>
+        <li>At least 3 of them are employed full time.</li>
+        <li>At most 4 of them are employed full time.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(0.834\)</span> &nbsp;&nbsp; <span class="nb">(b) \(0.000\) (since \(0.4^{10}\approx 0.0001049\))</span> &nbsp;&nbsp; <span class="nb">(c) \(0.988\)</span> &nbsp;&nbsp; <span class="nb">(d) \(0.166\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>The number \(X\) of full-time workers is binomial with \(n=10\) and \(p=0.6\), so \(q=0.4\) and
+  \(P(X\) \(=k)\) \(={}_{10}C_k\,(0.6)^k(0.4)^{10-k}\).</p>
+  <p>(a) \(P(X\ge 5)\) \(=1-P(X\le 4)\) \(\approx 1-0.1662\) \(=0.8338\), using a calculator (for example,
+  \(1-\text{binomcdf}(10,0.6,4)\)) or a binomial table.</p>
+  <p>(b) \(P(X\) \(=0)\) \(=(0.4)^{10}\) \(\approx 0.0001049\), which rounds to \(0.000\).</p>
+  <p>(c) Use the complement:</p>
+  \[P(X\ge 3)=1-[P(0)+P(1)+P(2)]\]
+  \[\approx 1-(0.000105+0.001573+0.010617)\approx 0.9877.\]
+  <p>(d) This is the complement of (a): \(P(X\le 4)\) \(=1-P(X\ge 5)\) \(\approx 0.1662\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-17">
+      <p class="statement">Suppose that \(A\) and \(B\) are events with \(P(A)=0.23\), \(P(B)=0.55\), and \(P(B\mid A)=0.5\). Find each of the following.</p>
+      <ol class="parts">
+        <li>\(P(A\text{ and }B)\)</li>
+        <li>\(P(A\text{ or }B)\)</li>
+        <li>\(P(A\mid B)\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(0.115\)</span> &nbsp;&nbsp; <span class="nb">(b) \(0.665\)</span> &nbsp;&nbsp; <span class="nb">(c) \(\tfrac{0.115}{0.55}=\tfrac{23}{110}\approx 0.2091\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) By the multiplication rule, \(P(A\text{ and }B)\) \(=P(A)\,P(B\mid A)\) \(=0.23(0.5)\) \(=0.115\).</p>
+  <p>(b) By the addition rule, \(P(A\text{ or }B)\) \(=0.23+0.55-0.115\) \(=0.665\).</p>
+  <p>(c) \(P(A\mid B)\) \(=\dfrac{P(A\text{ and }B)}{P(B)}\) \(=\dfrac{0.115}{0.55}\) \(\approx 0.2091\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-18">
+      <p class="statement">Assume that \(X\) is a binomial random variable with \(n=66\) and \(p=0.27\).</p>
+      <ol class="parts">
+        <li>Find the mean \(\mu\) (2 decimal places), the variance \(\sigma^2\) (4 decimal places), and the standard deviation \(\sigma\) (4 decimal places).</li>
+        <li>Use a calculator or software to find \(P(X\gt 38)\) and \(P(X\lt 33)\), rounded to 4 decimal places.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(\mu=17.82\), \(\sigma^2=13.0086\), \(\sigma\approx 3.6067\)<br>
+  (b) \(P(X\gt 38)\approx 0.0000\) (about \(4.4\times 10^{-8}\)); \(P(X\lt 33)\approx 0.9999\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) For a binomial distribution, \(\mu=np=66(0.27)=17.82\), \(\sigma^2\) \(=npq\) \(=66(0.27)(0.73)\) \(=13.0086\),
+  and \(\sigma\) \(=\sqrt{13.0086}\) \(\approx 3.6067\).</p>
+  <p>(b) \(X\) takes whole-number values, so \(P(X\gt 38)=1-P(X\le 38)\), which is
+  \(1-\text{binomcdf}(66,0.27,38)\) \(\approx 4.4\times 10^{-8}\), which rounds to \(0.0000\): 38 is about
+  5.6 standard deviations above the mean. Similarly, \(P(X\lt 33)\) \(=P(X\le 32)\) \(=\text{binomcdf}(66,0.27,32)\) \(\approx 0.99994\),
+  which rounds to \(0.9999\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-19">
+      <p class="statement">Three-letter “words” are formed using the letters A, B, C, D, E, F, G. How many such words are possible under each of the following conditions? (Letters may be repeated unless a part says otherwise.)</p>
+      <ol class="parts">
+        <li>No condition is imposed.</li>
+        <li>No letter can be repeated in a word.</li>
+        <li>Each word must begin with the letter A.</li>
+        <li>The letter C must be at the end.</li>
+        <li>The second letter must be a vowel.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) 343</span> &nbsp;&nbsp; <span class="nb">(b) 210</span> &nbsp;&nbsp; <span class="nb">(c) 49</span> &nbsp;&nbsp; <span class="nb">(d) 49</span> &nbsp;&nbsp; <span class="nb">(e) 98</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Use the multiplication rule, one position at a time.</p>
+  <p>(a) \(7\cdot 7\cdot 7=343\). &nbsp; (b) \(7\cdot 6\cdot 5=210\).</p>
+  <p>(c) The first letter must be A (1 choice): \(1\cdot 7\cdot 7=49\). &nbsp; (d) The last letter must be C: \(7\cdot 7\cdot 1=49\).</p>
+  <p>(e) The vowels among A–G are A and E, so the middle position has 2 choices: \(7\cdot 2\cdot 7=98\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-20">
+      <p class="statement">How many three-letter “words” can be made from the 4 letters F, G, H, I if repetition of letters</p>
+      <ol class="parts">
+        <li>is allowed?</li>
+        <li>is not allowed?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) 64</span> &nbsp;&nbsp; <span class="nb">(b) 24</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(4\cdot 4\cdot 4=4^3=64\). &nbsp; (b) \(4\cdot 3\cdot 2\) \(={}_4P_3\) \(=24\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-21">
+      <p class="statement">Approximately 12% of people are left-handed. If two people are selected at random, find the probability of each event.</p>
+      <ol class="parts">
+        <li>Both are right-handed.</li>
+        <li>Both are left-handed.</li>
+        <li>One is right-handed and the other is left-handed.</li>
+        <li>At least one is right-handed.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(0.7744\)</span> &nbsp;&nbsp; <span class="nb">(b) \(0.0144\)</span> &nbsp;&nbsp; <span class="nb">(c) \(0.2112\)</span> &nbsp;&nbsp; <span class="nb">(d) \(0.9856\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Each person is right-handed with probability \(0.88\) and left-handed with probability \(0.12\), independently.</p>
+  <p>(a) \(0.88^2=0.7744\). &nbsp; (b) \(0.12^2=0.0144\).</p>
+  <p>(c) This can happen in two orders (right then left, or left then right): \(2(0.88)(0.12)=0.2112\).</p>
+  <p>(d) The complement of “at least one is right-handed” is “both are left-handed”: \(1-0.0144=0.9856\).
+  (Check: (a), (b), and (c) add up to 1.)</p></div></details>
+    </li>
+    <li class="problem" id="problem-22">
+      <p class="statement">Find the following probabilities for the standard normal random variable \(z\) (mean 0, standard deviation 1). Round to 4 decimal places.</p>
+      <ol class="parts">
+        <li>\(P(z\lt 1.01)\)</li>
+        <li>\(P(z\gt -0.53)\)</li>
+        <li>\(P(-0.56\lt z\lt 0.07)\)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(0.8438\)</span> &nbsp;&nbsp; <span class="nb">(b) \(0.7019\)</span> &nbsp;&nbsp; <span class="nb">(c) \(0.2402\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>A \(z\)-table gives areas to the left of \(z\).</p>
+  <p>(a) Read directly: \(P(z\lt 1.01)=0.8438\).</p>
+  <p>(b) Use the complement: \(P(z\gt -0.53)\) \(=1-P(z\lt -0.53)\) \(=1-0.2981\) \(=0.7019\).</p>
+  <p>(c) Subtract the two left areas: \(P(-0.56\lt z\lt 0.07)\) \(=0.5279-0.2877\) \(=0.2402\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-23">
+      <p class="statement">A random variable \(x\) is best described by a normal distribution with \(\mu=20\) and \(\sigma=3.9\). Round each answer to 2 decimal places.</p>
+      <ol class="parts">
+        <li>Find the \(z\)-score of \(x=21\).</li>
+        <li>Find the \(z\)-score of \(x=15\).</li>
+        <li>Find the \(x\)-value that corresponds to the \(z\)-score \(z=1.2\).</li>
+        <li>Find the \(x\)-value that corresponds to the \(z\)-score \(z=-2.73\).</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(0.26\)</span> &nbsp;&nbsp; <span class="nb">(b) \(-1.28\)</span> &nbsp;&nbsp; <span class="nb">(c) \(24.68\)</span> &nbsp;&nbsp; <span class="nb">(d) \(9.35\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Use \(z=\dfrac{x-\mu}{\sigma}\), or solved for \(x\), \(x=\mu+z\sigma\).</p>
+  <p>(a) \(z\) \(=\dfrac{21-20}{3.9}\) \(\approx 0.26\). &nbsp; (b) \(z\) \(=\dfrac{15-20}{3.9}\) \(\approx -1.28\).</p>
+  <p>(c) \(x=20+1.2(3.9)=24.68\). &nbsp; (d) \(x\) \(=20+(-2.73)(3.9)\) \(=9.353\) \(\approx 9.35\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-24">
+      <p class="statement">The weights of newborn babies in the USA are normally distributed with mean \(\mu=6.71\) lb and standard deviation \(\sigma=1.6\) lb.</p>
+      <ol class="parts">
+        <li>What is the probability that a randomly chosen newborn weighs more than 9.446 lb? (4 decimal places)</li>
+        <li>What is the probability that a randomly chosen newborn weighs less than 11.19 lb? (4 decimal places)</li>
+        <li>What is the probability that a randomly chosen newborn weighs between 9.27 lb and 10.342 lb? (4 decimal places)</li>
+        <li>Find the 94th percentile \(P_{94}\), the weight that separates the bottom 94% of birth weights from the top 6%. (2 decimal places)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(0.0436\)</span> &nbsp;&nbsp; <span class="nb">(b) \(0.9974\)</span> &nbsp;&nbsp; <span class="nb">(c) \(0.0432\)</span> &nbsp;&nbsp; <span class="nb">(d) \(9.20\) lb</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Convert each weight to a \(z\)-score with \(z=\dfrac{x-6.71}{1.6}\).</p>
+  <p>(a) \(z\) \(=\dfrac{9.446-6.71}{1.6}\) \(=1.71\), so \(P=1-0.9564=0.0436\).</p>
+  <p>(b) \(z\) \(=\dfrac{11.19-6.71}{1.6}\) \(=2.80\), so \(P=0.9974\).</p>
+  <p>(c) The \(z\)-scores are \(1.60\) and \(2.27\), so \(P=0.9884-0.9452=0.0432\).</p>
+  <p>(d) The \(z\)-score with area 0.94 to its left is \(z\approx 1.555\) (between 1.55 and 1.56 in the table).
+  Then \(P_{94}\) \(=6.71+1.555(1.6)\) \(\approx 9.20\) lb.</p></div></details>
+    </li>
+    <li class="problem" id="problem-25">
+      <p class="statement">The number of daily hits on the website of a travel agency is normally distributed with a mean of 350 hits and a standard deviation of 160 hits.</p>
+      <ol class="parts">
+        <li>What is the probability that the number of hits on a randomly chosen day is less than 388? (4 decimal places)</li>
+        <li>Now consider the average daily hits \(\bar{x}\) over 64 randomly chosen days. Use the Central Limit Theorem to find the mean \(\mu_{\bar{x}}\) and the standard deviation \(\sigma_{\bar{x}}\) of the sampling distribution of \(\bar{x}\).</li>
+        <li>What is the probability that the average daily hits over 64 randomly chosen days is less than 388? (4 decimal places)</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(0.5939\)</span> &nbsp;&nbsp; <span class="nb">(b) \(\mu_{\bar{x}}=350\), \(\sigma_{\bar{x}}=20\)</span> &nbsp;&nbsp; <span class="nb">(c) \(0.9713\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(a) \(z\) \(=\dfrac{388-350}{160}\) \(=0.2375\), so \(P(x\lt 388)\) \(\approx 0.5939\). (A \(z\)-table with
+  \(z\) rounded to 0.24 gives 0.5948, which is also acceptable.)</p>
+  <p>(b) \(\mu_{\bar{x}}=\mu=350\) and \(\sigma_{\bar{x}}\) \(=\dfrac{\sigma}{\sqrt{n}}\) \(=\dfrac{160}{\sqrt{64}}\) \(=20\).</p>
+  <p>(c) \(z\) \(=\dfrac{388-350}{20}\) \(=1.90\), so \(P(\bar{x}\lt 388)=0.9713\). Averages vary much less than
+  single days, so the same cutoff is far more likely to be met.</p></div></details>
+    </li>
+    <li class="problem" id="problem-26">
+      <p class="statement">We wish to estimate the proportion of undergraduate students at a university who use dorm moving services, with a 90% confidence level and a margin of error \(E=0.042\).</p>
+      <ol class="parts">
+        <li>Identify the margin of error \(E\) and the confidence level.</li>
+        <li>Find the critical value \(z_{\alpha/2}\), the \(z\)-score with area \(\alpha/2\) to its right. Round it to two decimal places. (Recall that \(\alpha=1-\text{confidence level}\).)</li>
+        <li>How large should the sample be if nothing is known about the sample proportion?</li>
+        <li>How large should the sample be if the sample proportion is estimated to be \(\hat{p}=0.381\)?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>(a) \(E=0.042\), confidence level 90% &nbsp;&nbsp; <span class="nb">(b) \(z_{\alpha/2}=1.64\)</span> &nbsp;&nbsp; <span class="nb">(c) \(n=382\)</span> &nbsp;&nbsp; <span class="nb">(d) \(n=360\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(b) \(\alpha=1-0.90=0.10\), so \(\alpha/2=0.05\). The \(z\)-score with area 0.05 to its right (0.95 to
+  its left) is \(1.6449\ldots\approx 1.64\).</p>
+  <p>(c) With no estimate of \(\hat{p}\), use \(\hat{p}\hat{q}=0.25\):
+  \(n\) \(=\dfrac{z_{\alpha/2}^2\cdot 0.25}{E^2}\) \(=\dfrac{1.64^2(0.25)}{0.042^2}\) \(\approx 381.18\). Always round a sample size
+  <em>up</em>, so \(n=382\).</p>
+  <p>(d) \(n\) \(=\dfrac{z_{\alpha/2}^2\,\hat{p}\hat{q}}{E^2}\) \(=\dfrac{1.64^2(0.381)(0.619)}{0.042^2}\) \(\approx 359.59\), so \(n=360\).</p>
+  <p>These answers use \(z=1.64\) from part (b). With the more precise \(z=1.645\), the results are 384 and 362.</p></div></details>
+    </li>
+    <li class="problem" id="problem-27">
+      <p class="statement">From a simple random sample of 13 shoppers, the sample mean amount spent on holiday gifts was 133 dollars, with a sample standard deviation of 12 dollars. We wish to construct a 99% confidence interval for the population mean amount spent.</p>
+      <ol class="parts">
+        <li>Identify the sample size \(n\), the sample mean \(\bar{x}\), the sample standard deviation \(s\), and the confidence level.</li>
+        <li>Find the critical value \(t_{\alpha/2}\), to 3 decimal places.</li>
+        <li>Find the margin of error \(E\), to 3 decimal places.</li>
+        <li>Find the lower limit \(\bar{x}-E\) and the upper limit \(\bar{x}+E\) of the confidence interval, to 3 decimal places.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(n=13\), \(\bar{x}=133\), \(s=12\), 99%</span> &nbsp;&nbsp; <span class="nb">(b) \(t_{\alpha/2}=3.055\)</span> &nbsp;&nbsp; <span class="nb">(c) \(E\approx 10.168\)</span> &nbsp;&nbsp; <span class="nb">(d) \(122.832\) to \(143.168\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(b) The population standard deviation is unknown, so use the \(t\) distribution with \(n-1=12\) degrees of
+  freedom. For 99% confidence, \(\alpha/2=0.005\), and the table gives \(t_{0.005}=3.055\).</p>
+  <p>(c) \(E\) \(=t_{\alpha/2}\dfrac{s}{\sqrt{n}}\) \(=3.055\cdot\dfrac{12}{\sqrt{13}}\) \(\approx 10.168\).</p>
+  <p>(d) \(133-10.168=122.832\) and \(133+10.168=143.168\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-28">
+      <p class="statement">Based on a simple random sample of 1000 college students, it is found that 290 of them own a car. We wish to construct a 99% confidence interval for the proportion \(p\) of all college students who own a car.</p>
+      <ol class="parts">
+        <li>Identify the sample size \(n\), the number \(x\) of students in the sample who own a car, and the confidence level.</li>
+        <li>Find the sample proportion \(\hat{p}\) and \(\hat{q}=1-\hat{p}\), to 3 decimal places.</li>
+        <li>Find the critical value \(z_{\alpha/2}\).</li>
+        <li>Find the margin of error \(E\), to 3 decimal places.</li>
+        <li>Find the lower limit \(\hat{p}-E\) and the upper limit \(\hat{p}+E\) of the confidence interval, to 3 decimal places.</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(n=1000\), \(x=290\), 99%</span> &nbsp;&nbsp; <span class="nb">(b) \(\hat{p}=0.290\), \(\hat{q}=0.710\)</span> &nbsp;&nbsp; <span class="nb">(c) \(z_{\alpha/2}\approx 2.576\)</span> &nbsp;&nbsp; <span class="nb">(d) \(E\approx 0.037\)</span> &nbsp;&nbsp; <span class="nb">(e) \(0.253\) to \(0.327\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(b) \(\hat{p}\) \(=\tfrac{290}{1000}\) \(=0.290\) and \(\hat{q}=1-0.290=0.710\).</p>
+  <p>(c) \(\alpha=0.01\), so \(\alpha/2=0.005\); the \(z\)-score with area 0.995 to its left is about \(2.576\).</p>
+  <p>(d) \(E\) \(=z_{\alpha/2}\sqrt{\dfrac{\hat{p}\hat{q}}{n}}\) \(=2.576\sqrt{\dfrac{(0.29)(0.71)}{1000}}\) \(\approx 0.0370\) \(\approx 0.037\).</p>
+  <p>(e) \(0.290-0.0370\) \(\approx 0.253\) and \(0.290+0.0370\) \(\approx 0.327\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-29">
+      <p class="statement">We wish to estimate the mean weight of all men in a country with a 90% confidence level and a margin of error of 4.5 lb. Assume that the population standard deviation is known to be 13.5 lb.</p>
+      <ol class="parts">
+        <li>Identify the margin of error \(E\), the population standard deviation \(\sigma\), and the confidence level.</li>
+        <li>Find the critical value \(z_{\alpha/2}\).</li>
+        <li>How large should the sample be?</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(E=4.5\), \(\sigma=13.5\), 90%</span> &nbsp;&nbsp; <span class="nb">(b) \(z_{\alpha/2}\approx 1.645\)</span> &nbsp;&nbsp; <span class="nb">(c) \(n=25\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>(b) \(\alpha/2=0.05\), and the \(z\)-score with area 0.95 to its left is about \(1.645\).</p>
+  <p>(c) \(n\) \(=\left(\dfrac{z_{\alpha/2}\,\sigma}{E}\right)^2\) \(=\left(\dfrac{1.645(13.5)}{4.5}\right)^2\) \(\approx 24.35\).
+  Round up: \(n=25\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-30">
+      <p class="statement">Find the critical values \(\chi^2_L=\chi^2_{1-\alpha/2}\) and \(\chi^2_R=\chi^2_{\alpha/2}\) that correspond to a 95% degree of confidence and the sample size \(n=14\).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">\(\chi^2_L\approx 5.009\)</span> &nbsp;&nbsp; <span class="nb">\(\chi^2_R\approx 24.736\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>There are \(n-1=13\) degrees of freedom and \(\alpha=0.05\). The chi-square table lists areas to the
+  <em>right</em> of the critical value: \(\chi^2_R\) has area \(\alpha/2=0.025\) to its right, and \(\chi^2_L\) has area
+  \(1-\alpha/2=0.975\) to its right. With 13 degrees of freedom, \(\chi^2_L=5.009\) and \(\chi^2_R=24.736\).</p></div></details>
+    </li>
+    <li class="problem" id="problem-31">
+      <p class="statement">The weights of unicorns are normally distributed. A simple random sample of 18 unicorns has a standard deviation of 24.1. Find an 80% confidence interval for the standard deviation of the whole population: the lower confidence limit (LCL) and the upper confidence limit (UCL).</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>LCL \(\approx 19.97\), UCL \(\approx 31.29\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Here \(n-1=17\) and \(\alpha=0.20\). The critical values have areas 0.10 and 0.90 to their right:
+  \(\chi^2_R=24.769\) and \(\chi^2_L=10.085\). The confidence interval for \(\sigma\) is</p>
+  \[\sqrt{\frac{(n-1)s^2}{\chi^2_R}}\lt\sigma\lt\sqrt{\frac{(n-1)s^2}{\chi^2_L}}.\]
+  <p>So</p>
+  \[\text{LCL}=\sqrt{\frac{17(24.1)^2}{24.769}}\approx 19.97,\qquad \text{UCL}=\sqrt{\frac{17(24.1)^2}{10.085}}\approx 31.29.\]
+  <p>Note that the larger critical value gives the lower limit.</p></div></details>
+    </li>
+    <li class="problem" id="problem-32">
+      <p class="statement">A random sample of 110 observations produced a mean of \(\bar{x}=28.3\) from a normally distributed population with standard deviation \(\sigma=2.61\).</p>
+      <ol class="parts">
+        <li>Find a 99% confidence interval for \(\mu\).</li>
+        <li>Find a 95% confidence interval for \(\mu\).</li>
+        <li>Find a 90% confidence interval for \(\mu\).</li>
+      </ol>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p><span class="nb">(a) \(27.659\le\mu\le 28.941\)</span> &nbsp;&nbsp; <span class="nb">(b) \(27.812\le\mu\le 28.788\)</span> &nbsp;&nbsp; <span class="nb">(c) \(27.891\le\mu\le 28.709\)</span></p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>Since \(\sigma\) is known, \(E\) \(=z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}\), with
+  \(\dfrac{\sigma}{\sqrt{n}}\) \(=\dfrac{2.61}{\sqrt{110}}\) \(\approx 0.24885\).</p>
+  <p>(a) \(z_{0.005}\approx 2.575\): \(E\approx 0.6408\), so \(28.3\pm 0.6408\).<br>
+  (b) \(z_{0.025}=1.96\): \(E\approx 0.4878\).<br>
+  (c) \(z_{0.05}\approx 1.645\): \(E\approx 0.4094\).</p>
+  <p>A higher confidence level gives a wider interval.</p></div></details>
+    </li>
+    <li class="problem" id="problem-33">
+      <p class="statement">Suppose a 99% confidence interval is calculated to be 13.53 to 20.08. Find the margin of error.</p>
+      <details class="reveal answer"><summary>Answer</summary><div class="body"><p>\(E=3.275\)</p></div></details>
+      <details class="reveal solution"><summary>Solution</summary><div class="body"><p>The interval is \(\bar{x}-E\) to \(\bar{x}+E\), so its width is \(2E\):
+  \(E\) \(=\dfrac{20.08-13.53}{2}\) \(=\dfrac{6.55}{2}\) \(=3.275\). (The center, \(16.805\), is the point estimate.)</p></div></details>
+    </li>
+  </ol>
+</main>
+<script>
+document.querySelectorAll('.toolbar button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var act = b.getAttribute('data-act');
+    document.querySelectorAll('details.reveal').forEach(function (d) {
+      if (act === 'hide') d.open = false;
+      else if (act === 'answers' && d.classList.contains('answer')) d.open = true;
+      else if (act === 'solutions' && d.classList.contains('solution')) d.open = true;
+    });
+  });
+});
+</script>
+</body>
+</html>
